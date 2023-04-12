@@ -5,6 +5,7 @@ import { Dashboard, HomeLayout } from "../components";
 import  ErrorBoundary  from "../utils/hoc/ErrorBoundary";
 import NotFound from "../utils/hoc/NotFound";
 import HomeScreen from "../pages/landingpage/HomeScreen";
+import Payroll from "../pages/Payroll";
 
 const Home = lazy(() => import("../pages/landingpage/Home"));
 const About = lazy(() => import("../pages/landingpage/Connect"));
@@ -50,6 +51,12 @@ export const Elements = createBrowserRouter([
       {
         path: "/dashboard/staffs",
         element: <Staffs />,
+        hasErrorBoundary: true,
+        errorElement: <ErrorBoundary />,
+      },
+      {
+        path: "/dashboard/payroll",
+        element: <Payroll />,
         hasErrorBoundary: true,
         errorElement: <ErrorBoundary />,
       },
