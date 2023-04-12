@@ -58,7 +58,9 @@ const Payroll = () => {
           </Wrapper>
           {show ? (
               <Edit>
-              
+                  <Box>
+                      
+              </Box>
           </Edit>
           ) : null}
       </Container>
@@ -66,6 +68,9 @@ const Payroll = () => {
 }
 
 export default Payroll
+const Box = styled.div`
+    
+`
 const Edit = styled.div`
     width: 100%;
     height: 100vh;
@@ -73,6 +78,9 @@ const Edit = styled.div`
     position: absolute;
     left: 0;
     right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 const Hold = styled.div`
     width: 90px;
