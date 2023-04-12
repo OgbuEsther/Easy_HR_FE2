@@ -38,51 +38,157 @@ const SignupForm = () => {
 <SignUpDescription>Pay smart and save time with Easy Pay</SignUpDescription>
 
 <InputField>
-<FirstInputColumn>
 
-    <FirstInputRow>
-        <Label>First Name</Label>
-        <FirstInput {...register("firstName")}/>
-    </FirstInputRow>
-    <SecondInputRow>
-        <Label>Second Name</Label>
-        <SecondInput{...register("lastName")}/>
-    </SecondInputRow>
-</FirstInputColumn>
-<SecondInputColumn>
-  <Label>Email Adress</Label> <br />
-    <EmailInput {...register("email")}/>
+<NameInputColumn>
+  <FirstNameInputContainer>
+    <Label>
+      First Name
+    </Label>
+    <FirstNameInput/>
+  </FirstNameInputContainer>
+  <SecondNameInputContainer>
+  <Label>
+      Last Name
+    </Label>
+    <SecondNameInput/>
+  </SecondNameInputContainer>
+</NameInputColumn>
 
-</SecondInputColumn>
-<ThirdInputColumn>
+{/* Admin Email Area */}
+<AdminEmailContainer>
+  <Label>Email Address</Label>
+  <AdminEmailInput/>
+</AdminEmailContainer>
 
-<CompanyInputRow>
-        <Label>Company Name</Label>
-        <ThirdInput {...register("companyName")}/>
-    </CompanyInputRow>
-    <FourthInputRow>
-        <Label>Password</Label>
-        <FourthInput {...register("password")}  type='password' required/>
-    </FourthInputRow>
-</ThirdInputColumn>
-<FourtInputColumn>
+{/* Admin Company and Password Area */}
+<CompanyNameAndPasswordInputColumn>
+  <CompanyNameInputContainer>
+    <Label>
+      Company Name
+    </Label>
+    <CompanyNameInput/>
+  </CompanyNameInputContainer>
+  <PasswordInputContainer>
+  <Label>
+      Password Name
+    </Label>
+    <PasswordInput/>
+  </PasswordInputContainer>
+</CompanyNameAndPasswordInputColumn>
 
-  <SignUpButton>
+{/* Admin Sign up Button Area */}
+<SignUpButtonColumn>
+<SignUpButton>
     <Button type='submit'>Sign Up</Button>
   </SignUpButton>
-</FourtInputColumn>
-<FifthInputColumn>
+</SignUpButtonColumn>
+
+{/* Admin Sign in Button Area */}
+<AdminSignOptionColumn>
   <p>Already have account? <NavLink to="/sign-in" style={{textDecoration:"none"}}>
   <span>Sign In</span>
     </NavLink></p>
-</FifthInputColumn>
+</AdminSignOptionColumn>
 </InputField>
 </Form>
+
   
   )
 }
 
 export default SignupForm;
+
+const Label = styled.label`
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 5px;
+`
+
+const PasswordInput = styled.input`
+height: 50px;
+width: auto;
+border: 1px solid silver;
+`
+
+const CompanyNameInput = styled.input`
+height: 50px;
+width: auto;
+border: 1px solid silver;
+`
+
+const PasswordInputContainer = styled.div`
+  height: 100px;
+  width: 300px;
+  display: flex;
+justify-content: center;
+flex-direction: column;
+`
+
+const CompanyNameInputContainer = styled.div`
+  height: 100px;
+  width: 300px;
+  display: flex;
+justify-content: center;
+flex-direction: column;
+`
+
+const CompanyNameAndPasswordInputColumn = styled.div`
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  `
+
+const AdminEmailInput = styled.input`
+  height: 50px;
+  width: auto;
+  /* background-color: gray; */
+`
+
+const AdminEmailContainer = styled.div`
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+`
+
+const FirstNameInput = styled.input`
+height: 50px;
+width: auto;
+border: 1px solid silver;
+`
+
+const SecondNameInput = styled.input`
+height: 50px;
+width: auto;
+border: 1px solid silver;
+`
+
+const SecondNameInputContainer = styled.div`
+ height: 100px;
+  width: 300px;
+  display: flex;
+justify-content: center;
+flex-direction: column;
+`
+
+const FirstNameInputContainer = styled.div`
+  height: 100px;
+  width: 300px;
+  display: flex;
+justify-content: center;
+flex-direction: column;
+`
+
+const NameInputColumn = styled.div`
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
 
 const Button = styled.button`
   height: 40px;
@@ -103,16 +209,17 @@ width: auto;
 
 const InputField = styled.div`
   height: auto;
-  width: 70%;
+  width: 100%;
   padding: 10px 0px;
   margin-top: 30px;
+
 
   input{
     border-radius: 5px;
     border: 1px solid black;
     outline-color: #00d1ff;
     padding-left: 10px;
-    border: 1px solid silver;
+    border: 1px solid #0073ff;
   }
 
   button{
@@ -125,65 +232,14 @@ const InputField = styled.div`
   
 `
 
-const EmailInput = styled.input`
-    height: 30px;
-    width: 250px;
-`
 
-const FourthInput = styled.input`
-width: 100%;
-height: 100%;
-
-`
-const ThirdInput = styled.input`
-width: 100%;
-height: 100%;
-
-`
-const SecondInput = styled.input`
-width: 100%;
-height: 100%;
-`
-
-const FirstInput = styled.input`
-height: 100%;
-width: 100%;
-`
-
-const Label = styled.label`
-font-weight: 600;
-font-size: 13px;
-`
-
-const CompanyInputRow = styled.div`height: 30px;
-width: 140px;
-margin-right: 30px;
-
-`
-
-const FourthInputRow = styled.div`height: 30px;
-width: 140px;
-`
-
-const SecondInputRow = styled.div`
-height: 30px;
-width: 140px;
-`
-
-
-const FirstInputRow = styled.div`
-height: 30px;
-width: 140px;
-margin-right:30px;
-`
-
-const FifthInputColumn = styled.div`
+const AdminSignOptionColumn = styled.div`
 height: 50px;
-width: 300px;
+width: 100%;
 display: flex;
 justify-content: center;
 align-items: center;
-margin-top: 50px;
+margin-top: 20px;
 
 p{
   font-size: 13px;
@@ -200,41 +256,14 @@ background-image: linear-gradient(90deg, rgba(0,136,255,1) 6%, rgba(0,183,255,1)
   }
 }
 `
-const FourtInputColumn = styled.div`
+const SignUpButtonColumn = styled.div`
 height: 50px;
-width: 300px;
-margin-top: 50px;
-`
-const ThirdInputColumn = styled.div`
-height: auto;
-width: auto;
-margin-bottom: 60px;
-display: flex;
-justify-content: flex-start;
-align-items: center;
-
-@media screen and (max-width: 960px){
-    width: 250px;
-}
+width: 100%;
+margin-top: 20px;
 `
 
 
-const SecondInputColumn = styled.div`
-height: auto;
-width: auto;
-margin-top: 40px;
-margin-bottom: 10px;
-`
-const FirstInputColumn = styled.div`
-height: auto;
-width: auto;
-display: flex;
-align-items: center;
 
-@media screen and (max-width: 960px){
-    width: 250px;
-}
-`
 
 const SignUpDescription = styled.p`
 font-weight: 600;
@@ -249,7 +278,7 @@ margin-top: 0px;
 
 const Form = styled.form`
   height: auto;
-  width: 350px;
+  width: 85%;
   padding-top: 40px;
 
   @media screen and (max-width: 960px){
