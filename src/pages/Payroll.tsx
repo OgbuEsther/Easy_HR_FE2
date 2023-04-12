@@ -4,6 +4,13 @@ import { CiSearch } from "react-icons/ci"
 import img from ".././Assets/savio.jpg"
 
 const Payroll = () => {
+    const [show, setShow] = React.useState(false)
+
+    const Toggle = () => {
+        setShow(!show)
+    }
+
+
   return (
       <Container>
           <Wrapper>
@@ -44,16 +51,29 @@ const Payroll = () => {
                       <Payment2>$2,649.00</Payment2>
                       <Payment2>$2,649.00</Payment2>
                       <Status2>
-                          <Hold>Pay</Hold>
+                          <Hold onClick={Toggle}>Pay</Hold>
                       </Status2>
                   </Lists>
               </Table2>
           </Wrapper>
+          {show ? (
+              <Edit>
+              
+          </Edit>
+          ) : null}
       </Container>
   )
 }
 
 export default Payroll
+const Edit = styled.div`
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    left: 0;
+    right: 0;
+`
 const Hold = styled.div`
     width: 90px;
     height: 28px;
