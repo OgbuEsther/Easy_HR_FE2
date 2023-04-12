@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Admin from "../assets/images/girl_five.jpg"
+import Admin from "../../Assets/girl_five.jpg"
 import {BsArrowLeft} from "react-icons/bs"
 import { NavLink } from 'react-router-dom';
 import SigninForm from '../../components/layout/Form/SignInForm';
