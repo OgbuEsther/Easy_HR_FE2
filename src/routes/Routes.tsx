@@ -9,8 +9,10 @@ import Payroll from "../pages/Payroll";
 import SignUp from "../pages/Auth/SignUp";
 import SignIn from "../pages/Auth/SignIn";
 import Otp from "../pages/Auth/Otp";
+
 import SignUpOption from "../pages/Auth/SignUpOption";
 import SignInOption from "../pages/Auth/SignInOption";
+
 const Home = lazy(() => import("../pages/landingpage/Home"));
 const About = lazy(() => import("../pages/landingpage/Connect"));
 const Staffs = lazy(() => import("../pages/Staffs"));
@@ -88,7 +90,7 @@ export const Elements = createBrowserRouter([
   {
     path:"/sign-in-option",
     element: <SignInOption/>
-  },
+  
   
   {
     path : "*",

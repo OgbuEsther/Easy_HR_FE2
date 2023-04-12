@@ -59,7 +59,35 @@ const Payroll = () => {
           {show ? (
               <Edit>
                   <Box>
-                      
+                      <Header>
+                          <Imagehold>
+                              <Img2 src={img} />
+                          </Imagehold>
+                          <Nameshold>
+                              <h4>Okwoli Godwin</h4>
+                              <p>Full Time Employee</p>
+                              <p>Codelab ID: 1</p>
+                          </Nameshold>
+                          <Net>
+                              <p>Net Pay</p>
+                              <h4>$1,949.26</h4>
+                          </Net>
+                      </Header> 
+
+                      <Earnings>
+                          <Wrap>
+                              <Up>
+                                  <Earning>Earnings</Earning>
+                                  <Amount><p>Amount</p></Amount>
+                              </Up>
+                              <Earnhold>
+                                  <Up>
+                                  <Earning>Earnings</Earning>
+                                  <Amount><p>Amount</p></Amount>
+                              </Up>
+                              </Earnhold>
+                          </Wrap>
+                      </Earnings>
               </Box>
           </Edit>
           ) : null}
@@ -68,8 +96,102 @@ const Payroll = () => {
 }
 
 export default Payroll
+const Earnhold = styled.div`
+    width: 100%;
+    height: 45px;
+    border-top: 2px solid #D6DEE9;
+    border-bottom: 2px solid #D6DEE9;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+`
+const Amount = styled.div`
+    p{
+        font-size: 12px;
+        font-weight: 500;
+        color: #8d9ba7;
+    }
+`
+const Earning = styled.div`
+    font-size: 17px;
+`
+const Up = styled.div`
+    width: 100%;
+    display: flex;
+    height: 1px;
+    justify-content: space-between;
+    align-items: center;
+`
+const Wrap = styled.div`
+    width: 95%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+`
+const Earnings = styled.div`
+    height: 130px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+`
+const Net = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-left: 45px;
+    p{
+        font-size: 12px;
+        font-weight: 600;
+        color: #9e9e9e;
+        margin: 0;
+    }
+    h4{
+        margin: 0;
+    }
+`
+const Nameshold = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    h4{
+        margin: 0;
+    }
+    p{
+        font-size: 12px;
+        font-weight: 600;
+        color: #9e9e9e;
+        margin: 0;
+    }
+`
+const Img2 = styled.img`
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+`
+const Imagehold = styled.div`
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    margin-left: 25px;
+    overflow: hidden;
+`
+const Header = styled.div`
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid #c5c5c5;
+    display: flex;
+    align-items: center;
+`
 const Box = styled.div`
-    
+    width: 700px;
+    height: 500px;
+    background-color: white;
+    border-radius: 5px;
 `
 const Edit = styled.div`
     width: 100%;
@@ -81,6 +203,7 @@ const Edit = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 3;
 `
 const Hold = styled.div`
     width: 90px;
