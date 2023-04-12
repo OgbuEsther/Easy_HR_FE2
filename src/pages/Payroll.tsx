@@ -68,6 +68,10 @@ const Payroll = () => {
                               <p>Full Time Employee</p>
                               <p>Codelab ID: 1</p>
                           </Nameshold>
+                          <Net>
+                              <p>Net Pay</p>
+                              <h4>$1,949.26</h4>
+                          </Net>
                       </Header> 
               </Box>
           </Edit>
@@ -77,6 +81,20 @@ const Payroll = () => {
 }
 
 export default Payroll
+const Net = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-left: 45px;
+    p{
+        font-size: 12px;
+        font-weight: 600;
+        color: #9e9e9e;
+        margin: 0;
+    }
+    h4{
+        margin: 0;
+    }
+`
 const Nameshold = styled.div`
     display: flex;
     flex-direction: column;
