@@ -7,6 +7,7 @@ import NotFound from "../utils/hoc/NotFound";
 import HomeScreen from "../pages/landingpage/HomeScreen";
 import Payroll from "../pages/Payroll";
 import SignUp from "../pages/Auth/SignUp";
+import SignIn from "../pages/Auth/SignIn";
 
 const Home = lazy(() => import("../pages/landingpage/Home"));
 const About = lazy(() => import("../pages/landingpage/Connect"));
@@ -67,6 +68,13 @@ export const Elements = createBrowserRouter([
     path:"/sign-up",
     element: <SignUp/>
   },
+  
+  
+  {
+    path:"/sign-in",
+    element: <SignIn/>
+  },
+  
   
   {
     path : "*",
