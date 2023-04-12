@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import LeftSectionImage from "../assets/images/girl_five.jpg"
+import LeftSectionImage from "../../Assets/girl_five.jpg"
 import { NavLink } from 'react-router-dom'
 
 const SignUpOption = () => {
