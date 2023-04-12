@@ -73,6 +73,21 @@ const Payroll = () => {
                               <h4>$1,949.26</h4>
                           </Net>
                       </Header> 
+
+                      <Earnings>
+                          <Wrap>
+                              <Up>
+                                  <Earning>Earnings</Earning>
+                                  <Amount><p>Amount</p></Amount>
+                              </Up>
+                              <Earnhold>
+                                  <Up>
+                                  <Earning>Earnings</Earning>
+                                  <Amount><p>Amount</p></Amount>
+                              </Up>
+                              </Earnhold>
+                          </Wrap>
+                      </Earnings>
               </Box>
           </Edit>
           ) : null}
@@ -81,6 +96,47 @@ const Payroll = () => {
 }
 
 export default Payroll
+const Earnhold = styled.div`
+    width: 100%;
+    height: 45px;
+    border-top: 2px solid #D6DEE9;
+    border-bottom: 2px solid #D6DEE9;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+`
+const Amount = styled.div`
+    p{
+        font-size: 12px;
+        font-weight: 500;
+        color: #8d9ba7;
+    }
+`
+const Earning = styled.div`
+    font-size: 17px;
+`
+const Up = styled.div`
+    width: 100%;
+    display: flex;
+    height: 1px;
+    justify-content: space-between;
+    align-items: center;
+`
+const Wrap = styled.div`
+    width: 95%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+`
+const Earnings = styled.div`
+    height: 130px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+`
 const Net = styled.div`
     display: flex;
     flex-direction: column;
