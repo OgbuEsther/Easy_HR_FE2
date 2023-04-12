@@ -72,8 +72,8 @@ span{
 background: rgb(0,136,255);
 background-image: linear-gradient(90deg, rgba(0,136,255,1) 6%, rgba(0,183,255,1) 55%, rgba(0,183,255,1) 100%);
     background-size: 100%;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
+    /* -webkit-background-clip: text; */
+    /* -moz-background-clip: text; */
     -webkit-text-fill-color: transparent; 
     -moz-text-fill-color: transparent;
     font-weight: bolder;
