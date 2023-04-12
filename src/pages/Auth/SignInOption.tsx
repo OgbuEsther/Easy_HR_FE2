@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import LeftSectionImage from "../../Assets/girl_five.jpg"
 import { NavLink } from 'react-router-dom'
 
-const SignUpOption = () => {
+const SignInOption = () => {
   return (
     <SignUpOptionPageContainer>
         <LeftSection>
@@ -16,12 +16,12 @@ const SignUpOption = () => {
                 </TitleAndDescriptionContainer>
                 <OptionButtonContainer>
                     <NavLink to="/sign-up" style={{width:"100%", textDecoration:"none", color:"white", display:"flex", justifyContent:"center"}}>
-                        <AdminSignUpOption>Sign Up As A Company</AdminSignUpOption>
+                        <AdminSignUpOption>Sign In As A Company</AdminSignUpOption>
 
                     </NavLink>
 
                     <NavLink to="/sign-up"  style={{width:"100%", textDecoration:"none", color:"white", display:"flex", justifyContent:"center"}}>
-                    <StaffSignUpOption>Sign Up As A Staff</StaffSignUpOption>
+                    <StaffSignUpOption>Sign In As A Staff</StaffSignUpOption>
                     </NavLink>
                 </OptionButtonContainer>
             </SignUpOptionField>
@@ -30,7 +30,7 @@ const SignUpOption = () => {
   )
 }
  
-export default SignUpOption;
+export default SignInOption;
 
 
 

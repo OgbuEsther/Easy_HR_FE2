@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Admin from "../../Assets/girl_five.jpg"
+import Admin from "../../Assets/hr_group.jpg"
 import SignupForm from '../../components/layout/Form/SignUpForm'
 import {BsArrowLeft} from "react-icons/bs"
 import { NavLink } from 'react-router-dom';
@@ -11,7 +11,6 @@ const SignUp = () => {
     <div>
 
 <SipupPage>
-
   <SigupDetailContainer>
 <ImageContainer>
 <BacKToDashBoardIconHold>
@@ -19,17 +18,15 @@ const SignUp = () => {
        <BsArrowLeft />
        </NavLink>
     </BacKToDashBoardIconHold>
-
-
   <Image  src={Admin}/>
   <AdsWriteUp className='AdswriteUp'>Increase productivity and sales, paying staffs quickly with low rate at your comfort with <span>
   easy pay</span>.
 </AdsWriteUp>
 </ImageContainer>
 <FormContainer>
-<SignupForm />
+  <SignupForm />
 </FormContainer>
-  </SigupDetailContainer>
+</SigupDetailContainer>
 
 </SipupPage>
 
@@ -99,7 +96,8 @@ const Image = styled.img`
 
 const FormContainer = styled.div`
   height: 100vh;
-  width: 600px;
+  /* width: 50%; */
+  flex: 1;
   background-color: white;
   display: flex;
   justify-content: center;
@@ -112,7 +110,7 @@ const FormContainer = styled.div`
 `
 const ImageContainer = styled.div`
   height: 100%;
-  width: 700px;
+  width: 45%;
   position: relative;
   overflow: hidden;
 
@@ -145,4 +143,5 @@ height: auto;
 width:auto;
 display: flex;
 align-items: center;
+
 `
