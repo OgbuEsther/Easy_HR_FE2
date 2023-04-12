@@ -61,7 +61,7 @@ const SideBar = () => {
       </Home2>
       {show ? (
         <Staffs>
-          <NavLink to="/payroll" style={{ textDecoration: "none" }}>
+          <NavLink to="/dashboard/payroll" style={{ textDecoration: "none" }}>
             <p>Send Payment</p>
           </NavLink>
         </Staffs>
