@@ -82,8 +82,8 @@ const Payroll = () => {
                               </Up>
                               <Earnhold>
                                   <Up>
-                                  <Earning>Earnings</Earning>
-                                  <Amount><p>Amount</p></Amount>
+                                  <Earning2>Regular Earnings</Earning2>
+                                  <Pays placeholder='NGN'/>
                               </Up>
                               </Earnhold>
                           </Wrap>
@@ -96,6 +96,13 @@ const Payroll = () => {
 }
 
 export default Payroll
+const Pays = styled.input`
+    width: 70px;
+    height: 20px;
+    border: 1px solid #D6DEE9;
+    outline: none;
+    padding-left: 10px;
+`
 const Earnhold = styled.div`
     width: 100%;
     height: 45px;
@@ -104,6 +111,7 @@ const Earnhold = styled.div`
     margin-top: 25px;
     display: flex;
     align-items: center;
+    color: #1c2534;
 `
 const Amount = styled.div`
     p{
@@ -111,6 +119,9 @@ const Amount = styled.div`
         font-weight: 500;
         color: #8d9ba7;
     }
+`
+const Earning2 = styled.div`
+    font-size: 13px;
 `
 const Earning = styled.div`
     font-size: 17px;
