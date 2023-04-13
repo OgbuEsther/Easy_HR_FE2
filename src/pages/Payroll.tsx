@@ -16,6 +16,18 @@ const Payroll = () => {
     const [data, setData] = React.useState<data[]>([])
 
     let iddata: number = data.length + 1;
+    const addNewedit = () => {
+        const sortinfo = (x: any) => {
+            return (a: any, b: any) => {
+                if (a[x] < b[x]) {
+                    return a[x];
+                } else if (a[x] > b[x]) {
+                    return -1
+                }
+                return 0
+            }
+        }
+    }
 
     const Toggle = () => {
         setShow(!show)
