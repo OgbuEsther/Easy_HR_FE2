@@ -85,7 +85,12 @@ const Payroll = () => {
                                   <Up>
                                   <Earning2>Regular Earnings</Earning2>
                                   <Pays placeholder='NGN'/>
-                              </Up>
+                                  </Up>
+                                  
+                                  <Up2>
+                                  <Addinput />
+                                  <Pays placeholder='NGN'/>
+                                  </Up2>
                               </Earnhold>
                               <Add>
                                   <Icon><AiFillPlusCircle /></Icon>
@@ -101,6 +106,11 @@ const Payroll = () => {
 }
 
 export default Payroll
+const Addinput = styled.input`
+    width: 170px;
+    height: 20px;
+    background-color: red;
+`
 const Adds = styled.div`
     color: #0081AA;
     margin-left: 10px;
@@ -124,12 +134,12 @@ const Pays = styled.input`
 `
 const Earnhold = styled.div`
     width: 100%;
-    height: 45px;
+    flex-direction: column;
     border-top: 2px solid #D6DEE9;
+    align-items: center;
     border-bottom: 2px solid #D6DEE9;
     margin-top: 25px;
     display: flex;
-    align-items: center;
     color: #1c2534;
 `
 const Amount = styled.div`
@@ -145,10 +155,20 @@ const Earning2 = styled.div`
 const Earning = styled.div`
     font-size: 17px;
 `
+const Up2 = styled.div`
+    width: 100%;
+    display: flex;
+    height: 35px;
+    border-bottom: 1px solid #D6DEE9;
+    margin-bottom: 5px;
+    justify-content: space-between;
+    align-items: center;
+`
 const Up = styled.div`
     width: 100%;
     display: flex;
-    height: 1px;
+    height: 35px;
+    border-bottom: 1px solid #D6DEE9;
     justify-content: space-between;
     align-items: center;
 `
