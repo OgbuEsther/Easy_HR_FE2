@@ -2,12 +2,56 @@ import React from 'react'
 import styled from 'styled-components'
 import { CiSearch } from "react-icons/ci"
 import img from ".././Assets/savio.jpg"
+import {AiFillPlusCircle} from "react-icons/ai"
+
+interface data {
+    earn: string;
+    id: number;
+}
 
 const Payroll = () => {
     const [show, setShow] = React.useState(false)
+    const [shows, setShows] = React.useState(false)
+    const [inputs, setinputs] = React.useState(false)
+    const [earnvalue, setEarnvalue] = React.useState("")
+    const [data, setData] = React.useState<data[]>([])
+
+    const Toggles = () => {
+        setShows(true)
+    }
+
+    let idData: number = data.length + 1;
+       const addNewTask = () => {
+    // sorting algoritm
+    const sortinfo = (x: any) => {
+      return (a: any, b: any) => {
+        if (a[x] < b[x]) {
+          return a[x];
+        } else if (a[x] > b[x]) {
+          return -1;
+        }
+        return 0;
+      };
+    };
+
+    setData((prev) =>
+      [
+        ...prev,
+        {
+          earn: earnvalue,
+          id: idData,
+        },
+      ].sort(sortinfo("id"))
+    );
+  };
+
 
     const Toggle = () => {
         setShow(!show)
+    }
+
+    const Editing = () => {
+        setinputs(true)
     }
 
 
@@ -81,11 +125,39 @@ const Payroll = () => {
                                   <Amount><p>Amount</p></Amount>
                               </Up>
                               <Earnhold>
-                                  <Up>
-                                  <Earning>Earnings</Earning>
-                                  <Amount><p>Amount</p></Amount>
-                              </Up>
+                                  <Up3>
+                                  <Earning2>Regular Earnings</Earning2>
+                                  <Pays placeholder='NGN'/>
+                                  </Up3>
+
+                                  {data.map((data) => (
+                                      <Up3>
+                                          <Earning2>{ data.earn }</Earning2>
+                                  <Pays placeholder='NGN'/>
+                                  </Up3>
+                                  ))}
+                                  
+                                  {inputs ? (
+                                      <Up2>
+                                          <Addinput placeholder='Add eraning' onChange={(e) => {
+                                              setEarnvalue(e.target.value)
+                                  }}/>
+                                      <Canchold>
+                                          <Canc>Cancle</Canc>
+                                          <Hi></Hi>
+                                              {earnvalue !== "" ? (
+                                                <Ad onClick={addNewTask} bg="white">Add</Ad>
+                                            ) : (
+                                                <Ad disabled={true}  bg='silver'>Add</Ad>
+                                            )}
+                                      </Canchold>
+                                  </Up2>
+                                  ) : null}
                               </Earnhold>
+                              <Add>
+                                  <Icon><AiFillPlusCircle /></Icon>
+                                  <Adds onClick={Editing}>Add Earnings</Adds>
+                              </Add>
                           </Wrap>
                       </Earnings>
               </Box>
@@ -96,14 +168,70 @@ const Payroll = () => {
 }
 
 export default Payroll
+const Canchold = styled.div`
+    display: flex;
+    align-items: center;
+`
+const Hi = styled.div`
+    height: 15px;
+    background-color: #8d9ba7;
+    width: 1px;
+    margin-left: 10px;
+`
+const Ad = styled.button<{ bg: string }>`
+    width: 60px;
+    height: 30px;
+    color: #0081AA;
+    border: none;
+    outline: none;
+    font-size: 13px;
+    background-color: ${(props) => props.bg};
+    margin-left: 10px;
+    cursor: pointer;
+`
+const Canc = styled.div`
+    color: #0081AA;
+    font-size: 14px;
+    cursor: pointer;
+`
+const Addinput = styled.input`
+    width: 210px;
+    height: 20px;
+    border: 1px solid #D6DEE9;
+    outline: none;
+    padding-left: 10px;
+    border-radius: 3px;
+`
+const Adds = styled.div`
+    color: #0081AA;
+    margin-left: 10px;
+    font-size: 15px;
+`
+const Icon = styled.div`
+    color: #0081AA;
+`
+const Add = styled.div`
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+    cursor: pointer;
+`
+const Pays = styled.input`
+    width: 70px;
+    height: 20px;
+    border: 1px solid #D6DEE9;
+    outline: none;
+    padding-left: 10px;
+`
 const Earnhold = styled.div`
     width: 100%;
-    height: 45px;
+    flex-direction: column;
     border-top: 2px solid #D6DEE9;
+    align-items: center;
     border-bottom: 2px solid #D6DEE9;
     margin-top: 25px;
     display: flex;
-    align-items: center;
+    color: #1c2534;
 `
 const Amount = styled.div`
     p{
@@ -112,13 +240,33 @@ const Amount = styled.div`
         color: #8d9ba7;
     }
 `
+const Earning2 = styled.div`
+    font-size: 13px;
+`
 const Earning = styled.div`
     font-size: 17px;
+`
+const Up2 = styled.div`
+    width: 100%;
+    display: flex;
+    height: 35px;
+    border-bottom: 1px solid #D6DEE9;
+    margin-bottom: 5px;
+    justify-content: space-between;
+    align-items: center;
+`
+const Up3 = styled.div`
+    width: 100%;
+    display: flex;
+    height: 35px;
+    border-bottom: 1px solid #D6DEE9;
+    justify-content: space-between;
+    align-items: center;
 `
 const Up = styled.div`
     width: 100%;
     display: flex;
-    height: 1px;
+    height: 35px;
     justify-content: space-between;
     align-items: center;
 `
@@ -128,6 +276,7 @@ const Wrap = styled.div`
     flex-direction: column;
     justify-content: center;
     display: flex;
+    margin-top: 30px;
 `
 const Earnings = styled.div`
     height: 130px;
