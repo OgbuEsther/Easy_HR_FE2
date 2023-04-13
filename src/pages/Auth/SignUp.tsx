@@ -13,15 +13,18 @@ const SignUp = () => {
 <SipupPage>
   <SigupDetailContainer>
 <ImageContainer>
-<BacKToDashBoardIconHold>
-       <NavLink to="/" style={{textDecoration:"none", color:"white"}}>
+
+       <NavLink to="/" style={{textDecoration:"none", color:"white", 
+      
+    }}>
+        <BacKToDashBoardIconHold>
        <BsArrowLeft />
-       </NavLink>
     </BacKToDashBoardIconHold>
+       </NavLink>
   <Image  src={Admin}/>
-  <AdsWriteUp className='AdswriteUp'>Increase productivity and sales, paying staffs quickly with low rate at your comfort with <span>
+  {/* <AdsWriteUp className='AdswriteUp'>Increase productivity and sales, paying staffs quickly with low rate at your comfort with <span>
   easy pay</span>.
-</AdsWriteUp>
+</AdsWriteUp> */}
 </ImageContainer>
 <FormContainer>
   <SignupForm />
@@ -38,17 +41,26 @@ export default SignUp;
 
 const BacKToDashBoardIconHold = styled.div`
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 20px;
+    left: 20px;
     size: 24;
     padding: 10px 0px 0px 10px;
     font-size: 24px;
     color: white;
+    padding: 15px;
+    border-radius: 50%;
+    background-color:rgba(136, 136, 136, 0.2);
+    cursor: pointer;
+    transition: all 390ms;
+
+    :hover{
+      background-color:rgba(141, 141, 141, 0.616);
+    }
 ` 
 
 
 
-const AdsWriteUp = styled.div`
+const AdsWriteUp = styled.p`
   height: 150px;
   width: auto;
   padding-left: 50px;
@@ -102,6 +114,7 @@ const FormContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0px 20px;
 
   @media screen and (max-width: 960px){
     justify-content: center;
