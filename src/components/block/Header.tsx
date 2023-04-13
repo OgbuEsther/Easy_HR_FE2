@@ -63,12 +63,12 @@ const Header = () => {
             </NavWrapper>
             <SignDiv>
 
-              <NavLink to="/optionsignin">
+              <NavLink to="/sign-in">
               <Button1>
                   Log In
                 </Button1>
               </NavLink>
-              <NavLink to="/optionsignup">
+              <NavLink to="/sign-up">
                 <Button1>
                   Sign Up
                 </Button1>
