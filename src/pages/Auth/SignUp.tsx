@@ -70,15 +70,8 @@ const AdsWriteUp = styled.p`
   left: 0;
 
 span{
-background: rgb(0,136,255);
-background-image: linear-gradient(90deg, rgba(0,136,255,1) 6%, rgba(0,183,255,1) 55%, rgba(0,183,255,1) 100%);
-    background-size: 100%;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent; 
-    -moz-text-fill-color: transparent;
-    font-weight: bolder;
-    text-shadow: 2px 9px 34px rgba(13,186,230,0.6);}
+}
+
 
 font-family: Arial, Helvetica, sans-serif;
   font-size: 30px;
