@@ -34,15 +34,15 @@ const Payroll = () => {
       };
     };
 
-    // setData((prev) =>
-    //   [
-    //     ...prev,
-    //     {
-    //       todo: earnvalue,
-    //       id: idData,
-    //     },
-    //   ].sort(sortinfo("id"))
-    // );
+    setData((prev) =>
+      [
+        ...prev,
+        {
+          earn: earnvalue,
+          id: idData,
+        },
+      ].sort(sortinfo("id"))
+    );
   };
 
 
