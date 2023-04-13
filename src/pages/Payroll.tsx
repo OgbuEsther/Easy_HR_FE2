@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { CiSearch } from "react-icons/ci"
 import img from ".././Assets/savio.jpg"
+import {AiFillPlusCircle} from "react-icons/ai"
 
 const Payroll = () => {
     const [show, setShow] = React.useState(false)
@@ -86,6 +87,10 @@ const Payroll = () => {
                                   <Pays placeholder='NGN'/>
                               </Up>
                               </Earnhold>
+                              <Add>
+                                  <Icon><AiFillPlusCircle /></Icon>
+                                  <Adds>Add Earnings</Adds>
+                              </Add>
                           </Wrap>
                       </Earnings>
               </Box>
@@ -96,6 +101,20 @@ const Payroll = () => {
 }
 
 export default Payroll
+const Adds = styled.div`
+    color: #0081AA;
+    margin-left: 10px;
+    font-size: 15px;
+`
+const Icon = styled.div`
+    color: #0081AA;
+`
+const Add = styled.div`
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+    cursor: pointer;
+`
 const Pays = styled.input`
     width: 70px;
     height: 20px;
