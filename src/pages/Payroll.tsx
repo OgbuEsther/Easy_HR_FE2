@@ -89,7 +89,11 @@ const Payroll = () => {
                                   
                                   <Up2>
                                   <Addinput />
-                                  <Pays placeholder='NGN'/>
+                                      <Canchold>
+                                          <Canc>Cancle</Canc>
+                                          <Hi></Hi>
+                                          <Ad>Add</Ad>
+                                      </Canchold>
                                   </Up2>
                               </Earnhold>
                               <Add>
@@ -106,6 +110,27 @@ const Payroll = () => {
 }
 
 export default Payroll
+const Canchold = styled.div`
+    display: flex;
+    align-items: center;
+`
+const Hi = styled.div`
+    height: 15px;
+    background-color: #8d9ba7;
+    width: 1px;
+    margin-left: 10px;
+`
+const Ad = styled.div`
+    color: #0081AA;
+    font-size: 13px;
+    margin-left: 10px;
+    cursor: pointer;
+`
+const Canc = styled.div`
+    color: #0081AA;
+    font-size: 14px;
+    cursor: pointer;
+`
 const Addinput = styled.input`
     width: 210px;
     height: 20px;
