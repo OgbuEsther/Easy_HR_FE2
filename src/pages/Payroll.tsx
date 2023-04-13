@@ -147,7 +147,7 @@ const Payroll = () => {
                                               setEarnvalue(e.target.value)
                                   }}/>
                                       <Canchold>
-                                          <Canc>Cancel</Canc>
+                                          <Canc onClick={Remove}>Cancel</Canc>
                                           <Hi></Hi>
                                               {earnvalue !== "" ? (
                                                 <Ad onClickCapture={addNewTask } bg="white" onClick={Remove}>Add</Ad>
