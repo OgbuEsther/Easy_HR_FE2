@@ -4,9 +4,18 @@ import { CiSearch } from "react-icons/ci"
 import img from ".././Assets/savio.jpg"
 import {AiFillPlusCircle} from "react-icons/ai"
 
+interface data {
+    earn: string;
+    id: number;
+}
+
 const Payroll = () => {
     const [show, setShow] = React.useState(false)
     const [inputs, setinputs] = React.useState(false)
+    const [earnvalue, setEarnvalue] = React.useState("")
+    const [data, setData] = React.useState<data[]>([])
+
+    let iddata: number = data.length + 1;
 
     const Toggle = () => {
         setShow(!show)
