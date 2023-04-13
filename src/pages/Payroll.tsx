@@ -129,14 +129,27 @@ const Payroll = () => {
                                   <Earning2>Regular Earnings</Earning2>
                                   <Pays placeholder='NGN'/>
                                   </Up3>
+
+                                  {data.map((data) => (
+                                      <Up3>
+                                          <Earning2>{ data.earn }</Earning2>
+                                  <Pays placeholder='NGN'/>
+                                  </Up3>
+                                  ))}
                                   
                                   {inputs ? (
                                       <Up2>
-                                  <Addinput placeholder='Add eraning'/>
+                                          <Addinput placeholder='Add eraning' onChange={(e) => {
+                                              setEarnvalue(e.target.value)
+                                  }}/>
                                       <Canchold>
                                           <Canc>Cancle</Canc>
                                           <Hi></Hi>
-                                          <Ad>Add</Ad>
+                                              {earnvalue !== "" ? (
+                                                <Ad onClick={addNewTask} bg="white">Add</Ad>
+                                            ) : (
+                                                <Ad disabled={true}  bg='silver'>Add</Ad>
+                                            )}
                                       </Canchold>
                                   </Up2>
                                   ) : null}
@@ -165,9 +178,14 @@ const Hi = styled.div`
     width: 1px;
     margin-left: 10px;
 `
-const Ad = styled.div`
+const Ad = styled.button<{ bg: string }>`
+    width: 60px;
+    height: 30px;
     color: #0081AA;
+    border: none;
+    outline: none;
     font-size: 13px;
+    background-color: ${(props) => props.bg};
     margin-left: 10px;
     cursor: pointer;
 `
