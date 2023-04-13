@@ -107,9 +107,12 @@ const Payroll = () => {
 
 export default Payroll
 const Addinput = styled.input`
-    width: 170px;
+    width: 210px;
     height: 20px;
-    background-color: red;
+    border: 1px solid #D6DEE9;
+    outline: none;
+    padding-left: 10px;
+    border-radius: 3px;
 `
 const Adds = styled.div`
     color: #0081AA;
