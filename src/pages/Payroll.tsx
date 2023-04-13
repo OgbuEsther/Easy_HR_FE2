@@ -11,23 +11,40 @@ interface data {
 
 const Payroll = () => {
     const [show, setShow] = React.useState(false)
+    const [shows, setShows] = React.useState(false)
     const [inputs, setinputs] = React.useState(false)
     const [earnvalue, setEarnvalue] = React.useState("")
     const [data, setData] = React.useState<data[]>([])
 
-    let iddata: number = data.length + 1;
-    const addNewedit = () => {
-        const sortinfo = (x: any) => {
-            return (a: any, b: any) => {
-                if (a[x] < b[x]) {
-                    return a[x];
-                } else if (a[x] > b[x]) {
-                    return -1
-                }
-                return 0
-            }
-        }
+    const Toggles = () => {
+        setShows(true)
     }
+
+    let idData: number = data.length + 1;
+       const addNewTask = () => {
+    // sorting algoritm
+    const sortinfo = (x: any) => {
+      return (a: any, b: any) => {
+        if (a[x] < b[x]) {
+          return a[x];
+        } else if (a[x] > b[x]) {
+          return -1;
+        }
+        return 0;
+      };
+    };
+
+    setData((prev) =>
+      [
+        ...prev,
+        {
+          todo: earnvalue,
+          id: idData,
+        },
+      ].sort(sortinfo("id"))
+    );
+  };
+
 
     const Toggle = () => {
         setShow(!show)
@@ -115,7 +132,7 @@ const Payroll = () => {
                                   
                                   {inputs ? (
                                       <Up2>
-                                  <Addinput />
+                                  <Addinput placeholder='Add eraning'/>
                                       <Canchold>
                                           <Canc>Cancle</Canc>
                                           <Hi></Hi>
