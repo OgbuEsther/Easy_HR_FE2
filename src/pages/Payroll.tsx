@@ -6,9 +6,14 @@ import {AiFillPlusCircle} from "react-icons/ai"
 
 const Payroll = () => {
     const [show, setShow] = React.useState(false)
+    const [inputs, setinputs] = React.useState(false)
 
     const Toggle = () => {
         setShow(!show)
+    }
+
+    const Editing = () => {
+        setinputs(true)
     }
 
 
@@ -82,12 +87,13 @@ const Payroll = () => {
                                   <Amount><p>Amount</p></Amount>
                               </Up>
                               <Earnhold>
-                                  <Up>
+                                  <Up3>
                                   <Earning2>Regular Earnings</Earning2>
                                   <Pays placeholder='NGN'/>
-                                  </Up>
+                                  </Up3>
                                   
-                                  <Up2>
+                                  {inputs ? (
+                                      <Up2>
                                   <Addinput />
                                       <Canchold>
                                           <Canc>Cancle</Canc>
@@ -95,10 +101,11 @@ const Payroll = () => {
                                           <Ad>Add</Ad>
                                       </Canchold>
                                   </Up2>
+                                  ) : null}
                               </Earnhold>
                               <Add>
                                   <Icon><AiFillPlusCircle /></Icon>
-                                  <Adds>Add Earnings</Adds>
+                                  <Adds onClick={Editing}>Add Earnings</Adds>
                               </Add>
                           </Wrap>
                       </Earnings>
@@ -192,11 +199,18 @@ const Up2 = styled.div`
     justify-content: space-between;
     align-items: center;
 `
-const Up = styled.div`
+const Up3 = styled.div`
     width: 100%;
     display: flex;
     height: 35px;
     border-bottom: 1px solid #D6DEE9;
+    justify-content: space-between;
+    align-items: center;
+`
+const Up = styled.div`
+    width: 100%;
+    display: flex;
+    height: 35px;
     justify-content: space-between;
     align-items: center;
 `
@@ -206,6 +220,7 @@ const Wrap = styled.div`
     flex-direction: column;
     justify-content: center;
     display: flex;
+    margin-top: 30px;
 `
 const Earnings = styled.div`
     height: 130px;
