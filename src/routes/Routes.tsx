@@ -88,10 +88,10 @@ export const Elements = createBrowserRouter([
     element: <SignUpOption/>
   },
   {
-    path:"/sign-in-option",
-    element: <SignInOption/>
+    path: "/sign-in-option",
+    element: <SignInOption />
   
-  
+  },
   {
     path : "*",
     element : <NotFound />

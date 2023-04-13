@@ -23,16 +23,16 @@ const Payroll = () => {
     let idData: number = data.length + 1;
        const addNewTask = () => {
     // sorting algoritm
-    const sortinfo = (x: any) => {
-      return (a: any, b: any) => {
-        if (a[x] < b[x]) {
-          return a[x];
-        } else if (a[x] > b[x]) {
-          return -1;
-        }
-        return 0;
-      };
-    };
+    // const sortinfo = (x: any) => {
+    //   return (a: any, b: any) => {
+    //     if (a[x] < b[x]) {
+    //       return a[x];
+    //     } else if (a[x] > b[x]) {
+    //       return -1;
+    //     }
+    //     return 0;
+    //   };
+    // };
 
     setData((prev) =>
       [
@@ -41,7 +41,7 @@ const Payroll = () => {
           earn: earnvalue,
           id: idData,
         },
-      ].sort(sortinfo("id"))
+      ]
     );
   };
 
@@ -52,6 +52,10 @@ const Payroll = () => {
 
     const Editing = () => {
         setinputs(true)
+    }
+
+    const Remove = () => {
+        setinputs(false)
     }
 
 
@@ -143,10 +147,10 @@ const Payroll = () => {
                                               setEarnvalue(e.target.value)
                                   }}/>
                                       <Canchold>
-                                          <Canc>Cancle</Canc>
+                                          <Canc>Cancel</Canc>
                                           <Hi></Hi>
                                               {earnvalue !== "" ? (
-                                                <Ad onClick={addNewTask} bg="white">Add</Ad>
+                                                <Ad onClickCapture={addNewTask } bg="white" onClick={Remove}>Add</Ad>
                                             ) : (
                                                 <Ad disabled={true}  bg='silver'>Add</Ad>
                                             )}
@@ -279,12 +283,13 @@ const Wrap = styled.div`
     margin-top: 30px;
 `
 const Earnings = styled.div`
-    height: 130px;
+    /* height: 130px; */
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
+    /* margin-top: 10px; */
+    /* background-color: red; */
 `
 const Net = styled.div`
     display: flex;
