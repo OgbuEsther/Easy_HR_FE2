@@ -280,7 +280,7 @@ const Wrap = styled.div`
     /* background-color: red; */
     overflow-y: scroll;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     display: flex;
     margin-top: 30px;
 `
