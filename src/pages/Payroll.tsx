@@ -143,7 +143,7 @@ const Payroll = () => {
                                   
                                   {inputs ? (
                                       <Up2>
-                                          <Addinput placeholder='Add eraning' onChange={(e) => {
+                                          <Addinput placeholder='Add earning' onChange={(e) => {
                                               setEarnvalue(e.target.value)
                                   }}/>
                                       <Canchold>
@@ -276,14 +276,17 @@ const Up = styled.div`
 `
 const Wrap = styled.div`
     width: 95%;
-    height: 100%;
+    height: 80%;
+    /* background-color: red; */
+    overflow-y: scroll;
     flex-direction: column;
     justify-content: center;
     display: flex;
     margin-top: 30px;
 `
 const Earnings = styled.div`
-    /* height: 130px; */
+    height: 60vh;
+    background-color: #f0f8ffb7;
     width: 100%;
     display: flex;
     justify-content: center;
