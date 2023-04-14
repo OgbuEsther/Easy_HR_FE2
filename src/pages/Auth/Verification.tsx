@@ -5,62 +5,33 @@ import img from "../../Assets/easy.png"
 const Verification = () => {
   return (
       <Container>
-          <Img src={img} />
-          <Confirm><h3>Confirmation</h3></Confirm>
-          <Styles></Styles>
-
-          <Awesomehold>
-              <Awesome><h3>Awesome!</h3></Awesome>
-              <Successful><h3>You have successfully registered.</h3></Successful>
-          </Awesomehold>
+          <Box>
+              <Img src={img} />
+              <Card></Card>
+          </Box>
     </Container>
   )
 }
 
 export default Verification
-const Successful = styled.div`
-    h3{
-        margin-top: 7px;
-        font-weight: 400;
-    }
-`
-const Styles = styled.div`
-    width: 150px;
-    height: 7px;
-    border-radius: 50px;
-    background-color: #1576FA;
-`
-const Awesome = styled.div`
-    font-size: 30px;
-    h3{
-        font-size: 30px;
-        color: #333333;
-        margin: 0;
-        margin-top: 20px;
-    }
-`
-const Awesomehold = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 35%;
-    background-color: #fff;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    margin-top: 60px;
-`
-const Confirm = styled.div`
-    h3{
-        margin: 0;
-        font-size: 26px;
-        margin-top: 10px;
-        color: #333333;
-        font-style: italic;
-    }
+const Card = styled.div`
+    
 `
 const Img = styled.img`
-    height: 28px;
+    width: 110px;
 `
+
+const Box = styled.div`
+    display: flex;
+    width: 300px;
+    flex-direction: column;
+    background-color: #fff;
+    padding-top: 25px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 5px;
+    align-items: center;
+`
+
 
 const Container = styled.div`
     width: 100%;
@@ -68,6 +39,6 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #cecece;
+    background-color: #d6d6d67f;
     flex-direction: column;
 `
