@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import bg from "../Assets/bgimg.jpg"
+import bg from "../../../Assets/bgimg.jpg"
 
 const End = () => {
   return (
