@@ -16,6 +16,7 @@ import SignUpAdmin from "../pages/Auth/SignUpAdmin";
 import SignInAdmin from "../pages/Auth/SignInAdmin";
 import ForgotPasswordEmail from "../pages/Auth/ForgetPasswordEmail";
 import ResetPassword from "../pages/Auth/ResetPassword";
+import Verification from "../pages/Auth/Verification";
 const Home = lazy(() => import("../pages/landingpage/Home"));
 const About = lazy(() => import("../pages/landingpage/Connect"));
 const Staffs = lazy(() => import("../pages/Staffs"));
@@ -103,6 +104,10 @@ export const Elements = createBrowserRouter([
   {
     path:"/sign-in-admin",
     element: <SignInAdmin/>
+  },
+  {
+    path:"/verify",
+    element: <Verification/>
   },
   {
     path:"/reset-password",

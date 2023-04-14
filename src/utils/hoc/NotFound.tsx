@@ -15,9 +15,9 @@ const NotFound = () => {
     <Not>nothing <span>here...</span ></Not>
    
    </Big>
-   <Tiny>oh, we can't seem to find the page you're looking for.
+   {/* <Tiny>oh, we can't seem to find the page you're looking for.
     <br/>Try going back to previous page .
-   </Tiny>
+   </Tiny> */}
    <Button>Go Back</Button>
   </Two>
   
@@ -29,9 +29,15 @@ export default NotFound
 
 const Container = styled.div`
 width: 100%;
-height: 100vh;
+height: 100%;
 /* background-color: red; */
 display: flex;
+@media screen and (max-width: 500px) {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    
+  }
 `
 const One = styled.div`
 width: 50%;
@@ -40,6 +46,9 @@ img{
   width: 100%;
   height: 100%
 }
+@media screen and (max-width: 500px) {
+  width: 100%;
+  }
 `
 const Two = styled.div`
 width: 50%;
@@ -48,6 +57,9 @@ display: flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
+@media screen and (max-width: 500px) {
+  width: 100%;
+  }
 `
 const Big = styled.div`
 font-size: 60px;
@@ -76,8 +88,11 @@ align-items: center;
 border-radius: 30px;
 color: white;
 margin-top: 20px;
-margin-right: 300px;
+/* margin-right: 300px; */
 border: none;
 outline: none;
 cursor: pointer;
+/* @media screen and (max-width: 500px) {
+  margin-bottom: 50px;
+  } */
 `
