@@ -3,10 +3,10 @@ import styled from 'styled-components'
 import Admin from "../../Assets/hr_group.jpg"
 import {BsArrowLeft} from "react-icons/bs"
 import { NavLink } from 'react-router-dom';
-import SigninForm from '../../components/layout/Form/SignInForm';
+import SigninAdminForm from '../../components/layout/Form/SignInAdminForm';
 
 
-const SignIn = () => {
+const SignInAdmin = () => {
   return (
     <div>
 
@@ -26,9 +26,9 @@ const SignIn = () => {
 </AdsWriteUp> */}
 </ImageContainer>
 <FormContainer>
-<SigninForm />
-    </FormContainer>
-</SigInDetailContainer>
+<SigninAdminForm />
+</FormContainer>
+  </SigInDetailContainer>
 
 </SipInPage>
 
@@ -36,7 +36,7 @@ const SignIn = () => {
   )
 }
 
-export default SignIn;
+export default SignInAdmin;
 
 const BacKToDashBoardIconHold = styled.div`
     position: absolute;

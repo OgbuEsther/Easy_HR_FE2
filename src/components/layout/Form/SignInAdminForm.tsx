@@ -13,25 +13,16 @@ import {useNavigate} from "react-router-dom"
 
 const SigninForm = () => {
 
-
-
-  const navigate = useNavigate()
     const [ViewPassword, SetViewPassword] = useState(false)
 
     const ViewPasswordFunction = ()=>{
 SetViewPassword(!ViewPassword)
+
+
     }
 
 
-    const ForgetPasswordFunction = ()=>{
-
-        navigate("/reset-password")
-    }
-
-   
-
-
-   
+    const navigate = useNavigate()
 
     const NavigateToVeficationPageFunction = ()=>{
       navigate("/verification")
@@ -63,7 +54,7 @@ SetViewPassword(!ViewPassword)
         <Form>
 <SignUpTitle>Sign In</SignUpTitle>
 {/* <SignUpDescription>Pay smart and save time with Easy Pay</SignUpDescription> */}
-<SignUpDescription>You will be signed in as a staff</SignUpDescription>
+<SignUpDescription>You will be signed in as an Admin</SignUpDescription>
 
 <InputField>
 
@@ -90,7 +81,7 @@ SetViewPassword(!ViewPassword)
     show password
   </ShowPasswordText>
 </ShowPassword>
-<ForgetPassword onClick={ForgetPasswordFunction}>
+<ForgetPassword>
   Forget Password
 </ForgetPassword>
     </ShowPasswordAndForgetPassword>
@@ -117,14 +108,12 @@ const ForgetPassword = styled.div`
   width: auto;
   font-size: 13px;
   color: #0174f7c8;
-  cursor: pointer;
 `
 
 const ShowPasswordInput = styled.input`
-  height: 12px;
-  width: 12px;
- 
-
+  height: 10px;
+  width: 10px;
+  border-radius: 0px;
   
 `
 const ShowPasswordText = styled.div`
@@ -133,9 +122,6 @@ const ShowPasswordText = styled.div`
   font-size: 13px;
   margin-bottom: 3px;
   margin-left: 2px;
-   :hover{
-    color: #0174f78d;;
-  }
 `
 const ShowPassword = styled.div`
   height: auto;
@@ -179,7 +165,7 @@ const CompanyNameInputHold = styled.div`
 
 
 const CompanyPasswordInput = styled.input`
-    height: 40px;
+    height: 35px;
     width: 100%;
     border-radius: 5px;
     border: 1px solid #0174f78d;
@@ -213,7 +199,7 @@ const InputField = styled.div`
   padding: 10px 0px;
   margin-top: 30px;
 
- 
+  
 
   button{
     cursor: pointer;
