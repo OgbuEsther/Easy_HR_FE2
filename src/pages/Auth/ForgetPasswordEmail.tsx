@@ -1,38 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styled from "styled-components";
 import {AiOutlineReload} from 'react-icons/ai'
+import { useNavigate } from 'react-router-dom';
 
 
 
-const Otp = () => {
+const ForgotPasswordEmail = () => {
 
-    const [counter, setCounter] = useState(10)
+    const navigate = useNavigate()
+
     const [getCode, setGetCode] = useState(true)
 
-    const ShowDisableGetCodeFuntion = () =>{
-        setGetCode(false)
-        if(getCode===true){
-            alert("New OTP code has been sent")
-        }else{
-            return;
-        }
+    const BackToAuthPageFuntion = () =>{
+       navigate("/sign-in")
     }
-
-    const CountDownFunction = ()=>{
-        let timer = setTimeout(()=>{
-            if(counter<=1){
-                setCounter(10)
-                setGetCode(true)
-            }else{
-                setCounter(counter-1)
-            }
-           },2000)
-           return ()=> clearTimeout(timer)
-    }
-
-    useEffect(()=>{
-        CountDownFunction()
-      },[counter])
 
     
 
@@ -41,18 +22,15 @@ const Otp = () => {
     <OtpPageContainer>
        <OtpForm>
             <TextArea>
-                <Title>Enter otp</Title>
-                <Description>Enter the OTP sent to you for verification</Description>
+                <Title>enter your email</Title>
+                <Description>Let's help you find your account</Description>
             </TextArea>
             <OtpInputField>
-                <Label>Enter OTP</Label>
+                <Label>Enter Email</Label>
                 <OtpInput />
                 <GetOtpAndContinueButton>
-                 <GetOtpHold onClick={ShowDisableGetCodeFuntion}>
-                 {
-                    getCode?  <GetOtp>Get new code</GetOtp>:
-                    <GetOtpDisable>Get new code (in {`${counter}`} seconds)</GetOtpDisable>
-                   }
+                 <GetOtpHold onClick={BackToAuthPageFuntion}>
+                    Back
                  </GetOtpHold>
                     <Button>
                         Continue
@@ -64,25 +42,27 @@ const Otp = () => {
   )
 }
 
-export default Otp;
+export default ForgotPasswordEmail;
 
 
 
 // OTP input field Area
 
-const GetOtpHold = styled.div`
-    height: auto;
-    width: auto;
-    cursor: pointer;
+const GetOtpHold = styled.button`
+   height: 40px;
+width: 100px;
+border: none;
+background-color: #0a72e9;
+border-radius: 5px;
+color: white;
+font-size: 16px;
+font-weight: 500;
+cursor: pointer;
+   
    
 `
 
-const GetOtpDisable = styled.div`
-     font-size: 16px;
-    font-weight: 600;
-    color: #80808090;
-    cursor: not-allowed;
-`
+
 
 const Button = styled.button`
 height: 40px;
@@ -93,13 +73,10 @@ border-radius: 5px;
 color: white;
 font-size: 16px;
 font-weight: 500;
+cursor: pointer;
 `
 
-const GetOtp = styled.div`
-    font-size: 18px;
-    font-weight: 600;
-    color: #0172f7;
-`
+
 
 const Label = styled.label`
  
@@ -131,6 +108,7 @@ justify-content: space-between;
 align-items: center;
 padding-left:10px;
 padding-right: 10px;
+/* background-color: blue; */
 `
 
 const OtpInputField = styled.div`
@@ -147,20 +125,24 @@ const OtpInputField = styled.div`
 `
 // OTP Text Area
 const TextArea = styled.div`
-height: 150px;
+height: 100px;
 width: 98%;
+display: flex;
+align-items: center;
+flex-direction: column;
+justify-content: center;
 text-align: center;
 /* background-color: blue; */
 `
 const Title = styled.div`
-font-size: 40px;
-font-weight: 700;
+font-size: 20px;
+font-weight: bold;
 text-transform: uppercase;
 margin-bottom: 10px;
 `
 const Description = styled.div`
-font-size: 18px;
-font-weight: 600;
+font-size: 16px;
+font-weight: 500;
 `
 
 // OTP Form Area

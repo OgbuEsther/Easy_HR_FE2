@@ -12,7 +12,10 @@ import Otp from "../pages/Auth/Otp";
 
 import SignUpOption from "../pages/Auth/SignUpOption";
 import SignInOption from "../pages/Auth/SignInOption";
-
+import SignUpAdmin from "../pages/Auth/SignUpAdmin";
+import SignInAdmin from "../pages/Auth/SignInAdmin";
+import ForgotPasswordEmail from "../pages/Auth/ForgetPasswordEmail";
+import ResetPassword from "../pages/Auth/ResetPassword";
 const Home = lazy(() => import("../pages/landingpage/Home"));
 const About = lazy(() => import("../pages/landingpage/Connect"));
 const Staffs = lazy(() => import("../pages/Staffs"));
@@ -91,7 +94,25 @@ export const Elements = createBrowserRouter([
     path:"/sign-in-option",
     element: <SignInOption/>
   },
-  
+  {
+    path:"/sign-up-admin",
+    element: <SignUpAdmin/>
+  },
+  {
+    path:"/sign-in-admin",
+    element: <SignInAdmin/>
+  },
+  {
+    path:"/reset-password",
+    element: <ResetPassword/>,
+    children:[
+      {
+        index: true,
+        path:"find-account",
+        element: <ForgotPasswordEmail />
+      }
+    ]
+  },
   {
     path : "*",
     element : <NotFound />

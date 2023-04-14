@@ -1,59 +1,66 @@
 import React from 'react'
 import styled from 'styled-components'
 import Admin from "../../Assets/hr_group.jpg"
+import SignupAdminForm from '../../components/layout/Form/SignUpAdminForm'
 import {BsArrowLeft} from "react-icons/bs"
 import { NavLink } from 'react-router-dom';
-import SigninForm from '../../components/layout/Form/SignInForm';
 
 
-const SignIn = () => {
+const SignUpAdmin = () => {
   return (
     <div>
 
-<SipInPage>
-
-  <SigInDetailContainer>
-  {/* <BacKToDashBoardIconHold>
-       <NavLink to="/" style={{textDecoration:"none", color:"white"}}>
-       <BsArrowLeft />
-       </NavLink>
-    </BacKToDashBoardIconHold> */}
-
+<SipupPage>
+  <SigupDetailContainer>
 <ImageContainer>
+
+       <NavLink to="/" style={{textDecoration:"none", color:"white", 
+      
+    }}>
+        <BacKToDashBoardIconHold>
+       <BsArrowLeft />
+    </BacKToDashBoardIconHold>
+       </NavLink>
   <Image  src={Admin}/>
   {/* <AdsWriteUp className='AdswriteUp'>Increase productivity and sales, paying staffs quickly with low rate at your comfort with <span>
   easy pay</span>.
 </AdsWriteUp> */}
 </ImageContainer>
 <FormContainer>
-<SigninForm />
+  <SignupAdminForm />
 </FormContainer>
-  </SigInDetailContainer>
+</SigupDetailContainer>
 
-</SipInPage>
+</SipupPage>
 
     </div>
   )
 }
 
-export default SignIn;
+export default SignUpAdmin;
 
 const BacKToDashBoardIconHold = styled.div`
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 20px;
+    left: 20px;
     size: 24;
     padding: 10px 0px 0px 10px;
     font-size: 24px;
     color: white;
-  
+    padding: 15px;
+    border-radius: 50%;
+    background-color:rgba(136, 136, 136, 0.2);
+    cursor: pointer;
+    transition: all 390ms;
 
-   
+    :hover{
+      background-color:rgba(141, 141, 141, 0.616);
+    }
 ` 
 
 
 
-const AdsWriteUp = styled.div`
+const AdsWriteUp = styled.p`
   height: 150px;
   width: auto;
   padding-left: 50px;
@@ -62,15 +69,9 @@ const AdsWriteUp = styled.div`
   bottom: 0;
   left: 0;
 
-
-  @media screen and (max-width: 1040px){
-    font-size: 25px;
-    line-height: 35px;
-
-}
-
 span{
 }
+
 
 font-family: Arial, Helvetica, sans-serif;
   font-size: 30px;
@@ -80,6 +81,15 @@ font-family: Arial, Helvetica, sans-serif;
 
   background-color: rgba(100, 100, 100, 0);
   color: white;
+
+
+  
+
+
+
+
+
+
 `
 
 const Image = styled.img`
@@ -89,29 +99,30 @@ const Image = styled.img`
   object-position: center;
 `
 
-
 const FormContainer = styled.div`
   height: 100vh;
+  /* width: 50%; */
   flex: 1;
   background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0px 20px;
 
-
-
-  
+  @media screen and (max-width: 960px){
+    justify-content: center;
+    width: 100%;
+}
 `
 const ImageContainer = styled.div`
   height: 100%;
-  width: 50%;
+  width: 45%;
   position: relative;
   overflow: hidden;
 
-  @media screen and (max-width: 960px){
+  @media screen and (max-width: 960px){ 
     display: none;
-}
-
+  }
 
 
 
@@ -126,23 +137,17 @@ const ImageContainer = styled.div`
   
 `
 
-const SigInDetailContainer = styled.div`
+const SigupDetailContainer = styled.div`
   height: 100vh;
   width: 100%;
   display: flex;
-  justify-content: flex-start;
 background-color: white;
-position: relative;
-
-
-@media screen  and (max-width: 960px) {
-    justify-content: center;
-}
 `
 
-const SipInPage = styled.div`
+const SipupPage = styled.div`
 height: auto;
-width: auto;
+width:auto;
 display: flex;
 align-items: center;
+
 `
