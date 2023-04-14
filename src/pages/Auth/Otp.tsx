@@ -26,7 +26,7 @@ const Otp = () => {
             }else{
                 setCounter(counter-1)
             }
-           },2000)
+           },1000)
            return ()=> clearTimeout(timer)
     }
 

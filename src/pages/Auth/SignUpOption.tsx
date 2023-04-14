@@ -25,12 +25,30 @@ const SignUpOption = () => {
                     </NavLink>
                 </OptionButtonContainer>
             </SignUpOptionField>
+
+            <OptionSignInColumn>
+  <p>Don't have account? <NavLink to="/sign-in-option" style={{textDecoration:"none"}}><span>Sign In</span></NavLink></p>
+</OptionSignInColumn>
         </RightSection>
     </SignUpOptionPageContainer>
   )
 }
  
 export default SignUpOption;
+
+const OptionSignInColumn = styled.div`
+    height: 100px;
+    width: auto;
+
+    p{
+        font-size: 14px;
+    }
+
+    span{
+        color: #0174f7da;;
+    }
+   
+`
 
 
 
@@ -108,11 +126,11 @@ const SignUpOptionField = styled.div`
 
 const RightSection = styled.div`
 height: 100vh;
-/* width: 50%; */
 flex: 1;
 display: flex;
 justify-content: center;
 align-items: center;
+flex-direction: column;
 
 
 

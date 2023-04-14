@@ -27,8 +27,8 @@ const SignIn = () => {
 </ImageContainer>
 <FormContainer>
 <SigninForm />
-</FormContainer>
-  </SigInDetailContainer>
+    </FormContainer>
+</SigInDetailContainer>
 
 </SipInPage>
 
