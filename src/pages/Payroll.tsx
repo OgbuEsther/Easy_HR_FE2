@@ -163,7 +163,50 @@ const Payroll = () => {
                                   <Adds onClick={Editing}>Add Earnings</Adds>
                               </Add>
                           </Wrap>
+
+                          <Wrap2>
+                              <Up>
+                                  <Earning>Deductions</Earning>
+                                  <Amount><p>Amount</p></Amount>
+                              </Up>
+                              <Earnhold>
+                                  <Up3>
+                                  <Earning2>Regular Earnings</Earning2>
+                                  <Pays placeholder='NGN'/>
+                                  </Up3>
+
+                                  {data.map((data) => (
+                                      <Up3>
+                                          <Earning2>{ data.earn }</Earning2>
+                                  <Pays placeholder='NGN'/>
+                                  </Up3>
+                                  ))}
+                                  
+                                  {inputs ? (
+                                      <Up2>
+                                          <Addinput placeholder='Add earning' onChange={(e) => {
+                                              setEarnvalue(e.target.value)
+                                  }}/>
+                                      <Canchold>
+                                          <Canc onClick={Remove}>Cancel</Canc>
+                                          <Hi></Hi>
+                                              {earnvalue !== "" ? (
+                                                <Ad onClickCapture={addNewTask } bg="white" onClick={Remove}>Add</Ad>
+                                            ) : (
+                                                <Ad disabled={true}  bg='silver'>Add</Ad>
+                                            )}
+                                      </Canchold>
+                                  </Up2>
+                                  ) : null}
+                              </Earnhold>
+                              <Add>
+                                  <Icon><AiFillPlusCircle /></Icon>
+                                  <Adds onClick={Editing}>Add Earnings</Adds>
+                              </Add>
+                          </Wrap2>
                       </Earnings>
+
+                      
               </Box>
           </Edit>
           ) : null}
@@ -274,6 +317,16 @@ const Up = styled.div`
     justify-content: space-between;
     align-items: center;
 `
+const Wrap2 = styled.div`
+    width: 95%;
+    height: 80%;
+    /* background-color: red; */
+    overflow-y: scroll;
+    flex-direction: column;
+    /* justify-content: center; */
+    display: flex;
+    margin-top: 10px;
+`
 const Wrap = styled.div`
     width: 95%;
     height: 80%;
@@ -286,7 +339,8 @@ const Wrap = styled.div`
 `
 const Earnings = styled.div`
     height: 60vh;
-    background-color: #f0f8ffb7;
+    /* background-color: red; */
+    flex-direction: column;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -346,7 +400,7 @@ const Header = styled.div`
 `
 const Box = styled.div`
     width: 700px;
-    height: 500px;
+    height: 530px;
     background-color: white;
     border-radius: 5px;
 `
