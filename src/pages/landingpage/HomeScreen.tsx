@@ -8,8 +8,8 @@ const HomeScreen = () => {
   return (
     <div>
         <Home/>
-        <Connect/>
         <Plan/>
+        <Connect/>
         <Payment/>
     </div>
   )
