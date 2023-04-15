@@ -281,7 +281,7 @@ const Wrapper = styled.div`
 `;
 
 const Container = styled.div`
-  width: calc(100vw - 270px);
+  width: calc(100vw - 220px);
   display: flex;
   justify-content: center;
   align-items: center;
