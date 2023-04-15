@@ -287,7 +287,7 @@ const Container = styled.div`
   align-items: center;
   background-color: #F5F7FA;
   overflow: hidden;
-  margin-top: 50px;
+  margin-top: 20px;
 
   @media screen and (max-width: 1024px) {
     width: 100vw;
