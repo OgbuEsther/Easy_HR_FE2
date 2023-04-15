@@ -9,6 +9,7 @@ import { AiOutlineClose } from "react-icons/ai"
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
 import { BsFillPiggyBankFill, BsTelephoneFill, BsDatabase } from "react-icons/bs";
 import Airtels from './Airtels'
+import CardProps from './CardProps'
 
 const Cards = () => {
       const [showAirtel, setShowAirtel] = React.useState(false);
@@ -84,7 +85,19 @@ const Cards = () => {
             <CardInfo>Buy Data</CardInfo>
         </CardHold>
           </Card>
+
+       {/* <Staff>
+       <Title>
+            Staffs
+          </Title>
+          <CardProps title='FrontEnd Engineer' img="DC" name="Divine Chigozie"/>
+
+
+          <CardProps title='FullStack Engineer' img="VP" name="Valerian Pedro"/>
+
+          <CardProps title='BackEnd Engineer' img="EO" name="Esther Ogbu"/>
           
+       </Staff> */}
           {showPopup ? (
               <Popups>
                   <Popup_content>
@@ -163,6 +176,23 @@ const Cards = () => {
 }
 
 export default Cards
+const Title = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: 600;
+font-size: 20px;
+`
+const Staff = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* flex-direction: column; */
+  width: 100%;
+
+`
+
 const Airtelhold = styled.div`
     width: 100%;
     height: 100vh;
