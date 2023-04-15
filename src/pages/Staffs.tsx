@@ -20,6 +20,10 @@ const Staffs = () => {
 
           <CardHold>
             <CardProps img="DC" name="Valerian Pedro" title="FullStack Engineer"/>
+            <CardProps img="GO" name="Godwin Okowoli" title="FullStack Engineer"/>
+            <CardProps img="EO" name="Esther Ogbu" title="FullStack Engineer"/>
+            <CardProps img="DC" name="Valerian Pedro" title="FullStack Engineer"/>
+            <CardProps img="DC" name="Valerian Pedro" title="FullStack Engineer"/>
             <CardProps img="DC" name="Valerian Pedro" title="FullStack Engineer"/>
           </CardHold>
         </Wrapper>
@@ -34,6 +38,9 @@ const CardHold = styled.div`
 display: flex;
 flex-wrap: wrap;
 margin-bottom: 80px;
+align-items: center;
+margin-top: 20px;
+justify-content: center;
 `
 
 
@@ -45,12 +52,13 @@ background-color: rgba(0,0,0,0);
 line-height: 31.2px;
 text-decoration: none solid rgb(31,31,31);
 text-align: start;
-margin-bottom: 80px;
+/* margin-bottom:20px; */
 margin-left: 10px;
 display: flex;
 /* align-items: center; */
 flex-direction: column;
 /* justify-content: center; */
+/* background-color: greenyellow; */
 span{
   color: rgb(51,51,51);
   background-color: rgba(0,0,0,0);
@@ -70,9 +78,12 @@ const Wrapper = styled.div`
 
   display: flex;
   /* align-items: center; */
-  /* justify-content: center; */
+  justify-content: center;
   
   flex-direction: column;
+  /* background-color: red; */
+  margin-top: 140px;
+  flex-wrap: wrap;
 
   @media screen and (max-width: 768px) {
     width: 100%;
