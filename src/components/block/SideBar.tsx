@@ -3,7 +3,10 @@ import styled from 'styled-components'
 import img from "../../Assets/easyhr.png"
 import { MdDashboard } from "react-icons/md";
 import { NavLink } from 'react-router-dom';
-import {FiPower} from "react-icons/fi";
+import { FiPower } from "react-icons/fi";
+import { BsFillPersonFill } from "react-icons/bs"
+import { RiMoneyDollarCircleFill } from "react-icons/ri"
+import {GiMoneyStack} from "react-icons/gi"
 
 const SideBar = () => {
     const [show, setShow] = React.useState(false);
@@ -37,7 +40,7 @@ const SideBar = () => {
 
       <Home2>
         <Icon2>
-          <MdDashboard />
+          <BsFillPersonFill />
         </Icon2>
         <NavLink
           to="/dashboard/staffs"
@@ -54,7 +57,7 @@ const SideBar = () => {
 
       <Home2>
         <Icon2>
-          <MdDashboard />
+          <RiMoneyDollarCircleFill />
         </Icon2>
 
         <Text3 onClick={Toggle}>Financials</Text3>
@@ -69,7 +72,7 @@ const SideBar = () => {
       
       <Home2>
         <Icon2>
-          <MdDashboard />
+          <GiMoneyStack />
         </Icon2>
         <NavLink
           to="/transaction"
