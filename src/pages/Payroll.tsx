@@ -251,7 +251,7 @@ const Payroll = () => {
                           </Wrap2>
                       </Earnings>
 
-                      
+                      <Close><AiOutlineClose /></Close>
               </Box>
           </Edit>
           ) : null}
@@ -260,6 +260,15 @@ const Payroll = () => {
 }
 
 export default Payroll
+
+const Close = styled.div`
+    position: absolute;
+    color: #000;
+    height: 30px;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+`
 const Canchold = styled.div`
     display: flex;
     align-items: center;
@@ -457,6 +466,7 @@ const Box = styled.div`
     height: 530px;
     background-color: white;
     border-radius: 5px;
+    position: relative;
 `
 const Edit = styled.div`
     width: 100%;
