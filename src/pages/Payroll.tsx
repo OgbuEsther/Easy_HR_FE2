@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { CiSearch } from "react-icons/ci"
 import img from ".././Assets/savio.jpg"
-import {AiFillPlusCircle} from "react-icons/ai"
+import {AiFillPlusCircle, AiOutlineClose} from "react-icons/ai"
 
 interface data {
     earn: string;
