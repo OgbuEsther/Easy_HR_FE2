@@ -5,6 +5,7 @@ import img2 from "../Assets/mtn.jpg"
 import img3 from "../Assets/glo.jpg"
 import img4 from "../Assets/9mobile.jpg"
 import img5 from "../Assets/smile.jpg"
+import Img6 from "../Assets/wave.svg"
 import { AiOutlineClose } from "react-icons/ai"
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
 import { BsFillPiggyBankFill, BsTelephoneFill, BsDatabase } from "react-icons/bs";
