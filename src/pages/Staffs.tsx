@@ -22,9 +22,9 @@ const Staffs = () => {
             <CardProps img="DC" name="Valerian Pedro" title="FullStack Engineer"/>
             <CardProps img="GO" name="Godwin Okowoli" title="FullStack Engineer"/>
             <CardProps img="EO" name="Esther Ogbu" title="FullStack Engineer"/>
-            <CardProps img="DC" name="Valerian Pedro" title="FullStack Engineer"/>
-            <CardProps img="DC" name="Valerian Pedro" title="FullStack Engineer"/>
-            <CardProps img="DC" name="Valerian Pedro" title="FullStack Engineer"/>
+            <CardProps img="EO" name="Esther Ighoruemuse" title="FullStack Engineer"/>
+            <CardProps img="J" name="Joshua" title="FullStack Engineer"/>
+            <CardProps img="CO" name="CodeLab Academy" title="Coding  Academy"/>
           </CardHold>
         </Wrapper>
       </Container>
