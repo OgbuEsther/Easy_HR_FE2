@@ -1,5 +1,4 @@
 import React, { lazy } from "react";
-
 import { createBrowserRouter } from "react-router-dom";
 import { Dashboard, HomeLayout } from "../components";
 import  ErrorBoundary  from "../utils/hoc/ErrorBoundary";
@@ -9,7 +8,6 @@ import Payroll from "../pages/Payroll";
 import SignUp from "../pages/Auth/SignUp";
 import SignIn from "../pages/Auth/SignIn";
 import Otp from "../pages/Auth/Otp";
-
 import SignUpOption from "../pages/Auth/SignUpOption";
 import SignInOption from "../pages/Auth/SignInOption";
 import SignUpAdmin from "../pages/Auth/SignUpAdmin";
@@ -17,9 +15,12 @@ import SignInAdmin from "../pages/Auth/SignInAdmin";
 import ForgotPasswordEmail from "../pages/Auth/ForgetPasswordEmail";
 import ResetPassword from "../pages/Auth/ResetPassword";
 import Verification from "../pages/Auth/Verification";
+
+
 const Home = lazy(() => import("../pages/landingpage/Home"));
 const About = lazy(() => import("../pages/landingpage/Connect"));
 const Staffs = lazy(() => import("../pages/Staffs"));
+const Attendance = lazy(()=> import("../pages/Attendance/Attendance"));
 const ParentComp = lazy(() => import("../pages/ParentComp"));
 const ContactUs = lazy(() => import("../pages/landingpage/ContactUs"));
 
@@ -61,6 +62,12 @@ export const Elements = createBrowserRouter([
       {
         path: "/dashboard/staffs",
         element: <Staffs />,
+        hasErrorBoundary: true,
+        errorElement: <ErrorBoundary />,
+      },
+      {
+        path: "/dashboard/attendance",
+        element: <Attendance />,
         hasErrorBoundary: true,
         errorElement: <ErrorBoundary />,
       },

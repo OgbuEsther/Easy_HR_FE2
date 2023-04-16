@@ -80,7 +80,24 @@ const SideBar = () => {
           <GiMoneyStack />
         </Icon2>
         <NavLink
-          to="/transaction"
+          to="/dashboard/attendance"
+          style={({ isActive }) => {
+            return {
+              textDecoration: isActive ? "none" : "none",
+              color: isActive ? "#2AA7FF" : "#3e4956",
+            };
+          }}
+        >
+          <Text3>Attendance</Text3>
+        </NavLink>
+      </Home2>
+
+      <Home2>
+        <Icon2>
+          <GiMoneyStack />
+        </Icon2>
+        <NavLink
+          to="/dashboard/transaction"
           style={({ isActive }) => {
             return {
               textDecoration: isActive ? "none" : "none",
@@ -117,7 +134,7 @@ const Text = styled.div`
 const Power = styled.div`
     display: flex;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 80px;
 `;
 
 const Staffs = styled.div`
