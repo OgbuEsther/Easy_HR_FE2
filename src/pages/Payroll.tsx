@@ -254,6 +254,9 @@ const Payroll = () => {
                               </Add>
                           </Wrap2>
                       </Earnings>
+                      <Confirmhold>
+                          <Confirm>Confirm Payment</Confirm>
+                      </Confirmhold>
 
                       <Close onClick={Closes}><AiOutlineClose /></Close>
               </Box>
@@ -264,6 +267,24 @@ const Payroll = () => {
 }
 
 export default Payroll
+const Confirm = styled.div`
+    width: 150px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: #1F337C;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 30px;
+`
+const Confirmhold = styled.div`
+    width: 95%;
+    display: flex;
+    justify-content: flex-end;
+
+`
 
 const Close = styled.div`
     position: absolute;
@@ -467,7 +488,7 @@ const Header = styled.div`
 `
 const Box = styled.div`
     width: 700px;
-    height: 530px;
+    height: 570px;
     background-color: white;
     border-radius: 5px;
     position: relative;
