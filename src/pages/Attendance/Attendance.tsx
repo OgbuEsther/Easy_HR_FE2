@@ -1,12 +1,10 @@
 import React from "react";
-import { MdOutlineCancel } from "react-icons/md";
-import { FaGoogleWallet } from "react-icons/fa";
+
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
 
 
 
-const ParentComp = () => {
+const Attendance = () => {
  
   return (
     <div>
@@ -21,13 +19,65 @@ const ParentComp = () => {
            / Attendance
            </span>
           </Text>
+
+          <Form>
+           <Text>Form</Text>
+            <table>
+              <tr>
+                <th>S/N</th>
+                <th>React</th>
+                <th>Node</th>
+                <th>CSS</th>
+                <th>TailWind</th>
+                <th>Vite</th>
+                <th>MongoDB</th>
+                <th>Express</th>
+                <th>Hooks</th>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+              </tr>
+            </table>
+          </Form>
         </Wrapper>
       </Container>
     </div>
   );
 };
 
-export default ParentComp;
+export default Attendance;
+const Form = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+
+table{
+  flex-direction: column;
+}
+`
 
 const Text = styled.div`
 font-weight: 500;
@@ -84,6 +134,8 @@ const Container = styled.div`
   width: calc(100vw - 220px);
   background-color: #F5F7FA;
   overflow: hidden;
+  display: flex;
+  align-items: center;
 
 
   @media screen and (max-width: 1024px) {
