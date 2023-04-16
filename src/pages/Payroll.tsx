@@ -87,6 +87,10 @@ const Payroll = () => {
         setShow(!show)
     }
 
+    const Closes = () => {
+        setShow(false)
+    }
+
     const Editing = () => {
         setinputs(true)
     }
@@ -251,7 +255,7 @@ const Payroll = () => {
                           </Wrap2>
                       </Earnings>
 
-                      <Close><AiOutlineClose /></Close>
+                      <Close onClick={Closes}><AiOutlineClose /></Close>
               </Box>
           </Edit>
           ) : null}
