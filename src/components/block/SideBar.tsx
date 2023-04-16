@@ -3,7 +3,10 @@ import styled from 'styled-components'
 import img from "../../Assets/easyhr.png"
 import { MdDashboard } from "react-icons/md";
 import { NavLink } from 'react-router-dom';
-import {FiPower} from "react-icons/fi";
+import { FiPower } from "react-icons/fi";
+import { BsFillPersonFill } from "react-icons/bs"
+import { RiMoneyDollarCircleFill } from "react-icons/ri"
+import {GiMoneyStack} from "react-icons/gi"
 
 const SideBar = () => {
     const [show, setShow] = React.useState(false);
@@ -27,7 +30,7 @@ const SideBar = () => {
           style={({ isActive }) => {
             return {
               textDecoration: isActive ? "none" : "none",
-              color: isActive ? "#2AA7FF" : "#3e4956",
+              color: isActive ? "#2AA7FF" : "#fff",
             };
           }}
         >
@@ -37,14 +40,14 @@ const SideBar = () => {
 
       <Home2>
         <Icon2>
-          <MdDashboard />
+          <BsFillPersonFill />
         </Icon2>
         <NavLink
-          to="/dashboard"
+          to="/dashboard/staffs"
           style={({ isActive }) => {
             return {
               textDecoration: isActive ? "none" : "none",
-              color: isActive ? "#2AA7FF" : "#3e4956",
+              color: isActive ? "#2AA7FF" : "#fff",
             };
           }}
         >
@@ -54,14 +57,19 @@ const SideBar = () => {
 
       <Home2>
         <Icon2>
-          <MdDashboard />
+          <RiMoneyDollarCircleFill />
         </Icon2>
 
         <Text3 onClick={Toggle}>Financials</Text3>
       </Home2>
       {show ? (
         <Staffs>
-          <NavLink to="/dashboard/payroll" style={{ textDecoration: "none" }}>
+          <NavLink to="/dashboard/payroll" style={({ isActive }) => {
+            return {
+              textDecoration: isActive ? "none" : "none",
+              color: isActive ? "#fff" : "#fff",
+            };
+          }}>
             <p>Send Payment</p>
           </NavLink>
         </Staffs>
@@ -69,7 +77,7 @@ const SideBar = () => {
       
       <Home2>
         <Icon2>
-          <MdDashboard />
+          <GiMoneyStack />
         </Icon2>
         <NavLink
           to="/transaction"
@@ -99,8 +107,9 @@ const Text = styled.div`
   font-size: 17px;
   cursor: pointer;
   align-items: center;
+  color: #fff;
   display: flex;
-  margin-left: 30px;
+  margin-left: 17px;
   width: 120px;
   height: 40px
 `;
@@ -125,6 +134,7 @@ const Text3 = styled.div`
   font-family: U8, sans-serif;
   cursor: pointer;
   align-items: center;
+  color: #fff;
   display: flex;
   margin-left: 15px;
   width: 410px;
@@ -150,7 +160,7 @@ const Text1 = styled.div`
 `
 
 const Icon2 = styled.div`
-  color: #3e4956;
+  color: #fff;
   font-size: 23px;
   cursor: pointer;
 `;
@@ -172,10 +182,10 @@ const Top = styled.div`
   margin-top: 15px;
 `;
 const Container = styled.div`
-  width: 270px;
+  width: 220px;
   height: 100vh;
   position: fixed;
-  background-color: #f2f5f8;
+  background-color: #1F337C;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   overflow: hidden;
   padding-left: 25px;

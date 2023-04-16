@@ -5,10 +5,12 @@ import img2 from "../Assets/mtn.jpg"
 import img3 from "../Assets/glo.jpg"
 import img4 from "../Assets/9mobile.jpg"
 import img5 from "../Assets/smile.jpg"
+import Img6 from "../Assets/wave.svg"
 import { AiOutlineClose } from "react-icons/ai"
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
 import { BsFillPiggyBankFill, BsTelephoneFill, BsDatabase } from "react-icons/bs";
 import Airtels from './Airtels'
+import CardProps from './CardProps'
 
 const Cards = () => {
       const [showAirtel, setShowAirtel] = React.useState(false);
@@ -55,9 +57,23 @@ const Cards = () => {
                   <CardTitle>Balance </CardTitle>
                   <CardInfo>NGN 1000 </CardInfo>
               </CardHold>
+      </Card>
+      
+      <Card>
+              <CardHold>
+                  <IconHold
+                      style={{
+              backgroundColor: "#e76f51",
+            }}
+            >
+                    <BsFillPiggyBankFill />
+                  </IconHold>
+                  <CardTitle>Payroll </CardTitle>
+                  <CardInfo>NGN 1000 </CardInfo>
+              </CardHold>
           </Card>
 
-          <Card >
+          {/* <Card >
         <CardHold>
           <IconHold
             style={{
@@ -69,9 +85,9 @@ const Cards = () => {
           
             <CardInfo>Buy Airtime</CardInfo>
         </CardHold>
-          </Card>
+          </Card> */}
           
-          <Card onClick={Togglepopup}>
+          {/* <Card onClick={Togglepopup}>
         <CardHold>
           <IconHold
             style={{
@@ -83,8 +99,20 @@ const Cards = () => {
           
             <CardInfo>Buy Data</CardInfo>
         </CardHold>
-          </Card>
+          </Card> */}
+
+       {/* <Staff>
+       <Title>
+            Staffs
+          </Title>
+          <CardProps title='FrontEnd Engineer' img="DC" name="Divine Chigozie"/>
+
+
+          <CardProps title='FullStack Engineer' img="VP" name="Valerian Pedro"/>
+
+          <CardProps title='BackEnd Engineer' img="EO" name="Esther Ogbu"/>
           
+       </Staff> */}
           {showPopup ? (
               <Popups>
                   <Popup_content>
@@ -163,6 +191,23 @@ const Cards = () => {
 }
 
 export default Cards
+const Title = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: 600;
+font-size: 20px;
+`
+const Staff = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* flex-direction: column; */
+  width: 100%;
+
+`
+
 const Airtelhold = styled.div`
     width: 100%;
     height: 100vh;
@@ -311,14 +356,16 @@ const CardHold = styled.div`
 
 const Card = styled.div`
   height: 180px;
-  width: 228px;
+  width: 329px;
   background-color: #fff;
   border-radius: 3px;
   border-bottom: 2px solid #0d71fa;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid #D5DBE1;
   margin: 10px;
+  border-radius: 10px;
   cursor: pointer;
 
   @media (max-width: 1024px) {

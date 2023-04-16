@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import LeftSectionImage from "../../Assets/girl_five.jpg"
+import LeftSectionImage from "../../Assets/hr_group.jpg"
 import { NavLink } from 'react-router-dom'
 
 const SignInOption = () => {
@@ -12,7 +12,7 @@ const SignInOption = () => {
         <RightSection>
             <SignUpOptionField>
                 <TitleAndDescriptionContainer>
-                    <Title>CHOOSE A SIGN UP OPTION</Title>
+                    <Title>CHOOSE A SIGN IN OPTION</Title>
                 </TitleAndDescriptionContainer>
                 <OptionButtonContainer>
                     <NavLink to="/sign-up" style={{width:"100%", textDecoration:"none", color:"white", display:"flex", justifyContent:"center"}}>
@@ -53,7 +53,7 @@ const StaffSignUpOption = styled.button`
     cursor: pointer;
     :hover{
         transform: scale(1.03);
-        background-color: #004cff;
+        background-color: #0077ffd7;
         color: white;
 
     }
@@ -63,9 +63,9 @@ const StaffSignUpOption = styled.button`
 const AdminSignUpOption = styled.button`
     height: 70px;
     width: 80%;
-    background-color: #07befb6e;
+    background-color: #0791fb6a;
     border-radius: 50px;
-    color: #004cff;
+    color: #078dfb;
     font-size: 20px;
     font-weight: 600;
     border: none;
@@ -74,8 +74,8 @@ const AdminSignUpOption = styled.button`
     :hover{
         transform: scale(1.03);
         background-color: transparent;
-        border: 2px solid #004cff;
-        color: #004cff;
+        border: 2px solid  #007bffce;
+        color:  #078dfb;
     }
 `
 

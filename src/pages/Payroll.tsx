@@ -8,6 +8,10 @@ interface data {
     earn: string;
     id: number;
 }
+interface data2 {
+    earn: string;
+    id: number;
+}
 
 const Payroll = () => {
     const [show, setShow] = React.useState(false)
@@ -16,8 +20,16 @@ const Payroll = () => {
     const [earnvalue, setEarnvalue] = React.useState("")
     const [data, setData] = React.useState<data[]>([])
 
+    const [shows2, setShows2] = React.useState(false)
+    const [inputs2, setinputs2] = React.useState(false)
+    const [earnvalue2, setEarnvalue2] = React.useState("")
+    const [data2, setData2] = React.useState<data2[]>([])
+
     const Toggles = () => {
         setShows(true)
+    }
+    const Toggles2 = () => {
+        setShows2(true)
     }
 
     let idData: number = data.length + 1;
@@ -43,6 +55,31 @@ const Payroll = () => {
         },
       ]
     );
+    };
+    
+    let idData2: number = data2.length + 1;
+       const addNewTask2 = () => {
+    // sorting algoritm
+    // const sortinfo = (x: any) => {
+    //   return (a: any, b: any) => {
+    //     if (a[x] < b[x]) {
+    //       return a[x];
+    //     } else if (a[x] > b[x]) {
+    //       return -1;
+    //     }
+    //     return 0;
+    //   };
+    // };
+
+    setData2((prev2) =>
+      [
+        ...prev2,
+        {
+          earn: earnvalue2,
+          id: idData2,
+        },
+      ]
+    );
   };
 
 
@@ -54,8 +91,16 @@ const Payroll = () => {
         setinputs(true)
     }
 
+    const Editing2 = () => {
+        setinputs2(true)
+    }
+
     const Remove = () => {
         setinputs(false)
+    }
+
+    const Remove2 = () => {
+        setinputs2(false)
     }
 
 
@@ -143,7 +188,7 @@ const Payroll = () => {
                                   
                                   {inputs ? (
                                       <Up2>
-                                          <Addinput placeholder='Add eraning' onChange={(e) => {
+                                          <Addinput placeholder='Add earning' onChange={(e) => {
                                               setEarnvalue(e.target.value)
                                   }}/>
                                       <Canchold>
@@ -163,7 +208,50 @@ const Payroll = () => {
                                   <Adds onClick={Editing}>Add Earnings</Adds>
                               </Add>
                           </Wrap>
+
+                          <Wrap2>
+                              <Up>
+                                  <Earning>Deductions</Earning>
+                                  <Amount><p>Amount</p></Amount>
+                              </Up>
+                              <Earnhold>
+                                  <Up3>
+                                  <Earning2>Regular Earnings</Earning2>
+                                  <Pays placeholder='NGN'/>
+                                  </Up3>
+
+                                  {data2.map((data2) => (
+                                      <Up3>
+                                          <Earning2>{ data2.earn }</Earning2>
+                                  <Pays placeholder='NGN'/>
+                                  </Up3>
+                                  ))}
+                                  
+                                  {inputs2 ? (
+                                      <Up2>
+                                          <Addinput placeholder='Add earning' onChange={(e) => {
+                                              setEarnvalue2(e.target.value)
+                                  }}/>
+                                      <Canchold>
+                                          <Canc onClick={Remove}>Cancel</Canc>
+                                          <Hi></Hi>
+                                              {earnvalue2 !== "" ? (
+                                                <Ad onClickCapture={addNewTask2 } bg="white" onClick={Remove2}>Add</Ad>
+                                            ) : (
+                                                <Ad disabled={true}  bg='silver'>Add</Ad>
+                                            )}
+                                      </Canchold>
+                                  </Up2>
+                                  ) : null}
+                              </Earnhold>
+                              <Add>
+                                  <Icon><AiFillPlusCircle /></Icon>
+                                  <Adds onClick={Editing2}>Add Earnings</Adds>
+                              </Add>
+                          </Wrap2>
                       </Earnings>
+
+                      
               </Box>
           </Edit>
           ) : null}
@@ -198,6 +286,15 @@ const Canc = styled.div`
     font-size: 14px;
     cursor: pointer;
 `
+const Addinput2 = styled.input`
+    width: 210px;
+    height: 20px;
+    border: 1px solid #D6DEE9;
+    outline: none;
+    padding-left: 10px;
+    border-radius: 3px;
+`
+
 const Addinput = styled.input`
     width: 210px;
     height: 20px;
@@ -274,16 +371,30 @@ const Up = styled.div`
     justify-content: space-between;
     align-items: center;
 `
+const Wrap2 = styled.div`
+    width: 95%;
+    height: 80%;
+    /* background-color: red; */
+    overflow-y: scroll;
+    flex-direction: column;
+    /* justify-content: center; */
+    display: flex;
+    margin-top: 10px;
+`
 const Wrap = styled.div`
     width: 95%;
-    height: 100%;
+    height: 80%;
+    /* background-color: red; */
+    overflow-y: scroll;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     display: flex;
     margin-top: 30px;
 `
 const Earnings = styled.div`
-    /* height: 130px; */
+    height: 60vh;
+    /* background-color: red; */
+    flex-direction: column;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -343,7 +454,7 @@ const Header = styled.div`
 `
 const Box = styled.div`
     width: 700px;
-    height: 500px;
+    height: 530px;
     background-color: white;
     border-radius: 5px;
 `

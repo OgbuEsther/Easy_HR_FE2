@@ -24,7 +24,7 @@ const Superhero = () => {
                           <Img src={img} />
                           <Text><p>No hidden fees</p></Text>
                       </Hold>
-                      <NavLink to="/optionsignup" style={{textDecoration: "none"}}>
+                      <NavLink to="/sign-up-option" style={{textDecoration: "none"}}>
                           <Button>Start now</Button>
                       </NavLink>
                   </Down>

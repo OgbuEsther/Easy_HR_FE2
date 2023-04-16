@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom'
 
 
 
-const SignupForm = () => {
+const SignupAdminForm = () => {
 
 
 
@@ -35,7 +35,7 @@ const SignupForm = () => {
 
         <Form onClick={Submit}>
 <SignUpTitle>Sign Up</SignUpTitle>
-<SignUpDescription>You will be signup as a staff</SignUpDescription>
+<SignUpDescription>You will be signup as an Admin</SignUpDescription>
 {/* <SignUpDescription>Pay smart and save time with Easy Pay</SignUpDescription> */}
 
 <InputField>
@@ -99,7 +99,7 @@ const SignupForm = () => {
   )
 }
 
-export default SignupForm;
+export default SignupAdminForm;
 
 const Label = styled.label`
   font-weight: 600;
