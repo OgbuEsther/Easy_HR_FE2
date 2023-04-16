@@ -14,7 +14,10 @@ const Staffs = () => {
           <Text>
             Employee <br />
            <span>
-           Dashboard / Employee
+          <a href="/dashboard">
+          Dashboard 
+          </a>
+          / Employee
            </span>
           </Text>
 
@@ -68,7 +71,14 @@ span{
   font-weight: 500;
   text-decoration: none solid rgb(51,51,51);
   text-align: left;
+}
 
+a{
+  text-decoration: none;
+
+  :hover{
+    color:black
+  }
 }
 `
 

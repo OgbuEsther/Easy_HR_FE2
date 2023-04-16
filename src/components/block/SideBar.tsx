@@ -134,7 +134,7 @@ const Text = styled.div`
 const Power = styled.div`
     display: flex;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 80px;
 `;
 
 const Staffs = styled.div`
