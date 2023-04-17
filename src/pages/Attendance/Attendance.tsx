@@ -61,6 +61,21 @@ const Attendance = () => {
               </tr>
             </table>
           </Form>
+
+          <TableWerapper>
+            <SideNav>
+
+            </SideNav>
+          <div>
+            <TopNav>
+
+            </TopNav>
+            <Table>
+
+            </Table>
+        </div>
+        </TableWerapper>
+
         </Wrapper>
       </Container>
     </div>
@@ -68,6 +83,18 @@ const Attendance = () => {
 };
 
 export default Attendance;
+const Table = styled.div``
+
+const TopNav = styled.div`
+table{
+  color: red;
+}
+`
+
+const SideNav = styled.div``
+
+const TableWerapper = styled.div``
+
 const Form = styled.div`
 display: flex;
 align-items: center;

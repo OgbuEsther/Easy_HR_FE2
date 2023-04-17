@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import bg from "../../../Assets/bgimg.jpg"
+import { NavLink } from 'react-router-dom'
 
 const End = () => {
   return (
@@ -14,9 +15,11 @@ const End = () => {
                   EasyHR makes it easy to take your human capital management to the next level by <br />
                    automating administrative  HR and providing robust <br /> context rich reporting 
                 </Word>
-                <Button>
+              <NavLink to="/sign-in">
+              <Button>
                   Contact Us
                 </Button>
+              </NavLink>
             </Wrapper>
         </Container>
     </div>
@@ -28,7 +31,7 @@ export default End
 const Button = styled.button`
 margin: 20px;
 font-size: 20px;
-background-color: blue;
+background-color: #00244E;
 height: 50px;
 font-weight: 300;
 color: white;
@@ -41,11 +44,13 @@ line-height: 21px;
 font-weight: 400;
 text-decoration: none solid rgb(1,28,57);
 text-align: center;
+transition: all 350ms;
 
 :hover{
-  color: blue;
-  border: 1px solid blue;
-  background-color: white;
+  color: #00244E;
+  border: 1px solid #00244E;
+  background-color: whitesmoke;
+  transform: scale(0.98);
 }
 `
 
