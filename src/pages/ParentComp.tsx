@@ -8,7 +8,7 @@ import DashBoardCardProps from "./DashBoardCardProps";
 import {FaJediOrder } from "react-icons/fa"
 import { BsFillArrowRightCircleFill } from "react-icons/bs"
 import { GiHypersonicMelon } from "react-icons/gi"
-import { AiFillAlert,AiOutlineDeploymentUnit } from "react-icons/ai"
+import { AiFillAlert,AiOutlineDeploymentUnit,AiFillDashboard } from "react-icons/ai"
 
 
 
@@ -30,7 +30,11 @@ const ParentComp = () => {
           <Top>
 
             <Left>
-              <Bold>Dashboard</Bold>
+              <Bold>
+                <Icn>
+                  <AiFillDashboard/>
+                </Icn>
+                Dashboard</Bold>
               <button onClick={Toggle}>Credit Wallet</button>
             </Left>
             <hr />
@@ -47,7 +51,7 @@ const ParentComp = () => {
                     </Circle>
                     <Wallet>
                       <p>Wallet Balance</p>
-                      <h3>NGN</h3>
+                      <h3>NGN:0.00</h3>
                     </Wallet>
                   </Card2>
 
@@ -202,7 +206,7 @@ const Card2 = styled.div`
   width: 300px;
   height: 150px;
   margin-top: 30px;
-  background-color: #0d71fa;
+  background-color: #00244E;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -252,10 +256,20 @@ const Slidein = styled.div`
     }
   }
 `
+const Icn = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 30px;
+margin: 3px;
+`
 
 const Bold = styled.div`
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 const Left = styled.div`
   display: flex;
@@ -274,7 +288,7 @@ const Top = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #0d71fa;
+    background-color:#00244E;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
