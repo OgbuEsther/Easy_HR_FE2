@@ -4,6 +4,11 @@ import PropsCards from "./PropsCards"
 import img from "../../../Assets/card9.png"
 import bg from "../../../Assets/bgimg2.png"
 import im from "../../../Assets/ft.png"
+import {CgPerformance} from "react-icons/cg"
+import {TbBrandNytimes} from "react-icons/tb"
+import {FaAlipay} from "react-icons/fa"
+import {SiSecurityscorecard} from "react-icons/si"
+
 
 const Modern = () => {
 
@@ -50,17 +55,31 @@ const Modern = () => {
 
                 <ButtonsHold>
                     <Button bg={show ? '#00244E':'' } cl={show ? "white":''} onClick={Toogle} bcc='' >
-                        Performance
+                       <Icon>
+                        <CgPerformance/>
+                       </Icon>
+                       Performance
                     </Button>
                     <Button bg={show2 ? '#00244E':'' } cl={show2 ? "white":''}  onClick={Toogle2}
                     bcc=''
                     >
+                      <Icon>
+                      <TbBrandNytimes/>
+                      </Icon>
+                    
                         Time & Attendance
                     </Button>
                     <Button  bg={show3 ? '#00244E':'' } cl={show3 ? "white":''}  onClick={Toogle3} bcc=''>
+                    <Icon>
+                      <FaAlipay/>
+                      </Icon>
+                   
                      Payroll
                     </Button>
                     <Button  bg={show4 ? '#00244E':'' } cl={show4 ? "white":''} onClick={Toogle4} bcc=''>
+                    <Icon>
+                      <SiSecurityscorecard/>
+                      </Icon>
                      Recruitment
                     </Button>
                 </ButtonsHold>
@@ -89,10 +108,16 @@ const Modern = () => {
 }
 
 export default Modern
+const Icon = styled.div`
+margin: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+`
 
 const Button = styled.button<{bg:string, cl:string, bcc:string}>`
 	height: 50px;
-	width: 200px;
+	width: 250px;
 	border-radius: 50px;
 	position: relative;
 	border: 0;
@@ -104,6 +129,9 @@ const Button = styled.button<{bg:string, cl:string, bcc:string}>`
 	transition: all 350ms;
 	margin-right: 10px;
 	margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
     :hover{
         background-color: ${(props) => props.bcc};
