@@ -15,12 +15,10 @@ const SignUp = () => {
   <SigupDetailContainer>
 <ImageContainer>
 
-      <OutlineButton positioning='fixed' border='2px solid white' fontSize='24px' top='20px' left='20px'/>
-       <NavLink to="/" style={{textDecoration:"none", color:"white", 
-      
-    }}>
-       
-       </NavLink>
+<NavLink to='/sign-up-option'>
+      <OutlineButton positioning='absolute' border='2px solid white' color='white' top='20px' left='20px'/>
+  <Image  src={Admin}/>
+      </NavLink>
   <Image  src={Admin}/>
   {/* <AdsWriteUp className='AdswriteUp'>Increase productivity and sales, paying staffs quickly with low rate at your comfort with <span>
   easy pay</span>.
@@ -74,7 +72,7 @@ const Image = styled.img`
 `
 
 const FormContainer = styled.div`
-  height: 100vh;
+  height: auto;
   flex: 1;
   background-color: white;
   display: flex;
@@ -82,6 +80,7 @@ const FormContainer = styled.div`
   align-items: center;
   padding: 0px 20px;
   padding-top: 50px;
+  overflow: hidden;
  
 
   @media screen and (max-width: 960px){

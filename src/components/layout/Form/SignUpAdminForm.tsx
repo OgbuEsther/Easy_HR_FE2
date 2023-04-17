@@ -41,12 +41,15 @@ const navigate = useNavigate();
    mutationFn: createAdmin,
 
    onSuccess: (myData)=>{
-    console.log("user", myData);
+    // console.log("admin", myData);
     dispatch(Admin(myData.data));
-    navigate("/sign-in")
+    navigate("/sign-in-admin")
     
    }
   })
+
+  // console.log(posting);
+  
   
   const Submit = handleSubmit(async(data)=>{
     posting.mutate(data)
@@ -87,7 +90,7 @@ const navigate = useNavigate();
     <CompanyNameInput {...register("companyname")}  placeholder='Company Name'/>
   </CompanyNameInputContainer>
   <PasswordInputContainer>
-    <PasswordInput {...register("password")}  placeholder='Password'/>
+    <PasswordInput {...register("password")}  placeholder='Password' type='password'/>
   </PasswordInputContainer>
 </CompanyNameAndPasswordInputColumn>
 
