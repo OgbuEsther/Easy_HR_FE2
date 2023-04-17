@@ -4,7 +4,7 @@ import LeftSectionImage from "../../Assets/hr_group.jpg"
 import { NavLink } from 'react-router-dom'
 import OutlineButton from '../../components/Buttons/OutlineButton'
 import logo from "../../Assets/logos2.png"
-import { log } from 'console'
+
 
 const SignUpOption = () => {
 
@@ -15,12 +15,14 @@ const SignUpOption = () => {
     
     <SignUpOptionPageContainer>
         <LeftSection>
-            <OutlineButton color='white' border='2px solid white' 
+        <NavLink to="/">
+           <OutlineButton color='white' border='2px solid white' 
             top='20px'
             left='20px'
             fontSize='200px'
             positioning='absolute'
             />
+           </NavLink>
             <Image src={LeftSectionImage}/>
         </LeftSection>
         <RightSection>

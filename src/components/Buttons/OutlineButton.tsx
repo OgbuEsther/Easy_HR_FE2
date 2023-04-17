@@ -7,10 +7,7 @@ import { OutlineButtonData } from '../../types/AllInterfaces'
 const OutlineButton: React.FC<OutlineButtonData> = ({color, border, top, left, fontSize, positioning}) => {
   return (
     <div>
-       <NavLink to="/" style={{textDecoration:"none", color:"white", 
-      
-    }}>
-        <BacKToDashBoardIconHold color={color} border={border}
+       <BacKToDashBoardIconHold color={color} border={border}
         left={left}
         top={top}
         fontSize={fontSize}
@@ -18,7 +15,6 @@ const OutlineButton: React.FC<OutlineButtonData> = ({color, border, top, left, f
         >
        <BsArrowLeft />
     </BacKToDashBoardIconHold>
-       </NavLink>
     </div>
   )
 }

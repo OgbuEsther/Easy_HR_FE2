@@ -46,12 +46,8 @@ const SignupForm = () => {
 <NameInputColumn>
   <FirstNameInputContainer>
     
-    <FirstNameInput placeholder='First Name'/>
+    <FirstNameInput placeholder='Your Name'/>
   </FirstNameInputContainer>
-  <SecondNameInputContainer>
- 
-    <SecondNameInput placeholder='Last Name'/>
-  </SecondNameInputContainer>
 </NameInputColumn>
 
 {/* Admin Email Area */}
@@ -192,7 +188,7 @@ flex-direction: column;
 
 const FirstNameInputContainer = styled.div`
   height: 100px;
-  width: 300px;
+  width: 100%;
   display: flex;
 justify-content: center;
 flex-direction: column;
@@ -236,6 +232,7 @@ const InputField = styled.div`
   padding: 10px 0px;
   margin-top: 30px;
   position: relative;
+  /* background-color: blue; */
   
   input{
     border-radius: 5px;
@@ -305,6 +302,7 @@ const Form = styled.form`
   height: auto;
   width: 620px;
   padding-top: 40px;
+  overflow: hidden;
   /* background-color: blue; */
   
   @media screen and (max-width: 960px){

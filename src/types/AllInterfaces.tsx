@@ -12,6 +12,7 @@ export interface OutlineButtonData {
 export interface AdminData {
     companyname: string;
    email: string;
-   yourName: string;
+   yourName?: string;
    password: string;
 }
+

@@ -15,12 +15,14 @@ const SignInOption = () => {
     
     <SignUpOptionPageContainer>
         <LeftSection>
-            <OutlineButton color='white' border='2px solid white' 
+           <NavLink to="/">
+           <OutlineButton color='white' border='2px solid white' 
             top='20px'
             left='20px'
             fontSize='200px'
             positioning='absolute'
             />
+           </NavLink>
             <Image src={LeftSectionImage}/>
         </LeftSection>
         <RightSection>
