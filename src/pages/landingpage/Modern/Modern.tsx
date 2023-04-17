@@ -49,18 +49,18 @@ const Modern = () => {
                 </Text>
 
                 <ButtonsHold>
-                    <Button bg={show ? 'blue':'' } cl={show ? "white":''} onClick={Toogle} bcc='' >
+                    <Button bg={show ? '#00244E':'' } cl={show ? "white":''} onClick={Toogle} bcc='' >
                         Performance
                     </Button>
-                    <Button bg={show2 ? 'blue':'' } cl={show2 ? "white":''}  onClick={Toogle2}
+                    <Button bg={show2 ? '#00244E':'' } cl={show2 ? "white":''}  onClick={Toogle2}
                     bcc=''
                     >
                         Time & Attendance
                     </Button>
-                    <Button  bg={show3 ? 'blue':'' } cl={show3 ? "white":''}  onClick={Toogle3} bcc=''>
+                    <Button  bg={show3 ? '#00244E':'' } cl={show3 ? "white":''}  onClick={Toogle3} bcc=''>
                      Payroll
                     </Button>
-                    <Button  bg={show4 ? 'blue':'' } cl={show4 ? "white":''} onClick={Toogle4} bcc=''>
+                    <Button  bg={show4 ? '#00244E':'' } cl={show4 ? "white":''} onClick={Toogle4} bcc=''>
                      Recruitment
                     </Button>
                 </ButtonsHold>
@@ -184,6 +184,9 @@ justify-content: center;
 flex-direction: column;
 
 @media screen and (max-width:500px) {
+  display: none;
+}
+@media screen and (max-width:68px7) {
   display: none;
 }
 `
