@@ -14,7 +14,9 @@ const SignIn = () => {
 <SipInPage>
 <SigInDetailContainer>
 <ImageContainer>
- <OutlineButton/>
+<NavLink to="/sign-in-option">
+<OutlineButton  color='white' border='2px solid white' positioning='absolute' top='20px' left='20px'/>
+</NavLink>
   <Image  src={Admin}/>
   {/* <AdsWriteUp className='AdswriteUp'>Increase productivity and sales, paying staffs quickly with low rate at your comfort with <span>
   easy pay</span>.
