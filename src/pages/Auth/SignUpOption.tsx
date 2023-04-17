@@ -1,21 +1,42 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import LeftSectionImage from "../../Assets/hr_group.jpg"
 import { NavLink } from 'react-router-dom'
+import OutlineButton from '../../components/Buttons/OutlineButton'
+import logo from "../../Assets/logos2.png"
+import { log } from 'console'
 
 const SignUpOption = () => {
+
+   
+
   return (
+
+    
     <SignUpOptionPageContainer>
         <LeftSection>
+            <OutlineButton color='white' border='2px solid white' 
+            top='20px'
+            left='20px'
+            fontSize='200px'
+            positioning='absolute'
+            />
             <Image src={LeftSectionImage}/>
         </LeftSection>
         <RightSection>
+            
+            <MobileViewBackButton>
+            <OutlineButton color=' #0170f6' border='2px solid  #0170f6' top='15%' left='20px' positioning='fixed' fontSize='24px'/>
+            </MobileViewBackButton>
             <SignUpOptionField>
+                <LogoHold>
+                    <Logo src={logo}/>
+                </LogoHold>
                 <TitleAndDescriptionContainer>
-                    <Title>CHOOSE A SIGN UP OPTION</Title>
+                    <Description>track your company's salary <br /> disbursment with easy</Description>
                 </TitleAndDescriptionContainer>
                 <OptionButtonContainer>
-                    <NavLink to="/sign-up" style={{width:"100%", textDecoration:"none", color:"white", display:"flex", justifyContent:"center"}}>
+                    <NavLink to="/sign-up-admin" style={{width:"100%", textDecoration:"none", color:"white", display:"flex", justifyContent:"center"}}>
                         <AdminSignUpOption>Sign Up As A Company</AdminSignUpOption>
 
                     </NavLink>
@@ -25,10 +46,6 @@ const SignUpOption = () => {
                     </NavLink>
                 </OptionButtonContainer>
             </SignUpOptionField>
-
-            <OptionSignInColumn>
-  <p>Don't have account? <NavLink to="/sign-in-option" style={{textDecoration:"none"}}><span>Sign In</span></NavLink></p>
-</OptionSignInColumn>
         </RightSection>
     </SignUpOptionPageContainer>
   )
@@ -36,23 +53,51 @@ const SignUpOption = () => {
  
 export default SignUpOption;
 
-const OptionSignInColumn = styled.div`
-    height: 100px;
-    width: auto;
-
-    p{
-        font-size: 14px;
-    }
-
-    span{
-        color: #0174f7da;;
-    }
-   
-`
-
 
 
 // Rignt Section Codes
+
+const MobileViewBackButton = styled.div`
+    height: 50px;
+    width: 50px;
+    display: none;
+    justify-content: center;
+    position: absolute;
+    top: 15%;
+    left: 10px;
+
+    @media screen and (max-width: 960px) {
+        display: flex;
+        justify-content: center;
+    position: absolute;
+    }
+
+    
+    /* background-color: blue; */
+
+`
+
+const Description = styled.div`
+height: 100px;
+width: auto;
+font-size: 24px;
+font-weight: bold;
+text-align: center;
+color: #0170f6;
+margin-top: 20px;
+/* background-color: blue; */
+`
+
+const Logo = styled.img`
+height: 100%;
+width: 100%;
+object-fit: contain;
+`
+const LogoHold = styled.div`
+height: 50px;
+width: 150px;
+overflow: hidden;
+`
 
 const StaffSignUpOption = styled.button`
  height: 70px;
@@ -81,9 +126,11 @@ const StaffSignUpOption = styled.button`
 const AdminSignUpOption = styled.button`
     height: 70px;
     width: 80%;
-    background-color: #0791fb6a;
+    /* background-color: #0791fb6a; */
+    background-color: #d01904;
     border-radius: 50px;
-    color: #078dfb;
+    /* color: #078dfb; */
+    color: white;
     font-size: 20px;
     font-weight: 600;
     border: none;
@@ -92,8 +139,8 @@ const AdminSignUpOption = styled.button`
     :hover{
         transform: scale(1.03);
         background-color: transparent;
-        border: 2px solid #007bffce;
-        color: #078dfb;
+        border: 2px solid  #007bffce;
+        color:  #078dfb;
     }
 `
 
@@ -106,7 +153,6 @@ const OptionButtonContainer = styled.div`
     flex-direction: column;
     `
 
-const Title = styled.h1``
 
 const TitleAndDescriptionContainer = styled.div`
     height: 100px;
@@ -122,6 +168,7 @@ const SignUpOptionField = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* background-color: blue; */
 `
 
 const RightSection = styled.div`
@@ -130,7 +177,8 @@ flex: 1;
 display: flex;
 justify-content: center;
 align-items: center;
-flex-direction: column;
+position: relative;
+/* background-color: blue; */
 
 
 
@@ -140,7 +188,7 @@ flex-direction: column;
     }
 
     button{
-        font-size: 16px;
+        font-size: 18px;
     }
 }
 `
@@ -166,7 +214,7 @@ position: relative;
     content: "";
     height: 100%;
     width: 100%;
-    background-color: rgba(126, 126, 126, 0.4);
+    background-color: rgba(59, 59, 59, 0.483);
     position: absolute;
 }
 

@@ -63,24 +63,24 @@ SetViewPassword(!ViewPassword)
         <Form>
 <SignUpTitle>Sign In</SignUpTitle>
 {/* <SignUpDescription>Pay smart and save time with Easy Pay</SignUpDescription> */}
-<SignUpDescription>You will be signed in as a staff</SignUpDescription>
+<SignUpDescription>You will be signed in as a Staff</SignUpDescription>
 
 <InputField>
 
 <CompanyNameInputHold>
-    <Label>Company Name</Label>
-    <CompanyNameInput/>
+    
+    <CompanyNameInput placeholder='Company Name'/>
 </CompanyNameInputHold>
 
 <EmailInputColumn>
-  <Label>Email Adress</Label> 
-    <EmailInput/>
+  
+    <EmailInput placeholder='Email Address'/>
 
 </EmailInputColumn>
 <CompanyPasswordColumn>
-    <Label>Password</Label>
+    
     <CompanyPasswordInputHold>
-    <CompanyPasswordInput type={ViewPassword? "text":"password"} />
+    <CompanyPasswordInput placeholder='Password' type={ViewPassword? "text":"password"} />
     </CompanyPasswordInputHold>
 
     <ShowPasswordAndForgetPassword>

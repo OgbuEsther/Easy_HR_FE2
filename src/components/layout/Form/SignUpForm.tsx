@@ -4,6 +4,7 @@ import {useForm} from "react-hook-form"
 import * as yup from "yup"
 import {yupResolver} from "@hookform/resolvers/yup"
 import { NavLink } from 'react-router-dom'
+import OutlineButton from '../../Buttons/OutlineButton'
 
 
 
@@ -35,47 +36,41 @@ const SignupForm = () => {
 
         <Form onClick={Submit}>
 <SignUpTitle>Sign Up</SignUpTitle>
-<SignUpDescription>You will be signup as a staff</SignUpDescription>
+<SignUpDescription>You will be signup as a Staff</SignUpDescription>
 {/* <SignUpDescription>Pay smart and save time with Easy Pay</SignUpDescription> */}
+
+
 
 <InputField>
 
 <NameInputColumn>
   <FirstNameInputContainer>
-    <Label>
-      First Name
-    </Label>
-    <FirstNameInput/>
+    
+    <FirstNameInput placeholder='First Name'/>
   </FirstNameInputContainer>
   <SecondNameInputContainer>
-  <Label>
-      Last Name
-    </Label>
-    <SecondNameInput/>
+ 
+    <SecondNameInput placeholder='Last Name'/>
   </SecondNameInputContainer>
 </NameInputColumn>
 
 {/* Admin Email Area */}
 <AdminEmailColumn>
 <AdminEmailContainer>
-  <Label>Email Address</Label>
-  <AdminEmailInput/>
+ 
+  <AdminEmailInput placeholder='Email Address' />
 </AdminEmailContainer>
 </AdminEmailColumn>
 
 {/* Admin Company and Password Area */}
 <CompanyNameAndPasswordInputColumn>
   <CompanyNameInputContainer>
-    <Label>
-      Company Name
-    </Label>
-    <CompanyNameInput/>
+  
+    <CompanyNameInput placeholder='Company Name'/>
   </CompanyNameInputContainer>
   <PasswordInputContainer>
-  <Label>
-      Password Name
-    </Label>
-    <PasswordInput/>
+ 
+    <PasswordInput placeholder='Password'/>
   </PasswordInputContainer>
 </CompanyNameAndPasswordInputColumn>
 
@@ -101,11 +96,7 @@ const SignupForm = () => {
 
 export default SignupForm;
 
-const Label = styled.label`
-  font-weight: 600;
-  font-size: 14px;
-  margin-bottom: 5px;
-`
+
 
 const PasswordInput = styled.input`
 height: 50px;
@@ -244,6 +235,7 @@ const InputField = styled.div`
   width: 100%;
   padding: 10px 0px;
   margin-top: 30px;
+  position: relative;
   
   input{
     border-radius: 5px;
@@ -313,6 +305,7 @@ const Form = styled.form`
   height: auto;
   width: 620px;
   padding-top: 40px;
+  /* background-color: blue; */
   
   @media screen and (max-width: 960px){
     width: 620px;
