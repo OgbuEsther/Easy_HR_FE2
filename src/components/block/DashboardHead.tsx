@@ -26,7 +26,7 @@ const DashboardHead = () => {
 
         <Mid>
           <Welcome>
-            <Circ></Circ>
+            <Circ>CL</Circ>
             <Prof>
               <Comp>Company's profile</Comp>
               <Nam>Codelab</Nam>
@@ -38,7 +38,7 @@ const DashboardHead = () => {
         <Right>
           <Icons>
             <Hello>Hello Godwin</Hello>
-            <Circle>2</Circle>
+            {/* <Circle>2</Circle> */}
           </Icons>
           <Up>
             <Profile>G</Profile>
@@ -65,6 +65,7 @@ const Profile = styled.div`
   font-weight: bold;
   color: black;
   border: 1px solid black;
+  background-color: blanchedalmond;
 `;
 
 const Up = styled.div`
@@ -79,7 +80,7 @@ const Circle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: black;
   position: absolute;
   font-size: 13px;
   top: 20px;
@@ -129,10 +130,19 @@ const Prof = styled.div`
 `
 
 const Circ = styled.div`
-  width: 40px;
-  height: 40px;
-  border: 1px solid #CEC2C2;
+ width: 50px;
+  height: 50px;
+  margin: 3px;
+  font-size: 30px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
   border-radius: 50px;
+  font-weight: bold;
+  color: black;
+  background-color: blanchedalmond;
+  border: 1px solid black;
 `
 
 const Welcome = styled.div`

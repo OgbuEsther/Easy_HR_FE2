@@ -14,7 +14,10 @@ const Staffs = () => {
           <Text>
             Employee <br />
            <span>
-           Dashboard / Employee
+          <a href="/dashboard">
+          Dashboard 
+          </a>
+          / Employee
            </span>
           </Text>
 
@@ -22,9 +25,9 @@ const Staffs = () => {
             <CardProps img="DC" name="Valerian Pedro" title="FullStack Engineer"/>
             <CardProps img="GO" name="Godwin Okowoli" title="FullStack Engineer"/>
             <CardProps img="EO" name="Esther Ogbu" title="FullStack Engineer"/>
-            <CardProps img="DC" name="Valerian Pedro" title="FullStack Engineer"/>
-            <CardProps img="DC" name="Valerian Pedro" title="FullStack Engineer"/>
-            <CardProps img="DC" name="Valerian Pedro" title="FullStack Engineer"/>
+            <CardProps img="EO" name="Esther Ighoruemuse" title="FullStack Engineer"/>
+            <CardProps img="J" name="Joshua" title="FullStack Engineer"/>
+            <CardProps img="CO" name="CodeLab Academy" title="Coding  Academy"/>
           </CardHold>
         </Wrapper>
       </Container>
@@ -68,7 +71,14 @@ span{
   font-weight: 500;
   text-decoration: none solid rgb(51,51,51);
   text-align: left;
+}
 
+a{
+  text-decoration: none;
+
+  :hover{
+    color:black
+  }
 }
 `
 

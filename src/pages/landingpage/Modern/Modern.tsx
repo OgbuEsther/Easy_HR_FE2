@@ -2,8 +2,16 @@ import React from 'react'
 import styled from 'styled-components'
 import PropsCards from "./PropsCards"
 import img from "../../../Assets/card9.png"
+import img1 from "../../../Assets/ds6.webp"
+import img2 from "../../../Assets/ds4.webp"
+import img3 from "../../../Assets/ds5.webp"
 import bg from "../../../Assets/bgimg2.png"
 import im from "../../../Assets/ft.png"
+import {CgPerformance} from "react-icons/cg"
+import {TbBrandNytimes} from "react-icons/tb"
+import {FaAlipay} from "react-icons/fa"
+import {SiSecurityscorecard} from "react-icons/si"
+
 
 const Modern = () => {
 
@@ -49,18 +57,32 @@ const Modern = () => {
                 </Text>
 
                 <ButtonsHold>
-                    <Button bg={show ? 'blue':'' } cl={show ? "white":''} onClick={Toogle} bcc='' >
-                        Performance
+                    <Button bg={show ? '#00244E':'' } cl={show ? "white":''} onClick={Toogle} bcc='' >
+                       <Icon>
+                        <CgPerformance/>
+                       </Icon>
+                       Performance
                     </Button>
-                    <Button bg={show2 ? 'blue':'' } cl={show2 ? "white":''}  onClick={Toogle2}
+                    <Button bg={show2 ? '#00244E':'' } cl={show2 ? "white":''}  onClick={Toogle2}
                     bcc=''
                     >
+                      <Icon>
+                      <TbBrandNytimes/>
+                      </Icon>
+                    
                         Time & Attendance
                     </Button>
-                    <Button  bg={show3 ? 'blue':'' } cl={show3 ? "white":''}  onClick={Toogle3} bcc=''>
+                    <Button  bg={show3 ? '#00244E':'' } cl={show3 ? "white":''}  onClick={Toogle3} bcc=''>
+                    <Icon>
+                      <FaAlipay/>
+                      </Icon>
+                   
                      Payroll
                     </Button>
-                    <Button  bg={show4 ? 'blue':'' } cl={show4 ? "white":''} onClick={Toogle4} bcc=''>
+                    <Button  bg={show4 ? '#00244E':'' } cl={show4 ? "white":''} onClick={Toogle4} bcc=''>
+                    <Icon>
+                      <SiSecurityscorecard/>
+                      </Icon>
                      Recruitment
                     </Button>
                 </ButtonsHold>
@@ -68,16 +90,16 @@ const Modern = () => {
                 <Box>
                     
               {
-                show ?   <PropsCards text='Performance' word=' Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, animi dolores ut ad illo totam architecto non reprehenderit nesciunt officiis corrupti.' sub='Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, animi dolores ut ad illo totam architecto non reprehenderit nesciunt officiis corrupti repellat a praesentium, quaerat maxime. Perferendis facilis quasi blanditiis?' image={img}/> :null
+                show ?   <PropsCards text='Performance' word='A Performance-driven Culture.Enabled' sub='Identify and improve the critical skills needed to egt your business to the next level. Empower line managers and direct reports with the tools they need to drive a high-performance culture and achieve company goals' image={img}/> :null
               }
               {
-                show2 ?   <PropsCards text='Time Management' word=' .' sub='Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, animi dolores ut ad illo totam architecto non reprehenderit nesciunt officiis corrupti repellat a praesentium, quaerat maxime. Perferendis facilis quasi blanditiis?' image={img}/> :null
+                show2 ?   <PropsCards text='Time Management' word='Time is Money. Track Both' sub='Keep your workforce accountable with a system that helps employees make the most of their work hours and get fairly paid.Design and implement your time and attendance policies for on-site and remote employees' image={img1}/> :null
               }
               {
-                show3 ?   <PropsCards text='PayRoll' word=' Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, animi dolores ut ad illo totam architecto non reprehenderit nesciunt officiis corrupti.' sub='Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, animi dolores ut ad illo totam architecto non reprehenderit nesciunt officiis corrupti repellat a praesentium, quaerat maxime. Perferendis facilis quasi blanditiis?' image={img}/> :null
+                show3 ?   <PropsCards text='PayRoll' word='Compliant PayRoll.Error-free' sub='Our pre-progrmaaed formulas deliver fast and accurate calculations,while integrating with HRIS so you can easily fetch payroll updates.With built-in up-to-date compliance,you really can run payroll in minutes.' image={img2}/> :null
               }
               {
-                show4 ?   <PropsCards text='Recruitment' word=' Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, animi dolores ut ad illo totam architecto non reprehenderit nesciunt officiis corrupti.' sub='Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, animi dolores ut ad illo totam architecto non reprehenderit nesciunt officiis corrupti repellat a praesentium, quaerat maxime. Perferendis facilis quasi blanditiis?' image={img}/> :null
+                show4 ?   <PropsCards text='Recruitment' word='Hire Right. Drive Business Growth' sub='Everyone wants the best people on their teams.Reduce time to fill critical positions and retain the best talents you need to succeed' image={img3}/> :null
               }
 
                 </Box>
@@ -89,10 +111,16 @@ const Modern = () => {
 }
 
 export default Modern
+const Icon = styled.div`
+margin: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+`
 
 const Button = styled.button<{bg:string, cl:string, bcc:string}>`
 	height: 50px;
-	width: 200px;
+	width: 250px;
 	border-radius: 50px;
 	position: relative;
 	border: 0;
@@ -104,6 +132,9 @@ const Button = styled.button<{bg:string, cl:string, bcc:string}>`
 	transition: all 350ms;
 	margin-right: 10px;
 	margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
     :hover{
         background-color: ${(props) => props.bcc};
@@ -153,7 +184,7 @@ const Box = styled.div`
     margin-top: 20px;
     border-radius: 50px;
     background-color: #F3F5E9;
-    height: 900px;
+    height: 500px;
     width: 93%;
     background-image: url(${bg});
     background-repeat: no-repeat;
@@ -184,6 +215,9 @@ justify-content: center;
 flex-direction: column;
 
 @media screen and (max-width:500px) {
+  display: none;
+}
+@media screen and (max-width:68px7) {
   display: none;
 }
 `

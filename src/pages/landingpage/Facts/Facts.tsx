@@ -24,9 +24,9 @@ const Last = () => {
               <Button>
                   
                   </Button>
-                  <Button>
+                  {/* <Button>
   
-                  </Button>
+                  </Button> */}
                  
               </ButtonHold>
                 </Two>
@@ -40,7 +40,7 @@ export default Last
 const Button = styled.button`
 margin: 20px;
 font-size: 20px;
-background-color: blue;
+background-color: #00244E;
 height: 50px;
 font-weight: 300;
 color: white;
@@ -55,9 +55,9 @@ text-decoration: none solid rgb(1,28,57);
 text-align: center;
 
 :hover{
-  color: blue;
-  border: 1px solid blue;
-  background-color: white;
+  color: #00244E;
+  border: 1px solid #00244E;
+  background-color: whitesmoke;
 }
 `
 const ButtonHold = styled.div`
@@ -146,4 +146,8 @@ justify-content: center;
 margin-top: 30px;
 align-items: center;
 background-color: #F7F7F7;
+
+@media screen and (max-width:500px) {
+  display: none;
+}
 `

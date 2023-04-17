@@ -40,7 +40,7 @@ const Cards = () => {
             >
                     <MdOutlineAccountBalanceWallet />
                   </IconHold>
-                  <CardTitle>wallet Number </CardTitle>
+                  <CardTitle>Wallet Number </CardTitle>
                   <CardInfo>123456 </CardInfo>
               </CardHold>
           </Card>
@@ -68,7 +68,7 @@ const Cards = () => {
             >
                     <BsFillPiggyBankFill />
                   </IconHold>
-                  <CardTitle>Payroll </CardTitle>
+                  <CardTitle>PayRoll </CardTitle>
                   <CardInfo>NGN 1000 </CardInfo>
               </CardHold>
           </Card>

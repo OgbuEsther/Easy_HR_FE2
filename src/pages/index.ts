@@ -11,3 +11,5 @@ export * from "./landingpage/Home"
 export * from "./ParentComp"
 
 export * from "./Staffs"
+
+export * from "./Attendance/Attendance"
