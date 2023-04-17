@@ -131,7 +131,7 @@ background-color: #F7F7F7;
 /* border-radius: 40px; */
 
 @media screen and (max-width:500px) {
-  margin-top: 60px;
+  margin-top: 40px;
   height: 400px;
   display: flex;
   align-items: center;

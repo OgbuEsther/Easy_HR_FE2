@@ -322,10 +322,15 @@ const Container = styled.div`
   height: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 110px;
+  margin-top: 40px;
 
+  @media screen and (max-width: 320px) {
+    margin-bottom:2px;
+  margin-top:50px;
+    /* background-color: red; */
+  }
   @media screen and (max-width: 500px) {
-    margin-top: -30%;
+    margin-top: -900px;
   }
   @media screen and (max-width: 768px) {
     margin-top: 200px;
