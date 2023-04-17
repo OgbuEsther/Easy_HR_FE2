@@ -107,12 +107,12 @@ const Header = () => {
             </NavWrapper>
 
             <SignDiv>
-              <NavLink to="/sign-in">
+              <NavLink to="/sign-in-option">
               <Button1>
                 Log In
                 </Button1>
               </NavLink>
-              <NavLink to="/sign-up">
+              <NavLink to="/sign-up-option">
               <Button1>
                   Sign Up
                 </Button1>

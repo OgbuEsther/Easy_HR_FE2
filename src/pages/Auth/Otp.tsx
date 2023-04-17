@@ -45,8 +45,8 @@ const Otp = () => {
                 <Description>Enter the OTP sent to you for verification</Description>
             </TextArea>
             <OtpInputField>
-                <Label>Enter OTP</Label>
-                <OtpInput />
+               
+                <OtpInput placeholder='Enter OTP'/>
                 <GetOtpAndContinueButton>
                  <GetOtpHold onClick={ShowDisableGetCodeFuntion}>
                  {

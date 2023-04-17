@@ -9,7 +9,6 @@ const ForgotPasswordEmail = () => {
 
     const navigate = useNavigate()
 
-    const [getCode, setGetCode] = useState(true)
 
     const BackToAuthPageFuntion = () =>{
        navigate("/sign-in")
@@ -25,9 +24,8 @@ const ForgotPasswordEmail = () => {
                 <Title>enter your email</Title>
                 <Description>Let's help you find your account</Description>
             </TextArea>
-            <OtpInputField>
-                <Label>Enter Email</Label>
-                <OtpInput />
+            <InputField>
+                <EmailInput placeholder='Enter Email'/>
                 <GetOtpAndContinueButton>
                  <GetOtpHold onClick={BackToAuthPageFuntion}>
                     Back
@@ -36,7 +34,7 @@ const ForgotPasswordEmail = () => {
                         Continue
                     </Button>
                 </GetOtpAndContinueButton>
-            </OtpInputField>
+            </InputField>
        </OtpForm>
     </OtpPageContainer>
   )
@@ -78,16 +76,9 @@ cursor: pointer;
 
 
 
-const Label = styled.label`
- 
-  font-weight: 600;
-font-size: 13px;
-margin-bottom: 5px;
-margin-left: 10px;
-color: #0172f7;
-`
 
-const OtpInput = styled.input`
+
+const EmailInput = styled.input`
 height: 50px;
 width: auto;
 height: 50px;
@@ -97,7 +88,6 @@ height: 50px;
     outline: lightblue;
     padding-left: 10px;
 margin-bottom: 10px;
-text-align: center;
 `
 const GetOtpAndContinueButton = styled.div`
 height: 50px;
@@ -111,7 +101,7 @@ padding-right: 10px;
 /* background-color: blue; */
 `
 
-const OtpInputField = styled.div`
+const InputField = styled.div`
     height: 200px;
     width: 500px;
     /* background-color: gray; */

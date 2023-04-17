@@ -13,13 +13,13 @@ const SignInAdmin = () => {
 <SipInPage>
 
   <SigInDetailContainer>
-  {/* <BacKToDashBoardIconHold>
-       <NavLink to="/" style={{textDecoration:"none", color:"white"}}>
-       <BsArrowLeft />
-       </NavLink>
-    </BacKToDashBoardIconHold> */}
 
 <ImageContainer>
+       <NavLink to="/" style={{textDecoration:"none", color:"white"}}>
+  <BacKToDashBoardIconHold>
+       <BsArrowLeft />
+    </BacKToDashBoardIconHold>
+       </NavLink>
   <Image  src={Admin}/>
   {/* <AdsWriteUp className='AdswriteUp'>Increase productivity and sales, paying staffs quickly with low rate at your comfort with <span>
   easy pay</span>.
@@ -39,13 +39,28 @@ const SignInAdmin = () => {
 export default SignInAdmin;
 
 const BacKToDashBoardIconHold = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 1px solid white;
+
     position: absolute;
-    top: 0;
-    left: 0;
-    size: 24;
-    padding: 10px 0px 0px 10px;
+    top: 20px;
+    left: 20px;
+    height: 18px;
+    width: 18px;
     font-size: 24px;
     color: white;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 390ms;
+    
+    :hover{
+      background-color: #f5f5dc56;
+    }
+
   
 
    

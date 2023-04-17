@@ -4,6 +4,7 @@ import Admin from "../../Assets/hr_group.jpg"
 import {BsArrowLeft} from "react-icons/bs"
 import { NavLink } from 'react-router-dom';
 import SigninForm from '../../components/layout/Form/SignInForm';
+import OutlineButton from '../../components/Buttons/OutlineButton';
 
 
 const SignIn = () => {
@@ -11,15 +12,9 @@ const SignIn = () => {
     <div>
 
 <SipInPage>
-
-  <SigInDetailContainer>
-  {/* <BacKToDashBoardIconHold>
-       <NavLink to="/" style={{textDecoration:"none", color:"white"}}>
-       <BsArrowLeft />
-       </NavLink>
-    </BacKToDashBoardIconHold> */}
-
+<SigInDetailContainer>
 <ImageContainer>
+ <OutlineButton/>
   <Image  src={Admin}/>
   {/* <AdsWriteUp className='AdswriteUp'>Increase productivity and sales, paying staffs quickly with low rate at your comfort with <span>
   easy pay</span>.
