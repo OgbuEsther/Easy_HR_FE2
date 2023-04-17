@@ -17,6 +17,7 @@ import {
   BsInstagram,
   
 } from "react-icons/bs";
+import {BsFillArrowUpCircleFill} from "react-icons/bs"
 
 import { NavLink } from "react-router-dom";
 import { Link } from "react-scroll";
@@ -26,7 +27,7 @@ const Footer = () => {
   const [show ,setShow] = React.useState(false)
 
   const showBackToTop = () =>{
-    if (window.scrollY >= 200){
+    if (window.scrollY >= 80){
       setShow(true);
     }else{
       setShow(false)
@@ -35,7 +36,7 @@ const Footer = () => {
 
   window.addEventListener("scroll",showBackToTop)
   return (
-    <Container>
+    <Container id="footer">
       <Wrapper>
         <Left>
           <Images src={images} />
@@ -160,15 +161,13 @@ const Footer = () => {
         </Right>
 
       </Wrapper>
-           {
-        show ? (
-          <Arr offset={-100} smooth={true} duration={1000} to="her">
-          <div>
-            <HiArrowUp/>
-          </div>
-        </Arr>
-        ) : null
-       }
+      {show ? (
+        <Link offset={-100} smooth={true} duration={500} to="her">
+          <ScroolToTop>
+            <BsFillArrowUpCircleFill />
+          </ScroolToTop>
+        </Link>
+      ) : null}
   
     </Container>
     
@@ -176,22 +175,42 @@ const Footer = () => {
 };
 
 export default Footer;
-const Arr = styled(Link)`
-    padding: 16px 17px;
-  border-radius: 4px;
+const ScroolToTop = styled.div`
+
+border-radius: 50%;
   cursor: pointer;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: mover 1s infinite alternate;
+  animation: mover 1s infinite alternate;
+  -webkit-animation: mover 1s infinite alternate;
+  animation: mover 1s infinite alternate;
   background-color: #00244E;
-  right: 1%;
-  box-shadow: #00244E 0px 8px 24px;
-  div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
+  @-webkit-keyframes mover {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-10px);
+    }
   }
+  @keyframes mover {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-10px);
+    }
+  }
+  right: 1%;
+  font-size: 30px;
+  box-shadow: #8a2be2 0px 8px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
   position: fixed;
   bottom: 2%;
-
   @media screen and (max-width: 768px) {
     right: 3%;
   }
