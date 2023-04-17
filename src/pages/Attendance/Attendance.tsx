@@ -1,5 +1,6 @@
 import React from "react";
-
+import { FcCheckmark } from "react-icons/fc"
+import {GrFormClose} from "react-icons/gr"
 import styled from "styled-components";
 
 
@@ -54,37 +55,981 @@ const Attendance = () => {
                     <Name>John Doe</Name>
                   </Circlehold>
                 </td>
-              <td>1</td>
-              <td>2</td>
-              <td>3</td>
-              <td>4</td>
-              <td>5</td>
-              <td>6</td>
-              <td>7</td>
-              <td>8</td>
-              <td>9</td>
-              <td>10</td>
-              <td>11</td>
-              <td>12</td>
-              <td>13</td>
-              <td>14</td>
-              <td>15</td>
-              <td>16</td>
-              <td>17</td>
-              <td>18</td>
-              <td>19</td>
-              <td>20</td>
-              <td>21</td>
-              <td>22</td>
-              <td>23</td>
-              <td>24</td>
-              <td>25</td>
-              <td>26</td>
-              <td>27</td>
-              <td>28</td>
-              <td>29</td>
-              <td>30</td>
-              <td>31</td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+              <td>
+                <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <Circlehold>
+                    <Circle></Circle>
+                    <Name>John Doe</Name>
+                  </Circlehold>
+                </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+              <td>
+                <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <Circlehold>
+                    <Circle></Circle>
+                    <Name>John Doe</Name>
+                  </Circlehold>
+                </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+              <td>
+                <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <Circlehold>
+                    <Circle></Circle>
+                    <Name>John Doe</Name>
+                  </Circlehold>
+                </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+              <td>
+                <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <Circlehold>
+                    <Circle></Circle>
+                    <Name>John Doe</Name>
+                  </Circlehold>
+                </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+              <td>
+                <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <Circlehold>
+                    <Circle></Circle>
+                    <Name>John Doe</Name>
+                  </Circlehold>
+                </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+              <td>
+                <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icons>
+                    <GrFormClose />
+                  </Icons>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
+                <td>
+                  <Icon>
+                    <FcCheckmark />
+                  </Icon>
+              </td>
               </tr>
             </table>
           </Table>
@@ -95,10 +1040,19 @@ const Attendance = () => {
 };
 
 export default Attendance;
+const Icons = styled.div`
+  color: red;
+  font-size: 20px;
+`
+const Icon = styled.div`
+  font-weight: 70px;
+`
 const Name = styled.div`
   display: flex;
   margin-left: 10px;
   display: flex;
+  width: 100px;
+  /* background-color: red; */
 `
 const Circle = styled.div`
   width: 30px;
@@ -132,11 +1086,12 @@ display: flex;
   td {
     padding: 15px 20px;
     text-align: left;
+    border-top: 1px solid #e2e5e8;
   }
   th {
     border-top: 1px solid #e2e5e8;
     background-color: #fefefe;
-    /* padding: 1rem 0.75rem; */
+    padding: 1rem 0.75rem;
     /* display: table-cell; */
   }
 `
