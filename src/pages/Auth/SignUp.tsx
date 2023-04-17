@@ -4,6 +4,7 @@ import Admin from "../../Assets/hr_group.jpg"
 import SignupForm from '../../components/layout/Form/SignUpForm'
 import {BsArrowLeft} from "react-icons/bs"
 import { NavLink } from 'react-router-dom';
+import OutlineButton from '../../components/Buttons/OutlineButton'
 
 
 const SignUp = () => {
@@ -14,12 +15,11 @@ const SignUp = () => {
   <SigupDetailContainer>
 <ImageContainer>
 
+      <OutlineButton positioning='fixed' border='2px solid white' fontSize='24px' top='20px' left='20px'/>
        <NavLink to="/" style={{textDecoration:"none", color:"white", 
       
     }}>
-        <BacKToDashBoardIconHold>
-       <BsArrowLeft />
-    </BacKToDashBoardIconHold>
+       
        </NavLink>
   <Image  src={Admin}/>
   {/* <AdsWriteUp className='AdswriteUp'>Increase productivity and sales, paying staffs quickly with low rate at your comfort with <span>
@@ -27,6 +27,9 @@ const SignUp = () => {
 </AdsWriteUp> */}
 </ImageContainer>
 <FormContainer>
+{/* <MobileViewBackButton>
+  <OutlineButton positioning='fixed' color='black' border='2px solid black'/>
+</MobileViewBackButton> */}
   <SignupForm />
 </FormContainer>
 </SigupDetailContainer>
@@ -39,26 +42,12 @@ const SignUp = () => {
 
 export default SignUp;
 
-const BacKToDashBoardIconHold = styled.div`
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    size: 24;
-    padding: 10px 0px 0px 10px;
-    font-size: 24px;
-    color: white;
-    padding: 15px;
-    border-radius: 50%;
-    background-color:rgba(136, 136, 136, 0.2);
-    cursor: pointer;
-    transition: all 390ms;
 
-    :hover{
-      background-color:rgba(141, 141, 141, 0.616);
-    }
-` 
-
-
+const MobileViewBackButton = styled.div`
+  height: 50px;
+  width: 50px;
+  
+`
 
 const AdsWriteUp = styled.p`
   height: 150px;
@@ -68,28 +57,13 @@ const AdsWriteUp = styled.p`
   position: absolute;
   bottom: 0;
   left: 0;
-
-span{
-}
-
-
 font-family: Arial, Helvetica, sans-serif;
   font-size: 30px;
   font-weight: bold;
   line-height: 45px;
   text-align: justify;
-
   background-color: rgba(100, 100, 100, 0);
   color: white;
-
-
-  
-
-
-
-
-
-
 `
 
 const Image = styled.img`
@@ -101,13 +75,14 @@ const Image = styled.img`
 
 const FormContainer = styled.div`
   height: 100vh;
-  /* width: 50%; */
   flex: 1;
   background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0px 20px;
+  padding-top: 50px;
+ 
 
   @media screen and (max-width: 960px){
     justify-content: center;

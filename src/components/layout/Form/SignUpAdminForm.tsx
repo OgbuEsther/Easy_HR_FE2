@@ -3,19 +3,26 @@ import styled from 'styled-components'
 import {useForm} from "react-hook-form"
 import * as yup from "yup"
 import {yupResolver} from "@hookform/resolvers/yup"
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { useMutation } from '@tanstack/react-query'
+import { createAdmin } from '../../../utils/Api/ApiCall';
+import { UseAppDispach } from '../../global/Store';
+import { Admin } from '../../global/ReduxState';
+
 
 
 
 
 const SignupAdminForm = () => {
 
+const dispatch = UseAppDispach();
+const navigate = useNavigate();
+
 
 
   const schema = yup.object({
-    firstName: yup.string().required(),
-    lastName: yup.string().required(),
-    companyName: yup.string().required(),
+    yourName: yup.string().required(),
+    companyname: yup.string().required(),
     email: yup.string().email().required(),
     password: yup.string().min(9).required()
   }).required()
@@ -25,15 +32,33 @@ const SignupAdminForm = () => {
   const{handleSubmit, formState: {errors}, reset, register} = useForm<formData>({
     resolver: yupResolver(schema)
   })
+
+
+
+
+  const posting = useMutation({
+   mutationKey: ["create Admin"],
+   mutationFn: createAdmin,
+
+   onSuccess: (myData)=>{
+    console.log("user", myData);
+    dispatch(Admin(myData.data));
+    navigate("/sign-in")
+    
+   }
+  })
   
-  const Submit = handleSubmit(()=>{
+  const Submit = handleSubmit(async(data)=>{
+    posting.mutate(data)
     reset()
+  
+    
   })
 
 
   return (
 
-        <Form onClick={Submit}>
+        <Form onSubmit={Submit}>
 <SignUpTitle>Sign Up</SignUpTitle>
 <SignUpDescription>You will be signup as an Admin</SignUpDescription>
 {/* <SignUpDescription>Pay smart and save time with Easy Pay</SignUpDescription> */}
@@ -42,40 +67,27 @@ const SignupAdminForm = () => {
 
 <NameInputColumn>
   <FirstNameInputContainer>
-    <Label>
-      First Name
-    </Label>
-    <FirstNameInput/>
+    
+    <FirstNameInput {...register("yourName")} placeholder='Your Name'/>
   </FirstNameInputContainer>
-  <SecondNameInputContainer>
-  <Label>
-      Last Name
-    </Label>
-    <SecondNameInput/>
-  </SecondNameInputContainer>
 </NameInputColumn>
 
 {/* Admin Email Area */}
 <AdminEmailColumn>
 <AdminEmailContainer>
-  <Label>Email Address</Label>
-  <AdminEmailInput/>
+ 
+  <AdminEmailInput {...register("email")} placeholder='Email Address'/>
 </AdminEmailContainer>
 </AdminEmailColumn>
 
 {/* Admin Company and Password Area */}
 <CompanyNameAndPasswordInputColumn>
   <CompanyNameInputContainer>
-    <Label>
-      Company Name
-    </Label>
-    <CompanyNameInput/>
+   
+    <CompanyNameInput {...register("companyname")}  placeholder='Company Name'/>
   </CompanyNameInputContainer>
   <PasswordInputContainer>
-  <Label>
-      Password Name
-    </Label>
-    <PasswordInput/>
+    <PasswordInput {...register("password")}  placeholder='Password'/>
   </PasswordInputContainer>
 </CompanyNameAndPasswordInputColumn>
 
@@ -101,11 +113,6 @@ const SignupAdminForm = () => {
 
 export default SignupAdminForm;
 
-const Label = styled.label`
-  font-weight: 600;
-  font-size: 14px;
-  margin-bottom: 5px;
-`
 
 const PasswordInput = styled.input`
 height: 50px;
@@ -185,23 +192,9 @@ width: auto;
 border: 1px solid silver;
 `
 
-const SecondNameInput = styled.input`
-height: 50px;
-width: auto;
-border: 1px solid silver;
-`
-
-const SecondNameInputContainer = styled.div`
- height: 100px;
-  width: 300px;
-  display: flex;
-justify-content: center;
-flex-direction: column;
-`
-
 const FirstNameInputContainer = styled.div`
   height: 100px;
-  width: 300px;
+  width: 100%;
   display: flex;
 justify-content: center;
 flex-direction: column;
@@ -276,7 +269,7 @@ p{
   font-size: 13px;
   span{
     margin-left: 5px;
-    font-weight: 600;
+    font-weight: bold;
     color: #0174f7d1;
   
   }

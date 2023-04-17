@@ -59,19 +59,19 @@ SetViewPassword(!ViewPassword)
 <InputField>
 
 <CompanyNameInputHold>
-    <Label>Company Name</Label>
-    <CompanyNameInput/>
+    
+    <CompanyNameInput placeholder='Company Name'/>
 </CompanyNameInputHold>
 
 <EmailInputColumn>
-  <Label>Email Adress</Label> 
-    <EmailInput/>
+  
+    <EmailInput placeholder='Email Address'/>
 
 </EmailInputColumn>
 <CompanyPasswordColumn>
-    <Label>Password</Label>
+    
     <CompanyPasswordInputHold>
-    <CompanyPasswordInput type={ViewPassword? "text":"password"} />
+    <CompanyPasswordInput type={ViewPassword? "text":"password"}   placeholder='Password'/>
     </CompanyPasswordInputHold>
 
     <ShowPasswordAndForgetPassword>
@@ -131,7 +131,7 @@ const ShowPassword = styled.div`
   background-color: white;
   border: none;
   cursor: pointer;
-  /* background-color: blue; */
+  
 `
 
 const ShowPasswordAndForgetPassword = styled.div`
@@ -165,7 +165,7 @@ const CompanyNameInputHold = styled.div`
 
 
 const CompanyPasswordInput = styled.input`
-    height: 35px;
+    height: 45px;
     width: 100%;
     border-radius: 5px;
     border: 1px solid #0174f78d;
@@ -240,8 +240,8 @@ p{
   font-size: 13px;
   span{
     margin-left: 5px;
-    font-weight: 600;
-    color: #0172f7;
+    font-weight: bolder;
+    color:  #0170f6;
   }
 }
 `
@@ -251,7 +251,7 @@ width: 100%;
 margin-top: 50px;
 `
 const CompanyPasswordColumn = styled.div`
-height: 100px;
+height: 70px;
 width: 100%;
 margin-bottom: 60px;
 margin-top: 20px;

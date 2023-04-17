@@ -40,22 +40,31 @@ const SignUpAdmin = () => {
 export default SignUpAdmin;
 
 const BacKToDashBoardIconHold = styled.div`
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 1px solid white;
+
     position: absolute;
     top: 20px;
     left: 20px;
-    size: 24;
-    padding: 10px 0px 0px 10px;
+    height: 18px;
+    width: 18px;
     font-size: 24px;
     color: white;
     padding: 15px;
     border-radius: 50%;
-    background-color:rgba(136, 136, 136, 0.2);
     cursor: pointer;
     transition: all 390ms;
-
+    
     :hover{
-      background-color:rgba(141, 141, 141, 0.616);
+      background-color: #f5f5dc56;
     }
+
+    
 ` 
 
 
