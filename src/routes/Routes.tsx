@@ -21,6 +21,7 @@ const Home = lazy(() => import("../pages/landingpage/Home"));
 const About = lazy(() => import("../pages/landingpage/Connect"));
 const Staffs = lazy(() => import("../pages/Staffs"));
 const Attendance = lazy(()=> import("../pages/Attendance/Attendance"));
+const Transaction = lazy(()=> import("../pages/Transaction/Transaction"))
 const ParentComp = lazy(() => import("../pages/ParentComp"));
 const ContactUs = lazy(() => import("../pages/landingpage/ContactUs"));
 
@@ -74,6 +75,12 @@ export const Elements = createBrowserRouter([
       {
         path: "/dashboard/payroll",
         element: <Payroll />,
+        hasErrorBoundary: true,
+        errorElement: <ErrorBoundary />,
+      },
+      {
+        path: "/dashboard/transaction",
+        element: <Transaction/>,
         hasErrorBoundary: true,
         errorElement: <ErrorBoundary />,
       },
