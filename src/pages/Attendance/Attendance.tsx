@@ -51,7 +51,7 @@ const Attendance = () => {
               <tr>
                 <td>
                   <Circlehold>
-                    <Circle></Circle>
+                    <Circle>JD</Circle>
                     <Name>John Doe</Name>
                   </Circlehold>
                 </td>
@@ -215,8 +215,8 @@ const Attendance = () => {
               <tr>
                 <td>
                   <Circlehold>
-                    <Circle></Circle>
-                    <Name>John Doe</Name>
+                    <Circle>VP</Circle>
+                    <Name>Valerian Pedro</Name>
                   </Circlehold>
                 </td>
                 <td>
@@ -379,8 +379,8 @@ const Attendance = () => {
               <tr>
                 <td>
                   <Circlehold>
-                    <Circle></Circle>
-                    <Name>John Doe</Name>
+                    <Circle>OG</Circle>
+                    <Name>Okowli Godwin</Name>
                   </Circlehold>
                 </td>
                 <td>
@@ -1051,15 +1051,25 @@ const Name = styled.div`
   display: flex;
   margin-left: 10px;
   display: flex;
-  width: 100px;
+  width: 150px;
+  font-weight: 400;
+  font-size: 18px;
   /* background-color: red; */
 `
 const Circle = styled.div`
-  width: 30px;
+ width: 30px;
   height: 30px;
+  margin: 3px;
+  font-size: 16px;
+  justify-content: center;
   display: flex;
-  background-color: red;
+  align-items: center;
+  overflow: hidden;
   border-radius: 50px;
+  font-weight: 500;
+  color: black;
+  background-color: blanchedalmond;
+  border: 1px solid black;
 `
 const Circlehold = styled.div`
   display: flex;

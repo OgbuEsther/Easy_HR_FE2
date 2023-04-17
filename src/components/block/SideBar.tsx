@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 import { FiPower } from "react-icons/fi";
 import { BsFillPersonFill } from "react-icons/bs"
 import { RiMoneyDollarCircleFill } from "react-icons/ri"
-import {GiMoneyStack} from "react-icons/gi"
+import {GiMoneyStack,GiFlatTire} from "react-icons/gi"
 
 const SideBar = () => {
     const [show, setShow] = React.useState(false);
@@ -70,14 +70,14 @@ const SideBar = () => {
               color: isActive ? "#fff" : "#fff",
             };
           }}>
-            <p>Send Payment</p>
+            <p>PayRoll</p>
           </NavLink>
         </Staffs>
       ) : null}
       
       <Home2>
         <Icon2>
-          <GiMoneyStack />
+          <GiFlatTire />
         </Icon2>
         <NavLink
           to="/dashboard/attendance"
