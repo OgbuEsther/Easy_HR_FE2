@@ -45,7 +45,7 @@ const SideBar = () => {
             <FaBattleNet />
             </Icon2>
             <NavLink
-            to="/staffdashboard/staffattendance"
+            to=""
             style={({ isActive }) => {
                 return {
                 textDecoration: isActive ? "none" : "none",
