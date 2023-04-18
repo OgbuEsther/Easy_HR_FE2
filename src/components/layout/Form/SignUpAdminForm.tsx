@@ -41,14 +41,12 @@ const navigate = useNavigate();
    mutationFn: createAdmin,
 
    onSuccess: (myData)=>{
-    // console.log("admin", myData);
     dispatch(Admin(myData.data));
     navigate("/sign-in-admin")
     
    }
   })
 
-  // console.log(posting);
   
   
   const Submit = handleSubmit(async(data)=>{
