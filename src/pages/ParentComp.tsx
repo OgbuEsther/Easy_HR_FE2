@@ -93,9 +93,9 @@ const ParentComp = () => {
               </Slidein>
             ) : null}
           </Top>
-          {/* <Cards /> */}
+          <Cards />
 
-        <CardHold>
+        {/* <CardHold>
         <DashBoardCardProps icons={<FaJediOrder/>} top="New Orders" bottom=" More Info " middle="150" icon={<BsFillArrowRightCircleFill/>} bcg="#0078F6"/>
 
 <DashBoardCardProps icons={<GiHypersonicMelon/>} top="Bounce Rate" bottom=" More Info " middle="53%" icon={<BsFillArrowRightCircleFill/>} bcg="#26A242"/>
@@ -104,7 +104,7 @@ const ParentComp = () => {
 
 <DashBoardCardProps icons={<AiOutlineDeploymentUnit/>} top="Unique Visitor" bottom=" More Info " middle="65" icon={<BsFillArrowRightCircleFill/>} bcg="#D53343"/>
 
-        </CardHold>
+        </CardHold> */}
         </Wrapper>
       </Container>
     </div>
