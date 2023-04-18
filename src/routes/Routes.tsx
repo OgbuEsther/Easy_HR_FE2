@@ -16,6 +16,7 @@ import ForgotPasswordEmail from "../pages/Auth/ForgetPasswordEmail";
 import ResetPassword from "../pages/Auth/ResetPassword";
 import Verification from "../pages/Auth/Verification";
 import { Staffdashboard } from "../components/layout/Staffdashboard";
+import Staffcomp from "../pages/Staffcomp";
 
 
 const Home = lazy(() => import("../pages/landingpage/Home"));
@@ -147,7 +148,7 @@ export const Elements = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <ParentComp />,
+        element: <Staffcomp />,
         hasErrorBoundary: true,
         errorElement: <ErrorBoundary />,
       },
