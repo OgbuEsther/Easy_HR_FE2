@@ -16,7 +16,8 @@ const SignupForm = () => {
 
 
   const [viewpassword, setViewpassword]=useState(false)
-  const ShowPasswordFunction = ()=>{
+  const ShowPasswordFunction = (e:any)=>{
+    e.preventDefault()
     setViewpassword(!viewpassword)
   }
 
@@ -148,7 +149,6 @@ const PasswordInputHold = styled.div`
   display: flex;
 justify-content: flex-start;
 flex-direction: column;
-/* background-color: blue; */
 `
 
 const CheckedInput = styled.input`
@@ -188,6 +188,7 @@ const CompanyNameInputContainer = styled.div`
 justify-content: center;
 flex-direction: column;
 margin-right: 5px;
+/* background-color: blue; */
 `
 
 const CompanyNameAndPasswordInputColumn = styled.div`
@@ -239,19 +240,6 @@ width: auto;
 border: 1px solid silver;
 `
 
-const SecondNameInput = styled.input`
-height: 50px;
-width: auto;
-border: 1px solid silver;
-`
-
-const SecondNameInputContainer = styled.div`
- height: 100px;
-  width: 300px;
-  display: flex;
-justify-content: center;
-flex-direction: column;
-`
 
 const FirstNameInputContainer = styled.div`
   height: 100px;
@@ -374,12 +362,10 @@ const Form = styled.form`
   
   @media screen and (max-width: 960px){
     width: 620px;
-    /* box-shadow: 1px 2px 10px 1px rgba(177, 177, 177, 0.5); */
     padding: 10px;
     padding-left: 15px;
     border-radius: 10px;
     padding-top: 40px;
-    width: 620px;
 }
 
 
