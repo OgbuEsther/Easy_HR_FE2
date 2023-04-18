@@ -45,7 +45,7 @@ const SideBar = () => {
             <BsFillPersonFill />
             </Icon2>
             <NavLink
-            to="/dashboard/staffs"
+            to="/"
             style={({ isActive }) => {
                 return {
                 textDecoration: isActive ? "none" : "none",
@@ -113,7 +113,7 @@ const SideBar = () => {
             <BsFillPersonFill />
             </Icon2>
             <NavLink
-            to="/dashboard/staffs"
+            to="/"
             style={({ isActive }) => {
                 return {
                 textDecoration: isActive ? "none" : "none",
