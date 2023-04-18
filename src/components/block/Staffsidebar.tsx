@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 import { FiPower } from "react-icons/fi";
 import { BsFillPersonFill } from "react-icons/bs"
 import { IoMdPerson} from "react-icons/io"
-import { RiMoneyDollarCircleFill } from "react-icons/ri"
+import { FaBattleNet } from "react-icons/fa"
 import {GiMoneyStack,GiFlatTire} from "react-icons/gi"
 
 const SideBar = () => {
@@ -42,7 +42,7 @@ const SideBar = () => {
 
           <Home2>
             <Icon2>
-            <BsFillPersonFill />
+            <FaBattleNet />
             </Icon2>
             <NavLink
             to="/"
