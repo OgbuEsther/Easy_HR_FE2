@@ -6,8 +6,8 @@ import { NavLink } from 'react-router-dom';
 import { FiPower } from "react-icons/fi";
 import { BsFillPersonFill } from "react-icons/bs"
 import { IoMdPerson} from "react-icons/io"
-import { FaBattleNet } from "react-icons/fa"
-import {GiMoneyStack,GiFlatTire} from "react-icons/gi"
+import { FaBattleNet,FaHornbill } from "react-icons/fa"
+import {GiStarSattelites,GiFlatTire} from "react-icons/gi"
 
 const SideBar = () => {
 
@@ -58,7 +58,9 @@ const SideBar = () => {
       </Home2>
 
       <Home2>
-            <Icon2><IoMdPerson  /></Icon2>
+            <Icon2>
+              <GiStarSattelites/>
+            </Icon2>
             <Text2 onClick={Toggle}>Savings</Text2>
           </Home2>
 
@@ -93,7 +95,7 @@ const SideBar = () => {
 
           <Home2>
             <Icon2>
-            <BsFillPersonFill />
+            <FaHornbill />
             </Icon2>
             <NavLink
             to="/staffdashboard/paybills"
