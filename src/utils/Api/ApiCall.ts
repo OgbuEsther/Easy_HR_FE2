@@ -1,11 +1,12 @@
 import axios from "axios";
 import { AdminData } from "../../types/AllInterfaces";
-import { error } from "console";
-
+import { StaffData } from "../../types/AllInterfaces";
 
 const url = "https://easyhr.onrender.com/api"
 
 const adminUrl ="admin"
+
+const staffUrl = "staff"
 
 export const createAdmin = async({
     companyname,
@@ -14,7 +15,7 @@ export const createAdmin = async({
    password,
 }:AdminData)=>{
     return await axios.post(`${url}/${adminUrl}/register/`,{
-        companyname,
+   companyname,
    email,
    yourName,
    password,
@@ -34,4 +35,18 @@ export const LoginAdmin = async({
         password
     }).then((res)=>
     {return res})
+}
+
+
+export const createStaff = async({
+    companyname,
+   email,
+   yourName,
+   password,
+}: StaffData)=>{
+    return await axios.post(`${url}/staff/staffregister`,{
+        companyname, email, password, yourName
+    }).then((res)=>{
+        return res
+    })
 }

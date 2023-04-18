@@ -16,3 +16,12 @@ export interface AdminData {
    password: string;
 }
 
+
+export interface StaffData {
+    companyname: string;
+   email: string;
+   yourName?: string;
+   password: string;
+
+}
+
