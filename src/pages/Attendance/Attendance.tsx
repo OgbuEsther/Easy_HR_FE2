@@ -11,6 +11,15 @@ const Attendance = () => {
     <div>
       <Container>
         <Wrapper>
+        <Word>
+            Attendance <br />
+           <span>
+          <a href="/dashboard">
+          Dashboard
+          </a>
+           / Attendance
+           </span>
+          </Word>
           <Table>
             <table>
               <tr>
@@ -1040,6 +1049,43 @@ const Attendance = () => {
 };
 
 export default Attendance;
+const Word = styled.div`
+font-weight: 500;
+font-size: 26px;
+color: rgb(31,31,31);
+background-color: rgba(0,0,0,0);
+line-height: 31.2px;
+text-decoration: none solid rgb(31,31,31);
+text-align: start;
+margin-left: 10px;
+display: flex;
+/* align-items: center; */
+flex-direction: column;
+justify-content: flex-start;
+margin-bottom: 30px;
+margin-top: 30px;
+/* background-color: greenyellow; */
+span{
+  color: rgb(51,51,51);
+  background-color: rgba(0,0,0,0);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: normal;
+  font-weight: 500;
+  text-decoration: none solid rgb(51,51,51);
+  text-align: left;
+}
+
+a{
+  text-decoration: none;
+
+  :hover{
+    color: black;
+  }
+}
+`
+
+
 const Icons = styled.div`
   color: red;
   font-size: 20px;
