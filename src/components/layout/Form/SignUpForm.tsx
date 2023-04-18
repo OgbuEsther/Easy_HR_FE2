@@ -1,22 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import {useForm} from "react-hook-form"
 import * as yup from "yup"
 import {yupResolver} from "@hookform/resolvers/yup"
 import { NavLink } from 'react-router-dom'
-import OutlineButton from '../../Buttons/OutlineButton'
-
+import { UseAppDispach } from '../../global/Store'
+import { useNavigate } from 'react-router-dom'
+import { useMutation } from '@tanstack/react-query'
+import { createStaff } from '../../../utils/Api'
+import { Staff } from '../../global/ReduxState'
 
 
 
 const SignupForm = () => {
 
 
+  const [viewpassword, setViewpassword]=useState(false)
+  const ShowPasswordFunction = ()=>{
+    setViewpassword(!viewpassword)
+  }
+
+  const dispatch = UseAppDispach();
+  const navigate = useNavigate()
+
+
 
   const schema = yup.object({
-    firstName: yup.string().required(),
-    lastName: yup.string().required(),
-    companyName: yup.string().required(),
+    yourName: yup.string().required(),
+    companyname: yup.string().required(),
     email: yup.string().email().required(),
     password: yup.string().min(9).required()
   }).required()
@@ -26,8 +37,24 @@ const SignupForm = () => {
   const{handleSubmit, formState: {errors}, reset, register} = useForm<formData>({
     resolver: yupResolver(schema)
   })
+
+
+  const StaffSignUp = useMutation({
+    mutationKey:['creating staff'],
+    mutationFn: createStaff,
+
+    onSuccess: (data)=>{
+      dispatch(Staff(data?.data))
+        navigate("/sign-in")
+    }
+  })
+
+  console.log('here',StaffSignUp);
   
-  const Submit = handleSubmit(()=>{
+
+  
+  const Submit = handleSubmit((data)=>{
+    StaffSignUp.mutate(data)
     reset()
   })
 
@@ -46,38 +73,45 @@ const SignupForm = () => {
 <NameInputColumn>
   <FirstNameInputContainer>
     
-    <FirstNameInput placeholder='Your Name'/>
+    <FirstNameInput {...register("yourName")} placeholder='Your Name'/>
   </FirstNameInputContainer>
 </NameInputColumn>
 
-{/* Admin Email Area */}
-<AdminEmailColumn>
-<AdminEmailContainer>
+{/* Staff Email Area */}
+<StaffEmailColumn>
+<StaffEmailContainer>
  
-  <AdminEmailInput placeholder='Email Address' />
-</AdminEmailContainer>
-</AdminEmailColumn>
+  <StaffEmailInput {...register("email")} placeholder='Email Address' />
+</StaffEmailContainer>
+</StaffEmailColumn>
 
-{/* Admin Company and Password Area */}
+{/* Staff Company and Password Area */}
 <CompanyNameAndPasswordInputColumn>
   <CompanyNameInputContainer>
   
-    <CompanyNameInput placeholder='Company Name'/>
+    <CompanyNameInput {...register("companyname")} placeholder='Company Name'/>
   </CompanyNameInputContainer>
   <PasswordInputContainer>
- 
-    <PasswordInput placeholder='Password'/>
+    <PasswordInputHold>
+      
+     <PasswordInput type={viewpassword?"text":"password"} {...register("password")} placeholder='Password'/>
+    </PasswordInputHold>
+    <ShowPassword onClick={ShowPasswordFunction}>
+      <CheckedInput type='checkbox' checked={viewpassword?true:false}/> <ShowPasswordText>
+        Show Password
+      </ShowPasswordText>
+    </ShowPassword>
   </PasswordInputContainer>
 </CompanyNameAndPasswordInputColumn>
 
-{/* Admin Sign up Button Area */}
+{/* Staff Sign up Button Area */}
 <SignUpButtonColumn>
 <SignUpButton>
     <Button type='submit'>Sign Up</Button>
   </SignUpButton>
 </SignUpButtonColumn>
 
-{/* Admin Sign in Button Area */}
+{/* Staff Sign in Button Area */}
 <AdminSignOptionColumn>
   <p>Already have account? <NavLink to="/sign-in" style={{textDecoration:"none"}}>
   <span>Sign In</span>
@@ -106,17 +140,50 @@ width: auto;
 border: 1px solid silver;
 `
 
+
+
+const PasswordInputHold = styled.div`
+  height: 100px;
+  width: auto;
+  display: flex;
+justify-content: flex-start;
+flex-direction: column;
+/* background-color: blue; */
+`
+
+const CheckedInput = styled.input`
+height: 15px;
+width: 15px;
+cursor: pointer;
+`;
+
+const ShowPasswordText = styled.div`
+font-size: 15px;
+font-weight: 600;
+margin-left: 5px;
+`;
+
+const ShowPassword = styled.div`
+height: auto;
+width: 250px;
+display: flex;
+align-items: center;
+margin-bottom: 15px;
+cursor: pointer;
+`
+
 const PasswordInputContainer = styled.div`
   height: 100px;
   width: 300px;
   display: flex;
-justify-content: center;
 flex-direction: column;
+/* background-color: green; */
 `
 
 const CompanyNameInputContainer = styled.div`
   height: 100px;
   width: 300px;
+  padding-bottom: 50px;
   display: flex;
 justify-content: center;
 flex-direction: column;
@@ -137,12 +204,12 @@ const CompanyNameAndPasswordInputColumn = styled.div`
   }
   `
 
-const AdminEmailInput = styled.input`
+const StaffEmailInput = styled.input`
   height: 50px;
   width: auto;
 `
 
-const AdminEmailColumn = styled.div`
+const StaffEmailColumn = styled.div`
   height: 100px;
   width: 100%;
   display: flex;
@@ -154,7 +221,7 @@ const AdminEmailColumn = styled.div`
   }
 `
 
-const AdminEmailContainer = styled.div`
+const StaffEmailContainer = styled.div`
   height: 100px;
   width: 100%;
   display: flex;
@@ -321,7 +388,6 @@ const Form = styled.form`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding-top: 170px;
   width: auto;
 }
 `
