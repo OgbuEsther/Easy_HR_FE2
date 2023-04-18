@@ -5,19 +5,19 @@ import styled from "styled-components";
 
 
 
-const Attendance = () => {
+const StaffTransaction = () => {
  
   return (
     <div>
       <Container>
         <Wrapper>
         <Word>
-        Attendance <br />
+        Staff Transaction <br />
            <span>
           <a href="/staffdashboard">
           Staff Dashboard
           </a>
-           / Attendance
+           / Staff Transaction
            </span>
           </Word>
 
@@ -29,7 +29,7 @@ const Attendance = () => {
   );
 };
 
-export default Attendance;
+export default StaffTransaction;
 
 const Word = styled.div`
 font-weight: 500;

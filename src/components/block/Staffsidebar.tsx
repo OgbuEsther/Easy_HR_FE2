@@ -5,9 +5,7 @@ import { MdDashboard } from "react-icons/md";
 import { NavLink } from 'react-router-dom';
 import { FiPower } from "react-icons/fi";
 import { BsFillPersonFill } from "react-icons/bs"
-import { IoMdPerson } from "react-icons/io"
-import { AiOutlineClose } from "react-icons/ai"
-import { FaBattleNet } from "react-icons/fa"
+import { AiOutlineClose } from "react-icons/ai";
 import img1 from "../../Assets/airtel.jpg"
 import img2 from "../../Assets/mtn.jpg"
 import img3 from "../../Assets/glo.jpg"
@@ -15,6 +13,9 @@ import img4 from "../../Assets/9mobile.jpg"
 import img5 from "../../Assets/smile.jpg"
 import {GiMoneyStack,GiFlatTire} from "react-icons/gi"
 import Airtels from '../../pages/Airtels';
+import { IoMdPerson} from "react-icons/io"
+import { FaBattleNet,FaHornbill } from "react-icons/fa"
+import {GiStarSattelites,GiTransportationRings} from "react-icons/gi"
 
 const SideBar = () => {
 
@@ -70,7 +71,7 @@ const SideBar = () => {
             <FaBattleNet />
             </Icon2>
             <NavLink
-            to="/"
+            to=""
             style={({ isActive }) => {
                 return {
                 textDecoration: isActive ? "none" : "none",
@@ -83,7 +84,9 @@ const SideBar = () => {
       </Home2>
 
       <Home2>
-            <Icon2><IoMdPerson  /></Icon2>
+            <Icon2>
+              <GiStarSattelites/>
+            </Icon2>
             <Text2 onClick={Toggle}>Savings</Text2>
           </Home2>
 
@@ -118,7 +121,7 @@ const SideBar = () => {
 
           <Home2>
             <Icon2>
-            <BsFillPersonFill />
+            <FaHornbill />
             </Icon2>
             <Text1 onClick={Togglepopup}>Pay Bills</Text1>
       </Home2>
@@ -199,10 +202,10 @@ const SideBar = () => {
 
           <Home2>
             <Icon2>
-            <BsFillPersonFill />
+            <GiTransportationRings />
             </Icon2>
             <NavLink
-            to="/"
+            to="/staffdashboard/stafftransaction"
             style={({ isActive }) => {
                 return {
                 textDecoration: isActive ? "none" : "none",
@@ -385,7 +388,7 @@ const Text = styled.div`
 const Power = styled.div`
     display: flex;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 80px;
 `;
 
 const Icon2 = styled.div`
