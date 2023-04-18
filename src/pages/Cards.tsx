@@ -73,7 +73,7 @@ const Cards = () => {
               </CardHold>
           </Card>
 
-          {/* <Card >
+          <Card >
         <CardHold>
           <IconHold
             style={{
@@ -85,9 +85,9 @@ const Cards = () => {
           
             <CardInfo>Buy Airtime</CardInfo>
         </CardHold>
-          </Card> */}
+          </Card>
           
-          {/* <Card onClick={Togglepopup}>
+          <Card onClick={Togglepopup}>
         <CardHold>
           <IconHold
             style={{
@@ -99,7 +99,7 @@ const Cards = () => {
           
             <CardInfo>Buy Data</CardInfo>
         </CardHold>
-          </Card> */}
+          </Card>
 
        {/* <Staff>
        <Title>
