@@ -15,6 +15,7 @@ import SignInAdmin from "../pages/Auth/SignInAdmin";
 import ForgotPasswordEmail from "../pages/Auth/ForgetPasswordEmail";
 import ResetPassword from "../pages/Auth/ResetPassword";
 import Verification from "../pages/Auth/Verification";
+import { Staffdashboard } from "../components/layout/Staffdashboard";
 
 
 const Home = lazy(() => import("../pages/landingpage/Home"));
@@ -85,6 +86,18 @@ export const Elements = createBrowserRouter([
         errorElement: <ErrorBoundary />,
       },
     ],
+  },
+  {
+    path: "/staff-dashboard",
+    element: <Staffdashboard />,
+    children: [
+      {
+        index: true,
+        element: <ParentComp />,
+        hasErrorBoundary: true,
+        errorElement: <ErrorBoundary />,
+      },
+    ]
   },
   {
     path:"/sign-up",
