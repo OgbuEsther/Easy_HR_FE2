@@ -16,6 +16,39 @@ const SideBar = () => {
         <Img src={img} />
       </Top>
 
+          <Home>
+            <Icon2>
+            <MdDashboard />
+            </Icon2>
+            <NavLink
+            to=""
+            style={({ isActive }) => {
+                return {
+                textDecoration: isActive ? "none" : "none",
+                color: isActive ? "#2AA7FF" : "#fff",
+                };
+            }}
+            >
+            <Text1>Dashboard</Text1>
+            </NavLink>
+      </Home>
+
+          <Home2>
+            <Icon2>
+            <BsFillPersonFill />
+            </Icon2>
+            <NavLink
+            to="/dashboard/staffs"
+            style={({ isActive }) => {
+                return {
+                textDecoration: isActive ? "none" : "none",
+                color: isActive ? "#2AA7FF" : "#fff",
+                };
+            }}
+            >
+            <Text1>Attendance</Text1>
+            </NavLink>
+      </Home2>
       <Power>
         <Icon2>
           <FiPower />
@@ -27,6 +60,28 @@ const SideBar = () => {
 }
 
 export default SideBar
+const Home2 = styled.div`
+  width: 100%;
+  display: flex;
+  margin-top: 25px;
+  align-items: center;
+`;
+const Text1 = styled.div`
+  font-size: 17px;
+  font-family: U8, sans-serif;
+  cursor: pointer;
+  align-items: center;
+  display: flex;
+  margin-left: 15px;
+  width: 210px;
+  height: 40px;
+`
+const Home = styled.div`
+  width: 100%;
+  display: flex;
+  margin-top: 40px;
+  align-items: center;
+`;
 const Text = styled.div`
   font-size: 17px;
   cursor: pointer;
