@@ -87,18 +87,7 @@ export const Elements = createBrowserRouter([
       },
     ],
   },
-  {
-    path: "/staff-dashboard",
-    element: <Staffdashboard />,
-    children: [
-      {
-        index: true,
-        element: <ParentComp />,
-        hasErrorBoundary: true,
-        errorElement: <ErrorBoundary />,
-      },
-    ]
-  },
+
   {
     path:"/sign-up",
     element: <SignUp/>
@@ -151,5 +140,17 @@ export const Elements = createBrowserRouter([
   {
     path : "*",
     element : <NotFound />
-  }
+  },
+  {
+    path: "/staffdashboard",
+    element: <Staffdashboard />,
+    children: [
+      {
+        index: true,
+        element: <ParentComp />,
+        hasErrorBoundary: true,
+        errorElement: <ErrorBoundary />,
+      },
+    ]
+  },
 ]);
