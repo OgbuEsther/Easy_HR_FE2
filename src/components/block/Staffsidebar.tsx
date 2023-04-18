@@ -96,7 +96,7 @@ const SideBar = () => {
             <BsFillPersonFill />
             </Icon2>
             <NavLink
-            to=""
+            to="/staffdashboard/paybills"
             style={({ isActive }) => {
                 return {
                 textDecoration: isActive ? "none" : "none",
