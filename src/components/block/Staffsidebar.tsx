@@ -7,7 +7,7 @@ import { FiPower } from "react-icons/fi";
 import { BsFillPersonFill } from "react-icons/bs"
 import { IoMdPerson} from "react-icons/io"
 import { FaBattleNet,FaHornbill } from "react-icons/fa"
-import {GiStarSattelites,GiFlatTire} from "react-icons/gi"
+import {GiStarSattelites,GiTransportationRings} from "react-icons/gi"
 
 const SideBar = () => {
 
@@ -112,10 +112,10 @@ const SideBar = () => {
 
           <Home2>
             <Icon2>
-            <BsFillPersonFill />
+            <GiTransportationRings />
             </Icon2>
             <NavLink
-            to="/"
+            to="/staffdashboard/stafftransaction"
             style={({ isActive }) => {
                 return {
                 textDecoration: isActive ? "none" : "none",
@@ -192,7 +192,7 @@ const Text = styled.div`
 const Power = styled.div`
     display: flex;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 80px;
 `;
 
 const Icon2 = styled.div`
