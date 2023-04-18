@@ -5,22 +5,47 @@ import { MdDashboard } from "react-icons/md";
 import { NavLink } from 'react-router-dom';
 import { FiPower } from "react-icons/fi";
 import { BsFillPersonFill } from "react-icons/bs"
-import { IoMdPerson} from "react-icons/io"
+import { IoMdPerson } from "react-icons/io"
+import { AiOutlineClose } from "react-icons/ai"
 import { FaBattleNet } from "react-icons/fa"
+import img1 from "../../Assets/airtel.jpg"
+import img2 from "../../Assets/mtn.jpg"
+import img3 from "../../Assets/glo.jpg"
+import img4 from "../../Assets/9mobile.jpg"
+import img5 from "../../Assets/smile.jpg"
 import {GiMoneyStack,GiFlatTire} from "react-icons/gi"
+import Airtels from '../../pages/Airtels';
 
 const SideBar = () => {
 
     const [show, setShow] = React.useState(false)
+    const [showAirtel, setShowAirtel] = React.useState(false);
+    const [showPopup, setShowPopup] = React.useState(false);
 
     const Toggle = () => {
         setShow(!show)
     }
 
+    const cancelPopup = () => {
+    setShowPopup(false);
+    };
+    
+    const Togglepopup = () => {
+    setShowPopup(!showPopup);
+  }
+
+    const ToggleAirtel = () => {
+    setShowAirtel(!showAirtel);
+    setShowPopup(false);
+  }
+
+
+    
+
   return (
     <Container>
       <Top>
-        <Img src={img} />
+        <Img2 src={img} />
       </Top>
 
           <Home>
@@ -95,18 +120,82 @@ const SideBar = () => {
             <Icon2>
             <BsFillPersonFill />
             </Icon2>
-            <NavLink
-            to="/staffdashboard/paybills"
-            style={({ isActive }) => {
-                return {
-                textDecoration: isActive ? "none" : "none",
-                color: isActive ? "#2AA7FF" : "#fff",
-                };
-            }}
-            >
-            <Text1>Pay Bills</Text1>
-            </NavLink>
+            <Text1 onClick={Togglepopup}>Pay Bills</Text1>
       </Home2>
+
+          {showPopup ? (
+              <Popups>
+                  <Popup_content>
+                      <h3>Payments</h3>
+                      <p>Select the service you want to make payment for</p>
+                      <h4>Data Services</h4>
+                      <Box>
+                          <Airtel onClick={ToggleAirtel}>
+                              <Img src={img1} />
+                              <AirtelText>
+                                  <strong>Airtel Data</strong>
+                                  <Text4>Airtel Data - Get instant top up</Text4>
+                              </AirtelText>
+                          </Airtel>
+
+                          <Airtel>
+                            <Img src={img2} />
+                            <AirtelText>
+                                <strong>MTN Data</strong>
+                                <Text4>MTN Data - Get instant Data Top up</Text4>
+                             </AirtelText>
+                          </Airtel>
+                          
+                          <Airtel>
+                            <Img src={img3} />
+                            <AirtelText>
+                                <strong>GLO Data</strong>
+                                <Text4>GLO Data - Get instant Top up</Text4>
+                            </AirtelText>
+                          </Airtel>
+                          
+                          <Airtel>
+                            <Img src={img4} />
+                            <AirtelText>
+                                <strong>9mobile Data</strong>
+                                <Text4>9mobile Data - Get instant Top up</Text4>
+                            </AirtelText>
+                          </Airtel>
+                          
+                          <Airtel>
+                            <Img src={img5} />
+                            <AirtelText>
+                                <strong>Smile Payment</strong>
+                                <Text4>Pay for Smile Airtime and Internet Data</Text4>
+                            </AirtelText>
+                          </Airtel>
+                          
+                          <Airtel>
+                            <Img src={img3} />
+                            <AirtelText>
+                                 <strong>GLO Data</strong>
+                                <Text4>GLO Data - Get instant Top up</Text4>
+                            </AirtelText>
+                          </Airtel>
+                          
+                          <Airtel>
+                            <Img src={img3} />
+                            <AirtelText>
+                                <strong>GLO Data</strong>
+                                <Text4>GLO Data - Get instant Top up</Text4>
+                         </AirtelText>
+                        </Airtel>
+                      </Box>
+                  </Popup_content>
+                  <Icon onClick={cancelPopup}><AiOutlineClose /></Icon>
+              </Popups>
+          ) : null}
+
+          {showAirtel ? (
+              <Airtelhold>
+                  <Airtels />
+              </Airtelhold>
+          ) : null}
 
           <Home2>
             <Icon2>
@@ -128,13 +217,119 @@ const SideBar = () => {
         <Icon2>
           <FiPower />
         </Icon2>
-        <Text>Logout</Text>
+        <Text2>Logout</Text2>
       </Power>
     </Container>
   )
 }
 
 export default SideBar
+const Text4 = styled.div`
+    font-size: 11px;
+    color: #000;
+`
+const Img = styled.img`
+    height: 50px;
+`
+const Airtelhold = styled.div`
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    position: fixed;
+    z-index: 3;
+    justify-content: center;
+    align-items: center;
+`
+const Icon = styled.div`
+  display: flex;
+  position: absolute;
+  color: #fff; 
+  right: 180px;
+  font-size: 25px;
+  top: 80px;
+  cursor: pointer;
+`
+const AirtelText = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    strong{
+        margin: 0;
+        font-weight: 500;
+        font-size: 15px;
+        color: #495463;
+    }
+`
+const Airtel = styled.div`
+    width: 250px;
+    height: 50px;
+    border: 1px solid #CEC2C2;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+`
+const Box = styled.div`
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+`
+const Popup_content = styled.div`
+    width: 850px;
+    height: 450px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+  padding: 25px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+   animation: popup-open 0.5s ease-out forwards;
+
+   @keyframes popup-open {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+  }
+  h3{
+    margin: 0px;
+    color: #173D52 !important;
+    font-size: 1.3em;
+    font-weight: 500;
+  }
+  p{
+    font-size: 15px;
+    margin-top: 7px;
+    color: #000;
+  }
+  h4{
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: #495463
+  }
+`
+const Popups = styled.div`
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 7;
+`
 const Staffs = styled.div`
     width: 100%;
     display: flex;
@@ -199,7 +394,7 @@ const Icon2 = styled.div`
   cursor: pointer;
 `;
 
-const Img = styled.img`
+const Img2 = styled.img`
   height: 120px;
 `;
 
