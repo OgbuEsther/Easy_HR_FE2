@@ -26,7 +26,8 @@ const Attendance = lazy(()=> import("../pages/Attendance/Attendance"));
 const Transaction = lazy(()=> import("../pages/Transaction/Transaction"))
 const ParentComp = lazy(() => import("../pages/ParentComp"));
 const ContactUs = lazy(() => import("../pages/landingpage/ContactUs"));
-const PayBills = lazy(()=>import("../pages/StaffdasBoard/PayBills/PayBill"))
+const PayBills = lazy(()=>import("../pages/StaffdasBoard/PayBills/PayBill"));
+const StaffAttendance = lazy(() => import("../pages/StaffdasBoard/Attendance/Attendance"))
 
 export const Elements = createBrowserRouter([
   {
@@ -156,6 +157,12 @@ export const Elements = createBrowserRouter([
       {
        path:"/staffdashboard/paybills",
         element: <PayBills/>,
+        hasErrorBoundary: true,
+        errorElement: <ErrorBoundary />,
+      },
+      {
+       path:"/staffdashboard/staffattendance",
+        element: <StaffAttendance/>,
         hasErrorBoundary: true,
         errorElement: <ErrorBoundary />,
       },
