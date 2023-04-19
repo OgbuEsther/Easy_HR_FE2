@@ -26,9 +26,11 @@ const Attendance = lazy(()=> import("../pages/Attendance/Attendance"));
 const Transaction = lazy(()=> import("../pages/Transaction/Transaction"))
 const ParentComp = lazy(() => import("../pages/ParentComp"));
 const ContactUs = lazy(() => import("../pages/landingpage/ContactUs"));
+const Attendance = lazy(()=> import("../pages/Attendance"))
+
 const PayBills = lazy(()=>import("../pages/StaffdasBoard/PayBills/PayBill"));
 // const StaffAttendance = lazy(() => import("../pages/StaffdasBoard/Attendance/Attendance"))
-const StaffTransaction = lazy(()=>import("../pages/StaffdasBoard/StaffTransaction/StaffTransaction"))
+const StaffTransaction = lazy(()=>import("../pages/StaffdasBoard/StaffTransaction/StaffTransactio
 
 export const Elements = createBrowserRouter([
   {
@@ -84,6 +86,9 @@ export const Elements = createBrowserRouter([
         errorElement: <ErrorBoundary />,
       },
       {
+        path: "/dashboard/attendance",
+        element: <Attendance />,
+
         path: "/dashboard/transaction",
         element: <Transaction/>,
         hasErrorBoundary: true,
