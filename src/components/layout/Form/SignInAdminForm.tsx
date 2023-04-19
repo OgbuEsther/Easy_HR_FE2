@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom';
 import {useNavigate} from "react-router-dom"
 import { UseAppDispach } from '../../global/Store'
 import { useMutation } from '@tanstack/react-query'
-import { LoginAdmin } from '../../../utils/Api'
+import { LoginAdmin } from '../../../utils/Api/ApiCall'
 import { Admin } from '../../global/ReduxState'
 
 
@@ -48,8 +48,9 @@ SetViewPassword(!ViewPassword)
 
   
   const LoginAdminFunction = useMutation({
-    mutationKey: ["login admin"],
-    mutationFn: LoginAdmin,
+    mutationKey: ["login_admin"],
+    // mutationFn: LoginAdmin,
+    mutationFn: (data: any) => LoginAdmin(data),
 
     onSuccess(data) {
         console.log(data);

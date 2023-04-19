@@ -8,45 +8,26 @@ const adminUrl ="admin"
 
 const staffUrl = "staff"
 
-export const createAdmin = async({
-    companyname,
-   email,
-   yourName,
-   password,
-}:AdminData)=>{
-    return await axios.post(`${url}/${adminUrl}/register/`,{
-   companyname,
-   email,
-   yourName,
-   password,
-    }).then((res)=>{
-        return res
+export const createAdmin = async(data:AdminData)=>{
+    return await axios.post(`${url}/${adminUrl}/register`,data).then((res)=>{
+        return res.data
     })
 }
 
-export const LoginAdmin = async({
-    companyname,
-    email,
-    password
-}:AdminData)=>{
-    return await axios.post(`${url}/${adminUrl}/login`,{
-        companyname,
-        email,
-        password
-    }).then((res)=>
-    {return res})
+export const LoginAdmin = async(data:any)=>{
+    return await axios.post(`${url}/${adminUrl}/login`,data).then((res)=>
+    {return res.data})
 }
 
 
-export const createStaff = async({
-    companyname,
-   email,
-   yourName,
-   password,
-}: StaffData)=>{
-    return await axios.post(`${url}/staff/staffregister`,{
-        companyname, email, password, yourName
-    }).then((res)=>{
-        return res
+export const createStaff = async(data: StaffData)=>{
+    return await axios.post(`${url}/staff/staffregister`,data).then((res)=>{
+        return res.data
+    })
+}
+
+export const getOneAdmin = async(id:any)=>{
+    return await axios.get(`${url}/admin/${id}`).then((res)=>{
+        return res.data
     })
 }
