@@ -53,10 +53,10 @@ const Cards = () => {
       </Card>
 
       <Card>
-          <Left2>
+          <Left3>
               <Icos><RiNumbersFill /></Icos>
           <Wallet>Wallet Number</Wallet>
-        </Left2>
+        </Left3>
         <Right>
           <Bal>123456789</Bal>
         </Right> 
@@ -154,6 +154,16 @@ const Cards = () => {
 }
 
 export default Cards
+const Left3 = styled.div`
+  background-color: #ED413E;
+  width: 120px;
+  height: 100%;
+  border-right: 3px solid #F0F0F0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+`
 const Left2 = styled.div`
   width: 120px;
   height: 100%;
