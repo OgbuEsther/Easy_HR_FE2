@@ -13,9 +13,9 @@ const Methods = () => {
           <Wrapper>
               <Top><h1>Add Payment Methods in a Click.</h1></Top>
               <Boxhold>
-                  <MethodsCard text='Fast' word='Using Paydem is fast & reliable way to send money to multiple people. Payments happen at the push of a button after putting in the telephone numbers of individuals.' button='Learn More' img={img4} climg={img2}/>
+                  <MethodsCard  text='Fast' word='Using Paydem is fast & reliable way to send money to multiple people. Payments happen at the push of a button after putting in the telephone numbers of individuals.' button='Learn More' img={img4} climg={img2}/>
                   <MethodsCard text='Cost-Effective' word='Using Paydem is fast & reliable way to send money to multiple people. Payments happen at the push of a button after putting in the telephone numbers of individuals.' button='Learn More' img={img4} climg={img}/>
-                  <MethodsCard text='Security' word='Using Paydem is fast & reliable way to send money to multiple people. Payments happen at the push of a button after putting in the telephone numbers of individuals.' button='Learn More' img={img4} climg={img3}/>
+                  <MethodsCard  text='Security' word='Using Paydem is fast & reliable way to send money to multiple people. Payments happen at the push of a button after putting in the telephone numbers of individuals.' button='Learn More' img={img4} climg={img3}/>
               </Boxhold>    
           </Wrapper>
     </Container>

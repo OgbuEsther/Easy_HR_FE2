@@ -28,13 +28,8 @@ const ParentComp = () => {
       <Container>
         <Wrapper>
           <Top>
-
             <Left>
-              <Bold>
-                <Icn>
-                  <AiFillDashboard/>
-                </Icn>
-                Dashboard</Bold>
+              <Bold>Dashboard</Bold>
               <button onClick={Toggle}>Credit Wallet</button>
             </Left>
             <hr />
@@ -93,18 +88,7 @@ const ParentComp = () => {
               </Slidein>
             ) : null}
           </Top>
-          {/* <Cards /> */}
-
-        <CardHold>
-        <DashBoardCardProps icons={<FaJediOrder/>} top="New Orders" bottom=" More Info " middle="150" icon={<BsFillArrowRightCircleFill/>} bcg="#0078F6"/>
-
-<DashBoardCardProps icons={<GiHypersonicMelon/>} top="Bounce Rate" bottom=" More Info " middle="53%" icon={<BsFillArrowRightCircleFill/>} bcg="#26A242"/>
-
-<DashBoardCardProps icons={<AiFillAlert/>} top="Users Registrations" bottom=" More Info " middle="44" icon={<BsFillArrowRightCircleFill/>} bcg="#F6BC09"/>
-
-<DashBoardCardProps icons={<AiOutlineDeploymentUnit/>} top="Unique Visitor" bottom=" More Info " middle="65" icon={<BsFillArrowRightCircleFill/>} bcg="#D53343"/>
-
-        </CardHold>
+          <Cards />
         </Wrapper>
       </Container>
     </div>
@@ -262,14 +246,16 @@ align-items: center;
 justify-content: center;
 font-size: 30px;
 margin: 3px;
+color: #292929;
 `
 
 const Bold = styled.div`
-  font-size: 30px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 500;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #252525;
 `;
 const Left = styled.div`
   display: flex;

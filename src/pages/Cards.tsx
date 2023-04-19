@@ -5,10 +5,12 @@ import img2 from "../Assets/mtn.jpg"
 import img3 from "../Assets/glo.jpg"
 import img4 from "../Assets/9mobile.jpg"
 import img5 from "../Assets/smile.jpg"
+import Img6 from "../Assets/wave.svg"
 import { AiOutlineClose } from "react-icons/ai"
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
 import { BsFillPiggyBankFill, BsTelephoneFill, BsDatabase } from "react-icons/bs";
 import Airtels from './Airtels'
+import {FaGoogleWallet} from "react-icons/fa"
 
 const Cards = () => {
       const [showAirtel, setShowAirtel] = React.useState(false);
@@ -30,17 +32,13 @@ const Cards = () => {
   return (
       <Container>
           <Card>
-              <CardHold>
-                  <IconHold
-                      style={{
-              backgroundColor: "#2a9d8f",
-            }}
-            >
-                    <MdOutlineAccountBalanceWallet />
-                  </IconHold>
-                  <CardTitle>wallet Number </CardTitle>
-                  <CardInfo>123456 </CardInfo>
-              </CardHold>
+            <Left>
+              <Icos><FaGoogleWallet /></Icos>
+          <Wallet>Wallet Balance</Wallet>
+        </Left>
+        <Right>
+          <Bal>NGN 0.00</Bal>
+        </Right>
           </Card>
 
           <Card>
@@ -55,36 +53,36 @@ const Cards = () => {
                   <CardTitle>Balance </CardTitle>
                   <CardInfo>NGN 1000 </CardInfo>
               </CardHold>
-          </Card>
+      </Card>
 
-          <Card >
-        <CardHold>
-          <IconHold
-            style={{
-              backgroundColor: "#2a9d8f",
-            }}
-          >
-            <BsTelephoneFill />
-          </IconHold>
-          
-            <CardInfo>Buy Airtime</CardInfo>
-        </CardHold>
-          </Card>
-          
-          <Card onClick={Togglepopup}>
-        <CardHold>
-          <IconHold
-            style={{
+      <Card>
+              <CardHold>
+                  <IconHold
+                      style={{
               backgroundColor: "#e76f51",
             }}
-          >
-            <BsDatabase />
-          </IconHold>
+            >
+                    <BsFillPiggyBankFill />
+                  </IconHold>
+                  <CardTitle>Balance </CardTitle>
+                  <CardInfo>NGN 1000 </CardInfo>
+              </CardHold>
+      </Card>
+      
           
-            <CardInfo>Buy Data</CardInfo>
-        </CardHold>
-          </Card>
+
+       {/* <Staff>
+       <Title>
+            Staffs
+          </Title>
+          <CardProps title='FrontEnd Engineer' img="DC" name="Divine Chigozie"/>
+
+
+          <CardProps title='FullStack Engineer' img="VP" name="Valerian Pedro"/>
+
+          <CardProps title='BackEnd Engineer' img="EO" name="Esther Ogbu"/>
           
+       </Staff> */}
           {showPopup ? (
               <Popups>
                   <Popup_content>
@@ -163,6 +161,54 @@ const Cards = () => {
 }
 
 export default Cards
+const Bal = styled.div`
+  color: #3f3f3f;
+  margin-left: 30px;
+  font-size: 26px;
+  font-weight: 600;
+`
+const Right = styled.div`
+  flex: 1;
+  height: 100%;
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+`
+const Wallet = styled.div`
+  color: #fff;
+  font-weight: 500;
+`
+const Icos = styled.div`
+  color: #fff;
+  font-size: 30px;
+`
+const Left = styled.div`
+  width: 120px;
+  height: 100%;
+  background-color: #FF8400;
+  border-right: 3px solid #FFD93D;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+`
+const Title = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: 600;
+font-size: 20px;
+`
+const Staff = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* flex-direction: column; */
+  width: 100%;
+
+`
+
 const Airtelhold = styled.div`
     width: 100%;
     height: 100vh;
@@ -310,16 +356,17 @@ const CardHold = styled.div`
 `;
 
 const Card = styled.div`
-  height: 180px;
-  width: 228px;
+  height: 120px;
+  width: 329px;
   background-color: #fff;
   border-radius: 3px;
   border-bottom: 2px solid #0d71fa;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  border: 1px solid #D5DBE1;
   margin: 10px;
+  border-radius: 10px;
   cursor: pointer;
+  overflow: hidden;
 
   @media (max-width: 1024px) {
     width: 320px;

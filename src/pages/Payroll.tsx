@@ -2,9 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import { CiSearch } from "react-icons/ci"
 import img from ".././Assets/savio.jpg"
-import {AiFillPlusCircle} from "react-icons/ai"
+import {AiFillPlusCircle, AiOutlineClose} from "react-icons/ai"
 
 interface data {
+    earn: string;
+    id: number;
+}
+interface data2 {
     earn: string;
     id: number;
 }
@@ -16,8 +20,16 @@ const Payroll = () => {
     const [earnvalue, setEarnvalue] = React.useState("")
     const [data, setData] = React.useState<data[]>([])
 
+    const [shows2, setShows2] = React.useState(false)
+    const [inputs2, setinputs2] = React.useState(false)
+    const [earnvalue2, setEarnvalue2] = React.useState("")
+    const [data2, setData2] = React.useState<data2[]>([])
+
     const Toggles = () => {
         setShows(true)
+    }
+    const Toggles2 = () => {
+        setShows2(true)
     }
 
     let idData: number = data.length + 1;
@@ -43,6 +55,31 @@ const Payroll = () => {
         },
       ]
     );
+    };
+    
+    let idData2: number = data2.length + 1;
+       const addNewTask2 = () => {
+    // sorting algoritm
+    // const sortinfo = (x: any) => {
+    //   return (a: any, b: any) => {
+    //     if (a[x] < b[x]) {
+    //       return a[x];
+    //     } else if (a[x] > b[x]) {
+    //       return -1;
+    //     }
+    //     return 0;
+    //   };
+    // };
+
+    setData2((prev2) =>
+      [
+        ...prev2,
+        {
+          earn: earnvalue2,
+          id: idData2,
+        },
+      ]
+    );
   };
 
 
@@ -50,12 +87,24 @@ const Payroll = () => {
         setShow(!show)
     }
 
+    const Closes = () => {
+        setShow(false)
+    }
+
     const Editing = () => {
         setinputs(true)
     }
 
+    const Editing2 = () => {
+        setinputs2(true)
+    }
+
     const Remove = () => {
         setinputs(false)
+    }
+
+    const Remove2 = () => {
+        setinputs2(false)
     }
 
 
@@ -163,7 +212,53 @@ const Payroll = () => {
                                   <Adds onClick={Editing}>Add Earnings</Adds>
                               </Add>
                           </Wrap>
+
+                          <Wrap2>
+                              <Up>
+                                  <Earning>Deductions</Earning>
+                                  <Amount><p>Amount</p></Amount>
+                              </Up>
+                              <Earnhold>
+                                  <Up3>
+                                  <Earning2>Regular Earnings</Earning2>
+                                  <Pays placeholder='NGN'/>
+                                  </Up3>
+
+                                  {data2.map((data2) => (
+                                      <Up3>
+                                          <Earning2>{ data2.earn }</Earning2>
+                                  <Pays placeholder='NGN'/>
+                                  </Up3>
+                                  ))}
+                                  
+                                  {inputs2 ? (
+                                      <Up2>
+                                          <Addinput placeholder='Add earning' onChange={(e) => {
+                                              setEarnvalue2(e.target.value)
+                                  }}/>
+                                      <Canchold>
+                                          <Canc onClick={Remove}>Cancel</Canc>
+                                          <Hi></Hi>
+                                              {earnvalue2 !== "" ? (
+                                                <Ad onClickCapture={addNewTask2 } bg="white" onClick={Remove2}>Add</Ad>
+                                            ) : (
+                                                <Ad disabled={true}  bg='silver'>Add</Ad>
+                                            )}
+                                      </Canchold>
+                                  </Up2>
+                                  ) : null}
+                              </Earnhold>
+                              <Add>
+                                  <Icon><AiFillPlusCircle /></Icon>
+                                  <Adds onClick={Editing2}>Add Earnings</Adds>
+                              </Add>
+                          </Wrap2>
                       </Earnings>
+                      <Confirmhold>
+                          <Confirm>Confirm Payment</Confirm>
+                      </Confirmhold>
+
+                      <Close onClick={Closes}><AiOutlineClose /></Close>
               </Box>
           </Edit>
           ) : null}
@@ -172,6 +267,33 @@ const Payroll = () => {
 }
 
 export default Payroll
+const Confirm = styled.div`
+    width: 150px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: #1F337C;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 30px;
+`
+const Confirmhold = styled.div`
+    width: 95%;
+    display: flex;
+    justify-content: flex-end;
+
+`
+
+const Close = styled.div`
+    position: absolute;
+    color: #000;
+    height: 30px;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+`
 const Canchold = styled.div`
     display: flex;
     align-items: center;
@@ -198,6 +320,15 @@ const Canc = styled.div`
     font-size: 14px;
     cursor: pointer;
 `
+const Addinput2 = styled.input`
+    width: 210px;
+    height: 20px;
+    border: 1px solid #D6DEE9;
+    outline: none;
+    padding-left: 10px;
+    border-radius: 3px;
+`
+
 const Addinput = styled.input`
     width: 210px;
     height: 20px;
@@ -274,19 +405,30 @@ const Up = styled.div`
     justify-content: space-between;
     align-items: center;
 `
+const Wrap2 = styled.div`
+    width: 95%;
+    height: 80%;
+    /* background-color: red; */
+    overflow-y: scroll;
+    flex-direction: column;
+    /* justify-content: center; */
+    display: flex;
+    margin-top: 10px;
+`
 const Wrap = styled.div`
     width: 95%;
     height: 80%;
     /* background-color: red; */
     overflow-y: scroll;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     display: flex;
     margin-top: 30px;
 `
 const Earnings = styled.div`
     height: 60vh;
-    background-color: #f0f8ffb7;
+    /* background-color: red; */
+    flex-direction: column;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -346,9 +488,10 @@ const Header = styled.div`
 `
 const Box = styled.div`
     width: 700px;
-    height: 500px;
+    height: 570px;
     background-color: white;
     border-radius: 5px;
+    position: relative;
 `
 const Edit = styled.div`
     width: 100%;
@@ -569,7 +712,7 @@ const Wrapper = styled.div`
 `
 
 const Container = styled.div`
-    width: calc(100vw - 270px);
+    width: calc(100vw - 220px);
     display: flex;
     justify-content: center;
 `
