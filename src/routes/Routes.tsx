@@ -21,6 +21,7 @@ const About = lazy(() => import("../pages/landingpage/Connect"));
 const Staffs = lazy(() => import("../pages/Staffs"));
 const ParentComp = lazy(() => import("../pages/ParentComp"));
 const ContactUs = lazy(() => import("../pages/landingpage/ContactUs"));
+const Attendance = lazy(()=> import("../pages/Attendance"))
 
 export const Elements = createBrowserRouter([
   {
@@ -66,6 +67,12 @@ export const Elements = createBrowserRouter([
       {
         path: "/dashboard/payroll",
         element: <Payroll />,
+        hasErrorBoundary: true,
+        errorElement: <ErrorBoundary />,
+      },
+      {
+        path: "/dashboard/attendance",
+        element: <Attendance />,
         hasErrorBoundary: true,
         errorElement: <ErrorBoundary />,
       },
