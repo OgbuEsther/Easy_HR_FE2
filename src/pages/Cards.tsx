@@ -10,7 +10,7 @@ import { AiOutlineClose } from "react-icons/ai"
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
 import { BsFillPiggyBankFill, BsTelephoneFill, BsDatabase } from "react-icons/bs";
 import Airtels from './Airtels'
-import CardProps from './CardProps'
+import {FaGoogleWallet} from "react-icons/fa"
 
 const Cards = () => {
       const [showAirtel, setShowAirtel] = React.useState(false);
@@ -32,20 +32,26 @@ const Cards = () => {
   return (
       <Container>
           <Card>
-              <CardHold>
-                  <IconHold
-                      style={{
-              backgroundColor: "#2a9d8f",
-            }}
-            >
-                    <MdOutlineAccountBalanceWallet />
-                  </IconHold>
-                  <CardTitle>Wallet Number </CardTitle>
-                  <CardInfo>123456 </CardInfo>
-              </CardHold>
+            <Left>
+              <Icos><FaGoogleWallet /></Icos>
+              </Left>
           </Card>
 
           <Card>
+              <CardHold>
+                  <IconHold
+                      style={{
+              backgroundColor: "#e76f51",
+            }}
+            >
+                    <BsFillPiggyBankFill />
+                  </IconHold>
+                  <CardTitle>Balance </CardTitle>
+                  <CardInfo>NGN 1000 </CardInfo>
+              </CardHold>
+      </Card>
+
+      <Card>
               <CardHold>
                   <IconHold
                       style={{
@@ -151,6 +157,20 @@ const Cards = () => {
 }
 
 export default Cards
+const Icos = styled.div`
+  color: #fff;
+  font-size: 30px;
+`
+const Left = styled.div`
+  width: 100px;
+  height: 100%;
+  background-color: #FF8400;
+  border-right: 3px solid #FFD93D;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+`
 const Title = styled.div`
 display: flex;
 align-items: center;
@@ -315,18 +335,17 @@ const CardHold = styled.div`
 `;
 
 const Card = styled.div`
-  height: 180px;
+  height: 120px;
   width: 329px;
   background-color: #fff;
   border-radius: 3px;
   border-bottom: 2px solid #0d71fa;
   display: flex;
-  justify-content: center;
-  align-items: center;
   border: 1px solid #D5DBE1;
   margin: 10px;
   border-radius: 10px;
   cursor: pointer;
+  overflow: hidden;
 
   @media (max-width: 1024px) {
     width: 320px;
