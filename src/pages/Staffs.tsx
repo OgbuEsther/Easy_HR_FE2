@@ -2,32 +2,42 @@ import React from "react";
 
 import styled from "styled-components";
 import CardProps from "./CardProps";
-
+import { useAppSelector } from "../components/global/Store";
+import { getOneAdmin } from "../utils/Api/ApiCall";
+import { useQuery } from "@tanstack/react-query";
 
 const Staffs = () => {
- 
-
+  const user = useAppSelector((state) => state.currentUser);
+  const getAdmin = useQuery({
+    queryKey: ["singleAdmin"],
+    queryFn: () => getOneAdmin(user?._id),
+  });
+console.log("this is admin",user?._id)
   return (
     <div>
       <Container>
         <Wrapper>
           <Text>
             Employee <br />
-           <span>
-          <a href="/dashboard">
-          Dashboard 
-          </a>
-          / Employee
-           </span>
+            <span>
+              <a href="/dashboard">Dashboard</a>/ Employee
+            </span>
           </Text>
 
           <CardHold>
-            <CardProps img="DC" name="Valerian Pedro" title="FullStack Engineer"/>
-            <CardProps img="GO" name="Godwin Okowoli" title="FullStack Engineer"/>
+            {getAdmin?.data?.data?.viewUser.map((el: any) => (
+              <CardProps
+                img={`${user?.yourName?.charAt(0)}`}
+                name={el?.yourName}
+                title={el?.position}
+              />
+            ))}
+
+            {/* <CardProps img="GO" name="Godwin Okowoli" title="FullStack Engineer"/>
             <CardProps img="EO" name="Esther Ogbu" title="FullStack Engineer"/>
             <CardProps img="EO" name="Esther Ighoruemuse" title="FullStack Engineer"/>
             <CardProps img="J" name="Joshua" title="FullStack Engineer"/>
-            <CardProps img="CO" name="CodeLab Academy" title="Coding  Academy"/>
+            <CardProps img="CO" name="CodeLab Academy" title="Coding  Academy"/> */}
           </CardHold>
         </Wrapper>
       </Container>
@@ -38,49 +48,48 @@ const Staffs = () => {
 export default Staffs;
 
 const CardHold = styled.div`
-display: flex;
-flex-wrap: wrap;
-margin-bottom: 80px;
-align-items: center;
-margin-top: 20px;
-justify-content: center;
-`
-
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 80px;
+  align-items: center;
+  margin-top: 20px;
+  justify-content: center;
+`;
 
 const Text = styled.div`
-font-weight: 500;
-font-size: 26px;
-color: rgb(31,31,31);
-background-color: rgba(0,0,0,0);
-line-height: 31.2px;
-text-decoration: none solid rgb(31,31,31);
-text-align: start;
-/* margin-bottom:20px; */
-margin-left: 10px;
-display: flex;
-/* align-items: center; */
-flex-direction: column;
-/* justify-content: center; */
-/* background-color: greenyellow; */
-span{
-  color: rgb(51,51,51);
-  background-color: rgba(0,0,0,0);
-  font-size: 16px;
-  line-height: 24px;
-  letter-spacing: normal;
   font-weight: 500;
-  text-decoration: none solid rgb(51,51,51);
-  text-align: left;
-}
-
-a{
-  text-decoration: none;
-
-  :hover{
-    color:black
+  font-size: 26px;
+  color: rgb(31, 31, 31);
+  background-color: rgba(0, 0, 0, 0);
+  line-height: 31.2px;
+  text-decoration: none solid rgb(31, 31, 31);
+  text-align: start;
+  /* margin-bottom:20px; */
+  margin-left: 10px;
+  display: flex;
+  /* align-items: center; */
+  flex-direction: column;
+  /* justify-content: center; */
+  /* background-color: greenyellow; */
+  span {
+    color: rgb(51, 51, 51);
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: normal;
+    font-weight: 500;
+    text-decoration: none solid rgb(51, 51, 51);
+    text-align: left;
   }
-}
-`
+
+  a {
+    text-decoration: none;
+
+    :hover {
+      color: black;
+    }
+  }
+`;
 
 const Wrapper = styled.div`
   width: 95%;
@@ -89,7 +98,7 @@ const Wrapper = styled.div`
   display: flex;
   /* align-items: center; */
   justify-content: center;
-  
+
   flex-direction: column;
   /* background-color: red; */
   margin-top: 140px;
