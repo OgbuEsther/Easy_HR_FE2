@@ -10,7 +10,8 @@ import { AiOutlineClose } from "react-icons/ai"
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
 import { BsFillPiggyBankFill, BsTelephoneFill, BsDatabase } from "react-icons/bs";
 import Airtels from './Airtels'
-import {FaGoogleWallet} from "react-icons/fa"
+import { FaGoogleWallet } from "react-icons/fa"
+import {RiNumbersFill} from "react-icons/ri"
 
 const Cards = () => {
       const [showAirtel, setShowAirtel] = React.useState(false);
@@ -42,31 +43,23 @@ const Cards = () => {
           </Card>
 
           <Card>
-              <CardHold>
-                  <IconHold
-                      style={{
-              backgroundColor: "#e76f51",
-            }}
-            >
-                    <BsFillPiggyBankFill />
-                  </IconHold>
-                  <CardTitle>Balance </CardTitle>
-                  <CardInfo>NGN 1000 </CardInfo>
-              </CardHold>
+        <Left2>
+              <Icos><RiNumbersFill /></Icos>
+          <Wallet>Wallet Number</Wallet>
+        </Left2>
+        <Right>
+          <Bal>123456789</Bal>
+        </Right>
       </Card>
 
       <Card>
-              <CardHold>
-                  <IconHold
-                      style={{
-              backgroundColor: "#e76f51",
-            }}
-            >
-                    <BsFillPiggyBankFill />
-                  </IconHold>
-                  <CardTitle>Balance </CardTitle>
-                  <CardInfo>NGN 1000 </CardInfo>
-              </CardHold>
+          <Left3>
+              <Icos><RiNumbersFill /></Icos>
+          <Wallet>Wallet Number</Wallet>
+        </Left3>
+        <Right>
+          <Bal>123456789</Bal>
+        </Right> 
       </Card>
       
           
@@ -161,6 +154,26 @@ const Cards = () => {
 }
 
 export default Cards
+const Left3 = styled.div`
+  background-color: #ED413E;
+  width: 120px;
+  height: 100%;
+  border-right: 3px solid #F0F0F0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+`
+const Left2 = styled.div`
+  width: 120px;
+  height: 100%;
+  background-color: #F9D949;
+  border-right: 3px solid #F0F0F0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+`
 const Bal = styled.div`
   color: #3f3f3f;
   margin-left: 30px;
