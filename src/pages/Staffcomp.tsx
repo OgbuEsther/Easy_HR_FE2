@@ -28,7 +28,6 @@ const ParentComp = () => {
       <Container>
         <Wrapper>
           <Top>
-
             <Left>
               <Bold>Dashboard</Bold>
               <button onClick={Toggle}>Credit Wallet</button>

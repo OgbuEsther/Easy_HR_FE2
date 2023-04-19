@@ -59,47 +59,7 @@ const Cards = () => {
               </CardHold>
       </Card>
       
-      <Card>
-              <CardHold>
-                  <IconHold
-                      style={{
-              backgroundColor: "#e76f51",
-            }}
-            >
-                    <BsFillPiggyBankFill />
-                  </IconHold>
-                  <CardTitle>PayRoll </CardTitle>
-                  <CardInfo>NGN 1000 </CardInfo>
-              </CardHold>
-          </Card>
-
-          <Card >
-        <CardHold>
-          <IconHold
-            style={{
-              backgroundColor: "#2a9d8f",
-            }}
-          >
-            <BsTelephoneFill />
-          </IconHold>
           
-            <CardInfo>Buy Airtime</CardInfo>
-        </CardHold>
-          </Card>
-          
-          <Card onClick={Togglepopup}>
-        <CardHold>
-          <IconHold
-            style={{
-              backgroundColor: "#e76f51",
-            }}
-          >
-            <BsDatabase />
-          </IconHold>
-          
-            <CardInfo>Buy Data</CardInfo>
-        </CardHold>
-          </Card>
 
        {/* <Staff>
        <Title>
