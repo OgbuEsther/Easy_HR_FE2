@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import Cards from "./Cards";
 import DashBoardCardProps from "./DashBoardCardProps";
+import Pies from "./Pies";
 import {FaJediOrder } from "react-icons/fa"
 import { BsFillArrowRightCircleFill } from "react-icons/bs"
 import { GiHypersonicMelon } from "react-icons/gi"
@@ -88,7 +89,15 @@ const ParentComp = () => {
               </Slidein>
             ) : null}
           </Top>
-          <Cards />
+                  <Cards />
+                  <Down>
+                      <Piehold>
+                          <Title>Transaction Chart</Title>
+                          <Pee>
+                              <Pies />
+                          </Pee>
+                      </Piehold>
+                  </Down>
         </Wrapper>
       </Container>
     </div>
@@ -96,6 +105,30 @@ const ParentComp = () => {
 };
 
 export default ParentComp;
+const Pee = styled.div`
+    width: 100%;
+    margin-top: 15px;
+`
+const Title = styled.div`
+    margin-top: 10px;
+    font-size: 23px;
+`
+const Piehold = styled.div`
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+`
+const Down = styled.div`
+    width: 100%;
+    display: flex;
+    /* height: 300px; */
+    background-color: red;
+`
 const CardHold = styled.div`
 display: flex;
 flex-wrap: wrap;
