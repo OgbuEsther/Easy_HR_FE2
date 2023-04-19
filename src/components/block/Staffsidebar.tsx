@@ -364,6 +364,7 @@ const Text1 = styled.div`
   cursor: pointer;
   align-items: center;
   display: flex;
+  color: #fff;
   margin-left: 15px;
   width: 210px;
   height: 40px;
