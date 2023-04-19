@@ -4,12 +4,12 @@ import { FaGoogleWallet } from "react-icons/fa";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import Cards from "./Cards";
-import DashBoardCardProps from "./DashBoardCardProps";
+
 import Pies from "./Pies";
-import {FaJediOrder } from "react-icons/fa"
-import { BsFillArrowRightCircleFill } from "react-icons/bs"
-import { GiHypersonicMelon } from "react-icons/gi"
-import { AiFillAlert,AiOutlineDeploymentUnit,AiFillDashboard } from "react-icons/ai"
+
+
+import { useAppSelector } from "../components/global/Store";
+
 
 
 
@@ -23,6 +23,13 @@ const ParentComp = () => {
   const Toggle2 = () => {
     setShow(false);
   };
+
+  const user = useAppSelector((state) => state.currentStaff);
+//   const getStaff = useQuery({
+//     queryKey: ["singleStaff"],
+//     queryFn: () => getOneStaff(user?._id),
+//   });
+// console.log("this is getStaff id",user?._id)
 
   return (
     <div>
@@ -54,25 +61,25 @@ const ParentComp = () => {
                   <Tap>
                     <h3>Admin Details: </h3>
                     <p>
-                      Wallet number <strong>123456</strong>
+                    Wallet number <strong>{user?.walletNumber} </strong>
                     </p>
                   </Tap>
 
                   <Tap2>
                     <p>
-                      Company name: <strong>Savio</strong>
+                    Company name: <strong>{user?.companyname}</strong>
                     </p>
                   </Tap2>
 
                   <Tap2>
                     <p>
-                      Company code: <strong>468</strong>
+                    Company code: <strong>{user?.companyCode} </strong>
                     </p>
                   </Tap2>
 
                   <Tap2>
                     <p>
-                      Admin name: <strong>Paul</strong>
+                    Staff name: <strong>{user?.yourName} </strong>
                     </p>
                   </Tap2>
 
@@ -129,10 +136,7 @@ const Down = styled.div`
     /* height: 300px; */
     background-color: red;
 `
-const CardHold = styled.div`
-display: flex;
-flex-wrap: wrap;
-`
+
 
 const Holder = styled.div`
   display: flex;
@@ -272,14 +276,6 @@ const Slidein = styled.div`
       transform: translateX(0);
     }
   }
-`
-const Icn = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 30px;
-margin: 3px;
-color: #292929;
 `
 
 const Bold = styled.div`

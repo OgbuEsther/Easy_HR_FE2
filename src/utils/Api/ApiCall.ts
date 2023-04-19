@@ -31,3 +31,8 @@ export const getOneAdmin = async(id:any)=>{
         return res.data
     })
 }
+export const getOneStaff = async(id:any)=>{
+    return await axios.get(`${url}/staff/staff/${id}`).then((res)=>{
+        return res.data
+    })
+}
