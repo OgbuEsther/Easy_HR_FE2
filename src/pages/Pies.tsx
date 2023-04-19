@@ -48,12 +48,21 @@ import React from 'react'
 const Pies = () => {
   return (
 <<<<<<< HEAD
+<<<<<<< HEAD
     <div>
       {/* <Line type={Chart} data={data} options={options} /> */}
     </div>
 =======
     <div>Pies</div>
 >>>>>>> 9293d0b834c4d9d50be34ae537164dca68eee30a
+=======
+    <div>
+      {/* <Line type={Chart} data={data} options={options} /> */}
+    </div>
+    
+    <div>Pies</div>
+
+>>>>>>> 38149e813ba79b846a3723f22e5f3845b9b37bd7
   )
 }
 
