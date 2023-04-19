@@ -34,7 +34,11 @@ const Cards = () => {
           <Card>
             <Left>
               <Icos><FaGoogleWallet /></Icos>
-              </Left>
+          <Wallet>Wallet Balance</Wallet>
+        </Left>
+        <Right>
+          <Bal>NGN 0.00</Bal>
+        </Right>
           </Card>
 
           <Card>
@@ -157,12 +161,29 @@ const Cards = () => {
 }
 
 export default Cards
+const Bal = styled.div`
+  color: #3f3f3f;
+  margin-left: 30px;
+  font-size: 26px;
+  font-weight: 600;
+`
+const Right = styled.div`
+  flex: 1;
+  height: 100%;
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+`
+const Wallet = styled.div`
+  color: #fff;
+  font-weight: 500;
+`
 const Icos = styled.div`
   color: #fff;
   font-size: 30px;
 `
 const Left = styled.div`
-  width: 100px;
+  width: 120px;
   height: 100%;
   background-color: #FF8400;
   border-right: 3px solid #FFD93D;
