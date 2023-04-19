@@ -5,12 +5,17 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import Cards from "./Cards";
 import DashBoardCardProps from "./DashBoardCardProps";
-import {FaJediOrder } from "react-icons/fa"
-import { BsFillArrowRightCircleFill } from "react-icons/bs"
-import { GiHypersonicMelon } from "react-icons/gi"
-import { AiFillAlert,AiOutlineDeploymentUnit,AiFillDashboard } from "react-icons/ai"
-
-
+import { FaJediOrder } from "react-icons/fa";
+import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { GiHypersonicMelon } from "react-icons/gi";
+import {
+  AiFillAlert,
+  AiOutlineDeploymentUnit,
+  AiFillDashboard,
+} from "react-icons/ai";
+import { useAppSelector } from "../components/global/Store";
+import { useQuery } from "@tanstack/react-query";
+import { getOneAdmin } from "../utils/Api/ApiCall";
 
 const ParentComp = () => {
   const [show, setShow] = React.useState(false);
@@ -23,18 +28,27 @@ const ParentComp = () => {
     setShow(false);
   };
 
+  const admin = useAppSelector((state) => state.currentUser);
+
+  // useQuery({
+  //   queryKey: ["singleAdmin"],
+  //   queryFn: () => getOneAdmin(admin?._id),
+  // });
+
+  console.log("this is admin data", admin?.companyname);
+
   return (
     <div>
       <Container>
         <Wrapper>
           <Top>
-
             <Left>
               <Bold>
                 <Icn>
-                  <AiFillDashboard/>
+                  <AiFillDashboard />
                 </Icn>
-                Dashboard</Bold>
+                Dashboard
+              </Bold>
               <button onClick={Toggle}>Credit Wallet</button>
             </Left>
             <hr />
@@ -51,43 +65,43 @@ const ParentComp = () => {
                     </Circle>
                     <Wallet>
                       <p>Wallet Balance</p>
-                      <h3>NGN:0.00</h3>
+                      <h3>NGN:12345</h3>
                     </Wallet>
                   </Card2>
 
                   <Tap>
                     <h3>Admin Details: </h3>
                     <p>
-                      Wallet number <strong>123456</strong>
+                      Wallet number <strong>{admin?.walletNumber} </strong>
                     </p>
                   </Tap>
 
                   <Tap2>
                     <p>
-                      Company name: <strong>Savio</strong>
+                      Company name: <strong>{admin?.companyname}</strong>
                     </p>
                   </Tap2>
 
                   <Tap2>
                     <p>
-                      Company code: <strong>468</strong>
+                      Company code: <strong>{admin?.companyCode} </strong>
                     </p>
                   </Tap2>
 
                   <Tap2>
                     <p>
-                      Admin name: <strong>Paul</strong>
+                      Admin name: <strong>{admin?.yourName} </strong>
                     </p>
                   </Tap2>
 
                   <Holder>
                     <NavLink to="/payment" style={{ textDecoration: "none" }}>
-                    <button>Credit wallet</button>
+                      <button>Credit wallet</button>
                     </NavLink>
-                    
-                    <NavLink to="/payout" style={{textDecoration: "none"}}>
-                    <button>Withdraw to bank</button>
-                  </NavLink>
+
+                    <NavLink to="/payout" style={{ textDecoration: "none" }}>
+                      <button>Withdraw to bank</button>
+                    </NavLink>
                   </Holder>
                 </Wallets>
               </Slidein>
@@ -95,16 +109,43 @@ const ParentComp = () => {
           </Top>
           {/* <Cards /> */}
 
-        <CardHold>
-        <DashBoardCardProps icons={<FaJediOrder/>} top="New Orders" bottom=" More Info " middle="150" icon={<BsFillArrowRightCircleFill/>} bcg="#0078F6"/>
+          <CardHold>
+            <DashBoardCardProps
+              icons={<FaJediOrder />}
+              top="New Orders"
+              bottom=" More Info "
+              middle="150"
+              icon={<BsFillArrowRightCircleFill />}
+              bcg="#0078F6"
+            />
 
-<DashBoardCardProps icons={<GiHypersonicMelon/>} top="Bounce Rate" bottom=" More Info " middle="53%" icon={<BsFillArrowRightCircleFill/>} bcg="#26A242"/>
+            <DashBoardCardProps
+              icons={<GiHypersonicMelon />}
+              top="Bounce Rate"
+              bottom=" More Info "
+              middle="53%"
+              icon={<BsFillArrowRightCircleFill />}
+              bcg="#26A242"
+            />
 
-<DashBoardCardProps icons={<AiFillAlert/>} top="Users Registrations" bottom=" More Info " middle="44" icon={<BsFillArrowRightCircleFill/>} bcg="#F6BC09"/>
+            <DashBoardCardProps
+              icons={<AiFillAlert />}
+              top="Users Registrations"
+              bottom=" More Info "
+              middle="44"
+              icon={<BsFillArrowRightCircleFill />}
+              bcg="#F6BC09"
+            />
 
-<DashBoardCardProps icons={<AiOutlineDeploymentUnit/>} top="Unique Visitor" bottom=" More Info " middle="65" icon={<BsFillArrowRightCircleFill/>} bcg="#D53343"/>
-
-        </CardHold>
+            <DashBoardCardProps
+              icons={<AiOutlineDeploymentUnit />}
+              top="Unique Visitor"
+              bottom=" More Info "
+              middle="65"
+              icon={<BsFillArrowRightCircleFill />}
+              bcg="#D53343"
+            />
+          </CardHold>
         </Wrapper>
       </Container>
     </div>
@@ -113,9 +154,9 @@ const ParentComp = () => {
 
 export default ParentComp;
 const CardHold = styled.div`
-display: flex;
-flex-wrap: wrap;
-`
+  display: flex;
+  flex-wrap: wrap;
+`;
 
 const Holder = styled.div`
   display: flex;
@@ -206,7 +247,7 @@ const Card2 = styled.div`
   width: 300px;
   height: 150px;
   margin-top: 30px;
-  background-color: #00244E;
+  background-color: #00244e;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -255,14 +296,14 @@ const Slidein = styled.div`
       transform: translateX(0);
     }
   }
-`
+`;
 const Icn = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 30px;
-margin: 3px;
-`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  margin: 3px;
+`;
 
 const Bold = styled.div`
   font-size: 30px;
@@ -281,14 +322,14 @@ const Top = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  flex-direction:column ;
+  flex-direction: column;
   button {
     width: 130px;
     height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:#00244E;
+    background-color: #00244e;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -321,7 +362,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #F5F7FA;
+  background-color: #f5f7fa;
   overflow: hidden;
   margin-top: 20px;
 

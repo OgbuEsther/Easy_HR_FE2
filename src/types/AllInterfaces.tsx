@@ -14,14 +14,20 @@ export interface AdminData {
    email: string;
    yourName?: string;
    password: string;
+   companyCode: string;
+   walletNumber: number;
+   _id : string
 }
 
 
 export interface StaffData {
     companyname: string;
-   email: string;
-   yourName?: string;
-   password: string;
+    email: string;
+    yourName?: string;
+    password: string;
+    companyCode: string;
+    walletNumber: number;
+    _id : string
 
 }
 

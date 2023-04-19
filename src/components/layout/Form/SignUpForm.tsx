@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom'
 import { UseAppDispach } from '../../global/Store'
 import { useNavigate } from 'react-router-dom'
 import { useMutation } from '@tanstack/react-query'
-import { createStaff } from '../../../utils/Api'
+import { createStaff } from '../../../utils/Api/ApiCall'
 import { Staff } from '../../global/ReduxState'
 
 
@@ -30,7 +30,7 @@ const SignupForm = () => {
     yourName: yup.string().required(),
     companyname: yup.string().required(),
     email: yup.string().email().required(),
-    password: yup.string().min(9).required()
+    password: yup.string().required()
   }).required()
   
   type formData = yup.InferType<typeof schema>
@@ -41,8 +41,9 @@ const SignupForm = () => {
 
 
   const StaffSignUp = useMutation({
-    mutationKey:['creating staff'],
-    mutationFn: createStaff,
+    mutationKey:['creating_staff'],
+    // mutationFn: createStaff,
+    mutationFn: (data: any) => createStaff(data),
 
     onSuccess: (data)=>{
       dispatch(Staff(data?.data))
@@ -50,7 +51,7 @@ const SignupForm = () => {
     }
   })
 
-  console.log('here',StaffSignUp);
+  // console.log('here',StaffSignUp);
   
 
   

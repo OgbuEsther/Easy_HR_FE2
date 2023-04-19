@@ -17,7 +17,7 @@ const ReduxState = createSlice({
             state.currentUser = payload;
         },
         Staff: (state, {payload}: PayloadAction<StaffData>)=>{
-            state.currentUser = payload;
+            state.currentStaff = payload;
         }
     }
 })
