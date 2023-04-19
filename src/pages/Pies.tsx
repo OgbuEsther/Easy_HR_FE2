@@ -36,7 +36,7 @@ const Pies = () => {
 
   return (
     <div>
-      <Line type={Chart} data={data} options={options} />
+      {/* <Line type={Chart} data={data} options={options} /> */}
     </div>
   )
 }
