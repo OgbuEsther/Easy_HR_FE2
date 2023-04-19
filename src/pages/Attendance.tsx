@@ -156,7 +156,13 @@ const TimingColumn = styled.div`
 
 // Statistic styling area
 
-const PunchInRecord = styled.div``
+const PunchInRecord = styled.div`
+height: 50px;
+width: auto;
+border-radius: 7px;
+border: 1px solid #959595;
+margin-top: 10px;
+`
 
 const CardContent = styled.div``;
 
@@ -181,6 +187,7 @@ const Card = styled.div`
   margin-left: 30px;
   margin-bottom: 10px;
   padding-left: 10px;
+  padding-right: 10px;
 `;
 
 const StatisticColumn = styled.div`
