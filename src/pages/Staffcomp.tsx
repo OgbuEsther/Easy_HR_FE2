@@ -17,7 +17,7 @@ import { useAppSelector } from "../components/global/Store";
 
 const ParentComp = () => {
 
-    const myVideo = require("../Assets/gif.mp4");
+    // const myVideo = require("../Assets/savings.mp4");
 
 
   const [show, setShow] = React.useState(false);
@@ -111,7 +111,6 @@ const ParentComp = () => {
                           </Pee>
                       </Piehold>
                       <Planhold>
-                          fdgfgfgfg
                           <Img src={img} />
                       </Planhold>
                   </Down>
@@ -123,7 +122,8 @@ const ParentComp = () => {
 
 export default ParentComp;
 const Img = styled.img`
-    
+    height: 110px;
+    margin-top: 15px;
 `
 
 const Video = styled.video`
@@ -131,9 +131,10 @@ const Video = styled.video`
 `;
 const Planhold = styled.div`
     width: 48%;
-    background-color: red;
+    background-color: #fff;
     display: flex;
     flex-direction: column;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 `
 const Pee = styled.div`
     width: 100%;
@@ -144,7 +145,7 @@ const Title = styled.div`
     font-size: 23px;
 `
 const Piehold = styled.div`
-    width: 50%;
+    width: 48%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -156,6 +157,7 @@ const Piehold = styled.div`
 const Down = styled.div`
     width: 100%;
     display: flex;
+    justify-content: space-between;
     /* margin-top: 20px; */
     /* height: 300px; */
     /* background-color: red; */
