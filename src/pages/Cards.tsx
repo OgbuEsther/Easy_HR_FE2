@@ -190,6 +190,7 @@ const Right = styled.div`
 const Wallet = styled.div`
   color: #fff;
   font-weight: 500;
+  font-size: 13px;
 `
 const Icos = styled.div`
   color: #fff;
