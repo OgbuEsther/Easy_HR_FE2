@@ -137,7 +137,7 @@ const Button = styled.button`
     align-items: center;
     border: none;
     outline: none;
-    background-color: #0D71FA;
+    background-color: #1F337C;
     color: #fff;
     cursor: pointer;
     border-radius: 5px;
@@ -145,8 +145,8 @@ const Button = styled.button`
     transition: all 350ms ease-in-out;
     :hover{
         background-color: #fff;
-        color: #0D71FA;
-        border: 1px solid #0D71FA;
+        color: #1F337C;
+        border: 1px solid #1F337C;
     }
 `
 const C = styled.div`
