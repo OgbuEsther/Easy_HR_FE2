@@ -4,6 +4,7 @@ import { FaGoogleWallet } from "react-icons/fa";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import Cards from "./Cards";
+
 import Pies from "./Pies";
 
 import { useAppSelector } from "../components/global/Store";
@@ -11,10 +12,6 @@ import { useQuery } from "@tanstack/react-query";
 import { getOneStaff } from "../utils/Api/ApiCall";
 
 const ParentComp = () => {
-
-    // const myVideo = require("../Assets/savings.mp4");
-
-
   const [show, setShow] = React.useState(false);
 
   const Toggle = () => {
@@ -99,15 +96,15 @@ const ParentComp = () => {
               </Slidein>
             ) : null}
           </Top>
-                  <Cards />
-                  <Down>
-                      <Piehold>
-                          <Title>Transaction Chart</Title>
-                          <Pee>
-                              <Pies />
-                          </Pee>
-                      </Piehold>
-                  </Down>
+          <Cards />
+          <Down>
+            <Piehold>
+              <Title>Transaction Chart</Title>
+              <Pee>
+                <Pies />
+              </Pee>
+            </Piehold>
+          </Down>
         </Wrapper>
       </Container>
     </div>
@@ -115,9 +112,6 @@ const ParentComp = () => {
 };
 
 export default ParentComp;
-
-
-
 const Pee = styled.div`
   width: 100%;
   margin-top: 15px;
@@ -127,22 +121,21 @@ const Title = styled.div`
   font-size: 23px;
 `;
 const Piehold = styled.div`
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #fff;
-    padding: 10px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-`
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+`;
 const Down = styled.div`
-    width: 100%;
-    display: flex;
-    /* height: 300px; */
-    background-color: red;
-`
-
+  width: 100%;
+  display: flex;
+  /* height: 300px; */
+  background-color: red;
+`;
 
 const Holder = styled.div`
   display: flex;
@@ -345,7 +338,6 @@ const Container = styled.div`
   background-color: #f5f7fa;
   overflow: hidden;
   margin-top: 20px;
-  padding-bottom: 15px;
 
   @media screen and (max-width: 1024px) {
     width: 100vw;
