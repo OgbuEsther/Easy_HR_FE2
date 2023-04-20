@@ -180,6 +180,13 @@ const Img = styled.img`
     height: 140px;
     /* margin-top: 15px; */
     margin-left: 15px;
+    animation: bounce 1s infinite;
+
+    @keyframes bounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
 `
 
 const Video = styled.video`
