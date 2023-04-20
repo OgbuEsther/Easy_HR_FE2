@@ -11,6 +11,7 @@ import { GiHypersonicMelon } from "react-icons/gi"
 import img from "../Assets/saves.svg"
 import { AiFillAlert, AiOutlineDeploymentUnit, AiFillDashboard } from "react-icons/ai"
 import { useAppSelector } from "../components/global/Store";
+import Plan from "./Plan";
 
 
 
@@ -21,6 +22,12 @@ const ParentComp = () => {
 
 
     const [show, setShow] = React.useState(false);
+
+    const [view, setView] = React.useState(false);
+
+    const Opens = () => {
+    setView(!view);
+  };
 
   const Toggle = () => {
     setShow(!show);
@@ -118,10 +125,16 @@ const ParentComp = () => {
                                   <p>Discover effective strategies for compounding money over time</p>
                                   <C><p>This savings plan can be your financial nest towards achieving any capital project such as building a house or against unforeseen circumstances such as disability.</p></C>
                               </P>
-                              <Button >Start Plans</Button>
+                              <Button onClick={Opens}>Start Plans</Button>
                           </Savehold>
                       </Planhold>
                   </Down>
+
+                  {view ? (
+                      <Open>
+                      <Plan />
+                  </Open>
+                  ): null}
         </Wrapper>
       </Container>
     </div>
@@ -129,6 +142,22 @@ const ParentComp = () => {
 };
 
 export default ParentComp;
+const Open = styled.div`
+    width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  z-index: 123456;
+  position: relative;
+  justify-content: center;
+  position: absolute;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 5;
+  transition: all 350ms ease-in-out;
+`
 const Circle3 = styled.div`
     width: 60px;
     height: 60px;
