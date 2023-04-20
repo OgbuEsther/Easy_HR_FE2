@@ -4,16 +4,22 @@ import { FaGoogleWallet } from "react-icons/fa";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import Cards from "./Cards";
-
 import Pies from "./Pies";
-
-
+import {FaJediOrder } from "react-icons/fa"
+import { BsFillArrowRightCircleFill } from "react-icons/bs"
+import { GiHypersonicMelon } from "react-icons/gi"
+import img from "../Assets/saves.svg"
+import { AiFillAlert, AiOutlineDeploymentUnit, AiFillDashboard } from "react-icons/ai"
 import { useAppSelector } from "../components/global/Store";
 
 
 
 
 const ParentComp = () => {
+
+    const myVideo = require("../Assets/gif.mp4");
+
+
   const [show, setShow] = React.useState(false);
 
   const Toggle = () => {
@@ -104,6 +110,10 @@ const ParentComp = () => {
                               <Pies />
                           </Pee>
                       </Piehold>
+                      <Planhold>
+                          fdgfgfgfg
+                          <Img src={img} />
+                      </Planhold>
                   </Down>
         </Wrapper>
       </Container>
@@ -112,6 +122,19 @@ const ParentComp = () => {
 };
 
 export default ParentComp;
+const Img = styled.img`
+    
+`
+
+const Video = styled.video`
+  
+`;
+const Planhold = styled.div`
+    width: 48%;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+`
 const Pee = styled.div`
     width: 100%;
     margin-top: 15px;
