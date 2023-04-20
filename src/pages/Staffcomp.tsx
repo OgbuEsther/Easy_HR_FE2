@@ -5,28 +5,47 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import Cards from "./Cards";
 import Pies from "./Pies";
-import {FaJediOrder } from "react-icons/fa"
-import { BsFillArrowRightCircleFill } from "react-icons/bs"
-import { GiHypersonicMelon } from "react-icons/gi"
+import { BsArrowRightShort, BsFillHousesFill, BsBusFront } from "react-icons/bs";
 import img from "../Assets/saves.svg"
-import { AiFillAlert, AiOutlineDeploymentUnit, AiFillDashboard } from "react-icons/ai"
 import { useAppSelector } from "../components/global/Store";
-import Plan from "./Plan";
+import { IoIosSchool } from "react-icons/io"
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import Rents from "./Rents/Rents";
 
 
 
 
 const ParentComp = () => {
 
-    // const myVideo = require("../Assets/savings.mp4");
-
+    const schema = yup
+    .object({
+      amount: yup.number().required("field must be"),
+      subscribe: yup.boolean().required("field must be checked"),
+    })
+    .required();
+  type formData = yup.InferType<typeof schema>;
+  const {
+    handleSubmit,
+    formState: { errors },
+    reset,
+    register,
+  } = useForm<formData>({
+    resolver: yupResolver(schema),
+  });
 
     const [show, setShow] = React.useState(false);
+      const [plans, setplans] = React.useState(false);
+    const [rents, setRents] = React.useState(false);
+    
+    const Showrents = () => {
+    setRents(!rents);
+    setplans(false);
+  };
 
-    const [view, setView] = React.useState(false);
-
-    const Opens = () => {
-    setView(!view);
+    const Showplans = () => {
+    setplans(!plans);
   };
 
   const Toggle = () => {
@@ -35,6 +54,10 @@ const ParentComp = () => {
 
   const Toggle2 = () => {
     setShow(false);
+    };
+    
+    const Removerent = () => {
+    setRents(false);
   };
 
   const user = useAppSelector((state) => state.currentStaff);
@@ -125,16 +148,87 @@ const ParentComp = () => {
                                   <p>Discover effective strategies for compounding money over time</p>
                                   <C><p>This savings plan can be your financial nest towards achieving any capital project such as building a house or against unforeseen circumstances such as disability.</p></C>
                               </P>
-                              <Button onClick={Opens}>Start Plans</Button>
+                              <Button onClick={Showplans}>Start Plans</Button>
                           </Savehold>
                       </Planhold>
                   </Down>
 
-                  {view ? (
-                      <Open>
-                      <Plan />
-                  </Open>
-                  ): null}
+            {plans ? (
+        <Plans >
+          <Holder2>
+            <Card6>
+              <Circle4>
+                <BsFillHousesFill />
+              </Circle4>
+              <Wallet>
+                <h3>Rents</h3>
+                <p>Wallet id</p>
+                <button onClick={Showrents}>Get Started</button>
+              </Wallet>
+            </Card6>
+
+            <Card7>
+              <Circle2>
+                <IoIosSchool />
+              </Circle2>
+              <Wallet>
+                <h3>School fees</h3>
+                <p>Wallet id</p>
+                <button >Get Started</button>
+              </Wallet>
+            </Card7>
+
+            <Card8>
+              <Circle3>
+                <BsBusFront />
+              </Circle3>
+              <Wallet>
+                <h3>Travel & Tour</h3>
+                <p>Wallet id</p>
+                <button >Get Started</button>
+              </Wallet>
+            </Card8>
+            <Icons>
+              <MdOutlineCancel />
+            </Icons>
+          </Holder2>
+        </Plans>
+      ) : null}
+
+                {rents ? (
+        // <Savehold>
+        //   <Proceed>
+        //     <Quick>
+        //       <h3>Rents</h3>
+        //     </Quick>
+        //     <p>Enter an amount you want to save</p>
+
+        //     <Tap>
+        //       <p>Tap here & enter .. (e.g 5000)</p>
+        //       <Input
+        //         type="number"
+        //         {...register("amount")}
+        //         placeholder="Tap here & enter .. (e.g 5000)"
+        //       />
+        //       <p>{errors?.amount && errors?.amount?.message} </p>
+        //       <Subhold>
+        //         <Input2 {...register("subscribe")} type="checkbox" />{" "}
+        //         <label htmlFor="">Subscribe to this plan</label>
+        //         <p>{errors?.subscribe && errors?.subscribe?.message} </p>
+        //       </Subhold>
+        //     </Tap>
+        //     {/* <NavLink to="/Rent" style={{ textDecoration: "none" }}> */}
+        //       <button>
+        //         Proceed
+        //       </button>
+        //     {/* </NavLink> */}
+        //     <Icron onClick={Removerent}>
+        //       <MdOutlineCancel />
+        //     </Icron>
+        //   </Proceed>
+        // </Savehold>
+                <Rents />
+      ) : null}   
         </Wrapper>
       </Container>
     </div>
@@ -142,6 +236,122 @@ const ParentComp = () => {
 };
 
 export default ParentComp;
+const Icron = styled.div`
+  position: absolute;
+  font-size: 25px;
+  right: 30%;
+  color: #fff;
+  cursor: pointer;
+  top: 120px;
+`;
+const Input2 = styled.input``;
+const Subhold = styled.div`
+  display: flex;
+  margin-top: 3px;
+  label {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+  }
+`;
+const Input = styled.input`
+  height: 40px;
+  padding-left: 15px;
+  border-radius: 7px;
+  outline-color: #39a081;
+  outline-width: 3px;
+  margin-top: 3px;
+  border: 1px solid gray;
+`;
+const Quick = styled.div`
+  h3 {
+    font-size: 25px;
+    margin: 0;
+    color: #39a081;
+  }
+`;
+const Proceed = styled.div`
+  width: 350px;
+  height: 390px;
+  background-color: #fff;
+  border-radius: 10px;
+  flex-direction: column;
+  padding: 20px;
+  p {
+    margin: 0;
+    font-size: 14px;
+    margin-top: 3px;
+  }
+  button {
+    width: 100%;
+    height: 50px;
+    background-color: #39a081;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin-top: 100px;
+    cursor: pointer;
+  }
+`;
+const Card8 = styled.div`
+  width: 240px;
+  height: 150px;
+  background-color: #0d71fa;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding-left: 15px;
+  margin: 10px;
+`;
+const Card7 = styled.div`
+  width: 240px;
+  height: 150px;
+  background-color: #ef7914;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding-left: 15px;
+`;
+const Card6 = styled.div`
+  width: 240px;
+  height: 150px;
+  background-color: #39a081;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding-left: 15px;
+  margin: 10px;
+`;
+const Holder2 = styled.div`
+  width: 900px;
+  height: 400px;
+  display: flex;
+  background-color: #fff;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+`;
+const Icons = styled.div`
+  position: absolute;
+  font-size: 25px;
+  right: 18%;
+  color: #fff;
+  cursor: pointer;
+  top: 120px;
+`;
 const Open = styled.div`
     width: 100%;
   height: 100vh;
@@ -226,7 +436,7 @@ const Plans = styled.div`
     background-color: rgba(0, 0, 0, 0.7);
     position: absolute;
     left: 0;
-    background-color: red;
+    /* background-color: red; */
     right: 0;
     top: 0;
     z-index: 5;
@@ -389,6 +599,19 @@ const Wallet = styled.div`
     color: #fff;
     margin-top: 5px;
     font-size: 23px;
+  }
+
+  button {
+    cursor: pointer;
+    margin-top: 12px;
+    outline: none;
+    border: none;
+    width: 90px;
+    background: none;
+    height: 35px;
+    border-radius: 50px;
+    text-decoration: underline;
+    color: #fff;
   }
 `;
 
