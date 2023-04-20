@@ -5,15 +5,10 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import Cards from "./Cards";
 import Pies from "./Pies";
-import {FaJediOrder } from "react-icons/fa"
-import { BsFillArrowRightCircleFill } from "react-icons/bs"
-import { GiHypersonicMelon } from "react-icons/gi"
-import img from "../Assets/saves.svg"
-import { AiFillAlert, AiOutlineDeploymentUnit, AiFillDashboard } from "react-icons/ai"
+
 import { useAppSelector } from "../components/global/Store";
-
-
-
+import { useQuery } from "@tanstack/react-query";
+import { getOneStaff } from "../utils/Api/ApiCall";
 
 const ParentComp = () => {
 
@@ -31,11 +26,11 @@ const ParentComp = () => {
   };
 
   const user = useAppSelector((state) => state.currentStaff);
-//   const getStaff = useQuery({
-//     queryKey: ["singleStaff"],
-//     queryFn: () => getOneStaff(user?._id),
-//   });
-// console.log("this is getStaff id",user?._id)
+  const getStaff = useQuery({
+    queryKey: ["singleStaff"],
+    queryFn: () => getOneStaff(user?._id),
+  });
+  console.log("this is getStaff id", user?._id);
 
   return (
     <div>
@@ -58,45 +53,47 @@ const ParentComp = () => {
                     <Circle>
                       <FaGoogleWallet />
                     </Circle>
-                    <Wallet>
-                      <p>Wallet Balance</p>
-                      <h3>NGN:0.00</h3>
-                    </Wallet>
+                    {getStaff?.data?.data?.wallet?.map((el: any) => (
+                      <Wallet>
+                        <p>Wallet Balance</p>
+                        <h3>NGN:{el?.balance} </h3>
+                      </Wallet>
+                    ))}
                   </Card2>
 
                   <Tap>
                     <h3>Admin Details: </h3>
                     <p>
-                    Wallet number <strong>{user?.walletNumber} </strong>
+                      Wallet number <strong>{user?.walletNumber} </strong>
                     </p>
                   </Tap>
 
                   <Tap2>
                     <p>
-                    Company name: <strong>{user?.companyname}</strong>
+                      Company name: <strong>{user?.companyname}</strong>
                     </p>
                   </Tap2>
 
                   <Tap2>
                     <p>
-                    Company code: <strong>{user?.companyCode} </strong>
+                      Company code: <strong>{user?.companyCode} </strong>
                     </p>
                   </Tap2>
 
                   <Tap2>
                     <p>
-                    Staff name: <strong>{user?.yourName} </strong>
+                      Staff name: <strong>{user?.yourName} </strong>
                     </p>
                   </Tap2>
 
                   <Holder>
                     <NavLink to="/payment" style={{ textDecoration: "none" }}>
-                    <button>Credit wallet</button>
+                      <button>Credit wallet</button>
                     </NavLink>
-                    
-                    <NavLink to="/payout" style={{textDecoration: "none"}}>
-                    <button>Withdraw to bank</button>
-                  </NavLink>
+
+                    <NavLink to="/payout" style={{ textDecoration: "none" }}>
+                      <button>Withdraw to bank</button>
+                    </NavLink>
                   </Holder>
                 </Wallets>
               </Slidein>
@@ -110,17 +107,6 @@ const ParentComp = () => {
                               <Pies />
                           </Pee>
                       </Piehold>
-                      <Planhold>
-                          <Img src={img} />
-                          <Savehold>
-                              <Title2>Savings Plan</Title2>
-                              <P>
-                                  <p>Discover effective strategies for compounding money over time</p>
-                                  <C><p>This savings plan can be your financial nest towards achieving any capital project such as building a house or against unforeseen circumstances such as disability.</p></C>
-                              </P>
-                              <Button >Start Plans</Button>
-                          </Savehold>
-                      </Planhold>
                   </Down>
         </Wrapper>
       </Container>
@@ -129,88 +115,20 @@ const ParentComp = () => {
 };
 
 export default ParentComp;
-const Button = styled.button`
-    width: 120px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    outline: none;
-    background-color: #1F337C;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 10px;
-    transition: all 350ms ease-in-out;
-    :hover{
-        background-color: #fff;
-        color: #1F337C;
-        border: 1px solid #1F337C;
-    }
-`
-const C = styled.div`
-    p{
-        text-align: center;
-    }
-`
-const P = styled.div`
-    p{
-        text-align: center;
-    }
-`
-const Title2 = styled.div`
-    font-size: 23px;
-`
-const Savehold = styled.div`
-    height: 100%;
-    flex: 1;
-    /* background-color: red; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-`
-const Save = styled.div`
-    display: flex;
-    font-size: 23px;
-    font-weight: 500;
-`
-const Img = styled.img`
-    height: 140px;
-    /* margin-top: 15px; */
-    margin-left: 15px;
-    animation: bounce 1s infinite;
 
-    @keyframes bounce {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0); }
-}
-`
 
-const Video = styled.video`
-  
-`;
-const Planhold = styled.div`
-    width: 48%;
-    background-color: #fff;
-    display: flex;
-    /* flex-direction: column; */
-    align-items: center;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    padding-right: 10px;
-`
+
+
 const Pee = styled.div`
-    width: 100%;
-    margin-top: 15px;
-`
+  width: 100%;
+  margin-top: 15px;
+`;
 const Title = styled.div`
-    margin-top: 10px;
-    font-size: 23px;
-`
+  margin-top: 10px;
+  font-size: 23px;
+`;
 const Piehold = styled.div`
-    width: 48%;
+    width: 50%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -222,10 +140,8 @@ const Piehold = styled.div`
 const Down = styled.div`
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    /* margin-top: 20px; */
     /* height: 300px; */
-    /* background-color: red; */
+    background-color: red;
 `
 
 
@@ -318,7 +234,7 @@ const Card2 = styled.div`
   width: 300px;
   height: 150px;
   margin-top: 30px;
-  background-color: #00244E;
+  background-color: #00244e;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -367,7 +283,7 @@ const Slidein = styled.div`
       transform: translateX(0);
     }
   }
-`
+`;
 
 const Bold = styled.div`
   font-size: 20px;
@@ -387,14 +303,14 @@ const Top = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  flex-direction:column ;
+  flex-direction: column;
   button {
     width: 130px;
     height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:#00244E;
+    background-color: #00244e;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -427,7 +343,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #F5F7FA;
+  background-color: #f5f7fa;
   overflow: hidden;
   margin-top: 20px;
   padding-bottom: 15px;

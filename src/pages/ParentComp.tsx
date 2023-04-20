@@ -13,7 +13,8 @@ import {
   AiFillDashboard,
 } from "react-icons/ai";
 import { useAppSelector } from "../components/global/Store";
-
+import { useQuery } from "@tanstack/react-query";
+import { getOneAdmin } from "../utils/Api/ApiCall";
 
 const ParentComp = () => {
   const [show, setShow] = React.useState(false);
@@ -28,10 +29,10 @@ const ParentComp = () => {
 
   const admin = useAppSelector((state) => state.currentUser);
 
-  // useQuery({
-  //   queryKey: ["singleAdmin"],
-  //   queryFn: () => getOneAdmin(admin?._id),
-  // });
+  const getAdmin = useQuery({
+    queryKey: ["singleAdmin"],
+    queryFn: () => getOneAdmin(admin?._id),
+  });
 
   console.log("this is admin data", admin?.companyname);
 
@@ -61,10 +62,12 @@ const ParentComp = () => {
                     <Circle>
                       <FaGoogleWallet />
                     </Circle>
-                    <Wallet>
-                      <p>Wallet Balance</p>
-                      <h3>NGN:12345</h3>
-                    </Wallet>
+                    {getAdmin?.data?.data?.wallet?.map((el: any) => (
+                      <Wallet>
+                        <p>Wallet Balance</p>
+                        <h3>NGN:{el?.balance} </h3>
+                      </Wallet>
+                    ))}
                   </Card2>
 
                   <Tap>
