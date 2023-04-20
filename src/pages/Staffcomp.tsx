@@ -20,7 +20,7 @@ const ParentComp = () => {
     // const myVideo = require("../Assets/savings.mp4");
 
 
-  const [show, setShow] = React.useState(false);
+    const [show, setShow] = React.useState(false);
 
   const Toggle = () => {
     setShow(!show);
@@ -129,6 +129,79 @@ const ParentComp = () => {
 };
 
 export default ParentComp;
+const Circle3 = styled.div`
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: #3184f7;
+    color: #fff;
+    font-size: 30px;
+`
+const Card3 = styled.div`
+    width: 240px;
+    height: 150px;
+    background-color: #0D71FA;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius:10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding-left: 15px;
+`
+const Circle2 = styled.div`
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: #f7a156;
+    color: #fff;
+    font-size: 30px;
+`
+const Circle4 = styled.div`
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: #82d1b9;
+    color: #fff;
+    font-size: 30px;
+`
+const Card4 = styled.div`
+    width: 240px;
+    height: 150px;
+    background-color: #39A081;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius:10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding-left: 15px;
+`
+const Plans = styled.div`
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    left: 0;
+    background-color: red;
+    right: 0;
+    top: 0;
+    z-index: 5;
+`
 const Button = styled.button`
     width: 120px;
     height: 40px;
@@ -171,11 +244,6 @@ const Savehold = styled.div`
     align-items: center;
     flex-direction: column;
 `
-const Save = styled.div`
-    display: flex;
-    font-size: 23px;
-    font-weight: 500;
-`
 const Img = styled.img`
     height: 140px;
     /* margin-top: 15px; */
@@ -188,10 +256,6 @@ const Img = styled.img`
   100% { transform: translateY(0); }
 }
 `
-
-const Video = styled.video`
-  
-`;
 const Planhold = styled.div`
     width: 48%;
     background-color: #fff;
@@ -227,8 +291,6 @@ const Down = styled.div`
     /* height: 300px; */
     /* background-color: red; */
 `
-
-
 const Holder = styled.div`
   display: flex;
   button {
@@ -285,7 +347,6 @@ const Tap = styled.div`
     margin-left: 15px;
   }
 `;
-
 const Wallet = styled.div`
   display: flex;
   flex-direction: column;
