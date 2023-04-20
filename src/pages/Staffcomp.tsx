@@ -133,8 +133,9 @@ const Piehold = styled.div`
 const Down = styled.div`
     width: 100%;
     display: flex;
+    /* margin-top: 20px; */
     /* height: 300px; */
-    background-color: red;
+    /* background-color: red; */
 `
 
 
@@ -339,6 +340,7 @@ const Container = styled.div`
   background-color: #F5F7FA;
   overflow: hidden;
   margin-top: 20px;
+  padding-bottom: 15px;
 
   @media screen and (max-width: 1024px) {
     width: 100vw;
