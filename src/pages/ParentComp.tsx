@@ -3,7 +3,6 @@ import { MdOutlineCancel } from "react-icons/md";
 import { FaGoogleWallet } from "react-icons/fa";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import Cards from "./Cards";
 import DashBoardCardProps from "./DashBoardCardProps";
 import { FaJediOrder } from "react-icons/fa";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
@@ -14,8 +13,7 @@ import {
   AiFillDashboard,
 } from "react-icons/ai";
 import { useAppSelector } from "../components/global/Store";
-import { useQuery } from "@tanstack/react-query";
-import { getOneAdmin } from "../utils/Api/ApiCall";
+
 
 const ParentComp = () => {
   const [show, setShow] = React.useState(false);
