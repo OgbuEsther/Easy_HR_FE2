@@ -7,11 +7,9 @@ import Cards from "./Cards";
 
 import Pies from "./Pies";
 
-
 import { useAppSelector } from "../components/global/Store";
-
-
-
+import { useQuery } from "@tanstack/react-query";
+import { getOneStaff } from "../utils/Api/ApiCall";
 
 const ParentComp = () => {
   const [show, setShow] = React.useState(false);
@@ -25,11 +23,11 @@ const ParentComp = () => {
   };
 
   const user = useAppSelector((state) => state.currentStaff);
-//   const getStaff = useQuery({
-//     queryKey: ["singleStaff"],
-//     queryFn: () => getOneStaff(user?._id),
-//   });
-// console.log("this is getStaff id",user?._id)
+  const getStaff = useQuery({
+    queryKey: ["singleStaff"],
+    queryFn: () => getOneStaff(user?._id),
+  });
+  console.log("this is getStaff id", user?._id);
 
   return (
     <div>
@@ -52,59 +50,61 @@ const ParentComp = () => {
                     <Circle>
                       <FaGoogleWallet />
                     </Circle>
-                    <Wallet>
-                      <p>Wallet Balance</p>
-                      <h3>NGN:0.00</h3>
-                    </Wallet>
+                    {getStaff?.data?.data?.wallet?.map((el: any) => (
+                      <Wallet>
+                        <p>Wallet Balance</p>
+                        <h3>NGN:{el?.balance} </h3>
+                      </Wallet>
+                    ))}
                   </Card2>
 
                   <Tap>
                     <h3>Admin Details: </h3>
                     <p>
-                    Wallet number <strong>{user?.walletNumber} </strong>
+                      Wallet number <strong>{user?.walletNumber} </strong>
                     </p>
                   </Tap>
 
                   <Tap2>
                     <p>
-                    Company name: <strong>{user?.companyname}</strong>
+                      Company name: <strong>{user?.companyname}</strong>
                     </p>
                   </Tap2>
 
                   <Tap2>
                     <p>
-                    Company code: <strong>{user?.companyCode} </strong>
+                      Company code: <strong>{user?.companyCode} </strong>
                     </p>
                   </Tap2>
 
                   <Tap2>
                     <p>
-                    Staff name: <strong>{user?.yourName} </strong>
+                      Staff name: <strong>{user?.yourName} </strong>
                     </p>
                   </Tap2>
 
                   <Holder>
                     <NavLink to="/payment" style={{ textDecoration: "none" }}>
-                    <button>Credit wallet</button>
+                      <button>Credit wallet</button>
                     </NavLink>
-                    
-                    <NavLink to="/payout" style={{textDecoration: "none"}}>
-                    <button>Withdraw to bank</button>
-                  </NavLink>
+
+                    <NavLink to="/payout" style={{ textDecoration: "none" }}>
+                      <button>Withdraw to bank</button>
+                    </NavLink>
                   </Holder>
                 </Wallets>
               </Slidein>
             ) : null}
           </Top>
-                  <Cards />
-                  <Down>
-                      <Piehold>
-                          <Title>Transaction Chart</Title>
-                          <Pee>
-                              <Pies />
-                          </Pee>
-                      </Piehold>
-                  </Down>
+          <Cards />
+          <Down>
+            <Piehold>
+              <Title>Transaction Chart</Title>
+              <Pee>
+                <Pies />
+              </Pee>
+            </Piehold>
+          </Down>
         </Wrapper>
       </Container>
     </div>
@@ -113,30 +113,29 @@ const ParentComp = () => {
 
 export default ParentComp;
 const Pee = styled.div`
-    width: 100%;
-    margin-top: 15px;
-`
+  width: 100%;
+  margin-top: 15px;
+`;
 const Title = styled.div`
-    margin-top: 10px;
-    font-size: 23px;
-`
+  margin-top: 10px;
+  font-size: 23px;
+`;
 const Piehold = styled.div`
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #fff;
-    padding: 10px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-`
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+`;
 const Down = styled.div`
-    width: 100%;
-    display: flex;
-    /* height: 300px; */
-    background-color: red;
-`
-
+  width: 100%;
+  display: flex;
+  /* height: 300px; */
+  background-color: red;
+`;
 
 const Holder = styled.div`
   display: flex;
@@ -227,7 +226,7 @@ const Card2 = styled.div`
   width: 300px;
   height: 150px;
   margin-top: 30px;
-  background-color: #00244E;
+  background-color: #00244e;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -276,7 +275,7 @@ const Slidein = styled.div`
       transform: translateX(0);
     }
   }
-`
+`;
 
 const Bold = styled.div`
   font-size: 20px;
@@ -296,14 +295,14 @@ const Top = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  flex-direction:column ;
+  flex-direction: column;
   button {
     width: 130px;
     height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:#00244E;
+    background-color: #00244e;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -336,7 +335,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #F5F7FA;
+  background-color: #f5f7fa;
   overflow: hidden;
   margin-top: 20px;
 
