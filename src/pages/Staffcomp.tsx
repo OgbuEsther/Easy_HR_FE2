@@ -112,6 +112,14 @@ const ParentComp = () => {
                       </Piehold>
                       <Planhold>
                           <Img src={img} />
+                          <Savehold>
+                              <Title2>Savings Plan</Title2>
+                              <P>
+                                  <p>Discover effective strategies for compounding money over time</p>
+                                  <C><p>This savings plan can be your financial nest towards achieving any capital project such as building a house or against unforeseen circumstances such as disability.</p></C>
+                              </P>
+                              <Button >Start Plans</Button>
+                          </Savehold>
                       </Planhold>
                   </Down>
         </Wrapper>
@@ -121,9 +129,57 @@ const ParentComp = () => {
 };
 
 export default ParentComp;
+const Button = styled.button`
+    width: 120px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none;
+    background-color: #0D71FA;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: all 350ms ease-in-out;
+    :hover{
+        background-color: #fff;
+        color: #0D71FA;
+        border: 1px solid #0D71FA;
+    }
+`
+const C = styled.div`
+    p{
+        text-align: center;
+    }
+`
+const P = styled.div`
+    p{
+        text-align: center;
+    }
+`
+const Title2 = styled.div`
+    font-size: 23px;
+`
+const Savehold = styled.div`
+    height: 100%;
+    flex: 1;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+`
+const Save = styled.div`
+    display: flex;
+    font-size: 23px;
+    font-weight: 500;
+`
 const Img = styled.img`
-    height: 110px;
-    margin-top: 15px;
+    height: 140px;
+    /* margin-top: 15px; */
+    margin-left: 15px;
 `
 
 const Video = styled.video`
@@ -133,8 +189,10 @@ const Planhold = styled.div`
     width: 48%;
     background-color: #fff;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
+    align-items: center;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding-right: 10px;
 `
 const Pee = styled.div`
     width: 100%;
