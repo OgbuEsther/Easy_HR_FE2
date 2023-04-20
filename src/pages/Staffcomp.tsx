@@ -4,6 +4,7 @@ import { FaGoogleWallet } from "react-icons/fa";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import Cards from "./Cards";
+
 import Pies from "./Pies";
 import { BsArrowRightShort, BsFillHousesFill, BsBusFront } from "react-icons/bs";
 import img from "../Assets/saves.svg"
@@ -132,10 +133,10 @@ const ParentComp = () => {
               </Slidein>
             ) : null}
           </Top>
-                  <Cards />
-                  <Down>
-                      <Piehold>
-                          <Title>Transaction Chart</Title>
+
+          <Cards />
+          <Down>
+            <Piehold>
                           <Pee>
                               <Pies />
                           </Pee>
@@ -229,13 +230,16 @@ const ParentComp = () => {
         // </Savehold>
                 <Rents />
       ) : null}   
+
         </Wrapper>
       </Container>
     </div>
-  );
-};
+
+  )
+}
 
 export default ParentComp;
+
 const Icron = styled.div`
   position: absolute;
   font-size: 25px;
@@ -250,8 +254,6 @@ const Subhold = styled.div`
   margin-top: 3px;
   label {
     margin: 0;
-    font-size: 14px;
-    font-weight: 600;
   }
 `;
 const Input = styled.input`
@@ -504,6 +506,7 @@ const Planhold = styled.div`
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     padding-right: 10px;
 `
+
 const Pee = styled.div`
     width: 100%;
     margin-top: 15px;
@@ -743,7 +746,6 @@ const Container = styled.div`
   background-color: #F5F7FA;
   overflow: hidden;
   margin-top: 20px;
-  padding-bottom: 15px;
 
   @media screen and (max-width: 1024px) {
     width: 100vw;
