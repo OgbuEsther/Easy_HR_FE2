@@ -155,7 +155,7 @@ const Open = styled.div`
   left: 0;
   right: 0;
   top: 0;
-  z-index: 5;
+  z-index: 4;
   transition: all 350ms ease-in-out;
 `
 const Circle3 = styled.div`
