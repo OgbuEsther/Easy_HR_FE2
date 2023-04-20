@@ -6,13 +6,48 @@ import { NavLink } from "react-router-dom";
 import Cards from "./Cards";
 
 import Pies from "./Pies";
-
+import { BsArrowRightShort, BsFillHousesFill, BsBusFront } from "react-icons/bs";
+import img from "../Assets/saves.svg"
 import { useAppSelector } from "../components/global/Store";
-import { useQuery } from "@tanstack/react-query";
-import { getOneStaff } from "../utils/Api/ApiCall";
+import { IoIosSchool } from "react-icons/io"
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import Rents from "./Rents/Rents";
+
+
+
 
 const ParentComp = () => {
-  const [show, setShow] = React.useState(false);
+
+    const schema = yup
+    .object({
+      amount: yup.number().required("field must be"),
+      subscribe: yup.boolean().required("field must be checked"),
+    })
+    .required();
+  type formData = yup.InferType<typeof schema>;
+  const {
+    handleSubmit,
+    formState: { errors },
+    reset,
+    register,
+  } = useForm<formData>({
+    resolver: yupResolver(schema),
+  });
+
+    const [show, setShow] = React.useState(false);
+      const [plans, setplans] = React.useState(false);
+    const [rents, setRents] = React.useState(false);
+    
+    const Showrents = () => {
+    setRents(!rents);
+    setplans(false);
+  };
+
+    const Showplans = () => {
+    setplans(!plans);
+  };
 
   const Toggle = () => {
     setShow(!show);
@@ -20,14 +55,18 @@ const ParentComp = () => {
 
   const Toggle2 = () => {
     setShow(false);
+    };
+    
+    const Removerent = () => {
+    setRents(false);
   };
 
   const user = useAppSelector((state) => state.currentStaff);
-  const getStaff = useQuery({
-    queryKey: ["singleStaff"],
-    queryFn: () => getOneStaff(user?._id),
-  });
-  console.log("this is getStaff id", user?._id);
+//   const getStaff = useQuery({
+//     queryKey: ["singleStaff"],
+//     queryFn: () => getOneStaff(user?._id),
+//   });
+// console.log("this is getStaff id",user?._id)
 
   return (
     <div>
@@ -50,93 +89,450 @@ const ParentComp = () => {
                     <Circle>
                       <FaGoogleWallet />
                     </Circle>
-                    {getStaff?.data?.data?.wallet?.map((el: any) => (
-                      <Wallet>
-                        <p>Wallet Balance</p>
-                        <h3>NGN:{el?.balance} </h3>
-                      </Wallet>
-                    ))}
+                    <Wallet>
+                      <p>Wallet Balance</p>
+                      <h3>NGN:0.00</h3>
+                    </Wallet>
                   </Card2>
 
                   <Tap>
                     <h3>Admin Details: </h3>
                     <p>
-                      Wallet number <strong>{user?.walletNumber} </strong>
+                    Wallet number <strong>{user?.walletNumber} </strong>
                     </p>
                   </Tap>
 
                   <Tap2>
                     <p>
-                      Company name: <strong>{user?.companyname}</strong>
+                    Company name: <strong>{user?.companyname}</strong>
                     </p>
                   </Tap2>
 
                   <Tap2>
                     <p>
-                      Company code: <strong>{user?.companyCode} </strong>
+                    Company code: <strong>{user?.companyCode} </strong>
                     </p>
                   </Tap2>
 
                   <Tap2>
                     <p>
-                      Staff name: <strong>{user?.yourName} </strong>
+                    Staff name: <strong>{user?.yourName} </strong>
                     </p>
                   </Tap2>
 
                   <Holder>
                     <NavLink to="/payment" style={{ textDecoration: "none" }}>
-                      <button>Credit wallet</button>
+                    <button>Credit wallet</button>
                     </NavLink>
-
-                    <NavLink to="/payout" style={{ textDecoration: "none" }}>
-                      <button>Withdraw to bank</button>
-                    </NavLink>
+                    
+                    <NavLink to="/payout" style={{textDecoration: "none"}}>
+                    <button>Withdraw to bank</button>
+                  </NavLink>
                   </Holder>
                 </Wallets>
               </Slidein>
             ) : null}
           </Top>
+
           <Cards />
           <Down>
             <Piehold>
-              <Title>Transaction Chart</Title>
-              <Pee>
-                <Pies />
-              </Pee>
-            </Piehold>
-          </Down>
+                          <Pee>
+                              <Pies />
+                          </Pee>
+                      </Piehold>
+                      <Planhold>
+                          <Img src={img} />
+                          <Savehold>
+                              <Title2>Savings Plan</Title2>
+                              <P>
+                                  <p>Discover effective strategies for compounding money over time</p>
+                                  <C><p>This savings plan can be your financial nest towards achieving any capital project such as building a house or against unforeseen circumstances such as disability.</p></C>
+                              </P>
+                              <Button onClick={Showplans}>Start Plans</Button>
+                          </Savehold>
+                      </Planhold>
+                  </Down>
+
+            {plans ? (
+        <Plans >
+          <Holder2>
+            <Card6>
+              <Circle4>
+                <BsFillHousesFill />
+              </Circle4>
+              <Wallet>
+                <h3>Rents</h3>
+                <p>Wallet id</p>
+                <button onClick={Showrents}>Get Started</button>
+              </Wallet>
+            </Card6>
+
+            <Card7>
+              <Circle2>
+                <IoIosSchool />
+              </Circle2>
+              <Wallet>
+                <h3>School fees</h3>
+                <p>Wallet id</p>
+                <button >Get Started</button>
+              </Wallet>
+            </Card7>
+
+            <Card8>
+              <Circle3>
+                <BsBusFront />
+              </Circle3>
+              <Wallet>
+                <h3>Travel & Tour</h3>
+                <p>Wallet id</p>
+                <button >Get Started</button>
+              </Wallet>
+            </Card8>
+            <Icons>
+              <MdOutlineCancel />
+            </Icons>
+          </Holder2>
+        </Plans>
+      ) : null}
+
+                {rents ? (
+        // <Savehold>
+        //   <Proceed>
+        //     <Quick>
+        //       <h3>Rents</h3>
+        //     </Quick>
+        //     <p>Enter an amount you want to save</p>
+
+        //     <Tap>
+        //       <p>Tap here & enter .. (e.g 5000)</p>
+        //       <Input
+        //         type="number"
+        //         {...register("amount")}
+        //         placeholder="Tap here & enter .. (e.g 5000)"
+        //       />
+        //       <p>{errors?.amount && errors?.amount?.message} </p>
+        //       <Subhold>
+        //         <Input2 {...register("subscribe")} type="checkbox" />{" "}
+        //         <label htmlFor="">Subscribe to this plan</label>
+        //         <p>{errors?.subscribe && errors?.subscribe?.message} </p>
+        //       </Subhold>
+        //     </Tap>
+        //     {/* <NavLink to="/Rent" style={{ textDecoration: "none" }}> */}
+        //       <button>
+        //         Proceed
+        //       </button>
+        //     {/* </NavLink> */}
+        //     <Icron onClick={Removerent}>
+        //       <MdOutlineCancel />
+        //     </Icron>
+        //   </Proceed>
+        // </Savehold>
+                <Rents />
+      ) : null}   
+
         </Wrapper>
       </Container>
     </div>
-  );
-};
+
+  )
+}
 
 export default ParentComp;
-const Pee = styled.div`
-  width: 100%;
-  margin-top: 15px;
-`;
-const Title = styled.div`
-  margin-top: 10px;
-  font-size: 23px;
-`;
-const Piehold = styled.div`
-  width: 50%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #fff;
-  padding: 10px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-`;
-const Down = styled.div`
-  width: 100%;
-  display: flex;
-  /* height: 300px; */
-  background-color: red;
-`;
 
+const Icron = styled.div`
+  position: absolute;
+  font-size: 25px;
+  right: 30%;
+  color: #fff;
+  cursor: pointer;
+  top: 120px;
+`;
+const Input2 = styled.input``;
+const Subhold = styled.div`
+  display: flex;
+  margin-top: 3px;
+  label {
+    margin: 0;
+  }
+`;
+const Input = styled.input`
+  height: 40px;
+  padding-left: 15px;
+  border-radius: 7px;
+  outline-color: #39a081;
+  outline-width: 3px;
+  margin-top: 3px;
+  border: 1px solid gray;
+`;
+const Quick = styled.div`
+  h3 {
+    font-size: 25px;
+    margin: 0;
+    color: #39a081;
+  }
+`;
+const Proceed = styled.div`
+  width: 350px;
+  height: 390px;
+  background-color: #fff;
+  border-radius: 10px;
+  flex-direction: column;
+  padding: 20px;
+  p {
+    margin: 0;
+    font-size: 14px;
+    margin-top: 3px;
+  }
+  button {
+    width: 100%;
+    height: 50px;
+    background-color: #39a081;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin-top: 100px;
+    cursor: pointer;
+  }
+`;
+const Card8 = styled.div`
+  width: 240px;
+  height: 150px;
+  background-color: #0d71fa;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding-left: 15px;
+  margin: 10px;
+`;
+const Card7 = styled.div`
+  width: 240px;
+  height: 150px;
+  background-color: #ef7914;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding-left: 15px;
+`;
+const Card6 = styled.div`
+  width: 240px;
+  height: 150px;
+  background-color: #39a081;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding-left: 15px;
+  margin: 10px;
+`;
+const Holder2 = styled.div`
+  width: 900px;
+  height: 400px;
+  display: flex;
+  background-color: #fff;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+`;
+const Icons = styled.div`
+  position: absolute;
+  font-size: 25px;
+  right: 18%;
+  color: #fff;
+  cursor: pointer;
+  top: 120px;
+`;
+const Open = styled.div`
+    width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  z-index: 123456;
+  position: relative;
+  justify-content: center;
+  position: absolute;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 4;
+  transition: all 350ms ease-in-out;
+`
+const Circle3 = styled.div`
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: #3184f7;
+    color: #fff;
+    font-size: 30px;
+`
+const Card3 = styled.div`
+    width: 240px;
+    height: 150px;
+    background-color: #0D71FA;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius:10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding-left: 15px;
+`
+const Circle2 = styled.div`
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: #f7a156;
+    color: #fff;
+    font-size: 30px;
+`
+const Circle4 = styled.div`
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: #82d1b9;
+    color: #fff;
+    font-size: 30px;
+`
+const Card4 = styled.div`
+    width: 240px;
+    height: 150px;
+    background-color: #39A081;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius:10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding-left: 15px;
+`
+const Plans = styled.div`
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    left: 0;
+    /* background-color: red; */
+    right: 0;
+    top: 0;
+    z-index: 5;
+`
+const Button = styled.button`
+    width: 120px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none;
+    background-color: #1F337C;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: all 350ms ease-in-out;
+    :hover{
+        background-color: #fff;
+        color: #1F337C;
+        border: 1px solid #1F337C;
+    }
+`
+const C = styled.div`
+    p{
+        text-align: center;
+    }
+`
+const P = styled.div`
+    p{
+        text-align: center;
+    }
+`
+const Title2 = styled.div`
+    font-size: 23px;
+`
+const Savehold = styled.div`
+    height: 100%;
+    flex: 1;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+`
+const Img = styled.img`
+    height: 140px;
+    /* margin-top: 15px; */
+    margin-left: 15px;
+    animation: bounce 1s infinite;
+
+    @keyframes bounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+`
+const Planhold = styled.div`
+    width: 48%;
+    background-color: #fff;
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding-right: 10px;
+`
+
+const Pee = styled.div`
+    width: 100%;
+    margin-top: 15px;
+`
+const Title = styled.div`
+    margin-top: 10px;
+    font-size: 23px;
+`
+const Piehold = styled.div`
+    width: 48%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+`
+const Down = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* margin-top: 20px; */
+    /* height: 300px; */
+    /* background-color: red; */
+`
 const Holder = styled.div`
   display: flex;
   button {
@@ -193,7 +589,6 @@ const Tap = styled.div`
     margin-left: 15px;
   }
 `;
-
 const Wallet = styled.div`
   display: flex;
   flex-direction: column;
@@ -207,6 +602,19 @@ const Wallet = styled.div`
     color: #fff;
     margin-top: 5px;
     font-size: 23px;
+  }
+
+  button {
+    cursor: pointer;
+    margin-top: 12px;
+    outline: none;
+    border: none;
+    width: 90px;
+    background: none;
+    height: 35px;
+    border-radius: 50px;
+    text-decoration: underline;
+    color: #fff;
   }
 `;
 
@@ -226,7 +634,7 @@ const Card2 = styled.div`
   width: 300px;
   height: 150px;
   margin-top: 30px;
-  background-color: #00244e;
+  background-color: #00244E;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -275,7 +683,7 @@ const Slidein = styled.div`
       transform: translateX(0);
     }
   }
-`;
+`
 
 const Bold = styled.div`
   font-size: 20px;
@@ -295,14 +703,14 @@ const Top = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  flex-direction: column;
+  flex-direction:column ;
   button {
     width: 130px;
     height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #00244e;
+    background-color:#00244E;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -335,7 +743,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f5f7fa;
+  background-color: #F5F7FA;
   overflow: hidden;
   margin-top: 20px;
 
