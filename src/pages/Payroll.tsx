@@ -3,6 +3,9 @@ import styled from "styled-components";
 import { CiSearch } from "react-icons/ci";
 import img from ".././Assets/savio.jpg";
 import { AiFillPlusCircle, AiOutlineClose } from "react-icons/ai";
+import { useAppSelector } from "../components/global/Store";
+import { useQuery } from "@tanstack/react-query";
+import { getOneAdmin } from "../utils/Api/ApiCall";
 
 interface data {
   earn: string;
@@ -97,7 +100,11 @@ const Payroll = () => {
   };
 
   //api consumption 
-
+  const user = useAppSelector((state) => state.currentUser);
+  const getAdmin = useQuery({
+    queryKey: ["singleAdmin"],
+    queryFn: () => getOneAdmin(user?._id),
+  });
 
   return (
     <Container>
@@ -123,14 +130,16 @@ const Payroll = () => {
           </Lists>
         </Table>
 
+       
+        {getAdmin?.data?.data?.viewUser.map((el: any) => (
         <Table2>
           <Lists>
             <Name2>
               <Circlehold>
                 <Circle>
-                  <Img src={img} />
+                  <Img >{`${el?.yourName?.charAt(0)}`} </Img>
                 </Circle>
-                <Id>Okwoli Godwin</Id>
+                <Id>{el?.yourName}</Id>
               </Circlehold>
             </Name2>
             <Gross2>$3,125.00</Gross2>
@@ -143,25 +152,28 @@ const Payroll = () => {
             </Status2>
           </Lists>
         </Table2>
+ ))}
+
       </Wrapper>
       {show ? (
         <Edit>
           <Box>
+          {getAdmin?.data?.data?.viewUser.map((el: any) => (
             <Header>
               <Imagehold>
-                <Img2 src={img} />
+                <Img2>{`${el?.yourName?.charAt(0)}`} </Img2>
               </Imagehold>
               <Nameshold>
-                <h4>Okwoli Godwin</h4>
+                <h4>{el?.yourName}</h4>
                 <p>Full Time Employee</p>
-                <p>Codelab ID: 1</p>
+                <p> {el?.companyCode}</p>
               </Nameshold>
               <Net>
                 <p>Net Pay</p>
                 <h4>$1,949.26</h4>
               </Net>
             </Header>
-
+ ))}
             <Earnings>
               <Wrap>
                 <Up>
@@ -342,14 +354,6 @@ const Canc = styled.div`
   font-size: 14px;
   cursor: pointer;
 `;
-const Addinput2 = styled.input`
-  width: 210px;
-  height: 20px;
-  border: 1px solid #d6dee9;
-  outline: none;
-  padding-left: 10px;
-  border-radius: 3px;
-`;
 
 const Addinput = styled.input`
   width: 210px;
@@ -486,10 +490,10 @@ const Nameshold = styled.div`
     margin: 0;
   }
 `;
-const Img2 = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+const Img2 = styled.div`
+
+   font-size: 20px;
+  font-weight: 500;
 `;
 const Imagehold = styled.div`
   width: 50px;
@@ -500,6 +504,8 @@ const Imagehold = styled.div`
   border-radius: 50px;
   margin-left: 25px;
   overflow: hidden;
+  border: 1px solid lightgrey;
+    background-color: #1F337C;
 `;
 const Header = styled.div`
   width: 100%;
@@ -542,10 +548,10 @@ const Id = styled.div`
   display: flex;
   margin-left: 10px;
 `;
-const Img = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+const Img = styled.div`
+ 
+  font-size: 20px;
+  font-weight: 500;
 `;
 const Circle = styled.div`
   width: 35px;
@@ -555,6 +561,8 @@ const Circle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+   border: 1px solid lightgrey;
+   background-color: #1F337C;
 `;
 const Circlehold = styled.div`
   display: flex;
