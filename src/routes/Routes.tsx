@@ -30,7 +30,7 @@ const StaffAttendance = lazy(() => import("../pages/Attendance"))
 
 const PayBills = lazy(()=>import("../pages/StaffdasBoard/PayBills/PayBill"));
 // const StaffAttendance = lazy(() => import("../pages/StaffdasBoard/Attendance/Attendance"))
-const StaffTransaction = lazy(()=>import("../pages/StaffTransaction/StaffTransactionhome"))
+const StaffTransaction = lazy(()=>import("../pages/StaffTransaction/StaffTransactionSide"))
 
 export const Elements = createBrowserRouter([
   {
