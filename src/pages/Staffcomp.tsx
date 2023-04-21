@@ -14,6 +14,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import Rents from "./Rents/Rents";
+import Fees from "./Fees/Fees";
 
 
 
@@ -39,6 +40,12 @@ const ParentComp = () => {
     const [show, setShow] = React.useState(false);
       const [plans, setplans] = React.useState(false);
     const [rents, setRents] = React.useState(false);
+    const [fees, setfees] = React.useState(false);
+
+    const Showfees = () => {
+    setfees(!fees);
+    setplans(false);
+  };
     
     const Showrents = () => {
     setRents(!rents);
@@ -59,6 +66,10 @@ const ParentComp = () => {
     
     const Removerent = () => {
     setRents(false);
+    };
+    
+    const Removefees = () => {
+    setfees(false);
   };
 
   const user = useAppSelector((state) => state.currentStaff);
@@ -175,7 +186,7 @@ const ParentComp = () => {
               <Wallet>
                 <h3>School fees</h3>
                 <p>Wallet id</p>
-                <button >Get Started</button>
+                <button onClick={Showfees}>Get Started</button>
               </Wallet>
             </Card7>
 
@@ -197,44 +208,22 @@ const ParentComp = () => {
       ) : null}
 
                 {rents ? (
-        // <Savehold>
-        //   <Proceed>
-        //     <Quick>
-        //       <h3>Rents</h3>
-        //     </Quick>
-        //     <p>Enter an amount you want to save</p>
-
-        //     <Tap>
-        //       <p>Tap here & enter .. (e.g 5000)</p>
-        //       <Input
-        //         type="number"
-        //         {...register("amount")}
-        //         placeholder="Tap here & enter .. (e.g 5000)"
-        //       />
-        //       <p>{errors?.amount && errors?.amount?.message} </p>
-        //       <Subhold>
-        //         <Input2 {...register("subscribe")} type="checkbox" />{" "}
-        //         <label htmlFor="">Subscribe to this plan</label>
-        //         <p>{errors?.subscribe && errors?.subscribe?.message} </p>
-        //       </Subhold>
-        //     </Tap>
-        //     {/* <NavLink to="/Rent" style={{ textDecoration: "none" }}> */}
-        //       <button>
-        //         Proceed
-        //       </button>
-        //     {/* </NavLink> */}
-        //     <Icron onClick={Removerent}>
-        //       <MdOutlineCancel />
-        //     </Icron>
-        //   </Proceed>
-        // </Savehold>
                       <Holds>
                           <Rents />
                           <Icron onClick={Removerent}>
               <MdOutlineCancel />
             </Icron>
                 </Holds>
-      ) : null}   
+                  ) : null}  
+
+                  {fees ? (
+                      <Holds>
+                          <Fees />
+                          <Icron onClick={Removefees}>
+              <MdOutlineCancel />
+            </Icron>
+                      </Holds>
+      ) : null}            
 
         </Wrapper>
       </Container>
