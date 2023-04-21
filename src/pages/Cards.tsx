@@ -220,21 +220,8 @@ const Left = styled.div`
   flex-direction: column;
   justify-content: center;
 `;
-const Title = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 600;
-  font-size: 20px;
-`;
-const Staff = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  /* flex-direction: column; */
-  width: 100%;
-`;
+
+
 
 const Airtelhold = styled.div`
   width: 100%;
@@ -350,37 +337,7 @@ const Popups = styled.div`
   z-index: 7;
 `;
 
-const CardInfo = styled.div`
-  font-size: 18px;
-  font-weight: 600;
-  margin-top: 20px;
-`;
 
-const CardTitle = styled.div`
-  font-size: 12px;
-  margin-bottom: 5px;
-`;
-
-const IconHold = styled.div`
-  height: 40px;
-  width: 40px;
-  border-radius: 30px;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  margin-bottom: 15px;
-`;
-
-const CardHold = styled.div`
-  width: 85%;
-  margin-top: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`;
 
 const Card = styled.div`
   height: 120px;
