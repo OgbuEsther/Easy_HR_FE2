@@ -15,6 +15,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import Rents from "./Rents/Rents";
 import Fees from "./Fees/Fees";
+import Tour from "./Tour/Tour";
 
 
 
@@ -41,6 +42,12 @@ const ParentComp = () => {
       const [plans, setplans] = React.useState(false);
     const [rents, setRents] = React.useState(false);
     const [fees, setfees] = React.useState(false);
+    const [tour, setTour] = React.useState(false);
+
+    const Showtour = () => {
+    setTour(!tour);
+    setplans(false);
+  };
 
     const Showfees = () => {
     setfees(!fees);
@@ -70,6 +77,10 @@ const ParentComp = () => {
     
     const Removefees = () => {
     setfees(false);
+    };
+    
+    const Removetour = () => {
+    setTour(false);
   };
 
   const user = useAppSelector((state) => state.currentStaff);
@@ -197,7 +208,7 @@ const ParentComp = () => {
               <Wallet>
                 <h3>Travel & Tour</h3>
                 <p>Wallet id</p>
-                <button >Get Started</button>
+                <button onClick={Showtour}>Get Started</button>
               </Wallet>
             </Card8>
             <Icons >
@@ -220,6 +231,15 @@ const ParentComp = () => {
                       <Holds>
                           <Fees />
                           <Icron onClick={Removefees}>
+              <MdOutlineCancel />
+            </Icron>
+                      </Holds>
+                  ) : null} 
+
+                  {tour ? (
+                      <Holds>
+                          <Tour />
+                          <Icron onClick={Removetour}>
               <MdOutlineCancel />
             </Icron>
                       </Holds>
