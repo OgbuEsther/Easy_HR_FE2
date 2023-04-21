@@ -5,28 +5,66 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import Cards from "./Cards";
 import Pies from "./Pies";
+
 import {FaJediOrder } from "react-icons/fa"
 import { BsFillArrowRightCircleFill } from "react-icons/bs"
 import { GiHypersonicMelon,GiFireDash } from "react-icons/gi"
+import { BsArrowRightShort, BsFillHousesFill, BsBusFront } from "react-icons/bs";
 import img from "../Assets/saves.svg"
-import { AiFillAlert, AiOutlineDeploymentUnit, AiFillDashboard } from "react-icons/ai"
 import { useAppSelector } from "../components/global/Store";
-import Plan from "./Plan";
+import { IoIosSchool } from "react-icons/io"
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import Rents from "./Rents/Rents";
+import Fees from "./Fees/Fees";
+import Tour from "./Tour/Tour";
+import StaffTransactionhome from "./StaffTransaction/StaffTransactionhome";
 
 
 
 
 const ParentComp = () => {
 
-    // const myVideo = require("../Assets/savings.mp4");
-
+    const schema = yup
+    .object({
+      amount: yup.number().required("field must be"),
+      subscribe: yup.boolean().required("field must be checked"),
+    })
+    .required();
+  type formData = yup.InferType<typeof schema>;
+  const {
+    handleSubmit,
+    formState: { errors },
+    reset,
+    register,
+  } = useForm<formData>({
+    resolver: yupResolver(schema),
+  });
 
     const [show, setShow] = React.useState(false);
+      const [plans, setplans] = React.useState(false);
+    const [rents, setRents] = React.useState(false);
+    const [fees, setfees] = React.useState(false);
+    const [tour, setTour] = React.useState(false);
 
-    const [view, setView] = React.useState(false);
+    const Showtour = () => {
+    setTour(!tour);
+    setplans(false);
+  };
 
-    const Opens = () => {
-    setView(!view);
+    const Showfees = () => {
+    setfees(!fees);
+    setplans(false);
+  };
+    
+    const Showrents = () => {
+    setRents(!rents);
+    setplans(false);
+  };
+
+    const Showplans = () => {
+    setplans(!plans);
   };
 
   const Toggle = () => {
@@ -35,6 +73,22 @@ const ParentComp = () => {
 
   const Toggle2 = () => {
     setShow(false);
+    };
+    
+    const Removerent = () => {
+    setRents(false);
+    };
+    
+    const Removefees = () => {
+    setfees(false);
+    };
+    
+    const Removetour = () => {
+    setTour(false);
+  };
+
+    const Remove = () => {
+    setplans(false);
   };
 
   const user = useAppSelector((state) => state.currentStaff);
@@ -113,11 +167,12 @@ const ParentComp = () => {
               </Slidein>
             ) : null}
           </Top>
-                  <Cards />
-                  <Down>
-                      <Piehold>
-                          <Title>Transaction Chart</Title>
+
+          <Cards />
+          <Down>
+            <Piehold>
                           <Pee>
+                              <Title>Transaction Chart</Title>
                               <Pies />
                           </Pee>
                       </Piehold>
@@ -129,23 +184,220 @@ const ParentComp = () => {
                                   <p>Discover effective strategies for compounding money over time</p>
                                   <C><p>This savings plan can be your financial nest towards achieving any capital project such as building a house or against unforeseen circumstances such as disability.</p></C>
                               </P>
-                              <Button onClick={Opens}>Start Plans</Button>
+                              <Button onClick={Showplans}>Start Plans</Button>
                           </Savehold>
                       </Planhold>
                   </Down>
 
-                  {view ? (
-                      <Open>
-                      <Plan />
-                  </Open>
-                  ): null}
+            {plans ? (
+        <Plans >
+          <Holder2>
+            <Card6>
+              <Circle4>
+                <BsFillHousesFill />
+              </Circle4>
+              <Wallet>
+                <h3>Rents</h3>
+                <p>Wallet id</p>
+                <button onClick={Showrents}>Get Started</button>
+              </Wallet>
+            </Card6>
+
+            <Card7>
+              <Circle2>
+                <IoIosSchool />
+              </Circle2>
+              <Wallet>
+                <h3>School fees</h3>
+                <p>Wallet id</p>
+                <button onClick={Showfees}>Get Started</button>
+              </Wallet>
+            </Card7>
+
+            <Card8>
+              <Circle3>
+                <BsBusFront />
+              </Circle3>
+              <Wallet>
+                <h3>Travel & Tour</h3>
+                <p>Wallet id</p>
+                <button onClick={Showtour}>Get Started</button>
+              </Wallet>
+            </Card8>
+            <Icons onClick={Remove}>
+              <MdOutlineCancel />
+            </Icons>
+          </Holder2>
+        </Plans>
+      ) : null}
+
+                {rents ? (
+                      <Holds>
+                          <Rents />
+                          <Icron onClick={Removerent}>
+              <MdOutlineCancel />
+            </Icron>
+                </Holds>
+                  ) : null}  
+
+                  {fees ? (
+                      <Holds>
+                          <Fees />
+                          <Icron onClick={Removefees}>
+              <MdOutlineCancel />
+            </Icron>
+                      </Holds>
+                  ) : null} 
+
+                  {tour ? (
+                      <Holds>
+                          <Tour />
+                          <Icron onClick={Removetour}>
+              <MdOutlineCancel />
+            </Icron>
+                      </Holds>
+                  ) : null}            
+
+                  <StaffTransactionhome />
         </Wrapper>
       </Container>
     </div>
-  );
-};
+
+  )
+}
 
 export default ParentComp;
+const Holds = styled.div`
+    width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 5;
+`
+const Icron = styled.div`
+  position: absolute;
+  font-size: 25px;
+  right: 33%;
+  color: #fff;
+  cursor: pointer;
+  top: 100px;
+  cursor: pointer;
+  z-index: 9;
+`;
+const Input2 = styled.input``;
+const Subhold = styled.div`
+  display: flex;
+  margin-top: 3px;
+  label {
+    margin: 0;
+  }
+`;
+const Input = styled.input`
+  height: 40px;
+  padding-left: 15px;
+  border-radius: 7px;
+  outline-color: #39a081;
+  outline-width: 3px;
+  margin-top: 3px;
+  border: 1px solid gray;
+`;
+const Quick = styled.div`
+  h3 {
+    font-size: 25px;
+    margin: 0;
+    color: #39a081;
+  }
+`;
+const Proceed = styled.div`
+  width: 350px;
+  height: 390px;
+  background-color: #fff;
+  border-radius: 10px;
+  flex-direction: column;
+  padding: 20px;
+  p {
+    margin: 0;
+    font-size: 14px;
+    margin-top: 3px;
+  }
+  button {
+    width: 100%;
+    height: 50px;
+    background-color: #39a081;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin-top: 100px;
+    cursor: pointer;
+  }
+`;
+const Card8 = styled.div`
+  width: 240px;
+  height: 150px;
+  background-color: #0d71fa;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding-left: 15px;
+  margin: 10px;
+`;
+const Card7 = styled.div`
+  width: 240px;
+  height: 150px;
+  background-color: #ef7914;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding-left: 15px;
+`;
+const Card6 = styled.div`
+  width: 240px;
+  height: 150px;
+  background-color: #39a081;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding-left: 15px;
+  margin: 10px;
+`;
+const Holder2 = styled.div`
+  width: 900px;
+  height: 400px;
+  display: flex;
+  background-color: #fff;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+`;
+const Icons = styled.div`
+  position: absolute;
+  font-size: 25px;
+  right: 15%;
+  color: #fff;
+  cursor: pointer;
+  top: 120px;
+`;
 const Open = styled.div`
     width: 100%;
   height: 100vh;
@@ -230,7 +482,7 @@ const Plans = styled.div`
     background-color: rgba(0, 0, 0, 0.7);
     position: absolute;
     left: 0;
-    background-color: red;
+    /* background-color: red; */
     right: 0;
     top: 0;
     z-index: 5;
@@ -298,13 +550,15 @@ const Planhold = styled.div`
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     padding-right: 10px;
 `
+
 const Pee = styled.div`
     width: 100%;
     margin-top: 15px;
 `
 const Title = styled.div`
-    margin-top: 10px;
-    font-size: 23px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    text-align: center;
 `
 const Piehold = styled.div`
     width: 48%;
@@ -393,6 +647,19 @@ const Wallet = styled.div`
     color: #fff;
     margin-top: 5px;
     font-size: 23px;
+  }
+
+  button {
+    cursor: pointer;
+    margin-top: 12px;
+    outline: none;
+    border: none;
+    width: 90px;
+    background: none;
+    height: 35px;
+    border-radius: 50px;
+    text-decoration: underline;
+    color: #fff;
   }
 `;
 
@@ -506,15 +773,17 @@ const Top = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 92%;
+  width: 94%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 90px;
+  padding-right: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  /* background-color: red; */
 
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -524,12 +793,12 @@ const Wrapper = styled.div`
 const Container = styled.div`
   width: calc(100vw - 220px);
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   background-color: #F5F7FA;
   overflow: hidden;
   margin-top: 20px;
-  padding-bottom: 15px;
+  padding-bottom: 20px;
 
   @media screen and (max-width: 1024px) {
     width: 100vw;

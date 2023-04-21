@@ -5,10 +5,7 @@ import img2 from "../Assets/mtn.jpg"
 import img3 from "../Assets/glo.jpg"
 import img4 from "../Assets/9mobile.jpg"
 import img5 from "../Assets/smile.jpg"
-import Img6 from "../Assets/wave.svg"
 import { AiOutlineClose } from "react-icons/ai"
-import { MdOutlineAccountBalanceWallet } from "react-icons/md";
-import { BsFillPiggyBankFill, BsTelephoneFill, BsDatabase } from "react-icons/bs";
 import Airtels from './Airtels'
 import { FaGoogleWallet } from "react-icons/fa"
 import {RiNumbersFill} from "react-icons/ri"
@@ -62,20 +59,6 @@ const Cards = () => {
         </Right> 
       </Card>
       
-          
-
-       {/* <Staff>
-       <Title>
-            Staffs
-          </Title>
-          <CardProps title='FrontEnd Engineer' img="DC" name="Divine Chigozie"/>
-
-
-          <CardProps title='FullStack Engineer' img="VP" name="Valerian Pedro"/>
-
-          <CardProps title='BackEnd Engineer' img="EO" name="Esther Ogbu"/>
-          
-       </Staff> */}
           {showPopup ? (
               <Popups>
                   <Popup_content>

@@ -54,7 +54,7 @@ const SideBar = () => {
             <MdDashboard />
             </Icon2>
             <NavLink
-            to=""
+            to="/staffdashboard"
             style={({ isActive }) => {
                 return {
                 textDecoration: isActive ? "none" : "none",
@@ -79,7 +79,9 @@ const SideBar = () => {
                 };
             }}
             >
-            <Text1>Attendance</Text1>
+                  <NavLink to="/staffdashboard/staff-attendance">
+                      <Text1>Attendance</Text1>
+            </NavLink>
             </NavLink>
       </Home2>
 

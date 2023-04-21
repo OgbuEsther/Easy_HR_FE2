@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 
 
-const Attendance = () => {
+const Adminattendance = () => {
  
   return (
     <div>
@@ -1048,7 +1048,7 @@ const Attendance = () => {
   );
 };
 
-export default Attendance;
+export default Adminattendance;
 const Word = styled.div`
 font-weight: 500;
 font-size: 26px;
