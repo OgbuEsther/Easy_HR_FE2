@@ -95,7 +95,7 @@ const StaffTransactionhome = () => {
          
       </Table>
       <Buttonhold>
-        <Button>View more</Button>
+
       </Buttonhold>
     </Container>
   )
