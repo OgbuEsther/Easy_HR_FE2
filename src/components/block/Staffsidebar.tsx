@@ -79,7 +79,14 @@ const SideBar = () => {
                 };
             }}
             >
-            <Text1>Attendance</Text1>
+                  <NavLink to="/dashboard/staff-attendance" style={({ isActive }) => {
+                return {
+                textDecoration: isActive ? "none" : "none",
+                color: isActive ? "#2AA7FF" : "#fff",
+                };
+            }}>
+                      <Text1>Attendance</Text1>
+            </NavLink>
             </NavLink>
       </Home2>
 

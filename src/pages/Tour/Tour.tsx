@@ -131,4 +131,17 @@ const Container = styled.div`
   right: 0;
   top: 0;
   z-index: 5;
+
+  animation: play 0.5s ease-out forwards;
+
+   @keyframes play {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+  }
 `
