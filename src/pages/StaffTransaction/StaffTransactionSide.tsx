@@ -1,7 +1,19 @@
 import React from 'react'
 import styled from "styled-components"
+import { useAppSelector } from '../../components/global/Store';
+import { useQuery } from '@tanstack/react-query';
+import { getOneStaff } from '../../utils/Api/ApiCall';
 
 const StaffTransactionSide = () => {
+
+  const user = useAppSelector((state) => state.currentStaff);
+  const getStaff = useQuery({
+    queryKey: ["singleStaff"],
+    queryFn: () => getOneStaff(user?._id),
+  });
+  console.log("this is getStaff transactionHistory ",getStaff?.data?.data?.transactionHistory)
+
+
   return (
       <Container>
           <Wrapper>
@@ -17,32 +29,28 @@ const StaffTransactionSide = () => {
               </tr>
 
 
-              <tr>
-              <td>
+              {getStaff?.data?.data?.transactionHistory.map((el: any) => (
+              <tr key={el?._id}>
+                <td>
                 <CirleHold>
                   <Name>
-                    2020-12-14 22:01:01
+                   {el?.date}
                   </Name>
                 </CirleHold>
-              </td>
-              <td>
-                <Id>
-                  #A3161
-               </Id>
-              </td>
-              <td>
-                <Dat>
-                  $0.00
-               </Dat>
-              </td>
-              <td>
+                 </td>
+                <td> <Id>
+                 {el?.transactionReference}
+               </Id></td>
+                <td>{el?.amount} </td>
+                <td>
                 <Account>
                   Received
                </Account>
               </td>
-            </tr>
+              </tr>
+            ))}
 
-              <tr>
+              {/* <tr>
               <td>
                 <CirleHold>
                   <Name>
@@ -115,7 +123,7 @@ const StaffTransactionSide = () => {
                   Received
                </Account>
               </td>
-            </tr>
+            </tr> */}
             </table>
 
          
