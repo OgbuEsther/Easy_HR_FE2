@@ -134,35 +134,14 @@ const StaffTransactionSide = () => {
 }
 
 export default StaffTransactionSide
-const Button = styled.button`
-  width: 120px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  background-color: #1F337C;
-  border-radius: 10px;
-  cursor: pointer;
-  border: none;
-  outline: none;
-`
-const Buttonhold = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-`
+
 
 const Account = styled.div`
 font-weight: 500;
 color: green;
 `
-const Dat = styled.div`
-font-weight: 70px;
-`
-const Amount = styled.div`
-font-weight: 70px;
-`
+
+
 const Id = styled.div`
 font-weight: 70px;
 `
@@ -176,21 +155,7 @@ font-size: 16px;
 color: #ff2222;
 `
 
-const Circ = styled.div`
-width: 40px;
-height: 40px;
-margin: 3px;
-font-size: 16px;
-display: flex;
-justify-content: center;
-align-items: center;
-overflow: hidden;
-font-weight: 500;
-color: black;
-background-color: blanchedalmond;
-border: 1px solid black;
-border-radius: 50px;
-`
+
 
 const CirleHold = styled.div`
 display: flex;

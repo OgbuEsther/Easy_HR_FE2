@@ -124,13 +124,14 @@ const StaffTransactionhome = () => {
          
       </Table>
       <Buttonhold>
-
+        <Button>View more</Button>
       </Buttonhold>
     </Container>
   )
 }
 
 export default StaffTransactionhome
+
 const Button = styled.button`
   width: 120px;
   height: 40px;
@@ -154,12 +155,7 @@ const Account = styled.div`
 font-weight: 500;
 color: green;
 `
-const Dat = styled.div`
-font-weight: 70px;
-`
-const Amount = styled.div`
-font-weight: 70px;
-`
+
 const Id = styled.div`
 font-weight: 70px;
 `
@@ -173,21 +169,6 @@ font-size: 16px;
 color: #ff2222;
 `
 
-const Circ = styled.div`
-width: 40px;
-height: 40px;
-margin: 3px;
-font-size: 16px;
-display: flex;
-justify-content: center;
-align-items: center;
-overflow: hidden;
-font-weight: 500;
-color: black;
-background-color: blanchedalmond;
-border: 1px solid black;
-border-radius: 50px;
-`
 
 const CirleHold = styled.div`
 display: flex;
