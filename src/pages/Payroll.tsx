@@ -6,6 +6,7 @@ import { AiFillPlusCircle, AiOutlineClose } from "react-icons/ai";
 import { useAppSelector } from "../components/global/Store";
 import { useQuery } from "@tanstack/react-query";
 import { getOneAdmin } from "../utils/Api/ApiCall";
+import axios from "axios";
 
 interface data {
   earn: string;
@@ -106,6 +107,21 @@ const Payroll = () => {
     queryFn: () => getOneAdmin(user?._id),
   });
 
+  const [search , setSearch ] = React.useState("")
+
+  const searchData = async (e: any) => {
+    if (e.key === "Enter") {
+      await axios
+        .get(
+          `https://easyhr.onrender.com/api/staff/search?yourName=${search}`
+        )
+        .then((res) => {
+          console.log(res);
+          setSearch(res.data.data);
+        });
+    }
+  };
+
   return (
     <Container>
       <Wrapper>
@@ -114,7 +130,13 @@ const Payroll = () => {
             <Search>
               <CiSearch />
             </Search>
-            <Input placeholder="Search people" />
+            <Input 
+            
+            onKeyPress={searchData}
+            onChange={(e) => {
+              setSearch(e.target.value);
+            }}
+            placeholder="Search by author name " />
           </Inputhold>
         </Head>
 
@@ -131,7 +153,9 @@ const Payroll = () => {
         </Table>
 
        
-        {getAdmin?.data?.data?.viewUser.map((el: any) => (
+{
+    search.length === 0 ?( <>
+            {getAdmin?.data?.data?.viewUser.map((el: any) => (
         <Table2>
           <Lists>
             <Name2>
@@ -153,6 +177,39 @@ const Payroll = () => {
           </Lists>
         </Table2>
  ))}
+    </>) :(
+         <>
+{search?.length >= 1 ? (
+    <>
+               {getAdmin?.data?.data?.viewUser.map((el: any) => (
+        <Table2>
+          <Lists>
+            <Name2>
+              <Circlehold>
+                <Circle>
+                  <Img >{`${el?.yourName?.charAt(0)}`} </Img>
+                </Circle>
+                <Id>{el?.yourName}</Id>
+              </Circlehold>
+            </Name2>
+            <Gross2>$3,125.00</Gross2>
+            <Taxes2>$574.74</Taxes2>
+            <Netpay2>$1,949.00</Netpay2>
+            <Payment2>$2,649.00</Payment2>
+            <Payment2>$2,649.00</Payment2>
+            <Status2>
+              <Hold onClick={Toggle}>Pay</Hold>
+            </Status2>
+          </Lists>
+        </Table2>
+ ))}
+    </>
+) : (
+    <></>
+) }
+    </>
+    )
+}
 
       </Wrapper>
       {show ? (

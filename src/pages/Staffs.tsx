@@ -5,6 +5,7 @@ import CardProps from "./CardProps";
 import { useAppSelector } from "../components/global/Store";
 import { getOneAdmin } from "../utils/Api/ApiCall";
 import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 const Staffs = () => {
   const user = useAppSelector((state) => state.currentUser);
@@ -13,6 +14,22 @@ const Staffs = () => {
     queryFn: () => getOneAdmin(user?._id),
   });
 console.log("this is admin",user?._id)
+
+const [search , setSearch ] = React.useState("")
+
+const searchData = async (e: any) => {
+  if (e.key === "Enter") {
+    await axios
+      .get(
+        `https://easyhr.onrender.com/api/staff/search?yourName=${search}`
+      )
+      .then((res) => {
+        console.log(res);
+        setSearch(res.data.data);
+      });
+  }
+};
+
   return (
     <div>
       <Container>
