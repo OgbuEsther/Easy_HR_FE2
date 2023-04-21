@@ -189,7 +189,7 @@ const ParentComp = () => {
                 <button >Get Started</button>
               </Wallet>
             </Card8>
-            <Icons onClick={Removerent}>
+            <Icons >
               <MdOutlineCancel />
             </Icons>
           </Holder2>
@@ -230,8 +230,7 @@ const ParentComp = () => {
         // </Savehold>
                       <Holds>
                           <Rents />
-                          <Icron >
-                              uqgsutdusct
+                          <Icron onClick={Removerent}>
               <MdOutlineCancel />
             </Icron>
                 </Holds>
@@ -268,6 +267,7 @@ const Icron = styled.div`
   cursor: pointer;
   top: 100px;
   cursor: pointer;
+  z-index: 9;
 `;
 const Input2 = styled.input``;
 const Subhold = styled.div`
