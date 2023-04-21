@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useAppSelector } from '../../components/global/Store';
 import { useQuery } from '@tanstack/react-query';
 import { getOneStaff } from '../../utils/Api/ApiCall';
+import { NavLink } from 'react-router-dom';
 
 const StaffTransactionhome = () => {
   const user = useAppSelector((state) => state.currentStaff);
@@ -124,7 +125,11 @@ const StaffTransactionhome = () => {
          
       </Table>
       <Buttonhold>
-        <Button>View more</Button>
+        <NavLink to="/staffdashboard/stafftransaction" style={{
+          textDecoration: "none"
+        }}>
+          <Button>View more</Button>
+        </NavLink>
       </Buttonhold>
     </Container>
   )
