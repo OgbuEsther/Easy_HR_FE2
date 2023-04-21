@@ -50,11 +50,8 @@ const StaffTransactionhome = () => {
               <tr>
               <td>
                 <CirleHold>
-                  <Circ>
-                    ST
-                  </Circ>
                   <Name>
-                 Stripe
+                    2020-12-14 22:01:01
                   </Name>
                 </CirleHold>
               </td>
@@ -65,129 +62,80 @@ const StaffTransactionhome = () => {
               </td>
               <td>
                 <Amount>
-                  $37383
+                  $0.00
                </Amount>
               </td>
               <td>
                 <Dat>
-                  Tues 1:00pm
+                  $0.00
                </Dat>
               </td>
               <td>
                 <Account>
-                  Visa Card
+                  Received
                </Account>
               </td>
-            </tr>
-
-            <tr>
-          <td>
-          <CirleHold>
-                  <Circ>
-                    SP
-                  </Circ>
+          </tr>
+          
+          <tr>
+              <td>
+                <CirleHold>
                   <Name>
-                   Spotify
+                    2020-12-14 22:01:01
                   </Name>
                 </CirleHold>
-          </td>
-          <td>
-            <Id>
-              8742824
-            </Id>
-          </td>
-          <td>
-            <Amount>
-              8742824
-            </Amount>
-          </td>
-          <td>
-            <Dat>
-              8742824
-            </Dat>
-          </td>
-          <td>
+              </td>
+              <td>
+                <Id>
+                  #A3161
+               </Id>
+              </td>
+              <td>
+                <Amount>
+                  $0.00
+               </Amount>
+              </td>
+              <td>
+                <Dat>
+                  $0.00
+               </Dat>
+              </td>
+              <td>
                 <Account>
-                  $37383
+                  Received
                </Account>
               </td>
             </tr>
-
-            <tr>
-          <td>
-          <CirleHold>
-                  <Circ>
-                    FG
-                  </Circ>
-                  <Name>
-                    Figma
-                  </Name>
-                </CirleHold>
-          </td>
-          <td>
-            <Id>
-              8742824
-            </Id>
-          </td>
-          <td>
-            <Amount>
-              $3:00
-            </Amount>
-          </td>
-          <td>
-            <Dat>
-            Wed 12:00pm
-            </Dat>
-          </td>
-          <td>
-                <Account>
-                  MasterCard
-               </Account>
-              </td>
-            </tr>
-
-            <tr>
-          <td>
-          <CirleHold>
-                  <Circ>
-                    SP
-                  </Circ>
-                  <Name>
-                   Spotify
-                  </Name>
-                </CirleHold>
-          </td>
-          <td>
-            <Id>
-              8742824
-            </Id>
-          </td>
-          <td>
-            <Amount>
-              8742824
-            </Amount>
-          </td>
-          <td>
-            <Dat>
-              8742824
-            </Dat>
-          </td>
-          <td>
-                <Account>
-                  $37383
-               </Account>
-              </td>
-            </tr>
-
             </table>
 
          
-          </Table>
+      </Table>
+      <Buttonhold>
+        <Button>View more</Button>
+      </Buttonhold>
     </Container>
   )
 }
 
 export default StaffTransactionhome
+const Button = styled.button`
+  width: 120px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: #1F337C;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+`
+const Buttonhold = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+`
 
 const Account = styled.div`
 font-weight: 500;

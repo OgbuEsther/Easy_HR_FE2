@@ -786,6 +786,7 @@ const Container = styled.div`
   background-color: #F5F7FA;
   overflow: hidden;
   margin-top: 20px;
+  padding-bottom: 20px;
 
   @media screen and (max-width: 1024px) {
     width: 100vw;
