@@ -60,7 +60,7 @@ const Cards = () => {
           <Wallet>Wallet Number</Wallet>
         </Left2>
         <Right>
-          <Bal>123456789</Bal>
+          <Bal>{user?.walletNumber}</Bal>
         </Right>
       </Card>
 
@@ -69,10 +69,10 @@ const Cards = () => {
           <Icos>
             <RiNumbersFill />
           </Icos>
-          <Wallet>Wallet Number</Wallet>
+          <Wallet>company Code</Wallet>
         </Left3>
         <Right>
-          <Bal>123456789</Bal>
+          <Bal>{user?.companyCode}</Bal>
         </Right>
       </Card>
 
@@ -189,7 +189,8 @@ const Left2 = styled.div`
   justify-content: center;
 `;
 const Bal = styled.div`
-  color: #3f3f3f;
+  /* color: #3f3f3f; */
+  color: black;
   margin-left: 30px;
   font-size: 26px;
   font-weight: 600;

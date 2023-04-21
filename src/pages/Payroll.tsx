@@ -15,22 +15,16 @@ interface data2 {
 
 const Payroll = () => {
   const [show, setShow] = React.useState(false);
-  const [shows, setShows] = React.useState(false);
   const [inputs, setinputs] = React.useState(false);
   const [earnvalue, setEarnvalue] = React.useState("");
   const [data, setData] = React.useState<data[]>([]);
 
-  const [shows2, setShows2] = React.useState(false);
+  
   const [inputs2, setinputs2] = React.useState(false);
   const [earnvalue2, setEarnvalue2] = React.useState("");
   const [data2, setData2] = React.useState<data2[]>([]);
 
-  const Toggles = () => {
-    setShows(true);
-  };
-  const Toggles2 = () => {
-    setShows2(true);
-  };
+ 
 
   let idData: number = data.length + 1;
   const addNewTask = () => {
@@ -103,7 +97,7 @@ const Payroll = () => {
   };
 
   //api consumption 
-  
+
 
   return (
     <Container>

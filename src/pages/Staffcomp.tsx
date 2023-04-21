@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 import Cards from "./Cards";
 
 import Pies from "./Pies";
-import { BsArrowRightShort, BsFillHousesFill, BsBusFront } from "react-icons/bs";
+import {  BsFillHousesFill, BsBusFront } from "react-icons/bs";
 import img from "../Assets/saves.svg"
 import { useAppSelector } from "../components/global/Store";
 import { IoIosSchool } from "react-icons/io"
@@ -17,6 +17,8 @@ import Rents from "./Rents/Rents";
 import Fees from "./Fees/Fees";
 import Tour from "./Tour/Tour";
 import StaffTransactionhome from "./StaffTransaction/StaffTransactionhome";
+import { useQuery } from "@tanstack/react-query";
+import { getOneStaff } from "../utils/Api/ApiCall";
 
 
 
@@ -31,10 +33,10 @@ const ParentComp = () => {
     .required();
   type formData = yup.InferType<typeof schema>;
   const {
-    handleSubmit,
+    // handleSubmit,
     formState: { errors },
-    reset,
-    register,
+    // reset,
+    // register,
   } = useForm<formData>({
     resolver: yupResolver(schema),
   });
@@ -89,11 +91,12 @@ const ParentComp = () => {
   };
 
   const user = useAppSelector((state) => state.currentStaff);
-//   const getStaff = useQuery({
-//     queryKey: ["singleStaff"],
-//     queryFn: () => getOneStaff(user?._id),
-//   });
-// console.log("this is getStaff id",user?._id)
+  const getStaff = useQuery({
+    queryKey: ["singleStaff"],
+    queryFn: () => getOneStaff(user?._id),
+  });
+console.log("this is getStaff id",user?._id)
+console.log("this is getStaff ",getStaff?.data?.data?.wallet)
 
   return (
     <div>
@@ -116,14 +119,16 @@ const ParentComp = () => {
                     <Circle>
                       <FaGoogleWallet />
                     </Circle>
-                    <Wallet>
-                      <p>Wallet Balance</p>
-                      <h3>NGN:0.00</h3>
-                    </Wallet>
+                    {getStaff?.data?.data?.wallet?.map((el: any) => (
+                      <Wallet>
+                        <p>Wallet Balance</p>
+                        <h3>NGN:{el?.balance} </h3>
+                      </Wallet>
+                    ))}
                   </Card2>
 
                   <Tap>
-                    <h3>Admin Details: </h3>
+                    <h3>Staff Details: </h3>
                     <p>
                     Wallet number <strong>{user?.walletNumber} </strong>
                     </p>
@@ -285,54 +290,10 @@ const Icron = styled.div`
   cursor: pointer;
   z-index: 9;
 `;
-const Input2 = styled.input``;
-const Subhold = styled.div`
-  display: flex;
-  margin-top: 3px;
-  label {
-    margin: 0;
-  }
-`;
-const Input = styled.input`
-  height: 40px;
-  padding-left: 15px;
-  border-radius: 7px;
-  outline-color: #39a081;
-  outline-width: 3px;
-  margin-top: 3px;
-  border: 1px solid gray;
-`;
-const Quick = styled.div`
-  h3 {
-    font-size: 25px;
-    margin: 0;
-    color: #39a081;
-  }
-`;
-const Proceed = styled.div`
-  width: 350px;
-  height: 390px;
-  background-color: #fff;
-  border-radius: 10px;
-  flex-direction: column;
-  padding: 20px;
-  p {
-    margin: 0;
-    font-size: 14px;
-    margin-top: 3px;
-  }
-  button {
-    width: 100%;
-    height: 50px;
-    background-color: #39a081;
-    color: #fff;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    margin-top: 100px;
-    cursor: pointer;
-  }
-`;
+
+
+
+
 const Card8 = styled.div`
   width: 240px;
   height: 150px;
@@ -391,22 +352,7 @@ const Icons = styled.div`
   cursor: pointer;
   top: 120px;
 `;
-const Open = styled.div`
-    width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  z-index: 123456;
-  position: relative;
-  justify-content: center;
-  position: absolute;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  z-index: 4;
-  transition: all 350ms ease-in-out;
-`
+
 const Circle3 = styled.div`
     width: 60px;
     height: 60px;
@@ -418,19 +364,7 @@ const Circle3 = styled.div`
     color: #fff;
     font-size: 30px;
 `
-const Card3 = styled.div`
-    width: 240px;
-    height: 150px;
-    background-color: #0D71FA;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius:10px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    padding-left: 15px;
-`
+
 const Circle2 = styled.div`
     width: 60px;
     height: 60px;
@@ -453,19 +387,7 @@ const Circle4 = styled.div`
     color: #fff;
     font-size: 30px;
 `
-const Card4 = styled.div`
-    width: 240px;
-    height: 150px;
-    background-color: #39A081;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius:10px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    padding-left: 15px;
-`
+
 const Plans = styled.div`
     width: 100%;
     height: 100vh;
