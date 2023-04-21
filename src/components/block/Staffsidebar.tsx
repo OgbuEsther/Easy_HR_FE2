@@ -4,16 +4,13 @@ import img from "../../Assets/easyhr.png"
 import { MdDashboard } from "react-icons/md";
 import { NavLink } from 'react-router-dom';
 import { FiPower } from "react-icons/fi";
-import { BsFillPersonFill } from "react-icons/bs"
 import { AiOutlineClose } from "react-icons/ai";
 import img1 from "../../Assets/airtel.jpg"
 import img2 from "../../Assets/mtn.jpg"
 import img3 from "../../Assets/glo.jpg"
 import img4 from "../../Assets/9mobile.jpg"
 import img5 from "../../Assets/smile.jpg"
-import {GiMoneyStack,GiFlatTire} from "react-icons/gi"
 import Airtels from '../../pages/Airtels';
-import { IoMdPerson} from "react-icons/io"
 import { FaBattleNet,FaHornbill } from "react-icons/fa"
 import {GiStarSattelites,GiTransportationRings} from "react-icons/gi"
 
@@ -33,6 +30,10 @@ const SideBar = () => {
     
     const Togglepopup = () => {
     setShowPopup(!showPopup);
+  }
+
+  const Remove = () => {
+    setShowAirtel(false)
   }
 
     const ToggleAirtel = () => {
@@ -316,6 +317,9 @@ const SideBar = () => {
           {showAirtel ? (
               <Airtelhold>
                   <Airtels />
+          <Ico onClick={Remove}>
+            <AiOutlineClose />
+                  </Ico>
               </Airtelhold>
           ) : null}
 
@@ -346,6 +350,16 @@ const SideBar = () => {
 }
 
 export default SideBar
+const Ico = styled.div`
+  position: absolute;
+  top: 29px;
+  right: 26%;
+  color: #fff;
+  font-size: 20px;
+  display: flex;
+  z-index: 22;
+  cursor: pointer;
+`
 const Text4 = styled.div`
     font-size: 11px;
     color: #000;
@@ -383,7 +397,7 @@ const AirtelText = styled.div`
     }
 `
 const Airtel = styled.div`
-    width: 250px;
+    width: 230px;
     height: 50px;
     border: 1px solid #CEC2C2;
     padding: 10px;
