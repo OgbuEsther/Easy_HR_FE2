@@ -36,3 +36,9 @@ export const getOneStaff = async(id:any)=>{
         return res.data
     })
 }
+
+//create payroll
+
+export const myPayRoll = async(data:{})=>{
+    return await axios.post(`${url}` , data).then((res)=> res.data)
+}
