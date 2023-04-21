@@ -164,6 +164,7 @@ const ParentComp = () => {
           <Down>
             <Piehold>
                           <Pee>
+                              <Title>Transaction Chart</Title>
                               <Pies />
                           </Pee>
                       </Piehold>
@@ -546,8 +547,9 @@ const Pee = styled.div`
     margin-top: 15px;
 `
 const Title = styled.div`
-    margin-top: 10px;
-    font-size: 23px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    text-align: center;
 `
 const Piehold = styled.div`
     width: 48%;
