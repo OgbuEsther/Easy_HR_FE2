@@ -28,6 +28,7 @@ const ContactUs = lazy(() => import("../pages/landingpage/ContactUs"));
 const Attendance = lazy(() => import("../pages/Adminattendance"))
 const StaffAttendance = lazy(() => import("../pages/Attendance"))
 const Schoolfees = lazy(() => import("../pages/Schoolfeesfile/Schoolfeesfile"))
+const Tour = lazy(() => import("../pages/Tourfile/Tourfile"))
 
 const PayBills = lazy(()=>import("../pages/StaffdasBoard/PayBills/PayBill"));
 // const StaffAttendance = lazy(() => import("../pages/StaffdasBoard/Attendance/Attendance"))
@@ -179,6 +180,12 @@ export const Elements = createBrowserRouter([
       {
         path: "/staffdashboard/schoolfees-plan",
         element: <Schoolfees />,
+        hasErrorBoundary: true,
+        errorElement: <ErrorBoundary />,
+      },
+      {
+        path: "/staffdashboard/travel&tour-plan",
+        element: <Tour />,
         hasErrorBoundary: true,
         errorElement: <ErrorBoundary />,
       },
