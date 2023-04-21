@@ -61,7 +61,6 @@ const Airtels = () => {
               </Inputhold>
 
               <Buttonhold>
-                  <Cancle>Cancle</Cancle>
                   <Continue>Continue</Continue>
               </Buttonhold>
           </Card>
@@ -181,7 +180,7 @@ const Top = styled.div`
 
 const Card = styled.div`
   width: 570px;
-  height: 470px;
+  height: 530px;
   background-color: #fff;
   border-radius: 10px;
   padding: 25px;
