@@ -125,7 +125,6 @@ const Container = styled.div`
   align-items: center;
   position: fixed;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.7);
   position: absolute;
   position: fixed;
   left: 0;
