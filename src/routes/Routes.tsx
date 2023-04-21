@@ -74,12 +74,6 @@ export const Elements = createBrowserRouter([
         errorElement: <ErrorBoundary />,
       },
       {
-        path: "/dashboard/staff-attendance",
-        element: <StaffAttendance />,
-        hasErrorBoundary: true,
-        errorElement: <ErrorBoundary />,
-      },
-      {
         path: "/dashboard/payroll",
         element: <Payroll />,
         hasErrorBoundary: true,
@@ -88,7 +82,10 @@ export const Elements = createBrowserRouter([
       {
         path: "/dashboard/admin-attendance",
         element: <Attendance />,
-      },{
+        hasErrorBoundary: true,
+        errorElement: <ErrorBoundary />,
+      },
+      {
         path: "/dashboard/transaction",
         element: <Transaction/>,
         hasErrorBoundary: true,
@@ -169,6 +166,12 @@ export const Elements = createBrowserRouter([
       {
        path:"/staffdashboard/stafftransaction",
         element: <StaffTransaction/>,
+        hasErrorBoundary: true,
+        errorElement: <ErrorBoundary />,
+      },
+      {
+        path: "/staffdashboard/staff-attendance",
+        element: <StaffAttendance />,
         hasErrorBoundary: true,
         errorElement: <ErrorBoundary />,
       },

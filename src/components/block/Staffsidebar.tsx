@@ -54,7 +54,7 @@ const SideBar = () => {
             <MdDashboard />
             </Icon2>
             <NavLink
-            to=""
+            to="/staffdashboard"
             style={({ isActive }) => {
                 return {
                 textDecoration: isActive ? "none" : "none",
@@ -79,12 +79,7 @@ const SideBar = () => {
                 };
             }}
             >
-                  <NavLink to="/dashboard/staff-attendance" style={({ isActive }) => {
-                return {
-                textDecoration: isActive ? "none" : "none",
-                color: isActive ? "#2AA7FF" : "#fff",
-                };
-            }}>
+                  <NavLink to="/staffdashboard/staff-attendance">
                       <Text1>Attendance</Text1>
             </NavLink>
             </NavLink>
