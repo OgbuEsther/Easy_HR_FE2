@@ -23,12 +23,9 @@ const Payroll = () => {
   const [earnvalue, setEarnvalue] = React.useState("");
   const [data, setData] = React.useState<data[]>([]);
 
-  
   const [inputs2, setinputs2] = React.useState(false);
   const [earnvalue2, setEarnvalue2] = React.useState("");
   const [data2, setData2] = React.useState<data2[]>([]);
-
- 
 
   let idData: number = data.length + 1;
   const addNewTask = () => {
@@ -100,24 +97,23 @@ const Payroll = () => {
     setinputs2(false);
   };
 
-  //api consumption 
+  //api consumption
   const user = useAppSelector((state) => state.currentUser);
   const getAdmin = useQuery({
     queryKey: ["singleAdmin"],
     queryFn: () => getOneAdmin(user?._id),
   });
 
-  const [search , setSearch ] = React.useState("")
+  const [search, setSearch] = React.useState("");
+  const [searchProps, setSearchProps] = React.useState<any[]>([]);
 
   const searchData = async (e: any) => {
     if (e.key === "Enter") {
       await axios
-        .get(
-          `https://easyhr.onrender.com/api/staff/search?yourName=${search}`
-        )
+        .get(`https://easyhr.onrender.com/api/staff/search?yourName=${search}`)
         .then((res) => {
-          console.log(res);
-          setSearch(res.data.data);
+          console.log(res.data.data);
+          setSearchProps(res.data.data);
         });
     }
   };
@@ -130,13 +126,13 @@ const Payroll = () => {
             <Search>
               <CiSearch />
             </Search>
-            <Input 
-            
-            onKeyPress={searchData}
-            onChange={(e) => {
-              setSearch(e.target.value);
-            }}
-            placeholder="Search by author name " />
+            <Input
+              onKeyPress={searchData}
+              onChange={(e) => {
+                setSearch(e.target.value);
+              }}
+              placeholder="Search by author name "
+            />
           </Inputhold>
         </Head>
 
@@ -152,85 +148,85 @@ const Payroll = () => {
           </Lists>
         </Table>
 
-       
-{
-    search.length === 0 ?( <>
+        {searchProps.length === 0 ? (
+          <>
             {getAdmin?.data?.data?.viewUser.map((el: any) => (
-        <Table2>
-          <Lists>
-            <Name2>
-              <Circlehold>
-                <Circle>
-                  <Img >{`${el?.yourName?.charAt(0)}`} </Img>
-                </Circle>
-                <Id>{el?.yourName}</Id>
-              </Circlehold>
-            </Name2>
-            <Gross2>$3,125.00</Gross2>
-            <Taxes2>$574.74</Taxes2>
-            <Netpay2>$1,949.00</Netpay2>
-            <Payment2>$2,649.00</Payment2>
-            <Payment2>$2,649.00</Payment2>
-            <Status2>
-              <Hold onClick={Toggle}>Pay</Hold>
-            </Status2>
-          </Lists>
-        </Table2>
- ))}
-    </>) :(
-         <>
-{search?.length >= 1 ? (
-    <>
-               {getAdmin?.data?.data?.viewUser.map((el: any) => (
-        <Table2>
-          <Lists>
-            <Name2>
-              <Circlehold>
-                <Circle>
-                  <Img >{`${el?.yourName?.charAt(0)}`} </Img>
-                </Circle>
-                <Id>{el?.yourName}</Id>
-              </Circlehold>
-            </Name2>
-            <Gross2>$3,125.00</Gross2>
-            <Taxes2>$574.74</Taxes2>
-            <Netpay2>$1,949.00</Netpay2>
-            <Payment2>$2,649.00</Payment2>
-            <Payment2>$2,649.00</Payment2>
-            <Status2>
-              <Hold onClick={Toggle}>Pay</Hold>
-            </Status2>
-          </Lists>
-        </Table2>
- ))}
-    </>
-) : (
-    <></>
-) }
-    </>
-    )
-}
-
+              <Table2>
+                <Lists>
+                  <Name2>
+                    <Circlehold>
+                      <Circle>
+                        <Img>{`${el?.yourName?.charAt(0)}`} </Img>
+                      </Circle>
+                      <Id>{el?.yourName}</Id>
+                    </Circlehold>
+                  </Name2>
+                  <Gross2>$3,125.00</Gross2>
+                  <Taxes2>$574.74</Taxes2>
+                  <Netpay2>$1,949.00</Netpay2>
+                  <Payment2>$2,649.00</Payment2>
+                  <Payment2>$2,649.00</Payment2>
+                  <Status2>
+                    <Hold onClick={Toggle}>Pay</Hold>
+                  </Status2>
+                </Lists>
+              </Table2>
+            ))}
+          </>
+        ) : (
+          <>
+            {searchProps?.length >= 1 ? (
+              <>
+                {searchProps?.map((el: any) => (
+                  <Table2>
+                    <Lists>
+                      <Name2>
+                        <Circlehold>
+                          <Circle>
+                            <Img>{`${el?.yourName?.charAt(0)}`} </Img>
+                          </Circle>
+                          <Id>{el?.yourName}</Id>
+                        </Circlehold>
+                      </Name2>
+                      <Gross2>$3,125.00</Gross2>
+                      <Taxes2>$574.74</Taxes2>
+                      <Netpay2>$1,949.00</Netpay2>
+                      <Payment2>$2,649.00</Payment2>
+                      <Payment2>$2,649.00</Payment2>
+                      <Status2>
+                        <Hold onClick={Toggle}>Pay</Hold>
+                      </Status2>
+                    </Lists>
+                  </Table2>
+                ))}
+              </>
+            ) : (
+              <>
+              <p>oops!! staff doesn't exist</p>
+              </>
+            )}
+          </>
+        )}
       </Wrapper>
       {show ? (
         <Edit>
           <Box>
-          {getAdmin?.data?.data?.viewUser.map((el: any) => (
-            <Header>
-              <Imagehold>
-                <Img2>{`${el?.yourName?.charAt(0)}`} </Img2>
-              </Imagehold>
-              <Nameshold>
-                <h4>{el?.yourName}</h4>
-                <p>Full Time Employee</p>
-                <p> {el?.companyCode}</p>
-              </Nameshold>
-              <Net>
-                <p>Net Pay</p>
-                <h4>$1,949.26</h4>
-              </Net>
-            </Header>
- ))}
+            {getAdmin?.data?.data?.viewUser.map((el: any) => (
+              <Header>
+                <Imagehold>
+                  <Img2>{`${el?.yourName?.charAt(0)}`} </Img2>
+                </Imagehold>
+                <Nameshold>
+                  <h4>{el?.yourName}</h4>
+                  <p>Full Time Employee</p>
+                  <p> {el?.companyCode}</p>
+                </Nameshold>
+                <Net>
+                  <p>Net Pay</p>
+                  <h4>$1,949.26</h4>
+                </Net>
+              </Header>
+            ))}
             <Earnings>
               <Wrap>
                 <Up>
@@ -548,8 +544,7 @@ const Nameshold = styled.div`
   }
 `;
 const Img2 = styled.div`
-
-   font-size: 20px;
+  font-size: 20px;
   font-weight: 500;
 `;
 const Imagehold = styled.div`
@@ -562,7 +557,7 @@ const Imagehold = styled.div`
   margin-left: 25px;
   overflow: hidden;
   border: 1px solid lightgrey;
-    background-color: #1F337C;
+  background-color: #1f337c;
 `;
 const Header = styled.div`
   width: 100%;
@@ -606,7 +601,6 @@ const Id = styled.div`
   margin-left: 10px;
 `;
 const Img = styled.div`
- 
   font-size: 20px;
   font-weight: 500;
 `;
@@ -618,8 +612,8 @@ const Circle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-   border: 1px solid lightgrey;
-   background-color: #1F337C;
+  border: 1px solid lightgrey;
+  background-color: #1f337c;
 `;
 const Circlehold = styled.div`
   display: flex;
