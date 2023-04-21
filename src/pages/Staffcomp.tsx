@@ -83,6 +83,10 @@ const ParentComp = () => {
     setTour(false);
   };
 
+    const Remove = () => {
+    setplans(false);
+  };
+
   const user = useAppSelector((state) => state.currentStaff);
 //   const getStaff = useQuery({
 //     queryKey: ["singleStaff"],
@@ -211,7 +215,7 @@ const ParentComp = () => {
                 <button onClick={Showtour}>Get Started</button>
               </Wallet>
             </Card8>
-            <Icons >
+            <Icons onClick={Remove}>
               <MdOutlineCancel />
             </Icons>
           </Holder2>
@@ -243,7 +247,7 @@ const ParentComp = () => {
               <MdOutlineCancel />
             </Icron>
                       </Holds>
-      ) : null}            
+                  ) : null}            
 
         </Wrapper>
       </Container>
@@ -379,7 +383,7 @@ const Holder2 = styled.div`
 const Icons = styled.div`
   position: absolute;
   font-size: 25px;
-  right: 18%;
+  right: 15%;
   color: #fff;
   cursor: pointer;
   top: 120px;
