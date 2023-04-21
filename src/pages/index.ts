@@ -12,4 +12,6 @@ export * from "./ParentComp"
 
 export * from "./Staffs"
 
-export * from "./Attendance/Attendance"
+export * from "./Attendance"
+
+export * from "./Adminattendance"

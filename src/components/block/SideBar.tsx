@@ -80,7 +80,7 @@ const SideBar = () => {
           <GiFlatTire />
         </Icon2>
         <NavLink
-          to="/dashboard/attendance"
+          to="/dashboard/admin-attendance"
           style={({ isActive }) => {
             return {
               textDecoration: isActive ? "none" : "none",

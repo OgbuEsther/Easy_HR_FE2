@@ -16,6 +16,7 @@ import { useForm } from "react-hook-form";
 import Rents from "./Rents/Rents";
 import Fees from "./Fees/Fees";
 import Tour from "./Tour/Tour";
+import StaffTransactionhome from "./StaffTransaction/StaffTransactionhome";
 
 
 
@@ -250,6 +251,7 @@ const ParentComp = () => {
                       </Holds>
                   ) : null}            
 
+                  <StaffTransactionhome />
         </Wrapper>
       </Container>
     </div>
@@ -759,15 +761,17 @@ const Top = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 92%;
+  width: 94%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 90px;
+  padding-right: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  /* background-color: red; */
 
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -777,7 +781,7 @@ const Wrapper = styled.div`
 const Container = styled.div`
   width: calc(100vw - 220px);
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   background-color: #F5F7FA;
   overflow: hidden;
