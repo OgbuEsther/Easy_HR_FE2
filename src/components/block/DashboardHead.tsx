@@ -1,22 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
 import { FiMenu } from "react-icons/fi";
-import img from ".././Assets/easyhr.png"
-import { MdDashboard } from "react-icons/md";
-import { NavLink } from 'react-router-dom';
+
+import { useAppSelector } from '../global/Store';
 
 const DashboardHead = () => {
   const [show, setShow] = React.useState(false);
-  const [show2, setShow2] = React.useState(false);
+
 
   const Toggle = () => {
     setShow(!show);
   };
 
-   const Toggle3 = () => {
-    setShow2(!show);
-  };
+
   
+
+  const admin = useAppSelector((state) => state.currentUser);
+
   return (
       <Container>
       <Wrapper>
@@ -26,22 +26,22 @@ const DashboardHead = () => {
 
         <Mid>
           <Welcome>
-            <Circ>CL</Circ>
+            <Circ>{admin?.companyname?.charAt(0)}</Circ>
             <Prof>
               <Comp>Company's profile</Comp>
-              <Nam>Codelab</Nam>
-              <Id>ID: 00213456</Id>
+              <Nam>{admin?.companyname} </Nam>
+              <Id>ID:{admin?.companyCode} </Id>
             </Prof>
           </Welcome>
         </Mid>
 
         <Right>
           <Icons>
-            <Hello>Hello Godwin</Hello>
+            <Hello>Hello {admin?.yourName?.split(" ")[0]}</Hello>
             {/* <Circle>2</Circle> */}
           </Icons>
           <Up>
-            <Profile>G</Profile>
+            <Profile>{admin?.yourName?.charAt(0)} </Profile>
           </Up>
         </Right>
       </Wrapper>
@@ -73,18 +73,7 @@ const Up = styled.div`
   align-items: center;
 `;
 
-const Circle = styled.div`
-  width: 17px;
-  height: 17px;
-  border-radius: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: black;
-  position: absolute;
-  font-size: 13px;
-  top: 20px;
-`;
+
 
 const Hello = styled.div`
   display: flex;

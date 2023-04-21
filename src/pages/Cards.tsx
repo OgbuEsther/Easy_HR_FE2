@@ -9,59 +9,74 @@ import { AiOutlineClose } from "react-icons/ai"
 import Airtels from './Airtels'
 import { FaGoogleWallet } from "react-icons/fa"
 import {RiNumbersFill} from "react-icons/ri"
+import { useAppSelector } from '../components/global/Store'
+import { useQuery } from '@tanstack/react-query'
+import { getOneStaff } from '../utils/Api/ApiCall'
 
 const Cards = () => {
-      const [showAirtel, setShowAirtel] = React.useState(false);
-    const [showPopup, setShowPopup] = React.useState(false);
+  const [showAirtel, setShowAirtel] = React.useState(false);
+  const [showPopup, setShowPopup] = React.useState(false);
 
-     const cancelPopup = () => {
+  const cancelPopup = () => {
     setShowPopup(false);
-    };
-    
-    const Togglepopup = () => {
-    setShowPopup(!showPopup);
-  }
+  };
 
-    const ToggleAirtel = () => {
+  const ToggleAirtel = () => {
     setShowAirtel(!showAirtel);
     setShowPopup(false);
-  }
+  };
+
+  const user = useAppSelector((state) => state.currentStaff);
+  const getStaff = useQuery({
+    queryKey: ["singleStaff"],
+    queryFn: () => getOneStaff(user?._id),
+  });
+  console.log("this is getStaff id", user?._id);
 
   return (
-      <Container>
-          <Card>
-            <Left>
-              <Icos><FaGoogleWallet /></Icos>
+    <Container>
+      <Card>
+        <Left>
+          <Icos>
+            <FaGoogleWallet />
+          </Icos>
           <Wallet>Wallet Balance</Wallet>
         </Left>
-        <Right>
-          <Bal>NGN 0.00</Bal>
-        </Right>
-          </Card>
 
-          <Card>
+        {getStaff?.data?.data?.wallet?.map((el: any) => (
+          <Right>
+            <Bal>NGN {el?.balance}</Bal>
+          </Right>
+        ))}
+      </Card>
+
+      <Card>
         <Left2>
-              <Icos><RiNumbersFill /></Icos>
+          <Icos>
+            <RiNumbersFill />
+          </Icos>
           <Wallet>Wallet Number</Wallet>
         </Left2>
         <Right>
-          <Bal>123456789</Bal>
+          <Bal>{user?.walletNumber}</Bal>
         </Right>
       </Card>
 
       <Card>
-          <Left3>
-              <Icos><RiNumbersFill /></Icos>
-          <Wallet>Wallet Number</Wallet>
+        <Left3>
+          <Icos>
+            <RiNumbersFill />
+          </Icos>
+          <Wallet>company Code</Wallet>
         </Left3>
         <Right>
-          <Bal>123456789</Bal>
-        </Right> 
+          <Bal>{user?.companyCode}</Bal>
+        </Right>
       </Card>
       
           {showPopup ? (
               <Popups>
-                  <Popup_content>
+                  <Popupcontent>
                       <h3>Payments</h3>
                       <p>Select the service you want to make payment for</p>
                       <h4>Data Services</h4>
@@ -74,235 +89,224 @@ const Cards = () => {
                               </AirtelText>
                           </Airtel>
 
-                          <Airtel>
-                            <Img src={img2} />
-                            <AirtelText>
-                                <strong>MTN Data</strong>
-                                <Text>MTN Data - Get instant Data Top up</Text>
-                             </AirtelText>
-                          </Airtel>
-                          
-                          <Airtel>
-                            <Img src={img3} />
-                            <AirtelText>
-                                <strong>GLO Data</strong>
-                                <Text>GLO Data - Get instant Top up</Text>
-                            </AirtelText>
-                          </Airtel>
-                          
-                          <Airtel>
-                            <Img src={img4} />
-                            <AirtelText>
-                                <strong>9mobile Data</strong>
-                                <Text>9mobile Data - Get instant Top up</Text>
-                            </AirtelText>
-                          </Airtel>
-                          
-                          <Airtel>
-                            <Img src={img5} />
-                            <AirtelText>
-                                <strong>Smile Payment</strong>
-                                <Text>Pay for Smile Airtime and Internet Data</Text>
-                            </AirtelText>
-                          </Airtel>
-                          
-                          <Airtel>
-                            <Img src={img3} />
-                            <AirtelText>
-                                 <strong>GLO Data</strong>
-                                <Text>GLO Data - Get instant Top up</Text>
-                            </AirtelText>
-                          </Airtel>
-                          
-                          <Airtel>
-                            <Img src={img3} />
-                            <AirtelText>
-                                <strong>GLO Data</strong>
-                                <Text>GLO Data - Get instant Top up</Text>
-                         </AirtelText>
-                        </Airtel>
-                      </Box>
-                  </Popup_content>
-                  <Icon onClick={cancelPopup}><AiOutlineClose /></Icon>
-              </Popups>
-          ) : null}
+              <Airtel>
+                <Img src={img2} />
+                <AirtelText>
+                  <strong>MTN Data</strong>
+                  <Text>MTN Data - Get instant Data Top up</Text>
+                </AirtelText>
+              </Airtel>
 
-          {showAirtel ? (
-              <Airtelhold>
-                  <Airtels />
-              </Airtelhold>
-          ) : null}
+              <Airtel>
+                <Img src={img3} />
+                <AirtelText>
+                  <strong>GLO Data</strong>
+                  <Text>GLO Data - Get instant Top up</Text>
+                </AirtelText>
+              </Airtel>
+
+              <Airtel>
+                <Img src={img4} />
+                <AirtelText>
+                  <strong>9mobile Data</strong>
+                  <Text>9mobile Data - Get instant Top up</Text>
+                </AirtelText>
+              </Airtel>
+
+              <Airtel>
+                <Img src={img5} />
+                <AirtelText>
+                  <strong>Smile Payment</strong>
+                  <Text>Pay for Smile Airtime and Internet Data</Text>
+                </AirtelText>
+              </Airtel>
+
+              <Airtel>
+                <Img src={img3} />
+                <AirtelText>
+                  <strong>GLO Data</strong>
+                  <Text>GLO Data - Get instant Top up</Text>
+                </AirtelText>
+              </Airtel>
+
+              <Airtel>
+                <Img src={img3} />
+                <AirtelText>
+                  <strong>GLO Data</strong>
+                  <Text>GLO Data - Get instant Top up</Text>
+                </AirtelText>
+              </Airtel>
+            </Box>
+          </Popupcontent>
+          <Icon onClick={cancelPopup}>
+            <AiOutlineClose />
+          </Icon>
+        </Popups>
+      ) : null}
+
+      {showAirtel ? (
+        <Airtelhold>
+          <Airtels />
+        </Airtelhold>
+      ) : null}
     </Container>
-  )
-}
+  );
+};
 
-export default Cards
+export default Cards;
 const Left3 = styled.div`
-  background-color: #ED413E;
+  background-color: #ed413e;
   width: 120px;
   height: 100%;
-  border-right: 3px solid #F0F0F0;
+  border-right: 3px solid #f0f0f0;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-`
+`;
 const Left2 = styled.div`
   width: 120px;
   height: 100%;
-  background-color: #F9D949;
-  border-right: 3px solid #F0F0F0;
+  background-color: #f9d949;
+  border-right: 3px solid #f0f0f0;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-`
+`;
 const Bal = styled.div`
-  color: #3f3f3f;
+  /* color: #3f3f3f; */
+  color: black;
   margin-left: 30px;
   font-size: 26px;
   font-weight: 600;
-`
+`;
 const Right = styled.div`
   flex: 1;
   height: 100%;
   /* background-color: red; */
   display: flex;
   align-items: center;
-`
+`;
 const Wallet = styled.div`
   color: #fff;
   font-weight: 500;
   font-size: 13px;
-`
+`;
 const Icos = styled.div`
   color: #fff;
   font-size: 30px;
-`
+`;
 const Left = styled.div`
   width: 120px;
   height: 100%;
-  background-color: #FF8400;
-  border-right: 3px solid #FFD93D;
+  background-color: #ff8400;
+  border-right: 3px solid #ffd93d;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-`
-const Title = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
-font-weight: 600;
-font-size: 20px;
-`
-const Staff = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  /* flex-direction: column; */
-  width: 100%;
+`;
 
-`
+
 
 const Airtelhold = styled.div`
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    position: fixed;
-    z-index: 3;
-    justify-content: center;
-    align-items: center;
-`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  position: fixed;
+  z-index: 3;
+  justify-content: center;
+  align-items: center;
+`;
 const Icon = styled.div`
   display: flex;
   position: absolute;
-  color: #fff; 
+  color: #fff;
   right: 180px;
   font-size: 25px;
   top: 80px;
   cursor: pointer;
-`
+`;
 
 const Text = styled.div`
-    font-size: 11px;
-    color: #000;
-`
+  font-size: 11px;
+  color: #000;
+`;
 
 const AirtelText = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin-left: 10px;
-    strong{
-        margin: 0;
-        font-weight: 500;
-        font-size: 15px;
-        color: #495463;
-    }
-`
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  strong {
+    margin: 0;
+    font-weight: 500;
+    font-size: 15px;
+    color: #495463;
+  }
+`;
 
 const Img = styled.img`
-    height: 50px;
-`
+  height: 50px;
+`;
 
 const Airtel = styled.div`
-    width: 250px;
-    height: 50px;
-    border: 1px solid #CEC2C2;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    cursor: pointer;
-`
+  width: 250px;
+  height: 50px;
+  border: 1px solid #cec2c2;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+`;
 
 const Box = styled.div`
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-`
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+`;
 
-const Popup_content = styled.div`
-    width: 850px;
-    height: 450px;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
+const Popupcontent = styled.div`
+  width: 850px;
+  height: 450px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
   padding: 25px;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-   animation: popup-open 0.5s ease-out forwards;
+  animation: popup-open 0.5s ease-out forwards;
 
-   @keyframes popup-open {
-  from {
-    transform: scale(0);
-    opacity: 0;
+  @keyframes popup-open {
+    from {
+      transform: scale(0);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
   }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-  }
-  h3{
+  h3 {
     margin: 0px;
-    color: #173D52 !important;
+    color: #173d52 !important;
     font-size: 1.3em;
     font-weight: 500;
   }
-  p{
+  p {
     font-size: 15px;
     margin-top: 7px;
     color: #000;
   }
-  h4{
+  h4 {
     font-size: 18px;
     font-weight: 500;
     line-height: 1.3;
-    color: #495463
+    color: #495463;
   }
-`
+`;
 
 const Popups = styled.div`
   width: 100%;
@@ -318,39 +322,9 @@ const Popups = styled.div`
   left: 0;
   right: 0;
   z-index: 7;
-`
-
-const CardInfo = styled.div`
-  font-size: 18px;
-  font-weight: 600;
-  margin-top: 20px;
 `;
 
-const CardTitle = styled.div`
-  font-size: 12px;
-  margin-bottom: 5px;
-`;
 
-const IconHold = styled.div`
-  height: 40px;
-  width: 40px;
-  border-radius: 30px;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  margin-bottom: 15px;
-`;
-
-const CardHold = styled.div`
-  width: 85%;
-  margin-top: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`;
 
 const Card = styled.div`
   height: 120px;
@@ -359,7 +333,7 @@ const Card = styled.div`
   border-radius: 3px;
   border-bottom: 2px solid #0d71fa;
   display: flex;
-  border: 1px solid #D5DBE1;
+  border: 1px solid #d5dbe1;
   margin: 10px;
   border-radius: 10px;
   cursor: pointer;
@@ -377,7 +351,7 @@ const Card = styled.div`
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     display: flex;
     justify-content: center;
   }
