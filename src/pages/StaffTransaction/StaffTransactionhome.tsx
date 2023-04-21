@@ -11,7 +11,6 @@ const StaffTransactionhome = () => {
               <tr>
                 <th>Transaction Time</th>
                 <th>ID</th>
-                <th>Gross pay</th>
                 <th>Net pay</th>
                 <th>Status</th>
               </tr>
@@ -29,11 +28,6 @@ const StaffTransactionhome = () => {
                 <Id>
                   #A3161
                </Id>
-              </td>
-              <td>
-                <Amount>
-                  $0.00
-               </Amount>
               </td>
               <td>
                 <Dat>
@@ -61,11 +55,6 @@ const StaffTransactionhome = () => {
                </Id>
               </td>
               <td>
-                <Amount>
-                  $0.00
-               </Amount>
-              </td>
-              <td>
                 <Dat>
                   $0.00
                </Dat>
@@ -89,11 +78,6 @@ const StaffTransactionhome = () => {
                 <Id>
                   #A3161
                </Id>
-              </td>
-              <td>
-                <Amount>
-                  $0.00
-               </Amount>
               </td>
               <td>
                 <Dat>
