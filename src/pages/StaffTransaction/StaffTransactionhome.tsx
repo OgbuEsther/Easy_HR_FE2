@@ -1,7 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useAppSelector } from '../../components/global/Store';
+import { useQuery } from '@tanstack/react-query';
+import { getOneStaff } from '../../utils/Api/ApiCall';
 
 const StaffTransactionhome = () => {
+  const user = useAppSelector((state) => state.currentStaff);
+  const getStaff = useQuery({
+    queryKey: ["singleStaff"],
+    queryFn: () => getOneStaff(user?._id),
+  });
+  console.log("this is getStaff transactionHistory ",getStaff?.data?.data?.transactionHistory)
+
   return (
       <Container>
       <Top><h3>Transaction History</h3></Top>
@@ -14,9 +24,28 @@ const StaffTransactionhome = () => {
                 <th>Net pay</th>
                 <th>Status</th>
               </tr>
+  {getStaff?.data?.data?.transactionHistory.map((el: any) => (
+              <tr key={el?._id}>
+                <td>
+                <CirleHold>
+                  <Name>
+                   {el?.date}
+                  </Name>
+                </CirleHold>
+                 </td>
+                <td> <Id>
+                 {el?.transactionReference}
+               </Id></td>
+                <td>{el?.amount} </td>
+                <td>
+                <Account>
+                  Received
+               </Account>
+              </td>
+              </tr>
+            ))}
 
-
-              <tr>
+              {/* <tr>
               <td>
                 <CirleHold>
                   <Name>
@@ -39,9 +68,9 @@ const StaffTransactionhome = () => {
                   Received
                </Account>
               </td>
-            </tr>
+            </tr> */}
 
-              <tr>
+              {/* <tr>
               <td>
                 <CirleHold>
                   <Name>
@@ -89,7 +118,7 @@ const StaffTransactionhome = () => {
                   Received
                </Account>
               </td>
-            </tr>
+            </tr> */}
             </table>
 
          

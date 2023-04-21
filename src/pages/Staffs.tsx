@@ -27,7 +27,7 @@ console.log("this is admin",user?._id)
           <CardHold>
             {getAdmin?.data?.data?.viewUser.map((el: any) => (
               <CardProps
-                img={`${user?.yourName?.charAt(0)}`}
+                img={`${el?.yourName?.charAt(0)}`}
                 name={el?.yourName}
                 title={el?.position}
               />
