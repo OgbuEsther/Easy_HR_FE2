@@ -94,7 +94,7 @@ const SideBar = () => {
 
           {show ? (
               <Staffs>
-                  <NavLink to="/schoolfees" style={({isActive}) => {
+                  <NavLink to="/staffdashboard/schoolfees-plan" style={({isActive}) => {
                 return {
                     textDecoration: isActive ? "none" : "none",
                     color: isActive ? "#2AA7FF" : "#3e4956",
@@ -102,7 +102,7 @@ const SideBar = () => {
             }}>
                       <p>School Fees</p>
                     </NavLink>
-                  <NavLink to="/travel" style={({isActive}) => {
+                  <NavLink to="" style={({isActive}) => {
                 return {
                     textDecoration: isActive ? "none" : "none",
                     color: isActive ? "#2AA7FF" : "#3e4956",

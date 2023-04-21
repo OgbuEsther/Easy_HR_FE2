@@ -27,6 +27,7 @@ const ParentComp = lazy(() => import("../pages/ParentComp"));
 const ContactUs = lazy(() => import("../pages/landingpage/ContactUs"));
 const Attendance = lazy(() => import("../pages/Adminattendance"))
 const StaffAttendance = lazy(() => import("../pages/Attendance"))
+const Schoolfees = lazy(() => import("../pages/Schoolfeesfile/Schoolfeesfile"))
 
 const PayBills = lazy(()=>import("../pages/StaffdasBoard/PayBills/PayBill"));
 // const StaffAttendance = lazy(() => import("../pages/StaffdasBoard/Attendance/Attendance"))
@@ -172,6 +173,12 @@ export const Elements = createBrowserRouter([
       {
         path: "/staffdashboard/staff-attendance",
         element: <StaffAttendance />,
+        hasErrorBoundary: true,
+        errorElement: <ErrorBoundary />,
+      },
+      {
+        path: "/staffdashboard/schoolfees-plan",
+        element: <Schoolfees />,
         hasErrorBoundary: true,
         errorElement: <ErrorBoundary />,
       },
