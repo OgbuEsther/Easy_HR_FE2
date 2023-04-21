@@ -1,19 +1,17 @@
-import React from "react";
-import styled from "styled-components";
-import img from "../Assets/airtel.jpg";
-import img2 from "../Assets/mtn.jpg";
-import img3 from "../Assets/glo.jpg";
-import img4 from "../Assets/9mobile.jpg";
-import img5 from "../Assets/smile.jpg";
-
-import { AiOutlineClose } from "react-icons/ai";
-
-import Airtels from "./Airtels";
-import { FaGoogleWallet } from "react-icons/fa";
-import { RiNumbersFill } from "react-icons/ri";
-import { useQuery } from "@tanstack/react-query";
-import { getOneStaff } from "../utils/Api/ApiCall";
-import { useAppSelector } from "../components/global/Store";
+import React from 'react'
+import styled from "styled-components"
+import img from "../Assets/airtel.jpg"
+import img2 from "../Assets/mtn.jpg"
+import img3 from "../Assets/glo.jpg"
+import img4 from "../Assets/9mobile.jpg"
+import img5 from "../Assets/smile.jpg"
+import { AiOutlineClose } from "react-icons/ai"
+import Airtels from './Airtels'
+import { FaGoogleWallet } from "react-icons/fa"
+import {RiNumbersFill} from "react-icons/ri"
+import { useAppSelector } from '../components/global/Store'
+import { useQuery } from '@tanstack/react-query'
+import { getOneStaff } from '../utils/Api/ApiCall'
 
 const Cards = () => {
   const [showAirtel, setShowAirtel] = React.useState(false);
@@ -75,33 +73,21 @@ const Cards = () => {
           <Bal>{user?.companyCode}</Bal>
         </Right>
       </Card>
-
-      {/* <Staff>
-       <Title>
-            Staffs
-          </Title>
-          <CardProps title='FrontEnd Engineer' img="DC" name="Divine Chigozie"/>
-
-
-          <CardProps title='FullStack Engineer' img="VP" name="Valerian Pedro"/>
-
-          <CardProps title='BackEnd Engineer' img="EO" name="Esther Ogbu"/>
-          
-       </Staff> */}
-      {showPopup ? (
-        <Popups>
-          <Popup_content>
-            <h3>Payments</h3>
-            <p>Select the service you want to make payment for</p>
-            <h4>Data Services</h4>
-            <Box>
-              <Airtel onClick={ToggleAirtel}>
-                <Img src={img} />
-                <AirtelText>
-                  <strong>Airtel Data</strong>
-                  <Text>Airtel Data - Get instant top up</Text>
-                </AirtelText>
-              </Airtel>
+      
+          {showPopup ? (
+              <Popups>
+                  <Popupcontent>
+                      <h3>Payments</h3>
+                      <p>Select the service you want to make payment for</p>
+                      <h4>Data Services</h4>
+                      <Box>
+                          <Airtel onClick={ToggleAirtel}>
+                              <Img src={img} />
+                              <AirtelText>
+                                  <strong>Airtel Data</strong>
+                                  <Text>Airtel Data - Get instant top up</Text>
+                              </AirtelText>
+                          </Airtel>
 
               <Airtel>
                 <Img src={img2} />
@@ -151,7 +137,7 @@ const Cards = () => {
                 </AirtelText>
               </Airtel>
             </Box>
-          </Popup_content>
+          </Popupcontent>
           <Icon onClick={cancelPopup}>
             <AiOutlineClose />
           </Icon>
@@ -282,7 +268,7 @@ const Box = styled.div`
   flex-wrap: wrap;
 `;
 
-const Popup_content = styled.div`
+const Popupcontent = styled.div`
   width: 850px;
   height: 450px;
   background-color: white;

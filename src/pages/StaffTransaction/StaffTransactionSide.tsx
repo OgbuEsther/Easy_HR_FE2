@@ -1,10 +1,11 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from "styled-components"
 
-const StaffTransactionhome = () => {
+const StaffTransactionSide = () => {
   return (
       <Container>
-      <Top><h3>Transaction History</h3></Top>
+          <Wrapper>
+              <Top><h3>Transaction History</h3></Top>
       
       <Table>
             <table>
@@ -90,18 +91,41 @@ const StaffTransactionhome = () => {
                </Account>
               </td>
             </tr>
+
+            <tr>
+              <td>
+                <CirleHold>
+                  <Name>
+                    2020-12-14 22:01:01
+                  </Name>
+                </CirleHold>
+              </td>
+              <td>
+                <Id>
+                  #A3161
+               </Id>
+              </td>
+              <td>
+                <Dat>
+                  $0.00
+               </Dat>
+              </td>
+              <td>
+                <Account>
+                  Received
+               </Account>
+              </td>
+            </tr>
             </table>
 
          
       </Table>
-      <Buttonhold>
-        <Button>View more</Button>
-      </Buttonhold>
+          </Wrapper>
     </Container>
   )
 }
 
-export default StaffTransactionhome
+export default StaffTransactionSide
 const Button = styled.button`
   width: 120px;
   height: 40px;
@@ -173,6 +197,7 @@ flex-direction: column;
 overflow-x: hidden;
 /* overflow-x: scroll; */
 margin-bottom: 10px;
+background-color: #fff;
 
 table{
   width: 100%;
@@ -206,13 +231,22 @@ const Top = styled.div`
     }
 `
 
+const Wrapper = styled.div`
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 30px;
+  padding-top: 90px;
+  padding-left: 30px;
+  padding-right: 30px;
+`;
+
 const Container = styled.div`
-    margin-top: 25px;
-    width: 100%;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: rgba(0, 0, 0, 0.7);
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    width: calc(100vw - 220px);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  z-index: 99;
 `
