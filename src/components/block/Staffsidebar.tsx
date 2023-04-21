@@ -111,7 +111,7 @@ const SideBar = () => {
             }}>
                       <p>Travel & Tour</p>
                   </NavLink>
-                  <NavLink to="/Rent" style={({isActive}) => {
+                  <NavLink to="/staffdashboard/rents-plan" style={({isActive}) => {
                 return {
                     textDecoration: isActive ? "none" : "none",
                     color: isActive ? "#2AA7FF" : "#3e4956",
