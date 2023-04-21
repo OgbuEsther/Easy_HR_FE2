@@ -7,7 +7,7 @@ import Cards from "./Cards";
 import Pies from "./Pies";
 import {FaJediOrder } from "react-icons/fa"
 import { BsFillArrowRightCircleFill } from "react-icons/bs"
-import { GiHypersonicMelon } from "react-icons/gi"
+import { GiHypersonicMelon,GiFireDash } from "react-icons/gi"
 import img from "../Assets/saves.svg"
 import { AiFillAlert, AiOutlineDeploymentUnit, AiFillDashboard } from "react-icons/ai"
 import { useAppSelector } from "../components/global/Store";
@@ -50,7 +50,11 @@ const ParentComp = () => {
         <Wrapper>
           <Top>
             <Left>
-              <Bold>Dashboard</Bold>
+              <Bold>
+                <Icn>
+                <GiFireDash/>
+                </Icn>
+                Dashboard</Bold>
               <button onClick={Toggle}>Credit Wallet</button>
             </Left>
             <hr />
@@ -458,9 +462,14 @@ const Slidein = styled.div`
     }
   }
 `
+const Icn  = styled.div`
+color:black;
+font-size: 30px;
+margin:10px;
+`
 
 const Bold = styled.div`
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 500;
   display: flex;
   align-items: center;
