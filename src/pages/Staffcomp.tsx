@@ -396,6 +396,7 @@ const Plans = styled.div`
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.7);
     position: absolute;
+    position: fixed;
     left: 0;
     /* background-color: red; */
     right: 0;
