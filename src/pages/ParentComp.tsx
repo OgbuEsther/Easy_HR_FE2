@@ -15,6 +15,7 @@ import {
 import { useAppSelector } from "../components/global/Store";
 import { useQuery } from "@tanstack/react-query";
 import { getOneAdmin } from "../utils/Api/ApiCall";
+import AdminCard from "./AdminCard";
 
 const ParentComp = () => {
   const [show, setShow] = React.useState(false);
@@ -108,45 +109,9 @@ const ParentComp = () => {
               </Slidein>
             ) : null}
           </Top>
-          {/* <Cards /> */}
+           <AdminCard/>
 
-          <CardHold>
-            <DashBoardCardProps
-              icons={<FaJediOrder />}
-              top="New Orders"
-              bottom=" More Info "
-              middle="150"
-              icon={<BsFillArrowRightCircleFill />}
-              bcg="#0078F6"
-            />
-
-            <DashBoardCardProps
-              icons={<GiHypersonicMelon />}
-              top="Bounce Rate"
-              bottom=" More Info "
-              middle="53%"
-              icon={<BsFillArrowRightCircleFill />}
-              bcg="#26A242"
-            />
-
-            <DashBoardCardProps
-              icons={<AiFillAlert />}
-              top="Users Registrations"
-              bottom=" More Info "
-              middle="44"
-              icon={<BsFillArrowRightCircleFill />}
-              bcg="#F6BC09"
-            />
-
-            <DashBoardCardProps
-              icons={<AiOutlineDeploymentUnit />}
-              top="Unique Visitor"
-              bottom=" More Info "
-              middle="65"
-              icon={<BsFillArrowRightCircleFill />}
-              bcg="#D53343"
-            />
-          </CardHold>
+         
         </Wrapper>
       </Container>
     </div>
