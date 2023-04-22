@@ -13,11 +13,15 @@ import img5 from "../../Assets/smile.jpg"
 import Airtels from '../../pages/Airtels';
 import { FaBattleNet,FaHornbill } from "react-icons/fa"
 import {GiStarSattelites,GiTransportationRings} from "react-icons/gi"
+import Mtn from '../../pages/Mtn';
+import Glo from '../../pages/Glo';
 
 const SideBar = () => {
 
     const [show, setShow] = React.useState(false)
-    const [showAirtel, setShowAirtel] = React.useState(false);
+  const [showAirtel, setShowAirtel] = React.useState(false);
+  const [showMtn, setShowMtn] = React.useState(false);
+   const [showGlo, setShowGlo] = React.useState(false);
     const [showPopup, setShowPopup] = React.useState(false);
 
     const Toggle = () => {
@@ -34,10 +38,22 @@ const SideBar = () => {
 
   const Remove = () => {
     setShowAirtel(false)
+    setShowMtn(false)
+    setShowGlo(false)
   }
 
     const ToggleAirtel = () => {
     setShowAirtel(!showAirtel);
+    setShowPopup(false);
+  }
+
+  const ToggleMtn = () => {
+    setShowMtn(!showMtn);
+    setShowPopup(false);
+  }
+
+  const ToggleGlo = () => {
+    setShowGlo(!showGlo);
     setShowPopup(false);
   }
 
@@ -145,7 +161,7 @@ const SideBar = () => {
                               </AirtelText>
                           </Airtel>
 
-                          <Airtel>
+                          <Airtel onClick={ToggleMtn}>
                             <Img src={img2} />
                             <AirtelText>
                                 <strong>MTN Data</strong>
@@ -153,7 +169,7 @@ const SideBar = () => {
                              </AirtelText>
                           </Airtel>
                           
-                          <Airtel>
+                          <Airtel onClick={ToggleGlo}>
                             <Img src={img3} />
                             <AirtelText>
                                 <strong>GLO Data</strong>
@@ -321,7 +337,25 @@ const SideBar = () => {
             <AiOutlineClose />
                   </Ico>
               </Airtelhold>
-          ) : null}
+      ) : null}
+      
+      {showMtn ? (
+        <Airtelhold>
+          <Mtn />
+          <Ico onClick={Remove}>
+            <AiOutlineClose />
+                  </Ico>
+        </Airtelhold>
+      ) : null}
+
+      {showGlo ? (
+        <Airtelhold>
+          <Glo />
+          <Ico onClick={Remove}>
+            <AiOutlineClose />
+                  </Ico>
+        </Airtelhold>
+      ) : null}
 
           <Home2>
             <Icon2>
