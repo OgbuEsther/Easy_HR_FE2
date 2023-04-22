@@ -16,7 +16,7 @@ export interface AdminData {
    password: string;
    companyCode: string;
    walletNumber: number;
-   _id : string
+   _id : any
 }
 
 
@@ -27,7 +27,7 @@ export interface StaffData {
     password: string;
     companyCode: string;
     walletNumber: number;
-    _id : string
+    _id : any
 
 }
 
