@@ -340,11 +340,7 @@ const Card = styled.div`
   overflow: hidden;
 
   @media (max-width: 1024px) {
-    width: 320px;
-  }
-
-  @media (max-width: 500px) {
-    width: 90%;
+    width: 430px;
   }
 `;
 
