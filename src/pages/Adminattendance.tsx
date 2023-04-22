@@ -12,13 +12,19 @@ const Adminattendance = () => {
       <Container>
         <Wrapper>
         <Word>
-            Attendance <br />
+            <Hold>
+              Attendance <br />
            <span>
           <a href="/dashboard">
           Dashboard
           </a>
            / Attendance
-           </span>
+            </span>
+            </Hold>
+            <Buttonhold>
+              <Button>Generate Token</Button>
+              <Token>1efr43</Token>
+            </Buttonhold>
           </Word>
           <Table>
             <table>
@@ -1049,18 +1055,46 @@ const Adminattendance = () => {
 };
 
 export default Adminattendance;
+const Token = styled.div`
+  /* color: #fff; */
+  margin-left: 20px;
+  font-size: 18px;
+`
+const Buttonhold = styled.div`
+  display: flex;
+  align-items: center;
+   margin-left: 600px;
+`
+const Hold = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+const Button = styled.button`
+  width: 130px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: #1F337C;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+`
 const Word = styled.div`
 font-weight: 500;
 font-size: 26px;
+width: 100%;
 color: rgb(31,31,31);
 background-color: rgba(0,0,0,0);
 line-height: 31.2px;
 text-decoration: none solid rgb(31,31,31);
 text-align: start;
 margin-left: 10px;
+justify-content: space-between;
 display: flex;
-/* align-items: center; */
-flex-direction: column;
+align-items: center;
+/* flex-direction: column; */
 justify-content: flex-start;
 margin-bottom: 30px;
 margin-top: 30px;
