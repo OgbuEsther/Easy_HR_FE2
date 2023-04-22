@@ -33,14 +33,6 @@ const searchData = async (e: any) => {
 
 
 
-/**onClick={()=>{
-                console.log("deleted")
-                axios.delete(`https://easyhr.onrender.com/api/remove/${props._id}`).then((res)=>{
-                    console.log(res.data)
-                    window.location.reload()
-                    
-                })
-               }} */
 
   return (
     <div>
