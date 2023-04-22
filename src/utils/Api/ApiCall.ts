@@ -42,3 +42,17 @@ export const getOneStaff = async(id:any)=>{
 export const createStaffPayRoll = async(data:{})=>{
     return await axios.post(`${url}/createpayroll` , data).then((res)=> res.data)
 }
+
+export const deactiavteAStaff = async(staffId:any , adminId:any)=>{
+    return await axios.delete(`${url}/staff/deactivateStaff/${staffId}/${adminId}`).then((res)=>{
+       return res.data
+       
+      })
+}
+
+/**export const deactiavteAStaff = async()=>{
+  return await axios.delete(`https://easyhr.onrender.com/api/staff/deactivateStaff/${staff?._id}/${user?._id}`).then((res)=>{
+    console.log(res.data)
+    window.location.reload()
+  })
+} */

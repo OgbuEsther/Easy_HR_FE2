@@ -9,6 +9,7 @@ import axios from "axios";
 
 const Staffs = () => {
   const user = useAppSelector((state) => state.currentUser);
+  const staff = useAppSelector((state)=> state.currentStaff)
   const getAdmin = useQuery({
     queryKey: ["singleAdmin"],
     queryFn: () => getOneAdmin(user?._id),
@@ -29,6 +30,17 @@ const searchData = async (e: any) => {
       });
   }
 };
+
+
+
+/**onClick={()=>{
+                console.log("deleted")
+                axios.delete(`https://easyhr.onrender.com/api/remove/${props._id}`).then((res)=>{
+                    console.log(res.data)
+                    window.location.reload()
+                    
+                })
+               }} */
 
   return (
     <div>
