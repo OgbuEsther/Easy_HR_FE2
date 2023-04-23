@@ -2,7 +2,7 @@ import axios from "axios";
 import { AdminData } from "../../types/AllInterfaces";
 import { StaffData } from "../../types/AllInterfaces";
 
-const url = "https://easyhr.onrender.com/api"
+export const url = "https://easyhr.onrender.com/api"
 
 const adminUrl ="admin"
 
@@ -43,11 +43,19 @@ export const createStaffPayRoll = async(data:{})=>{
     return await axios.post(`${url}/createpayroll` , data).then((res)=> res.data)
 }
 
+//staff deactivation
+
 export const deactiavteAStaff = async(staffId:any , adminId:any)=>{
     return await axios.delete(`${url}/staff/deactivateStaff/${staffId}/${adminId}`).then((res)=>{
        return res.data
        
       })
+}
+
+//generate attendance token
+
+export const genAttendanceToken = async(adminId:string)=>{
+    return await axios.post(`${url}/createattendance/${adminId}`)
 }
 
 /**export const deactiavteAStaff = async()=>{
