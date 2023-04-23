@@ -17,6 +17,8 @@ const Adminattendance = () => {
 
   // console.log(`this is gentoken : ${genToken}`);
 
+  const [token , setToken] = React.useState("")
+
   return (
     <div>
       <Container>
@@ -33,8 +35,8 @@ const Adminattendance = () => {
                 onClick={() => {
                    axios
                     .post(`${url}/createattendance/${admin?._id}`)
-                    .then((res) =>{ console.log(`this is res from get token ${res.data}`)}
-                     
+                    .then((res) =>{  setToken(res.data.data.setToken)}
+                   
                     )
                     .catch((err) =>{
                       console.log(
@@ -45,7 +47,7 @@ const Adminattendance = () => {
               >
                 Generate Token
               </Button>
-              <Token>1efr43</Token>
+              <Token>{token} </Token>
             </Buttonhold>
           </Word>
           <Table>
