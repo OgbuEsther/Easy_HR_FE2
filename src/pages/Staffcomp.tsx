@@ -465,11 +465,20 @@ const Planhold = styled.div`
     align-items: center;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     padding-right: 10px;
+
+    @media screen and (max-width: 768px) {
+      width: 90%;
+      margin-top: 12px;
+      padding: 15px;
+    }
 `
 
 const Pee = styled.div`
     width: 100%;
     margin-top: 15px;
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
 `
 const Title = styled.div`
     margin-bottom: 10px;
@@ -485,14 +494,21 @@ const Piehold = styled.div`
     background-color: #fff;
     padding: 10px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    @media screen and (max-width: 768px) {
+      width: 90%;
+    }
 `
 const Down = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
-    /* margin-top: 20px; */
-    /* height: 300px; */
-    /* background-color: red; */
+
+    @media screen and (max-width: 768px) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 `
 const Holder = styled.div`
   display: flex;
