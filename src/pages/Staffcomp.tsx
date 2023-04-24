@@ -681,6 +681,11 @@ const Top = styled.div`
     border: none;
     outline: none;
   }
+
+  @media screen and (max-width: 768px) {
+    /* background-color: green; */
+    width: 95%;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -698,6 +703,7 @@ const Wrapper = styled.div`
 
   @media screen and (max-width: 768px) {
     width: 100%;
+    background-color: red;
   }
 `;
 

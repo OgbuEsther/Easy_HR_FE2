@@ -317,9 +317,10 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  /* background-color: red; */
 
   @media screen and (max-width: 768px) {
-    width: 100%;
+    width: 90%;
   }
 `;
 
