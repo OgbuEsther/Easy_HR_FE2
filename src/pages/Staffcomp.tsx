@@ -703,7 +703,7 @@ const Wrapper = styled.div`
 
   @media screen and (max-width: 768px) {
     width: 100%;
-    background-color: red;
+    /* background-color: red; */
   }
 `;
 
@@ -716,6 +716,14 @@ const Container = styled.div`
   overflow: hidden;
   margin-top: 20px;
   padding-bottom: 20px;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    /* background-color: black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   @media screen and (max-width: 1024px) {
     width: 100vw;
