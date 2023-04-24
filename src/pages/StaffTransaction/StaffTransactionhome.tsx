@@ -230,4 +230,7 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+    @media screen and (max-width: 768px){
+      width: 93%;
+    }
 `
