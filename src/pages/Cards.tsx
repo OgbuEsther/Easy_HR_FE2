@@ -331,7 +331,7 @@ const Card = styled.div`
   width: 329px;
   background-color: #fff;
   border-radius: 3px;
-  border-bottom: 2px solid #0d71fa;
+  /* border-bottom: 2px solid #0d71fa; */
   display: flex;
   border: 1px solid #d5dbe1;
   margin: 10px;
@@ -339,7 +339,12 @@ const Card = styled.div`
   cursor: pointer;
   overflow: hidden;
 
-  @media (max-width: 1024px) {
+  @media screen and (max-width: 768px) {
+    width: 800px;
+    /* height: 200px; */
+  }
+
+  @media screen and (max-width: 1024px) {
     width: 430px;
   }
 `;
@@ -350,5 +355,7 @@ const Container = styled.div`
   @media screen and (max-width: 768px) {
     display: flex;
     justify-content: center;
+    width: 100%;
+    /* background-color: green; */
   }
 `;
