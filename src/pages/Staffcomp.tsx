@@ -307,6 +307,9 @@ const Card8 = styled.div`
   cursor: pointer;
   padding-left: 15px;
   margin: 10px;
+  @media screen and (max-width: 768px) {
+    margin: 0px;
+  }
 `;
 const Card7 = styled.div`
   width: 240px;
@@ -334,6 +337,9 @@ const Card6 = styled.div`
   cursor: pointer;
   padding-left: 15px;
   margin: 10px;
+  @media screen and (max-width: 768px) {
+    margin: 0px;
+  }
 `;
 const Holder2 = styled.div`
   width: 900px;
@@ -343,6 +349,11 @@ const Holder2 = styled.div`
   border-radius: 10px;
   justify-content: center;
   align-items: center;
+  @media screen and (max-width: 768px) {
+    flex-wrap: wrap;
+    width: 430px;
+    height: 480px;
+  }
 `;
 const Icons = styled.div`
   position: absolute;
@@ -351,6 +362,9 @@ const Icons = styled.div`
   color: #fff;
   cursor: pointer;
   top: 120px;
+  @media screen and (max-width: 768px) {
+    top: 10px;
+  }
 `;
 
 const Circle3 = styled.div`
