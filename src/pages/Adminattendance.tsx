@@ -10,12 +10,9 @@ import { url } from "../utils/Api/ApiCall";
 const Adminattendance = () => {
   const admin = useAppSelector((state) => state.currentUser);
 
-  // const genToken = useMutation({
-  //   mutationKey: ["adminAttendance"],
-  //   mutationFn: () => genAttendanceToken(admin?._id),
-  // });
+  
 
-  // console.log(`this is gentoken : ${genToken}`);
+
 
   const [token , setToken] = React.useState("")
 
