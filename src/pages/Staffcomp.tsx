@@ -4,7 +4,6 @@ import { FaGoogleWallet } from "react-icons/fa";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import Cards from "./Cards";
-
 import Pies from "./Pies";
 import {  BsFillHousesFill, BsBusFront } from "react-icons/bs";
 import img from "../Assets/saves.svg"
@@ -19,6 +18,8 @@ import Tour from "./Tour/Tour";
 import StaffTransactionhome from "./StaffTransaction/StaffTransactionhome";
 import { useQuery } from "@tanstack/react-query";
 import { getOneStaff } from "../utils/Api/ApiCall";
+import Mobilecard from "./Mobilecard/Mobilecard";
+import { Stafffooter } from "../components";
 
 
 
@@ -167,6 +168,7 @@ console.log("this is getStaff ",getStaff?.data?.data?.wallet)
           </Top>
 
           <Cards />
+          <Mobilecard />
           <Down>
             <Piehold>
                           <Pee>
@@ -256,7 +258,8 @@ console.log("this is getStaff ",getStaff?.data?.data?.wallet)
                       </Holds>
                   ) : null}            
 
-                  <StaffTransactionhome />
+          <StaffTransactionhome />
+          <Stafffooter />
         </Wrapper>
       </Container>
     </div>
@@ -523,6 +526,9 @@ const Down = styled.div`
       flex-wrap: wrap;
       justify-content: center;
     }
+    @media screen and (max-width: 500px) {
+      display: none;
+    }
 `
 const Holder = styled.div`
   display: flex;
@@ -688,6 +694,9 @@ const Left = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `;
 
 const Top = styled.div`
@@ -695,6 +704,7 @@ const Top = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction:column ;
+  background-color: red;
   button {
     width: 130px;
     height: 40px;
@@ -714,7 +724,12 @@ const Top = styled.div`
 
   @media screen and (max-width: 768px) {
     /* background-color: green; */
-    width: 95%;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+  }
+  @media screen and (max-width: 500px) {
+    display: none;
   }
 `;
 
@@ -735,6 +750,19 @@ const Wrapper = styled.div`
     width: 100%;
     /* background-color: red; */
   }
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    border-top-right-radius: 24px;
+    border-top-left-radius: 24px;
+    background-color: #e2e2e2;
+    z-index: 10;
+    margin-top: 80px;
+    padding-right: 0px;
+    padding-top: 25px;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const Container = styled.div`
@@ -746,6 +774,11 @@ const Container = styled.div`
   overflow: hidden;
   margin-top: 20px;
   padding-bottom: 20px;
+  @media screen and (max-width: 500px){
+    background-color: #00244E;
+    display: flex;
+    justify-content: center;
+  }
 
   @media screen and (max-width: 768px) {
     width: 100%;

@@ -8,4 +8,6 @@ export { default as DashboardHead } from "./DashboardHead"
 
 export {default as Staffdashboardhead} from "./Staffdashboardhead"
 
-export {default as Staffsidebar} from "./Staffsidebar"
+export { default as Staffsidebar } from "./Staffsidebar"
+
+export {default as Stafffooter} from "./Stafffooter"
