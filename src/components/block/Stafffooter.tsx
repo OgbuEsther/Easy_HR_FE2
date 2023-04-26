@@ -24,7 +24,7 @@ const Container = styled.div`
     height: 120px;
     background-color: red;
     display: flex;
-    /* position: fixed; */
+    position: fixed;
     /* position: absolute; */
-    /* margin-top: 160px; */
+    margin-top: 240px;
 `
