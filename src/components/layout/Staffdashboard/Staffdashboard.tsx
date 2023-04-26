@@ -9,7 +9,7 @@ const Staffdashboard = () => {
           <Staffdashboardhead />
           <Staffsidebar />
           <Container>
-              <Outlet />
+        <Outlet />
           </Container>
     </div>
   )
