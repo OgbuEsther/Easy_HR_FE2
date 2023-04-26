@@ -19,6 +19,7 @@ import StaffTransactionhome from "./StaffTransaction/StaffTransactionhome";
 import { useQuery } from "@tanstack/react-query";
 import { getOneStaff } from "../utils/Api/ApiCall";
 import Mobilecard from "./Mobilecard/Mobilecard";
+import { Stafffooter } from "../components";
 
 
 
@@ -259,7 +260,9 @@ console.log("this is getStaff ",getStaff?.data?.data?.wallet)
                   ) : null}            
 
           <StaffTransactionhome />
+          
         </Wrapper>
+        <Stafffooter />
       </Container>
     </div>
 
@@ -761,7 +764,7 @@ const Wrapper = styled.div`
     padding-top: 25px;
     justify-content: center;
     align-items: center;
-    position: relative;
+    /* position: relative; */
     flex-direction: column;
   }
 `;
@@ -779,8 +782,8 @@ const Container = styled.div`
     background-color: #00244E;
     display: flex;
     justify-content: center;
-    position: relative;
-    /* height: 100vh; */
+    /* position: relative; */
+    height: 100%;
   }
 
   @media screen and (max-width: 768px) {

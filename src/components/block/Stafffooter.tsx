@@ -4,27 +4,57 @@ import styled from "styled-components"
 const Stafffooter = () => {
   return (
       <Container>
-          <Circle>djjdjdjdjd</Circle>
+          <Right></Right>
+          <Mid>
+              <Circle></Circle>
+          </Mid>
+          <Left></Left>
       </Container>
   )
 }
 
 export default Stafffooter
 const Circle = styled.div`
-    width: 70px;
-    height: 70px;
-    border-radius: 50px;
+    width: 110px;
+    height: 110px;
     background-color: #fff;
+    border-radius: 100px;
     position: absolute;
-    top: 0;
+    bottom: 60px;
+`
+const Left = styled.div`
+    width: 35%;
+    height: 100%;
+    background-color: red;
+`
+const Mid = styled.div`
+    width: 30%;
+    height: 100%;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    position: relative;
+`
+
+const Right = styled.div`
+    width: 35%;
+    height: 100%;
+    background-color: green;
 `
 
 const Container = styled.div`
-    width: 100%;
-    height: 120px;
-    background-color: red;
-    display: flex;
-    position: fixed;
-    /* position: absolute; */
-    margin-top: 240px;
+    
+    display: none;
+    
+    /* margin-top: 350px; */
+
+    @media screen and (max-width: 500px) {
+        display: flex;
+        width: 100%;
+        height: 110px;
+        background-color: red;
+        position: absolute;
+        bottom: 0;
+        position: fixed;
+    }
 `
