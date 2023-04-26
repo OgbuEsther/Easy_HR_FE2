@@ -10,10 +10,6 @@ import { url } from "../utils/Api/ApiCall";
 const Adminattendance = () => {
   const admin = useAppSelector((state) => state.currentUser);
 
-  
-
-
-
   const [token , setToken] = React.useState("")
 
   return (
