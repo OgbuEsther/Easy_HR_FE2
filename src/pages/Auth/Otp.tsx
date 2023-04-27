@@ -184,12 +184,39 @@
 // `
 
 
-import React, {useState} from 'react'
+import React, { useEffect, useRef, useState} from 'react'
 import img from "../../Assets/verify.png"
-import OtpInput from "react-otp-input"
 
-const Otp = () => {
-    const [otp, setOtp] = useState("")
+interface Props{}
+
+let currentOTPIndex: number = 0;
+
+const Otp: React.FC<Props> = (props): JSX.Element => {
+    const [otp, setOtp] = useState<string[]>(new Array(4).fill(""))
+    const [activeOTPIndex, setAtiveOTPIndex] = useState<number>(0)
+
+    const inputRef = useRef<HTMLInputElement>(null)
+
+    const handleOnChange = ({target}: React.ChangeEvent<HTMLInputElement>): void => {
+        const { value } = target;
+        const newOtp: string[] = [...otp]
+        newOtp[currentOTPIndex] = value.substring(value.length - 1)
+
+        if (!value) setAtiveOTPIndex(currentOTPIndex - 1)
+        else setAtiveOTPIndex(currentOTPIndex + 1)
+
+        setOtp(newOtp)
+    }
+
+    const handleOnKeyDown = ({ key }: React.KeyboardEvent<HTMLInputElement>, index: number) => {
+        currentOTPIndex = index
+        if(key === "Backspace") setAtiveOTPIndex(currentOTPIndex - 1)
+    }
+
+    useEffect(() => {
+        inputRef.current?.focus()
+    }, [activeOTPIndex])
+
   return (
       <div className='h-screen w-full bg-gray-100 flex justify-center items-center flex-col'>
           
@@ -198,18 +225,33 @@ const Otp = () => {
               <img src={img} alt="img" className='w-20 mb-4' />
               <div className="">Enter verification code</div>
 
-              <div className='w-full h-b bg-red-600'>
-                  <OtpInput
-                      value={otp}
-                      onChange={setOtp}
-                      numInputs={4}
-                      renderSeparator={<span>-</span>}
-                      renderInput={(props) => <input {...props}  className='mr-3 ml-3 p-3'/>}
-                  />
+              <div className='flex justify-center items-center space-x-2'>
+                  {otp.map((_, index) => {
+                  return (
+                      <React.Fragment key={index}>
+                          <input
+                              ref={index === activeOTPIndex ? inputRef : null}
+                              type='number'
+                              className='w-12 h-12 border-2 rounded bg-transparent
+                              outline-none text-center font-semibold text-xl border-gray-400
+                              focus:border-gray-700 focus:text-gray-700 text-gray-400
+                              transition spin-button-none'
+                              onChange={ handleOnChange}
+                              onKeyDown={(e) => handleOnKeyDown(e, index)}
+                              value={otp[index]}
+                          />
+                          {index === otp.length - 1 ? null : (
+                              <span className='w-2 py-0.5 bg-gray-400'></span>
+                          )}
+                      </React.Fragment>
+                  )
+              })}
+              </div>
+                  
               </div>
           </div>
-      </div>
   )
 }
 
 export default Otp
+
