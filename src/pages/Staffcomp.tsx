@@ -468,13 +468,13 @@ const Img = styled.img`
     height: 140px;
     /* margin-top: 15px; */
     margin-left: 15px;
-    animation: bounce 1s infinite;
+    /* animation: bounce 1s infinite;
 
     @keyframes bounce {
   0% { transform: translateY(0); }
   50% { transform: translateY(-20px); }
   100% { transform: translateY(0); }
-}
+} */
 `
 const Planhold = styled.div`
     width: 48%;
@@ -706,7 +706,7 @@ const Top = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction:column ;
-  background-color: red;
+  /* background-color: red; */
   button {
     width: 130px;
     height: 40px;

@@ -15,12 +15,12 @@ const Stafffooter = () => {
 
 export default Stafffooter
 const Circle = styled.div`
-    width: 110px;
-    height: 110px;
+    width: 120px;
+    height: 120px;
     background-color: #fff;
     border-radius: 100px;
     position: absolute;
-    bottom: 60px;
+    bottom: 40px;
 `
 const Left = styled.div`
     width: 35%;
@@ -51,7 +51,7 @@ const Container = styled.div`
     @media screen and (max-width: 500px) {
         display: flex;
         width: 100%;
-        height: 110px;
+        height: 90px;
         background-color: red;
         position: absolute;
         bottom: 0;
