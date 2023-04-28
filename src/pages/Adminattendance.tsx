@@ -18,7 +18,7 @@ const Adminattendance = () => {
         <Wrapper>
           <Word>
             <Hold>
-              Attendance <br />
+              {/* Attendance <br /> */}
               <span>
                 <a href="/dashboard">Dashboard</a>/ Attendance
               </span>
