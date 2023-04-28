@@ -15,3 +15,5 @@ export * from "./Staffs"
 export * from "./Attendance"
 
 export * from "./Adminattendance"
+
+export * from "./InputFieldAttendance/InputStaffAttendance"

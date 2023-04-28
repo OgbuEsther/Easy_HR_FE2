@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import Select from "react-select";
 import { BsCalendar4Event } from "react-icons/bs";
+import InputStaffAttendance from "./InputFieldAttendance/InputStaffAttendance";
+import { MdOutlineCancel } from "react-icons/md";
 
 const Option = [
   { value: "chocolate", label: "Chocolate" },
@@ -13,6 +15,15 @@ const Option = [
 const Attendance: React.FC = () => {
   const [PunchStateChanger, setPunchStateChanger] = useState(true);
   const [width, setWidth] = useState(0);
+  const [show, setShow] = useState(false)
+
+   const Removetoken = () => {
+    setShow(false);
+  };
+
+  const Toggle = () => {
+    setShow(true)
+  }
 
   const PunchStateChangerFunction = () => {
     setPunchStateChanger(!PunchStateChanger);
@@ -48,7 +59,7 @@ const Attendance: React.FC = () => {
                   <Timer>3.45 hrs</Timer>
                 </CircleTimer>
                 {PunchStateChanger ? (
-                  <PunchButton onClick={PunchStateChangerFunction}>
+                  <PunchButton onClick={Toggle}>
                     Punch In
                   </PunchButton>
                 ) : (
@@ -153,7 +164,7 @@ const Attendance: React.FC = () => {
               <PunchActivities>
                 <PunchMain>
                   <PunchInActivities>
-                    <PunchInTitle>Punch In at</PunchInTitle>
+                    <PunchInTitle onClick={Toggle}>Punch In at</PunchInTitle>
                     <PunchInTime>
                       {" "}
                       <Icon>
@@ -258,12 +269,47 @@ const Attendance: React.FC = () => {
             </TableColumn>
           </TableSection>
         </TableSectionHold>
+
+        {show ? (
+          <Holds>
+                          <InputStaffAttendance />
+                          <Icron onClick={Removetoken}>
+              <MdOutlineCancel />
+            </Icron>
+                </Holds>
+                  ) : null}
       </AttendanceMainPage>
     </AttendancePage>
   );
 };
 
 export default Attendance;
+const Icron = styled.div`
+  position: absolute;
+  font-size: 25px;
+  right: 33%;
+  color: #fff;
+  cursor: pointer;
+  top: 200px;
+  cursor: pointer;
+  z-index: 9;
+`;
+
+const Holds = styled.div`
+    width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 5;
+`
 
 // Table styling area
 

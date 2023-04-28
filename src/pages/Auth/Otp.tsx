@@ -35,7 +35,7 @@ const Otp: React.FC<Props> = (props): JSX.Element => {
       <div className='h-screen w-full bg-gray-100 flex justify-center items-center flex-col'>
           
           <div className='mb-4 font-medium text-xl'>Otp Verification</div>
-          <div className='pb-4 pt-4 w-96 bg-gray-300 flex-col flex items-center justify-center rounded' >
+          <div className='pb-4 pt-4 w-96 bg-gray-300 flex-col flex items-center justify-center rounded xsm:w-60' >
               <img src={img} alt="img" className='w-20 mb-4' />
               <div className="">Enter verification code</div>
 
