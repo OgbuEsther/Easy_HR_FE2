@@ -25,7 +25,7 @@ SetViewPassword(!ViewPassword)
 
     const ForgetPasswordFunction = ()=>{
 
-        navigate("/reset-password")
+        navigate("/")
     }
 
    
@@ -39,23 +39,23 @@ SetViewPassword(!ViewPassword)
 
 
 
-  // const schema = yup.object({
-  //   firstName: yup.string().required(),
-  //   lastName: yup.string().required(),
-  //   companyName: yup.string().required(),
-  //   email: yup.string().email().required(),
-  //   password: yup.string().min(9).required()
-  // }).required()
+  const schema = yup.object({
+    firstName: yup.string().required(),
+    lastName: yup.string().required(),
+    companyName: yup.string().required(),
+    email: yup.string().email().required(),
+    password: yup.string().min(9).required()
+  }).required()
   
-  // type formData = yup.InferType<typeof schema>
+  type formData = yup.InferType<typeof schema>
   
-  // const{handleSubmit, formState: {errors}, reset, register} = useForm<formData>({
-  //   resolver: yupResolver(schema)
-  // })
+  const{handleSubmit, formState: {errors}, reset, register} = useForm<formData>({
+    resolver: yupResolver(schema)
+  })
   
-  // const Submit = handleSubmit(()=>{
-  //   reset()
-  // })
+  const Submit = handleSubmit(()=>{
+    reset()
+  })
 
 
   return (
@@ -63,24 +63,24 @@ SetViewPassword(!ViewPassword)
         <Form>
 <SignUpTitle>Sign In</SignUpTitle>
 {/* <SignUpDescription>Pay smart and save time with Easy Pay</SignUpDescription> */}
-<SignUpDescription>You will be signed in as a staff</SignUpDescription>
+<SignUpDescription>You will be signed in as a Staff</SignUpDescription>
 
 <InputField>
 
 <CompanyNameInputHold>
-    <Label>Company Name</Label>
-    <CompanyNameInput/>
+    
+    <CompanyNameInput placeholder='Company Name'/>
 </CompanyNameInputHold>
 
 <EmailInputColumn>
-  <Label>Email Adress</Label> 
-    <EmailInput/>
+  
+    <EmailInput placeholder='Email Address'/>
 
 </EmailInputColumn>
 <CompanyPasswordColumn>
-    <Label>Password</Label>
+    
     <CompanyPasswordInputHold>
-    <CompanyPasswordInput type={ViewPassword? "text":"password"} />
+    <CompanyPasswordInput placeholder='Password' type={ViewPassword? "text":"password"} />
     </CompanyPasswordInputHold>
 
     <ShowPasswordAndForgetPassword>
@@ -195,7 +195,7 @@ const Button = styled.button`
   width: 100px;
   border-radius: 10px;
   background: rgb(1,107,247);
-background: linear-gradient(90deg, #264369 0%, rgba(1,184,240,1) 69%, rgba(0,183,255,1) 100%);
+background: linear-gradient(90deg, #2e7ade 0%, rgba(1,184,240,1) 69%, rgba(0,183,255,1) 100%);
   background-color: #0a72e9;
   border: none;
   font-weight: bold; 

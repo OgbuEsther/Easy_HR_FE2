@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import {BsThreeDotsVertical} from "react-icons/bs"
+import { deactiavteAStaff } from '../utils/Api/ApiCall';
+import { useAppSelector } from '../components/global/Store';
+import axios from 'axios';
 
 interface IProps{
     img:string;
@@ -9,6 +12,9 @@ interface IProps{
 }
 
 const CardProps:React.FC<IProps> = ({img,name,title}) => {
+
+   const user = useAppSelector((state) => state.currentUser);
+  const staff = useAppSelector((state)=> state.currentStaff)
   return (
     <div>
         <Container>
@@ -23,7 +29,16 @@ const CardProps:React.FC<IProps> = ({img,name,title}) => {
             {title}
            </Title>
            <Icon>
-            <BsThreeDotsVertical/>
+            <BsThreeDotsVertical 
+            onClick={()=>{
+              
+                 axios.delete(`https://easyhr.onrender.com/api/staff/deactivateStaff/${staff?._id}/${user?._id}`).then((res)=>{
+                  console.log(res.data)
+                  // window.location.reload()
+                })
+               
+             }}
+            />
            </Icon>
          </Wrapper>
         </Container>

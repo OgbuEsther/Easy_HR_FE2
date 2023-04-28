@@ -4,6 +4,7 @@ import Admin from "../../Assets/hr_group.jpg"
 import SignupAdminForm from '../../components/layout/Form/SignUpAdminForm'
 import {BsArrowLeft} from "react-icons/bs"
 import { NavLink } from 'react-router-dom';
+import OutlineButton from '../../components/Buttons/OutlineButton'
 
 
 const SignUpAdmin = () => {
@@ -13,15 +14,10 @@ const SignUpAdmin = () => {
 <SipupPage>
   <SigupDetailContainer>
 <ImageContainer>
-
-       <NavLink to="/" style={{textDecoration:"none", color:"white", 
-      
-    }}>
-        <BacKToDashBoardIconHold>
-       <BsArrowLeft />
-    </BacKToDashBoardIconHold>
-       </NavLink>
+      <NavLink to='/sign-up-option'>
+      <OutlineButton positioning='absolute' border='2px solid white' color='white' top='20px' left='20px'/>
   <Image  src={Admin}/>
+      </NavLink>
   {/* <AdsWriteUp className='AdswriteUp'>Increase productivity and sales, paying staffs quickly with low rate at your comfort with <span>
   easy pay</span>.
 </AdsWriteUp> */}
@@ -40,22 +36,31 @@ const SignUpAdmin = () => {
 export default SignUpAdmin;
 
 const BacKToDashBoardIconHold = styled.div`
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 1px solid white;
+
     position: absolute;
     top: 20px;
     left: 20px;
-    size: 24;
-    padding: 10px 0px 0px 10px;
+    height: 18px;
+    width: 18px;
     font-size: 24px;
     color: white;
     padding: 15px;
     border-radius: 50%;
-    background-color:rgba(136, 136, 136, 0.2);
     cursor: pointer;
     transition: all 390ms;
-
+    
     :hover{
-      background-color:rgba(141, 141, 141, 0.616);
+      background-color: #f5f5dc56;
     }
+
+    
 ` 
 
 

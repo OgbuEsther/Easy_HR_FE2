@@ -3,9 +3,19 @@ import { MdOutlineCancel } from "react-icons/md";
 import { FaGoogleWallet } from "react-icons/fa";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import Cards from "./Cards";
-
-
+import DashBoardCardProps from "./DashBoardCardProps";
+import { FaJediOrder } from "react-icons/fa";
+import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { GiHypersonicMelon } from "react-icons/gi";
+import {
+  AiFillAlert,
+  AiOutlineDeploymentUnit,
+  AiFillDashboard,
+} from "react-icons/ai";
+import { useAppSelector } from "../components/global/Store";
+import { useQuery } from "@tanstack/react-query";
+import { getOneAdmin } from "../utils/Api/ApiCall";
+import AdminCard from "./AdminCard";
 
 const ParentComp = () => {
   const [show, setShow] = React.useState(false);
@@ -18,15 +28,31 @@ const ParentComp = () => {
     setShow(false);
   };
 
+  const admin = useAppSelector((state) => state.currentUser);
+
+  const getAdmin = useQuery({
+    queryKey: ["singleAdmin"],
+    queryFn: () => getOneAdmin(admin?._id),
+  });
+
+  console.log("this is admin data", admin?.companyname);
+
   return (
     <div>
       <Container>
         <Wrapper>
           <Top>
             <Left>
-              <Bold>Dashboard</Bold>
+              <Bold>
+                <Icn>
+                  <AiFillDashboard />
+                </Icn>
+                Dashboard
+              </Bold>
               <button onClick={Toggle}>Credit Wallet</button>
             </Left>
+            <hr />
+
             {show ? (
               <Slidein>
                 <Wallets>
@@ -37,54 +63,55 @@ const ParentComp = () => {
                     <Circle>
                       <FaGoogleWallet />
                     </Circle>
-                    <Wallet>
-                      <p>Wallet Balance</p>
-                      <h3>NGN</h3>
-                    </Wallet>
+                    {getAdmin?.data?.data?.wallet?.map((el: any) => (
+                      <Wallet>
+                        <p>Wallet Balance</p>
+                        <h3>NGN:{el?.balance} </h3>
+                      </Wallet>
+                    ))}
                   </Card2>
 
                   <Tap>
                     <h3>Admin Details: </h3>
                     <p>
-                      Wallet number <strong>123456</strong>
+                      Wallet number <strong>{admin?.walletNumber} </strong>
                     </p>
                   </Tap>
 
                   <Tap2>
                     <p>
-                      Company name: <strong>Savio</strong>
+                      Company name: <strong>{admin?.companyname}</strong>
                     </p>
                   </Tap2>
 
                   <Tap2>
                     <p>
-                      Company code: <strong>468</strong>
+                      Company code: <strong>{admin?.companyCode} </strong>
                     </p>
                   </Tap2>
 
                   <Tap2>
                     <p>
-                      Admin name: <strong>Paul</strong>
+                      Admin name: <strong>{admin?.yourName} </strong>
                     </p>
                   </Tap2>
 
                   <Holder>
                     <NavLink to="/payment" style={{ textDecoration: "none" }}>
-                    <button>Credit wallet</button>
+                      <button>Credit wallet</button>
                     </NavLink>
-                    
-                    <NavLink to="/payout" style={{textDecoration: "none"}}>
-                    <button>Withdraw to bank</button>
-                  </NavLink>
+
+                    <NavLink to="/payout" style={{ textDecoration: "none" }}>
+                      <button>Withdraw to bank</button>
+                    </NavLink>
                   </Holder>
                 </Wallets>
               </Slidein>
             ) : null}
           </Top>
-          <br />
-          <br />
-          <br />
-          <Cards />
+           <AdminCard/>
+
+         
         </Wrapper>
       </Container>
     </div>
@@ -92,6 +119,11 @@ const ParentComp = () => {
 };
 
 export default ParentComp;
+const CardHold = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
 const Holder = styled.div`
   display: flex;
   button {
@@ -181,7 +213,7 @@ const Card2 = styled.div`
   width: 300px;
   height: 150px;
   margin-top: 30px;
-  background-color: #0d71fa;
+  background-color: #00244e;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -230,11 +262,21 @@ const Slidein = styled.div`
       transform: translateX(0);
     }
   }
-`
+`;
+const Icn = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  margin: 3px;
+`;
 
 const Bold = styled.div`
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 const Left = styled.div`
   display: flex;
@@ -246,13 +288,14 @@ const Top = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
   button {
     width: 130px;
     height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #0d71fa;
+    background-color: #00244e;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -274,9 +317,10 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  /* background-color: red; */
 
   @media screen and (max-width: 768px) {
-    width: 100%;
+    width: 90%;
   }
 `;
 
@@ -285,7 +329,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #F5F7FA;
+  background-color: #f5f7fa;
   overflow: hidden;
   margin-top: 20px;
 

@@ -7,11 +7,16 @@ import {AiOutlineEyeInvisible} from "react-icons/ai"
 import {AiOutlineEye} from "react-icons/ai"
 import { NavLink } from 'react-router-dom';
 import {useNavigate} from "react-router-dom"
-
-
+import { UseAppDispach } from '../../global/Store'
+import { useMutation } from '@tanstack/react-query'
+import { LoginAdmin } from '../../../utils/Api/ApiCall'
+import { Admin } from '../../global/ReduxState'
 
 
 const SigninForm = () => {
+
+  const dispatch = UseAppDispach()
+  const navigate = useNavigate()
 
     const [ViewPassword, SetViewPassword] = useState(false)
 
@@ -22,7 +27,6 @@ SetViewPassword(!ViewPassword)
     }
 
 
-    const navigate = useNavigate()
 
     const NavigateToVeficationPageFunction = ()=>{
       navigate("/verification")
@@ -30,28 +34,44 @@ SetViewPassword(!ViewPassword)
 
 
 
-  // const schema = yup.object({
-  //   firstName: yup.string().required(),
-  //   lastName: yup.string().required(),
-  //   companyName: yup.string().required(),
-  //   email: yup.string().email().required(),
-  //   password: yup.string().min(9).required()
-  // }).required()
+  const schema = yup.object({
+    companyname: yup.string().required(),
+    email: yup.string().email().required(),
+    password: yup.string().min(9).required()
+  }).required()
   
-  // type formData = yup.InferType<typeof schema>
+  type formData = yup.InferType<typeof schema>
   
-  // const{handleSubmit, formState: {errors}, reset, register} = useForm<formData>({
-  //   resolver: yupResolver(schema)
-  // })
+  const{handleSubmit, formState: {errors}, reset, register} = useForm<formData>({
+    resolver: yupResolver(schema)
+  })
+
   
-  // const Submit = handleSubmit(()=>{
-  //   reset()
-  // })
+  const LoginAdminFunction = useMutation({
+    mutationKey: ["login_admin"],
+    // mutationFn: LoginAdmin,
+    mutationFn: (data: any) => LoginAdmin(data),
+
+    onSuccess(data) {
+        console.log(data);
+        dispatch(Admin(data.data));
+        NavigateToVeficationPageFunction()
+        
+    },
+  })
+
+  console.log(LoginAdminFunction);
+  
+  
+  const Submit = handleSubmit((data)=>{
+    LoginAdminFunction.mutate(data)
+    reset()
+  })
 
 
   return (
 
-        <Form>
+        <Form onSubmit={Submit}>
 <SignUpTitle>Sign In</SignUpTitle>
 {/* <SignUpDescription>Pay smart and save time with Easy Pay</SignUpDescription> */}
 <SignUpDescription>You will be signed in as an Admin</SignUpDescription>
@@ -59,19 +79,19 @@ SetViewPassword(!ViewPassword)
 <InputField>
 
 <CompanyNameInputHold>
-    <Label>Company Name</Label>
-    <CompanyNameInput/>
+    
+    <CompanyNameInput {...register("companyname")} placeholder='Company Name'/>
 </CompanyNameInputHold>
 
 <EmailInputColumn>
-  <Label>Email Adress</Label> 
-    <EmailInput/>
+  
+    <EmailInput {...register("email")} placeholder='Email Address'/>
 
 </EmailInputColumn>
 <CompanyPasswordColumn>
-    <Label>Password</Label>
+    
     <CompanyPasswordInputHold>
-    <CompanyPasswordInput type={ViewPassword? "text":"password"} />
+    <CompanyPasswordInput type={ViewPassword? "text":"password"}  {...register("password")} placeholder='Password'/>
     </CompanyPasswordInputHold>
 
     <ShowPasswordAndForgetPassword>
@@ -131,7 +151,7 @@ const ShowPassword = styled.div`
   background-color: white;
   border: none;
   cursor: pointer;
-  /* background-color: blue; */
+  
 `
 
 const ShowPasswordAndForgetPassword = styled.div`
@@ -165,7 +185,7 @@ const CompanyNameInputHold = styled.div`
 
 
 const CompanyPasswordInput = styled.input`
-    height: 35px;
+    height: 45px;
     width: 100%;
     border-radius: 5px;
     border: 1px solid #0174f78d;
@@ -181,7 +201,7 @@ const Button = styled.button`
   width: 100px;
   border-radius: 10px;
   background: rgb(1,107,247);
-background: linear-gradient(90deg, #264369 0%, rgba(1,184,240,1) 69%, rgba(0,183,255,1) 100%);
+background: linear-gradient(90deg, #2e7ade 0%, rgba(1,184,240,1) 69%, rgba(0,183,255,1) 100%);
   background-color: #0a72e9;
   border: none;
   font-weight: bold; 
@@ -240,8 +260,8 @@ p{
   font-size: 13px;
   span{
     margin-left: 5px;
-    font-weight: 600;
-    color: #0172f7;
+    font-weight: bolder;
+    color:  #0170f6;
   }
 }
 `
@@ -251,7 +271,7 @@ width: 100%;
 margin-top: 50px;
 `
 const CompanyPasswordColumn = styled.div`
-height: 100px;
+height: 70px;
 width: 100%;
 margin-bottom: 60px;
 margin-top: 20px;

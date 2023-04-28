@@ -1,23 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import {useForm} from "react-hook-form"
 import * as yup from "yup"
 import {yupResolver} from "@hookform/resolvers/yup"
 import { NavLink } from 'react-router-dom'
-
+import { UseAppDispach } from '../../global/Store'
+import { useNavigate } from 'react-router-dom'
+import { useMutation } from '@tanstack/react-query'
+import { createStaff } from '../../../utils/Api/ApiCall'
+import { Staff } from '../../global/ReduxState'
 
 
 
 const SignupForm = () => {
 
 
+  const [viewpassword, setViewpassword]=useState(false)
+  const ShowPasswordFunction = (e:any)=>{
+    e.preventDefault()
+    setViewpassword(!viewpassword)
+  }
+
+  const dispatch = UseAppDispach();
+  const navigate = useNavigate()
+
+
 
   const schema = yup.object({
-    firstName: yup.string().required(),
-    lastName: yup.string().required(),
-    companyName: yup.string().required(),
+    yourName: yup.string().required(),
+    companyname: yup.string().required(),
     email: yup.string().email().required(),
-    password: yup.string().min(9).required()
+    password: yup.string().required()
   }).required()
   
   type formData = yup.InferType<typeof schema>
@@ -25,8 +38,25 @@ const SignupForm = () => {
   const{handleSubmit, formState: {errors}, reset, register} = useForm<formData>({
     resolver: yupResolver(schema)
   })
+
+
+  const StaffSignUp = useMutation({
+    mutationKey:['creating_staff'],
+    // mutationFn: createStaff,
+    mutationFn: (data: any) => createStaff(data),
+
+    onSuccess: (data)=>{
+      dispatch(Staff(data?.data))
+        navigate("/sign-in")
+    }
+  })
+
+  // console.log('here',StaffSignUp);
   
-  const Submit = handleSubmit(()=>{
+
+  
+  const Submit = handleSubmit((data)=>{
+    StaffSignUp.mutate(data)
     reset()
   })
 
@@ -35,58 +65,55 @@ const SignupForm = () => {
 
         <Form onClick={Submit}>
 <SignUpTitle>Sign Up</SignUpTitle>
-<SignUpDescription>You will be signup as a staff</SignUpDescription>
+<SignUpDescription>You will be signup as a Staff</SignUpDescription>
 {/* <SignUpDescription>Pay smart and save time with Easy Pay</SignUpDescription> */}
+
+
 
 <InputField>
 
 <NameInputColumn>
   <FirstNameInputContainer>
-    <Label>
-      First Name
-    </Label>
-    <FirstNameInput/>
+    
+    <FirstNameInput {...register("yourName")} placeholder='Your Name'/>
   </FirstNameInputContainer>
-  <SecondNameInputContainer>
-  <Label>
-      Last Name
-    </Label>
-    <SecondNameInput/>
-  </SecondNameInputContainer>
 </NameInputColumn>
 
-{/* Admin Email Area */}
-<AdminEmailColumn>
-<AdminEmailContainer>
-  <Label>Email Address</Label>
-  <AdminEmailInput/>
-</AdminEmailContainer>
-</AdminEmailColumn>
+{/* Staff Email Area */}
+<StaffEmailColumn>
+<StaffEmailContainer>
+ 
+  <StaffEmailInput {...register("email")} placeholder='Email Address' />
+</StaffEmailContainer>
+</StaffEmailColumn>
 
-{/* Admin Company and Password Area */}
+{/* Staff Company and Password Area */}
 <CompanyNameAndPasswordInputColumn>
   <CompanyNameInputContainer>
-    <Label>
-      Company Name
-    </Label>
-    <CompanyNameInput/>
+  
+    <CompanyNameInput {...register("companyname")} placeholder='Company Name'/>
   </CompanyNameInputContainer>
   <PasswordInputContainer>
-  <Label>
-      Password Name
-    </Label>
-    <PasswordInput/>
+    <PasswordInputHold>
+      
+     <PasswordInput type={viewpassword?"text":"password"} {...register("password")} placeholder='Password'/>
+    </PasswordInputHold>
+    <ShowPassword onClick={ShowPasswordFunction}>
+      <CheckedInput type='checkbox' checked={viewpassword?true:false}/> <ShowPasswordText>
+        Show Password
+      </ShowPasswordText>
+    </ShowPassword>
   </PasswordInputContainer>
 </CompanyNameAndPasswordInputColumn>
 
-{/* Admin Sign up Button Area */}
+{/* Staff Sign up Button Area */}
 <SignUpButtonColumn>
 <SignUpButton>
     <Button type='submit'>Sign Up</Button>
   </SignUpButton>
 </SignUpButtonColumn>
 
-{/* Admin Sign in Button Area */}
+{/* Staff Sign in Button Area */}
 <AdminSignOptionColumn>
   <p>Already have account? <NavLink to="/sign-in" style={{textDecoration:"none"}}>
   <span>Sign In</span>
@@ -101,11 +128,7 @@ const SignupForm = () => {
 
 export default SignupForm;
 
-const Label = styled.label`
-  font-weight: 600;
-  font-size: 14px;
-  margin-bottom: 5px;
-`
+
 
 const PasswordInput = styled.input`
 height: 50px;
@@ -119,21 +142,54 @@ width: auto;
 border: 1px solid silver;
 `
 
+
+
+const PasswordInputHold = styled.div`
+  height: 100px;
+  width: auto;
+  display: flex;
+justify-content: flex-start;
+flex-direction: column;
+`
+
+const CheckedInput = styled.input`
+height: 15px;
+width: 15px;
+cursor: pointer;
+`;
+
+const ShowPasswordText = styled.div`
+font-size: 15px;
+font-weight: 600;
+margin-left: 5px;
+`;
+
+const ShowPassword = styled.div`
+height: auto;
+width: 250px;
+display: flex;
+align-items: center;
+margin-bottom: 15px;
+cursor: pointer;
+`
+
 const PasswordInputContainer = styled.div`
   height: 100px;
   width: 300px;
   display: flex;
-justify-content: center;
 flex-direction: column;
+/* background-color: green; */
 `
 
 const CompanyNameInputContainer = styled.div`
   height: 100px;
   width: 300px;
+  padding-bottom: 50px;
   display: flex;
 justify-content: center;
 flex-direction: column;
 margin-right: 5px;
+/* background-color: blue; */
 `
 
 const CompanyNameAndPasswordInputColumn = styled.div`
@@ -150,12 +206,12 @@ const CompanyNameAndPasswordInputColumn = styled.div`
   }
   `
 
-const AdminEmailInput = styled.input`
+const StaffEmailInput = styled.input`
   height: 50px;
   width: auto;
 `
 
-const AdminEmailColumn = styled.div`
+const StaffEmailColumn = styled.div`
   height: 100px;
   width: 100%;
   display: flex;
@@ -167,7 +223,7 @@ const AdminEmailColumn = styled.div`
   }
 `
 
-const AdminEmailContainer = styled.div`
+const StaffEmailContainer = styled.div`
   height: 100px;
   width: 100%;
   display: flex;
@@ -185,23 +241,10 @@ width: auto;
 border: 1px solid silver;
 `
 
-const SecondNameInput = styled.input`
-height: 50px;
-width: auto;
-border: 1px solid silver;
-`
-
-const SecondNameInputContainer = styled.div`
- height: 100px;
-  width: 300px;
-  display: flex;
-justify-content: center;
-flex-direction: column;
-`
 
 const FirstNameInputContainer = styled.div`
   height: 100px;
-  width: 300px;
+  width: 100%;
   display: flex;
 justify-content: center;
 flex-direction: column;
@@ -244,6 +287,8 @@ const InputField = styled.div`
   width: 100%;
   padding: 10px 0px;
   margin-top: 30px;
+  position: relative;
+  /* background-color: blue; */
   
   input{
     border-radius: 5px;
@@ -313,15 +358,15 @@ const Form = styled.form`
   height: auto;
   width: 620px;
   padding-top: 40px;
+  overflow: hidden;
+  /* background-color: blue; */
   
   @media screen and (max-width: 960px){
     width: 620px;
-    /* box-shadow: 1px 2px 10px 1px rgba(177, 177, 177, 0.5); */
     padding: 10px;
     padding-left: 15px;
     border-radius: 10px;
     padding-top: 40px;
-    width: 620px;
 }
 
 
@@ -330,7 +375,6 @@ const Form = styled.form`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding-top: 170px;
   width: auto;
 }
 `

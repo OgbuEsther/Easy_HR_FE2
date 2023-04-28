@@ -4,9 +4,19 @@ import { NavLink } from "react-router-dom";
 import { BiMenuAltRight } from "react-icons/bi";
 import logos from "../../Assets/easyhr.jpeg"
 import {Link} from "react-scroll"  
+import {BsFillArrowDownCircleFill } from "react-icons/bs"
 
 const Header = () => {
   const [scroll, setScroll] = useState<Boolean>(false);
+  const [show1,setShow1] = React.useState(false)
+
+  const changeBG = () => {
+    if (window.scrollY >= 80){
+      setShow1(true);
+    }else{
+      setShow1(false)
+    }
+  }
 
   const[show,setshow] = React.useState(false)
 
@@ -27,6 +37,8 @@ const Header = () => {
   };
 
   window.addEventListener("scroll", changeHeaderColor);
+
+  window.addEventListener("scroll",changeBG)
   
 
   return (
@@ -107,12 +119,12 @@ const Header = () => {
             </NavWrapper>
 
             <SignDiv>
-              <NavLink to="/sign-in">
+              <NavLink to="/sign-in-option">
               <Button1>
                 Log In
                 </Button1>
               </NavLink>
-              <NavLink to="/sign-up">
+              <NavLink to="/sign-up-option">
               <Button1>
                   Sign Up
                 </Button1>
@@ -168,6 +180,13 @@ const Header = () => {
               </HambeggerMenu>
             ):null
           }
+            {show1 ? null : (
+          <Link offset={-100} smooth={true} duration={500} to="footer">
+            <ScroolToButton>
+              <BsFillArrowDownCircleFill />
+            </ScroolToButton>
+          </Link>
+        )}
         </Container>
       )}
     </>
@@ -175,6 +194,47 @@ const Header = () => {
 };
 
 export default Header;
+const ScroolToButton = styled.div`
+  /* padding: 16px 17px; */
+  border-radius: 50%;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: mover 1s infinite alternate;
+  animation: mover 1s infinite alternate;
+  -webkit-animation: mover 1s infinite alternate;
+  animation: mover 1s infinite alternate;
+  background-color: #00244E;
+  @-webkit-keyframes mover {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-10px);
+    }
+  }
+  @keyframes mover {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-10px);
+    }
+  }
+  right: 1%;
+  font-size: 30px;
+  box-shadow: #8a2be2 0px 8px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: fixed;
+  bottom: 2%;
+  @media screen and (max-width: 768px) {
+    right: 3%;
+  }
+`
+
 const Button1 = styled.button`
   width: 130px;
   height: 40px;

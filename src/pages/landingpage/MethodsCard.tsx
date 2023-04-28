@@ -108,8 +108,8 @@ border-radius:5px;
 transition:all 350ms smooth;
 
 :hover{
-  border:2px solid blue;
-  transform: scale(0.98);
+  border:1px solid #00244E;
+  /* transform: scale(1.00); */
 }
 
 @media screen and (max-width:500px) {
