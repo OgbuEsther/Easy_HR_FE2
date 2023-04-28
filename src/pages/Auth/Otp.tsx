@@ -63,7 +63,7 @@ const Otp: React.FC<Props> = (props): JSX.Element => {
               </div>
 
               <button className='w-4/5 h-12 bg-blue-700 rounded mt-5 text-white cursor-pointer'>Verify</button>
-              <div className=''>Resend OTP</div>
+              <div className=' mt-2 cursor-pointer'>Resend OTP</div>
                   
               </div>
           </div>
