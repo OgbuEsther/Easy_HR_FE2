@@ -1,37 +1,51 @@
 import React from 'react'
 import styled from 'styled-components'
 import { AiOutlineHome } from "react-icons/ai"
+import pic from "../../Assets/schoolgirl.png"
 
 const Schoolfeesfile = () => {
   return (
       <Container>
           <Wrapper>
-              <Top><h3>School Fees</h3></Top>
+             <One>
+             <Top><h3>School Fees</h3></Top>
 
-  <Box>
-              <p>Total Balance</p>
-              <h3>NGN 0.00</h3>
-              <Div></Div>
-              <Down>
-                  <AiOutlineHome />
-            <p>Withdraw</p>
-              </Down>
-          </Box>
-          <Transact>
-              <Up>Transaction</Up>
-              <Buttonhold>
-                  <Buttons>Credit</Buttons>
-                  <Buttons2>Debit</Buttons2>
-              </Buttonhold>
-              <Div></Div>
-              <Last>No transactions to display for now</Last>
-          </Transact>
+<Box>
+            <p>Total Balance :</p>
+            <h3>NGN 0.00</h3>
+            <Div></Div>
+            <Down>
+                <AiOutlineHome />
+          <p>Withdraw</p>
+            </Down>
+        </Box>
+        <Transact>
+            <Up>Transaction</Up>
+            <Buttonhold>
+                <Buttons>Credit</Buttons>
+                <Buttons2>Debit</Buttons2>
+            </Buttonhold>
+            <Div></Div>
+            <Last>No transactions to display for now</Last>
+        </Transact>
+             </One>
+             <Two>
+                <Img src={pic}/>
+             </Two>
           </Wrapper>
     </Container>
   )
 }
 
 export default Schoolfeesfile
+const Img = styled.img`
+height: 500px;
+object-fit: cover;
+`
+
+const Two = styled.div``
+
+const One = styled.div``
 
 const Last = styled.div`
     font-size: 15px;
@@ -62,7 +76,7 @@ const Buttons = styled.div`
      font-size: 15px;
     justify-content: center;
     align-items: center;
-    background-color: #EF7914;
+    background-color: #00244e;
     color: #fff;
     border-radius: 7px;
 `
@@ -75,7 +89,7 @@ const Buttonhold = styled.div`
 `
 
 const Up = styled.div`
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 500;
    
 `
@@ -131,11 +145,11 @@ const Box = styled.div`
     h3{
         color: #EF7914;
         margin: 0;
-        font-size: 27px;
+        font-size: 30px;
     }
     p{
         color: #9b9b9b;
-        font-size: 14px;
+        font-size:20px;
         margin: 0;
     }
 `
@@ -143,20 +157,24 @@ const Box = styled.div`
 const Top = styled.div`
   h3 {
     margin: 0;
-    font-size: 27px;
+    font-size: 35px;
     color: #8b8b8b;
+    font-weight: 600;
   }
 `;
 
 const Wrapper = styled.div`
     width: 90%;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: row; */
   align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   margin-left: 30px;
   padding-top: 90px;
   padding-left: 30px;
   padding-right: 30px;
+  /* background-color: aliceblue; */
 `
 
 const Container = styled.div`
@@ -165,4 +183,5 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  /* background-color: royalblue; */
 `
