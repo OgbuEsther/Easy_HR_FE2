@@ -46,80 +46,7 @@ const StaffTransactionhome = () => {
               </tr>
             ))}
 
-              {/* <tr>
-              <td>
-                <CirleHold>
-                  <Name>
-                    2020-12-14 22:01:01
-                  </Name>
-                </CirleHold>
-              </td>
-              <td>
-                <Id>
-                  #A3161
-               </Id>
-              </td>
-              <td>
-                <Dat>
-                  $0.00
-               </Dat>
-              </td>
-              <td>
-                <Account>
-                  Received
-               </Account>
-              </td>
-            </tr> */}
-
-              {/* <tr>
-              <td>
-                <CirleHold>
-                  <Name>
-                    2020-12-14 22:01:01
-                  </Name>
-                </CirleHold>
-              </td>
-              <td>
-                <Id>
-                  #A3161
-               </Id>
-              </td>
-              <td>
-                <Dat>
-                  $0.00
-               </Dat>
-              </td>
-              <td>
-                <Account>
-                  Received
-               </Account>
-              </td>
-          </tr>
-          
-          <tr>
-              <td>
-                <CirleHold>
-                  <Name>
-                    2020-12-14 22:01:01
-                  </Name>
-                </CirleHold>
-              </td>
-              <td>
-                <Id>
-                  #A3161
-               </Id>
-              </td>
-              <td>
-                <Dat>
-                  $0.00
-               </Dat>
-              </td>
-              <td>
-                <Account>
-                  Received
-               </Account>
-              </td>
-            </tr> */}
+              
             </table>
 
          
@@ -230,6 +157,7 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+    
     @media screen and (max-width: 768px){
       width: 93%;
     }
