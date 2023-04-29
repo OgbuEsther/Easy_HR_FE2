@@ -109,7 +109,6 @@ console.log("this is getStaff ",getStaff?.data?.data?.wallet)
               <Bold>Dashboard</Bold>
               <button onClick={Toggle}>Credit Wallet</button>
             </Left>
-            <hr />
 
             {show ? (
               <Slidein>
