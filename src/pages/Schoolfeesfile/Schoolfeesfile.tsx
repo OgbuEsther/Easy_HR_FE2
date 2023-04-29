@@ -41,6 +41,7 @@ export default Schoolfeesfile
 const Img = styled.img`
 height: 500px;
 object-fit: cover;
+margin-left: 50px;
 `
 
 const Two = styled.div``
@@ -97,7 +98,7 @@ const Up = styled.div`
 const Transact = styled.div`
     width: 500px;
     display: flex;
-    height: 300px;
+    height: 250px;
     border: 1px solid #d7d7d7;
     border-radius: 12px;
     flex-direction: column;
@@ -169,7 +170,7 @@ const Wrapper = styled.div`
   /* flex-direction: row; */
   align-items: flex-start;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   margin-left: 30px;
   padding-top: 90px;
   padding-left: 30px;
