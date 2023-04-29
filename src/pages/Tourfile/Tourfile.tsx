@@ -10,7 +10,7 @@ const Tourfile = () => {
             <One>
             <Top><h3>Travel $ Tour</h3></Top>
           <Box>
-              <p>Total Balance</p>
+              <p>Total Balance:</p>
               <h3>NGN 0.00</h3>
               <Div></Div>
               <Down>
@@ -66,7 +66,7 @@ const Buttons2 = styled.div`
      margin-left: 13px;
     justify-content: center;
     align-items: center;
-    background-color: #6A3EB7;
+    background-color: #EF7914;
     color: #fff;
     border-radius: 7px;
 `
@@ -78,7 +78,7 @@ const Buttons = styled.div`
      font-size: 15px;
     justify-content: center;
     align-items: center;
-    background-color: #6A3EB7;
+    background-color: #00244e;
     color: #fff;
     border-radius: 7px;
 `
@@ -91,7 +91,7 @@ const Buttonhold = styled.div`
 `
 
 const Up = styled.div`
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 500;
    
 `
@@ -145,13 +145,13 @@ const Box = styled.div`
     flex-direction: column;
     padding-left: 20px;
     h3{
-        color: #6A3EB7;
+        color: #EF7914;
         margin: 0;
-        font-size: 27px;
+        font-size: 30px;
     }
     p{
         color: #9b9b9b;
-        font-size: 14px;
+        font-size: 20px;
         margin: 0;
     }
 `
