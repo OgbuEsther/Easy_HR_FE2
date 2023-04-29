@@ -34,7 +34,7 @@ const AdminCard = () => {
           <Icos>
             <FaGoogleWallet />
           </Icos>
-          <Wallet> Balance</Wallet>
+          <Wallet> Balance:</Wallet>
         </Left>
 
    
