@@ -508,6 +508,7 @@ const Staffs = styled.div`
     p{
         margin-left: 40px;
         color: #e7e7e7;
+        margin-top: 17px;
     }
 `
 const Text2 = styled.div`
