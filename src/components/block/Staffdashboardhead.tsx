@@ -440,7 +440,7 @@ const Container = styled.div`
   background-color: #fff;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   position: fixed;
-  /* z-index: 1; */
+  z-index: 1;
   display: flex;
   justify-content: flex-end;
   @media screen and (max-width: 500px) {
