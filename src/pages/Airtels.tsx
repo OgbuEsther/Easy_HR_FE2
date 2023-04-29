@@ -50,11 +50,6 @@ const Airtels = () => {
                   </Hold>
                   
                   <Hold>
-                    <Up><label htmlFor="">Email address</label></Up>
-                    <Input placeholder='Your email' type="email"/>
-                  </Hold>
-                  
-                  <Hold>
                     <Up><label htmlFor="">Amount</label></Up>
                     <Input placeholder='Enter Amount' type="email"/>
                 </Hold>
@@ -180,7 +175,7 @@ const Top = styled.div`
 
 const Card = styled.div`
   width: 570px;
-  height: 530px;
+  height: 600px;
   background-color: #fff;
   border-radius: 10px;
   padding: 25px;
