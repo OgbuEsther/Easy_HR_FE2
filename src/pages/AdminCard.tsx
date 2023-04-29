@@ -34,7 +34,7 @@ const AdminCard = () => {
           <Icos>
             <FaGoogleWallet />
           </Icos>
-          <Wallet>Wallet Balance</Wallet>
+          <Wallet> Balance</Wallet>
         </Left>
 
    
@@ -44,29 +44,7 @@ const AdminCard = () => {
       
       </Card>
 
-      <Card>
-        <Left2>
-          <Icos>
-            <GiAbstract005 />
-          </Icos>
-          <Wallet>Wallet Number</Wallet>
-        </Left2>
-        <Right>
-          <Bal>NGN</Bal>
-        </Right>
-      </Card>
-
-      <Card>
-        <Left3>
-          <Icos>
-            <GiAbstract007 />
-          </Icos>
-          <Wallet>Company Code</Wallet>
-        </Left3>
-        <Right>
-          <Bal>123456</Bal>
-        </Right>
-      </Card>
+      
       
           {showPopup ? (
               <Popups>
