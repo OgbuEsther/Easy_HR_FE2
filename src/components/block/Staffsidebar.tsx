@@ -209,122 +209,7 @@ const SideBar = () => {
                          </AirtelText>
                         </Airtel>
                       </Box>
-                      <h4>Data Services</h4>
-                      <Box>
-                          <Airtel onClick={ToggleAirtel}>
-                              <Img src={img1} />
-                              <AirtelText>
-                                  <strong>Airtel Data</strong>
-                                  <Text4>Airtel Data - Get instant top up</Text4>
-                              </AirtelText>
-                          </Airtel>
-
-                          <Airtel>
-                            <Img src={img2} />
-                            <AirtelText>
-                                <strong>MTN Data</strong>
-                                <Text4>MTN Data - Get instant Data Top up</Text4>
-                             </AirtelText>
-                          </Airtel>
-                          
-                          <Airtel>
-                            <Img src={img3} />
-                            <AirtelText>
-                                <strong>GLO Data</strong>
-                                <Text4>GLO Data - Get instant Top up</Text4>
-                            </AirtelText>
-                          </Airtel>
-                          
-                          <Airtel>
-                            <Img src={img4} />
-                            <AirtelText>
-                                <strong>9mobile Data</strong>
-                                <Text4>9mobile Data - Get instant Top up</Text4>
-                            </AirtelText>
-                          </Airtel>
-                          
-                          <Airtel>
-                            <Img src={img5} />
-                            <AirtelText>
-                                <strong>Smile Payment</strong>
-                                <Text4>Pay for Smile Airtime and Internet Data</Text4>
-                            </AirtelText>
-                          </Airtel>
-                          
-                          <Airtel>
-                            <Img src={img3} />
-                            <AirtelText>
-                                 <strong>GLO Data</strong>
-                                <Text4>GLO Data - Get instant Top up</Text4>
-                            </AirtelText>
-                          </Airtel>
-                          
-                          <Airtel>
-                            <Img src={img3} />
-                            <AirtelText>
-                                <strong>GLO Data</strong>
-                                <Text4>GLO Data - Get instant Top up</Text4>
-                         </AirtelText>
-                        </Airtel>
-                      </Box>
-                      <h4>Data Services</h4>
-                      <Box>
-                          <Airtel onClick={ToggleAirtel}>
-                              <Img src={img1} />
-                              <AirtelText>
-                                  <strong>Airtel Data</strong>
-                                  <Text4>Airtel Data - Get instant top up</Text4>
-                              </AirtelText>
-                          </Airtel>
-
-                          <Airtel>
-                            <Img src={img2} />
-                            <AirtelText>
-                                <strong>MTN Data</strong>
-                                <Text4>MTN Data - Get instant Data Top up</Text4>
-                             </AirtelText>
-                          </Airtel>
-                          
-                          <Airtel>
-                            <Img src={img3} />
-                            <AirtelText>
-                                <strong>GLO Data</strong>
-                                <Text4>GLO Data - Get instant Top up</Text4>
-                            </AirtelText>
-                          </Airtel>
-                          
-                          <Airtel>
-                            <Img src={img4} />
-                            <AirtelText>
-                                <strong>9mobile Data</strong>
-                                <Text4>9mobile Data - Get instant Top up</Text4>
-                            </AirtelText>
-                          </Airtel>
-                          
-                          <Airtel>
-                            <Img src={img5} />
-                            <AirtelText>
-                                <strong>Smile Payment</strong>
-                                <Text4>Pay for Smile Airtime and Internet Data</Text4>
-                            </AirtelText>
-                          </Airtel>
-                          
-                          <Airtel>
-                            <Img src={img3} />
-                            <AirtelText>
-                                 <strong>GLO Data</strong>
-                                <Text4>GLO Data - Get instant Top up</Text4>
-                            </AirtelText>
-                          </Airtel>
-                          
-                          <Airtel>
-                            <Img src={img3} />
-                            <AirtelText>
-                                <strong>GLO Data</strong>
-                                <Text4>GLO Data - Get instant Top up</Text4>
-                         </AirtelText>
-                        </Airtel>
-                      </Box>
+                      
                   </Popup_content>
                   <Icon onClick={cancelPopup}><AiOutlineClose /></Icon>
               </Popups>
@@ -432,7 +317,7 @@ const AirtelText = styled.div`
 `
 const Airtel = styled.div`
     width: 230px;
-    height: 50px;
+    height: 80px;
     border: 1px solid #CEC2C2;
     padding: 10px;
     display: flex;
@@ -483,7 +368,8 @@ const Popup_content = styled.div`
     font-size: 18px;
     font-weight: 500;
     line-height: 1.3;
-    color: #495463
+    color: #495463;
+    margin-top: 30px;
   }
 `
 const Popups = styled.div`
@@ -508,6 +394,7 @@ const Staffs = styled.div`
     p{
         margin-left: 40px;
         color: #e7e7e7;
+        margin-top: 17px;
     }
 `
 const Text2 = styled.div`
