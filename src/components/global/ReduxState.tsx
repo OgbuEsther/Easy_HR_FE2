@@ -18,10 +18,16 @@ const ReduxState = createSlice({
         },
         Staff: (state, {payload}: PayloadAction<StaffData>)=>{
             state.currentStaff = payload;
+        },
+        logoutAdmin: (state)=> {
+            state.currentUser = null
+        },
+        logoutstaff: (state)=> {
+            state.currentStaff = null
         }
     }
 })
 
-export const {Admin, Staff} = ReduxState.actions;
+export const {Admin, Staff, logoutstaff,logoutAdmin } = ReduxState.actions;
 
 export default ReduxState.reducer;
