@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from "styled-components"
+import img from "../../Assets/hero.jpg"
 
 
 const Superhero = () => {
   return (
       <div className='w-full flex justify-center overflow-hidden'>
-          <div className='w-11/12 flex pt-20 flex-wrap mt-20 bg-gray-400'>
-              jjfjfjfjfj <br />fubfuuhu
+          <div className='w-full h-20 flex flex-wrap mt-20 bg-hero bg-no-repeat bg-cover bg-center justify-center pt-10 pb-10'>
+              
           </div>
       </div>
   )
