@@ -129,13 +129,14 @@ const Holder = styled.div`
   button {
     width: 160%;
     height: 50px;
-    background-color: #3184f7;
+    background-color: red;
     color: #fff;
     border-radius: 5px;
     border: none;
     outline: none;
     margin-top: 60px;
     cursor: pointer;
+    font-size: 16px;
     margin-right: 10px;
   }
 `;
