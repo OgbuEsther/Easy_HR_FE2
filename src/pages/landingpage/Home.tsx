@@ -6,8 +6,10 @@ import img from "../../Assets/hero.jpg"
 const Superhero = () => {
   return (
       <div className='w-full flex justify-center overflow-hidden'>
-          <div className='w-full h-20 flex flex-wrap mt-20 bg-hero bg-no-repeat bg-cover bg-center justify-center pt-10 pb-10'>
-              
+          <div className='w-full h-60 flex flex-wrap mt-20 bg-hero bg-no-repeat bg-cover bg-center'>
+        <div className='w-full h-screen flex bg-black bg-opacity-20'>
+          ffufufuf
+              </div>
           </div>
       </div>
   )
