@@ -1,39 +1,14 @@
 import React from 'react'
 import styled from "styled-components"
-import img from "../../Assets/tick.svg"
-import img3 from "../../Assets/grid.svg"
-import img4 from "../../Assets/her.png"
-import { NavLink } from 'react-router-dom'
+
 
 const Superhero = () => {
   return (
-      <Container id='her'>
-          <Wrapper>
-              <Left>
-                  <Top><h1>Business Payments Made Simple.</h1></Top>
-                  <Down>
-                      <Hold>
-                          <Img src={img} />
-                          <Text><p>EasyHR payment methods</p></Text>
-                      </Hold>
-                      <Hold>
-                          <Img src={img} />
-                          <Text><p>Set up in minutes</p></Text>
-                      </Hold>
-                      <Hold>
-                          <Img src={img} />
-                          <Text><p>No hidden fees</p></Text>
-                      </Hold>
-                      <NavLink to="/sign-up-option" style={{textDecoration: "none"}}>
-                          <Button>Start now</Button>
-                      </NavLink>
-                  </Down>
-              </Left>
-              <Right>
-                  <Img2 src={img4} />
-              </Right>
-          </Wrapper>
-    </Container>
+      <div className='w-full flex justify-center overflow-hidden'>
+          <div className='w-11/12 flex pt-20 flex-wrap mt-20 bg-gray-400'>
+              jjfjfjfjfj <br />fubfuuhu
+          </div>
+      </div>
   )
 }
 
@@ -63,7 +38,7 @@ const Right = styled.div`
     width: 48%;
     display: flex;
     /* justify-content: center; */
-    background-image: url(${img3});
+    background-image: url();
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
