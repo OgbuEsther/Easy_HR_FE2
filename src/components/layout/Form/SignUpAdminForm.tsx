@@ -36,8 +36,8 @@ const SignupAdminForm = () => {
 
   const posting = useMutation({
     mutationKey: ["create_Admin"],
-    mutationFn: createAdmin,
-    // mutationFn: (data: any) => createAdmin(data),
+    // mutationFn: createAdmin,
+    mutationFn: (data: any) => createAdmin(data),
 
     onSuccess: (myData) => {
       dispatch(Admin(myData.data))

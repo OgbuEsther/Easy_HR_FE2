@@ -43,11 +43,11 @@ const SignupForm = () => {
 
   const StaffSignUp = useMutation({
     mutationKey:['creating_staff'],
-    mutationFn: createStaff,
-    // mutationFn: (data: any) => createStaff(data),
+    // mutationFn: createStaff,
+    mutationFn: (data: any) => createStaff(data),
 
     onSuccess: (data)=>{
-      // dispatch(Staff(data?.data))
+      dispatch(Staff(data?.data))
       Swal.fire({
               title: "User registered sucessfully",
               html: "redirecting to login",
