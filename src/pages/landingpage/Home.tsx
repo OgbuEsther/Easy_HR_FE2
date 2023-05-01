@@ -2,6 +2,8 @@ import React from 'react'
 
 
 const Superhero = () => {
+
+  
   return (
       <div className='w-full flex justify-center overflow-hidden'>
           <div className='w-full h-60 flex flex-wrap mt-20 bg-hero bg-no-repeat bg-cover bg-center bg-fixed'>
