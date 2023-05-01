@@ -25,238 +25,21 @@ console.log("this is admin",user?._id)
     <div>
       <Container>
         <Wrapper>
-          <Word>
-            <Hold>
-              Attendance <br />
-              <span>
-                <a href="/dashboard">Dashboard</a>/ Attendance
-              </span>
-            </Hold>
-            <Buttonhold>
-              <Button
-                onClick={() => {
-                   axios
-                    .post(`${url}/createattendance/${admin?._id}`)
-                    .then((res) =>{  setToken(res.data.data.setToken)}
-                   
-                    )
-                    .catch((err) =>{
-                      console.log(
-                        `an error occcured while generating token ${err}`
-                      )}
-                    );
-                }}
-              >
-                Generate Token
-              </Button>
-              <Token>{token} </Token>
-            </Buttonhold>
+        <One>
+        <Word>
+        Attendance <br />
+           <span>
+          <a href="/dashboard">
+          Dashboard
+          </a>
+           / Attendance 
+           </span>
           </Word>
-          {/* <Table>
-            <table>
-              <tr>
-                <th>Employee</th>
-                <th>1</th>
-                <th>2</th>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-                <th>7</th>
-                <th>8</th>
-                <th>9</th>
-                <th>10</th>
-                <th>11</th>
-                <th>12</th>
-                <th>13</th>
-                <th>14</th>
-                <th>15</th>
-                <th>16</th>
-                <th>17</th>
-                <th>18</th>
-                <th>19</th>
-                <th>20</th>
-                <th>21</th>
-                <th>22</th>
-                <th>23</th>
-                <th>24</th>
-                <th>25</th>
-                <th>26</th>
-                <th>27</th>
-                <th>28</th>
-                <th>29</th>
-                <th>30</th>
-                <th>31</th>
-              </tr>
-              {getAdmin?.data?.data?.viewUser.map((el: any) => (
-              <tr>
-                <td>
-                  <Circlehold>
-                    <Circle>{el?.yourName?.charAt(0)} </Circle>
-                    <Name>{el?.yourName}</Name>
-                  </Circlehold>
-                </td>
-                <td>
-                  <Icon>
-                    <FcCheckmark />
-                  </Icon>
-                </td>
-                <td>
-                  <Icon>
-                    <FcCheckmark />
-                  </Icon>
-                </td>
-                <td>
-                  <Icon>
-                    <FcCheckmark />
-                  </Icon>
-                </td>
-                <td>
-                  <Icon>
-                    <FcCheckmark />
-                  </Icon>
-                </td>
-                <td>
-                  <Icons>
-                    <GrFormClose />
-                  </Icons>
-                </td>
-                <td>
-                  <Icons>
-                    <GrFormClose />
-                  </Icons>
-                </td>
-                <td>
-                  <Icon>
-                    <FcCheckmark />
-                  </Icon>
-                </td>
-                <td>
-                  <Icon>
-                    <FcCheckmark />
-                  </Icon>
-                </td>
-                <td>
-                  <Icon>
-                    <FcCheckmark />
-                  </Icon>
-                </td>
-                <td>
-                  <Icon>
-                    <FcCheckmark />
-                  </Icon>
-                </td>
-                <td>
-                  <Icon>
-                    <FcCheckmark />
-                  </Icon>
-                </td>
-                <td>
-                  <Icon>
-                    <FcCheckmark />
-                  </Icon>
-                </td>
-                <td>
-                  <Icon>
-                    <FcCheckmark />
-                  </Icon>
-                </td>
-                <td>
-                  <Icon>
-                    <FcCheckmark />
-                  </Icon>
-                </td>
-                <td>
-                  <Icon>
-                    <FcCheckmark />
-                  </Icon>
-                </td>
-                <td>
-                  <Icon>
-                    <FcCheckmark />
-                  </Icon>
-                </td>
-                <td>
-                  <Icon>
-                    <FcCheckmark />
-                  </Icon>
-                </td>
-                <td>
-                  <Icons>
-                    <GrFormClose />
-                  </Icons>
-                </td>
-                <td>
-                  <Icons>
-                    <GrFormClose />
-                  </Icons>
-                </td>
-                <td>
-                  <Icons>
-                    <GrFormClose />
-                  </Icons>
-                </td>
-                <td>
-                  <Icons>
-                    <GrFormClose />
-                  </Icons>
-                </td>
-                <td>
-                  <Icons>
-                    <GrFormClose />
-                  </Icons>
-                </td>
-                <td>
-                  <Icon>
-                    <FcCheckmark />
-                  </Icon>
-                </td>
-                <td>
-                  <Icon>
-                    <FcCheckmark />
-                  </Icon>
-                </td>
-                <td>
-                  <Icon>
-                    <FcCheckmark />
-                  </Icon>
-                </td>
-                <td>
-                  <Icon>
-                    <FcCheckmark />
-                  </Icon>
-                </td>
-                <td>
-                  <Icon>
-                    <FcCheckmark />
-                  </Icon>
-                </td>
-                <td>
-                  <Icon>
-                    <FcCheckmark />
-                  </Icon>
-                </td>
-                <td>
-                  <Icon>
-                    <FcCheckmark />
-                  </Icon>
-                </td>
-                <td>
-                  <Icon>
-                    <FcCheckmark />
-                  </Icon>
-                </td>
-                <td>
-                  <Icon>
-                    <FcCheckmark />
-                  </Icon>
-                </td>
-              </tr>
-     ))}
 
-            </table>
-          </Table> */}
-          
+          <Button>
+            Generate Token
+          </Button>
+        </One>
         </Wrapper>
       </Container>
     </div>
@@ -264,6 +47,15 @@ console.log("this is admin",user?._id)
 };
 
 export default Adminattendance;
+
+const One = styled.div`
+background-color:red;
+width:100%;
+display:flex;
+align-items: center;
+justify-content:space-between;
+`
+
 const Token = styled.div`
   /* color: #fff; */
   margin-left: 20px;
@@ -279,7 +71,7 @@ const Hold = styled.div`
   flex-direction: column;
 `;
 const Button = styled.button`
-  width: 130px;
+  width: 140px;
   height: 40px;
   display: flex;
   justify-content: center;
@@ -289,43 +81,42 @@ const Button = styled.button`
   border-radius: 10px;
   cursor: pointer;
   border: none;
+
 `;
 const Word = styled.div`
+font-weight: 500;
+font-size: 26px;
+color: rgb(31,31,31);
+background-color: rgba(0,0,0,0);
+line-height: 31.2px;
+text-decoration: none solid rgb(31,31,31);
+text-align: start;
+margin-left: 10px;
+display: flex;
+/* align-items: center; */
+flex-direction: column;
+justify-content: flex-start;
+margin-bottom: 30px;
+margin-top: 30px;
+/* background-color: greenyellow; */
+span{
+  color: rgb(51,51,51);
+  background-color: rgba(0,0,0,0);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: normal;
   font-weight: 500;
-  font-size: 26px;
-  width: 100%;
-  color: rgb(31, 31, 31);
-  background-color: rgba(0, 0, 0, 0);
-  line-height: 31.2px;
-  text-decoration: none solid rgb(31, 31, 31);
-  text-align: start;
-  margin-left: 10px;
-  justify-content: space-between;
-  display: flex;
-  align-items: center;
-  /* flex-direction: column; */
-  justify-content: flex-start;
-  margin-bottom: 30px;
-  margin-top: 30px;
-  /* background-color: greenyellow; */
-  span {
-    color: rgb(51, 51, 51);
-    background-color: rgba(0, 0, 0, 0);
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: normal;
-    font-weight: 500;
-    text-decoration: none solid rgb(51, 51, 51);
-    text-align: left;
-  }
+  text-decoration: none solid rgb(51,51,51);
+  text-align: left;
+}
 
-  a {
-    text-decoration: none;
+a{
+  text-decoration: none;
 
-    :hover {
-      color: black;
-    }
+  :hover{
+    color: black;
   }
+}
 `;
 
 const Icons = styled.div`
@@ -421,14 +212,15 @@ const Box = styled.div`
   width: 100%;
 `;
 const Wrapper = styled.div`
-  width: 90%;
+  width: 97%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-left: 30px;
+  /* margin-left: 30px; */
   padding-top: 90px;
   padding-left: 30px;
   padding-right: 30px;
+background-color:yellow;
 `;
 
 const Container = styled.div`
