@@ -29,9 +29,6 @@ SetViewPassword(!ViewPassword)
 
 
 
-    const NavigateToVeficationPageFunction = ()=>{
-      navigate("/verification")
-    }
 
 
 
@@ -137,7 +134,7 @@ SetViewPassword(!ViewPassword)
 <FourtInputColumn>
 
   <SignUpButton>
-    <Button onClick={NavigateToVeficationPageFunction} type='submit'>Sign In</Button>
+    <Button  type='submit'>Sign In</Button>
   </SignUpButton>
 </FourtInputColumn>
 <FifthInputColumn>
