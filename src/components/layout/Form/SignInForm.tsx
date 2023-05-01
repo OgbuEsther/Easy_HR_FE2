@@ -47,7 +47,7 @@ SetViewPassword(!ViewPassword)
   const schema = yup.object({
     companyName: yup.string().required("please enter a valid company's name"),
     email: yup.string().email().required("please enter a valid email"),
-    password: yup.string().min(9).required("please enter a password")
+    password: yup.string().required("please enter a password")
   }).required()
   
   type formData = yup.InferType<typeof schema>
