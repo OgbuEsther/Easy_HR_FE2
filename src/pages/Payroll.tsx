@@ -211,22 +211,22 @@ const Payroll = () => {
       {show ? (
         <Edit>
           <Box>
-            {getAdmin?.data?.data?.viewUser.map((el: any) => (
+            {/* {getAdmin?.data?.data?.viewUser.map((el: any) => ( */}
               <Header>
                 <Imagehold>
-                  <Img2>{`${el?.yourName?.charAt(0)}`} </Img2>
+                  <Img2>hdhdhdh </Img2>
                 </Imagehold>
                 <Nameshold>
-                  <h4>{el?.yourName}</h4>
+                  <h4>hdhdhdhd</h4>
                   <p>Full Time Employee</p>
-                  <p> {el?.companyCode}</p>
+                  <p> yhchchc</p>
                 </Nameshold>
                 <Net>
                   <p>Net Pay</p>
                   <h4>$1,949.26</h4>
                 </Net>
               </Header>
-            ))}
+            {/* ))} */}
             <Earnings>
               <Wrap>
                 <Up>
