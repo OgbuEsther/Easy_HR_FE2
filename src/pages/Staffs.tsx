@@ -9,7 +9,7 @@ import axios from "axios";
 
 const Staffs = () => {
   const user = useAppSelector((state) => state.currentUser);
-  const staff = useAppSelector((state)=> state.currentStaff)
+
   const getAdmin = useQuery({
     queryKey: ["singleAdmin"],
     queryFn: () => getOneAdmin(user?._id),

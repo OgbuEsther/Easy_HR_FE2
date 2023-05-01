@@ -1,12 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { CiSearch } from "react-icons/ci";
-import img from ".././Assets/savio.jpg";
+
 import { AiFillPlusCircle, AiOutlineClose } from "react-icons/ai";
 import { useAppSelector } from "../components/global/Store";
-import { useQuery } from "@tanstack/react-query";
-import { getOneAdmin } from "../utils/Api/ApiCall";
+import {  useQuery } from "@tanstack/react-query";
+import {  getOneAdmin, url } from "../utils/Api/ApiCall";
 import axios from "axios";
+
+
 
 interface data {
   earn: string;
@@ -26,6 +28,17 @@ const Payroll = () => {
   const [inputs2, setinputs2] = React.useState(false);
   const [earnvalue2, setEarnvalue2] = React.useState("");
   const [data2, setData2] = React.useState<data2[]>([]);
+
+  const admin = useAppSelector((state)=> state.currentUser)
+
+
+ const createStaffPayRoll = async(data:any)=>{
+     await axios.post(`${url}/createpayroll/${admin?._id}` , data).then((res)=> {
+      console.log(`this is res.data on payroll ${res}`)
+    })
+}
+
+
 
   let idData: number = data.length + 1;
   const addNewTask = () => {
@@ -341,7 +354,7 @@ const Payroll = () => {
               </Wrap2>
             </Earnings>
             <Confirmhold>
-              <Confirm>Confirm Payment</Confirm>
+              <Confirm onClick={createStaffPayRoll}>Confirm Payment</Confirm>
             </Confirmhold>
 
             <Close onClick={Closes}>
@@ -355,7 +368,7 @@ const Payroll = () => {
 };
 
 export default Payroll;
-const Confirm = styled.div`
+const Confirm = styled.button`
   width: 150px;
   height: 40px;
   display: flex;
