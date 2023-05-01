@@ -7,13 +7,18 @@ import {AiOutlineEyeInvisible} from "react-icons/ai"
 import {AiOutlineEye} from "react-icons/ai"
 import { NavLink } from 'react-router-dom';
 import {useNavigate} from "react-router-dom"
+import { useMutation } from '@tanstack/react-query'
+import { LoginStaff } from '../../../utils/Api/ApiCall'
+import { useDispatch } from 'react-redux'
+import { Staff } from '../../global/ReduxState'
+import Swal from 'sweetalert2'
 
 
 
 
 const SigninForm = () => {
 
-
+const dispatch = useDispatch()
 
   const navigate = useNavigate()
     const [ViewPassword, SetViewPassword] = useState(false)
@@ -40,11 +45,9 @@ SetViewPassword(!ViewPassword)
 
 
   const schema = yup.object({
-    firstName: yup.string().required(),
-    lastName: yup.string().required(),
-    companyName: yup.string().required(),
-    email: yup.string().email().required(),
-    password: yup.string().min(9).required()
+    companyName: yup.string().required("please enter a valid company's name"),
+    email: yup.string().email().required("please enter a valid email"),
+    password: yup.string().min(9).required("please enter a password")
   }).required()
   
   type formData = yup.InferType<typeof schema>
@@ -53,7 +56,42 @@ SetViewPassword(!ViewPassword)
     resolver: yupResolver(schema)
   })
   
-  const Submit = handleSubmit(()=>{
+
+  const loginin = useMutation({
+    mutationKey: ["login"],
+    mutationFn: LoginStaff,
+
+
+
+    onSuccess: (myData) => {
+      dispatch(Staff(myData.data));
+
+      Swal.fire({
+        title: "Login succesful",
+        html: "Taking you to your dashboard",
+        timer: 1000,
+        timerProgressBar: true,
+
+        didOpen: () => {
+          Swal.showLoading();
+        },
+
+        willClose: () => {
+          navigate("/admindashboard");
+        },
+      });
+    },
+    onError: (error: any) => {
+      Swal.fire({
+        title: "registration failed",
+        text: "email or password incorrect",
+        icon: "error",
+      });
+    },
+});
+
+  const Submit = handleSubmit(async(data)=>{
+    loginin.mutate(data)
     reset()
   })
 
@@ -65,27 +103,34 @@ SetViewPassword(!ViewPassword)
 {/* <SignUpDescription>Pay smart and save time with Easy Pay</SignUpDescription> */}
 <SignUpDescription>You will be signed in as a Staff</SignUpDescription>
 
-<InputField>
+<InputField onSubmit={Submit}>
 
 <CompanyNameInputHold>
     
-    <CompanyNameInput placeholder='Company Name'/>
+    <CompanyNameInput {...register("companyName")} placeholder='Company Name'/>
+    <span>{errors?.email && errors?.companyName?.message}</span>
+
 </CompanyNameInputHold>
 
 <EmailInputColumn>
   
-    <EmailInput placeholder='Email Address'/>
+    <EmailInput {...register("email")} placeholder='Email Address'/>
+    <span>{errors?.email && errors?.email?.message}</span>
 
 </EmailInputColumn>
 <CompanyPasswordColumn>
     
     <CompanyPasswordInputHold>
-    <CompanyPasswordInput placeholder='Password' type={ViewPassword? "text":"password"} />
+    <CompanyPasswordInput {...register("password")}placeholder='Password' type={ViewPassword? "text":"password"} />
+    <span>{errors?.email && errors?.password?.message}</span>
+
     </CompanyPasswordInputHold>
 
     <ShowPasswordAndForgetPassword>
 <ShowPassword onClick={ViewPasswordFunction}>
   <ShowPasswordInput  type='checkbox' checked={ViewPassword}/>
+              <span>{errors?.email && errors?.password?.message}</span>
+
   <ShowPasswordText>
     show password
   </ShowPasswordText>
@@ -207,7 +252,7 @@ height: auto;
 width: auto;
 `
 
-const InputField = styled.div`
+const InputField = styled.form`
   height: auto;
   width: 90%;
   padding: 10px 0px;
