@@ -150,15 +150,15 @@ const Payroll = () => {
 
         {searchProps.length === 0 ? (
           <>
-            {getAdmin?.data?.data?.viewUser.map((el: any) => (
+            {/* {getAdmin?.data?.data?.viewUser.map((el: any) => ( */}
               <Table2>
                 <Lists>
                   <Name2>
                     <Circlehold>
                       <Circle>
-                        <Img>{`${el?.yourName?.charAt(0)}`} </Img>
+                        <Img> </Img>
                       </Circle>
-                      <Id>{el?.yourName}</Id>
+                      <Id>1234</Id>
                     </Circlehold>
                   </Name2>
                   <Gross2>$3,125.00</Gross2>
@@ -171,21 +171,21 @@ const Payroll = () => {
                   </Status2>
                 </Lists>
               </Table2>
-            ))}
+            {/* ))} */}
           </>
         ) : (
           <>
             {searchProps?.length >= 1 ? (
               <>
-                {searchProps?.map((el: any) => (
+                {/* {searchProps?.map((el: any) => ( */}
                   <Table2>
                     <Lists>
                       <Name2>
                         <Circlehold>
                           <Circle>
-                            <Img>{`${el?.yourName?.charAt(0)}`} </Img>
+                            <Img></Img>
                           </Circle>
-                          <Id>{el?.yourName}</Id>
+                          <Id>hfhfh</Id>
                         </Circlehold>
                       </Name2>
                       <Gross2>$3,125.00</Gross2>
@@ -198,7 +198,7 @@ const Payroll = () => {
                       </Status2>
                     </Lists>
                   </Table2>
-                ))}
+                {/* ))} */}
               </>
             ) : (
               <>
