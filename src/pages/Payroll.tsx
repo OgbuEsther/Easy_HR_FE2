@@ -336,7 +336,7 @@ const Payroll = () => {
                   <Icon>
                     <AiFillPlusCircle />
                   </Icon>
-                  <Adds onClick={Editing2}>Add Earnings</Adds>
+                  <Adds onClick={Editing2}>Add Deduction</Adds>
                 </Add>
               </Wrap2>
             </Earnings>
