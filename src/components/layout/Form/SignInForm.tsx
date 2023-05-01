@@ -77,7 +77,7 @@ SetViewPassword(!ViewPassword)
         },
 
         willClose: () => {
-          navigate("/admindashboard");
+          navigate("/staffdashboard");
         },
       });
     },
@@ -108,7 +108,7 @@ SetViewPassword(!ViewPassword)
 <CompanyNameInputHold>
     
     <CompanyNameInput {...register("companyName")} placeholder='Company Name'/>
-    <span>{errors?.email && errors?.companyName?.message}</span>
+    <span>{errors?.companyName && errors?.companyName?.message}</span>
 
 </CompanyNameInputHold>
 
@@ -122,14 +122,14 @@ SetViewPassword(!ViewPassword)
     
     <CompanyPasswordInputHold>
     <CompanyPasswordInput {...register("password")}placeholder='Password' type={ViewPassword? "text":"password"} />
-    <span>{errors?.email && errors?.password?.message}</span>
+    <span>{errors?.password && errors?.password?.message}</span>
 
     </CompanyPasswordInputHold>
 
     <ShowPasswordAndForgetPassword>
 <ShowPassword onClick={ViewPasswordFunction}>
   <ShowPasswordInput  type='checkbox' checked={ViewPassword}/>
-              <span>{errors?.email && errors?.password?.message}</span>
+              <span>{errors?.password && errors?.password?.message}</span>
 
   <ShowPasswordText>
     show password

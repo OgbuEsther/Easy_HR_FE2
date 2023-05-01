@@ -19,6 +19,12 @@ export const LoginAdmin = async(data:any)=>{
     {return res.data})
 }
 
+export const LoginStaff = async(data:any)=>{
+    return await axios.post(`${url}/${staffUrl}/login`,data).then((res)=>
+    {return res.data})
+}
+
+
 
 export const createStaff = async(data: StaffData)=>{
     return await axios.post(`${url}/staff/staffregister`,data).then((res)=>{
