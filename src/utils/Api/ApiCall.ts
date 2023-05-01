@@ -64,6 +64,17 @@ export const genAttendanceToken = async(adminId:string)=>{
     return await axios.post(`${url}/createattendance/${adminId}`)
 }
 
+//staff to clock in
+
+export const punchIn = async(staffId:string , timeId:string)=>{
+    return await axios.post(`${url}/clockin/${staffId}/${timeId}`)
+}
+
+//staff to clock out
+export const punchOut = async(staffId:string , timeId:string)=>{
+    return await axios.post(`${url}/clockout/${staffId}/${timeId}`)
+}
+
 /**export const deactiavteAStaff = async()=>{
   return await axios.delete(`https://easyhr.onrender.com/api/staff/deactivateStaff/${staff?._id}/${user?._id}`).then((res)=>{
     console.log(res.data)
