@@ -4,7 +4,7 @@ import { FaGoogleWallet } from "react-icons/fa";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import Cards from "./Cards";
-import Pies from "./Pies";
+// import Pies from "./Pies";
 import {  BsFillHousesFill, BsBusFront } from "react-icons/bs";
 import img from "../Assets/saves.svg"
 import { useAppSelector } from "../components/global/Store";
@@ -171,10 +171,10 @@ console.log("this is getStaff ",getStaff?.data?.data?.wallet)
           <Mobilecard />
           <Down>
             <Piehold>
-                          <Pee>
+                          {/* <Pee>
                               <Title>Transaction Chart</Title>
                               <Pies />
-                          </Pee>
+                          </Pee> */}
                       </Piehold>
                       <Planhold>
                           <Img src={img} />
