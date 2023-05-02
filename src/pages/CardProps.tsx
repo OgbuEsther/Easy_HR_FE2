@@ -31,7 +31,6 @@ const CardProps:React.FC<IProps> = ({img,name,title}) => {
            <Icon>
             <BsThreeDotsVertical 
             onClick={()=>{
-              
                  axios.delete(`https://easyhr.onrender.com/api/staff/deactivateStaff/${staff?._id}/${user?._id}`).then((res)=>{
                   console.log(res.data)
                   // window.location.reload()

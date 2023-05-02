@@ -11,6 +11,7 @@ import { UseAppDispach } from '../../global/Store'
 import { useMutation } from '@tanstack/react-query'
 import { LoginAdmin } from '../../../utils/Api/ApiCall'
 import { Admin } from '../../global/ReduxState'
+import Swal from 'sweetalert2'
 
 
 const SigninForm = () => {
@@ -28,17 +29,14 @@ SetViewPassword(!ViewPassword)
 
 
 
-    const NavigateToVeficationPageFunction = ()=>{
-      navigate("/verification")
-    }
 
 
 
-  const schema = yup.object({
-    companyname: yup.string().required(),
-    email: yup.string().email().required(),
-    password: yup.string().min(9).required()
-  }).required()
+    const schema = yup.object({
+      companyName: yup.string().required("please enter a valid company's name"),
+      email: yup.string().email().required("please enter a valid email"),
+      password: yup.string().min(9).required("please enter a password")
+    }).required()
   
   type formData = yup.InferType<typeof schema>
   
@@ -49,18 +47,40 @@ SetViewPassword(!ViewPassword)
   
   const LoginAdminFunction = useMutation({
     mutationKey: ["login_admin"],
-    // mutationFn: LoginAdmin,
-    mutationFn: (data: any) => LoginAdmin(data),
+    mutationFn: LoginAdmin,
+    // mutationFn: (data: any) => LoginAdmin(data),
 
-    onSuccess(data) {
-        console.log(data);
-        dispatch(Admin(data.data));
-        NavigateToVeficationPageFunction()
+    onSuccess(myData) {
+        // console.log(data);
+        dispatch(Admin(myData.data));
+        // NavigateToVeficationPageFunction()
         
+     
+       Swal.fire({
+        title: "Login succesful",
+        html: "Taking you to your dashboard",
+        timer: 1000,
+        timerProgressBar: true,
+
+        didOpen: () => {
+          Swal.showLoading();
+        },
+
+        willClose: () => {
+          navigate("/dashboard");
+        },
+      });
+    },
+    onError: (error: any) => {
+      Swal.fire({
+        title: "registration failed",
+        text: "email or password incorrect",
+        icon: "error",
+      });
     },
   })
 
-  console.log(LoginAdminFunction);
+  // console.log(LoginAdminFunction);
   
   
   const Submit = handleSubmit((data)=>{
@@ -71,32 +91,37 @@ SetViewPassword(!ViewPassword)
 
   return (
 
-        <Form onSubmit={Submit}>
+        <Form >
 <SignUpTitle>Sign In</SignUpTitle>
 {/* <SignUpDescription>Pay smart and save time with Easy Pay</SignUpDescription> */}
 <SignUpDescription>You will be signed in as an Admin</SignUpDescription>
 
-<InputField>
+<InputField onSubmit={Submit}>
 
 <CompanyNameInputHold>
     
-    <CompanyNameInput {...register("companyname")} placeholder='Company Name'/>
+    <CompanyNameInput {...register("companyName")} placeholder='Company Name'/>
+    <span>{errors?.companyName && errors?.companyName?.message}</span>
 </CompanyNameInputHold>
+
 
 <EmailInputColumn>
   
     <EmailInput {...register("email")} placeholder='Email Address'/>
+    <span>{errors?.email && errors?.email?.message}</span>
 
 </EmailInputColumn>
 <CompanyPasswordColumn>
     
     <CompanyPasswordInputHold>
     <CompanyPasswordInput type={ViewPassword? "text":"password"}  {...register("password")} placeholder='Password'/>
+    <span>{errors?.password && errors?.password?.message}</span>
     </CompanyPasswordInputHold>
 
     <ShowPasswordAndForgetPassword>
 <ShowPassword onClick={ViewPasswordFunction}>
-  <ShowPasswordInput  type='checkbox' checked={ViewPassword}/>
+  <ShowPasswordInput  type='checkbox' {...register("password")} checked={ViewPassword}/>
+  <span>{errors?.password && errors?.password?.message}</span>
   <ShowPasswordText>
     show password
   </ShowPasswordText>
@@ -109,7 +134,7 @@ SetViewPassword(!ViewPassword)
 <FourtInputColumn>
 
   <SignUpButton>
-    <Button onClick={NavigateToVeficationPageFunction} type='submit'>Sign In</Button>
+    <Button  type='submit'>Sign In</Button>
   </SignUpButton>
 </FourtInputColumn>
 <FifthInputColumn>
@@ -213,7 +238,7 @@ height: auto;
 width: auto;
 `
 
-const InputField = styled.div`
+const InputField = styled.form`
   height: auto;
   width: 90%;
   padding: 10px 0px;

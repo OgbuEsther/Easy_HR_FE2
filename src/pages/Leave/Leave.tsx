@@ -3,7 +3,6 @@ import { MdOutlineCancel } from "react-icons/md";
 import { FaGoogleWallet } from "react-icons/fa";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import DashBoardCardProps from "./DashBoardCardProps";
 import { FaJediOrder } from "react-icons/fa";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { GiHypersonicMelon } from "react-icons/gi";
@@ -12,10 +11,13 @@ import {
   AiOutlineDeploymentUnit,
   AiFillDashboard,
 } from "react-icons/ai";
-import { useAppSelector } from "../components/global/Store";
+import { useAppSelector } from "../../components/global/Store";
 import { useQuery } from "@tanstack/react-query";
-import { getOneAdmin } from "../utils/Api/ApiCall";
-import AdminCard from "./AdminCard";
+import { getOneAdmin } from "../../utils/Api/ApiCall";
+// import { useAppSelector } from "../components/global/Store";
+// import { useQuery } from "@tanstack/react-query";
+// import { getOneAdmin } from "../utils/Api/ApiCall";
+// import AdminCard from "./AdminCard";
 
 const ParentComp = () => {
   const [show, setShow] = React.useState(false);
@@ -47,9 +49,9 @@ const ParentComp = () => {
                 <Icn>
                   <AiFillDashboard />
                 </Icn>
-                Dashboard
+               On Leave
               </Bold>
-              <button onClick={Toggle}>Credit Wallet</button>
+              <button onClick={Toggle}>Create Leave</button>
             </Left>
             <hr />
 
@@ -60,56 +62,30 @@ const ParentComp = () => {
                     <MdOutlineCancel />
                   </Icon>
                   <Card2>
-                    <Circle>
+                    {/* <Circle>
                       <FaGoogleWallet />
-                    </Circle>
-                    {getAdmin?.data?.data?.wallet?.map((el: any) => (
+                    </Circle> */}
+                   
                       <Wallet>
-                        <p>Wallet Balance</p>
-                        <h3>NGN:{el?.balance} </h3>
+                        <h4>Create leave types</h4>
+                       
                       </Wallet>
-                    ))}
+                   
                   </Card2>
 
                   <Tap>
-                    <h3>Admin Details: </h3>
-                    <p>
-                      Wallet number <strong>{admin?.walletNumber} </strong>
-                    </p>
+                    <h3>Leave Title</h3>
+                    <input type="text" placeholder="e.g maternity leave"/>
+                    <h3>Number of days</h3>
+                    <input type="text" placeholder="e.g june 5- july 5 " />
                   </Tap>
 
-                  <Tap2>
-                    <p>
-                      Company name: <strong>{admin?.companyname}</strong>
-                    </p>
-                  </Tap2>
-
-                  <Tap2>
-                    <p>
-                      Company code: <strong>{admin?.companyCode} </strong>
-                    </p>
-                  </Tap2>
-
-                  <Tap2>
-                    <p>
-                      Admin name: <strong>{admin?.yourName} </strong>
-                    </p>
-                  </Tap2>
-
-                  <Holder>
-                    <NavLink to="/payment" style={{ textDecoration: "none" }}>
-                      <button>Credit wallet</button>
-                    </NavLink>
-
-                    <NavLink to="/payout" style={{ textDecoration: "none" }}>
-                      <button>Withdraw to bank</button>
-                    </NavLink>
-                  </Holder>
+                    <button>Create</button>
                 </Wallets>
               </Slidein>
             ) : null}
           </Top>
-           <AdminCard/>
+           <One></One>
 
          
         </Wrapper>
@@ -119,6 +95,9 @@ const ParentComp = () => {
 };
 
 export default ParentComp;
+
+const One = styled.div``
+
 const CardHold = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -126,19 +105,7 @@ const CardHold = styled.div`
 
 const Holder = styled.div`
   display: flex;
-  button {
-    width: 160%;
-    height: 50px;
-    background-color: red;
-    color: #fff;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    margin-top: 60px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-right: 10px;
-  }
+  
 `;
 
 const Tap2 = styled.div`
@@ -162,8 +129,14 @@ const Tap2 = styled.div`
 `;
 
 const Tap = styled.div`
+input{
+  border: 0.5px solid #7eb0f5;
+  border-radius: 3px;
+  outline: 1px solid #3184f7;
+}
   h3 {
     margin: 0;
+    margin-bottom: 6px;
     font-size: 19px;
     font-weight: 500;
   }
@@ -187,15 +160,27 @@ const Wallet = styled.div`
   flex-direction: column;
   margin-left: 18px;
   margin-top: 15px;
-  p {
-    color: #fff;
-    margin: 0;
-  }
-  h3 {
+  
+  h4 {
     color: #fff;
     margin-top: 5px;
     font-size: 23px;
+    font-weight: bold;
   }
+  // button {
+  //   width: 160%;
+  //   height: 50px;
+  //   background-color: red;
+  //   color: #fff;
+  //   border-radius: 5px;
+  //   border: none;
+  //   outline: none;
+  //   margin-top: 60px;
+  //   cursor: pointer;
+  //   font-size: 16px;
+  //   margin-right: 10px;
+  //   margin-top: 30px;
+  // }
 `;
 
 const Circle = styled.div`
@@ -214,7 +199,7 @@ const Card2 = styled.div`
   width: 300px;
   height: 150px;
   margin-top: 30px;
-  background-color: #00244e;
+  background-color:#3184f7;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -239,6 +224,9 @@ const Wallets = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
+  button{
+    margin-top: 30px;
+  }
 `;
 
 const Slidein = styled.div`
@@ -296,7 +284,7 @@ const Top = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #00244e;
+    background-color: #3434f8;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;

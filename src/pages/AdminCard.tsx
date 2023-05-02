@@ -9,6 +9,7 @@ import { AiOutlineClose } from "react-icons/ai"
 import Airtels from './Airtels'
 import { FaGoogleWallet } from "react-icons/fa"
 import {RiNumbersFill} from "react-icons/ri"
+import {GiAbstract007, GiAbstract005} from "react-icons/gi"
 import { useAppSelector } from '../components/global/Store'
 import { useQuery } from '@tanstack/react-query'
 import { getOneStaff } from '../utils/Api/ApiCall'
@@ -33,7 +34,7 @@ const AdminCard = () => {
           <Icos>
             <FaGoogleWallet />
           </Icos>
-          <Wallet>Wallet Balance</Wallet>
+          <Wallet> Balance:</Wallet>
         </Left>
 
    
@@ -43,29 +44,7 @@ const AdminCard = () => {
       
       </Card>
 
-      <Card>
-        <Left2>
-          <Icos>
-            <RiNumbersFill />
-          </Icos>
-          <Wallet>Wallet Number</Wallet>
-        </Left2>
-        <Right>
-          <Bal>NGN</Bal>
-        </Right>
-      </Card>
-
-      <Card>
-        <Left3>
-          <Icos>
-            <RiNumbersFill />
-          </Icos>
-          <Wallet>company Code</Wallet>
-        </Left3>
-        <Right>
-          <Bal>123456</Bal>
-        </Right>
-      </Card>
+      
       
           {showPopup ? (
               <Popups>

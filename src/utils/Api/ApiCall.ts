@@ -1,12 +1,12 @@
 import axios from "axios";
-import { AdminData } from "../../types/AllInterfaces";
+import { AdminData, AttendanceData } from "../../types/AllInterfaces";
 import { StaffData } from "../../types/AllInterfaces";
+import { log } from "console";
 
 export const url = "https://easyhr.onrender.com/api"
 
 const adminUrl ="admin"
 
-const staffUrl = "staff"
 
 export const createAdmin = async(data:AdminData)=>{
     return await axios.post(`${url}/${adminUrl}/register`,data).then((res)=>{
@@ -18,6 +18,12 @@ export const LoginAdmin = async(data:any)=>{
     return await axios.post(`${url}/${adminUrl}/login`,data).then((res)=>
     {return res.data})
 }
+
+export const LoginStaff = async(data:any)=>{
+    return await axios.post(`${url}/${staffUrl}/login`,data).then((res)=>
+    {return res.data})
+}
+
 
 
 export const createStaff = async(data: StaffData)=>{
@@ -39,8 +45,8 @@ export const getOneStaff = async(id:any)=>{
 
 //create payroll
 
-export const createStaffPayRoll = async(data:{})=>{
-    return await axios.post(`${url}/createpayroll` , data).then((res)=> res.data)
+export const createStaffPayRoll = async(data:{} , id:string)=>{
+    return await axios.post(`${url}/createpayroll/${id}` , data).then((res)=> res.data)
 }
 
 //staff deactivation
@@ -56,6 +62,13 @@ export const deactiavteAStaff = async(staffId:any , adminId:any)=>{
 
 export const genAttendanceToken = async(adminId:string)=>{
     return await axios.post(`${url}/createattendance/${adminId}`)
+}
+
+
+// Staff ClockIn
+export const staffClockIn = async(data: AttendanceData , staffId : any) =>{
+
+
 }
 
 /**export const deactiavteAStaff = async()=>{

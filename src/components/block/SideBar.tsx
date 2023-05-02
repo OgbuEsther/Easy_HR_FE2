@@ -108,6 +108,22 @@ const SideBar = () => {
           <Text3>Transaction</Text3>
         </NavLink>
       </Home2>
+      <Home2>
+        <Icon2>
+          <GiMoneyStack />
+        </Icon2>
+        <NavLink
+          to="/dashboard/leave"
+          style={({ isActive }) => {
+            return {
+              textDecoration: isActive ? "none" : "none",
+              color: isActive ? "#2AA7FF" : "#3e4956",
+            };
+          }}
+        >
+          <Text3>Leave</Text3>
+        </NavLink>
+      </Home2>
 
       <Power>
         <Icon2>

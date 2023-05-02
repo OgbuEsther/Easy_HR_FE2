@@ -1,14 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 import { AiOutlineHome } from "react-icons/ai"
+import pic from "../../Assets/travel1.webp"
 
 const Tourfile = () => {
   return (
       <Container>
           <Wrapper>
-              <Top><h3>Travel $ Tour</h3></Top>
+            <One>
+            <Top><h3>Travel $ Tour</h3></Top>
           <Box>
-              <p>Total Balance</p>
+              <p>Total Balance:</p>
               <h3>NGN 0.00</h3>
               <Div></Div>
               <Down>
@@ -25,12 +27,27 @@ const Tourfile = () => {
               <Div></Div>
               <Last>No transactions to display for now</Last>
           </Transact>
+            </One>
+            <Two>
+                <Img src={pic}/>
+             </Two>
           </Wrapper>
     </Container>
   )
 }
 
 export default Tourfile
+
+const Img = styled.img`
+height: 500px;
+object-fit: cover;
+margin-left: 50px;
+/* border-radius: 30%; */
+`
+
+const Two = styled.div``
+
+const One = styled.div``
 
 const Last = styled.div`
     font-size: 15px;
@@ -49,7 +66,7 @@ const Buttons2 = styled.div`
      margin-left: 13px;
     justify-content: center;
     align-items: center;
-    background-color: #6A3EB7;
+    background-color: #EF7914;
     color: #fff;
     border-radius: 7px;
 `
@@ -61,7 +78,7 @@ const Buttons = styled.div`
      font-size: 15px;
     justify-content: center;
     align-items: center;
-    background-color: #6A3EB7;
+    background-color: #00244e;
     color: #fff;
     border-radius: 7px;
 `
@@ -74,7 +91,7 @@ const Buttonhold = styled.div`
 `
 
 const Up = styled.div`
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 500;
    
 `
@@ -128,13 +145,13 @@ const Box = styled.div`
     flex-direction: column;
     padding-left: 20px;
     h3{
-        color: #6A3EB7;
+        color: #EF7914;
         margin: 0;
-        font-size: 27px;
+        font-size: 30px;
     }
     p{
         color: #9b9b9b;
-        font-size: 14px;
+        font-size: 20px;
         margin: 0;
     }
 `
@@ -142,16 +159,19 @@ const Box = styled.div`
 const Top = styled.div`
   h3 {
     margin: 0;
-    font-size: 27px;
+    font-size: 35px;
     color: #8b8b8b;
+    font-weight: 600;
   }
 `;
 
 const Wrapper = styled.div`
     width: 90%;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: flex-start;
+  align-items: center;
+  justify-content: space-evenly;
   margin-left: 30px;
   padding-top: 90px;
   padding-left: 30px;
