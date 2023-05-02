@@ -28,6 +28,16 @@ const WorkName = styled.div``
 
 const Img = styled.div``
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+/* height:390px; */
+width:90%;
+`
 
-const Container = styled.div``
+const Container = styled.div`
+/* height: 400px; */
+width: 100%;
+background-color:blanchedalmond;
+`

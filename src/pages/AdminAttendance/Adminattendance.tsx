@@ -326,7 +326,9 @@ const Top = styled.div`
 
 const Box = styled.div`
   display: flex;
+  height:500px;
   width: 100%;
+  margin-top: 30px;
 `;
 const Wrapper = styled.div`
   width: 97%;
