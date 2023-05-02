@@ -19,17 +19,6 @@ const SigninForm = () => {
   const navigate = useNavigate();
 
   const [ViewPassword, SetViewPassword] = useState(false);
-  const dispatch = UseAppDispach()
-  const navigate = useNavigate()
-
-    const [ViewPassword, SetViewPassword] = useState(false)
-
-    const ViewPasswordFunction = ()=>{
-SetViewPassword(!ViewPassword)
-
-
-    }
-
 
 
   const ViewPasswordFunction = () => {
