@@ -87,20 +87,13 @@ setShow(false);
                       <FaAlipay/>
                       </Icons>
                    
-                     Attendane History
+                     Attendance History
                     </Buttons>
                   
                 </ButtonsHold>
 
-              <Box>
-                {
-                show ? (
-                  <div>
-                  <AbsentUserProps/>
-                  </div>
-                )
-                :null
-              }
+              {/* <Box> */}
+                
                 {
                 show2 ? (
                   <div>
@@ -117,10 +110,18 @@ setShow(false);
                 )
                 :null
               }
-              </Box>
+              {/* </Box>/ */}
         
         
         </Wrapper>
+        {
+                show ? (
+                  <div>
+                  <AbsentUserProps/>
+                  </div>
+                )
+                :null
+              }
       </Container>  
     </div>
   );

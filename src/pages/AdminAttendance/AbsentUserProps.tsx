@@ -5,11 +5,12 @@ const AbsentUserProps = () => {
   return (
     <div>
       <Container>
-        <Wrapper>
-          <Title>
+       
+             <Title>
             List Of All Staffs
           </Title>
-          {/* <Img>
+        <CardHold>
+          <Img>
           VC
           </Img>
           <WorkName>
@@ -17,8 +18,9 @@ const AbsentUserProps = () => {
           </WorkName>
           <Name>
             Valerian Pedro
-          </Name> */}
-        </Wrapper>
+          </Name>
+       </CardHold>
+       
       </Container>
     </div>
   )
@@ -31,10 +33,20 @@ const WorkName = styled.div``
 
 const Img = styled.div`` 
 
-const Title = styled.div`` 
-
-const Wrapper = styled.div``
+const Title = styled.div`
+font-size: 30px;
+`
+const CardHold = styled.div`
+display: flex;
+flex-wrap: wrap;
+`
 
 const Container = styled.div`
- 
+ width: 80vw;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ background-color: red;
+ margin-top: 7px;
+ flex-direction: column;
 `
