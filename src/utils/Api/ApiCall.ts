@@ -45,8 +45,8 @@ export const getOneStaff = async(id:any)=>{
 
 //create payroll
 
-export const createStaffPayRoll = async(data:{})=>{
-    return await axios.post(`${url}/createpayroll` , data).then((res)=> res.data)
+export const createStaffPayRoll = async(data:{} , id:string)=>{
+    return await axios.post(`${url}/createpayroll/${id}` , data).then((res)=> res.data)
 }
 
 //staff deactivation
