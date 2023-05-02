@@ -2,7 +2,7 @@ import React from "react";
 import { FcCheckmark } from "react-icons/fc";
 import { GrFormClose } from "react-icons/gr";
 import styled from "styled-components";
-import { useAppSelector } from "../components/global/Store";
+import { useAppSelector } from "../components/global/Store"
 
 
 import axios from "axios";
@@ -52,7 +52,7 @@ console.log("this is admin",user?._id)
               <Token>{token} </Token>
             </Buttonhold>
           </Word>
-          <Table>
+          {/* <Table>
             <table>
               <tr>
                 <th>Employee</th>
@@ -255,7 +255,11 @@ console.log("this is admin",user?._id)
      ))}
 
             </table>
-          </Table>
+          </Table> */}
+
+          <ButtonHold>
+
+          </ButtonHold>
         </Wrapper>
       </Container>
     </div>
@@ -263,6 +267,9 @@ console.log("this is admin",user?._id)
 };
 
 export default Adminattendance;
+const ButtonHold = styled.div`
+
+`
 const Token = styled.div`
   /* color: #fff; */
   margin-left: 20px;
