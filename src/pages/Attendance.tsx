@@ -5,6 +5,9 @@ import Select from "react-select";
 import { BsCalendar4Event } from "react-icons/bs";
 import InputStaffAttendance from "./InputFieldAttendance/InputStaffAttendance";
 import { MdOutlineCancel } from "react-icons/md";
+import {url} from "../utils/Api/ApiCall"
+
+
 
 const Option = [
   { value: "chocolate", label: "Chocolate" },
@@ -13,6 +16,7 @@ const Option = [
 ];
 
 const Attendance: React.FC = () => {
+
   const [PunchStateChanger, setPunchStateChanger] = useState(true);
   const [width, setWidth] = useState(0);
   const [show, setShow] = useState(false)
@@ -25,16 +29,19 @@ const Attendance: React.FC = () => {
     setShow(true)
   }
 
+
+
   const PunchStateChangerFunction = () => {
     setPunchStateChanger(!PunchStateChanger);
   };
+
+
+  
 
   const [selectOption, setSelectOption] = useState<any>(null);
 
   //api consumption
   
-
-
   return (
     <AttendancePage>
       <AttendanceMainPage>
@@ -58,7 +65,7 @@ const Attendance: React.FC = () => {
                 <CircleTimer>
                   <Timer>3.45 hrs</Timer>
                 </CircleTimer>
-                {PunchStateChanger ? (
+                {PunchStateChanger ?  (
                   <PunchButton onClick={Toggle}>
                     Punch In
                   </PunchButton>
@@ -634,7 +641,7 @@ const PunchButton = styled.button`
 
   :hover {
     background-color: white;
-    background-color: blue;
+    /* background-color: blue; */
     border: 2px solid blue;
   }
 `;

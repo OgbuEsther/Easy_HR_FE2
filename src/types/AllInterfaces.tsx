@@ -30,4 +30,11 @@ export interface StaffData {
     _id : any
 
 }
+export interface AttendanceData {
+   
+    staffId : any,
+    token: string,
+
+
+}
 
