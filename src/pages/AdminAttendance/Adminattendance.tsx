@@ -6,21 +6,28 @@ import {TbBrandNytimes} from "react-icons/tb"
 import {FaAlipay} from "react-icons/fa"
 import {SiSecurityscorecard} from "react-icons/si"
 import AbsentUserProps from "./AbsentUserProps";
+import { genAttendanceToken, getOneAdmin, url } from "../../utils/Api/ApiCall";
+import { useAppSelector } from "../../components/global/Store";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 // import axios from "axios";
 // import { getOneAdmin } from "../utils/Api/ApiCall";
 // import { useQuery } from "@tanstack/react-query";
 const Adminattendance = () => {
-  // const admin = useAppSelector((state) => state.currentUser);
+  const admin = useAppSelector((state) => state.currentUser);
 
-  // const [token , setToken] = React.useState("")
+  const [token , setToken] = React.useState("")
 
-  // const user = useAppSelector((state) => state.currentUser);
+ 
 
-//   const getAdmin = useQuery({
-//     queryKey: ["singleAdmin"],
-//     queryFn: () => getOneAdmin(user?._id),
-//   });
-// console.log("this is admin",user?._id)
+  const getAdmin = useQuery({
+    queryKey: ["genToken"],
+    queryFn: () => genAttendanceToken(admin?._id),
+  });
+// console.log("this is admin",admin?._id)
+// console.log("this is admin22",)
+
+const theToken = getAdmin?.data?.data?.data?.setToken
 
 
 
@@ -60,9 +67,18 @@ setShow(false);
            </span>
           </Word>
 
-          <Button>
+          <Button 
+    onClick={()=>{
+    axios.post(`${url}/createattendance/${admin?._id}`).then((res)=>{
+      setToken(res.data.data.setToken)
+    })
+    }}
+          >
             Generate Token
           </Button>
+
+          <p>{token} </p>
+       
         </One>
 
         
