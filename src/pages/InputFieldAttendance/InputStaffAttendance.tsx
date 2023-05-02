@@ -1,22 +1,68 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
+import { UseAppDispach, useAppSelector } from "../../components/global/Store";
+import * as yup from "yup";
+import { useMutation } from "@tanstack/react-query";
+import { staffClockIn, url } from "../../utils/Api/ApiCall";
+import { AttendanceFn } from "../../components/global/ReduxState";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import axios from "axios";
 
 const InputStaffAttendance = () => {
 
-  
-  return (
-      <Container>
-          <Proceed>
-        <Top>Enter your attendance token here</Top>
-        
-        <Input placeholder='Token'/>
-        <Button>Confirm</Button>
-          </Proceed>
-    </Container>
-  )
-}
+  const dispatch = UseAppDispach();
+  const staff = useAppSelector((state) => state.currentStaff);
 
-export default InputStaffAttendance
+  const [tokenValue, setTokenValue] = React.useState("");
+  const [clockInBoolean , setClockInBoolean] = React.useState<boolean>(false)
+
+  // https://easyhr.onrender.com/api/clockin/644e8e63cfbe10e9cc38bb04
+  const staffClockIn =  async() => {
+    await axios
+        .post(`https://easyhr.onrender.com/api/clockin/644e8e63cfbe10e9cc38bb04`, {setToken : tokenValue , clockIn: clockInBoolean })
+        .then((res) => {
+          console.log(res)
+        });
+
+  
+   
+  };
+React.useEffect(()=>{
+  staffClockIn()
+} , [])
+
+  return (
+    <Container>
+      <Proceed>
+        <Top>Enter your attendance token here</Top>
+
+        <Input
+          cl="red"
+          placeholder="Token"
+          value={tokenValue}
+          onChange={(e: any) => {
+            setTokenValue(e.target.value);
+          }}
+        />
+
+        <label htmlFor="">click to check in</label>
+        <br />
+        <input type="checkbox"
+        
+    
+        onChange={(e: any) => {
+          setClockInBoolean(e.target.value);
+        }}/>
+        <Button type="submit" 
+        onClick={staffClockIn}
+        >Confirm</Button>
+      </Proceed>
+    </Container>
+  );
+};
+
+export default InputStaffAttendance;
 const Button = styled.button`
   width: 100%;
   height: 40px;
@@ -30,9 +76,9 @@ const Button = styled.button`
   outline: none;
   border: none;
   margin-top: 12px;
-`
+`;
 
-const Input = styled.input`
+const Input = styled.input<{ cl: string }>`
   width: 100%;
   height: 40px;
   border-radius: 8px;
@@ -40,12 +86,10 @@ const Input = styled.input`
   padding-left: 10px;
   border-radius: 8px;
   margin-top: 10px;
-  outline: none;
-`
+  outline: ${(prop) => prop.cl};
+`;
 
-const Top = styled.div`
-  
-`
+const Top = styled.div``;
 
 const Proceed = styled.div`
   width: 350px;
@@ -64,7 +108,7 @@ const Proceed = styled.div`
 `;
 
 const Container = styled.div`
-    width: 100%;
+  width: 100%;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -80,14 +124,14 @@ const Container = styled.div`
 
   animation: play 0.5s ease-out forwards;
 
-   @keyframes play {
-  from {
-    transform: scale(0);
-    opacity: 0;
+  @keyframes play {
+    from {
+      transform: scale(0);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
   }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-  }
-`
+`;

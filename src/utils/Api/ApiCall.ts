@@ -1,12 +1,12 @@
 import axios from "axios";
-import { AdminData } from "../../types/AllInterfaces";
+import { AdminData, AttendanceData } from "../../types/AllInterfaces";
 import { StaffData } from "../../types/AllInterfaces";
+import { log } from "console";
 
 export const url = "https://easyhr.onrender.com/api"
 
 const adminUrl ="admin"
 
-const staffUrl = "staff"
 
 export const createAdmin = async(data:AdminData)=>{
     return await axios.post(`${url}/${adminUrl}/register`,data).then((res)=>{
@@ -64,15 +64,11 @@ export const genAttendanceToken = async(adminId:string)=>{
     return await axios.post(`${url}/createattendance/${adminId}`)
 }
 
-//staff to clock in
 
-export const punchIn = async(staffId:string , timeId:string)=>{
-    return await axios.post(`${url}/clockin/${staffId}/${timeId}`)
-}
+// Staff ClockIn
+export const staffClockIn = async(data: AttendanceData , staffId : any) =>{
 
-//staff to clock out
-export const punchOut = async(staffId:string , timeId:string)=>{
-    return await axios.post(`${url}/clockout/${staffId}/${timeId}`)
+
 }
 
 /**export const deactiavteAStaff = async()=>{
