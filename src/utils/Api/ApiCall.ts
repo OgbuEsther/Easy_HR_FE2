@@ -6,6 +6,7 @@ import { log } from "console";
 export const url = "https://easyhr.onrender.com/api"
 
 const adminUrl ="admin"
+const staffUrl ="staff"
 
 
 export const createAdmin = async(data:any)=>{
@@ -17,10 +18,10 @@ export const LoginAdmin = async(data:any)=>{
     {return res.data})
 }
 
-// export const LoginStaff = async(data:any)=>{
-//     return await axios.post(`${url}/${staffUrl}/login`,data).then((res)=>
-//     {return res.data})
-// }
+export const LoginStaff = async(data:any)=>{
+    return await axios.post(`${url}/${staffUrl}/stafflogin`,data).then((res)=>
+    {return res.data})
+}
 
 
 

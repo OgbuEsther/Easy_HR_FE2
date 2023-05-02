@@ -17,7 +17,7 @@ import { useDispatch } from 'react-redux'
 
 const SigninForm = () => {
 
-  const dispatch = useDispatch()
+  const dispatch = UseAppDispach()
   const navigate = useNavigate()
 
     const [ViewPassword, SetViewPassword] = useState(false)
@@ -48,8 +48,8 @@ SetViewPassword(!ViewPassword)
   
   const LoginAdminFunction = useMutation({
     mutationKey: ["login_admin"],
-    mutationFn: LoginAdmin,
-    // mutationFn: (data: any) => LoginAdmin(data),
+    // mutationFn: LoginAdmin,
+    mutationFn: (data: any) => LoginAdmin(data),
 
     onSuccess(myData) {
         // console.log(data);
