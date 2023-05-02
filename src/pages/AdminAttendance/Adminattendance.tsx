@@ -330,7 +330,7 @@ const Box = styled.div`
   width: 100%;
   margin-top: 30px;
 `;
-const Wrapper = styled.div`
+const Wrapper = styled.div`   
   width: 97%;
   display: flex;
   flex-direction: column;

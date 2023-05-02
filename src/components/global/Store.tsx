@@ -15,7 +15,7 @@ import {
 } from "redux-persist";
 
 const persistConfig = {
-	key: "easyHR",
+	key: "easyHR01",
 	version: 1,
 	storage,
 };

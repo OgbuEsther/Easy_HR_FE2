@@ -12,7 +12,7 @@ import { useMutation } from '@tanstack/react-query'
 import { useDispatch } from 'react-redux'
 import { Staff } from '../../global/ReduxState'
 import Swal from 'sweetalert2'
-import { LoginStaff } from '../../../utils/Api/ApiCall'
+// import { LoginStaff } from '../../../utils/Api/ApiCall'
 
 
 
@@ -52,12 +52,12 @@ SetViewPassword(!ViewPassword)
 
   const loginin = useMutation({
     mutationKey: ["login"],
-    mutationFn: LoginStaff,
+    // mutationFn: LoginStaff,
 
 
 
     onSuccess: (myData) => {
-      dispatch(Staff(myData.data));
+      // dispatch(Staff(myData.data));
       console.log(myData)
 
       Swal.fire({
@@ -85,7 +85,7 @@ SetViewPassword(!ViewPassword)
 });
 
   const Submit = handleSubmit(async(data)=>{
-    loginin.mutate(data)
+    // loginin.mutate(data)
 
     reset()
   })

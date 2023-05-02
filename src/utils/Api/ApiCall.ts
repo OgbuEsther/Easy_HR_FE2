@@ -8,10 +8,8 @@ export const url = "https://easyhr.onrender.com/api"
 const adminUrl ="admin"
 
 
-export const createAdmin = async(data:AdminData)=>{
-    return await axios.post(`${url}/${adminUrl}/register`,data).then((res)=>{
-        return res.data
-    })
+export const createAdmin = async(data:any)=>{
+    return await axios.post(`${url}/admin/register`,data).then((res)=> res.data)
 }
 
 export const LoginAdmin = async(data:any)=>{
@@ -19,10 +17,10 @@ export const LoginAdmin = async(data:any)=>{
     {return res.data})
 }
 
-export const LoginStaff = async(data:any)=>{
-    return await axios.post(`${url}/${staffUrl}/login`,data).then((res)=>
-    {return res.data})
-}
+// export const LoginStaff = async(data:any)=>{
+//     return await axios.post(`${url}/${staffUrl}/login`,data).then((res)=>
+//     {return res.data})
+// }
 
 
 

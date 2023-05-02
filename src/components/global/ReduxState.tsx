@@ -5,15 +5,14 @@ import { StaffData } from "../../types/AllInterfaces";
 import {AttendanceData} from "../../types/AllInterfaces"
 
 const initialState = {
-    currentUser:{} as AdminData | null,
+    currentUser:{} as any | null,
 
-    currentStaff: {} as StaffData |null,
+    currentStaff: {} as any |null,
 
-    currentAttendance: {} as AttendanceData |null,
 };
 
 const ReduxState = createSlice({
-    name:"easyHR",
+    name:"easyHR001",
     initialState,
     reducers: {
         Admin: (state, {payload}: PayloadAction<AdminData>)=>{
