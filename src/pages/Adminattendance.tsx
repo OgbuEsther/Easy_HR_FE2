@@ -52,7 +52,7 @@ console.log("this is admin",user?._id)
               <Token>{token} </Token>
             </Buttonhold>
           </Word>
-          <Table>
+          {/* <Table>
             <table>
               <tr>
                 <th>Employee</th>
@@ -255,7 +255,8 @@ console.log("this is admin",user?._id)
      ))}
 
             </table>
-          </Table>
+          </Table> */}
+          
         </Wrapper>
       </Container>
     </div>
