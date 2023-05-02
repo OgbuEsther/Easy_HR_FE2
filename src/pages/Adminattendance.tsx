@@ -258,7 +258,9 @@ console.log("this is admin",user?._id)
           </Table> */}
 
           <ButtonHold>
-
+            <Buttons>
+              
+            </Buttons>
           </ButtonHold>
         </Wrapper>
       </Container>
@@ -267,6 +269,9 @@ console.log("this is admin",user?._id)
 };
 
 export default Adminattendance;
+const Buttons = styled.div`
+
+`
 const ButtonHold = styled.div`
 
 `

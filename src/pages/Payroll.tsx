@@ -163,15 +163,15 @@ const Payroll = () => {
 
         {searchProps.length === 0 ? (
           <>
-            {getAdmin?.data?.data?.viewUser.map((el: any) => (
+            {/* {getAdmin?.data?.data?.viewUser.map((el: any) => ( */}
               <Table2>
                 <Lists>
                   <Name2>
                     <Circlehold>
                       <Circle>
-                        <Img>{`${el?.yourName?.charAt(0)}`} </Img>
+                        <Img> </Img>
                       </Circle>
-                      <Id>{el?.yourName}</Id>
+                      <Id>1234</Id>
                     </Circlehold>
                   </Name2>
                   <Gross2>$3,125.00</Gross2>
@@ -184,21 +184,21 @@ const Payroll = () => {
                   </Status2>
                 </Lists>
               </Table2>
-            ))}
+            {/* ))} */}
           </>
         ) : (
           <>
             {searchProps?.length >= 1 ? (
               <>
-                {searchProps?.map((el: any) => (
+                {/* {searchProps?.map((el: any) => ( */}
                   <Table2>
                     <Lists>
                       <Name2>
                         <Circlehold>
                           <Circle>
-                            <Img>{`${el?.yourName?.charAt(0)}`} </Img>
+                            <Img></Img>
                           </Circle>
-                          <Id>{el?.yourName}</Id>
+                          <Id>hfhfh</Id>
                         </Circlehold>
                       </Name2>
                       <Gross2>$3,125.00</Gross2>
@@ -211,7 +211,7 @@ const Payroll = () => {
                       </Status2>
                     </Lists>
                   </Table2>
-                ))}
+                {/* ))} */}
               </>
             ) : (
               <>
@@ -224,22 +224,22 @@ const Payroll = () => {
       {show ? (
         <Edit>
           <Box>
-            {getAdmin?.data?.data?.viewUser.map((el: any) => (
+            {/* {getAdmin?.data?.data?.viewUser.map((el: any) => ( */}
               <Header>
                 <Imagehold>
-                  <Img2>{`${el?.yourName?.charAt(0)}`} </Img2>
+                  <Img2>hdhdhdh </Img2>
                 </Imagehold>
                 <Nameshold>
-                  <h4>{el?.yourName}</h4>
+                  <h4>hdhdhdhd</h4>
                   <p>Full Time Employee</p>
-                  <p> {el?.companyCode}</p>
+                  <p> yhchchc</p>
                 </Nameshold>
                 <Net>
                   <p>Net Pay</p>
                   <h4>$1,949.26</h4>
                 </Net>
               </Header>
-            ))}
+            {/* ))} */}
             <Earnings>
               <Wrap>
                 <Up>
@@ -349,7 +349,7 @@ const Payroll = () => {
                   <Icon>
                     <AiFillPlusCircle />
                   </Icon>
-                  <Adds onClick={Editing2}>Add Earnings</Adds>
+                  <Adds onClick={Editing2}>Add Deduction</Adds>
                 </Add>
               </Wrap2>
             </Earnings>
