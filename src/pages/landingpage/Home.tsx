@@ -33,7 +33,7 @@ const Superhero = () => {
             </button>
             </div>
         </div>
-        <div className='w-6/12 flex bg-righthero bg-no-repeat bg-center bg-contain justify-center'>
+        <div className='w-6/12 flex bg-righthero bg-no-repeat bg-center bg-contain justify-center md:w-full md:justify-center md:flex md:items-center'>
         <img src={img2} alt="" className='h-custom object-cover'/>
       </div>
       </div>
