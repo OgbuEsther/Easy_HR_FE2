@@ -85,48 +85,74 @@ const ParentComp = () => {
               </Slidein>
             ) : null}
           </Top>
-           <One></One>
+          
 
          
         </Wrapper>
+        
       </Container>
+      <One>
+        <Wraps>
+          <Title>Maternity leave</Title>
+        <Cards>
+    
+          <Box>
+          <Name>Ighoruemuse Esther</Name>
+          <Days>start:</Days>
+          <Days>end:</Days>
+          </Box>
+        </Cards>
+        </Wraps>
+        <Wraps>
+        <Title>Annual leave</Title>
+      <Cards>
+  
+        <Box>
+        <Name>Ighoruemuse Esther</Name>
+        <Days>start:</Days>
+        <Days>end:</Days>
+        </Box>
+      </Cards>
+      </Wraps>
+       </One>
     </div>
   );
 };
 
 export default ParentComp;
+const Wraps= styled.div`
+margin-top: 20px;
+margin-left: 30px;
+`
 
-const One = styled.div``
+const Box = styled.div`
+  border-bottom: 0.5px solid black;
+display: flex;
+justify-content: space-between;
+margin: 10px;
+`
+const One = styled.div`
 
-const CardHold = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`;
+display: flex;
 
-const Holder = styled.div`
-  display: flex;
-  
-`;
+`
+const Cards = styled.div`
 
-const Tap2 = styled.div`
-  h3 {
-    margin: 0;
-    font-size: 19px;
-    font-weight: 500;
-  }
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-  p {
-    margin: 0;
-    font-size: 13px;
-    font-weight: 500;
-  }
-  strong {
-    font-size: 16px;
-    margin-left: 15px;
-  }
-`;
+width: 500px;
+height: 40vh;
+border-radius: 3px;
+background-color: white;
+margin-top: 20px;
+margin-left: 5px;
+box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+`
+const Name= styled.div``
+const Days= styled.div``
+const Title= styled.div`
+font-size: 20px;
+font-weight: bold;
+`
+
 
 const Tap = styled.div`
 input{
@@ -167,20 +193,8 @@ const Wallet = styled.div`
     font-size: 23px;
     font-weight: bold;
   }
-  // button {
-  //   width: 160%;
-  //   height: 50px;
-  //   background-color: red;
-  //   color: #fff;
-  //   border-radius: 5px;
-  //   border: none;
-  //   outline: none;
-  //   margin-top: 60px;
-  //   cursor: pointer;
-  //   font-size: 16px;
-  //   margin-right: 10px;
-  //   margin-top: 30px;
-  // }
+  
+ 
 `;
 
 const Circle = styled.div`
@@ -321,7 +335,7 @@ const Container = styled.div`
   background-color: #f5f7fa;
   overflow: hidden;
   margin-top: 20px;
-
+flex-direction: column;
   @media screen and (max-width: 1024px) {
     width: 100vw;
   }
