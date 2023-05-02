@@ -14,9 +14,9 @@ export interface AdminData {
    email: string;
    yourName?: string;
    password: string;
-   companyCode: string;
-   walletNumber: number;
-   _id : any
+   companyCode?: string;
+   walletNumber?: number;
+   _id? : any
 }
 
 
