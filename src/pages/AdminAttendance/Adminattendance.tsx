@@ -5,6 +5,7 @@ import {CgPerformance} from "react-icons/cg"
 import {TbBrandNytimes} from "react-icons/tb"
 import {FaAlipay} from "react-icons/fa"
 import {SiSecurityscorecard} from "react-icons/si"
+import AbsentUserProps from "./AbsentUserProps";
 // import axios from "axios";
 // import { getOneAdmin } from "../utils/Api/ApiCall";
 // import { useQuery } from "@tanstack/react-query";
@@ -64,7 +65,7 @@ setShow(false);
           </Button>
         </One>
 
-        <Two>
+        
         <ButtonsHold>
                     <Buttons bg={show ? '#00244E':'' } cl={show ? "white":''} onClick={Toogle} bcc='' >
                        <Icons>
@@ -90,7 +91,34 @@ setShow(false);
                     </Buttons>
                   
                 </ButtonsHold>
-        </Two>
+
+              <Box>
+                {
+                show ? (
+                  <div>
+                  <AbsentUserProps/>
+                  </div>
+                )
+                :null
+              }
+                {
+                show2 ? (
+                  <div>
+                    PEDRO
+                  </div>
+                )
+                :null
+              }
+                {
+                show3 ? (
+                  <div>
+                    Codelab
+                  </div>
+                )
+                :null
+              }
+              </Box>
+        
         
         </Wrapper>
       </Container>  
@@ -132,9 +160,10 @@ const ButtonsHold = styled.div`
 	margin-top: 10px;
     display: flex;
     justify-content: center;
+    align-items: center;
 `
 
-const Two = styled.div``
+
 
 const One = styled.div`
 /* background-color:red; */
@@ -297,7 +326,6 @@ const Top = styled.div`
 
 const Box = styled.div`
   display: flex;
-  border-top: 1px solid #e2e5e8;
   width: 100%;
 `;
 const Wrapper = styled.div`

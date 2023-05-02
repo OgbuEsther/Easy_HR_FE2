@@ -26,7 +26,7 @@ const Staffs = lazy(() => import("../pages/Staffs"));
 const Transaction = lazy(()=> import("../pages/Transaction/Transaction"))
 const ParentComp = lazy(() => import("../pages/ParentComp"));
 const ContactUs = lazy(() => import("../pages/landingpage/ContactUs"));
-const Attendance = lazy(() => import("../pages/Adminattendance"))
+const Attendance = lazy(() => import("../pages/AdminAttendance/Adminattendance"))
 const StaffAttendance = lazy(() => import("../pages/Attendance"))
 const Schoolfees = lazy(() => import("../pages/Schoolfeesfile/Schoolfeesfile"))
 const Tour = lazy(() => import("../pages/Tourfile/Tourfile"))
