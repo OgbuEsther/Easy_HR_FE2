@@ -42,13 +42,13 @@ const SignupAdminForm = () => {
     onSuccess: (myData) => {
       dispatch(Admin(myData.data))
       Swal.fire({
-        title: "user registered successfully",
+        title: "admin registered successfully",
         html: "redirecting to login",
         timer: 1000,
         timerProgressBar: true,
 
         willClose: () => {
-          navigate("/sign-in-admin");
+          // navigate("/sign-in-admin");
         }
       })
     
@@ -58,7 +58,7 @@ const SignupAdminForm = () => {
   const Submit = handleSubmit(async (data: any) => {
     console.log("user", data)
     posting.mutate(data);
-    reset();
+    // reset();
   });
 
   return (

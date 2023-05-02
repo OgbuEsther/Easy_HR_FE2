@@ -12,11 +12,12 @@ import { useMutation } from '@tanstack/react-query'
 import { LoginAdmin } from '../../../utils/Api/ApiCall'
 import { Admin } from '../../global/ReduxState'
 import Swal from 'sweetalert2'
+import { useDispatch } from 'react-redux'
 
 
 const SigninForm = () => {
 
-  const dispatch = UseAppDispach()
+  const dispatch = useDispatch()
   const navigate = useNavigate()
 
     const [ViewPassword, SetViewPassword] = useState(false)
