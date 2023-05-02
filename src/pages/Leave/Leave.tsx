@@ -76,8 +76,10 @@ const ParentComp = () => {
                   <Tap>
                     <h3>Leave Title</h3>
                     <input type="text" placeholder="e.g maternity leave"/>
-                    <h3>Number of days</h3>
-                    <input type="text" placeholder="e.g june 5- july 5 " />
+                    <h3>Start</h3>
+                    <input type="text" placeholder=" " />
+                    <h3>Start</h3>
+                    <input type="text" placeholder=" " />
                   </Tap>
 
                     <button>Create</button>
