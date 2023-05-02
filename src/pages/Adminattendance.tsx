@@ -1,25 +1,48 @@
 import React from "react";
-import { FcCheckmark } from "react-icons/fc";
-import { GrFormClose } from "react-icons/gr";
 import styled from "styled-components";
-import { useAppSelector } from "../components/global/Store";
-
-
-import axios from "axios";
-import { getOneAdmin, url } from "../utils/Api/ApiCall";
-import { useQuery } from "@tanstack/react-query";
+// import { useAppSelector } from "../components/global/Store";
+import {CgPerformance} from "react-icons/cg"
+import {TbBrandNytimes} from "react-icons/tb"
+import {FaAlipay} from "react-icons/fa"
+import {SiSecurityscorecard} from "react-icons/si"
+// import axios from "axios";
+// import { getOneAdmin } from "../utils/Api/ApiCall";
+// import { useQuery } from "@tanstack/react-query";
 const Adminattendance = () => {
-  const admin = useAppSelector((state) => state.currentUser);
+  // const admin = useAppSelector((state) => state.currentUser);
 
-  const [token , setToken] = React.useState("")
+  // const [token , setToken] = React.useState("")
 
-  const user = useAppSelector((state) => state.currentUser);
+  // const user = useAppSelector((state) => state.currentUser);
 
-  const getAdmin = useQuery({
-    queryKey: ["singleAdmin"],
-    queryFn: () => getOneAdmin(user?._id),
-  });
-console.log("this is admin",user?._id)
+//   const getAdmin = useQuery({
+//     queryKey: ["singleAdmin"],
+//     queryFn: () => getOneAdmin(user?._id),
+//   });
+// console.log("this is admin",user?._id)
+
+
+
+const [show,setShow] = React.useState<Boolean>(true);
+const [show2,setShow2] = React.useState<Boolean>(false);
+const [show3,setShow3] = React.useState<Boolean>(false);
+
+const Toogle = () => {
+setShow(true);
+setShow2(false);
+setShow3(false);
+};
+const Toogle2 = () => {
+setShow2(true);
+setShow(false);
+setShow3(false);
+};
+const Toogle3 = () => {
+setShow3(true);
+setShow2(false);
+setShow(false);
+};
+
 
   return (
     <div>
@@ -40,16 +63,81 @@ console.log("this is admin",user?._id)
             Generate Token
           </Button>
         </One>
+
+        <Two>
+        <ButtonsHold>
+                    <Buttons bg={show ? '#00244E':'' } cl={show ? "white":''} onClick={Toogle} bcc='' >
+                       <Icons>
+                        <CgPerformance/>
+                       </Icons>
+                       Absent
+                    </Buttons>
+                    <Buttons bg={show2 ? '#00244E':'' } cl={show2 ? "white":''}  onClick={Toogle2}
+                    bcc=''
+                    >
+                      <Icons>
+                      <TbBrandNytimes/>
+                      </Icons>
+                    
+                      Present
+                    </Buttons>
+                    <Buttons  bg={show3 ? '#00244E':'' } cl={show3 ? "white":''}  onClick={Toogle3} bcc=''>
+                    <Icons>
+                      <FaAlipay/>
+                      </Icons>
+                   
+                     Attendane History
+                    </Buttons>
+                  
+                </ButtonsHold>
+        </Two>
+        
         </Wrapper>
-      </Container>
+      </Container>  
     </div>
   );
 };
 
 export default Adminattendance;
+const Icon1 = styled.div`
+margin: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+`
+
+const Buttons = styled.button<{bg:string, cl:string, bcc:string}>`
+	height: 50px;
+	width: 250px;
+	border-radius: 50px;
+	position: relative;
+	border: 0;
+	background-color:${(props) => props.bg};
+	color: ${(props) => props.cl};
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: all 350ms;
+	margin-right: 10px;
+	margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+    :hover{
+        background-color: ${(props) => props.bcc};
+    }
+`
+const ButtonsHold = styled.div`
+	margin-top: 10px;
+    display: flex;
+    justify-content: center;
+`
+
+const Two = styled.div``
 
 const One = styled.div`
-background-color:red;
+/* background-color:red; */
 width:100%;
 display:flex;
 align-items: center;
@@ -120,12 +208,13 @@ a{
 `;
 
 const Icons = styled.div`
-  color: red;
   font-size: 20px;
+  margin:10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
-const Icon = styled.div`
-  font-weight: 70px;
-`;
+
 const Name = styled.div`
   display: flex;
   margin-left: 10px;
@@ -220,7 +309,7 @@ const Wrapper = styled.div`
   padding-top: 90px;
   padding-left: 30px;
   padding-right: 30px;
-background-color:yellow;
+/* background-color:yellow; */
 `;
 
 const Container = styled.div`
