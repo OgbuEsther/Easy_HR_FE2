@@ -20,7 +20,8 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        'hero': "url('../src/Assets/hero.jpg')"
+        'hero': "url('../src/Assets/hero.jpg')",
+        'righthero': "url('../src/Assets/grid.svg')",
       },
 
       animation: {
