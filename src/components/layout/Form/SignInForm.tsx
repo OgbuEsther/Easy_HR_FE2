@@ -12,6 +12,7 @@ import { useMutation } from '@tanstack/react-query'
 import { useDispatch } from 'react-redux'
 import { Staff } from '../../global/ReduxState'
 import Swal from 'sweetalert2'
+import { LoginStaff } from '../../../utils/Api/ApiCall'
 
 
 
@@ -28,20 +29,12 @@ SetViewPassword(!ViewPassword)
     }
 
 
-    const ForgetPasswordFunction = ()=>{
-
-        navigate("/")
-    }
-
    
 
 
    
 
-    const NavigateToVeficationPageFunction = ()=>{
-      navigate("/verification")
-    }
-
+  
 
 
   const schema = yup.object({
@@ -59,12 +52,13 @@ SetViewPassword(!ViewPassword)
 
   const loginin = useMutation({
     mutationKey: ["login"],
-    // mutationFn: LoginStaff,
+    mutationFn: LoginStaff,
 
 
 
     onSuccess: (myData) => {
-      // dispatch(Staff(myData.data));
+      dispatch(Staff(myData.data));
+      console.log(myData)
 
       Swal.fire({
         title: "Login succesful",
@@ -91,19 +85,20 @@ SetViewPassword(!ViewPassword)
 });
 
   const Submit = handleSubmit(async(data)=>{
-    // loginin.mutate(data)
+    loginin.mutate(data)
+
     reset()
   })
 
 
   return (
 
-        <Form>
+        <Form  onSubmit={Submit}>
 <SignUpTitle>Sign In</SignUpTitle>
 {/* <SignUpDescription>Pay smart and save time with Easy Pay</SignUpDescription> */}
 <SignUpDescription>You will be signed in as a Staff</SignUpDescription>
 
-<InputField onSubmit={Submit}>
+<InputField>
 
 <CompanyNameInputHold>
     
@@ -135,7 +130,7 @@ SetViewPassword(!ViewPassword)
     show password
   </ShowPasswordText>
 </ShowPassword>
-<ForgetPassword onClick={ForgetPasswordFunction}>
+<ForgetPassword >
   Forget Password
 </ForgetPassword>
     </ShowPasswordAndForgetPassword>
@@ -143,7 +138,7 @@ SetViewPassword(!ViewPassword)
 <FourtInputColumn>
 
   <SignUpButton>
-    <Button onClick={NavigateToVeficationPageFunction} type='submit'>Sign In</Button>
+    <Button  type='submit'>Sign In</Button>
   </SignUpButton>
 </FourtInputColumn>
 <FifthInputColumn>
