@@ -8,6 +8,7 @@ import { useMutation } from "@tanstack/react-query";
 import { createAdmin } from "../../../utils/Api/ApiCall";
 import { UseAppDispach } from "../../global/Store";
 import { Admin } from "../../global/ReduxState";
+import Swal from "sweetalert2";
 
 const SignupAdminForm = () => {
   const dispatch = UseAppDispach();
@@ -39,12 +40,23 @@ const SignupAdminForm = () => {
     mutationFn: (data: any) => createAdmin(data),
 
     onSuccess: (myData) => {
-      dispatch(Admin(myData.data));
-      navigate("/sign-in-admin");
+      dispatch(Admin(myData.data))
+      Swal.fire({
+        title: "user registered successfully",
+        html: "redirecting to login",
+        timer: 1000,
+        timerProgressBar: true,
+
+        willClose: () => {
+          navigate("/sign-in-admin");
+        }
+      })
+    
     },
   });
 
-  const Submit = handleSubmit(async (data) => {
+  const Submit = handleSubmit(async (data: any) => {
+    console.log("user", data)
     posting.mutate(data);
     reset();
   });

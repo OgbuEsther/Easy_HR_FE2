@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 
 const InputStaffAttendance = () => {
+
   const dispatch = UseAppDispach();
   const staff = useAppSelector((state) => state.currentStaff);
 
@@ -30,6 +31,7 @@ const InputStaffAttendance = () => {
 React.useEffect(()=>{
   staffClockIn()
 } , [])
+
   return (
     <Container>
       <Proceed>

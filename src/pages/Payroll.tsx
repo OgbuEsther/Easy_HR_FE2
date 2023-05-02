@@ -1,12 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { CiSearch } from "react-icons/ci";
-import img from ".././Assets/savio.jpg";
+
 import { AiFillPlusCircle, AiOutlineClose } from "react-icons/ai";
 import { useAppSelector } from "../components/global/Store";
-import { useQuery } from "@tanstack/react-query";
-import { getOneAdmin } from "../utils/Api/ApiCall";
+import {  useQuery } from "@tanstack/react-query";
+import {  getOneAdmin, url } from "../utils/Api/ApiCall";
 import axios from "axios";
+
+
 
 interface data {
   earn: string;
@@ -26,6 +28,17 @@ const Payroll = () => {
   const [inputs2, setinputs2] = React.useState(false);
   const [earnvalue2, setEarnvalue2] = React.useState("");
   const [data2, setData2] = React.useState<data2[]>([]);
+
+  const admin = useAppSelector((state)=> state.currentUser)
+
+
+ const createStaffPayRoll = async(data:any)=>{
+     await axios.post(`${url}/createpayroll/${admin?._id}` , data).then((res)=> {
+      console.log(`this is res.data on payroll ${res}`)
+    })
+}
+
+
 
   let idData: number = data.length + 1;
   const addNewTask = () => {
@@ -150,15 +163,15 @@ const Payroll = () => {
 
         {searchProps.length === 0 ? (
           <>
-            {getAdmin?.data?.data?.viewUser.map((el: any) => (
+            {/* {getAdmin?.data?.data?.viewUser.map((el: any) => ( */}
               <Table2>
                 <Lists>
                   <Name2>
                     <Circlehold>
                       <Circle>
-                        <Img>{`${el?.yourName?.charAt(0)}`} </Img>
+                        <Img> </Img>
                       </Circle>
-                      <Id>{el?.yourName}</Id>
+                      <Id>1234</Id>
                     </Circlehold>
                   </Name2>
                   <Gross2>$3,125.00</Gross2>
@@ -171,21 +184,21 @@ const Payroll = () => {
                   </Status2>
                 </Lists>
               </Table2>
-            ))}
+            {/* ))} */}
           </>
         ) : (
           <>
             {searchProps?.length >= 1 ? (
               <>
-                {searchProps?.map((el: any) => (
+                {/* {searchProps?.map((el: any) => ( */}
                   <Table2>
                     <Lists>
                       <Name2>
                         <Circlehold>
                           <Circle>
-                            <Img>{`${el?.yourName?.charAt(0)}`} </Img>
+                            <Img></Img>
                           </Circle>
-                          <Id>{el?.yourName}</Id>
+                          <Id>hfhfh</Id>
                         </Circlehold>
                       </Name2>
                       <Gross2>$3,125.00</Gross2>
@@ -198,7 +211,7 @@ const Payroll = () => {
                       </Status2>
                     </Lists>
                   </Table2>
-                ))}
+                {/* ))} */}
               </>
             ) : (
               <>
@@ -211,22 +224,22 @@ const Payroll = () => {
       {show ? (
         <Edit>
           <Box>
-            {getAdmin?.data?.data?.viewUser.map((el: any) => (
+            {/* {getAdmin?.data?.data?.viewUser.map((el: any) => ( */}
               <Header>
                 <Imagehold>
-                  <Img2>{`${el?.yourName?.charAt(0)}`} </Img2>
+                  <Img2>hdhdhdh </Img2>
                 </Imagehold>
                 <Nameshold>
-                  <h4>{el?.yourName}</h4>
+                  <h4>hdhdhdhd</h4>
                   <p>Full Time Employee</p>
-                  <p> {el?.companyCode}</p>
+                  <p> yhchchc</p>
                 </Nameshold>
                 <Net>
                   <p>Net Pay</p>
                   <h4>$1,949.26</h4>
                 </Net>
               </Header>
-            ))}
+            {/* ))} */}
             <Earnings>
               <Wrap>
                 <Up>
@@ -336,12 +349,12 @@ const Payroll = () => {
                   <Icon>
                     <AiFillPlusCircle />
                   </Icon>
-                  <Adds onClick={Editing2}>Add Earnings</Adds>
+                  <Adds onClick={Editing2}>Add Deduction</Adds>
                 </Add>
               </Wrap2>
             </Earnings>
             <Confirmhold>
-              <Confirm>Confirm Payment</Confirm>
+              <Confirm onClick={createStaffPayRoll}>Confirm Payment</Confirm>
             </Confirmhold>
 
             <Close onClick={Closes}>
@@ -355,7 +368,7 @@ const Payroll = () => {
 };
 
 export default Payroll;
-const Confirm = styled.div`
+const Confirm = styled.button`
   width: 150px;
   height: 40px;
   display: flex;

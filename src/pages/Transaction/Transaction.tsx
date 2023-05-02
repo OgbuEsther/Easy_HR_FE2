@@ -209,6 +209,9 @@ const Transaction = () => {
 };
 
 export default Transaction;
+
+
+
 const Account = styled.div`
 font-weight: 70px;
 `

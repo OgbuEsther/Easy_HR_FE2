@@ -23,12 +23,17 @@ const ReduxState = createSlice({
             state.currentStaff = payload;
         },
 
-        AttendanceFn: (state, {payload}: any)=>{
-            state.currentAttendance = payload
+        logoutAdmin: (state)=> {
+            state.currentUser = null
+        },
+        logoutstaff: (state)=> {
+            state.currentStaff = null
+
         }
     }
 })
 
-export const {Admin, Staff, AttendanceFn} = ReduxState.actions;
+
+export const {Admin, Staff, logoutstaff,logoutAdmin } = ReduxState.actions;
 
 export default ReduxState.reducer;

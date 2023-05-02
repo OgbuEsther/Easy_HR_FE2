@@ -19,6 +19,12 @@ export const LoginAdmin = async(data:any)=>{
     {return res.data})
 }
 
+export const LoginStaff = async(data:any)=>{
+    return await axios.post(`${url}/${staffUrl}/login`,data).then((res)=>
+    {return res.data})
+}
+
+
 
 export const createStaff = async(data: StaffData)=>{
     return await axios.post(`${url}/staff/staffregister`,data).then((res)=>{
@@ -39,8 +45,8 @@ export const getOneStaff = async(id:any)=>{
 
 //create payroll
 
-export const createStaffPayRoll = async(data:{})=>{
-    return await axios.post(`${url}/createpayroll` , data).then((res)=> res.data)
+export const createStaffPayRoll = async(data:{} , id:string)=>{
+    return await axios.post(`${url}/createpayroll/${id}` , data).then((res)=> res.data)
 }
 
 //staff deactivation
@@ -58,9 +64,11 @@ export const genAttendanceToken = async(adminId:string)=>{
     return await axios.post(`${url}/createattendance/${adminId}`)
 }
 
+
 // Staff ClockIn
 export const staffClockIn = async(data: AttendanceData , staffId : any) =>{
-return await axios.post(`${url}/clockin/${staffId}`,data?.token).then((res)=> res.data)
+
+
 }
 
 /**export const deactiavteAStaff = async()=>{

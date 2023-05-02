@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom'
 import { useMutation } from '@tanstack/react-query'
 import { createStaff } from '../../../utils/Api/ApiCall'
 import { Staff } from '../../global/ReduxState'
+import Swal from 'sweetalert2'
 
 
 
@@ -47,7 +48,16 @@ const SignupForm = () => {
 
     onSuccess: (data)=>{
       dispatch(Staff(data?.data))
-        navigate("/sign-in")
+      Swal.fire({
+              title: "User registered sucessfully",
+              html: "redirecting to login",
+              timer: 1000,
+              timerProgressBar: true,
+      
+              willClose: () => {
+                navigate("/login");
+              },
+            });
     }
   })
 
@@ -55,7 +65,7 @@ const SignupForm = () => {
   
 
   
-  const Submit = handleSubmit((data)=>{
+  const Submit = handleSubmit(async(data: any)=>{
     StaffSignUp.mutate(data)
     reset()
   })
