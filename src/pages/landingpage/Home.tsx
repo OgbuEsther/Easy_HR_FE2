@@ -27,7 +27,9 @@ const Superhero = () => {
               <img src={img} alt="" />
               <p className='ml-4 text-heroparagraph font-semibold m-0'>EazyHR performance managemant</p>
             </div>
-            <button className='w-36 h-10 flex justify-center items-center'>Get started</button>
+            <button className='w-36 h-10 flex justify-center items-center bg-herobutton text-white cursor-pointer mt-4 rounded'>
+              Get started
+            </button>
             </div>
          </div>
         </div>
