@@ -6,7 +6,15 @@ const AbsentUserProps = () => {
     <div>
       <Container>
         <Wrapper>
-
+          <Img>
+          VC
+          </Img>
+          <WorkName>
+            Credit Officer
+          </WorkName>
+          <Name>
+            Valerian Pedro
+          </Name>
         </Wrapper>
       </Container>
     </div>
@@ -14,6 +22,11 @@ const AbsentUserProps = () => {
 }
 
 export default AbsentUserProps
+const Name  = styled.div``
+
+const WorkName = styled.div``
+
+const Img = styled.div``
 
 const Wrapper = styled.div``
 
