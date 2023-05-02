@@ -12,11 +12,12 @@ module.exports = {
       'herobutton': '#3CD19C'
     },
     screens: {
-      'xsm': '375px',
-      'sm': '500px',
-      'md': '768px',
-      'lg': '1024px',
-      'xl': '1280px'
+      'xl': { 'max': '1280px' },
+      'xsm': {'max': '320px'},
+      'sm': {'max': '375px'},
+      'xmd': {'max': '425px'},
+      'md': {'max': '768px'},
+      'lg': {'max': '1024px'}
     },
     extend: {
       height: {
