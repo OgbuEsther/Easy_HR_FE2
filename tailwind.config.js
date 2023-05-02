@@ -7,7 +7,9 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       'white': '#ffffff',
-      'herotext': '#00214f'
+      'herotext': '#00214f',
+      'heroparagraph': '#232333',
+      'herobutton': '#3CD19C'
     },
     screens: {
       'xsm': '375px',
