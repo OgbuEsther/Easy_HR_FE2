@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { BiMenuAltRight } from "react-icons/bi";
-import logos from "../../Assets/easyhr.jpeg"
+import logos from "../../Assets/eazy.png"
 import {Link} from "react-scroll"  
 import {BsFillArrowDownCircleFill } from "react-icons/bs"
 
