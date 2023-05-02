@@ -490,12 +490,16 @@ const LogoHold = styled.div`
   font-weight: 900;
   font-size: 18px;
   width: 150px;
-  height: 100px;
-  margin-top: 15px;
+  background-color: red;
+  /* height: 100px; */
+  /* margin-top: 15px; */
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
 
   img {
-    width: 80%;
-    height: 80%;
+    /* width: 80%; */
+    /* height: 90%; */
     object-fit: contain;
   }
 `;
