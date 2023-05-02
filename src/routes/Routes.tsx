@@ -17,6 +17,7 @@ import ResetPassword from "../pages/Auth/ResetPassword";
 import Verification from "../pages/Auth/Verification";
 import { Staffdashboard } from "../components/layout/Staffdashboard";
 import Staffcomp from "../pages/Staffcomp";
+import Leave from "../pages/Leave/Leave";
 
 
 const Home = lazy(() => import("../pages/landingpage/Home"));
@@ -91,6 +92,12 @@ export const Elements = createBrowserRouter([
       {
         path: "/dashboard/transaction",
         element: <Transaction/>,
+        hasErrorBoundary: true,
+        errorElement: <ErrorBoundary />,
+      },
+      {
+        path: "/dashboard/leave",
+        element: <Leave/>,
         hasErrorBoundary: true,
         errorElement: <ErrorBoundary />,
       },

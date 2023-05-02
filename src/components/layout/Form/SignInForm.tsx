@@ -58,6 +58,7 @@ SetViewPassword(!ViewPassword)
 
     onSuccess: (myData) => {
       dispatch(Staff(myData.data));
+      console.log(myData)
 
       Swal.fire({
         title: "Login succesful",
@@ -85,18 +86,19 @@ SetViewPassword(!ViewPassword)
 
   const Submit = handleSubmit(async(data)=>{
     loginin.mutate(data)
+
     reset()
   })
 
 
   return (
 
-        <Form>
+        <Form  onSubmit={Submit}>
 <SignUpTitle>Sign In</SignUpTitle>
 {/* <SignUpDescription>Pay smart and save time with Easy Pay</SignUpDescription> */}
 <SignUpDescription>You will be signed in as a Staff</SignUpDescription>
 
-<InputField onSubmit={Submit}>
+<InputField>
 
 <CompanyNameInputHold>
     
