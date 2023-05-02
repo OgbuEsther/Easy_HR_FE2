@@ -12,7 +12,7 @@ const initialState = {
 };
 
 const ReduxState = createSlice({
-    name:"easyHR001",
+    name:"myEazyHr",
     initialState,
     reducers: {
         Admin: (state, {payload}: PayloadAction<AdminData>)=>{
