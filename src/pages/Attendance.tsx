@@ -99,7 +99,7 @@ const Attendance: React.FC = () => {
               <StatisticsMeasureColumn className="today">
                 <DayAndHourColumn>
                   <Day>Annual</Day>
-                  <HourMeasure>0/{width} 20dys</HourMeasure>
+                  <HourMeasure>{width} /20dys</HourMeasure>
                 </DayAndHourColumn>
                 <ProgressBarHold>
                   <ProgressBar width={width}></ProgressBar>
