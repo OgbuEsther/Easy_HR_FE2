@@ -19,6 +19,18 @@ const SigninForm = () => {
   const navigate = useNavigate();
 
   const [ViewPassword, SetViewPassword] = useState(false);
+  const dispatch = UseAppDispach()
+  const navigate = useNavigate()
+
+    const [ViewPassword, SetViewPassword] = useState(false)
+
+    const ViewPasswordFunction = ()=>{
+SetViewPassword(!ViewPassword)
+
+
+    }
+
+
 
   const ViewPasswordFunction = () => {
     SetViewPassword(!ViewPassword);
@@ -45,8 +57,8 @@ const SigninForm = () => {
 
   const LoginAdminFunction = useMutation({
     mutationKey: ["login_admin"],
-    mutationFn: LoginAdmin,
-    // mutationFn: (data: any) => LoginAdmin(data),
+    // mutationFn: LoginAdmin,
+    mutationFn: (data: any) => LoginAdmin(data),
 
     onSuccess(myData) {
       // console.log(data);
