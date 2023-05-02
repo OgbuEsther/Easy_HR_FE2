@@ -325,10 +325,17 @@ const Top = styled.div`
 `;
 
 const Box = styled.div`
-  display: flex;
-  width: 100%;
+   /* margin-top: 20px;
+  border-radius: 50px;
+  background-color: #f3f5e9;
+  height: 400px;
+  width: 93%;
+  background-repeat: no-repeat;
+  /* background-position: center; */
+  /* background-size: contain;
+  margin-bottom: 20px;  */
 `;
-const Wrapper = styled.div`
+const Wrapper = styled.div`   
   width: 97%;
   display: flex;
   flex-direction: column;
