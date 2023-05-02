@@ -21,6 +21,10 @@ const Attendance: React.FC = () => {
     setShow(false);
   };
 
+  const int = () => {
+    setWidth(width + 10)
+  }
+
   const Toggle = () => {
     setShow(true)
   }
@@ -103,6 +107,8 @@ const Attendance: React.FC = () => {
                 <ProgressBarHold>
                   <ProgressBar width={width}></ProgressBar>
                 </ProgressBarHold>
+
+                {/* <button onClick={int}>click</button> */}
               </StatisticsMeasureColumn>
               <StatisticsMeasureColumn className="month">
                 <DayAndHourColumn>

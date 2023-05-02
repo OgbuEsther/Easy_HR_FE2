@@ -4,6 +4,11 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+    colors: {
+      transparent: 'transparent',
+      'white': '#ffffff',
+      'herotext': '#00214f'
+    },
     screens: {
       'xsm': '375px',
       'sm': '500px',
