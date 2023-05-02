@@ -19,6 +19,9 @@ module.exports = {
       'xl': '1280px'
     },
     extend: {
+      height: {
+        'custom': '33.125rem'
+      },
       backgroundImage: {
         'hero': "url('../src/Assets/hero.jpg')",
         'righthero': "url('../src/Assets/grid.svg')",
