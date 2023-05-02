@@ -9,7 +9,7 @@ const Superhero = () => {
   return (
       <div className='w-full flex justify-center overflow-hidden'>
         <div className='w-11/12 flex flex-wrap mt-20 bg-white pt-20 justify-between'>
-        <div className='w-6/12 flex flex-col '>
+        <div className='w-6/12 flex flex-col md:w-full'>
           <h1 className='w-5/6 text-herotext text-6xl font-semibold m-0 leading-tight'>
             Business Payments Made Simple.
           </h1>
