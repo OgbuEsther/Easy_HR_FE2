@@ -58,16 +58,14 @@ export const deactiavteAStaff = async(staffId:any , adminId:any)=>{
 //generate attendance token
 
 export const genAttendanceToken = async(adminId:string)=>{
-    return await axios.post(`${url}/createattendance/${adminId}`)
+    return await axios.post(`${url}/createattendance/${adminId}`).then((res)=> res.data)
 }
 
 
 // Staff ClockIn
-export const staffClockInfuntion = async(data: AttendanceData) =>{
-    return await axios.post(`https://easyhr.onrender.com/api/clockin/644e8e63cfbe10e9cc38bb04`).then((res)=>{
-        console.log(res);
-        
-    })
+export const staffClockIn = async(data: any , staffId : any) =>{
+
+
 }
 
 /**export const deactiavteAStaff = async()=>{
@@ -76,3 +74,9 @@ export const staffClockInfuntion = async(data: AttendanceData) =>{
     window.location.reload()
   })
 } */
+
+//create leave on admin side
+
+export const createLeave = async(data : any , adminId:any)=>{
+    return await axios.post(`${url}/createleave/${adminId}` , data).then((res)=> res.data)
+}

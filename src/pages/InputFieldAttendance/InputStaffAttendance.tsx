@@ -1,60 +1,99 @@
 import React from "react";
 import styled from "styled-components";
 import { UseAppDispach, useAppSelector } from "../../components/global/Store";
-import * as yup from "yup";
+import {useForm} from "react-hook-form"
+import * as yup from "yup"
+import {yupResolver} from "@hookform/resolvers/yup"
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import { useMutation } from "@tanstack/react-query";
-import { staffClockInfuntion, url } from "../../utils/Api/ApiCall";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm } from "react-hook-form";
-import { Staff } from "../../components/global/ReduxState";
+import axios from "axios";
+import { staffClockIn } from "../../utils/Api/ApiCall";
+import { StaffClockIn } from "../../components/global/ReduxState";
+
 const InputStaffAttendance = () => {
 
-  const dispatch = UseAppDispach();
   const staff = useAppSelector((state) => state.currentStaff);
 
-  const [tokenValue, setTokenValue] = React.useState("");
-  const [clockInBoolean , setClockInBoolean] = React.useState<boolean>(false)
+  // https://easyhr.onrender.com/api/clockin/644e8e63cfbe10e9cc38bb04
+  // const staffClockIn =  async() => {
+  //   await axios
+  //       .post(`https://easyhr.onrender.com/api/clockin/644e8e63cfbe10e9cc38bb04`, {setToken : tokenValue , clockIn: clockInBoolean })
+  //       .then((res) => {
+  //         console.log(res)
+  //       });
 
-  const schema = yup.object({
-    token: yup.string().required()
-  }).required()
+  
+   
+  const dispatch = UseAppDispach();
+  const navigate = useNavigate();
 
-  type formData = yup.InferType<typeof schema>
+
+
+  const schema = yup
+    .object({
+      token: yup.string().required(),
+      clockIn: yup.boolean().required(),
+     
+    })
+    .required();
+
+  type formData = yup.InferType<typeof schema>;
 
   const {
-    handleSubmit, register, reset, formState:{errors
-    }
-  } = useForm<formData>({resolver: yupResolver(schema)})
-  
-  const staffClockIn = useMutation({
-    mutationKey:["staff-clockin"],
-    mutationFn: (data)=>staffClockInfuntion(data!),
-    
-    onSuccess(StaffData){
-      dispatch(Staff(StaffData!))
-    }
-
-    
+    handleSubmit,
+    formState: { errors },
+    reset,
+    register,
+  } = useForm<formData>({
+    resolver: yupResolver(schema),
   });
 
-  
+  const posting = useMutation({
+    mutationKey: ["create_Leave"],
+    // mutationFn: createAdmin,
+    mutationFn: (data: any) => staffClockIn(data , staff?._id),
 
+    onSuccess: (myData: any) => {
+      dispatch(StaffClockIn(myData.data))
+      Swal.fire({
+        title: "staff  clockin  successfully",
+        html: "redirecting to dashbaord",
+        timer: 1000,
+        timerProgressBar: true,
 
+        willClose: () => {
+          // navigate("/sign-in-admin");
+        }
+      })
+    
+    },
+  });
+
+  const Submit = handleSubmit(async (data: any) => {
+    console.log("user", data)
+    posting.mutate(data);
+    // reset();
+  });
 
   return (
     <Container>
-      <Proceed>
+      <Proceed onSubmit={Submit}>
         <Top>Enter your attendance token here</Top>
 
         <Input
           cl="red"
           placeholder="Token"
-        
-        />
-
-       
+          {...register("token")} 
+          />
+   <span>{errors?.token && errors?.token?.message}</span>
+          <label htmlFor="">click to check in</label>
+          <br />
+          <input type="checkbox"
+           {...register("clockIn")} 
+          />
+           <span>{errors?.clockIn && errors?.clockIn?.message}</span>
         <Button type="submit" 
-        
         >Confirm</Button>
       </Proceed>
     </Container>
