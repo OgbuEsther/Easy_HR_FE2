@@ -491,9 +491,29 @@ const Wrapper = styled.div`
 `;
 
 
+const LogoHold = styled.div`
+  font-weight: 900;
+  font-size: 18px;
+  width: 150px;
+  background-color: red;
+  /* height: 100px; */
+  /* margin-top: 15px; */
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+
+  img {
+    /* width: 80%; */
+    /* height: 90%; */
+    object-fit: contain;
+  }
+`;
+
+
 const Img = styled.img`
   height: 60px;
 `
+
 
 const SignDiv = styled.div`
   display: flex;
