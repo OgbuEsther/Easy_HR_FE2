@@ -1,19 +1,21 @@
 import React from "react";
 import { MdOutlineCancel } from "react-icons/md";
-import { FaGoogleWallet } from "react-icons/fa";
+
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
-import { FaJediOrder } from "react-icons/fa";
-import { BsFillArrowRightCircleFill } from "react-icons/bs";
-import { GiHypersonicMelon } from "react-icons/gi";
+import {useForm} from "react-hook-form"
+import * as yup from "yup"
+import {yupResolver} from "@hookform/resolvers/yup"
+
 import {
-  AiFillAlert,
-  AiOutlineDeploymentUnit,
+
   AiFillDashboard,
 } from "react-icons/ai";
-import { useAppSelector } from "../../components/global/Store";
-import { useQuery } from "@tanstack/react-query";
-import { getOneAdmin } from "../../utils/Api/ApiCall";
+import { UseAppDispach, useAppSelector } from "../../components/global/Store";
+import { useMutation } from "@tanstack/react-query";
+import { createLeave  } from "../../utils/Api/ApiCall";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import {  CreateLeave } from "../../components/global/ReduxState";
 // import { useAppSelector } from "../components/global/Store";
 // import { useQuery } from "@tanstack/react-query";
 // import { getOneAdmin } from "../utils/Api/ApiCall";
@@ -30,14 +32,56 @@ const ParentComp = () => {
     setShow(false);
   };
 
-  const admin = useAppSelector((state) => state.currentUser);
+  const dispatch = UseAppDispach();
+  const navigate = useNavigate();
 
-  const getAdmin = useQuery({
-    queryKey: ["singleAdmin"],
-    queryFn: () => getOneAdmin(admin?._id),
+  const admin = useAppSelector((state)=> state.currentUser)
+
+  const schema = yup
+    .object({
+      title: yup.string().required(),
+      days: yup.number().required(),
+     
+    })
+    .required();
+
+  type formData = yup.InferType<typeof schema>;
+
+  const {
+    handleSubmit,
+    formState: { errors },
+    reset,
+    register,
+  } = useForm<formData>({
+    resolver: yupResolver(schema),
   });
 
-  console.log("this is admin data", admin?.companyname);
+  const posting = useMutation({
+    mutationKey: ["create_Leave"],
+    // mutationFn: createAdmin,
+    mutationFn: (data: any) => createLeave(data , admin?._id),
+
+    onSuccess: (myData) => {
+      dispatch(CreateLeave(myData.data))
+      Swal.fire({
+        title: "leave created  successfully",
+        html: "redirecting to dashbaord",
+        timer: 1000,
+        timerProgressBar: true,
+
+        willClose: () => {
+          // navigate("/sign-in-admin");
+        }
+      })
+    
+    },
+  });
+
+  const Submit = handleSubmit(async (data: any) => {
+    console.log("user", data)
+    posting.mutate(data);
+    // reset();
+  });
 
   return (
     <div>
@@ -73,62 +117,93 @@ const ParentComp = () => {
                    
                   </Card2>
 
-                  <Tap>
+                  <Tap onSubmit={Submit}>
                     <h3>Leave Title</h3>
-                    <input type="text" placeholder="e.g maternity leave"/>
-                    <h3>Number of days</h3>
-                    <input type="text" placeholder="e.g june 5- july 5 " />
+                    <input {...register("title")} type="text" placeholder="e.g maternity leave"/>
+                    <span>{errors?.title && errors?.title?.message}</span>
+                    <h3>Start</h3>
+                    <input {...register("days")} type="text" placeholder=" " />
+                    <span>{errors?.days && errors?.days?.message}</span>
+                    {/* <h3>Start</h3>
+                    <input type="text" placeholder=" " /> */}
+                     <button type="submit">Create</button>
                   </Tap>
 
-                    <button>Create</button>
+                   
                 </Wallets>
               </Slidein>
             ) : null}
           </Top>
-           <One></One>
+          
 
          
         </Wrapper>
+        
       </Container>
+      <One>
+        <Wraps>
+          <Title>Maternity leave</Title>
+        <Cards>
+    
+          <Box>
+          <Name>Ighoruemuse Esther</Name>
+          <Days>start:</Days>
+          <Days>end:</Days>
+          </Box>
+        </Cards>
+        </Wraps>
+        <Wraps>
+        <Title>Annual leave</Title>
+      <Cards>
+  
+        <Box>
+        <Name>Ighoruemuse Esther</Name>
+        <Days>start:</Days>
+        <Days>end:</Days>
+        </Box>
+      </Cards>
+      </Wraps>
+       </One>
     </div>
   );
 };
 
 export default ParentComp;
+const Wraps= styled.div`
+margin-top: 20px;
+margin-left: 30px;
+`
 
-const One = styled.div``
+const Box = styled.div`
+  border-bottom: 0.5px solid black;
+display: flex;
+justify-content: space-between;
+margin: 10px;
+`
+const One = styled.div`
 
-const CardHold = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`;
+display: flex;
 
-const Holder = styled.div`
-  display: flex;
-  
-`;
+`
+const Cards = styled.div`
 
-const Tap2 = styled.div`
-  h3 {
-    margin: 0;
-    font-size: 19px;
-    font-weight: 500;
-  }
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-  p {
-    margin: 0;
-    font-size: 13px;
-    font-weight: 500;
-  }
-  strong {
-    font-size: 16px;
-    margin-left: 15px;
-  }
-`;
+width: 500px;
+height: 40vh;
+border-radius: 3px;
+background-color: white;
+margin-top: 20px;
+margin-left: 5px;
+box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+`
+const Name= styled.div``
+const Days= styled.div``
+const Title= styled.div`
+font-size: 20px;
+font-weight: bold;
+`
 
-const Tap = styled.div`
+
+const Tap = styled.form`
 input{
   border: 0.5px solid #7eb0f5;
   border-radius: 3px;
@@ -167,20 +242,8 @@ const Wallet = styled.div`
     font-size: 23px;
     font-weight: bold;
   }
-  // button {
-  //   width: 160%;
-  //   height: 50px;
-  //   background-color: red;
-  //   color: #fff;
-  //   border-radius: 5px;
-  //   border: none;
-  //   outline: none;
-  //   margin-top: 60px;
-  //   cursor: pointer;
-  //   font-size: 16px;
-  //   margin-right: 10px;
-  //   margin-top: 30px;
-  // }
+  
+ 
 `;
 
 const Circle = styled.div`
@@ -321,7 +384,7 @@ const Container = styled.div`
   background-color: #f5f7fa;
   overflow: hidden;
   margin-top: 20px;
-
+flex-direction: column;
   @media screen and (max-width: 1024px) {
     width: 100vw;
   }

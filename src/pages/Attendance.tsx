@@ -93,13 +93,13 @@ const Attendance: React.FC = () => {
             </CardContent>
           </Card>
           <Card className="two">
-            <CardTitle>Statistics</CardTitle>
+            <CardTitle>Leave</CardTitle>
 
             <CardContent>
               <StatisticsMeasureColumn className="today">
                 <DayAndHourColumn>
-                  <Day>Today</Day>
-                  <HourMeasure>3.45 / {width} hrs</HourMeasure>
+                  <Day>Annual</Day>
+                  <HourMeasure>{width} /20dys</HourMeasure>
                 </DayAndHourColumn>
                 <ProgressBarHold>
                   <ProgressBar width={width}></ProgressBar>
@@ -108,8 +108,8 @@ const Attendance: React.FC = () => {
 
               <StatisticsMeasureColumn className="week">
                 <DayAndHourColumn>
-                  <Day>Week</Day>
-                  <HourMeasure>28 / 40 hrs</HourMeasure>
+                  <Day>Exam</Day>
+                  <HourMeasure>0/ 10dys</HourMeasure>
                 </DayAndHourColumn>
                 <ProgressBarHold>
                   <ProgressBar width={width}></ProgressBar>
@@ -119,8 +119,8 @@ const Attendance: React.FC = () => {
               </StatisticsMeasureColumn>
               <StatisticsMeasureColumn className="month">
                 <DayAndHourColumn>
-                  <Day>Month</Day>
-                  <HourMeasure>90 / 160 hrs</HourMeasure>
+                  <Day>Sick</Day>
+                  <HourMeasure>0/5dys</HourMeasure>
                 </DayAndHourColumn>
                 <ProgressBarHold>
                   <ProgressBar width={width}></ProgressBar>
@@ -128,8 +128,8 @@ const Attendance: React.FC = () => {
               </StatisticsMeasureColumn>
               <StatisticsMeasureColumn className="remaining">
                 <DayAndHourColumn>
-                  <Day>Remaining</Day>
-                  <HourMeasure>90 / 160 hrs</HourMeasure>
+                  <Day>Marthanity</Day>
+                  <HourMeasure>0/30dys</HourMeasure>
                 </DayAndHourColumn>
                 <ProgressBarHold>
                   <ProgressBar width={width}></ProgressBar>
@@ -137,8 +137,8 @@ const Attendance: React.FC = () => {
               </StatisticsMeasureColumn>
               <StatisticsMeasureColumn className="over-time">
                 <DayAndHourColumn>
-                  <Day>Overtime</Day>
-                  <HourMeasure>90/160 hrs / 160 hrs</HourMeasure>
+                  <Day>Certification</Day>
+                  <HourMeasure>0/10dys</HourMeasure>
                 </DayAndHourColumn>
                 <ProgressBarHold>
                   <ProgressBar width={width}></ProgressBar>
@@ -644,12 +644,6 @@ const PunchButton = styled.button`
   font-weight: 600;
   cursor: pointer;
   transition: all 960ms;
-
-  :hover {
-    background-color: white;
-    /* background-color: blue; */
-    border: 2px solid blue;
-  }
 `;
 
 const CircleTimer = styled.div`

@@ -1,26 +1,23 @@
 import axios from "axios";
 import { AdminData, AttendanceData } from "../../types/AllInterfaces";
 import { StaffData } from "../../types/AllInterfaces";
-import { log } from "console";
 
 export const url = "https://easyhr.onrender.com/api"
 
-const adminUrl ="admin"
+const staffUrl ="staff"
 
 
-export const createAdmin = async(data:AdminData)=>{
-    return await axios.post(`${url}/${adminUrl}/register`,data).then((res)=>{
-        return res.data
-    })
+export const createAdmin = async(data:any)=>{
+    return await axios.post(`https://easyhr.onrender.com/api/admin/login`,data).then((res)=> res.data)
 }
 
-export const LoginAdmin = async(data:any)=>{
-    return await axios.post(`${url}/${adminUrl}/login`,data).then((res)=>
+export const LoginAdmin = async(data:AdminData)=>{
+    return await axios.post(`${url}/admin/login`,data).then((res)=>
     {return res.data})
 }
 
-export const LoginStaff = async(data:any)=>{
-    return await axios.post(`${url}/${staffUrl}/login`,data).then((res)=>
+export const LoginStaff = async(data:StaffData)=>{
+    return await axios.post(`https://easyhr.onrender.com/api/staff/stafflogin`,data).then((res)=>
     {return res.data})
 }
 
@@ -61,12 +58,12 @@ export const deactiavteAStaff = async(staffId:any , adminId:any)=>{
 //generate attendance token
 
 export const genAttendanceToken = async(adminId:string)=>{
-    return await axios.post(`${url}/createattendance/${adminId}`)
+    return await axios.post(`${url}/createattendance/${adminId}`).then((res)=> res.data)
 }
 
 
 // Staff ClockIn
-export const staffClockIn = async(data: AttendanceData , staffId : any) =>{
+export const staffClockIn = async(data: any , staffId : any) =>{
 
 
 }
@@ -77,3 +74,9 @@ export const staffClockIn = async(data: AttendanceData , staffId : any) =>{
     window.location.reload()
   })
 } */
+
+//create leave on admin side
+
+export const createLeave = async(data : any , adminId:any)=>{
+    return await axios.post(`${url}/createleave/${adminId}` , data).then((res)=> res.data)
+}
