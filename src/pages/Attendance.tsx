@@ -5,6 +5,7 @@ import Select from "react-select";
 import { BsCalendar4Event } from "react-icons/bs";
 import InputStaffAttendance from "./InputFieldAttendance/InputStaffAttendance";
 import { MdOutlineCancel } from "react-icons/md"
+import { useNavigate } from "react-router-dom";
 
 
 const Option = [
@@ -15,12 +16,16 @@ const Option = [
 
 const Attendance: React.FC = () => {
 
+  const [value, setValue] = useState("")
   const [annualcheck, setannualCheck]=useState(false)
   const [examchecker, setexamCheck]=useState(false)
   const [sickchecker, setsickCheck]=useState<boolean>(false)
   const [mathanitychecker, setmathanityCheck]=useState<boolean>(false)
   const [certificationchecker, setcertificationCheck]=useState<boolean>(false)
- 
+
+  const navigate = useNavigate()
+
+
 
   const [PunchStateChanger, setPunchStateChanger] = useState(true);
   const [width, setWidth] = useState(0);
@@ -36,7 +41,9 @@ const annualchecker = () =>{
   setsickCheck(false)
   setcertificationCheck(false)
   setmathanityCheck(false)
+  navigate("/staffdashboard/leave-form")
 }
+
 
 const ExamChecker = () =>{
   setannualCheck(false)
@@ -82,6 +89,9 @@ const Certificationchecker = () =>{
   const PunchStateChangerFunction = () => {
     setPunchStateChanger(!PunchStateChanger);
   };
+
+  console.log("this is value: "+value);
+  
 
 
   
@@ -191,14 +201,19 @@ const Certificationchecker = () =>{
           <Card className="three">
             <CardTitle>Apply For Leave</CardTitle>
             <CardContent>
-              <LeaveOptionForm action="">
-                <OptionInputHold cl={annualcheck?"white":"black"} bd={annualcheck?"none":"silver"} onClick={annualchecker} bg={annualcheck? "blue":""}>
+              <LeaveOptionForm >
+                <OptionInputHold  cl={annualcheck?"white":"black"} bd={annualcheck?"none":"silver"} onClick={annualchecker} bg={annualcheck? "blue":""}
+                >
                 <Label htmlFor="html">Anuual</Label>
-                <OptionInput className="annual" type="radio"  checked={annualcheck? true: false} name="annual" id="html" />
+                <OptionInput className="annual" type="radio"  checked={annualcheck? true: false} name="annual" id="html" 
+                value="annual"
+                />
                 </OptionInputHold >
 
-                <OptionInputHold cl={examchecker?"white":"black"} bd={examchecker?"none":"silver"} onClick={ExamChecker} bg={examchecker? "blue":""}>
-                <Label>Exam</Label> <OptionInput className="annual" type="radio"  checked={examchecker? true: false} name="annual" id="html" />
+                <OptionInputHold  cl={examchecker?"white":"black"} bd={examchecker?"none":"silver"} onClick={ExamChecker} bg={examchecker? "blue":""}>
+                <Label>Exam</Label> <OptionInput className="annual" type="radio"  checked={examchecker? true: false} name="annual" id="html" 
+                
+                />
                 </OptionInputHold >
 
                 <OptionInputHold cl={sickchecker?"white":"black"} bd={sickchecker?"none":"silver"} onClick={Sickchecker} bg={sickchecker? "blue":""}>
