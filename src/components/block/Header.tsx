@@ -47,9 +47,9 @@ const Header = () => {
         <Container bd="rgba(99, 99, 99, 0.5) 0px 2px 10px 0px" bg="#fff">
           <Wrapper>
 
-            <LogoHold>
-              <img src={logos} alt="Product Image" />
-            </LogoHold>
+
+              <Img src={logos} alt="Product Image" />
+
            
             <NavWrapper>
               <Nav 
@@ -92,9 +92,9 @@ const Header = () => {
         <Container bd="" bg="#fff">
           <Wrapper>
 
-            <LogoHold>
-              <img src={logos} alt="" />
-            </LogoHold>
+
+              <Img src={logos} alt="" />
+
             <NavWrapper>
               <Nav 
               smooth={true} duration={300}
@@ -284,8 +284,12 @@ const NavWrapper = styled.div`
 const MediaButtonWrapper = styled.div`
 flex-wrap: wrap;
 width: 100%;
+background-color: red;
 display: flex;
 
+@media screen and (max-width:500px) {
+  margin-top: 80px;
+}
 @media screen and (max-width:500px) {
   margin-top: 80px;
 }
@@ -486,19 +490,10 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const LogoHold = styled.div`
-  font-weight: 900;
-  font-size: 18px;
-  width: 150px;
-  height: 100px;
-  margin-top: 15px;
 
-  img {
-    width: 80%;
-    height: 80%;
-    object-fit: contain;
-  }
-`;
+const Img = styled.img`
+  height: 60px;
+`
 
 const SignDiv = styled.div`
   display: flex;
