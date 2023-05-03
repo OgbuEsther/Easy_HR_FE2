@@ -6,6 +6,8 @@ import {TbBrandNytimes} from "react-icons/tb"
 import {FaAlipay} from "react-icons/fa"
 import {SiSecurityscorecard} from "react-icons/si"
 import AbsentUserProps from "./AbsentUserProps";
+import AttendanceHistoryProps from "./AttendanceHistoryProps";
+import PresentProps from "./PresentProps";
 // import axios from "axios";
 // import { getOneAdmin } from "../utils/Api/ApiCall";
 // import { useQuery } from "@tanstack/react-query";
@@ -93,23 +95,8 @@ setShow(false);
                 </ButtonsHold>
 
               {/* <Box> */}
-                
-                {
-                show2 ? (
-                  <div>
-                    PEDRO
-                  </div>
-                )
-                :null
-              }
-                {
-                show3 ? (
-                  <div>
-                    Codelab
-                  </div>
-                )
-                :null
-              }
+            
+             
               {/* </Box>/ */}
         
         
@@ -118,6 +105,23 @@ setShow(false);
                 show ? (
                   <div>
                   <AbsentUserProps/>
+                  </div>
+                )
+                :null
+        }
+            
+                {
+                show2 ? (
+                  <div>
+                    <PresentProps/>
+                  </div>
+                )
+                :null
+              }
+           {
+                show3 ? (
+                  <div>
+                  <AttendanceHistoryProps/>
                   </div>
                 )
                 :null
