@@ -18,6 +18,7 @@ import Verification from "../pages/Auth/Verification";
 import { Staffdashboard } from "../components/layout/Staffdashboard";
 import Staffcomp from "../pages/Staffcomp";
 import Leave from "../pages/Leave/Leave";
+import LeavePage from "../pages/LeavePage";
 
 
 const Home = lazy(() => import("../pages/landingpage/Home"));
@@ -203,6 +204,12 @@ export const Elements = createBrowserRouter([
         hasErrorBoundary: true,
         errorElement: <ErrorBoundary />,
       },
+      {
+        path:"/staffdashboard/leave-form",
+        element: <LeavePage />,
+        hasErrorBoundary: true,
+        errorElement: <ErrorBoundary />,
+      }
     ]
   },
 ]);
