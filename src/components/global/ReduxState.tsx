@@ -5,15 +5,18 @@ import { StaffData } from "../../types/AllInterfaces";
 import {AttendanceData} from "../../types/AllInterfaces"
 
 const initialState = {
-    currentUser:{} as AdminData | null,
+    currentUser:{} as any | null,
 
-    currentStaff: {} as StaffData |null,
+    currentStaff: {} as any |null,
 
-    currentAttendance: {} as AttendanceData |null,
+    leave : {} as any | null,
+
+    clockIn : {} as any | null
+
 };
 
 const ReduxState = createSlice({
-    name:"easyHR",
+    name:"myEazyHr",
     initialState,
     reducers: {
         Admin: (state, {payload}: PayloadAction<AdminData>)=>{
@@ -21,6 +24,12 @@ const ReduxState = createSlice({
         },
         Staff: (state, {payload}: PayloadAction<StaffData>)=>{
             state.currentStaff = payload;
+        },
+        CreateLeave: (state, {payload}: PayloadAction<any>)=>{
+            state.leave = payload;
+        },
+        StaffClockIn: (state, {payload}: PayloadAction<any>)=>{
+            state.clockIn = payload;
         },
 
         logoutAdmin: (state)=> {
@@ -34,6 +43,6 @@ const ReduxState = createSlice({
 })
 
 
-export const {Admin, Staff, logoutstaff,logoutAdmin } = ReduxState.actions;
+export const {Admin, Staff, logoutstaff,logoutAdmin ,CreateLeave ,StaffClockIn } = ReduxState.actions;
 
 export default ReduxState.reducer;
