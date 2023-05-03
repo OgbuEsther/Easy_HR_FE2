@@ -28,7 +28,7 @@ SetViewPassword(!ViewPassword)
     }
 
   const schema = yup.object({
-    companyName: yup.string().required("please enter a valid company's name"),
+    companyname: yup.string().required("please enter a valid company's name"),
     email: yup.string().email().required("please enter a valid email"),
     password: yup.string().required("please enter a password")
   }).required()
@@ -94,8 +94,8 @@ SetViewPassword(!ViewPassword)
 
 <CompanyNameInputHold>
     
-    <CompanyNameInput {...register("companyName")} placeholder='Company Name'/>
-    <span>{errors?.companyName && errors?.companyName?.message}</span>
+    <CompanyNameInput {...register("companyname")} placeholder='Company Name'/>
+    <span>{errors?.companyname && errors?.companyname?.message}</span>
 
 </CompanyNameInputHold>
 

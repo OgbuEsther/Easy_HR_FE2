@@ -1,7 +1,6 @@
 import axios from "axios";
 import { AdminData, AttendanceData } from "../../types/AllInterfaces";
 import { StaffData } from "../../types/AllInterfaces";
-import { log } from "console";
 
 export const url = "https://easyhr.onrender.com/api"
 
@@ -18,7 +17,7 @@ export const LoginAdmin = async(data:AdminData)=>{
 }
 
 export const LoginStaff = async(data:StaffData)=>{
-    return await axios.post(`${url}/${staffUrl}/stafflogin`,data).then((res)=>
+    return await axios.post(`https://easyhr.onrender.com/api/staff/stafflogin`,data).then((res)=>
     {return res.data})
 }
 
