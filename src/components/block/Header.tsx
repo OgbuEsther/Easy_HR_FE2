@@ -48,7 +48,7 @@ const Header = () => {
           <Wrapper>
 
             <LogoHold>
-              <img src={logos} alt="Product Image" />
+              <Img src={logos} alt="Product Image" />
             </LogoHold>
            
             <NavWrapper>
@@ -93,7 +93,7 @@ const Header = () => {
           <Wrapper>
 
             <LogoHold>
-              <img src={logos} alt="" />
+              <Img src={logos} alt="" />
             </LogoHold>
             <NavWrapper>
               <Nav 
@@ -491,13 +491,11 @@ const LogoHold = styled.div`
   width: 150px;
   height: 100px;
   margin-top: 15px;
-
-  img {
-    width: 80%;
-    height: 80%;
-    object-fit: contain;
-  }
 `;
+
+const Img = styled.img`
+  
+`
 
 const SignDiv = styled.div`
   display: flex;
