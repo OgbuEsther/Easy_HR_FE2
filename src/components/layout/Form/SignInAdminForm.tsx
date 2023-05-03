@@ -27,9 +27,9 @@ const SigninForm = () => {
 
   const schema = yup
     .object({
-      companyName: yup.string().required("please enter a valid company's name"),
+      companyname: yup.string().required("please enter a valid company's name"),
       email: yup.string().email().required("please enter a valid email"),
-      password: yup.string().min(9).required("please enter a password"),
+      password: yup.string(),
     })
     .required();
 
@@ -46,13 +46,13 @@ const SigninForm = () => {
 
   const LoginAdminFunction = useMutation({
     mutationKey: ["login_admin"],
-    // mutationFn: LoginAdmin,
     mutationFn: (data: any) => LoginAdmin(data),
+    
+    
 
     onSuccess(myData) {
-      // console.log(data);
       dispatch(Admin(myData.data));
-      // NavigateToVeficationPageFunction()
+      
 
       Swal.fire({
         title: "Login succesful",
@@ -63,30 +63,29 @@ const SigninForm = () => {
         didOpen: () => {
           Swal.showLoading();
         },
-
-        willClose: () => {
-          navigate("/dashboard");
-        },
       });
+      navigate("/dashboard");
+      reset()
     },
-    onError: (error: any) => {
-      Swal.fire({
-        title: "registration failed",
-        text: "email or password incorrect",
-        icon: "error",
-      });
-    },
+    // onError: (error: any) => {
+    //   Swal.fire({
+    //     title: "registration failed",
+    //     text: "email or password incorrect",
+    //     icon: "error",
+    //   });
+    // },
   });
 
-  // console.log(LoginAdminFunction);
 
   const Submit = handleSubmit((data) => {
     LoginAdminFunction.mutate(data);
-    reset();
+    console.log("admin sign in data "+ data);
+    
+    
   });
 
   return (
-    <Form>
+    <FormHold>
       <SignUpTitle>Sign In</SignUpTitle>
       {/* <SignUpDescription>Pay smart and save time with Easy Pay</SignUpDescription> */}
       <SignUpDescription>You will be signed in as an Admin</SignUpDescription>
@@ -94,10 +93,10 @@ const SigninForm = () => {
       <InputField onSubmit={Submit}>
         <CompanyNameInputHold>
           <CompanyNameInput
-            {...register("companyName")}
+            {...register("companyname")}
             placeholder="Company Name"
           />
-          <span>{errors?.companyName && errors?.companyName?.message}</span>
+          <span>{errors?.companyname && errors?.companyname?.message}</span>
         </CompanyNameInputHold>
 
         <EmailInputColumn>
@@ -135,13 +134,13 @@ const SigninForm = () => {
         <FifthInputColumn>
           <p>
             Don't have account?{" "}
-            <NavLink to="/sign-up" style={{ textDecoration: "none" }}>
+            <NavLink to="/sign-up-admin" style={{ textDecoration: "none" }}>
               <span>Sign Up</span>
             </NavLink>
           </p>
         </FifthInputColumn>
       </InputField>
-    </Form>
+    </FormHold>
   );
 };
 
@@ -323,7 +322,7 @@ const SignUpTitle = styled.h3`
   color: #0174f7b5;
 `;
 
-const Form = styled.form`
+const FormHold = styled.div`
   height: auto;
   width: 500px;
   padding-top: 40px;

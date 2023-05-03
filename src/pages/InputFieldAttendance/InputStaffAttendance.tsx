@@ -46,14 +46,7 @@ React.useEffect(()=>{
           }}
         />
 
-        <label htmlFor="">click to check in</label>
-        <br />
-        <input type="checkbox"
-        
-    
-        onChange={(e: any) => {
-          setClockInBoolean(e.target.value);
-        }}/>
+       
         <Button type="submit" 
         onClick={staffClockIn}
         >Confirm</Button>
