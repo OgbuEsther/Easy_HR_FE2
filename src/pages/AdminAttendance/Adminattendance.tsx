@@ -1,28 +1,31 @@
 import React from "react";
 import styled from "styled-components";
-// import { useAppSelector } from "../components/global/Store";
+ import { useAppSelector } from "../../components/global/Store"
 import {CgPerformance} from "react-icons/cg"
 import {TbBrandNytimes} from "react-icons/tb"
 import {FaAlipay} from "react-icons/fa"
 import {SiSecurityscorecard} from "react-icons/si"
 import AbsentUserProps from "./AbsentUserProps";
-import AttendanceHistoryProps from "./AttendanceHistoryProps";
+ import axios from "axios";
+ import { genAttendanceToken, getOneAdmin } from "../../utils/Api/ApiCall";
+ import { useQuery } from "@tanstack/react-query";
 import PresentProps from "./PresentProps";
-// import axios from "axios";
-// import { getOneAdmin } from "../utils/Api/ApiCall";
-// import { useQuery } from "@tanstack/react-query";
+import AttendanceHistoryProps from "./AttendanceHistoryProps";
 const Adminattendance = () => {
-  // const admin = useAppSelector((state) => state.currentUser);
+  const admin = useAppSelector((state) => state.currentUser);
 
-  // const [token , setToken] = React.useState("")
+  const [token , setToken] = React.useState("")
 
-  // const user = useAppSelector((state) => state.currentUser);
+ 
 
-//   const getAdmin = useQuery({
-//     queryKey: ["singleAdmin"],
-//     queryFn: () => getOneAdmin(user?._id),
-//   });
-// console.log("this is admin",user?._id)
+  const getAdmin = useQuery({
+    queryKey: ["genToken"],
+    queryFn: () => genAttendanceToken(admin?._id),
+  });
+// console.log("this is admin",admin?._id)
+// console.log("this is admin22",)
+
+const theToken = getAdmin?.data?.data?.data?.setToken
 
 
 
@@ -62,9 +65,18 @@ setShow(false);
            </span>
           </Word>
 
-          <Button>
+          <Button 
+    onClick={()=>{
+    axios.post(`${URL}/createattendance/${admin?._id}`).then((res)=>{
+      setToken(res.data.data.setToken)
+    })
+    }}
+          >
             Generate Token
           </Button>
+
+          <p>{token} </p>
+       
         </One>
 
         
@@ -330,15 +342,10 @@ const Top = styled.div`
 `;
 
 const Box = styled.div`
-   /* margin-top: 20px;
-  border-radius: 50px;
-  background-color: #f3f5e9;
-  height: 400px;
-  width: 93%;
-  background-repeat: no-repeat;
-  /* background-position: center; */
-  /* background-size: contain;
-  margin-bottom: 20px;  */
+  display: flex;
+  height:500px;
+  width: 100%;
+  margin-top: 30px;
 `;
 const Wrapper = styled.div`   
   width: 97%;

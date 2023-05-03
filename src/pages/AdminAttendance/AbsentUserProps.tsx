@@ -66,4 +66,12 @@ const Container = styled.div`
  background-color: red;
  margin-top: 7px;
  flex-direction: column;
+ `
+
+const Wrapper = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+/* height:390px; */
+width:90%;
 `

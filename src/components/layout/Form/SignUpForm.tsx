@@ -40,6 +40,7 @@ const SignupForm = () => {
     resolver: yupResolver(schema)
   })
 
+  
 
   const StaffSignUp = useMutation({
     mutationKey:['creating_staff'],
@@ -54,10 +55,11 @@ const SignupForm = () => {
               timer: 1000,
               timerProgressBar: true,
       
-              willClose: () => {
-                navigate("/login");
-              },
+             willClose: ()=>{
+              navigate("/sign-in")
+             }
             });
+            reset()
     }
   })
 
@@ -67,7 +69,8 @@ const SignupForm = () => {
   
   const Submit = handleSubmit(async(data: any)=>{
     StaffSignUp.mutate(data)
-    reset()
+    console.log("this is the submitted data "+ data);
+    
   })
 
 
