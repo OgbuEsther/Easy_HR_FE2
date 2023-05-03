@@ -1,19 +1,21 @@
 import React from "react";
 import { MdOutlineCancel } from "react-icons/md";
-import { FaGoogleWallet } from "react-icons/fa";
+
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
-import { FaJediOrder } from "react-icons/fa";
-import { BsFillArrowRightCircleFill } from "react-icons/bs";
-import { GiHypersonicMelon } from "react-icons/gi";
+import {useForm} from "react-hook-form"
+import * as yup from "yup"
+import {yupResolver} from "@hookform/resolvers/yup"
+
 import {
-  AiFillAlert,
-  AiOutlineDeploymentUnit,
+
   AiFillDashboard,
 } from "react-icons/ai";
-import { useAppSelector } from "../../components/global/Store";
-import { useQuery } from "@tanstack/react-query";
-import { getOneAdmin } from "../../utils/Api/ApiCall";
+import { UseAppDispach, useAppSelector } from "../../components/global/Store";
+import { useMutation } from "@tanstack/react-query";
+import { createLeave  } from "../../utils/Api/ApiCall";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import {  CreateLeave } from "../../components/global/ReduxState";
 // import { useAppSelector } from "../components/global/Store";
 // import { useQuery } from "@tanstack/react-query";
 // import { getOneAdmin } from "../utils/Api/ApiCall";
@@ -30,14 +32,56 @@ const ParentComp = () => {
     setShow(false);
   };
 
-  const admin = useAppSelector((state) => state.currentUser);
+  const dispatch = UseAppDispach();
+  const navigate = useNavigate();
 
-  const getAdmin = useQuery({
-    queryKey: ["singleAdmin"],
-    queryFn: () => getOneAdmin(admin?._id),
+  const admin = useAppSelector((state)=> state.currentUser)
+
+  const schema = yup
+    .object({
+      title: yup.string().required(),
+      days: yup.number().required(),
+     
+    })
+    .required();
+
+  type formData = yup.InferType<typeof schema>;
+
+  const {
+    handleSubmit,
+    formState: { errors },
+    reset,
+    register,
+  } = useForm<formData>({
+    resolver: yupResolver(schema),
   });
 
-  console.log("this is admin data", admin?.companyname);
+  const posting = useMutation({
+    mutationKey: ["create_Leave"],
+    // mutationFn: createAdmin,
+    mutationFn: (data: any) => createLeave(data , admin?._id),
+
+    onSuccess: (myData) => {
+      dispatch(CreateLeave(myData.data))
+      Swal.fire({
+        title: "leave created  successfully",
+        html: "redirecting to dashbaord",
+        timer: 1000,
+        timerProgressBar: true,
+
+        willClose: () => {
+          // navigate("/sign-in-admin");
+        }
+      })
+    
+    },
+  });
+
+  const Submit = handleSubmit(async (data: any) => {
+    console.log("user", data)
+    posting.mutate(data);
+    // reset();
+  });
 
   return (
     <div>
@@ -73,16 +117,19 @@ const ParentComp = () => {
                    
                   </Card2>
 
-                  <Tap>
+                  <Tap onSubmit={Submit}>
                     <h3>Leave Title</h3>
-                    <input type="text" placeholder="e.g maternity leave"/>
+                    <input {...register("title")} type="text" placeholder="e.g maternity leave"/>
+                    <span>{errors?.title && errors?.title?.message}</span>
                     <h3>Start</h3>
-                    <input type="text" placeholder=" " />
-                    <h3>Start</h3>
-                    <input type="text" placeholder=" " />
+                    <input {...register("days")} type="text" placeholder=" " />
+                    <span>{errors?.days && errors?.days?.message}</span>
+                    {/* <h3>Start</h3>
+                    <input type="text" placeholder=" " /> */}
+                     <button type="submit">Create</button>
                   </Tap>
 
-                    <button>Create</button>
+                   
                 </Wallets>
               </Slidein>
             ) : null}
@@ -156,7 +203,7 @@ font-weight: bold;
 `
 
 
-const Tap = styled.div`
+const Tap = styled.form`
 input{
   border: 0.5px solid #7eb0f5;
   border-radius: 3px;
