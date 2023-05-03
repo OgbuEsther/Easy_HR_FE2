@@ -1,18 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-// import { useAppSelector } from "../components/global/Store";
+ import { useAppSelector } from "../../components/global/Store"
 import {CgPerformance} from "react-icons/cg"
 import {TbBrandNytimes} from "react-icons/tb"
 import {FaAlipay} from "react-icons/fa"
 import {SiSecurityscorecard} from "react-icons/si"
 import AbsentUserProps from "./AbsentUserProps";
-import { genAttendanceToken, getOneAdmin, url } from "../../utils/Api/ApiCall";
-import { useAppSelector } from "../../components/global/Store";
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
-// import axios from "axios";
-// import { getOneAdmin } from "../utils/Api/ApiCall";
-// import { useQuery } from "@tanstack/react-query";
+ import axios from "axios";
+ import { genAttendanceToken, getOneAdmin } from "../../utils/Api/ApiCall";
+ import { useQuery } from "@tanstack/react-query";
+import PresentProps from "./PresentProps";
+import AttendanceHistoryProps from "./AttendanceHistoryProps";
 const Adminattendance = () => {
   const admin = useAppSelector((state) => state.currentUser);
 
@@ -69,7 +67,7 @@ setShow(false);
 
           <Button 
     onClick={()=>{
-    axios.post(`${url}/createattendance/${admin?._id}`).then((res)=>{
+    axios.post(`${URL}/createattendance/${admin?._id}`).then((res)=>{
       setToken(res.data.data.setToken)
     })
     }}
@@ -109,23 +107,8 @@ setShow(false);
                 </ButtonsHold>
 
               {/* <Box> */}
-                
-                {
-                show2 ? (
-                  <div>
-                    PEDRO
-                  </div>
-                )
-                :null
-              }
-                {
-                show3 ? (
-                  <div>
-                    Codelab
-                  </div>
-                )
-                :null
-              }
+            
+             
               {/* </Box>/ */}
         
         
@@ -134,6 +117,23 @@ setShow(false);
                 show ? (
                   <div>
                   <AbsentUserProps/>
+                  </div>
+                )
+                :null
+        }
+            
+                {
+                show2 ? (
+                  <div>
+                    <PresentProps/>
+                  </div>
+                )
+                :null
+              }
+           {
+                show3 ? (
+                  <div>
+                  <AttendanceHistoryProps/>
                   </div>
                 )
                 :null
