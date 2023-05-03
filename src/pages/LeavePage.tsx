@@ -1,7 +1,68 @@
 import React from 'react'
 import styled from "styled-components"
+import { useNavigate } from "react-router-dom";
+import {useForm} from "react-hook-form"
+import * as yup from "yup"
+import {yupResolver} from "@hookform/resolvers/yup"
+import { UseAppDispach, useAppSelector } from '../components/global/Store';
+import { useMutation } from '@tanstack/react-query';
+import { ApplyForLeave } from '../components/global/ReduxState';
+import Swal from 'sweetalert2';
+import { applyForLeave } from '../utils/Api/ApiCall';
 
 const LeavePage = () => {
+    const dispatch = UseAppDispach();
+    const navigate = useNavigate();
+  
+    const staff = useAppSelector((state)=> state.currentStaff)
+  
+    const schema = yup
+      .object({
+        title: yup.string().required(),
+        startDate: yup.string().required(),
+        reason: yup.string().required(),
+        numberOfDays: yup.number().required(),
+       
+      })
+      .required();
+  
+    type formData = yup.InferType<typeof schema>;
+  
+    const {
+      handleSubmit,
+      formState: { errors },
+      reset,
+      register,
+    } = useForm<formData>({
+      resolver: yupResolver(schema),
+    });
+  
+    const posting = useMutation({
+      mutationKey: ["apply4leave"],
+      // mutationFn: createAdmin,
+      mutationFn: (data: any) => applyForLeave(data , staff?._id),
+  
+      onSuccess: (myData) => {
+        dispatch(ApplyForLeave(myData.data))
+        Swal.fire({
+          title: "you just applied for leave",
+          html: "redirecting to dashbaord",
+          timer: 1000,
+          timerProgressBar: true,
+  
+          willClose: () => {
+            // navigate("/sign-in-admin");
+          }
+        })
+      
+      },
+    });
+  
+    const Submit = handleSubmit(async (data: any) => {
+      console.log("apply for leave", data)
+      posting.mutate(data);
+      // reset();
+    });
   return (
     <LeavePageContainer>
        <MainLeavePage>
@@ -10,13 +71,20 @@ const LeavePage = () => {
                     <Title>Leave Form</Title>
                     <SubTitle>Apply for a annual leave</SubTitle>
                 </TitleandSubtitle>
-                <InputField>
-                    <Input placeholder='your name' className='your name'/>
-                    <Input placeholder='position' className='position'/>
-                    <Input placeholder='relive officer' className='relive-office'/>
-                    <Textarea placeholder='reasons...'></Textarea>
+                <InputField onSubmit={Submit}>
+                    <Input {...register("title")} placeholder='type of leave' className='your name'/>
+                    <span>{errors?.title && errors?.title?.message}</span>
+
+                    <Input {...register("numberOfDays")} placeholder='numberOfDays' className='position'/>
+                    <span>{errors?.numberOfDays && errors?.numberOfDays?.message}</span>
+
+                    <Input {...register("startDate")} placeholder='startDate' className='relive-office'/>
+                    <span>{errors?.startDate && errors?.startDate?.message}</span>
+
+                    <Textarea {...register("reason")} placeholder='reasons...'></Textarea>
+                    <span>{errors?.reason && errors?.reason?.message}</span>
                     <SubmitButton>
-                        <Button>Submit</Button>
+                        <Button type='submit'>Submit</Button>
                     </SubmitButton>
                 </InputField>
             </LeaveForm>

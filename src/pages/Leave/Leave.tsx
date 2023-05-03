@@ -16,10 +16,6 @@ import { createLeave  } from "../../utils/Api/ApiCall";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import {  CreateLeave } from "../../components/global/ReduxState";
-// import { useAppSelector } from "../components/global/Store";
-// import { useQuery } from "@tanstack/react-query";
-// import { getOneAdmin } from "../utils/Api/ApiCall";
-// import AdminCard from "./AdminCard";
 
 const ParentComp = () => {
   const [show, setShow] = React.useState(false);
