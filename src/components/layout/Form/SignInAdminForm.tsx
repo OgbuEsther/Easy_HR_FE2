@@ -67,20 +67,18 @@ const SigninForm = () => {
       navigate("/dashboard");
       reset()
     },
-    // onError: (error: any) => {
-    //   Swal.fire({
-    //     title: "registration failed",
-    //     text: "email or password incorrect",
-    //     icon: "error",
-    //   });
-    // },
+    onError: (error: any) => {
+      Swal.fire({
+        title: "registration failed",
+        text: "email or password incorrect",
+        icon: "error",
+      });
+    },
   });
 
 
   const Submit = handleSubmit((data) => {
-    LoginAdminFunction.mutate(data);
-    console.log("admin sign in data "+ data);
-    
+    LoginAdminFunction.mutate(data);    
     
   });
 

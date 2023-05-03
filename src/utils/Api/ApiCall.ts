@@ -63,9 +63,11 @@ export const genAttendanceToken = async(adminId:string)=>{
 
 
 // Staff ClockIn
-export const staffClockIn = async(data: AttendanceData , staffId : any) =>{
-
-
+export const staffClockInfuntion = async(data: AttendanceData) =>{
+    return await axios.post(`https://easyhr.onrender.com/api/clockin/644e8e63cfbe10e9cc38bb04`).then((res)=>{
+        console.log(res);
+        
+    })
 }
 
 /**export const deactiavteAStaff = async()=>{

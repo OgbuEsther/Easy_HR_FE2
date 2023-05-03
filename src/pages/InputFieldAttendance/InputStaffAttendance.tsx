@@ -3,12 +3,10 @@ import styled from "styled-components";
 import { UseAppDispach, useAppSelector } from "../../components/global/Store";
 import * as yup from "yup";
 import { useMutation } from "@tanstack/react-query";
-import { staffClockIn, url } from "../../utils/Api/ApiCall";
-
+import { staffClockInfuntion, url } from "../../utils/Api/ApiCall";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import axios from "axios";
-
+import { Staff } from "../../components/global/ReduxState";
 const InputStaffAttendance = () => {
 
   const dispatch = UseAppDispach();
@@ -17,20 +15,31 @@ const InputStaffAttendance = () => {
   const [tokenValue, setTokenValue] = React.useState("");
   const [clockInBoolean , setClockInBoolean] = React.useState<boolean>(false)
 
-  // https://easyhr.onrender.com/api/clockin/644e8e63cfbe10e9cc38bb04
-  const staffClockIn =  async() => {
-    await axios
-        .post(`https://easyhr.onrender.com/api/clockin/644e8e63cfbe10e9cc38bb04`, {setToken : tokenValue , clockIn: clockInBoolean })
-        .then((res) => {
-          console.log(res)
-        });
+  const schema = yup.object({
+    token: yup.string().required()
+  }).required()
+
+  type formData = yup.InferType<typeof schema>
+
+  const {
+    handleSubmit, register, reset, formState:{errors
+    }
+  } = useForm<formData>({resolver: yupResolver(schema)})
+  
+  const staffClockIn = useMutation({
+    mutationKey:["staff-clockin"],
+    mutationFn: (data)=>staffClockInfuntion(data!),
+    
+    onSuccess(StaffData){
+      dispatch(Staff(StaffData!))
+    }
+
+    
+  });
 
   
-   
-  };
-React.useEffect(()=>{
-  staffClockIn()
-} , [])
+
+
 
   return (
     <Container>
@@ -40,15 +49,12 @@ React.useEffect(()=>{
         <Input
           cl="red"
           placeholder="Token"
-          value={tokenValue}
-          onChange={(e: any) => {
-            setTokenValue(e.target.value);
-          }}
+        
         />
 
        
         <Button type="submit" 
-        onClick={staffClockIn}
+        
         >Confirm</Button>
       </Proceed>
     </Container>
@@ -84,7 +90,7 @@ const Input = styled.input<{ cl: string }>`
 
 const Top = styled.div``;
 
-const Proceed = styled.div`
+const Proceed = styled.form`
   width: 350px;
   height: 200px;
   background-color: #fff;
