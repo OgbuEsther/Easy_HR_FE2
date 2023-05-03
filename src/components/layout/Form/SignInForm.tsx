@@ -8,13 +8,11 @@ import {AiOutlineEye} from "react-icons/ai"
 import { NavLink } from 'react-router-dom';
 import {useNavigate} from "react-router-dom"
 import { useMutation } from '@tanstack/react-query'
-// import { LoginStaff } from '../../../utils/Api/ApiCall'
 import { useDispatch } from 'react-redux'
 import { Staff } from '../../global/ReduxState'
 import Swal from 'sweetalert2'
-import { LoginStaff } from '../../../utils/Api/ApiCall'
 // import { LoginStaff } from '../../../utils/Api/ApiCall'
-
+import { LoginStaff } from '../../../utils/Api/ApiCall'
 
 
 
@@ -29,17 +27,8 @@ const dispatch = useDispatch()
 SetViewPassword(!ViewPassword)
     }
 
-
-   
-
-
-   
-
-  
-
-
   const schema = yup.object({
-    companyName: yup.string().required("please enter a valid company's name"),
+    companyname: yup.string().required("please enter a valid company's name"),
     email: yup.string().email().required("please enter a valid email"),
     password: yup.string().required("please enter a password")
   }).required()
@@ -74,7 +63,10 @@ SetViewPassword(!ViewPassword)
         willClose: () => {
           navigate("/staffdashboard");
         },
+
       });
+      reset()
+
     },
     onError: (error: any) => {
       Swal.fire({
@@ -88,7 +80,6 @@ SetViewPassword(!ViewPassword)
   const Submit = handleSubmit(async(data)=>{
     loginin.mutate(data)
 
-    reset()
   })
 
 
@@ -103,8 +94,8 @@ SetViewPassword(!ViewPassword)
 
 <CompanyNameInputHold>
     
-    <CompanyNameInput {...register("companyName")} placeholder='Company Name'/>
-    <span>{errors?.companyName && errors?.companyName?.message}</span>
+    <CompanyNameInput {...register("companyname")} placeholder='Company Name'/>
+    <span>{errors?.companyname && errors?.companyname?.message}</span>
 
 </CompanyNameInputHold>
 
@@ -248,7 +239,7 @@ height: auto;
 width: auto;
 `
 
-const InputField = styled.form`
+const InputField = styled.div`
   height: auto;
   width: 90%;
   padding: 10px 0px;

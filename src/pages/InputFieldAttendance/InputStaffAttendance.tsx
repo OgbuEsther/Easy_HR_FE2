@@ -7,7 +7,6 @@ import {yupResolver} from "@hookform/resolvers/yup"
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useMutation } from "@tanstack/react-query";
-
 import axios from "axios";
 import { staffClockIn } from "../../utils/Api/ApiCall";
 import { StaffClockIn } from "../../components/global/ReduxState";
@@ -19,17 +18,13 @@ const InputStaffAttendance = () => {
   // https://easyhr.onrender.com/api/clockin/644e8e63cfbe10e9cc38bb04
   // const staffClockIn =  async() => {
   //   await axios
-  //       .post(`https://easyhr.onrender.com/api/clockin/${staff?._id}`, {token:tokenValue ,clockIn:clockInBoolean })
+  //       .post(`https://easyhr.onrender.com/api/clockin/644e8e63cfbe10e9cc38bb04`, {setToken : tokenValue , clockIn: clockInBoolean })
   //       .then((res) => {
   //         console.log(res)
-  //         console.log(tokenValue)
-  //         console.log(clockInBoolean)
-
   //       });
 
   
    
-  // };
   const dispatch = UseAppDispach();
   const navigate = useNavigate();
 
@@ -59,7 +54,7 @@ const InputStaffAttendance = () => {
     // mutationFn: createAdmin,
     mutationFn: (data: any) => staffClockIn(data , staff?._id),
 
-    onSuccess: (myData) => {
+    onSuccess: (myData: any) => {
       dispatch(StaffClockIn(myData.data))
       Swal.fire({
         title: "staff  clockin  successfully",
@@ -90,16 +85,15 @@ const InputStaffAttendance = () => {
           cl="red"
           placeholder="Token"
           {...register("token")} 
-        />
- <span>{errors?.token && errors?.token?.message}</span>
-        <label htmlFor="">click to check in</label>
-        <br />
-        <input type="checkbox"
-         {...register("clockIn")} 
-        />
-         <span>{errors?.clockIn && errors?.clockIn?.message}</span>
+          />
+   <span>{errors?.token && errors?.token?.message}</span>
+          <label htmlFor="">click to check in</label>
+          <br />
+          <input type="checkbox"
+           {...register("clockIn")} 
+          />
+           <span>{errors?.clockIn && errors?.clockIn?.message}</span>
         <Button type="submit" 
-     
         >Confirm</Button>
       </Proceed>
     </Container>

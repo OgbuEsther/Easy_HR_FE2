@@ -1,25 +1,23 @@
 import axios from "axios";
 import { AdminData, AttendanceData } from "../../types/AllInterfaces";
 import { StaffData } from "../../types/AllInterfaces";
-import { log } from "console";
 
 export const url = "https://easyhr.onrender.com/api"
 
-const adminUrl ="admin"
 const staffUrl ="staff"
 
 
 export const createAdmin = async(data:any)=>{
-    return await axios.post(`${url}/admin/register`,data).then((res)=> res.data)
+    return await axios.post(`https://easyhr.onrender.com/api/admin/login`,data).then((res)=> res.data)
 }
 
-export const LoginAdmin = async(data:any)=>{
-    return await axios.post(`${url}/${adminUrl}/login`,data).then((res)=>
+export const LoginAdmin = async(data:AdminData)=>{
+    return await axios.post(`${url}/admin/login`,data).then((res)=>
     {return res.data})
 }
 
-export const LoginStaff = async(data:any)=>{
-    return await axios.post(`${url}/${staffUrl}/stafflogin`,data).then((res)=>
+export const LoginStaff = async(data:StaffData)=>{
+    return await axios.post(`https://easyhr.onrender.com/api/staff/stafflogin`,data).then((res)=>
     {return res.data})
 }
 
@@ -66,9 +64,7 @@ export const genAttendanceToken = async(adminId:string)=>{
 
 // Staff ClockIn
 export const staffClockIn = async(data: any , staffId : any) =>{
-   return await axios
-    .post(`https://easyhr.onrender.com/api/clockin/${staffId}`, data)
-    .then((res) => res.data);
+
 
 }
 

@@ -25,9 +25,9 @@ export interface StaffData {
     email: string;
     yourName?: string;
     password: string;
-    companyCode: string;
-    walletNumber: number;
-    _id : any
+    companyCode?: string;
+    walletNumber?: number;
+    _id?: any
 
 }
 export interface AttendanceData {

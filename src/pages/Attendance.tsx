@@ -644,12 +644,6 @@ const PunchButton = styled.button`
   font-weight: 600;
   cursor: pointer;
   transition: all 960ms;
-
-  :hover {
-    background-color: white;
-    /* background-color: blue; */
-    border: 2px solid blue;
-  }
 `;
 
 const CircleTimer = styled.div`
