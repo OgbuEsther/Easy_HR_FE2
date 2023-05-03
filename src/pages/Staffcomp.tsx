@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import Cards from "./Cards";
 import Charts from "../components/Graph/Charts";
+import { Doughnuts } from "../components/Graph";
 import {  BsFillHousesFill, BsBusFront } from "react-icons/bs";
 import img from "../Assets/saves.svg"
 import { useAppSelector } from "../components/global/Store";
@@ -173,7 +174,7 @@ console.log("this is getStaff ",getStaff?.data?.data?.wallet)
             <Piehold>
                           <Pee>
                               <Title>Transaction Chart</Title>
-                              <Charts />
+                              <Doughnuts />
                           </Pee>
                       </Piehold>
                       <Planhold>
