@@ -117,7 +117,7 @@ const ParentComp = () => {
                     <h3>Leave Title</h3>
                     <input {...register("title")} type="text" placeholder="e.g maternity leave"/>
                     <span>{errors?.title && errors?.title?.message}</span>
-                    <h3>Start</h3>
+                    <h3>Default days</h3>
                     <input {...register("days")} type="text" placeholder=" " />
                     <span>{errors?.days && errors?.days?.message}</span>
                     {/* <h3>Start</h3>
@@ -189,7 +189,7 @@ border-radius: 3px;
 background-color: white;
 margin-top: 20px;
 margin-left: 5px;
-box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+ box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 `
 const Name= styled.div``
 const Days= styled.div``
@@ -201,7 +201,10 @@ font-weight: bold;
 
 const Tap = styled.form`
 input{
-  border: 0.5px solid #7eb0f5;
+  /* width: 20px; */
+  padding: 10px;
+  height: 40px;
+  border: 0.2px solid #7eb0f5;
   border-radius: 3px;
   outline: 1px solid #3184f7;
 }
