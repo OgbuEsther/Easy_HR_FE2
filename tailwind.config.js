@@ -26,7 +26,8 @@ module.exports = {
       },
       backgroundImage: {
         'hero': "url('../src/Assets/roundtwo.jpg')",
-        'righthero': "url('../src/Assets/grid.svg')",
+        'righthero': "url('../src/Assets/roundthree.jpg')",
+        'lefthero': "url('../src/Assets/roundone.jpg')"
       },
 
       animation: {
