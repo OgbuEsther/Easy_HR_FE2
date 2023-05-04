@@ -1,6 +1,7 @@
 import React from 'react'
 import img from "../../Assets/tick.svg"
 import img2 from "../../Assets/her.png"
+import { Header } from '../../components'
 
 
 const Superhero = () => {
@@ -9,7 +10,7 @@ const Superhero = () => {
   return (
     <div className='w-full h-screen bg-hero flex justify-center overflow-hidden bg-no-repeat bg-center bg-cover'>
       <div className='w-full h-screen bg-black bg-opacity-50 '>
-        
+                <Header />
       </div>
         {/* <div className='w-11/12 flex flex-wrap mt-20 bg-white pt-20 justify-between'>
         <div className='w-6/12 flex flex-col md:w-full'>
