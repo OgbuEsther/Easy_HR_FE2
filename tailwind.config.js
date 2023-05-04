@@ -8,6 +8,7 @@ module.exports = {
       transparent: 'transparent',
       'white': '#ffffff',
       'herotext': '#00214f',
+      'black': '#000',
       'heroparagraph': '#232333',
       'herobutton': '#3CD19C'
     },
