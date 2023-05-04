@@ -24,7 +24,7 @@ module.exports = {
         'custom': '33.125rem'
       },
       backgroundImage: {
-        'hero': "url('../src/Assets/hero.jpg')",
+        'hero': "url('../src/Assets/roundtwo.jpg')",
         'righthero': "url('../src/Assets/grid.svg')",
       },
 
