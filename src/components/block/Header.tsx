@@ -482,6 +482,7 @@ const Container = styled.div<{ bd: string; bg: string }>`
   /* font-family: Montserrat; */
   transition: all 350ms ease-in-out; ;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  overflow: hidden;
 `;
 const Wrapper = styled.div`
   width: 92%;
