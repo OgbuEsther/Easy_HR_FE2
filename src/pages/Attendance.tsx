@@ -127,7 +127,7 @@ const Certificationchecker = () =>{
                     Punch In
                   </PunchButton>
             
-                  <PunchButton onClick={PunchStateChangerFunction}>
+                  <PunchButton onClick={Toggle}>
                     Punch Out
                   </PunchButton>
               </CircleTimerHold>
