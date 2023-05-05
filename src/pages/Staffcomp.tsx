@@ -489,6 +489,9 @@ const Planhold = styled.div`
       margin-top: 12px;
       padding: 15px;
     }
+    @media screen and (max-width: 500px) {
+      display: none;
+    }
 `
 
 const Pee = styled.div`
@@ -527,9 +530,9 @@ const Down = styled.div`
       flex-wrap: wrap;
       justify-content: center;
     }
-    @media screen and (max-width: 500px) {
+    /* @media screen and (max-width: 500px) {
       display: none;
-    }
+    } */
 `
 const Holder = styled.div`
   display: flex;
@@ -775,7 +778,7 @@ const Container = styled.div`
   align-items: center;
   background-color: #F5F7FA;
   /* overflow: hidden; */
-  margin-top: 20px;
+  /* margin-top: 20px; */
   padding-bottom: 20px;
   @media screen and (max-width: 500px){
     background-color: #00244E;

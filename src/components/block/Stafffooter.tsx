@@ -14,7 +14,7 @@ const Stafffooter = () => {
               </Hold>
               <Hold>
                   <FaUsers />
-                  <Text>Staffs</Text>
+                  <Text>Plans</Text>
               </Hold>
           </Right>
           <Mid>
@@ -62,7 +62,7 @@ const Big = styled.div`
 const Circle = styled.div`
     width: 100px;
     height: 100px;
-    background-color: #fff;
+    /* background-color: #fff; */
     border-radius: 100px;
     display: flex;
     justify-content: center;
@@ -115,7 +115,7 @@ const Container = styled.div`
         display: flex;
         width: 100%;
         height: 90px;
-        /* background-color: red; */
+        background-color: #fff;
         position: absolute;
         bottom: 0;
         position: fixed;
