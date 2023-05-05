@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "styled-components"
-import { BsPlusLg } from "react-icons/bs"
-import { BiHomeAlt2 } from "react-icons/bi"
+import { BsPlusLg, BsFillCheckSquareFill } from "react-icons/bs"
+import { BiHomeAlt2, BiDotsHorizontalRounded } from "react-icons/bi"
 import {FaUsers} from "react-icons/fa"
 
 const Stafffooter = () => {
@@ -24,7 +24,16 @@ const Stafffooter = () => {
                   </Big>
               </Circle>
           </Mid>
-          <Left></Left>
+          <Left>
+              <Hold>
+                  <BsFillCheckSquareFill />
+                  <Text>Attendance</Text>
+              </Hold>
+              <Hold>
+                  <BiDotsHorizontalRounded />
+                  <Text>More</Text>
+              </Hold>
+          </Left>
       </Container>
   )
 }
@@ -68,6 +77,10 @@ const Left = styled.div`
     /* background-color: red; */
     border-top-right-radius: 25px;
     border-top-left-radius: 25px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 25px;
 `
 const Mid = styled.div`
     width: 30%;
