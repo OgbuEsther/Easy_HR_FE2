@@ -81,21 +81,20 @@ const ParentComp = () => {
   });
   console.log("this is getAdmin id", user);
 
-
   return (
     <div>
       <Container>
         <Wrapper>
           <Top>
-            {/* <Left> */}
-              {/* <Bold>
+            <Left>
+              <Bold>
                 <Icn>
                   <AiFillDashboard />
                 </Icn>
                 On Leave
               </Bold>
-              <button onClick={Toggle}>Create Leave</button> */}
-            {/* </Left> */}
+              <button onClick={Toggle}>Create Leave</button>
+            </Left>
             <hr />
 
             {show ? (
@@ -122,7 +121,7 @@ const ParentComp = () => {
                       placeholder="e.g maternity leave"
                     />
                     <span>{errors?.title && errors?.title?.message}</span>
-                    <h3>Start</h3>
+                    <h3>Default days</h3>
                     <input {...register("days")} type="text" placeholder=" " />
                     <span>{errors?.days && errors?.days?.message}</span>
                     {/* <h3>Start</h3>
@@ -137,60 +136,27 @@ const ParentComp = () => {
       </Container>
       <One>
         <Wraps>
+          {getAdmin?.data?.data?.adminLeave?.map((el: any) => (
+          <Card>
+            <Lefts>
+              <Icos>{/* <FaGoogleWallet /> */}</Icos>
+              <Walletbal>Title: </Walletbal>
+              <Walletbal>Days: </Walletbal>
+            </Lefts>
 
-        <Card>
-            {/* {getAdmin?.data?.data?.adminLeave?.map((el: any) => ( */}
-        <Lefts>
-          <Icos>
-            {/* <FaGoogleWallet /> */}
-          </Icos>
-          <Walletbal>Title:</Walletbal>
-          <Walletbal>Days:</Walletbal>
-        </Lefts>
-
-      
-          <Right>
-            {/* <Bal>NGN {el?.balance}</Bal> */}
-          </Right>
-        {/* ))} */}
-       </Card>
-
+            <Right>
+              <h3>{el?.title}</h3>
+              <h3>{el?.days}</h3>
+            </Right>
+          </Card>
+           ))} 
         </Wraps>
       </One>
-
     </div>
   );
 };
 
 export default ParentComp;
-
-const Wraps= styled.div`
-margin-top: 20px;
-margin-left: 30px;
-  
-`
-
-const Box = styled.div`
-  border-bottom: 0.5px solid black;
-display: flex;
-justify-content: space-between;
-margin: 10px;
-`
-const One = styled.div`
-@media screen and (max-width: 768px) {
-display: flex;
-flex-wrap: wrap;
-  }
-
-
-const Bal = styled.div`
-  /* color: #3f3f3f; */
-  color: black;
-  margin-left: 30px;
-  font-size: 26px;
-  font-weight: 600;
-`;
-
 
 const Right = styled.div`
   flex: 1;
@@ -198,6 +164,14 @@ const Right = styled.div`
   /* background-color: red; */
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  h3 {
+    margin: 0;
+    color: black;
+    font-weight: 500;
+    font-size: 20px;
+  }
 `;
 
 const Icos = styled.div`
@@ -205,36 +179,10 @@ const Icos = styled.div`
   font-size: 30px;
 `;
 
-`
-const Cards = styled.div`
-@media screen and (min-width: 780px) {
-width: 370px;
-
-  }
-   @media screen and (max-width: 556px) {
-width: 270px;
-
-  }
-width: 500px;
-height: 40vh;
-border-radius: 3px;
-background-color: white;
-margin-top: 20px;
-margin-left: 5px;
-box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-`
-const Name= styled.div``
-const Days= styled.div``
-const Title= styled.div`
-font-size: 20px;
-font-weight: bold;
-`
-
-
 const Walletbal = styled.div`
   color: #fff;
   font-weight: 500;
-  font-size: 13px;
+  font-size: 20px;
 `;
 
 const Card = styled.div`
@@ -276,24 +224,8 @@ const Wraps = styled.div`
   margin-left: 30px;
 `;
 
-
 const One = styled.div`
   display: flex;
-`;
-const Cards = styled.div`
-  width: 500px;
-  height: 40vh;
-  border-radius: 3px;
-  background-color: white;
-  margin-top: 20px;
-  margin-left: 5px;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-`;
-const Name = styled.div``;
-const Days = styled.div``;
-const Title = styled.div`
-  font-size: 20px;
-  font-weight: bold;
 `;
 
 const Tap = styled.form`
@@ -335,18 +267,6 @@ const Wallet = styled.div`
     font-size: 23px;
     font-weight: bold;
   }
-`;
-
-const Circle = styled.div`
-  width: 60px;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50px;
-  background-color: #3184f7;
-  color: #fff;
-  font-size: 30px;
 `;
 
 const Card2 = styled.div`
