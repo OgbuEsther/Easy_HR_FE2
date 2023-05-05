@@ -1,14 +1,26 @@
 import React from 'react'
 import styled from "styled-components"
+import { BsPlusLg } from "react-icons/bs"
+import { BiHomeAlt2 } from "react-icons/bi"
+import {FaUsers} from "react-icons/fa"
 
 const Stafffooter = () => {
   return (
       <Container>
-          <Right></Right>
+          <Right>
+              <Hold>
+                  <BiHomeAlt2 />
+                  <Text>Home</Text>
+              </Hold>
+              <Hold>
+                  <FaUsers />
+                  <Text>Staffs</Text>
+              </Hold>
+          </Right>
           <Mid>
               <Circle>
                   <Big>
-                      
+                      <BsPlusLg />
                   </Big>
               </Circle>
           </Mid>
@@ -18,9 +30,19 @@ const Stafffooter = () => {
 }
 
 export default Stafffooter
+const Text = styled.div`
+    font-size: 15px;
+`
+const Hold = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
 const Big = styled.div`
-    width: 70px;
-    height: 70px;
+    width: 65px;
+    font-size: 28px;
+    cursor: pointer;
+    height: 65px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,8 +50,8 @@ const Big = styled.div`
     background-color: red;
 `
 const Circle = styled.div`
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     background-color: #fff;
     border-radius: 100px;
     display: flex;
@@ -62,6 +84,10 @@ const Right = styled.div`
     border-top-right-radius: 25px;
     border-top-left-radius: 25px;
     /* background-color: green; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 25px;
 `
 
 const Container = styled.div`
