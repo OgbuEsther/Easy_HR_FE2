@@ -41,6 +41,7 @@ const Stafffooter = () => {
 export default Stafffooter
 const Text = styled.div`
     font-size: 15px;
+    cursor: pointer;
 `
 const Hold = styled.div`
     display: flex;
@@ -69,6 +70,7 @@ const Circle = styled.div`
     position: absolute;
     bottom: 40px;
     position: fixed;
+    cursor: pointer;
     /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
 `
 const Left = styled.div`
