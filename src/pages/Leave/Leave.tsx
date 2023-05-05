@@ -87,15 +87,15 @@ const ParentComp = () => {
       <Container>
         <Wrapper>
           <Top>
-            <Left>
-              <Bold>
+            {/* <Left> */}
+              {/* <Bold>
                 <Icn>
                   <AiFillDashboard />
                 </Icn>
                 On Leave
               </Bold>
-              <button onClick={Toggle}>Create Leave</button>
-            </Left>
+              <button onClick={Toggle}>Create Leave</button> */}
+            {/* </Left> */}
             <hr />
 
             {show ? (
@@ -137,6 +137,7 @@ const ParentComp = () => {
       </Container>
       <One>
         <Wraps>
+
         <Card>
             {/* {getAdmin?.data?.data?.adminLeave?.map((el: any) => ( */}
         <Lefts>
@@ -156,11 +157,31 @@ const ParentComp = () => {
 
         </Wraps>
       </One>
+
     </div>
   );
 };
 
 export default ParentComp;
+
+const Wraps= styled.div`
+margin-top: 20px;
+margin-left: 30px;
+  
+`
+
+const Box = styled.div`
+  border-bottom: 0.5px solid black;
+display: flex;
+justify-content: space-between;
+margin: 10px;
+`
+const One = styled.div`
+@media screen and (max-width: 768px) {
+display: flex;
+flex-wrap: wrap;
+  }
+
 
 const Bal = styled.div`
   /* color: #3f3f3f; */
@@ -169,6 +190,7 @@ const Bal = styled.div`
   font-size: 26px;
   font-weight: 600;
 `;
+
 
 const Right = styled.div`
   flex: 1;
@@ -182,6 +204,32 @@ const Icos = styled.div`
   color: #fff;
   font-size: 30px;
 `;
+
+`
+const Cards = styled.div`
+@media screen and (min-width: 780px) {
+width: 370px;
+
+  }
+   @media screen and (max-width: 556px) {
+width: 270px;
+
+  }
+width: 500px;
+height: 40vh;
+border-radius: 3px;
+background-color: white;
+margin-top: 20px;
+margin-left: 5px;
+box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+`
+const Name= styled.div``
+const Days= styled.div``
+const Title= styled.div`
+font-size: 20px;
+font-weight: bold;
+`
+
 
 const Walletbal = styled.div`
   color: #fff;
