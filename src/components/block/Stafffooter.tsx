@@ -6,7 +6,11 @@ const Stafffooter = () => {
       <Container>
           <Right></Right>
           <Mid>
-              <Circle></Circle>
+              <Circle>
+                  <Big>
+                      
+                  </Big>
+              </Circle>
           </Mid>
           <Left></Left>
       </Container>
@@ -14,23 +18,39 @@ const Stafffooter = () => {
 }
 
 export default Stafffooter
+const Big = styled.div`
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: red;
+`
 const Circle = styled.div`
     width: 120px;
     height: 120px;
     background-color: #fff;
     border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     bottom: 40px;
+    position: fixed;
+    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
 `
 const Left = styled.div`
     width: 35%;
     height: 100%;
-    background-color: red;
+    /* background-color: red; */
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
 `
 const Mid = styled.div`
     width: 30%;
     height: 100%;
-    background-color: blue;
+    /* background-color: blue; */
     display: flex;
     justify-content: center;
     position: relative;
@@ -39,7 +59,9 @@ const Mid = styled.div`
 const Right = styled.div`
     width: 35%;
     height: 100%;
-    background-color: green;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    /* background-color: green; */
 `
 
 const Container = styled.div`
@@ -52,9 +74,10 @@ const Container = styled.div`
         display: flex;
         width: 100%;
         height: 90px;
-        background-color: red;
+        /* background-color: red; */
         position: absolute;
         bottom: 0;
         position: fixed;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     }
 `
