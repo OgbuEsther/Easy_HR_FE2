@@ -87,15 +87,15 @@ const ParentComp = () => {
       <Container>
         <Wrapper>
           <Top>
-            {/* <Left> */}
-              {/* <Bold>
+            <Left>
+              <Bold>
                 <Icn>
                   <AiFillDashboard />
                 </Icn>
                 On Leave
               </Bold>
-              <button onClick={Toggle}>Create Leave</button> */}
-            {/* </Left> */}
+              <button onClick={Toggle}>Create Leave</button>
+            </Left>
             <hr />
 
             {show ? (
@@ -137,59 +137,33 @@ const ParentComp = () => {
       </Container>
       <One>
         <Wraps>
-
+        {getAdmin?.data?.data?.adminLeave?.map((el: any) => (
         <Card>
-            {/* {getAdmin?.data?.data?.adminLeave?.map((el: any) => ( */}
+          
         <Lefts>
           <Icos>
             {/* <FaGoogleWallet /> */}
           </Icos>
-          <Walletbal>Title:</Walletbal>
-          <Walletbal>Days:</Walletbal>
+          <Walletbal>Title: </Walletbal>
+          <Walletbal>Days: </Walletbal>
         </Lefts>
 
       
           <Right>
-            {/* <Bal>NGN {el?.balance}</Bal> */}
+          <h3>{el?.title}</h3>
+         <h3> {el?.days}</h3>
           </Right>
-        {/* ))} */}
+      
        </Card>
+        ))}
 
         </Wraps>
       </One>
-
     </div>
   );
 };
 
 export default ParentComp;
-
-const Wraps= styled.div`
-margin-top: 20px;
-margin-left: 30px;
-  
-`
-
-const Box = styled.div`
-  border-bottom: 0.5px solid black;
-display: flex;
-justify-content: space-between;
-margin: 10px;
-`
-const One = styled.div`
-@media screen and (max-width: 768px) {
-display: flex;
-flex-wrap: wrap;
-  }
-
-
-const Bal = styled.div`
-  /* color: #3f3f3f; */
-  color: black;
-  margin-left: 30px;
-  font-size: 26px;
-  font-weight: 600;
-`;
 
 
 const Right = styled.div`
@@ -198,38 +172,13 @@ const Right = styled.div`
   /* background-color: red; */
   display: flex;
   align-items: center;
+  flex-direction: column;
 `;
 
 const Icos = styled.div`
   color: #fff;
   font-size: 30px;
 `;
-
-`
-const Cards = styled.div`
-@media screen and (min-width: 780px) {
-width: 370px;
-
-  }
-   @media screen and (max-width: 556px) {
-width: 270px;
-
-  }
-width: 500px;
-height: 40vh;
-border-radius: 3px;
-background-color: white;
-margin-top: 20px;
-margin-left: 5px;
-box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-`
-const Name= styled.div``
-const Days= styled.div``
-const Title= styled.div`
-font-size: 20px;
-font-weight: bold;
-`
-
 
 const Walletbal = styled.div`
   color: #fff;
@@ -280,21 +229,7 @@ const Wraps = styled.div`
 const One = styled.div`
   display: flex;
 `;
-const Cards = styled.div`
-  width: 500px;
-  height: 40vh;
-  border-radius: 3px;
-  background-color: white;
-  margin-top: 20px;
-  margin-left: 5px;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-`;
-const Name = styled.div``;
-const Days = styled.div``;
-const Title = styled.div`
-  font-size: 20px;
-  font-weight: bold;
-`;
+
 
 const Tap = styled.form`
   input {
@@ -337,17 +272,7 @@ const Wallet = styled.div`
   }
 `;
 
-const Circle = styled.div`
-  width: 60px;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50px;
-  background-color: #3184f7;
-  color: #fff;
-  font-size: 30px;
-`;
+
 
 const Card2 = styled.div`
   width: 300px;

@@ -31,7 +31,7 @@ const Cards = () => {
     queryKey: ["singleStaff"],
     queryFn: () => getOneStaff(user?._id),
   });
-  console.log("this is getStaff id", user?._id);
+  // console.log("this is getStaff id", user?._id);
 
   return (
     <Container>
