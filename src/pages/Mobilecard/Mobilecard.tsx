@@ -1,11 +1,25 @@
 import React from 'react'
 import styled from "styled-components"
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Mobilecard = () => {
+    const settings = {
+		dots: true,
+		infinite: true,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		autoplay: true,
+        fade: true,
+		speed: 800,
+		autoplaySpeed: 5000,
+		cssEase: "linear",
+	};
   return (
       <Container>
           <Wrapper>
-              <Card>
+                  <Card>
                   <Balance>
                       Wallet Balance
                   </Balance>

@@ -81,7 +81,6 @@ const ParentComp = () => {
   });
   console.log("this is getAdmin id", user);
 
-
   return (
     <div>
       <Container>
@@ -122,7 +121,7 @@ const ParentComp = () => {
                       placeholder="e.g maternity leave"
                     />
                     <span>{errors?.title && errors?.title?.message}</span>
-                    <h3>Start</h3>
+                    <h3>Default days</h3>
                     <input {...register("days")} type="text" placeholder=" " />
                     <span>{errors?.days && errors?.days?.message}</span>
                     {/* <h3>Start</h3>
@@ -137,25 +136,21 @@ const ParentComp = () => {
       </Container>
       <One>
         <Wraps>
-        {getAdmin?.data?.data?.adminLeave?.map((el: any) => (
-        <Card>
-          
-        <Lefts>
-          <Icos>
-            {/* <FaGoogleWallet /> */}
-          </Icos>
-          <Walletbal>Title: </Walletbal>
-          <Walletbal>Days: </Walletbal>
-        </Lefts>
 
-      
-          <Right>
-          <h3>{el?.title}</h3>
-         <h3> {el?.days}</h3>
-          </Right>
-      
-       </Card>
-        ))}
+          {getAdmin?.data?.data?.adminLeave?.map((el: any) => (
+          <Card>
+            <Lefts>
+              <Icos>{/* <FaGoogleWallet /> */}</Icos>
+              <Walletbal>Title: </Walletbal>
+              <Walletbal>Days: </Walletbal>
+            </Lefts>
+
+            <Right>
+              <h3>{el?.title}</h3>
+              <h3>{el?.days}</h3>
+            </Right>
+          </Card>
+           ))} 
 
         </Wraps>
       </One>
@@ -166,13 +161,23 @@ const ParentComp = () => {
 export default ParentComp;
 
 
+
 const Right = styled.div`
   flex: 1;
   height: 100%;
   /* background-color: red; */
   display: flex;
   align-items: center;
+
+  justify-content: center;
   flex-direction: column;
+  h3 {
+    margin: 0;
+    color: black;
+    font-weight: 500;
+    font-size: 20px;
+  }
+
 `;
 
 const Icos = styled.div`
@@ -183,7 +188,7 @@ const Icos = styled.div`
 const Walletbal = styled.div`
   color: #fff;
   font-weight: 500;
-  font-size: 13px;
+  font-size: 20px;
 `;
 
 const Card = styled.div`
@@ -224,7 +229,6 @@ const Wraps = styled.div`
   margin-top: 20px;
   margin-left: 30px;
 `;
-
 
 const One = styled.div`
   display: flex;
@@ -271,7 +275,6 @@ const Wallet = styled.div`
     font-weight: bold;
   }
 `;
-
 
 
 const Card2 = styled.div`

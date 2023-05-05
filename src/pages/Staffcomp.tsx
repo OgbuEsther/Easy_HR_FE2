@@ -174,7 +174,7 @@ console.log("this is getStaff ",getStaff?.data?.data?.wallet)
             <Piehold>
                           <Pee>
                               <Title>Transaction Chart</Title>
-                              <Doughnuts />
+                              <Charts />
                           </Pee>
                       </Piehold>
                       <Planhold>
@@ -260,9 +260,8 @@ console.log("this is getStaff ",getStaff?.data?.data?.wallet)
                   ) : null}            
 
           <StaffTransactionhome />
-          
+          <Stafffooter />
         </Wrapper>
-        <Stafffooter />
       </Container>
     </div>
 
