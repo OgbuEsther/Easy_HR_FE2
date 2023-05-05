@@ -2,20 +2,17 @@ import React from "react";
 import { MdOutlineCancel } from "react-icons/md";
 
 import styled from "styled-components";
-import {useForm} from "react-hook-form"
-import * as yup from "yup"
-import {yupResolver} from "@hookform/resolvers/yup"
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 
-import {
-
-  AiFillDashboard,
-} from "react-icons/ai";
+import { AiFillDashboard } from "react-icons/ai";
 import { UseAppDispach, useAppSelector } from "../../components/global/Store";
-import { useMutation } from "@tanstack/react-query";
-import { createLeave  } from "../../utils/Api/ApiCall";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { createLeave, getOneAdmin } from "../../utils/Api/ApiCall";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import {  CreateLeave } from "../../components/global/ReduxState";
+import { CreateLeave } from "../../components/global/ReduxState";
 
 const ParentComp = () => {
   const [show, setShow] = React.useState(false);
@@ -31,13 +28,12 @@ const ParentComp = () => {
   const dispatch = UseAppDispach();
   const navigate = useNavigate();
 
-  const admin = useAppSelector((state)=> state.currentUser)
+  const admin = useAppSelector((state) => state.currentUser);
 
   const schema = yup
     .object({
       title: yup.string().required(),
       days: yup.number().required(),
-     
     })
     .required();
 
@@ -55,10 +51,10 @@ const ParentComp = () => {
   const posting = useMutation({
     mutationKey: ["create_Leave"],
     // mutationFn: createAdmin,
-    mutationFn: (data: any) => createLeave(data , admin?._id),
+    mutationFn: (data: any) => createLeave(data, admin?._id),
 
     onSuccess: (myData) => {
-      dispatch(CreateLeave(myData.data))
+      dispatch(CreateLeave(myData.data));
       Swal.fire({
         title: "leave created  successfully",
         html: "redirecting to dashbaord",
@@ -67,17 +63,24 @@ const ParentComp = () => {
 
         willClose: () => {
           // navigate("/sign-in-admin");
-        }
-      })
-    
+        },
+      });
     },
   });
 
   const Submit = handleSubmit(async (data: any) => {
-    console.log("user", data)
+    console.log("user", data);
     posting.mutate(data);
     // reset();
   });
+
+  const user = useAppSelector((state) => state.currentUser);
+  const getAdmin = useQuery({
+    queryKey: ["singleAdmin"],
+    queryFn: () => getOneAdmin(user?._id),
+  });
+  console.log("this is getAdmin id", user);
+
 
   return (
     <div>
@@ -89,7 +92,7 @@ const ParentComp = () => {
                 <Icn>
                   <AiFillDashboard />
                 </Icn>
-               On Leave
+                On Leave
               </Bold>
               <button onClick={Toggle}>Create Leave</button>
             </Left>
@@ -105,106 +108,152 @@ const ParentComp = () => {
                     {/* <Circle>
                       <FaGoogleWallet />
                     </Circle> */}
-                   
-                      <Wallet>
-                        <h4>Create leave types</h4>
-                       
-                      </Wallet>
-                   
+
+                    <Wallet>
+                      <h4>Create leave types</h4>
+                    </Wallet>
                   </Card2>
 
                   <Tap onSubmit={Submit}>
                     <h3>Leave Title</h3>
-                    <input {...register("title")} type="text" placeholder="e.g maternity leave"/>
+                    <input
+                      {...register("title")}
+                      type="text"
+                      placeholder="e.g maternity leave"
+                    />
                     <span>{errors?.title && errors?.title?.message}</span>
                     <h3>Start</h3>
                     <input {...register("days")} type="text" placeholder=" " />
                     <span>{errors?.days && errors?.days?.message}</span>
                     {/* <h3>Start</h3>
                     <input type="text" placeholder=" " /> */}
-                     <button type="submit">Create</button>
+                    <button type="submit">Create</button>
                   </Tap>
-
-                   
                 </Wallets>
               </Slidein>
             ) : null}
           </Top>
-          
-
-         
         </Wrapper>
-        
       </Container>
       <One>
         <Wraps>
-          <Title>Maternity leave</Title>
-        <Cards>
-    
-          <Box>
-          <Name>Ighoruemuse Esther</Name>
-          <Days>start:</Days>
-          <Days>end:</Days>
-          </Box>
-        </Cards>
+        <Card>
+            {/* {getAdmin?.data?.data?.adminLeave?.map((el: any) => ( */}
+        <Lefts>
+          <Icos>
+            {/* <FaGoogleWallet /> */}
+          </Icos>
+          <Walletbal>Title:</Walletbal>
+          <Walletbal>Days:</Walletbal>
+        </Lefts>
+
+      
+          <Right>
+            {/* <Bal>NGN {el?.balance}</Bal> */}
+          </Right>
+        {/* ))} */}
+       </Card>
+
         </Wraps>
-        <Wraps>
-        <Title>Annual leave</Title>
-      <Cards>
-  
-        <Box>
-        <Name>Ighoruemuse Esther</Name>
-        <Days>start:</Days>
-        <Days>end:</Days>
-        </Box>
-      </Cards>
-      </Wraps>
-       </One>
+      </One>
     </div>
   );
 };
 
 export default ParentComp;
-const Wraps= styled.div`
-margin-top: 20px;
-margin-left: 30px;
-`
 
-const Box = styled.div`
-  border-bottom: 0.5px solid black;
-display: flex;
-justify-content: space-between;
-margin: 10px;
-`
+const Bal = styled.div`
+  /* color: #3f3f3f; */
+  color: black;
+  margin-left: 30px;
+  font-size: 26px;
+  font-weight: 600;
+`;
+
+const Right = styled.div`
+  flex: 1;
+  height: 100%;
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+`;
+
+const Icos = styled.div`
+  color: #fff;
+  font-size: 30px;
+`;
+
+const Walletbal = styled.div`
+  color: #fff;
+  font-weight: 500;
+  font-size: 13px;
+`;
+
+const Card = styled.div`
+  height: 120px;
+  width: 329px;
+  background-color: #fff;
+  border-radius: 3px;
+  /* border-bottom: 2px solid #0d71fa; */
+  display: flex;
+  border: 1px solid #d5dbe1;
+  margin: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  overflow: hidden;
+
+  @media screen and (max-width: 768px) {
+    width: 800px;
+    /* height: 200px; */
+  }
+
+  @media screen and (max-width: 1024px) {
+    width: 430px;
+  }
+`;
+
+const Lefts = styled.div`
+  width: 120px;
+  height: 100%;
+  background-color: #ff8400;
+  border-right: 3px solid #ffd93d;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const Wraps = styled.div`
+  margin-top: 20px;
+  margin-left: 30px;
+`;
+
+
 const One = styled.div`
-
-display: flex;
-
-`
+  display: flex;
+`;
 const Cards = styled.div`
-
-width: 500px;
-height: 40vh;
-border-radius: 3px;
-background-color: white;
-margin-top: 20px;
-margin-left: 5px;
-box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-`
-const Name= styled.div``
-const Days= styled.div``
-const Title= styled.div`
-font-size: 20px;
-font-weight: bold;
-`
-
+  width: 500px;
+  height: 40vh;
+  border-radius: 3px;
+  background-color: white;
+  margin-top: 20px;
+  margin-left: 5px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+`;
+const Name = styled.div``;
+const Days = styled.div``;
+const Title = styled.div`
+  font-size: 20px;
+  font-weight: bold;
+`;
 
 const Tap = styled.form`
-input{
-  border: 0.5px solid #7eb0f5;
-  border-radius: 3px;
-  outline: 1px solid #3184f7;
-}
+  input {
+    border: 0.5px solid #7eb0f5;
+    border-radius: 3px;
+    outline: 1px solid #3184f7;
+  }
   h3 {
     margin: 0;
     margin-bottom: 6px;
@@ -231,15 +280,13 @@ const Wallet = styled.div`
   flex-direction: column;
   margin-left: 18px;
   margin-top: 15px;
-  
+
   h4 {
     color: #fff;
     margin-top: 5px;
     font-size: 23px;
     font-weight: bold;
   }
-  
- 
 `;
 
 const Circle = styled.div`
@@ -258,7 +305,7 @@ const Card2 = styled.div`
   width: 300px;
   height: 150px;
   margin-top: 30px;
-  background-color:#3184f7;
+  background-color: #3184f7;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -283,7 +330,7 @@ const Wallets = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
-  button{
+  button {
     margin-top: 30px;
   }
 `;
@@ -380,7 +427,7 @@ const Container = styled.div`
   background-color: #f5f7fa;
   overflow: hidden;
   margin-top: 20px;
-flex-direction: column;
+  flex-direction: column;
   @media screen and (max-width: 1024px) {
     width: 100vw;
   }
