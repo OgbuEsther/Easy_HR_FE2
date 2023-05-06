@@ -29,26 +29,6 @@ const theToken = getAdmin?.data?.data?.data?.setToken
 
 
 
-const [show,setShow] = React.useState<Boolean>(true);
-const [show2,setShow2] = React.useState<Boolean>(false);
-const [show3,setShow3] = React.useState<Boolean>(false);
-
-const Toogle = () => {
-setShow(true);
-setShow2(false);
-setShow3(false);
-};
-const Toogle2 = () => {
-setShow2(true);
-setShow(false);
-setShow3(false);
-};
-const Toogle3 = () => {
-setShow3(true);
-setShow2(false);
-setShow(false);
-};
-
 
   return (
     <div>
@@ -80,107 +60,16 @@ setShow(false);
         </One>
 
         
-        <ButtonsHold>
-                    <Buttons bg={show ? '#00244E':'' } cl={show ? "white":''} onClick={Toogle} bcc='' >
-                       <Icons>
-                        <CgPerformance/>
-                       </Icons>
-                       Absent
-                    </Buttons>
-                    <Buttons bg={show2 ? '#00244E':'' } cl={show2 ? "white":''}  onClick={Toogle2}
-                    bcc=''
-                    >
-                      <Icons>
-                      <TbBrandNytimes/>
-                      </Icons>
-                    
-                      Present
-                    </Buttons>
-                    <Buttons  bg={show3 ? '#00244E':'' } cl={show3 ? "white":''}  onClick={Toogle3} bcc=''>
-                    <Icons>
-                      <FaAlipay/>
-                      </Icons>
-                   
-                     Attendance History
-                    </Buttons>
-                  
-                </ButtonsHold>
-
-              {/* <Box> */}
-            
-             
-              {/* </Box>/ */}
-        
+    
         
         </Wrapper>
-        {
-                show ? (
-                  <div>
-                  <AbsentUserProps/>
-                  </div>
-                )
-                :null
-        }
-            
-                {
-                show2 ? (
-                  <div>
-                    <PresentProps/>
-                  </div>
-                )
-                :null
-              }
-           {
-                show3 ? (
-                  <div>
-                  <AttendanceHistoryProps/>
-                  </div>
-                )
-                :null
-              }
+  
       </Container>  
     </div>
   );
 };
 
 export default Adminattendance;
-const Icon1 = styled.div`
-margin: 10px;
-display: flex;
-align-items: center;
-justify-content: center;
-`
-
-const Buttons = styled.button<{bg:string, cl:string, bcc:string}>`
-	height: 50px;
-	width: 250px;
-	border-radius: 50px;
-	position: relative;
-	border: 0;
-	background-color:${(props) => props.bg};
-	color: ${(props) => props.cl};
-	font-size: 20px;
-	font-weight: bold;
-	cursor: pointer;
-	transition: all 350ms;
-	margin-right: 10px;
-	margin-left: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-    :hover{
-        background-color: ${(props) => props.bcc};
-    }
-`
-const ButtonsHold = styled.div`
-	margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`
-
-
 
 const One = styled.div`
 /* background-color:red; */
@@ -190,20 +79,6 @@ align-items: center;
 justify-content:space-between;
 `
 
-const Token = styled.div`
-  /* color: #fff; */
-  margin-left: 20px;
-  font-size: 18px;
-`;
-const Buttonhold = styled.div`
-  display: flex;
-  align-items: center;
-  margin-left: 600px;
-`;
-const Hold = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
 const Button = styled.button`
   width: 140px;
   height: 40px;
@@ -261,92 +136,7 @@ const Icons = styled.div`
   justify-content: center;
 `;
 
-const Name = styled.div`
-  display: flex;
-  margin-left: 10px;
-  display: flex;
-  width: 150px;
-  font-weight: 400;
-  font-size: 18px;
-  /* background-color: red; */
-`;
-const Circle = styled.div`
-  width: 30px;
-  height: 30px;
-  margin: 3px;
-  font-size: 16px;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  border-radius: 50px;
-  font-weight: 500;
-  color: black;
-  background-color: blanchedalmond;
-  border: 1px solid black;
-`;
-const Circlehold = styled.div`
-  display: flex;
-  border-radius: 50px;
-  align-items: center;
-`;
-const Table = styled.table`
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  overflow-x: scroll;
-  /* background-color: red; */
 
-  table {
-    width: 100%;
-    /* background-color: #f2f2f2; */
-  }
-  table,
-  th,
-  tr:nth-child(even) {
-    background-color: #fff;
-  }
-  th,
-  td {
-    padding: 15px 20px;
-    text-align: left;
-    border-top: 1px solid #e2e5e8;
-  }
-  th {
-    border-top: 1px solid #e2e5e8;
-    background-color: #fefefe;
-    padding: 1rem 0.75rem;
-    /* display: table-cell; */
-  }
-`;
-const Employee = styled.div`
-  width: 130px;
-  display: flex;
-  height: 10px;
-  background-color: red;
-  margin-left: 15px;
-`;
-const First = styled.div`
-  width: 100%;
-  height: 50px;
-  background-color: #fff;
-  display: flex;
-  align-items: center;
-`;
-const Top = styled.div`
-  h3 {
-    color: #1f1f1f;
-    font-size: 26px;
-    font-weight: 500;
-  }
-`;
-
-const Box = styled.div`
-  display: flex;
-  height:500px;
-  width: 100%;
-  margin-top: 30px;
-`;
 const Wrapper = styled.div`   
   width: 97%;
   display: flex;
