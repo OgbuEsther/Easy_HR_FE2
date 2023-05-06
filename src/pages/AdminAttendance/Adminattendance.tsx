@@ -5,12 +5,9 @@ import {CgPerformance} from "react-icons/cg"
 import {TbBrandNytimes} from "react-icons/tb"
 import {FaAlipay} from "react-icons/fa"
 import {SiSecurityscorecard} from "react-icons/si"
-import AbsentUserProps from "./AbsentUserProps";
  import axios from "axios";
  import { genAttendanceToken, getOneAdmin } from "../../utils/Api/ApiCall";
  import { useQuery } from "@tanstack/react-query";
-import PresentProps from "./PresentProps";
-import AttendanceHistoryProps from "./AttendanceHistoryProps";
 const Adminattendance = () => {
   const admin = useAppSelector((state) => state.currentUser);
 
