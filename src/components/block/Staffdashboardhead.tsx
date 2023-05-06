@@ -280,7 +280,7 @@ const Hold = styled.div`
   margin-top: 80px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   /* border-top-right-radius: 120px; */
-  z-index: 2;
+  z-index: 9999999;
   overflow: hidden;
   animation: slides 0.5s ease-in-out;
 
@@ -344,6 +344,7 @@ const Right = styled.div`
   justify-content: space-between;
   @media screen and (max-width: 500px) {
     width: 30px;
+    display: none;
   }
 `;
 
@@ -410,7 +411,8 @@ const Left = styled.div`
   }
   @media screen and (max-width: 500px) {
     margin-left: 30px;
-    display: none;
+    display: flex;
+    color: #fff;
   }
 `;
 

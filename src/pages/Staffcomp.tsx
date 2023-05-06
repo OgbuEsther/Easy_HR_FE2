@@ -260,7 +260,7 @@ console.log("this is getStaff ",getStaff?.data?.data?.wallet)
                   ) : null}            
 
           <StaffTransactionhome />
-          <Stafffooter />
+          {/* <Stafffooter /> */}
         </Wrapper>
       </Container>
     </div>
@@ -760,7 +760,7 @@ const Wrapper = styled.div`
     border-top-right-radius: 24px;
     border-top-left-radius: 24px;
     background-color: #e2e2e2;
-    z-index: 10;
+    /* z-index: 10; */
     margin-top: 100px;
     padding-right: 0px;
     padding-top: 25px;
