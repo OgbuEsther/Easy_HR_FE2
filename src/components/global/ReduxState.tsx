@@ -12,6 +12,7 @@ const initialState = {
   leave: {} as any | null,
   applyLeave: {} as any | null,
   clockIn: {} as any | null,
+  clockOut: {} as any | null,
 };
 
 const ReduxState = createSlice({
@@ -33,6 +34,9 @@ const ReduxState = createSlice({
     StaffClockIn: (state, { payload }: PayloadAction<any>) => {
       state.clockIn = payload;
     },
+    StaffClockOut: (state, { payload }: PayloadAction<any>) => {
+      state.clockOut = payload;
+    },
 
     logoutAdmin: (state) => {
       state.currentUser = null;
@@ -50,6 +54,7 @@ export const {
   logoutAdmin,
   CreateLeave,
   StaffClockIn,
+  StaffClockOut,
   ApplyForLeave,
 } = ReduxState.actions;
 

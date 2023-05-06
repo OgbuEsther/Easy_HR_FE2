@@ -9,7 +9,7 @@ import End from "./End/End"
 
 const HomeScreen = () => {
   return (
-    <div>
+    <div className='overflow-hidden'>
         <Home/>
         <Plan/>
         <Modern/>

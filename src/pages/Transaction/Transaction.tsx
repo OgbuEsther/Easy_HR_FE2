@@ -276,7 +276,7 @@ width: auto;
 justify-content: flex-start;
 align-items: center;
 margin-bottom: 10px;
-overflow-x: scroll;
+overflow-x: auto;
 
 
 table{
@@ -370,7 +370,7 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
   width: calc(100vw - 220px);
-  height: auto;
+  height: 100vh;
   background-color: #F5F7FA;
   padding-top: 100px;
 
