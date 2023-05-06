@@ -62,7 +62,7 @@ const theToken = getAdmin?.data?.data?.data?.setToken
         </One>
         <Two>
          <Title>
-         Today's Attendance
+         Today's Attendance:
          </Title>
 
 
@@ -90,7 +90,22 @@ const theToken = getAdmin?.data?.data?.data?.setToken
 };
 
 export default Adminattendance;
-const Table = styled.div``
+const Table = styled.div`
+display: flex;
+height: auto;
+width: auto;
+justify-content: flex-start;
+align-items: center;
+margin-bottom: 10px;
+overflow-x: auto;
+margin-top: 40px;
+
+table{
+  min-width: 400px;
+  max-width: 1440px;
+  width: 100%;
+}
+`
 
 const Title  = styled.div`
 font-weight: 600;
