@@ -467,6 +467,10 @@ const Img = styled.img`
     height: 140px;
     /* margin-top: 15px; */
     margin-left: 15px;
+    @media screen and (max-width: 500px) {
+      height: 110px;
+      margin-bottom: 12px;
+    }
     /* animation: bounce 1s infinite;
 
     @keyframes bounce {
@@ -491,6 +495,7 @@ const Planhold = styled.div`
     }
     @media screen and (max-width: 500px) {
       display: flex;
+      flex-direction: column;
     }
 `
 
