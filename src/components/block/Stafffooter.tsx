@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "styled-components"
-import { BsPlusLg } from "react-icons/bs"
-import { BiHomeAlt2 } from "react-icons/bi"
+import { BsPlusLg, BsFillCheckSquareFill } from "react-icons/bs"
+import { BiHomeAlt2, BiDotsHorizontalRounded } from "react-icons/bi"
 import {FaUsers} from "react-icons/fa"
 
 const Stafffooter = () => {
@@ -14,7 +14,7 @@ const Stafffooter = () => {
               </Hold>
               <Hold>
                   <FaUsers />
-                  <Text>Staffs</Text>
+                  <Text>Plans</Text>
               </Hold>
           </Right>
           <Mid>
@@ -24,7 +24,16 @@ const Stafffooter = () => {
                   </Big>
               </Circle>
           </Mid>
-          <Left></Left>
+          <Left>
+              <Hold>
+                  <BsFillCheckSquareFill />
+                  <Text>Attendance</Text>
+              </Hold>
+              <Hold>
+                  <BiDotsHorizontalRounded />
+                  <Text>More</Text>
+              </Hold>
+          </Left>
       </Container>
   )
 }
@@ -32,6 +41,7 @@ const Stafffooter = () => {
 export default Stafffooter
 const Text = styled.div`
     font-size: 15px;
+    cursor: pointer;
 `
 const Hold = styled.div`
     display: flex;
@@ -52,7 +62,7 @@ const Big = styled.div`
 const Circle = styled.div`
     width: 100px;
     height: 100px;
-    background-color: #fff;
+    /* background-color: #fff; */
     border-radius: 100px;
     display: flex;
     justify-content: center;
@@ -60,6 +70,7 @@ const Circle = styled.div`
     position: absolute;
     bottom: 40px;
     position: fixed;
+    cursor: pointer;
     /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
 `
 const Left = styled.div`
@@ -68,6 +79,10 @@ const Left = styled.div`
     /* background-color: red; */
     border-top-right-radius: 25px;
     border-top-left-radius: 25px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 25px;
 `
 const Mid = styled.div`
     width: 30%;
@@ -100,7 +115,7 @@ const Container = styled.div`
         display: flex;
         width: 100%;
         height: 90px;
-        /* background-color: red; */
+        background-color: #fff;
         position: absolute;
         bottom: 0;
         position: fixed;

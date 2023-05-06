@@ -6,6 +6,9 @@ import { BsCalendar4Event } from "react-icons/bs";
 import InputStaffAttendance from "./InputFieldAttendance/InputStaffAttendance";
 import { MdOutlineCancel } from "react-icons/md"
 import { useNavigate } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { getOneStaff } from "../utils/Api/ApiCall";
+import { useAppSelector } from "../components/global/Store";
 
 
 const Option = [
@@ -93,8 +96,14 @@ const Certificationchecker = () =>{
   console.log("this is value: "+value);
   
 
-
+  const user = useAppSelector((state) => state.currentStaff);
+  const getStaff = useQuery({
+    queryKey: ["singleStaff"],
+    queryFn: () => getOneStaff(user?._id),
+  });
   
+  const clockin = useAppSelector((state)=> state.clockIn)
+  const clockout = useAppSelector((state)=> state.clockOut)
 
   const [selectOption, setSelectOption] = useState<any>(null);
 
@@ -111,17 +120,19 @@ const Certificationchecker = () =>{
         </TitleAndBreadCrumColumn>
         <StatisticColumn>
           <Card className="one">
-            <CardTitle>
-              Timesheet <span>11 May 2019</span>
+        
+              <CardTitle>
+              Timesheet <span>{clockin?.date} </span>
             </CardTitle>
+         
             <CardContent>
               <PunchInRecord>
                 <PunchInat>Punch In at</PunchInat>
-                <Date>Wed, 11th Mar 2019 10.00 AM</Date>
+                <Date>{`${clockin?.date} ${clockin?.time}`}</Date>
               </PunchInRecord>
               <CircleTimerHold>
                 <CircleTimer>
-                  <Timer>3.45 hrs</Timer>
+                  <Timer>{clockin?.time} </Timer>
                 </CircleTimer>
                   <PunchButton onClick={Toggle}>
                     Punch In
@@ -272,24 +283,19 @@ const Certificationchecker = () =>{
               <TableHead className="break-head">Break</TableHead>
               <TableHead className="over-time-head">Over Time</TableHead>
             </TableColumn>
-            <TableColumn>
-              <TableNumber className="number">1</TableNumber>
-              <TableDown className="date">19 Feb 2019</TableDown>
-              <TableDown className="punch">10AM</TableDown>
-              <TableDown className="punch">7PM</TableDown>
-              <TableDown className="production">9hrs</TableDown>
-              <TableDown className="break">1hr</TableDown>
-              <TableDown className="over-time">0</TableDown>
-            </TableColumn>
-            <TableColumn>
-              <TableNumber className="number">2</TableNumber>
-              <TableDown className="date">19 Feb 2019</TableDown>
-              <TableDown className="punch">10AM</TableDown>
-              <TableDown className="punch">7PM</TableDown>
-              <TableDown className="production">9hrs</TableDown>
-              <TableDown className="break">1hr</TableDown>
-              <TableDown className="over-time">0</TableDown>
-            </TableColumn>
+
+            
+                <TableColumn>
+                <TableNumber className="number">1</TableNumber>
+                <TableDown className="date">{clockin?.date} </TableDown>
+                <TableDown className="punch"> {clockin?.time}</TableDown>
+                <TableDown className="punch"> {clockout?.time}</TableDown>
+                <TableDown className="production">9hrs</TableDown>
+                <TableDown className="break">1hr</TableDown>
+                <TableDown className="over-time">0</TableDown>
+              </TableColumn>
+          
+          
           </TableSection>
         </TableSectionHold>
 

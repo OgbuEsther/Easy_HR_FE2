@@ -20,8 +20,9 @@ const LeavePage = () => {
       .object({
         title: yup.string().required(),
         startDate: yup.string().required(),
-        reason: yup.string().required(),
+      
         numberOfDays: yup.number().required(),
+        reason: yup.string().required(),
        
       })
       .required();
@@ -66,12 +67,12 @@ const LeavePage = () => {
   return (
     <LeavePageContainer>
        <MainLeavePage>
-            <LeaveForm>
+            <LeaveForm onSubmit={Submit}>
                 <TitleandSubtitle>
                     <Title>Leave Form</Title>
                     <SubTitle>Apply for a annual leave</SubTitle>
                 </TitleandSubtitle>
-                <InputField onSubmit={Submit}>
+                <InputField>
                     <Input {...register("title")} placeholder='type of leave' className='your name'/>
                     <span>{errors?.title && errors?.title?.message}</span>
 
@@ -81,8 +82,10 @@ const LeavePage = () => {
                     <Input {...register("startDate")} placeholder='startDate' className='relive-office'/>
                     <span>{errors?.startDate && errors?.startDate?.message}</span>
 
-                    <Textarea {...register("reason")} placeholder='reasons...'></Textarea>
+
+                    <Input {...register("reason")} placeholder='reasons....' className='relive-office'/>
                     <span>{errors?.reason && errors?.reason?.message}</span>
+
                     <SubmitButton>
                         <Button type='submit'>Submit</Button>
                     </SubmitButton>
@@ -136,7 +139,7 @@ const Input = styled.input`
 
 `
 
-const InputField = styled.form`
+const InputField = styled.div`
     height: auto;
     width: auto;
     padding: 0px 24px;

@@ -17,15 +17,15 @@ const Mobilecard = () => {
 		cssEase: "linear",
 	};
   return (
-      <Container>
+              <Container>
           <Wrapper>
-                  <Card>
+                    <Card>
                   <Balance>
                       Wallet Balance
                   </Balance>
                   <Amount>$1,988.9</Amount>
                   <Button>Credit Wallet</Button>
-              </Card>
+                  </Card>
           </Wrapper>
     </Container>
   )
@@ -59,7 +59,7 @@ const Balance = styled.div`
     margin-left: 10px;
 `
 const Card = styled.div`
-    width: 95%;
+    width: 100%;
     height: 170px;
     background-color: #fff;
     border-radius: 10px;
