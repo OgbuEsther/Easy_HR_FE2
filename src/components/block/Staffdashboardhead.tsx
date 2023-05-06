@@ -503,7 +503,7 @@ const Text2 = styled.div`
 const Home2 = styled.div`
   width: 100%;
   display: flex;
-  margin-top: 20px;
+  margin-top: 23px;
   align-items: center;
 `;
 const Text1 = styled.div`
@@ -545,10 +545,10 @@ const Box = styled.div`
     width: 24%;
   }
   @media screen and (max-width: 500px) {
-    width: 39%;
+    width: 44%;
   }
   @media screen and (max-width: 375px) {
-    width: 46%;
+    width: 48%;
   }
 `;
 
