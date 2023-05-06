@@ -23,15 +23,15 @@ const DashboardHead = () => {
   const [show2, setShow2] = React.useState(false);
   const [show4, setShow4] = React.useState(false);
 
-  //  const [show, setShow] = React.useState(false)
+   const [show7, setShow7] = React.useState(false)
   const [showAirtel, setShowAirtel] = React.useState(false);
   const [showMtn, setShowMtn] = React.useState(false);
    const [showGlo, setShowGlo] = React.useState(false);
     const [showPopup, setShowPopup] = React.useState(false);
 
-    // const Toggle = () => {
-    //     setShow(!show)
-    // }
+    const Toggle7 = () => {
+        setShow7(!show7)
+    }
 
     const cancelPopup = () => {
     setShowPopup(false);
@@ -156,10 +156,10 @@ const DashboardHead = () => {
             <Icon2>
               <GiStarSattelites/>
             </Icon2>
-            <Text2 onClick={Toggle}>Savings</Text2>
+            <Text2 onClick={Toggle7}>Savings</Text2>
           </Home2>
 
-          {show ? (
+          {show7 ? (
               <Staffs>
                   <NavLink to="/staffdashboard/schoolfees-plan" style={({isActive}) => {
                 return {
@@ -503,7 +503,7 @@ const Text2 = styled.div`
 const Home2 = styled.div`
   width: 100%;
   display: flex;
-  margin-top: 25px;
+  margin-top: 20px;
   align-items: center;
 `;
 const Text1 = styled.div`
@@ -524,7 +524,7 @@ const Icon2 = styled.div`
 const Home = styled.div`
   width: 100%;
   display: flex;
-  margin-top: 10px;
+  margin-top: 15px;
   align-items: center;
 `;
 const Top = styled.div`
