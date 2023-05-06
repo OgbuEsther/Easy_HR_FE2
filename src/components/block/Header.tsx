@@ -8,7 +8,7 @@ const Header = () => {
       <div className='w-11/12 flex items-center justify-between'>
         <img src={img} alt="" className='h-16'/>
 
-        <div className='flex items-center'>
+        <div className='flex items-center xmd:hidden'>
           <div className='text-white text-sm m-6 hover:text-hover'>Home</div>
           <div className='text-white text-sm m-6 hover:text-hover'>Our Solution</div>
           <div className='text-white text-sm m-6 hover:text-hover'>About</div>
@@ -24,7 +24,7 @@ const Header = () => {
           </button>
         </div>
 
-        <div className='hidden items-center text-white text-3xl md:flex'>
+        <div className='hidden items-center text-white text-3xl md:flex cursor-pointer'>
           <BiMenu />
         </div>
       </div>
