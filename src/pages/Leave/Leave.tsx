@@ -16,10 +16,6 @@ import { createLeave  } from "../../utils/Api/ApiCall";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import {  CreateLeave } from "../../components/global/ReduxState";
-// import { useAppSelector } from "../components/global/Store";
-// import { useQuery } from "@tanstack/react-query";
-// import { getOneAdmin } from "../utils/Api/ApiCall";
-// import AdminCard from "./AdminCard";
 
 const ParentComp = () => {
   const [show, setShow] = React.useState(false);
@@ -88,15 +84,15 @@ const ParentComp = () => {
       <Container>
         <Wrapper>
           <Top>
-            <Left>
-              <Bold>
+            {/* <Left> */}
+              {/* <Bold>
                 <Icn>
                   <AiFillDashboard />
                 </Icn>
                On Leave
               </Bold>
-              <button onClick={Toggle}>Create Leave</button>
-            </Left>
+              <button onClick={Toggle}>Create Leave</button> */}
+            {/* </Left> */}
             <hr />
 
             {show ? (
@@ -142,13 +138,13 @@ const ParentComp = () => {
       </Container>
       <One>
         <Wraps>
-          <Title>Maternity leave</Title>
+          {/* <Title>Maternity leave</Title> */}
         <Cards>
     
           <Box>
-          <Name>Ighoruemuse Esther</Name>
-          <Days>start:</Days>
-          <Days>end:</Days>
+          <Name> Title</Name>
+          <Days>Days:</Days>
+          {/* <Days>end:</Days> */}
           </Box>
         </Cards>
         </Wraps>
@@ -157,9 +153,9 @@ const ParentComp = () => {
       <Cards>
   
         <Box>
-        <Name>Ighoruemuse Esther</Name>
-        <Days>start:</Days>
-        <Days>end:</Days>
+        <Name> Title</Name>
+          <Days>Days:</Days>
+          {/* <Days>end:</Days> */}
         </Box>
       </Cards>
       </Wraps>
@@ -172,6 +168,7 @@ export default ParentComp;
 const Wraps= styled.div`
 margin-top: 20px;
 margin-left: 30px;
+  
 `
 
 const Box = styled.div`
@@ -181,12 +178,23 @@ justify-content: space-between;
 margin: 10px;
 `
 const One = styled.div`
+@media screen and (max-width: 768px) {
+display: flex;
+flex-wrap: wrap;
+  }
 
 display: flex;
 
 `
 const Cards = styled.div`
+@media screen and (min-width: 780px) {
+width: 370px;
 
+  }
+   @media screen and (max-width: 556px) {
+width: 270px;
+
+  }
 width: 500px;
 height: 40vh;
 border-radius: 3px;

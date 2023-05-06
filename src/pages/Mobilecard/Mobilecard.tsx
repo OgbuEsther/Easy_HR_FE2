@@ -1,17 +1,31 @@
 import React from 'react'
 import styled from "styled-components"
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Mobilecard = () => {
+    const settings = {
+		dots: true,
+		infinite: true,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		autoplay: true,
+        fade: true,
+		speed: 800,
+		autoplaySpeed: 5000,
+		cssEase: "linear",
+	};
   return (
-      <Container>
+              <Container>
           <Wrapper>
-              <Card>
+                    <Card>
                   <Balance>
                       Wallet Balance
                   </Balance>
                   <Amount>$1,988.9</Amount>
                   <Button>Credit Wallet</Button>
-              </Card>
+                  </Card>
           </Wrapper>
     </Container>
   )
@@ -45,7 +59,7 @@ const Balance = styled.div`
     margin-left: 10px;
 `
 const Card = styled.div`
-    width: 95%;
+    width: 100%;
     height: 170px;
     background-color: #fff;
     border-radius: 10px;

@@ -52,22 +52,22 @@ const Header = () => {
 
            
             <NavWrapper>
-              <Nav 
+              <Nav col="#000"
               smooth={true} duration={300}
                to="her">
                 Home
               </Nav>
-              <Nav 
+              <Nav col="#000"
               smooth={true} duration={300}
                to="team">
                 Connect
               </Nav>
-              <Nav
+              <Nav col="#000"
                smooth={true} duration={300}
                to="accep">
                 Plan
               </Nav>
-              <Nav 
+              <Nav col="#000"
               smooth={true} duration={300}
                to="source">
                 PayMents
@@ -89,29 +89,29 @@ const Header = () => {
           </Wrapper>
         </Container>
       ) : (
-        <Container bd="" bg="#fff">
+        <Container bd="" bg="">
           <Wrapper>
 
 
               <Img src={logos} alt="" />
 
             <NavWrapper>
-              <Nav 
+              <Nav col="#fff"
               smooth={true} duration={300}
                to="her">
                 Home
               </Nav>
-              <Nav 
+              <Nav col="#fff"
               smooth={true} duration={300}
                to="team">
                 Connect
               </Nav>
-              <Nav
+              <Nav col="#fff"
                smooth={true} duration={300}
                to="accep">
                 Plan
               </Nav>
-              <Nav 
+              <Nav col="#fff" 
               smooth={true} duration={300}
                to="source">
                 PayMents
@@ -151,16 +151,16 @@ const Header = () => {
             show ? (
               <HambeggerMenu>
                 <Buggers>
-                  <Nav  onClick={removeshow} to="her"> 
+                  <Nav col="#fff"  onClick={removeshow} to="her"> 
                     Home
                    </Nav>
-                  <Nav  onClick={removeshow} to="team">
+                  <Nav col="#fff"  onClick={removeshow} to="team">
                     Connect 
                   </Nav>
-                  <Nav  onClick={removeshow} to="accep">
+                  <Nav col="#fff"   onClick={removeshow} to="accep">
                     Plan
                   </Nav>
-                  <Nav onClick={removeshow}  to="">
+                  <Nav col="#fff" onClick={removeshow}  to="">
                     PayMent
                   </Nav>
 
@@ -330,13 +330,13 @@ background-color:#377dff;
 }
 `
 
-const Nav = styled(Link)`
+const Nav = styled(Link)<{ col: string }>`
   text-decoration: none;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 30px;
-  color: black;
+  color: ${(props) => props.col};
   cursor: pointer;
   background-image: linear-gradient(
     transparent 0%,
@@ -482,6 +482,7 @@ const Container = styled.div<{ bd: string; bg: string }>`
   /* font-family: Montserrat; */
   transition: all 350ms ease-in-out; ;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  overflow: hidden;
 `;
 const Wrapper = styled.div`
   width: 92%;
@@ -491,9 +492,29 @@ const Wrapper = styled.div`
 `;
 
 
+const LogoHold = styled.div`
+  font-weight: 900;
+  font-size: 18px;
+  width: 150px;
+  background-color: red;
+  /* height: 100px; */
+  /* margin-top: 15px; */
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+
+  img {
+    /* width: 80%; */
+    /* height: 90%; */
+    object-fit: contain;
+  }
+`;
+
+
 const Img = styled.img`
   height: 60px;
 `
+
 
 const SignDiv = styled.div`
   display: flex;
