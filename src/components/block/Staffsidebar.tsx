@@ -96,9 +96,8 @@ const SideBar = () => {
                 };
             }}
             >
-                  <NavLink to="/staffdashboard/staff-attendance">
                       <Text1>Attendance</Text1>
-            </NavLink>
+
             </NavLink>
       </Home2>
 
