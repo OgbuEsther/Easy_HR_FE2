@@ -235,7 +235,6 @@ const One = styled.div`
   display: flex;
 `;
 
-
 const Tap = styled.form`
   input {
     border: 0.5px solid #7eb0f5;
@@ -276,7 +275,6 @@ const Wallet = styled.div`
     font-weight: bold;
   }
 `;
-
 
 const Card2 = styled.div`
   width: 300px;

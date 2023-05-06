@@ -1,10 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from "styled-components"
 import { BsPlusLg, BsFillCheckSquareFill } from "react-icons/bs"
 import { BiHomeAlt2, BiDotsHorizontalRounded } from "react-icons/bi"
 import {FaUsers} from "react-icons/fa"
 
 const Stafffooter = () => {
+    const [show, setShow] = useState(false)
+
+    const Toggle = () => {
+        setShow(!show)
+    }
   return (
       <Container>
           <Right>
@@ -19,7 +24,7 @@ const Stafffooter = () => {
           </Right>
           <Mid>
               <Circle>
-                  <Big>
+                  <Big onClick={Toggle}>
                       <BsPlusLg />
                   </Big>
               </Circle>
@@ -34,11 +39,30 @@ const Stafffooter = () => {
                   <Text>More</Text>
               </Hold>
           </Left>
+          
+          {show ? (
+            <Show>
+              
+          </Show>
+          ) : null}
       </Container>
   )
 }
 
 export default Stafffooter
+const Show = styled.div`
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+`
 const Text = styled.div`
     font-size: 15px;
     cursor: pointer;
@@ -116,7 +140,7 @@ const Container = styled.div`
         width: 100%;
         height: 90px;
         background-color: #fff;
-        position: absolute;
+        /* position: absolute; */
         bottom: 0;
         position: fixed;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
