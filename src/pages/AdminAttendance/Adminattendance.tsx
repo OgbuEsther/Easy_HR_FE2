@@ -8,7 +8,13 @@ import {SiSecurityscorecard} from "react-icons/si"
  import axios from "axios";
  import { genAttendanceToken, getOneAdmin } from "../../utils/Api/ApiCall";
  import { useQuery } from "@tanstack/react-query";
+
+
+
 const Adminattendance = () => {
+
+ 
+
   const admin = useAppSelector((state) => state.currentUser);
 
   const [token , setToken] = React.useState("")
@@ -54,6 +60,29 @@ const theToken = getAdmin?.data?.data?.data?.setToken
 
           {/* <p>{token}</p> */}
         </One>
+        <Two>
+         <Title>
+         Today's Attendance
+         </Title>
+
+
+         <Table>
+          <table>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Employee ID</th>
+              <th>Department</th>
+              <th>Check In</th>
+              <th>Shift</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </table>
+         </Table>
+
+
+        </Two>
         </Wrapper>
       </Container>  
     </div>
@@ -61,6 +90,19 @@ const theToken = getAdmin?.data?.data?.data?.setToken
 };
 
 export default Adminattendance;
+const Table = styled.div``
+
+const Title  = styled.div`
+font-weight: 600;
+font-size: 19px;
+`
+
+const Two = styled.div`
+width: 1000px;
+background-color:rgb(255, 255, 255);
+border-radius: 10px;
+`
+
 const Button = styled.button`
 width: 145px;
 height: 40px;
@@ -92,7 +134,7 @@ margin-top: 30px;
 span{
   color: rgb(51,51,51);
   background-color: rgba(0,0,0,0);
-  font-size: 16px;
+  font-size: 18px;
   line-height: 24px;
   letter-spacing: normal;
   font-weight: 500;
