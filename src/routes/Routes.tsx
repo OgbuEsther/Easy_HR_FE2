@@ -18,6 +18,7 @@ import Verification from "../pages/Auth/Verification";
 import { Staffdashboard } from "../components/layout/Staffdashboard";
 import Staffcomp from "../pages/Staffcomp";
 import Leave from "../pages/Leave/Leave";
+import LeavePage from "../pages/LeavePage";
 
 
 const Home = lazy(() => import("../pages/landingpage/Home"));
@@ -26,7 +27,7 @@ const Staffs = lazy(() => import("../pages/Staffs"));
 const Transaction = lazy(()=> import("../pages/Transaction/Transaction"))
 const ParentComp = lazy(() => import("../pages/ParentComp"));
 const ContactUs = lazy(() => import("../pages/landingpage/ContactUs"));
-const Attendance = lazy(() => import("../pages/Adminattendance"))
+const Attendance = lazy(() => import("../pages/AdminAttendance/Adminattendance"))
 const StaffAttendance = lazy(() => import("../pages/Attendance"))
 const Schoolfees = lazy(() => import("../pages/Schoolfeesfile/Schoolfeesfile"))
 const Tour = lazy(() => import("../pages/Tourfile/Tourfile"))
@@ -203,6 +204,12 @@ export const Elements = createBrowserRouter([
         hasErrorBoundary: true,
         errorElement: <ErrorBoundary />,
       },
+      {
+        path:"/staffdashboard/leave-form",
+        element: <LeavePage />,
+        hasErrorBoundary: true,
+        errorElement: <ErrorBoundary />,
+      }
     ]
   },
 ]);

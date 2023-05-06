@@ -4,7 +4,9 @@ import { AiOutlineClockCircle } from "react-icons/ai";
 import Select from "react-select";
 import { BsCalendar4Event } from "react-icons/bs";
 import InputStaffAttendance from "./InputFieldAttendance/InputStaffAttendance";
-import { MdOutlineCancel } from "react-icons/md";
+import { MdOutlineCancel } from "react-icons/md"
+import { useNavigate } from "react-router-dom";
+
 
 const Option = [
   { value: "chocolate", label: "Chocolate" },
@@ -13,6 +15,18 @@ const Option = [
 ];
 
 const Attendance: React.FC = () => {
+
+  const [value, setValue] = useState("")
+  const [annualcheck, setannualCheck]=useState(false)
+  const [examchecker, setexamCheck]=useState(false)
+  const [sickchecker, setsickCheck]=useState<boolean>(false)
+  const [mathanitychecker, setmathanityCheck]=useState<boolean>(false)
+  const [certificationchecker, setcertificationCheck]=useState<boolean>(false)
+
+  const navigate = useNavigate()
+
+
+
   const [PunchStateChanger, setPunchStateChanger] = useState(true);
   const [width, setWidth] = useState(0);
   const [show, setShow] = useState(false)
@@ -20,6 +34,47 @@ const Attendance: React.FC = () => {
    const Removetoken = () => {
     setShow(false);
   };
+
+const annualchecker = () =>{
+  setannualCheck(true)
+  setexamCheck(false)
+  setsickCheck(false)
+  setcertificationCheck(false)
+  setmathanityCheck(false)
+  navigate("/staffdashboard/leave-form")
+}
+
+
+const ExamChecker = () =>{
+  setannualCheck(false)
+  setexamCheck(true)
+  setsickCheck(false)
+  setcertificationCheck(false)
+  setmathanityCheck(false)
+}
+
+
+const Sickchecker = () =>{
+  setsickCheck(true)
+  setannualCheck(false)
+  setexamCheck(false)
+  setcertificationCheck(false)
+  setmathanityCheck(false)
+}
+const Mathanitychecker = () =>{
+  setmathanityCheck(true)
+  setannualCheck(false)
+  setexamCheck(false)
+  setsickCheck(false)
+  setcertificationCheck(false)
+}
+const Certificationchecker = () =>{
+  setcertificationCheck(true)
+  setannualCheck(false)
+  setexamCheck(false)
+  setsickCheck(false)
+  setmathanityCheck(false)
+}
 
   const int = () => {
     setWidth(width + 10)
@@ -29,16 +84,22 @@ const Attendance: React.FC = () => {
     setShow(true)
   }
 
+
+
   const PunchStateChangerFunction = () => {
     setPunchStateChanger(!PunchStateChanger);
   };
+
+  console.log("this is value: "+value);
+  
+
+
+  
 
   const [selectOption, setSelectOption] = useState<any>(null);
 
   //api consumption
   
-
-
   return (
     <AttendancePage>
       <AttendanceMainPage>
@@ -62,18 +123,16 @@ const Attendance: React.FC = () => {
                 <CircleTimer>
                   <Timer>3.45 hrs</Timer>
                 </CircleTimer>
-                {PunchStateChanger ? (
                   <PunchButton onClick={Toggle}>
                     Punch In
                   </PunchButton>
-                ) : (
-                  <PunchButton onClick={PunchStateChangerFunction}>
+            
+                  <PunchButton onClick={Toggle}>
                     Punch Out
                   </PunchButton>
-                )}
               </CircleTimerHold>
 
-              <BreakAndOvertime>
+              {/* <BreakAndOvertime>
                 <BreakBox>
                   <BreakText>Break</BreakText>
                   <HourText>1.21 hrs</HourText>
@@ -82,17 +141,17 @@ const Attendance: React.FC = () => {
                   <OverTimeText>Over</OverTimeText>
                   <HourText>3.21 hrs</HourText>
                 </OverTimeBox>
-              </BreakAndOvertime>
+              </BreakAndOvertime> */}
             </CardContent>
           </Card>
           <Card className="two">
-            <CardTitle>Statistics</CardTitle>
+            <CardTitle>Leave Stats</CardTitle>
 
             <CardContent>
               <StatisticsMeasureColumn className="today">
                 <DayAndHourColumn>
-                  <Day>Today</Day>
-                  <HourMeasure>3.45 / {width} hrs</HourMeasure>
+                  <Day>Annual</Day>
+                  <HourMeasure>{width} /20dys</HourMeasure>
                 </DayAndHourColumn>
                 <ProgressBarHold>
                   <ProgressBar width={width}></ProgressBar>
@@ -101,8 +160,8 @@ const Attendance: React.FC = () => {
 
               <StatisticsMeasureColumn className="week">
                 <DayAndHourColumn>
-                  <Day>Week</Day>
-                  <HourMeasure>28 / 40 hrs</HourMeasure>
+                  <Day>Exam</Day>
+                  <HourMeasure>0/ 10dys</HourMeasure>
                 </DayAndHourColumn>
                 <ProgressBarHold>
                   <ProgressBar width={width}></ProgressBar>
@@ -112,8 +171,8 @@ const Attendance: React.FC = () => {
               </StatisticsMeasureColumn>
               <StatisticsMeasureColumn className="month">
                 <DayAndHourColumn>
-                  <Day>Month</Day>
-                  <HourMeasure>90 / 160 hrs</HourMeasure>
+                  <Day>Sick</Day>
+                  <HourMeasure>0/5dys</HourMeasure>
                 </DayAndHourColumn>
                 <ProgressBarHold>
                   <ProgressBar width={width}></ProgressBar>
@@ -121,8 +180,8 @@ const Attendance: React.FC = () => {
               </StatisticsMeasureColumn>
               <StatisticsMeasureColumn className="remaining">
                 <DayAndHourColumn>
-                  <Day>Remaining</Day>
-                  <HourMeasure>90 / 160 hrs</HourMeasure>
+                  <Day>Marthanity</Day>
+                  <HourMeasure>0/30dys</HourMeasure>
                 </DayAndHourColumn>
                 <ProgressBarHold>
                   <ProgressBar width={width}></ProgressBar>
@@ -130,8 +189,8 @@ const Attendance: React.FC = () => {
               </StatisticsMeasureColumn>
               <StatisticsMeasureColumn className="over-time">
                 <DayAndHourColumn>
-                  <Day>Overtime</Day>
-                  <HourMeasure>90/160 hrs / 160 hrs</HourMeasure>
+                  <Day>Certification</Day>
+                  <HourMeasure>0/10dys</HourMeasure>
                 </DayAndHourColumn>
                 <ProgressBarHold>
                   <ProgressBar width={width}></ProgressBar>
@@ -140,81 +199,39 @@ const Attendance: React.FC = () => {
             </CardContent>
           </Card>
           <Card className="three">
-            <CardTitle>Today Activity</CardTitle>
-
+            <CardTitle>Apply For Leave</CardTitle>
             <CardContent>
-              <PunchActivities>
-                <PunchMain>
-                  <PunchInActivities>
-                    <PunchInTitle>Punch In at</PunchInTitle>
-                    <PunchInTime>
-                      {" "}
-                      <Icon>
-                        <AiOutlineClockCircle />
-                      </Icon>{" "}
-                      10.00 AM
-                    </PunchInTime>
-                  </PunchInActivities>
-                  <PunchOutActivities>
-                    <PunchOutTitle>Punch Out at</PunchOutTitle>
-                    <PunchOutTime>
-                      {" "}
-                      <Icon>
-                        <AiOutlineClockCircle />
-                      </Icon>{" "}
-                      10.00 AM
-                    </PunchOutTime>
-                  </PunchOutActivities>
-                </PunchMain>
-              </PunchActivities>
-              <PunchActivities>
-                <PunchMain>
-                  <PunchInActivities>
-                    <PunchInTitle onClick={Toggle}>Punch In at</PunchInTitle>
-                    <PunchInTime>
-                      {" "}
-                      <Icon>
-                        <AiOutlineClockCircle />
-                      </Icon>{" "}
-                      10.00 AM
-                    </PunchInTime>
-                  </PunchInActivities>
-                  <PunchOutActivities>
-                    <PunchOutTitle>Punch Out at</PunchOutTitle>
-                    <PunchOutTime>
-                      {" "}
-                      <Icon>
-                        <AiOutlineClockCircle />
-                      </Icon>{" "}
-                      10.00 AM
-                    </PunchOutTime>
-                  </PunchOutActivities>
-                </PunchMain>
-              </PunchActivities>
-              <PunchActivities>
-                <PunchMain>
-                  <PunchInActivities>
-                    <PunchInTitle>Punch In at</PunchInTitle>
-                    <PunchInTime>
-                      {" "}
-                      <Icon>
-                        <AiOutlineClockCircle />
-                      </Icon>{" "}
-                      10.00 AM
-                    </PunchInTime>
-                  </PunchInActivities>
-                  <PunchOutActivities>
-                    <PunchOutTitle>Punch Out at</PunchOutTitle>
-                    <PunchOutTime>
-                      {" "}
-                      <Icon>
-                        <AiOutlineClockCircle />
-                      </Icon>{" "}
-                      10.00 AM
-                    </PunchOutTime>
-                  </PunchOutActivities>
-                </PunchMain>
-              </PunchActivities>
+              <LeaveOptionForm >
+                <OptionInputHold  cl={annualcheck?"white":"black"} bd={annualcheck?"none":"silver"} onClick={annualchecker} bg={annualcheck? "blue":""}
+                >
+                <Label htmlFor="html">Anuual</Label>
+                <OptionInput className="annual" type="radio"  checked={annualcheck? true: false} name="annual" id="html" 
+                value="annual"
+                />
+                </OptionInputHold >
+
+                <OptionInputHold  cl={examchecker?"white":"black"} bd={examchecker?"none":"silver"} onClick={ExamChecker} bg={examchecker? "blue":""}>
+                <Label>Exam</Label> <OptionInput className="annual" type="radio"  checked={examchecker? true: false} name="annual" id="html" 
+                
+                />
+                </OptionInputHold >
+
+                <OptionInputHold cl={sickchecker?"white":"black"} bd={sickchecker?"none":"silver"} onClick={Sickchecker} bg={sickchecker? "blue":""}>
+                <Label>Sick</Label> <OptionInput className="annual" type="radio"  checked={sickchecker? true: false} name="annual" id="html" />
+                </OptionInputHold >
+
+                <OptionInputHold cl={mathanitychecker?"white":"black"} bd={mathanitychecker?"none":"silver"} onClick={Mathanitychecker} bg={mathanitychecker? "blue":""}>
+                <Label>Mathanity</Label> <OptionInput className="annual" type="radio"  checked={mathanitychecker? true: false} name="annual" id="html" />
+                </OptionInputHold >
+
+                <OptionInputHold cl={certificationchecker?"white":"black"} bd={certificationchecker?"none":"silver"} onClick={Certificationchecker} bg={certificationchecker? "blue":""}>
+                <Label>Sick</Label> <OptionInput className="annual" type="radio"  checked={certificationchecker? true: false} name="annual" id="html" />
+                </OptionInputHold >
+
+
+
+
+              </LeaveOptionForm>
             </CardContent>
           </Card>
         </StatisticColumn>
@@ -290,6 +307,40 @@ const Attendance: React.FC = () => {
 };
 
 export default Attendance;
+
+
+// Apply for leave
+
+const Label = styled.label`
+font-size: medium;
+font-weight: 550;
+cursor: pointer;
+`
+
+const OptionInput = styled.input`
+  cursor: pointer;
+`
+
+const OptionInputHold = styled.div<{bg: string; bd: string;cl: string;}>`
+height: 40px;
+width: auto;
+background-color: ${({bg})=>bg};
+color:  ${({cl})=>cl};
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0px 8px;
+margin-top: 12px;
+border: 1px solid ${({bd})=>bd};
+cursor: pointer;
+`
+
+const LeaveOptionForm = styled.form`
+height: auto;
+width: auto;
+transition: all 390ms;
+`
+
 const Icron = styled.div`
   position: absolute;
   font-size: 25px;
@@ -328,7 +379,6 @@ const TableDown = styled.td`
   height: auto;
   text-align: start;
   padding: 10px 0px;
-  /* background-color: blue; */
   width: auto;
 `;
 
@@ -342,7 +392,6 @@ const TableHead = styled.th`
 const TableColumn = styled.tr`
   height: auto;
   width: auto;
-  /* background-color: green; */
 
   .number-sign {
     width: 50px;
@@ -364,7 +413,6 @@ const TableSection = styled.div`
   margin-right: 20px;
   border-top: 1px solid #cfcfcfbe;
   border-radius: 4px;
-  /* background-color: blue; */
 
   tr:nth-child(even) {
     background-color: #cfcfcfbe;
@@ -374,7 +422,6 @@ const TableSection = styled.div`
 `;
 
 // Timing styling area
-
 const DateText = styled.div``;
 
 const SearchButton = styled.button`
@@ -420,8 +467,7 @@ const TimingColumn = styled.div`
   }
 `;
 
-// Statistic styling area
-
+// Leave stats area
 const Icon = styled.div`
   height: auto;
   width: auto;
@@ -431,87 +477,8 @@ const Icon = styled.div`
   font-weight: 600;
 `;
 
-const PunchOutTime = styled.div`
-  height: auto;
-  width: auto;
-  display: flex;
-  align-items: center;
-  color: silver;
-  font-size: 14px;
-`;
 
-const PunchOutTitle = styled.div`
-  font-weight: 600;
-  font-size: 14px;
-  margin-top: 5px;
-`;
-const PunchInTime = styled.div`
-  height: auto;
-  width: auto;
-  display: flex;
-  align-items: center;
-  color: silver;
-  font-size: 14px;
-`;
-const PunchInTitle = styled.div`
-  font-weight: 600;
-  font-size: 14px;
-  margin-top: 5px;
-`;
 
-const PunchOutActivities = styled.div`
-  height: 50px;
-  width: auto;
-  /* background-color: greens; */
-  padding-left: 20px;
-  margin-top: 10px;
-  ::before {
-    content: "";
-    height: 10px;
-    width: 10px;
-    position: absolute;
-    border-radius: 50%;
-    border: 2px solid blue;
-    left: 0;
-    top: 50px;
-    background-color: white;
-  }
-`;
-
-const PunchInActivities = styled.div`
-  height: 50px;
-  width: auto;
-  padding-left: 20px;
-  padding-top: 8px;
-  margin-top: 10px;
-  ::before {
-    content: "";
-    height: 10px;
-    width: 10px;
-    position: absolute;
-    border-radius: 50%;
-    border: 2px solid blue;
-    left: 0;
-    top: 0;
-    background-color: white;
-  }
-`;
-
-const PunchMain = styled.div`
-  height: auto;
-  width: auto;
-  padding-left: 5px;
-  border-left: medium solid silver;
-  /* background-color: blue; */
-`;
-
-const PunchActivities = styled.div`
-  height: auto;
-  width: auto;
-  position: relative;
-  padding-left: 5px;
-  /* background-color: blue; */
-`;
 
 const ProgressBar = styled.div<{ width: number }>`
   width: ${({ width }) => width}%;
@@ -520,6 +487,7 @@ const ProgressBar = styled.div<{ width: number }>`
   border-radius: 50px;
   transition: width 0.5s ease;
 `;
+
 const ProgressBarHold = styled.div`
   width: 90%;
   height: auto;
@@ -547,13 +515,11 @@ const DayAndHourColumn = styled.div`
   font-size: 14px;
   font-weight: 600;
 
-  /* background-color: blue; */
 `;
 
 const StatisticsMeasureColumn = styled.div`
   height: 50px;
   width: auto;
-  /* background-color: burlywood; */
   margin-top: 10px;
   border: 1px solid #c5c5c5;
   border-radius: 4px;
@@ -584,7 +550,6 @@ const OverTimeText = styled.div``;
 const OverTimeBox = styled.div`
   height: 50px;
   width: 120px;
-  /* background-color: #0000ff55; */
   border: 1px solid silver;
   border-radius: 4px;
   background-color: #cfcdcd29;
@@ -600,7 +565,6 @@ const BreakBox = styled.div`
   height: 50px;
   width: 120px;
   text-align: center;
-  /* background-color: #0000ff55; */
   border: 1px solid silver;
   border-radius: 4px;
   background-color: #cfcdcd29;
@@ -621,7 +585,6 @@ const BreakAndOvertime = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: end;
-  /* background-color: #0000ff47; */
   margin-top: 20px;
 `;
 
@@ -637,12 +600,6 @@ const PunchButton = styled.button`
   font-weight: 600;
   cursor: pointer;
   transition: all 960ms;
-
-  :hover {
-    background-color: white;
-    background-color: blue;
-    border: 2px solid blue;
-  }
 `;
 
 const CircleTimer = styled.div`
@@ -654,7 +611,6 @@ const CircleTimer = styled.div`
   justify-content: center;
   align-items: center;
   border: 5px solid #a8a8a86d;
-  /* background-color: red; */
 `;
 
 const CircleTimerHold = styled.div`
@@ -665,7 +621,6 @@ const CircleTimerHold = styled.div`
   align-items: center;
   flex-direction: column;
   margin-top: 10px;
-  /* background-color: #0080007b; */
 `;
 
 const PunchInRecord = styled.div`
@@ -684,7 +639,6 @@ const PunchInRecord = styled.div`
 const CardContent = styled.div`
   height: auto;
   width: auto;
-  /* background-color: #0000ff28; */
 `;
 
 const CardTitle = styled.h4`
@@ -693,6 +647,7 @@ const CardTitle = styled.h4`
   margin: 0px;
   font-size: 20px;
   text-align: start;
+  font-weight: 600;
   padding-top: 10px;
 
   span {
@@ -715,7 +670,6 @@ const Card = styled.div`
 const StatisticColumn = styled.div`
   height: auto;
   width: auto;
-  /* background-color: gray; */
   margin-top: 10px;
   display: flex;
   justify-content: flex-start;
@@ -741,13 +695,11 @@ const Title = styled.h1`
   margin: 0px;
 `;
 
-// Attendance Page
+// Attendance main Page
 const AttendanceMainPage = styled.div`
   height: auto;
   width: calc(100vw - 320px);
   padding-bottom: 50px;
-  /* background-color: blue; */
-
   @media screen and (max-width: 960px) {
     width: 100%;
   }

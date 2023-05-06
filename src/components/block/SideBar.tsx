@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 import { FiPower } from "react-icons/fi";
 import { BsFillPersonFill } from "react-icons/bs"
 import { RiMoneyDollarCircleFill } from "react-icons/ri"
-import {GiMoneyStack,GiFlatTire} from "react-icons/gi"
+import {GiMoneyStack,GiFlatTire,GiAbstract013} from "react-icons/gi"
 
 const SideBar = () => {
     const [show, setShow] = React.useState(false);
@@ -110,7 +110,7 @@ const SideBar = () => {
       </Home2>
       <Home2>
         <Icon2>
-          <GiMoneyStack />
+          <GiAbstract013 />
         </Icon2>
         <NavLink
           to="/dashboard/leave"
