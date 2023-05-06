@@ -123,6 +123,23 @@ const Attendance: React.FC = () => {
            </span>
           </Word>
 
+          <StaffDetail>
+           <Details>
+            <Pic>
+              DC
+            </Pic>
+            <Div>
+              <Name>
+                Valerian Pedro
+              </Name>
+              <Post>
+                Full Stack Developer
+              </Post>
+            </Div>
+           </Details>
+           
+         </StaffDetail>
+
         <StatisticColumn>
           <Card className="one">
             <CardTitle>
@@ -162,7 +179,9 @@ const Attendance: React.FC = () => {
                  {getAdmin?.data?.data?.adminLeave?.map((el: any) => (
                 <StatisticsMeasureColumn className="today">
                   <DayAndHourColumn>
-                    <Day>{el?.title}</Day>
+                    <Day>
+                    {el?.title}
+                    </Day>
                     <HourMeasure>
                      Total Days :{el?.days}
                     </HourMeasure>
@@ -234,7 +253,7 @@ const Attendance: React.FC = () => {
                   onClick={Mathanitychecker}
                   bg={mathanitychecker ? "blue" : ""}
                 >
-                  <Label>Mathanity</Label>{" "}
+                  <Label>Maternity</Label>{" "}
                   <OptionInput
                     className="annual"
                     type="radio"
@@ -327,6 +346,56 @@ const Attendance: React.FC = () => {
 };
 
 export default Attendance;
+const Post = styled.div`
+font-weight: 500;
+font-size: 14px;
+`
+
+const Name = styled.div`
+font-weight: 600;
+font-size: 20px;
+`
+
+const Div = styled.div`
+margin: 9px;
+`
+
+const Pic = styled.div`
+width: 45px;
+height: 45px;
+margin: 3px;
+font-size: 18px;
+display: flex;
+justify-content: center;
+align-items: center;
+overflow: hidden;
+font-weight: 500;
+color: black;
+background-color: blanchedalmond;
+border: 2px solid black;
+border-radius: 50px;
+
+@media screen and (max-width: 900px) {
+  height: 30px;
+  width: 30px;
+  font-size: 12px;
+}
+`
+
+const Details = styled.div`
+display: flex;
+align-items: center;
+margin-left: 10px;
+`
+
+const StaffDetail = styled.div`
+background-color: blanchedalmond;
+width: 1000px;
+border-radius: 10px;
+height: 80px;
+display: flex;
+align-items: center;
+`
 
 
 const Word = styled.div`
