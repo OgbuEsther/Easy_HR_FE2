@@ -44,7 +44,11 @@ object-fit: cover;
 margin-left: 50px;
 `
 
-const Two = styled.div``
+const Two = styled.div`
+    @media screen and (max-width: 1024px) {
+        display: none;
+    }
+`
 
 const One = styled.div``
 
@@ -176,6 +180,13 @@ const Wrapper = styled.div`
   padding-left: 30px;
   padding-right: 30px;
   /* background-color: aliceblue; */
+  @media screen and (max-width: 1024px) {
+    width: 90%;
+    /* background-color: yellow; */
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 0px;
+  }
 `
 
 const Container = styled.div`
@@ -184,5 +195,11 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+  }
+  @media screen and (max-width: 500px) {
+    margin-top: 25px;
+  }
   /* background-color: royalblue; */
 `
