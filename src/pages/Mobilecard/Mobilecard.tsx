@@ -17,26 +17,16 @@ const Mobilecard = () => {
 		cssEase: "linear",
 	};
   return (
-      <Container>
-          <div>
-              <Wrapper {...settings}>
-                  <Card>
+              <Container>
+          <Wrapper>
+                    <Card>
                   <Balance>
                       Wallet Balance
                   </Balance>
                   <Amount>$1,988.9</Amount>
                   <Button>Credit Wallet</Button>
-              </Card>
-
-              <Card>
-                  <Balance>
-                      Wallet Details
-                  </Balance>
-                  <Amount>$1,988.9</Amount>
-                  <Button>Credit Wallet</Button>
-              </Card>
+                  </Card>
           </Wrapper>
-          </div>
     </Container>
   )
 }

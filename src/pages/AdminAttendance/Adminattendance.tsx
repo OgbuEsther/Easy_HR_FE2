@@ -1,16 +1,21 @@
 import React from "react";
 import styled from "styled-components";
-import { useAppSelector } from "../../components/global/Store";
-import { CgPerformance } from "react-icons/cg";
-import { TbBrandNytimes } from "react-icons/tb";
-import { FaAlipay } from "react-icons/fa";
 
+ import { useAppSelector } from "../../components/global/Store"
+import {CgPerformance} from "react-icons/cg"
+import {TbBrandNytimes} from "react-icons/tb"
+import {FaAlipay} from "react-icons/fa"
+import {SiSecurityscorecard} from "react-icons/si"
+ import axios from "axios";
+ import { genAttendanceToken, getOneAdmin } from "../../utils/Api/ApiCall";
+ import { useQuery } from "@tanstack/react-query";
 import AbsentUserProps from "./AbsentUserProps";
 import axios from "axios";
 import { genAttendanceToken, url } from "../../utils/Api/ApiCall";
 import { useQuery } from "@tanstack/react-query";
 import PresentProps from "./PresentProps";
 import AttendanceHistoryProps from "./AttendanceHistoryProps";
+
 const Adminattendance = () => {
   const admin = useAppSelector((state) => state.currentUser);
 
@@ -20,10 +25,11 @@ const Adminattendance = () => {
     queryKey: ["genToken"],
     queryFn: () => genAttendanceToken(admin?._id),
   });
-  // console.log("this is admin",admin?._id)
-  // console.log("this is admin22",)
 
-  // const theToken = getAdmin?.data?.data?.data?.setToken;
+// console.log("this is admin",admin?._id)
+// console.log("this is admin22",)
+
+const theToken = getAdmin?.data?.data?.data?.setToken
 
   const [show, setShow] = React.useState<Boolean>(true);
   const [show2, setShow2] = React.useState<Boolean>(false);
@@ -45,10 +51,12 @@ const Adminattendance = () => {
     setShow(false);
   };
 
+
   return (
     <div>
       <Container>
         <Wrapper>
+
           <One>
             <Word>
               Attendance <br />
@@ -129,11 +137,13 @@ const Adminattendance = () => {
           </div>
         ) : null}
       </Container>
+
     </div>
   );
 };
 
 export default Adminattendance;
+
 
 const Buttons = styled.button<{ bg: string; cl: string; bcc: string }>`
   height: 50px;
@@ -171,7 +181,6 @@ const One = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
-
 
 const Button = styled.button`
   width: 140px;
@@ -229,9 +238,8 @@ const Icons = styled.div`
   justify-content: center;
 `;
 
-
-
 const Wrapper = styled.div`
+
   width: 97%;
   display: flex;
   flex-direction: column;
