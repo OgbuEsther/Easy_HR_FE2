@@ -200,7 +200,7 @@ justify-content: flex-start;
 align-items: center;
 margin-bottom: 10px;
 overflow-x: auto;
-margin-top: 40px;
+margin-top: 20px;
 
 table{
   min-width: 400px;
@@ -242,7 +242,8 @@ th{
 const Title  = styled.div`
 font-weight: 600;
 font-size: 19px;
-/* margin-top: 30px; */
+margin-top: 30px;
+margin-left: 20px;
 `
 
 const Two = styled.div`
