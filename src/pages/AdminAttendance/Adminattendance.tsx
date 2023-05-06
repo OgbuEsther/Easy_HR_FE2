@@ -1,10 +1,7 @@
 import React from "react";
 import styled from "styled-components";
  import { useAppSelector } from "../../components/global/Store"
-import {CgPerformance} from "react-icons/cg"
-import {TbBrandNytimes} from "react-icons/tb"
-import {FaAlipay} from "react-icons/fa"
-import {SiSecurityscorecard} from "react-icons/si"
+
  import axios from "axios";
  import { genAttendanceToken, getOneAdmin } from "../../utils/Api/ApiCall";
  import { useQuery } from "@tanstack/react-query";
@@ -22,7 +19,7 @@ const Adminattendance = () => {
 // console.log("this is admin",admin?._id)
 // console.log("this is admin22",)
 
-const theToken = getAdmin?.data?.data?.data?.setToken
+
 
 
 
@@ -76,20 +73,7 @@ align-items: center;
 justify-content:space-between;
 `
 
-const Token = styled.div`
-  /* color: #fff; */
-  margin-left: 20px;
-  font-size: 18px;
-`;
-const Buttonhold = styled.div`
-  display: flex;
-  align-items: center;
-  margin-left: 600px;
-`;
-const Hold = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+
 const Button = styled.button`
   width: 140px;
   height: 40px;
@@ -139,100 +123,7 @@ a{
 }
 `;
 
-const Icons = styled.div`
-  font-size: 20px;
-  margin:10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
 
-const Name = styled.div`
-  display: flex;
-  margin-left: 10px;
-  display: flex;
-  width: 150px;
-  font-weight: 400;
-  font-size: 18px;
-  /* background-color: red; */
-`;
-const Circle = styled.div`
-  width: 30px;
-  height: 30px;
-  margin: 3px;
-  font-size: 16px;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  border-radius: 50px;
-  font-weight: 500;
-  color: black;
-  background-color: blanchedalmond;
-  border: 1px solid black;
-`;
-const Circlehold = styled.div`
-  display: flex;
-  border-radius: 50px;
-  align-items: center;
-`;
-const Table = styled.table`
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  overflow-x: scroll;
-  /* background-color: red; */
-
-  table {
-    width: 100%;
-    /* background-color: #f2f2f2; */
-  }
-  table,
-  th,
-  tr:nth-child(even) {
-    background-color: #fff;
-  }
-  th,
-  td {
-    padding: 15px 20px;
-    text-align: left;
-    border-top: 1px solid #e2e5e8;
-  }
-  th {
-    border-top: 1px solid #e2e5e8;
-    background-color: #fefefe;
-    padding: 1rem 0.75rem;
-    /* display: table-cell; */
-  }
-`;
-const Employee = styled.div`
-  width: 130px;
-  display: flex;
-  height: 10px;
-  background-color: red;
-  margin-left: 15px;
-`;
-const First = styled.div`
-  width: 100%;
-  height: 50px;
-  background-color: #fff;
-  display: flex;
-  align-items: center;
-`;
-const Top = styled.div`
-  h3 {
-    color: #1f1f1f;
-    font-size: 26px;
-    font-weight: 500;
-  }
-`;
-
-const Box = styled.div`
-  display: flex;
-  height:500px;
-  width: 100%;
-  margin-top: 30px;
-`;
 const Wrapper = styled.div`   
   width: 97%;
   display: flex;
