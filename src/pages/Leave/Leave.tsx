@@ -136,20 +136,23 @@ const ParentComp = () => {
       </Container>
       <One>
         <Wraps>
-          {getAdmin?.data?.data?.adminLeave?.map((el: any) => (
-            <Card>
-              <Lefts>
-                <Icos>{/* <FaGoogleWallet /> */}</Icos>
-                <Walletbal>Title: </Walletbal>
-                <Walletbal>Days: </Walletbal>
-              </Lefts>
 
-              <Right>
-                <h3>{el?.title}</h3>
-                <h3>{el?.days}</h3>
-              </Right>
-            </Card>
-          ))}
+          {getAdmin?.data?.data?.adminLeave?.map((el: any) => (
+
+          <Card>
+            <Lefts>
+              <Icos>{/* <FaGoogleWallet /> */}</Icos>
+              <Walletbal>Title: </Walletbal>
+              <Walletbal>Days: </Walletbal>
+            </Lefts>
+
+            <Right>
+              <h3>{el?.title}</h3>
+              <h3>{el?.days}</h3>
+            </Right>
+          </Card>
+           ))} 
+
         </Wraps>
       </One>
     </div>
@@ -158,12 +161,15 @@ const ParentComp = () => {
 
 export default ParentComp;
 
+
+
 const Right = styled.div`
   flex: 1;
   height: 100%;
   /* background-color: red; */
   display: flex;
   align-items: center;
+
   justify-content: center;
   flex-direction: column;
   h3 {
@@ -173,6 +179,7 @@ const Right = styled.div`
     font-size: 17px;
     padding-top: 8px;
   }
+
 `;
 
 const Icos = styled.div`
@@ -230,6 +237,7 @@ const One = styled.div`
   display: flex;
 `;
 
+
 const Tap = styled.form`
   input {
     border: 0.5px solid #7eb0f5;
@@ -271,6 +279,7 @@ const Wallet = styled.div`
     font-weight: bold;
   }
 `;
+
 
 const Card2 = styled.div`
   width: 300px;

@@ -7,11 +7,11 @@ import {yupResolver} from "@hookform/resolvers/yup"
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useMutation } from "@tanstack/react-query";
-import axios from "axios";
-import { staffClockIn } from "../../utils/Api/ApiCall";
-import { StaffClockIn } from "../../components/global/ReduxState";
 
-const InputStaffAttendance = () => {
+import {  staffClockOut } from "../../utils/Api/ApiCall";
+import {  StaffClockOut } from "../../components/global/ReduxState";
+
+const ClockOut = () => {
 
   const staff = useAppSelector((state) => state.currentStaff);
 
@@ -32,8 +32,8 @@ const InputStaffAttendance = () => {
 
   const schema = yup
     .object({
-      setToken: yup.string().required(),
-      clockIn: yup.boolean().required(),
+        setToken: yup.string().required(),
+      clockOut: yup.boolean().required(),
      
     })
     .required();
@@ -52,12 +52,12 @@ const InputStaffAttendance = () => {
   const posting = useMutation({
     mutationKey: ["create_Leave"],
     // mutationFn: createAdmin,
-    mutationFn: (data: any) => staffClockIn(data , staff?._id),
+    mutationFn: (data: any) => staffClockOut(data , staff?._id),
 
     onSuccess: (myData: any) => {
-      dispatch(StaffClockIn(myData.data))
+      dispatch(StaffClockOut(myData.data))
       Swal.fire({
-        title: "staff  clockin  successfully",
+        title: "staff  clockOut  successfully",
         html: "redirecting to dashbaord",
         timer: 1000,
         timerProgressBar: true,
@@ -79,7 +79,7 @@ const InputStaffAttendance = () => {
   return (
     <Container>
       <Proceed onSubmit={Submit}>
-        <Top>Enter your attendance token here</Top>
+        <Top>Enter your attendance token here to clock out</Top>
 
         <Input
           cl="red"
@@ -90,9 +90,9 @@ const InputStaffAttendance = () => {
           <label htmlFor="">click to check in</label>
           <br />
           <input type="checkbox"
-           {...register("clockIn")} 
+           {...register("clockOut")} 
           />
-           <span>{errors?.clockIn && errors?.clockIn?.message}</span>
+           <span>{errors?.clockOut && errors?.clockOut?.message}</span>
         <Button type="submit" 
         >Confirm</Button>
       </Proceed>
@@ -100,7 +100,7 @@ const InputStaffAttendance = () => {
   );
 };
 
-export default InputStaffAttendance;
+export default ClockOut;
 const Button = styled.button`
   width: 100%;
   height: 40px;
