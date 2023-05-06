@@ -4,9 +4,12 @@ import { AiOutlineClockCircle } from "react-icons/ai";
 import Select from "react-select";
 import { BsCalendar4Event } from "react-icons/bs";
 import InputStaffAttendance from "./InputFieldAttendance/InputStaffAttendance";
-import { MdOutlineCancel } from "react-icons/md";
+import { MdOutlineCancel } from "react-icons/md"
 import { useNavigate } from "react-router-dom";
-import ClockOut from "./InputFieldAttendance/ClockOut";
+import { useQuery } from "@tanstack/react-query";
+import { getOneStaff } from "../utils/Api/ApiCall";
+import { useAppSelector } from "../components/global/Store";
+
 
 const Option = [
   { value: "chocolate", label: "Chocolate" },
@@ -15,81 +18,97 @@ const Option = [
 ];
 
 const Attendance: React.FC = () => {
-  const [value, setValue] = useState("");
-  const [annualcheck, setannualCheck] = useState(false);
-  const [examchecker, setexamCheck] = useState(false);
-  const [sickchecker, setsickCheck] = useState<boolean>(false);
-  const [mathanitychecker, setmathanityCheck] = useState<boolean>(false);
-  const [certificationchecker, setcertificationCheck] =
-    useState<boolean>(false);
 
-  const navigate = useNavigate();
+  const [value, setValue] = useState("")
+  const [annualcheck, setannualCheck]=useState(false)
+  const [examchecker, setexamCheck]=useState(false)
+  const [sickchecker, setsickCheck]=useState<boolean>(false)
+  const [mathanitychecker, setmathanityCheck]=useState<boolean>(false)
+  const [certificationchecker, setcertificationCheck]=useState<boolean>(false)
+
+  const navigate = useNavigate()
+
+
 
   const [PunchStateChanger, setPunchStateChanger] = useState(true);
   const [width, setWidth] = useState(0);
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false)
 
-  const Removetoken = () => {
+   const Removetoken = () => {
     setShow(false);
   };
 
-  const annualchecker = () => {
-    setannualCheck(true);
-    setexamCheck(false);
-    setsickCheck(false);
-    setcertificationCheck(false);
-    setmathanityCheck(false);
-    navigate("/staffdashboard/leave-form");
-  };
+const annualchecker = () =>{
+  setannualCheck(true)
+  setexamCheck(false)
+  setsickCheck(false)
+  setcertificationCheck(false)
+  setmathanityCheck(false)
+  navigate("/staffdashboard/leave-form")
+}
 
-  const ExamChecker = () => {
-    setannualCheck(false);
-    setexamCheck(true);
-    setsickCheck(false);
-    setcertificationCheck(false);
-    setmathanityCheck(false);
-  };
 
-  const Sickchecker = () => {
-    setsickCheck(true);
-    setannualCheck(false);
-    setexamCheck(false);
-    setcertificationCheck(false);
-    setmathanityCheck(false);
-  };
-  const Mathanitychecker = () => {
-    setmathanityCheck(true);
-    setannualCheck(false);
-    setexamCheck(false);
-    setsickCheck(false);
-    setcertificationCheck(false);
-  };
-  const Certificationchecker = () => {
-    setcertificationCheck(true);
-    setannualCheck(false);
-    setexamCheck(false);
-    setsickCheck(false);
-    setmathanityCheck(false);
-  };
+const ExamChecker = () =>{
+  setannualCheck(false)
+  setexamCheck(true)
+  setsickCheck(false)
+  setcertificationCheck(false)
+  setmathanityCheck(false)
+}
+
+
+const Sickchecker = () =>{
+  setsickCheck(true)
+  setannualCheck(false)
+  setexamCheck(false)
+  setcertificationCheck(false)
+  setmathanityCheck(false)
+}
+const Mathanitychecker = () =>{
+  setmathanityCheck(true)
+  setannualCheck(false)
+  setexamCheck(false)
+  setsickCheck(false)
+  setcertificationCheck(false)
+}
+const Certificationchecker = () =>{
+  setcertificationCheck(true)
+  setannualCheck(false)
+  setexamCheck(false)
+  setsickCheck(false)
+  setmathanityCheck(false)
+}
 
   const int = () => {
-    setWidth(width + 10);
-  };
+    setWidth(width + 10)
+  }
 
   const Toggle = () => {
-    setShow(true);
-  };
+    setShow(true)
+  }
+
+
 
   const PunchStateChangerFunction = () => {
     setPunchStateChanger(!PunchStateChanger);
   };
 
-  console.log("this is value: " + value);
+  console.log("this is value: "+value);
+  
+
+  const user = useAppSelector((state) => state.currentStaff);
+  const getStaff = useQuery({
+    queryKey: ["singleStaff"],
+    queryFn: () => getOneStaff(user?._id),
+  });
+  
+  const clockin = useAppSelector((state)=> state.clockIn)
+  const clockout = useAppSelector((state)=> state.clockOut)
 
   const [selectOption, setSelectOption] = useState<any>(null);
 
   //api consumption
-
+  
   return (
     <AttendancePage>
       <AttendanceMainPage>
@@ -101,21 +120,27 @@ const Attendance: React.FC = () => {
         </TitleAndBreadCrumColumn>
         <StatisticColumn>
           <Card className="one">
-            <CardTitle>
-              Timesheet <span>11 May 2019</span>
+        
+              <CardTitle>
+              Timesheet <span>{clockin?.date} </span>
             </CardTitle>
+         
             <CardContent>
               <PunchInRecord>
                 <PunchInat>Punch In at</PunchInat>
-                <Date>Wed, 11th Mar 2019 10.00 AM</Date>
+                <Date>{`${clockin?.date} ${clockin?.time}`}</Date>
               </PunchInRecord>
               <CircleTimerHold>
                 <CircleTimer>
-                  <Timer>3.45 hrs</Timer>
+                  <Timer>{clockin?.time} </Timer>
                 </CircleTimer>
-                <PunchButton onClick={Toggle}>Punch In</PunchButton>
-
-                <PunchButton onClick={Toggle}>Punch Out</PunchButton>
+                  <PunchButton onClick={Toggle}>
+                    Punch In
+                  </PunchButton>
+            
+                  <PunchButton onClick={Toggle}>
+                    Punch Out
+                  </PunchButton>
               </CircleTimerHold>
 
               {/* <BreakAndOvertime>
@@ -187,87 +212,36 @@ const Attendance: React.FC = () => {
           <Card className="three">
             <CardTitle>Apply For Leave</CardTitle>
             <CardContent>
-              <LeaveOptionForm>
-                <OptionInputHold
-                  cl={annualcheck ? "white" : "black"}
-                  bd={annualcheck ? "none" : "silver"}
-                  onClick={annualchecker}
-                  bg={annualcheck ? "blue" : ""}
+              <LeaveOptionForm >
+                <OptionInputHold  cl={annualcheck?"white":"black"} bd={annualcheck?"none":"silver"} onClick={annualchecker} bg={annualcheck? "blue":""}
                 >
-                  <Label htmlFor="html">Anuual</Label>
-                  <OptionInput
-                    className="annual"
-                    type="radio"
-                    checked={annualcheck ? true : false}
-                    name="annual"
-                    id="html"
-                    value="annual"
-                  />
-                </OptionInputHold>
+                <Label htmlFor="html">Anuual</Label>
+                <OptionInput className="annual" type="radio"  checked={annualcheck? true: false} name="annual" id="html" 
+                value="annual"
+                />
+                </OptionInputHold >
 
-                <OptionInputHold
-                  cl={examchecker ? "white" : "black"}
-                  bd={examchecker ? "none" : "silver"}
-                  onClick={ExamChecker}
-                  bg={examchecker ? "blue" : ""}
-                >
-                  <Label>Exam</Label>{" "}
-                  <OptionInput
-                    className="annual"
-                    type="radio"
-                    checked={examchecker ? true : false}
-                    name="annual"
-                    id="html"
-                  />
-                </OptionInputHold>
+                <OptionInputHold  cl={examchecker?"white":"black"} bd={examchecker?"none":"silver"} onClick={ExamChecker} bg={examchecker? "blue":""}>
+                <Label>Exam</Label> <OptionInput className="annual" type="radio"  checked={examchecker? true: false} name="annual" id="html" 
+                
+                />
+                </OptionInputHold >
 
-                <OptionInputHold
-                  cl={sickchecker ? "white" : "black"}
-                  bd={sickchecker ? "none" : "silver"}
-                  onClick={Sickchecker}
-                  bg={sickchecker ? "blue" : ""}
-                >
-                  <Label>Sick</Label>{" "}
-                  <OptionInput
-                    className="annual"
-                    type="radio"
-                    checked={sickchecker ? true : false}
-                    name="annual"
-                    id="html"
-                  />
-                </OptionInputHold>
+                <OptionInputHold cl={sickchecker?"white":"black"} bd={sickchecker?"none":"silver"} onClick={Sickchecker} bg={sickchecker? "blue":""}>
+                <Label>Sick</Label> <OptionInput className="annual" type="radio"  checked={sickchecker? true: false} name="annual" id="html" />
+                </OptionInputHold >
 
-                <OptionInputHold
-                  cl={mathanitychecker ? "white" : "black"}
-                  bd={mathanitychecker ? "none" : "silver"}
-                  onClick={Mathanitychecker}
-                  bg={mathanitychecker ? "blue" : ""}
-                >
-                  <Label>Mathanity</Label>{" "}
-                  <OptionInput
-                    className="annual"
-                    type="radio"
-                    checked={mathanitychecker ? true : false}
-                    name="annual"
-                    id="html"
-                  />
-                </OptionInputHold>
+                <OptionInputHold cl={mathanitychecker?"white":"black"} bd={mathanitychecker?"none":"silver"} onClick={Mathanitychecker} bg={mathanitychecker? "blue":""}>
+                <Label>Mathanity</Label> <OptionInput className="annual" type="radio"  checked={mathanitychecker? true: false} name="annual" id="html" />
+                </OptionInputHold >
 
-                <OptionInputHold
-                  cl={certificationchecker ? "white" : "black"}
-                  bd={certificationchecker ? "none" : "silver"}
-                  onClick={Certificationchecker}
-                  bg={certificationchecker ? "blue" : ""}
-                >
-                  <Label>Sick</Label>{" "}
-                  <OptionInput
-                    className="annual"
-                    type="radio"
-                    checked={certificationchecker ? true : false}
-                    name="annual"
-                    id="html"
-                  />
-                </OptionInputHold>
+                <OptionInputHold cl={certificationchecker?"white":"black"} bd={certificationchecker?"none":"silver"} onClick={Certificationchecker} bg={certificationchecker? "blue":""}>
+                <Label>Sick</Label> <OptionInput className="annual" type="radio"  checked={certificationchecker? true: false} name="annual" id="html" />
+                </OptionInputHold >
+
+
+
+
               </LeaveOptionForm>
             </CardContent>
           </Card>
@@ -309,42 +283,30 @@ const Attendance: React.FC = () => {
               <TableHead className="break-head">Break</TableHead>
               <TableHead className="over-time-head">Over Time</TableHead>
             </TableColumn>
-            <TableColumn>
-              <TableNumber className="number">1</TableNumber>
-              <TableDown className="date">19 Feb 2019</TableDown>
-              <TableDown className="punch">10AM</TableDown>
-              <TableDown className="punch">7PM</TableDown>
-              <TableDown className="production">9hrs</TableDown>
-              <TableDown className="break">1hr</TableDown>
-              <TableDown className="over-time">0</TableDown>
-            </TableColumn>
-            <TableColumn>
-              <TableNumber className="number">2</TableNumber>
-              <TableDown className="date">19 Feb 2019</TableDown>
-              <TableDown className="punch">10AM</TableDown>
-              <TableDown className="punch">7PM</TableDown>
-              <TableDown className="production">9hrs</TableDown>
-              <TableDown className="break">1hr</TableDown>
-              <TableDown className="over-time">0</TableDown>
-            </TableColumn>
+
+            
+                <TableColumn>
+                <TableNumber className="number">1</TableNumber>
+                <TableDown className="date">{clockin?.date} </TableDown>
+                <TableDown className="punch"> {clockin?.time}</TableDown>
+                <TableDown className="punch"> {clockout?.time}</TableDown>
+                <TableDown className="production">9hrs</TableDown>
+                <TableDown className="break">1hr</TableDown>
+                <TableDown className="over-time">0</TableDown>
+              </TableColumn>
+          
+          
           </TableSection>
         </TableSectionHold>
 
         {show ? (
           <Holds>
-            <InputStaffAttendance />
-            <Icron onClick={Removetoken}>
+                          <InputStaffAttendance />
+                          <Icron onClick={Removetoken}>
               <MdOutlineCancel />
             </Icron>
-          </Holds>
-        ) : (
-          <Holds>
-            <ClockOut />
-            <Icron onClick={Removetoken}>
-              <MdOutlineCancel />
-            </Icron>
-          </Holds>
-        )}
+                </Holds>
+                  ) : null}
       </AttendanceMainPage>
     </AttendancePage>
   );
@@ -352,37 +314,38 @@ const Attendance: React.FC = () => {
 
 export default Attendance;
 
+
 // Apply for leave
 
 const Label = styled.label`
-  font-size: medium;
-  font-weight: 550;
-  cursor: pointer;
-`;
+font-size: medium;
+font-weight: 550;
+cursor: pointer;
+`
 
 const OptionInput = styled.input`
   cursor: pointer;
-`;
+`
 
-const OptionInputHold = styled.div<{ bg: string; bd: string; cl: string }>`
-  height: 40px;
-  width: auto;
-  background-color: ${({ bg }) => bg};
-  color: ${({ cl }) => cl};
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0px 8px;
-  margin-top: 12px;
-  border: 1px solid ${({ bd }) => bd};
-  cursor: pointer;
-`;
+const OptionInputHold = styled.div<{bg: string; bd: string;cl: string;}>`
+height: 40px;
+width: auto;
+background-color: ${({bg})=>bg};
+color:  ${({cl})=>cl};
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0px 8px;
+margin-top: 12px;
+border: 1px solid ${({bd})=>bd};
+cursor: pointer;
+`
 
 const LeaveOptionForm = styled.form`
-  height: auto;
-  width: auto;
-  transition: all 390ms;
-`;
+height: auto;
+width: auto;
+transition: all 390ms;
+`
 
 const Icron = styled.div`
   position: absolute;
@@ -396,7 +359,7 @@ const Icron = styled.div`
 `;
 
 const Holds = styled.div`
-  width: 100%;
+    width: 100%;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -409,7 +372,7 @@ const Holds = styled.div`
   right: 0;
   top: 0;
   z-index: 5;
-`;
+`
 
 // Table styling area
 
@@ -520,6 +483,9 @@ const Icon = styled.div`
   font-weight: 600;
 `;
 
+
+
+
 const ProgressBar = styled.div<{ width: number }>`
   width: ${({ width }) => width}%;
   height: 10px;
@@ -554,6 +520,7 @@ const DayAndHourColumn = styled.div`
   align-items: center;
   font-size: 14px;
   font-weight: 600;
+
 `;
 
 const StatisticsMeasureColumn = styled.div`
