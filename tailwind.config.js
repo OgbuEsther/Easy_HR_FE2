@@ -29,9 +29,9 @@ module.exports = {
         'custom': '33.125rem'
       },
       backgroundImage: {
-        'hero': "url('../src/Assets/roundtwo.jpg')",
-        'righthero': "url('../src/Assets/roundthree.jpg')",
-        'lefthero': "url('../src/Assets/roundone.jpg')"
+        'hero': "url('../src/Assets/banner1.jpg')",
+        'righthero': "url('../src/Assets/banner2.jpg')",
+        'lefthero': "url('../src/Assets/banner3.jpg')"
       },
 
       animation: {
