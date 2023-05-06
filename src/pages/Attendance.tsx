@@ -141,26 +141,26 @@ const Attendance: React.FC = () => {
 
            <Employee>
            <Name>
-                Valerian Pedro
+           Employee ID
               </Name>
               <Post>
-                Full Stack Developer
+              IM062587UT
               </Post>
            </Employee>
            <Employee>
            <Name>
-                Valerian Pedro
+           Joining Date
               </Name>
               <Post>
-                Full Stack Developer
+              3 April 2033
               </Post>
            </Employee>
            <Employee>
            <Name>
-                Valerian Pedro
+           Department
               </Name>
               <Post>
-                Full Stack Developer
+               API Consumption
               </Post>
            </Employee>
          </StaffDetail>
@@ -418,13 +418,15 @@ margin-left: 10px;
 `
 
 const StaffDetail = styled.div`
-background-color: blanchedalmond;
+background-color: white;
 width: 1000px;
 border-radius: 10px;
 height: 80px;
 display: flex;
 align-items: center;
 justify-content: space-between;
+box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+/* box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px; */
 `
 
 
@@ -823,6 +825,7 @@ const StatisticColumn = styled.div`
   margin-top: 10px;
   display: flex;
   justify-content: flex-start;
+  margin-top: 30px;
   align-items: flex-start;
   flex-wrap: wrap;
 `;
