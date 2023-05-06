@@ -301,7 +301,7 @@ const DashboardHead = () => {
             style={({ isActive }) => {
                 return {
                 textDecoration: isActive ? "none" : "none",
-                color: isActive ? "#2AA7FF" : "#fff",
+                color: isActive ? "#2AA7FF" : "#3e4956",
                 };
             }}
             >
@@ -478,7 +478,7 @@ const Text = styled.div`
 const Power = styled.div`
   width: 100%;
   display: flex;
-  margin-top: 100px;
+  margin-top: 80px;
 `;
 const Text3 = styled.div`
   font-size: 17px;
