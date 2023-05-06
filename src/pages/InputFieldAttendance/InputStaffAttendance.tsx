@@ -88,7 +88,7 @@ const InputStaffAttendance = () => {
           />
    <span>{errors?.setToken && errors?.setToken?.message}</span>
           <label htmlFor="">click to check in</label>
-          <br />
+          {/* <br /> */} {" "}
           <input type="checkbox"
            {...register("clockIn")} 
           />

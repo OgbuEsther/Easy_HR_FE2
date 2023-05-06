@@ -307,7 +307,9 @@ const Attendance: React.FC = () => {
             </CardContent>
           </Card>
         </StatisticColumn>
-        <TimingColumn>
+
+        
+        {/* <TimingColumn>
           <TimeCard className="date">
             <DateText>2023-04-21</DateText>
             <Icon>
@@ -332,30 +334,8 @@ const Attendance: React.FC = () => {
           </TimeCard>
 
           <SearchButton>Search</SearchButton>
-        </TimingColumn>
-        <TableSectionHold>
-          <TableSection>
-            <TableColumn>
-              <TableHead className="number-sign">#</TableHead>
-              <TableHead className="date-head">Date</TableHead>
-              <TableHead className="punch-head">Punch In</TableHead>
-              <TableHead className="punch-head">Punch Out</TableHead>
-              <TableHead className="production-head">Production</TableHead>
-              <TableHead className="break-head">Break</TableHead>
-              <TableHead className="over-time-head">Over Time</TableHead>
-            </TableColumn>
-
-            <TableColumn>
-              <TableNumber className="number">1</TableNumber>
-              <TableDown className="date">{clockin?.date} </TableDown>
-              <TableDown className="punch"> {clockin?.time}</TableDown>
-              <TableDown className="punch"> {clockout?.time}</TableDown>
-              <TableDown className="production">9hrs</TableDown>
-              <TableDown className="break">1hr</TableDown>
-              <TableDown className="over-time">0</TableDown>
-            </TableColumn>
-          </TableSection>
-        </TableSectionHold>
+        </TimingColumn> */}
+        
 
         {show ? (
           <Holds>
