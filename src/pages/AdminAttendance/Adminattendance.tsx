@@ -49,7 +49,7 @@ const theToken = getAdmin?.data?.data?.data?.setToken
     })
     }}
           >
-            Generate Token
+            Generate 
           </Button>
 
           <p>{token} </p>
