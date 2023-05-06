@@ -13,6 +13,8 @@ module.exports = {
       'herobutton': '#3CD19C',
       'header': '#001328',
       'hover': '#dc3545',
+      'buttoncol': '#001328',
+      'buttonhover': '#007bff',
     },
     screens: {
       'xl': { 'max': '1280px' },
