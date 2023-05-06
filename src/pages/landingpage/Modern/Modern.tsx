@@ -152,6 +152,14 @@ const Icon = styled.div`
 const Button = styled.button<{ bg: string; cl: string; bcc: string }>`
   height: 50px;
   width: 250px;
+  
+  @media screen and (max-width: 500px) {
+    /* display: none; */
+    font-size: 7px;
+    height: 30px;
+    width: 80px;
+     margin-left: 0px;
+  }
   border-radius: 50px;
   position: relative;
   border: 0;
@@ -176,6 +184,8 @@ const ButtonsHold = styled.div`
   margin-top: 10px;
   display: flex;
   justify-content: center;
+  @media screen and (max-width: 500px) {
+  }
 `;
 
 const Sub = styled.div`
@@ -221,6 +231,9 @@ const Box = styled.div`
   background-repeat: no-repeat;
   /* background-position: center; */
   background-size: contain;
+  @media screen and (max-width: 500px) {
+   height: 800px;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -246,9 +259,8 @@ const Container = styled.div`
   flex-direction: column;
 
   @media screen and (max-width: 500px) {
-    display: none;
+    /* display: none; */
   }
   @media screen and (max-width: 68px7) {
-    display: none;
   }
 `;
