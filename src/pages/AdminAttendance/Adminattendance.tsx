@@ -247,9 +247,10 @@ margin-left: 20px;
 `
 
 const Two = styled.div`
-width: 1200px;
+width: 1050px;
 background-color:rgb(255, 255, 255);
 border-radius: 10px;
+margin-bottom: 20px;
 `
 
 const Button = styled.button`
