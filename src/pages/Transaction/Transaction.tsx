@@ -21,7 +21,8 @@ const Transaction = () => {
            </span>
           </Word>
 
-          <Table>
+         
+         <Table>
             <table>
               <tr>
                 <th>Transaction</th>
@@ -201,6 +202,7 @@ const Transaction = () => {
 
          
           </Table>
+      
 
         </Wrapper>
       </Container>
@@ -231,6 +233,10 @@ margin-left: 10px;
 width: 150px;
 font-weight: 500;
 font-size: 18px;
+
+@media screen and (max-width: 900px) {
+  font-size: 16px;
+}
 `
 
 const Circ = styled.div`
@@ -247,6 +253,12 @@ color: black;
 background-color: blanchedalmond;
 border: 1px solid black;
 border-radius: 50px;
+
+@media screen and (max-width: 900px) {
+  height: 30px;
+  width: 30px;
+  font-size: 12px;
+}
 `
 
 const CirleHold = styled.div`
@@ -255,17 +267,22 @@ align-items: center;
 border-radius: 50px;
 `
 
+
+
 const Table = styled.div`
 display: flex;
-width: 100%;
-flex-direction: column;
-overflow-x: hidden;
-/* overflow-x: scroll; */
+height: auto;
+width: auto;
+justify-content: flex-start;
+align-items: center;
 margin-bottom: 10px;
+overflow-x: scroll;
+
 
 table{
+  min-width: 400px;
+  max-width: 1440px;
   width: 100%;
-  background-color: red;
 }
 
 table,
@@ -274,17 +291,39 @@ tr:nth-child(even){
   background-color: #fff;
 }
 
+
+
 th,td{
   padding: 15px 2px;
   text-align: left;
   border-top: 1px solid #e2e5e8;
+  padding-left: 20px;
+  padding-right: 20px;
+
 }
+
+
+
+
+
+td{
+  @media screen and (max-width: 900px) {
+    font-size: 12px;
+  }
+}
+
+
+
 th{
   border-top: 1px solid #e2e5e8;
   background-color: #fefefe;
   padding: 1rem 0.75rem;
+  padding-left: 20px;
+  padding-right: 20px;
 
 }
+
+
 
 
 `
@@ -297,14 +336,12 @@ background-color: rgba(0,0,0,0);
 line-height: 31.2px;
 text-decoration: none solid rgb(31,31,31);
 text-align: start;
-margin-left: 10px;
 display: flex;
-/* align-items: center; */
 flex-direction: column;
 justify-content: flex-start;
 margin-bottom: 30px;
 margin-top: 30px;
-/* background-color: greenyellow; */
+
 span{
   color: rgb(51,51,51);
   background-color: rgba(0,0,0,0);
@@ -327,21 +364,17 @@ a{
 
 
 const Wrapper = styled.div`
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-left: 30px;
-  padding-top: 90px;
-  padding-left: 30px;
-  padding-right: 30px;
+ padding: 0px 12px;
+ padding-bottom: 20px;
 `;
 
 const Container = styled.div`
   width: calc(100vw - 220px);
+  height: auto;
   background-color: #F5F7FA;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+  padding-top: 100px;
+
+  @media screen and (max-width: 900px) {
+    width: 100vw;
+  }
 `;
