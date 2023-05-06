@@ -10,7 +10,9 @@ module.exports = {
       'herotext': '#00214f',
       'black': '#000',
       'heroparagraph': '#232333',
-      'herobutton': '#3CD19C'
+      'herobutton': '#3CD19C',
+      'header': '#001328',
+      'hover': '#dc3545',
     },
     screens: {
       'xl': { 'max': '1280px' },
