@@ -50,7 +50,11 @@ margin-left: 50px;
 border-radius: 10px;
 `
 
-const Two = styled.div``
+const Two = styled.div`
+    @media screen and (max-width: 1024px) {
+        display: none;
+    }
+`
 
 const One = styled.div``
 
