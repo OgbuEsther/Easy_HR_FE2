@@ -43,7 +43,7 @@ const ClockOut = () => {
   const {
     handleSubmit,
     formState: { errors },
-    reset,
+   
     register,
   } = useForm<formData>({
     resolver: yupResolver(schema),
@@ -63,7 +63,7 @@ const ClockOut = () => {
         timerProgressBar: true,
 
         willClose: () => {
-          // navigate("/sign-in-admin");
+            navigate("/staffdashboard");
         }
       })
     
