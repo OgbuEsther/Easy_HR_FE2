@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
  import { useAppSelector } from "../../components/global/Store"
 import {CgPerformance} from "react-icons/cg"
-import {TbBrandNytimes} from "react-icons/tb"
-import {FaAlipay} from "react-icons/fa"
+import {RiDeleteBin2Line} from "react-icons/ri"
+import {BsPencilFill} from "react-icons/bs"
 import {SiSecurityscorecard} from "react-icons/si"
  import axios from "axios";
  import { genAttendanceToken, getOneAdmin } from "../../utils/Api/ApiCall";
@@ -60,7 +60,7 @@ const theToken = getAdmin?.data?.data?.data?.setToken
 
           {/* <p>{token}</p> */}
         </One>
-        <Two>
+        <Two> 
          <Title>
          Today's Attendance:
          </Title>
@@ -78,6 +78,44 @@ const theToken = getAdmin?.data?.data?.data?.setToken
               <th>Status</th>
               <th>Action</th>
             </tr>
+
+            <tr>
+              <td>
+                <Circle>
+                  DC
+                </Circle>
+              </td>
+              <td>
+                David Brown
+              </td>
+              <td>
+                1001
+              </td>
+              <td>
+                Development
+              </td>
+              <td>
+              <Chc>
+              10:28
+              </Chc>
+              </td>
+              <td>
+                Shift 1
+              </td>
+              <td>
+                <Box>
+                Present
+                </Box>
+              </td>
+              <td>
+                <Action>
+                  <Cir><BsPencilFill/></Cir>
+                  <Cir1>
+                    <RiDeleteBin2Line/>
+                  </Cir1>
+                </Action>
+              </td>
+            </tr>
           </table>
          </Table>
 
@@ -90,6 +128,70 @@ const theToken = getAdmin?.data?.data?.data?.setToken
 };
 
 export default Adminattendance;
+
+
+const Cir = styled.div`
+  margin: 5px;
+  border-radius: 50px;
+  background-color: green;
+  height: 35px;
+  width: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+`
+
+const Cir1 = styled.div`
+  margin: 5px;
+  border-radius: 50px;
+  background-color: red;
+  height: 35px;
+  width: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+`
+
+const Action = styled.div`
+  display: flex;
+`
+
+const Chc = styled.div`
+color: green;
+font-weight: bold;
+`
+
+const Box = styled.div`
+  border: 1px solid green;
+  color: green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+const Circle = styled.div`
+width: 40px;
+height: 40px;
+margin: 3px;
+font-size: 16px;
+display: flex;
+justify-content: center;
+align-items: center;
+overflow: hidden;
+font-weight: 500;
+color: black;
+background-color: blanchedalmond;
+border: 1px solid black;
+border-radius: 50px;
+
+@media screen and (max-width: 900px) {
+  height: 30px;
+  width: 30px;
+  font-size: 12px;
+}`
+
 const Table = styled.div`
 display: flex;
 height: auto;
@@ -105,15 +207,46 @@ table{
   max-width: 1440px;
   width: 100%;
 }
+
+table,th,tr:nth-child(even){
+  background-color: #fff;
+}
+
+td,th{
+  padding: 14px 2px;
+  text-align: left;
+  border-top: 1px solid #e2e5e8;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+td{
+  @media screen and (max-width: 900px) {
+    font-size: 12px;
+  }
+}
+
+
+
+th{
+  border-top: 1px solid #e2e5e8;
+  background-color: #fefefe;
+  padding: 1rem 0.75rem;
+  padding-left: 20px;
+  padding-right: 20px;
+
+}
+
 `
 
 const Title  = styled.div`
 font-weight: 600;
 font-size: 19px;
+/* margin-top: 30px; */
 `
 
 const Two = styled.div`
-width: 1000px;
+width: 1200px;
 background-color:rgb(255, 255, 255);
 border-radius: 10px;
 `
