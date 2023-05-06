@@ -115,6 +115,12 @@ const Transact = styled.div`
     @media screen and (max-width: 500px){
       width: 355px;
     }
+    @media screen and (max-width: 375px) {
+        width: 305px;
+    }
+     @media screen and (max-width: 320px) {
+        width: 260px;
+    }
 `
 
 const Down = styled.div`
@@ -149,10 +155,25 @@ const Box = styled.div`
     margin-top: 40px;
     flex-direction: column;
     padding-left: 20px;
+    @media screen and (max-width: 500px) {
+        width: 352px;
+    }
+    @media screen and (max-width: 375px) {
+        width: 305px;
+    }
+     @media screen and (max-width: 320px) {
+        width: 260px;
+    }
     h3{
         color: #EF7914;
         margin: 0;
         font-size: 30px;
+        @media screen and (max-width: 500px) {
+            font-size: 25px;
+        }
+        @media screen and (max-width: 375px) {
+            font-size: 22px;
+    }
     }
     p{
         color: #9b9b9b;
@@ -167,6 +188,12 @@ const Top = styled.div`
     font-size: 35px;
     color: #8b8b8b;
     font-weight: 600;
+    @media screen and (max-width: 500px) {
+        font-size: 30px;
+    }
+    @media screen and (max-width: 375px) {
+        font-size: 27px;
+    }
   }
 `;
 
@@ -180,6 +207,13 @@ const Wrapper = styled.div`
   padding-top: 90px;
   padding-left: 30px;
   padding-right: 30px;
+  @media screen and (max-width: 1024px) {
+    width: 90%;
+    /* background-color: yellow; */
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 0px;
+  }
 `
 
 const Container = styled.div`
@@ -188,4 +222,10 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+  }
+  @media screen and (max-width: 500px) {
+    margin-top: 25px;
+  }
 `
