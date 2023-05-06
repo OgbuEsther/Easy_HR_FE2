@@ -8,7 +8,7 @@ const staffUrl ="staff"
 
 
 export const createAdmin = async(data:any)=>{
-    return await axios.post(`https://easyhr.onrender.com/api/admin/login`,data).then((res)=> res.data)
+    return await axios.post(`https://easyhr.onrender.com/api/admin/register`,data).then((res)=> res.data)
 }
 
 export const LoginAdmin = async(data:AdminData)=>{
@@ -32,6 +32,7 @@ export const createStaff = async(data: StaffData)=>{
 export const getOneAdmin = async(id:any)=>{
     return await axios.get(`${url}/admin/${id}`).then((res)=>{
         return res.data
+        // console.log(res.data)
     })
 }
 export const getOneStaff = async(id:any)=>{
@@ -64,7 +65,13 @@ export const genAttendanceToken = async(adminId:string)=>{
 
 // Staff ClockIn
 export const staffClockIn = async(data: any , staffId : any) =>{
+    return await axios.post(`${url}/clockin/${staffId}` , data).then((res)=> res.data)
 
+}
+
+//staff clock out
+export const staffClockOut = async(data: any , staffId : any) =>{
+    return await axios.post(`${url}/clockout/${staffId}` , data).then((res)=> res.data)
 
 }
 
