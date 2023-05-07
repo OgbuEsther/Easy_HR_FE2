@@ -19,7 +19,13 @@ import { Staffdashboard } from "../components/layout/Staffdashboard";
 import Staffcomp from "../pages/Staffcomp";
 import Leave from "../pages/Leave/Leave";
 import LeavePage from "../pages/LeavePage";
-import { useAppSelector } from "../components/global/Store";
+import CheckMail from "../pages/Auth/CheckMail";
+
+
+
+
+
+
 
 
 const Home = lazy(() => import("../pages/landingpage/Home"));
@@ -117,7 +123,7 @@ export const Elements = createBrowserRouter([
   
   
   {
-    path:"/sign-in/:id/token",
+    path:"/sign-in/:id/:token",
     element: <SignIn/>
   },
   
@@ -144,17 +150,17 @@ export const Elements = createBrowserRouter([
     element: <SignInAdmin/>
   },
   {
-    path:"/verify",
-    element: <Verification/>
+    path:"/check-mail",
+    element: <CheckMail/>
   },
   {
     path:"/verify",
     element: <Verification/>
   },
-  {
-    path:"/:id/token/verify",
-    element: <Verification/>
-  },
+  // {
+  //   path:"/:id/token/verify",
+  //   element: <Verification/>
+  // },
   {
     path:"/reset-password",
     element: <ResetPassword/>,
