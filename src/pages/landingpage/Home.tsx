@@ -1,10 +1,9 @@
 import React from 'react'
-import img from "../../Assets/tick.svg"
-import img2 from "../../Assets/her.png"
 import { Header } from '../../components'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Fade from "react-awesome-reveal"
 
 
 
@@ -28,9 +27,13 @@ const Superhero = () => {
       <div className='w-full z-40 bg-hero flex justify-center overflow-hidden bg-no-repeat bg-center bg-cover'>
           <div className='w-full bg-black bg-opacity-50 flex-col items-center flex'>
             <div className='mt-56 w-11/12 text-white'>
+            <Fade
+              duration={3000}
+            >
               <div className='w-6/12 text-8xl font-bold'>
                 Payroll & HR Solutions
               </div>
+              </Fade>
             </div>
       </div>
       </div>
