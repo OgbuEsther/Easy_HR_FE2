@@ -8,6 +8,7 @@ import { useAppSelector } from '../../components/global/Store'
 const Verification = () => {
 
     const user = useAppSelector((state) => state.currentUser)
+    console.log(`this is id ${user?._id}`)
   return (
       <Container>
           <Box>
