@@ -337,7 +337,64 @@ const Attendance: React.FC = () => {
         </TimingColumn> */}
 
         <LastComp>
+          <First>
+            <Part>
+              <Up>
+                08:00 Hrs
+              </Up>
+              <Down>
+              Average Working Hours
+              </Down>
+            </Part>
+            <Part>
+              <Up>
+              10:30 AM
+              </Up>
+              <Down>
+              Average In Time
+              </Down>
+            </Part>
+            <Part>
+              <Up>
+              07:30 PM
+              </Up>
+              <Down>
+              Average Out Time
+              </Down>
+            </Part>
+            <Part>
+              <Up>
+              01:00 Hr
+              </Up>
+              <Down>
+              Average Break Time
+              </Down>
+            </Part>
+          </First>
 
+          <TableSectionHold>
+          <TableSection>
+            <TableColumn>
+              <TableHead className="number-sign">#</TableHead>
+              <TableHead className="date-head">Date</TableHead>
+              <TableHead className="punch-head">Punch In</TableHead>
+              <TableHead className="punch-head">Punch Out</TableHead>
+              <TableHead className="production-head">Production</TableHead>
+              <TableHead className="break-head">Break</TableHead>
+              <TableHead className="over-time-head">Over Time</TableHead>
+            </TableColumn>
+
+            <TableColumn>
+              <TableNumber className="number">1</TableNumber>
+              <TableDown className="date">{clockin?.date} </TableDown>
+              <TableDown className="punch"> {clockin?.time}</TableDown>
+              <TableDown className="punch"> {clockout?.time}</TableDown>
+              <TableDown className="production">9hrs</TableDown>
+              <TableDown className="break">1hr</TableDown>
+              <TableDown className="over-time">0</TableDown>
+            </TableColumn>
+          </TableSection>
+        </TableSectionHold>
         </LastComp>
         
 
@@ -355,8 +412,33 @@ const Attendance: React.FC = () => {
 };
 
 export default Attendance;
+const Down = styled.div``
+
+const Up = styled.div`
+color: green;
+font-weight: 600;
+font-size: 21px;
+`
+
+const Part = styled.div`
+margin-left: 30px;
+margin-right: 30px;
+text-align: center;
+`
+
+const First = styled.div`
+display: flex;
+align-items: center;
+justify-content: space-between;
+`
+
 const LastComp = styled.div`
-  
+  width: 1000px;
+/* background-color:rgb(255, 255, 255); */
+/* background-color: red; */
+border-radius: 10px;
+margin-bottom: 20px;
+margin-top: 20px;
 `
 
 const Employee = styled.div`
@@ -547,15 +629,16 @@ const TableSectionHold = styled.div`
   height: auto;
   width: auto;
   overflow: auto;
+  margin-top: 30px;
 `;
 
 const TableSection = styled.div`
   height: auto;
-  width: 900px;
+  width: 950px;
   margin-top: 10px;
   margin-left: 20px;
   margin-right: 20px;
-  border-top: 1px solid #cfcfcfbe;
+  /* border-top: 1px solid #cfcfcfbe; */
   border-radius: 4px;
 
   tr:nth-child(even) {
