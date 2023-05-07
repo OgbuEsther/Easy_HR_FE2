@@ -372,29 +372,73 @@ const Attendance: React.FC = () => {
             </Part>
           </First>
 
-          <TableSectionHold>
-          <TableSection>
-            <TableColumn>
-              <TableHead className="number-sign">#</TableHead>
-              <TableHead className="date-head">Date</TableHead>
-              <TableHead className="punch-head">Punch In</TableHead>
-              <TableHead className="punch-head">Punch Out</TableHead>
-              <TableHead className="production-head">Production</TableHead>
-              <TableHead className="break-head">Break</TableHead>
-              <TableHead className="over-time-head">Over Time</TableHead>
-            </TableColumn>
+          <Table>
+          <table>
+            <tr>
+              <th>Date</th>
+              <th>Check In</th>
+              <th>Check Out</th>
+              <th>Working Hours</th>
+              <th>Status</th>
+            </tr>
 
-            <TableColumn>
-              <TableNumber className="number">1</TableNumber>
-              <TableDown className="date">{clockin?.date} </TableDown>
-              <TableDown className="punch"> {clockin?.time}</TableDown>
-              <TableDown className="punch"> {clockout?.time}</TableDown>
-              <TableDown className="production">9hrs</TableDown>
-              <TableDown className="break">1hr</TableDown>
-              <TableDown className="over-time">0</TableDown>
-            </TableColumn>
-          </TableSection>
-        </TableSectionHold>
+            <tr>
+              <td>
+              {/* {clockin?.date}  */}
+              10-02-2023
+              </td>
+              <td>
+              <Time>
+                10:28
+                </Time>
+              </td>
+              <td> 
+                <Time>
+                10:28
+                </Time>
+              </td>
+              <td>
+                 <Time>
+                10:28
+                </Time>
+              </td>
+              <td>
+                <Box>
+                  Present
+                </Box>
+              </td>
+            </tr>
+
+          
+
+            <tr>
+              <td>
+              {/* {clockin?.date}  */}
+              31-03-2090
+              </td>
+              <td>
+              <Time1>
+                10:50
+                </Time1>
+              </td>
+              <td> 
+                <Time>
+                10:54
+                </Time>
+              </td>
+              <td>
+                 <Time1>
+                10:28
+                </Time1>
+              </td>
+              <td>
+                <Box1>
+                  Absent
+                </Box1>
+              </td>
+            </tr>
+          </table>
+         </Table>
         </LastComp>
         
 
@@ -412,6 +456,107 @@ const Attendance: React.FC = () => {
 };
 
 export default Attendance;
+// TABLE STYLING AREA
+
+const Time = styled.div`
+color: green;
+font-weight: bold;
+`
+const Time1 = styled.div`
+color: red;
+font-weight: bold;
+`
+
+const Chc = styled.div`
+color: green;
+font-weight: bold;
+`
+
+const Box1 = styled.div`
+  border: 1px solid red;
+  color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+`
+const Box = styled.div`
+  border: 1px solid green;
+  color: green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+`
+
+const Circle = styled.div`
+width: 40px;
+height: 40px;
+margin: 3px;
+font-size: 16px;
+display: flex;
+justify-content: center;
+align-items: center;
+overflow: hidden;
+font-weight: 500;
+color: black;
+background-color: blanchedalmond;
+border: 1px solid black;
+border-radius: 50px;
+
+@media screen and (max-width: 900px) {
+  height: 30px;
+  width: 30px;
+  font-size: 12px;
+}`
+
+const Table = styled.div`
+display: flex;
+height: auto;
+width: auto;
+justify-content: flex-start;
+align-items: center;
+margin-bottom: 10px;
+overflow-x: auto;
+margin-top: 20px;
+
+table{
+  min-width: 400px;
+  max-width: 1440px;
+  width: 100%;
+}
+
+table,th,tr:nth-child(even){
+  background-color: #fff;
+}
+
+td,th{
+  padding: 14px 2px;
+  text-align: left;
+  border-top: 1px solid #e2e5e8;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+td{
+  @media screen and (max-width: 900px) {
+    font-size: 12px;
+  }
+}
+
+
+
+th{
+  border-top: 1px solid #e2e5e8;
+  background-color: #fefefe;
+  padding: 1rem 0.75rem;
+  padding-left: 20px;
+  padding-right: 20px;
+
+}
+
+`
+
 const Down = styled.div``
 
 const Up = styled.div`
@@ -424,20 +569,22 @@ const Part = styled.div`
 margin-left: 30px;
 margin-right: 30px;
 text-align: center;
+margin-top: 30px;
 `
 
 const First = styled.div`
 display: flex;
 align-items: center;
 justify-content: space-between;
+/* background-color: yellow; */
 `
 
 const LastComp = styled.div`
   width: 1000px;
-/* background-color:rgb(255, 255, 255); */
+background-color:white;
+box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 /* background-color: red; */
 border-radius: 10px;
-margin-bottom: 20px;
 margin-top: 20px;
 `
 
@@ -592,60 +739,6 @@ const Holds = styled.div`
   right: 0;
   top: 0;
   z-index: 5;
-`;
-
-// Table styling area
-
-const TableNumber = styled.td`
-  padding: 10px 0px;
-  padding-left: 10px;
-`;
-
-const TableDown = styled.td`
-  height: auto;
-  text-align: start;
-  padding: 10px 0px;
-  width: auto;
-`;
-
-const TableHead = styled.th`
-  height: auto;
-  width: 160px;
-  text-align: start;
-  padding: 10px 0px;
-`;
-
-const TableColumn = styled.tr`
-  height: auto;
-  width: auto;
-
-  .number-sign {
-    width: 50px;
-    padding-left: 10px;
-  }
-`;
-
-const TableSectionHold = styled.div`
-  height: auto;
-  width: auto;
-  overflow: auto;
-  margin-top: 30px;
-`;
-
-const TableSection = styled.div`
-  height: auto;
-  width: 950px;
-  margin-top: 10px;
-  margin-left: 20px;
-  margin-right: 20px;
-  /* border-top: 1px solid #cfcfcfbe; */
-  border-radius: 4px;
-
-  tr:nth-child(even) {
-    background-color: #cfcfcfbe;
-    width: 900px;
-  }
-  box-shadow: 1px 1px 10px 1px rgba(105, 105, 105, 0.1);
 `;
 
 // Timing styling area
@@ -928,7 +1021,7 @@ const Title = styled.h1`
 const AttendanceMainPage = styled.div`
   height: auto;
   width: calc(100vw - 320px);
-  padding-bottom: 50px;
+  padding-bottom: 30px;
   @media screen and (max-width: 960px) {
     width: 100%;
   }
