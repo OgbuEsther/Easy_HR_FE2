@@ -1,6 +1,4 @@
 import React from 'react'
-import img from "../../Assets/tick.svg"
-import img2 from "../../Assets/her.png"
 import { Header } from '../../components'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
