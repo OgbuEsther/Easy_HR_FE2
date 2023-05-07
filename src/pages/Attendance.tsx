@@ -161,10 +161,12 @@ const Attendance: React.FC = () => {
                     <Day>{el?.title}</Day>
                     <HourMeasure>
                      Total Days :{el?.days}
+               
                     </HourMeasure>
                   </DayAndHourColumn>
                   <ProgressBarHold>
                     <ProgressBar width={width}></ProgressBar>
+                    {/* <button onClick={int}>click me</button> */}
                   </ProgressBarHold>
                 </StatisticsMeasureColumn>
                 ))}
