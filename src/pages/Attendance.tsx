@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { AiOutlineClockCircle } from "react-icons/ai";
+
 import Select from "react-select";
 import { BsCalendar4Event } from "react-icons/bs";
 import InputStaffAttendance from "./InputFieldAttendance/InputStaffAttendance";
-import { MdOutlineCancel } from "react-icons/md"
+import { MdOutlineCancel } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { getOneStaff } from "../utils/Api/ApiCall";
+import { getOneAdmin, getOneStaff } from "../utils/Api/ApiCall";
 import { useAppSelector } from "../components/global/Store";
-
 
 const Option = [
   { value: "chocolate", label: "Chocolate" },
@@ -18,97 +17,99 @@ const Option = [
 ];
 
 const Attendance: React.FC = () => {
+  const [value, setValue] = useState("");
+  const [annualcheck, setannualCheck] = useState(false);
+  const [examchecker, setexamCheck] = useState(false);
+  const [sickchecker, setsickCheck] = useState<boolean>(false);
+  const [mathanitychecker, setmathanityCheck] = useState<boolean>(false);
+  const [certificationchecker, setcertificationCheck] =
+    useState<boolean>(false);
 
-  const [value, setValue] = useState("")
-  const [annualcheck, setannualCheck]=useState(false)
-  const [examchecker, setexamCheck]=useState(false)
-  const [sickchecker, setsickCheck]=useState<boolean>(false)
-  const [mathanitychecker, setmathanityCheck]=useState<boolean>(false)
-  const [certificationchecker, setcertificationCheck]=useState<boolean>(false)
-
-  const navigate = useNavigate()
-
-
+  const navigate = useNavigate();
 
   const [PunchStateChanger, setPunchStateChanger] = useState(true);
   const [width, setWidth] = useState(0);
-  const [show, setShow] = useState(false)
+  const [show, setShow] = useState(false);
 
-   const Removetoken = () => {
+  const Removetoken = () => {
     setShow(false);
   };
 
-const annualchecker = () =>{
-  setannualCheck(true)
-  setexamCheck(false)
-  setsickCheck(false)
-  setcertificationCheck(false)
-  setmathanityCheck(false)
-  navigate("/staffdashboard/leave-form")
-}
+  const annualchecker = () => {
+    setannualCheck(true);
+    setexamCheck(false);
+    setsickCheck(false);
+    setcertificationCheck(false);
+    setmathanityCheck(false);
+    navigate("/staffdashboard/leave-form");
+  };
 
+  const ExamChecker = () => {
+    setannualCheck(false);
+    setexamCheck(true);
+    setsickCheck(false);
+    setcertificationCheck(false);
+    setmathanityCheck(false);
+  };
 
-const ExamChecker = () =>{
-  setannualCheck(false)
-  setexamCheck(true)
-  setsickCheck(false)
-  setcertificationCheck(false)
-  setmathanityCheck(false)
-}
-
-
-const Sickchecker = () =>{
-  setsickCheck(true)
-  setannualCheck(false)
-  setexamCheck(false)
-  setcertificationCheck(false)
-  setmathanityCheck(false)
-}
-const Mathanitychecker = () =>{
-  setmathanityCheck(true)
-  setannualCheck(false)
-  setexamCheck(false)
-  setsickCheck(false)
-  setcertificationCheck(false)
-}
-const Certificationchecker = () =>{
-  setcertificationCheck(true)
-  setannualCheck(false)
-  setexamCheck(false)
-  setsickCheck(false)
-  setmathanityCheck(false)
-}
+  const Sickchecker = () => {
+    setsickCheck(true);
+    setannualCheck(false);
+    setexamCheck(false);
+    setcertificationCheck(false);
+    setmathanityCheck(false);
+  };
+  const Mathanitychecker = () => {
+    setmathanityCheck(true);
+    setannualCheck(false);
+    setexamCheck(false);
+    setsickCheck(false);
+    setcertificationCheck(false);
+  };
+  const Certificationchecker = () => {
+    setcertificationCheck(true);
+    setannualCheck(false);
+    setexamCheck(false);
+    setsickCheck(false);
+    setmathanityCheck(false);
+  };
 
   const int = () => {
-    setWidth(width + 10)
-  }
+    setWidth(width + 10);
+  };
 
   const Toggle = () => {
-    setShow(true)
-  }
-
-
+    setShow(true);
+  };
 
   const PunchStateChangerFunction = () => {
     setPunchStateChanger(!PunchStateChanger);
   };
 
-  console.log("this is value: "+value);
-  
+  console.log("this is value: " + value);
 
   const user = useAppSelector((state) => state.currentStaff);
   const getStaff = useQuery({
     queryKey: ["singleStaff"],
     queryFn: () => getOneStaff(user?._id),
   });
-  
-  const clockin = useAppSelector((state)=> state.clockIn)
-  const clockout = useAppSelector((state)=> state.clockOut)
+  //admin
+
+  const admin = useAppSelector((state) => state.currentUser);
+  const getAdmin = useQuery({
+    queryKey: ["singleAdmin"],
+    queryFn: () => getOneAdmin(admin?._id),
+  });
+
+  const total = useAppSelector((state)=> state.leave)
+
+  const clockin = useAppSelector((state) => state.clockIn);
+  const clockout = useAppSelector((state) => state.clockOut);
 
   const [selectOption, setSelectOption] = useState<any>(null);
 
   //api consumption
-  
+
   return (
     <AttendancePage>
       <AttendanceMainPage>
@@ -122,28 +123,12 @@ const Certificationchecker = () =>{
            </span>
           </Word>
 
-          <StaffDetail>
-           <Details>
-            <Pic>
-              DC
-            </Pic>
-            <Div>
-              <Name>
-                Valerian Pedro
-              </Name>
-              <Post>
-                Full Stack Developer
-              </Post>
-            </Div>
-           </Details>
-          </StaffDetail>
         <StatisticColumn>
           <Card className="one">
-        
-              <CardTitle>
+            <CardTitle>
               Timesheet <span>{clockin?.date} </span>
             </CardTitle>
-         
+
             <CardContent>
               <PunchInRecord>
                 <PunchInat>Punch In at</PunchInat>
@@ -153,13 +138,9 @@ const Certificationchecker = () =>{
                 <CircleTimer>
                   <Timer>{clockin?.time} </Timer>
                 </CircleTimer>
-                  <PunchButton onClick={Toggle}>
-                    Punch In
-                  </PunchButton>
-            
-                  <PunchButton onClick={Toggle}>
-                    Punch Out
-                  </PunchButton>
+                <PunchButton onClick={Toggle}>Punch In</PunchButton>
+
+                <PunchButton onClick={Toggle}>Punch Out</PunchButton>
               </CircleTimerHold>
 
               {/* <BreakAndOvertime>
@@ -176,91 +157,108 @@ const Certificationchecker = () =>{
           </Card>
           <Card className="two">
             <CardTitle>Leave Stats</CardTitle>
-
-            <CardContent>
-              <StatisticsMeasureColumn className="today">
-                <DayAndHourColumn>
-                  <Day>Annual</Day>
-                  <HourMeasure>{width} /20dys</HourMeasure>
-                </DayAndHourColumn>
-                <ProgressBarHold>
-                  <ProgressBar width={width}></ProgressBar>
-                </ProgressBarHold>
-              </StatisticsMeasureColumn>
-
-              <StatisticsMeasureColumn className="week">
-                <DayAndHourColumn>
-                  <Day>Exam</Day>
-                  <HourMeasure>0/ 10dys</HourMeasure>
-                </DayAndHourColumn>
-                <ProgressBarHold>
-                  <ProgressBar width={width}></ProgressBar>
-                </ProgressBarHold>
-
-                {/* <button onClick={int}>click</button> */}
-              </StatisticsMeasureColumn>
-              <StatisticsMeasureColumn className="month">
-                <DayAndHourColumn>
-                  <Day>Sick</Day>
-                  <HourMeasure>0/5dys</HourMeasure>
-                </DayAndHourColumn>
-                <ProgressBarHold>
-                  <ProgressBar width={width}></ProgressBar>
-                </ProgressBarHold>
-              </StatisticsMeasureColumn>
-              <StatisticsMeasureColumn className="remaining">
-                <DayAndHourColumn>
-                  <Day>Marthanity</Day>
-                  <HourMeasure>0/30dys</HourMeasure>
-                </DayAndHourColumn>
-                <ProgressBarHold>
-                  <ProgressBar width={width}></ProgressBar>
-                </ProgressBarHold>
-              </StatisticsMeasureColumn>
-              <StatisticsMeasureColumn className="over-time">
-                <DayAndHourColumn>
-                  <Day>Certification</Day>
-                  <HourMeasure>0/10dys</HourMeasure>
-                </DayAndHourColumn>
-                <ProgressBarHold>
-                  <ProgressBar width={width}></ProgressBar>
-                </ProgressBarHold>
-              </StatisticsMeasureColumn>
-            </CardContent>
+           
+              <CardContent>
+                 {getAdmin?.data?.data?.adminLeave?.map((el: any) => (
+                <StatisticsMeasureColumn className="today">
+                  <DayAndHourColumn>
+                    <Day>{el?.title}</Day>
+                    <HourMeasure>
+                     Total Days :{el?.days}
+                    </HourMeasure>
+                  </DayAndHourColumn>
+                  <ProgressBarHold>
+                    <ProgressBar width={width}></ProgressBar>
+                  </ProgressBarHold>
+                </StatisticsMeasureColumn>
+                ))}
+              </CardContent>
+            
           </Card>
           <Card className="three">
             <CardTitle>Apply For Leave</CardTitle>
             <CardContent>
-              <LeaveOptionForm >
-                <OptionInputHold  cl={annualcheck?"white":"black"} bd={annualcheck?"none":"silver"} onClick={annualchecker} bg={annualcheck? "blue":""}
+              <LeaveOptionForm>
+                <OptionInputHold
+                  cl={annualcheck ? "white" : "black"}
+                  bd={annualcheck ? "none" : "silver"}
+                  onClick={annualchecker}
+                  bg={annualcheck ? "blue" : ""}
                 >
-                <Label htmlFor="html">Anuual</Label>
-                <OptionInput className="annual" type="radio"  checked={annualcheck? true: false} name="annual" id="html" 
-                value="annual"
-                />
-                </OptionInputHold >
+                  <Label htmlFor="html">Anuual</Label>
+                  <OptionInput
+                    className="annual"
+                    type="radio"
+                    checked={annualcheck ? true : false}
+                    name="annual"
+                    id="html"
+                    value="annual"
+                  />
+                </OptionInputHold>
 
-                <OptionInputHold  cl={examchecker?"white":"black"} bd={examchecker?"none":"silver"} onClick={ExamChecker} bg={examchecker? "blue":""}>
-                <Label>Exam</Label> <OptionInput className="annual" type="radio"  checked={examchecker? true: false} name="annual" id="html" 
-                
-                />
-                </OptionInputHold >
+                <OptionInputHold
+                  cl={examchecker ? "white" : "black"}
+                  bd={examchecker ? "none" : "silver"}
+                  onClick={ExamChecker}
+                  bg={examchecker ? "blue" : ""}
+                >
+                  <Label>Exam</Label>{" "}
+                  <OptionInput
+                    className="annual"
+                    type="radio"
+                    checked={examchecker ? true : false}
+                    name="annual"
+                    id="html"
+                  />
+                </OptionInputHold>
 
-                <OptionInputHold cl={sickchecker?"white":"black"} bd={sickchecker?"none":"silver"} onClick={Sickchecker} bg={sickchecker? "blue":""}>
-                <Label>Sick</Label> <OptionInput className="annual" type="radio"  checked={sickchecker? true: false} name="annual" id="html" />
-                </OptionInputHold >
+                <OptionInputHold
+                  cl={sickchecker ? "white" : "black"}
+                  bd={sickchecker ? "none" : "silver"}
+                  onClick={Sickchecker}
+                  bg={sickchecker ? "blue" : ""}
+                >
+                  <Label>Sick</Label>{" "}
+                  <OptionInput
+                    className="annual"
+                    type="radio"
+                    checked={sickchecker ? true : false}
+                    name="annual"
+                    id="html"
+                  />
+                </OptionInputHold>
 
-                <OptionInputHold cl={mathanitychecker?"white":"black"} bd={mathanitychecker?"none":"silver"} onClick={Mathanitychecker} bg={mathanitychecker? "blue":""}>
-                <Label>Mathanity</Label> <OptionInput className="annual" type="radio"  checked={mathanitychecker? true: false} name="annual" id="html" />
-                </OptionInputHold >
+                <OptionInputHold
+                  cl={mathanitychecker ? "white" : "black"}
+                  bd={mathanitychecker ? "none" : "silver"}
+                  onClick={Mathanitychecker}
+                  bg={mathanitychecker ? "blue" : ""}
+                >
+                  <Label>Mathanity</Label>{" "}
+                  <OptionInput
+                    className="annual"
+                    type="radio"
+                    checked={mathanitychecker ? true : false}
+                    name="annual"
+                    id="html"
+                  />
+                </OptionInputHold>
 
-                <OptionInputHold cl={certificationchecker?"white":"black"} bd={certificationchecker?"none":"silver"} onClick={Certificationchecker} bg={certificationchecker? "blue":""}>
-                <Label>Sick</Label> <OptionInput className="annual" type="radio"  checked={certificationchecker? true: false} name="annual" id="html" />
-                </OptionInputHold >
-
-
-
-
+                <OptionInputHold
+                  cl={certificationchecker ? "white" : "black"}
+                  bd={certificationchecker ? "none" : "silver"}
+                  onClick={Certificationchecker}
+                  bg={certificationchecker ? "blue" : ""}
+                >
+                  <Label>Sick</Label>{" "}
+                  <OptionInput
+                    className="annual"
+                    type="radio"
+                    checked={certificationchecker ? true : false}
+                    name="annual"
+                    id="html"
+                  />
+                </OptionInputHold>
               </LeaveOptionForm>
             </CardContent>
           </Card>
@@ -303,53 +301,33 @@ const Certificationchecker = () =>{
               <TableHead className="over-time-head">Over Time</TableHead>
             </TableColumn>
 
-            
-                <TableColumn>
-                <TableNumber className="number">1</TableNumber>
-                <TableDown className="date">{clockin?.date} </TableDown>
-                <TableDown className="punch"> {clockin?.time}</TableDown>
-                <TableDown className="punch"> {clockout?.time}</TableDown>
-                <TableDown className="production">9hrs</TableDown>
-                <TableDown className="break">1hr</TableDown>
-                <TableDown className="over-time">0</TableDown>
-              </TableColumn>
-          
-          
+            <TableColumn>
+              <TableNumber className="number">1</TableNumber>
+              <TableDown className="date">{clockin?.date} </TableDown>
+              <TableDown className="punch"> {clockin?.time}</TableDown>
+              <TableDown className="punch"> {clockout?.time}</TableDown>
+              <TableDown className="production">9hrs</TableDown>
+              <TableDown className="break">1hr</TableDown>
+              <TableDown className="over-time">0</TableDown>
+            </TableColumn>
           </TableSection>
         </TableSectionHold>
 
         {show ? (
           <Holds>
-                          <InputStaffAttendance />
-                          <Icron onClick={Removetoken}>
+            <InputStaffAttendance />
+            <Icron onClick={Removetoken}>
               <MdOutlineCancel />
             </Icron>
-                </Holds>
-                  ) : null}
+          </Holds>
+        ) : null}
       </AttendanceMainPage>
     </AttendancePage>
   );
 };
 
 export default Attendance;
-const Post = styled.div``
 
-const Name = styled.div``
-
-const Div = styled.div`
-display: flex;
-`
-
-const Pic = styled.div``
-
-const Details = styled.div`
-display: flex;
-`
-
-const StaffDetail = styled.div`
-width: 1020px;
-background-color: yellowgreen;
-`
 
 const Word = styled.div`
 font-weight: 500;
@@ -368,7 +346,7 @@ margin-top: 30px;
 span{
   color: rgb(51,51,51);
   background-color: rgba(0,0,0,0);
-  font-size: 18px;
+  font-size: 16px;
   line-height: 24px;
   letter-spacing: normal;
   font-weight: 500;
@@ -383,39 +361,40 @@ a{
     color: black;
   }
 }
-` 
+`
+
 
 // Apply for leave
 
 const Label = styled.label`
-font-size: medium;
-font-weight: 550;
-cursor: pointer;
-`
+  font-size: medium;
+  font-weight: 550;
+  cursor: pointer;
+`;
 
 const OptionInput = styled.input`
   cursor: pointer;
-`
+`;
 
-const OptionInputHold = styled.div<{bg: string; bd: string;cl: string;}>`
-height: 40px;
-width: auto;
-background-color: ${({bg})=>bg};
-color:  ${({cl})=>cl};
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 0px 8px;
-margin-top: 12px;
-border: 1px solid ${({bd})=>bd};
-cursor: pointer;
-`
+const OptionInputHold = styled.div<{ bg: string; bd: string; cl: string }>`
+  height: 40px;
+  width: auto;
+  background-color: ${({ bg }) => bg};
+  color: ${({ cl }) => cl};
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 8px;
+  margin-top: 12px;
+  border: 1px solid ${({ bd }) => bd};
+  cursor: pointer;
+`;
 
 const LeaveOptionForm = styled.form`
-height: auto;
-width: auto;
-transition: all 390ms;
-`
+  height: auto;
+  width: auto;
+  transition: all 390ms;
+`;
 
 const Icron = styled.div`
   position: absolute;
@@ -429,7 +408,7 @@ const Icron = styled.div`
 `;
 
 const Holds = styled.div`
-    width: 100%;
+  width: 100%;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -442,7 +421,7 @@ const Holds = styled.div`
   right: 0;
   top: 0;
   z-index: 5;
-`
+`;
 
 // Table styling area
 
@@ -553,9 +532,6 @@ const Icon = styled.div`
   font-weight: 600;
 `;
 
-
-
-
 const ProgressBar = styled.div<{ width: number }>`
   width: ${({ width }) => width}%;
   height: 10px;
@@ -590,7 +566,6 @@ const DayAndHourColumn = styled.div`
   align-items: center;
   font-size: 14px;
   font-weight: 600;
-
 `;
 
 const StatisticsMeasureColumn = styled.div`
