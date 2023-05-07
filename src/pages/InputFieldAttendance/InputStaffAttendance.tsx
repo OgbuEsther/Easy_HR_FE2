@@ -43,7 +43,7 @@ const InputStaffAttendance = () => {
   const {
     handleSubmit,
     formState: { errors },
-    reset,
+  
     register,
   } = useForm<formData>({
     resolver: yupResolver(schema),
@@ -63,7 +63,7 @@ const InputStaffAttendance = () => {
         timerProgressBar: true,
 
         willClose: () => {
-          // navigate("/sign-in-admin");
+          navigate("/staffdashboard");
         }
       })
     
@@ -88,7 +88,7 @@ const InputStaffAttendance = () => {
           />
    <span>{errors?.setToken && errors?.setToken?.message}</span>
           <label htmlFor="">click to check in</label>
-          <br />
+          {/* <br /> */} {" "}
           <input type="checkbox"
            {...register("clockIn")} 
           />

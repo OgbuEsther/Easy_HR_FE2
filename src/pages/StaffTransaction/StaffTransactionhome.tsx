@@ -76,6 +76,7 @@ const Button = styled.button`
   cursor: pointer;
   border: none;
   outline: none;
+  margin-right: 12px;
 `
 const Buttonhold = styled.div`
   width: 100%;
@@ -115,6 +116,7 @@ flex-direction: column;
 overflow-x: hidden;
 /* overflow-x: scroll; */
 margin-bottom: 10px;
+padding-top: 13px;
 
 table{
   width: 100%;
@@ -157,11 +159,13 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+    padding-top: 12px;
+    padding-bottom: 12px;
     
     @media screen and (max-width: 768px){
       width: 93%;
     }
     @media screen and (max-width: 500px){
-      display: none;
+      display: flex;
     }
 `

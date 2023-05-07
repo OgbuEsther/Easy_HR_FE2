@@ -759,7 +759,6 @@ const Table = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: #f1f7f9;
 `;
 
 const Input = styled.input`
@@ -798,15 +797,14 @@ const Head = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 93%;
-  display: flex;
-  border: 1px solid #d6dee9;
-  margin-top: 110px;
-  flex-direction: column;
+  width: 100%;
 `;
 
 const Container = styled.div`
   width: calc(100vw - 220px);
+  height: 100vh;
   display: flex;
   justify-content: center;
+  padding-top: 100px;
+  background-color: #F5F7FA;
 `;

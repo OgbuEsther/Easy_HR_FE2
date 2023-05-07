@@ -88,7 +88,7 @@ const SideBar = () => {
             <FaBattleNet />
             </Icon2>
             <NavLink
-            to=""
+            to="/staffdashboard/staff-attendance"
             style={({ isActive }) => {
                 return {
                 textDecoration: isActive ? "none" : "none",
@@ -96,9 +96,8 @@ const SideBar = () => {
                 };
             }}
             >
-                  <NavLink to="/staffdashboard/staff-attendance">
                       <Text1>Attendance</Text1>
-            </NavLink>
+
             </NavLink>
       </Home2>
 
@@ -329,7 +328,12 @@ const Airtel = styled.div`
 const Box = styled.div`
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    @media screen and (max-width: 1024px) {
+      display: flex;
+      /* flex-direction: row; */
+      /* flex-wrap: nowrap; */
+    }
 `
 const Popup_content = styled.div`
     width: 850px;

@@ -225,7 +225,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   z-index: 2;
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 900px) {
     display: none;
   }
 `

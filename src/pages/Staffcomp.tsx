@@ -260,7 +260,7 @@ console.log("this is getStaff ",getStaff?.data?.data?.wallet)
                   ) : null}            
 
           <StaffTransactionhome />
-          <Stafffooter />
+          {/* <Stafffooter /> */}
         </Wrapper>
       </Container>
     </div>
@@ -467,6 +467,10 @@ const Img = styled.img`
     height: 140px;
     /* margin-top: 15px; */
     margin-left: 15px;
+    @media screen and (max-width: 500px) {
+      height: 110px;
+      margin-bottom: 12px;
+    }
     /* animation: bounce 1s infinite;
 
     @keyframes bounce {
@@ -490,7 +494,8 @@ const Planhold = styled.div`
       padding: 15px;
     }
     @media screen and (max-width: 500px) {
-      display: none;
+      display: flex;
+      flex-direction: column;
     }
 `
 
@@ -760,7 +765,7 @@ const Wrapper = styled.div`
     border-top-right-radius: 24px;
     border-top-left-radius: 24px;
     background-color: #e2e2e2;
-    z-index: 10;
+    /* z-index: 10; */
     margin-top: 100px;
     padding-right: 0px;
     padding-top: 25px;

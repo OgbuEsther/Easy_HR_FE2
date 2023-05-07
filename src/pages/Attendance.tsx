@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { AiOutlineClockCircle } from "react-icons/ai";
+
 import Select from "react-select";
 import { BsCalendar4Event } from "react-icons/bs";
 import InputStaffAttendance from "./InputFieldAttendance/InputStaffAttendance";
 import { MdOutlineCancel } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
-import ClockOut from "./InputFieldAttendance/ClockOut";
+import { useQuery } from "@tanstack/react-query";
+import { getOneAdmin, getOneStaff } from "../utils/Api/ApiCall";
+import { useAppSelector } from "../components/global/Store";
 
 const Option = [
   { value: "chocolate", label: "Chocolate" },
@@ -86,6 +88,24 @@ const Attendance: React.FC = () => {
 
   console.log("this is value: " + value);
 
+  const user = useAppSelector((state) => state.currentStaff);
+  const getStaff = useQuery({
+    queryKey: ["singleStaff"],
+    queryFn: () => getOneStaff(user?._id),
+  });
+  //admin
+
+  const admin = useAppSelector((state) => state.currentUser);
+  const getAdmin = useQuery({
+    queryKey: ["singleAdmin"],
+    queryFn: () => getOneAdmin(admin?._id),
+  });
+
+  const total = useAppSelector((state)=> state.leave)
+
+  const clockin = useAppSelector((state) => state.clockIn);
+  const clockout = useAppSelector((state) => state.clockOut);
+
   const [selectOption, setSelectOption] = useState<any>(null);
 
   //api consumption
@@ -93,25 +113,72 @@ const Attendance: React.FC = () => {
   return (
     <AttendancePage>
       <AttendanceMainPage>
-        <TitleAndBreadCrumColumn>
-          <Title>Attendance</Title>
-          <BreadCrum>
-            Dashboard/ <span style={{ color: "#929292" }}>Attendance</span>{" "}
-          </BreadCrum>
-        </TitleAndBreadCrumColumn>
+      <Word>
+        Attendance <br />
+           <span>
+          <a href="/dashboard">
+          Dashboard
+          </a>
+           / Employee Attendance
+           </span>
+          </Word>
+
+          <StaffDetail>
+
+           <Details>
+            <Pic>
+              DC
+            </Pic>
+            <Div>
+              <Name>
+                Valerian Pedro
+              </Name>
+              <Post>
+                Full Stack Developer
+              </Post>
+            </Div>
+           </Details>
+
+           <Employee>
+           <Name>
+           Employee ID
+              </Name>
+              <Post>
+              IM062587UT
+              </Post>
+           </Employee>
+           <Employee>
+           <Name>
+           Joining Date
+              </Name>
+              <Post>
+              3 April 2033
+              </Post>
+           </Employee>
+           <Employee>
+           <Name>
+           Department
+              </Name>
+              <Post>
+               API Consumption
+              </Post>
+           </Employee>
+         </StaffDetail>
+
         <StatisticColumn>
           <Card className="one">
             <CardTitle>
-              Timesheet <span>11 May 2019</span>
+              Timesheet <span>{clockin?.date} </span>
             </CardTitle>
+
             <CardContent>
               <PunchInRecord>
                 <PunchInat>Punch In at</PunchInat>
-                <Date>Wed, 11th Mar 2019 10.00 AM</Date>
+                <Date>{`${clockin?.date} ${clockin?.time}`}</Date>
               </PunchInRecord>
               <CircleTimerHold>
                 <CircleTimer>
-                  <Timer>3.45 hrs</Timer>
+                  <Timer>{clockin?.time} </Timer>
                 </CircleTimer>
                 <PunchButton onClick={Toggle}>Punch In</PunchButton>
 
@@ -132,57 +199,25 @@ const Attendance: React.FC = () => {
           </Card>
           <Card className="two">
             <CardTitle>Leave Stats</CardTitle>
-
-            <CardContent>
-              <StatisticsMeasureColumn className="today">
-                <DayAndHourColumn>
-                  <Day>Annual</Day>
-                  <HourMeasure>{width} /20dys</HourMeasure>
-                </DayAndHourColumn>
-                <ProgressBarHold>
-                  <ProgressBar width={width}></ProgressBar>
-                </ProgressBarHold>
-              </StatisticsMeasureColumn>
-
-              <StatisticsMeasureColumn className="week">
-                <DayAndHourColumn>
-                  <Day>Exam</Day>
-                  <HourMeasure>0/ 10dys</HourMeasure>
-                </DayAndHourColumn>
-                <ProgressBarHold>
-                  <ProgressBar width={width}></ProgressBar>
-                </ProgressBarHold>
-
-                {/* <button onClick={int}>click</button> */}
-              </StatisticsMeasureColumn>
-              <StatisticsMeasureColumn className="month">
-                <DayAndHourColumn>
-                  <Day>Sick</Day>
-                  <HourMeasure>0/5dys</HourMeasure>
-                </DayAndHourColumn>
-                <ProgressBarHold>
-                  <ProgressBar width={width}></ProgressBar>
-                </ProgressBarHold>
-              </StatisticsMeasureColumn>
-              <StatisticsMeasureColumn className="remaining">
-                <DayAndHourColumn>
-                  <Day>Marthanity</Day>
-                  <HourMeasure>0/30dys</HourMeasure>
-                </DayAndHourColumn>
-                <ProgressBarHold>
-                  <ProgressBar width={width}></ProgressBar>
-                </ProgressBarHold>
-              </StatisticsMeasureColumn>
-              <StatisticsMeasureColumn className="over-time">
-                <DayAndHourColumn>
-                  <Day>Certification</Day>
-                  <HourMeasure>0/10dys</HourMeasure>
-                </DayAndHourColumn>
-                <ProgressBarHold>
-                  <ProgressBar width={width}></ProgressBar>
-                </ProgressBarHold>
-              </StatisticsMeasureColumn>
-            </CardContent>
+           
+              <CardContent>
+                 {getAdmin?.data?.data?.adminLeave?.map((el: any) => (
+                <StatisticsMeasureColumn className="today">
+                  <DayAndHourColumn>
+                    <Day>
+                    {el?.title}
+                    </Day>
+                    <HourMeasure>
+                     Total Days :{el?.days}
+                    </HourMeasure>
+                  </DayAndHourColumn>
+                  <ProgressBarHold>
+                    <ProgressBar width={width}></ProgressBar>
+                  </ProgressBarHold>
+                </StatisticsMeasureColumn>
+                ))}
+              </CardContent>
+            
           </Card>
           <Card className="three">
             <CardTitle>Apply For Leave</CardTitle>
@@ -243,7 +278,7 @@ const Attendance: React.FC = () => {
                   onClick={Mathanitychecker}
                   bg={mathanitychecker ? "blue" : ""}
                 >
-                  <Label>Mathanity</Label>{" "}
+                  <Label>Maternity</Label>{" "}
                   <OptionInput
                     className="annual"
                     type="radio"
@@ -272,7 +307,9 @@ const Attendance: React.FC = () => {
             </CardContent>
           </Card>
         </StatisticColumn>
-        <TimingColumn>
+
+        
+        {/* <TimingColumn>
           <TimeCard className="date">
             <DateText>2023-04-21</DateText>
             <Icon>
@@ -297,8 +334,45 @@ const Attendance: React.FC = () => {
           </TimeCard>
 
           <SearchButton>Search</SearchButton>
-        </TimingColumn>
-        <TableSectionHold>
+        </TimingColumn> */}
+
+        <LastComp>
+          <First>
+            <Part>
+              <Up>
+                08:00 Hrs
+              </Up>
+              <Down>
+              Average Working Hours
+              </Down>
+            </Part>
+            <Part>
+              <Up>
+              10:30 AM
+              </Up>
+              <Down>
+              Average In Time
+              </Down>
+            </Part>
+            <Part>
+              <Up>
+              07:30 PM
+              </Up>
+              <Down>
+              Average Out Time
+              </Down>
+            </Part>
+            <Part>
+              <Up>
+              01:00 Hr
+              </Up>
+              <Down>
+              Average Break Time
+              </Down>
+            </Part>
+          </First>
+
+          <TableSectionHold>
           <TableSection>
             <TableColumn>
               <TableHead className="number-sign">#</TableHead>
@@ -309,26 +383,20 @@ const Attendance: React.FC = () => {
               <TableHead className="break-head">Break</TableHead>
               <TableHead className="over-time-head">Over Time</TableHead>
             </TableColumn>
+
             <TableColumn>
               <TableNumber className="number">1</TableNumber>
-              <TableDown className="date">19 Feb 2019</TableDown>
-              <TableDown className="punch">10AM</TableDown>
-              <TableDown className="punch">7PM</TableDown>
-              <TableDown className="production">9hrs</TableDown>
-              <TableDown className="break">1hr</TableDown>
-              <TableDown className="over-time">0</TableDown>
-            </TableColumn>
-            <TableColumn>
-              <TableNumber className="number">2</TableNumber>
-              <TableDown className="date">19 Feb 2019</TableDown>
-              <TableDown className="punch">10AM</TableDown>
-              <TableDown className="punch">7PM</TableDown>
+              <TableDown className="date">{clockin?.date} </TableDown>
+              <TableDown className="punch"> {clockin?.time}</TableDown>
+              <TableDown className="punch"> {clockout?.time}</TableDown>
               <TableDown className="production">9hrs</TableDown>
               <TableDown className="break">1hr</TableDown>
               <TableDown className="over-time">0</TableDown>
             </TableColumn>
           </TableSection>
         </TableSectionHold>
+        </LastComp>
+        
 
         {show ? (
           <Holds>
@@ -337,20 +405,135 @@ const Attendance: React.FC = () => {
               <MdOutlineCancel />
             </Icron>
           </Holds>
-        ) : (
-          <Holds>
-            <ClockOut />
-            <Icron onClick={Removetoken}>
-              <MdOutlineCancel />
-            </Icron>
-          </Holds>
-        )}
+        ) : null}
       </AttendanceMainPage>
     </AttendancePage>
   );
 };
 
 export default Attendance;
+const Down = styled.div``
+
+const Up = styled.div`
+color: green;
+font-weight: 600;
+font-size: 21px;
+`
+
+const Part = styled.div`
+margin-left: 30px;
+margin-right: 30px;
+text-align: center;
+`
+
+const First = styled.div`
+display: flex;
+align-items: center;
+justify-content: space-between;
+`
+
+const LastComp = styled.div`
+  width: 1000px;
+/* background-color:rgb(255, 255, 255); */
+/* background-color: red; */
+border-radius: 10px;
+margin-bottom: 20px;
+margin-top: 20px;
+`
+
+const Employee = styled.div`
+margin-right: 30px;
+`
+
+const Post = styled.div`
+font-weight: 500;
+font-size: 14px;
+`
+
+const Name = styled.div`
+font-weight: 600;
+font-size: 20px;
+`
+
+const Div = styled.div`
+margin: 9px;
+`
+
+const Pic = styled.div`
+width: 45px;
+height: 45px;
+margin: 3px;
+font-size: 18px;
+display: flex;
+justify-content: center;
+align-items: center;
+overflow: hidden;
+font-weight: 500;
+color: black;
+background-color: blanchedalmond;
+border: 2px solid black;
+border-radius: 50px;
+
+@media screen and (max-width: 900px) {
+  height: 30px;
+  width: 30px;
+  font-size: 12px;
+}
+`
+
+const Details = styled.div`
+display: flex;
+align-items: center;
+margin-left: 10px;
+`
+
+const StaffDetail = styled.div`
+background-color: white;
+width: 1000px;
+border-radius: 10px;
+height: 80px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+/* box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px; */
+`
+
+
+const Word = styled.div`
+font-weight: 500;
+font-size: 26px;
+color: rgb(31,31,31);
+background-color: rgba(0,0,0,0);
+line-height: 31.2px;
+text-decoration: none solid rgb(31,31,31);
+text-align: start;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+margin-bottom: 30px;
+margin-top: 30px;
+
+span{
+  color: rgb(51,51,51);
+  background-color: rgba(0,0,0,0);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: normal;
+  font-weight: 500;
+  text-decoration: none solid rgb(51,51,51);
+  text-align: left;
+}
+
+a{
+  text-decoration: none;
+
+  :hover{
+    color: black;
+  }
+}
+`
+
 
 // Apply for leave
 
@@ -446,15 +629,16 @@ const TableSectionHold = styled.div`
   height: auto;
   width: auto;
   overflow: auto;
+  margin-top: 30px;
 `;
 
 const TableSection = styled.div`
   height: auto;
-  width: 900px;
+  width: 950px;
   margin-top: 10px;
   margin-left: 20px;
   margin-right: 20px;
-  border-top: 1px solid #cfcfcfbe;
+  /* border-top: 1px solid #cfcfcfbe; */
   border-radius: 4px;
 
   tr:nth-child(even) {
@@ -630,8 +814,8 @@ const BreakAndOvertime = styled.div`
 const PunchButton = styled.button`
   height: 50px;
   width: 180px;
-  background-color: blue;
-  border: 2px solid blue;
+  background-color: #1F337C;
+  border: 2px solid #1F337C;
   color: white;
   border-radius: 100px;
   margin-top: 20px;
@@ -639,6 +823,11 @@ const PunchButton = styled.button`
   font-weight: 600;
   cursor: pointer;
   transition: all 960ms;
+
+  :hover{
+    color:#1F337C;
+    background-color: whitesmoke;
+  }
 `;
 
 const CircleTimer = styled.div`
@@ -712,6 +901,7 @@ const StatisticColumn = styled.div`
   margin-top: 10px;
   display: flex;
   justify-content: flex-start;
+  margin-top: 30px;
   align-items: flex-start;
   flex-wrap: wrap;
 `;

@@ -68,10 +68,11 @@ const ParentComp = () => {
     },
   });
 
+
   const Submit = handleSubmit(async (data: any) => {
     console.log("user", data);
     posting.mutate(data);
-    reset();
+    // reset();
   });
 
   const user = useAppSelector((state) => state.currentUser);
@@ -138,7 +139,6 @@ const ParentComp = () => {
         <Wraps>
 
           {getAdmin?.data?.data?.adminLeave?.map((el: any) => (
-
           <Card>
             <Lefts>
               <Icos>{/* <FaGoogleWallet /> */}</Icos>
@@ -175,9 +175,8 @@ const Right = styled.div`
   h3 {
     margin: 0;
     color: black;
-    font-weight: 350;
-    font-size: 17px;
-    padding-top: 8px;
+    font-weight: 500;
+    font-size: 20px;
   }
 
 `;
@@ -230,20 +229,17 @@ const Lefts = styled.div`
 const Wraps = styled.div`
   margin-top: 20px;
   margin-left: 30px;
-  display: flex;
 `;
 
 const One = styled.div`
   display: flex;
 `;
 
-
 const Tap = styled.form`
   input {
     border: 0.5px solid #7eb0f5;
     border-radius: 3px;
     outline: 1px solid #3184f7;
-    padding: 5px;
   }
   h3 {
     margin: 0;
@@ -279,7 +275,6 @@ const Wallet = styled.div`
     font-weight: bold;
   }
 `;
-
 
 const Card2 = styled.div`
   width: 300px;
