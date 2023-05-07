@@ -123,7 +123,7 @@ export const Elements = createBrowserRouter([
   
   
   {
-    path:"/sign-in/:id/:token",
+    path:"/sign-in",
     element: <SignIn/>
   },
   
@@ -154,7 +154,7 @@ export const Elements = createBrowserRouter([
     element: <CheckMail/>
   },
   {
-    path:"/verify",
+    path:"/api/admin/:id/verify",
     element: <Verification/>
   },
   // {
