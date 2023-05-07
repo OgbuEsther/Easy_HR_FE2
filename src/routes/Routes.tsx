@@ -19,6 +19,7 @@ import { Staffdashboard } from "../components/layout/Staffdashboard";
 import Staffcomp from "../pages/Staffcomp";
 import Leave from "../pages/Leave/Leave";
 import LeavePage from "../pages/LeavePage";
+import { useAppSelector } from "../components/global/Store";
 
 
 const Home = lazy(() => import("../pages/landingpage/Home"));
@@ -37,7 +38,11 @@ const PayBills = lazy(()=>import("../pages/StaffdasBoard/PayBills/PayBill"));
 // const StaffAttendance = lazy(() => import("../pages/StaffdasBoard/Attendance/Attendance"))
 const StaffTransaction = lazy(()=>import("../pages/StaffTransaction/StaffTransactionSide"))
 
+
+
+
 export const Elements = createBrowserRouter([
+  
   {
     path: "/",
     element: <HomeLayout />,
@@ -112,12 +117,12 @@ export const Elements = createBrowserRouter([
   
   
   {
-    path:"/sign-in",
+    path:"/sign-in/:id/token",
     element: <SignIn/>
   },
   
   {
-    path:"/verification",
+    path:"/:id/:token/verification",
     element: <Otp/>
   },
   {
@@ -135,11 +140,19 @@ export const Elements = createBrowserRouter([
     element: <SignUpAdmin/>
   },
   {
-    path:"/sign-in-admin",
+    path:"/:id/sign-in-admin",
     element: <SignInAdmin/>
   },
   {
     path:"/verify",
+    element: <Verification/>
+  },
+  {
+    path:"/verify",
+    element: <Verification/>
+  },
+  {
+    path:"/:id/token/verify",
     element: <Verification/>
   },
   {
