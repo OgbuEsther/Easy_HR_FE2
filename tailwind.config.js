@@ -15,7 +15,7 @@ module.exports = {
       'hover': '#dc3545',
       'buttoncol': '#001328',
       'buttonhover': '#007bff',
-      'h3text': '#0057B3'
+      'h3text': '#0057B3',
     },
     screens: {
       'xl': { 'max': '1280px' },
