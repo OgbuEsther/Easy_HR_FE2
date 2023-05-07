@@ -1,13 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import img from "../../Assets/easy.png"
 import {HiOutlineMail} from "react-icons/hi"
-import {Link} from "react-router-dom"
+import {Link, useParams} from "react-router-dom"
 import { useAppSelector } from '../../components/global/Store'
+import { adminVerification } from '../../utils/Api/ApiCall'
 
 const Verification = () => {
 
-    const user = useAppSelector((state) => state.currentUser)
+    const { id }: any = useParams();
+    console.log("user id: ", id);
+  
+    useEffect(() => {
+        adminVerification(id);
+    });
   return (
       <Container>
           <Box>
@@ -27,7 +33,7 @@ const Verification = () => {
                       You're almost ready to get started. Please click on the button below to verify your email and enjoy exclusive service with us
                   </Texthold>
               </Textspace>
-              <Button to = {`${user?._id}/sign-in-admin`}>sign in now!</Button>
+              <Button to = {`${id}/sign-in-admin`}>sign in now!</Button>
               <Thank>Thanks <br /> The Company's Team</Thank>
           </Box>
     </Container>
