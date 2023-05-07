@@ -14,7 +14,7 @@ export const createAdmin = async(data:any)=>{
 
 export const adminVerification = async (id: string) => {
     try {
-      return await axios.get(`${url}/${id}/verify`);
+      return await axios.get(`${url}/admin/${id}/verify`);
     } catch (error) {
       console.log(error);
     }
