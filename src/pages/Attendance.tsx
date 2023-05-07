@@ -113,12 +113,58 @@ const Attendance: React.FC = () => {
   return (
     <AttendancePage>
       <AttendanceMainPage>
-        <TitleAndBreadCrumColumn>
-          <Title>Attendance</Title>
-          <BreadCrum>
-            Dashboard/ <span style={{ color: "#929292" }}>Attendance</span>{" "}
-          </BreadCrum>
-        </TitleAndBreadCrumColumn>
+      <Word>
+        Attendance <br />
+           <span>
+          <a href="/dashboard">
+          Dashboard
+          </a>
+           / Employee Attendance
+           </span>
+          </Word>
+
+          <StaffDetail>
+
+           <Details>
+            <Pic>
+              DC
+            </Pic>
+            <Div>
+              <Name>
+                Valerian Pedro
+              </Name>
+              <Post>
+                Full Stack Developer
+              </Post>
+            </Div>
+           </Details>
+
+           <Employee>
+           <Name>
+           Employee ID
+              </Name>
+              <Post>
+              IM062587UT
+              </Post>
+           </Employee>
+           <Employee>
+           <Name>
+           Joining Date
+              </Name>
+              <Post>
+              3 April 2033
+              </Post>
+           </Employee>
+           <Employee>
+           <Name>
+           Department
+              </Name>
+              <Post>
+               API Consumption
+              </Post>
+           </Employee>
+         </StaffDetail>
+
         <StatisticColumn>
           <Card className="one">
             <CardTitle>
@@ -158,7 +204,9 @@ const Attendance: React.FC = () => {
                  {getAdmin?.data?.data?.adminLeave?.map((el: any) => (
                 <StatisticsMeasureColumn className="today">
                   <DayAndHourColumn>
-                    <Day>{el?.title}</Day>
+                    <Day>
+                    {el?.title}
+                    </Day>
                     <HourMeasure>
                      Total Days :{el?.days}
                
@@ -232,7 +280,7 @@ const Attendance: React.FC = () => {
                   onClick={Mathanitychecker}
                   bg={mathanitychecker ? "blue" : ""}
                 >
-                  <Label>Mathanity</Label>{" "}
+                  <Label>Maternity</Label>{" "}
                   <OptionInput
                     className="annual"
                     type="radio"
@@ -261,7 +309,9 @@ const Attendance: React.FC = () => {
             </CardContent>
           </Card>
         </StatisticColumn>
-        <TimingColumn>
+
+        
+        {/* <TimingColumn>
           <TimeCard className="date">
             <DateText>2023-04-21</DateText>
             <Icon>
@@ -286,30 +336,113 @@ const Attendance: React.FC = () => {
           </TimeCard>
 
           <SearchButton>Search</SearchButton>
-        </TimingColumn>
-        <TableSectionHold>
-          <TableSection>
-            <TableColumn>
-              <TableHead className="number-sign">#</TableHead>
-              <TableHead className="date-head">Date</TableHead>
-              <TableHead className="punch-head">Punch In</TableHead>
-              <TableHead className="punch-head">Punch Out</TableHead>
-              <TableHead className="production-head">Production</TableHead>
-              <TableHead className="break-head">Break</TableHead>
-              <TableHead className="over-time-head">Over Time</TableHead>
-            </TableColumn>
+        </TimingColumn> */}
 
-            <TableColumn>
-              <TableNumber className="number">1</TableNumber>
-              <TableDown className="date">{clockin?.date} </TableDown>
-              <TableDown className="punch"> {clockin?.time}</TableDown>
-              <TableDown className="punch"> {clockout?.time}</TableDown>
-              <TableDown className="production">9hrs</TableDown>
-              <TableDown className="break">1hr</TableDown>
-              <TableDown className="over-time">0</TableDown>
-            </TableColumn>
-          </TableSection>
-        </TableSectionHold>
+        <LastComp>
+          <First>
+            <Part>
+              <Up>
+                08:00 Hrs
+              </Up>
+              <Down>
+              Average Working Hours
+              </Down>
+            </Part>
+            <Part>
+              <Up>
+              10:30 AM
+              </Up>
+              <Down>
+              Average In Time
+              </Down>
+            </Part>
+            <Part>
+              <Up>
+              07:30 PM
+              </Up>
+              <Down>
+              Average Out Time
+              </Down>
+            </Part>
+            <Part>
+              <Up>
+              01:00 Hr
+              </Up>
+              <Down>
+              Average Break Time
+              </Down>
+            </Part>
+          </First>
+
+          <Table>
+          <table>
+            <tr>
+              <th>Date</th>
+              <th>Check In</th>
+              <th>Check Out</th>
+              <th>Working Hours</th>
+              <th>Status</th>
+            </tr>
+
+            <tr>
+              <td>
+              {/* {clockin?.date}  */}
+              10-02-2023
+              </td>
+              <td>
+              <Time>
+                10:28
+                </Time>
+              </td>
+              <td> 
+                <Time>
+                10:28
+                </Time>
+              </td>
+              <td>
+                 <Time>
+                10:28
+                </Time>
+              </td>
+              <td>
+                <Box>
+                  Present
+                </Box>
+              </td>
+            </tr>
+
+          
+
+            <tr>
+              <td>
+              {/* {clockin?.date}  */}
+              31-03-2090
+              </td>
+              <td>
+              <Time1>
+                10:50
+                </Time1>
+              </td>
+              <td> 
+                <Time>
+                10:54
+                </Time>
+              </td>
+              <td>
+                 <Time1>
+                10:28
+                </Time1>
+              </td>
+              <td>
+                <Box1>
+                  Absent
+                </Box1>
+              </td>
+            </tr>
+          </table>
+         </Table>
+        </LastComp>
+        
 
         {show ? (
           <Holds>
@@ -325,6 +458,231 @@ const Attendance: React.FC = () => {
 };
 
 export default Attendance;
+// TABLE STYLING AREA
+
+const Time = styled.div`
+color: green;
+font-weight: bold;
+`
+const Time1 = styled.div`
+color: red;
+font-weight: bold;
+`
+
+const Chc = styled.div`
+color: green;
+font-weight: bold;
+`
+
+const Box1 = styled.div`
+  border: 1px solid red;
+  color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+`
+const Box = styled.div`
+  border: 1px solid green;
+  color: green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+`
+
+const Circle = styled.div`
+width: 40px;
+height: 40px;
+margin: 3px;
+font-size: 16px;
+display: flex;
+justify-content: center;
+align-items: center;
+overflow: hidden;
+font-weight: 500;
+color: black;
+background-color: blanchedalmond;
+border: 1px solid black;
+border-radius: 50px;
+
+@media screen and (max-width: 900px) {
+  height: 30px;
+  width: 30px;
+  font-size: 12px;
+}`
+
+const Table = styled.div`
+display: flex;
+height: auto;
+width: auto;
+justify-content: flex-start;
+align-items: center;
+margin-bottom: 10px;
+overflow-x: auto;
+margin-top: 20px;
+
+table{
+  min-width: 400px;
+  max-width: 1440px;
+  width: 100%;
+}
+
+table,th,tr:nth-child(even){
+  background-color: #fff;
+}
+
+td,th{
+  padding: 14px 2px;
+  text-align: left;
+  border-top: 1px solid #e2e5e8;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+td{
+  @media screen and (max-width: 900px) {
+    font-size: 12px;
+  }
+}
+
+
+
+th{
+  border-top: 1px solid #e2e5e8;
+  background-color: #fefefe;
+  padding: 1rem 0.75rem;
+  padding-left: 20px;
+  padding-right: 20px;
+
+}
+
+`
+
+const Down = styled.div``
+
+const Up = styled.div`
+color: green;
+font-weight: 600;
+font-size: 21px;
+`
+
+const Part = styled.div`
+margin-left: 30px;
+margin-right: 30px;
+text-align: center;
+margin-top: 30px;
+`
+
+const First = styled.div`
+display: flex;
+align-items: center;
+justify-content: space-between;
+/* background-color: yellow; */
+`
+
+const LastComp = styled.div`
+  width: 1000px;
+background-color:white;
+box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+/* background-color: red; */
+border-radius: 10px;
+margin-top: 20px;
+`
+
+const Employee = styled.div`
+margin-right: 30px;
+`
+
+const Post = styled.div`
+font-weight: 500;
+font-size: 14px;
+`
+
+const Name = styled.div`
+font-weight: 600;
+font-size: 20px;
+`
+
+const Div = styled.div`
+margin: 9px;
+`
+
+const Pic = styled.div`
+width: 45px;
+height: 45px;
+margin: 3px;
+font-size: 18px;
+display: flex;
+justify-content: center;
+align-items: center;
+overflow: hidden;
+font-weight: 500;
+color: black;
+background-color: blanchedalmond;
+border: 2px solid black;
+border-radius: 50px;
+
+@media screen and (max-width: 900px) {
+  height: 30px;
+  width: 30px;
+  font-size: 12px;
+}
+`
+
+const Details = styled.div`
+display: flex;
+align-items: center;
+margin-left: 10px;
+`
+
+const StaffDetail = styled.div`
+background-color: white;
+width: 1000px;
+border-radius: 10px;
+height: 80px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+/* box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px; */
+`
+
+
+const Word = styled.div`
+font-weight: 500;
+font-size: 26px;
+color: rgb(31,31,31);
+background-color: rgba(0,0,0,0);
+line-height: 31.2px;
+text-decoration: none solid rgb(31,31,31);
+text-align: start;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+margin-bottom: 30px;
+margin-top: 30px;
+
+span{
+  color: rgb(51,51,51);
+  background-color: rgba(0,0,0,0);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: normal;
+  font-weight: 500;
+  text-decoration: none solid rgb(51,51,51);
+  text-align: left;
+}
+
+a{
+  text-decoration: none;
+
+  :hover{
+    color: black;
+  }
+}
+`
+
 
 // Apply for leave
 
@@ -383,59 +741,6 @@ const Holds = styled.div`
   right: 0;
   top: 0;
   z-index: 5;
-`;
-
-// Table styling area
-
-const TableNumber = styled.td`
-  padding: 10px 0px;
-  padding-left: 10px;
-`;
-
-const TableDown = styled.td`
-  height: auto;
-  text-align: start;
-  padding: 10px 0px;
-  width: auto;
-`;
-
-const TableHead = styled.th`
-  height: auto;
-  width: 160px;
-  text-align: start;
-  padding: 10px 0px;
-`;
-
-const TableColumn = styled.tr`
-  height: auto;
-  width: auto;
-
-  .number-sign {
-    width: 50px;
-    padding-left: 10px;
-  }
-`;
-
-const TableSectionHold = styled.div`
-  height: auto;
-  width: auto;
-  overflow: auto;
-`;
-
-const TableSection = styled.div`
-  height: auto;
-  width: 900px;
-  margin-top: 10px;
-  margin-left: 20px;
-  margin-right: 20px;
-  border-top: 1px solid #cfcfcfbe;
-  border-radius: 4px;
-
-  tr:nth-child(even) {
-    background-color: #cfcfcfbe;
-    width: 900px;
-  }
-  box-shadow: 1px 1px 10px 1px rgba(105, 105, 105, 0.1);
 `;
 
 // Timing styling area
@@ -604,8 +909,8 @@ const BreakAndOvertime = styled.div`
 const PunchButton = styled.button`
   height: 50px;
   width: 180px;
-  background-color: blue;
-  border: 2px solid blue;
+  background-color: #1F337C;
+  border: 2px solid #1F337C;
   color: white;
   border-radius: 100px;
   margin-top: 20px;
@@ -613,6 +918,11 @@ const PunchButton = styled.button`
   font-weight: 600;
   cursor: pointer;
   transition: all 960ms;
+
+  :hover{
+    color:#1F337C;
+    background-color: whitesmoke;
+  }
 `;
 
 const CircleTimer = styled.div`
@@ -686,6 +996,7 @@ const StatisticColumn = styled.div`
   margin-top: 10px;
   display: flex;
   justify-content: flex-start;
+  margin-top: 30px;
   align-items: flex-start;
   flex-wrap: wrap;
 `;
@@ -712,7 +1023,7 @@ const Title = styled.h1`
 const AttendanceMainPage = styled.div`
   height: auto;
   width: calc(100vw - 320px);
-  padding-bottom: 50px;
+  padding-bottom: 30px;
   @media screen and (max-width: 960px) {
     width: 100%;
   }

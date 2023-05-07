@@ -1,100 +1,48 @@
 import React from 'react'
-import styled from 'styled-components'
-import img from "../../Assets/tired.png"
-import img2 from "../../Assets/logos2.png"
-import img3 from "../../Assets/pays.png"
+import styled from "styled-components"
+import { Fade } from 'react-awesome-reveal'
 
 const Plan = () => {
   return (
-      <Container id='accep'>
+      <Container>
           <Wrapper>
-              <Top><h1>The new way to accept payments</h1></Top>
-              <Down>
-                  <Left>
-                      <Img src={img} />
-                  </Left>
-                  <Right>
-                      <Img2 src={img2} />
-                      <Img3 src={img3} />
-                  </Right>
-              </Down>
+              <Fade direction='up'>
+                  <Par>WE DO MORE FOR YOUR WORLD</Par>
+                  <Bolder>All-in-one payroll and HR your business</Bolder>
+              </Fade>
           </Wrapper>
     </Container>
   )
 }
 
 export default Plan
-
-const Img3 = styled.img`
-    height: 520px;
+const Bolder = styled.h2`
+    margin: 0;
+    color: #001328;
+    font-weight: 800;
+    font-size: 40px;
+    letter-spacing: -0.03em;
+    width: 500px;
+    text-align: center;
 `
-const Img2 = styled.img`
-    height: 40px;
-    margin-top: 90px;
-`
-const Right = styled.div`
-    width: 48%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-     @media screen and (max-width: 768px) {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        border: none;
-    }
-`
-const Img = styled.img`
-    @media screen and (max-width: 500px) {
-        height: 250px;
-    }
-`
-const Left = styled.div`
-    width: 48%;
-    display: flex;
-    border-right: 2px solid #D3D3D3;
-    @media screen and (max-width: 768px) {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        border: none;
-        margin-top: 36px;
-    }
-`
-const Down = styled.div`
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    /* margin-top: 15px; */
-`
-const Top = styled.div`
-    h1{
-        color: #00214F;
-        /* text-align: center; */
-        @media screen and (max-width: 500px) {
-            font-size: 26px;
-            text-align: center;
-        }
-         @media screen and (max-width: 375px) {
-            font-size: 22px;
-        }
-    }
+const Par = styled.div`
+    display: block;
+    text-transform: uppercase;
+    color: #0057B3;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    margin-bottom: 5px;
 `
 const Wrapper = styled.div`
+    width: 91.666667%;
     display: flex;
-    width: 92%;
     flex-direction: column;
+    padding-top: 50px;
     align-items: center;
-    margin-top: 30px;
-    flex-wrap: wrap;
 `
-
 const Container = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
-    overflow: hidden;
-    margin-top: 60px;
 `
