@@ -112,12 +112,31 @@ const Certificationchecker = () =>{
   return (
     <AttendancePage>
       <AttendanceMainPage>
-        <TitleAndBreadCrumColumn>
-          <Title>Attendance</Title>
-          <BreadCrum>
-            Dashboard/ <span style={{ color: "#929292" }}>Attendance</span>{" "}
-          </BreadCrum>
-        </TitleAndBreadCrumColumn>
+      <Word>
+        Attendance <br />
+           <span>
+          <a href="/dashboard">
+          Dashboard
+          </a>
+           / Employee Attendance
+           </span>
+          </Word>
+
+          <StaffDetail>
+           <Details>
+            <Pic>
+              DC
+            </Pic>
+            <Div>
+              <Name>
+                Valerian Pedro
+              </Name>
+              <Post>
+                Full Stack Developer
+              </Post>
+            </Div>
+           </Details>
+          </StaffDetail>
         <StatisticColumn>
           <Card className="one">
         
@@ -313,7 +332,58 @@ const Certificationchecker = () =>{
 };
 
 export default Attendance;
+const Post = styled.div``
 
+const Name = styled.div``
+
+const Div = styled.div`
+display: flex;
+`
+
+const Pic = styled.div``
+
+const Details = styled.div`
+display: flex;
+`
+
+const StaffDetail = styled.div`
+width: 1020px;
+background-color: yellowgreen;
+`
+
+const Word = styled.div`
+font-weight: 500;
+font-size: 26px;
+color: rgb(31,31,31);
+background-color: rgba(0,0,0,0);
+line-height: 31.2px;
+text-decoration: none solid rgb(31,31,31);
+text-align: start;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+margin-bottom: 30px;
+margin-top: 30px;
+
+span{
+  color: rgb(51,51,51);
+  background-color: rgba(0,0,0,0);
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: normal;
+  font-weight: 500;
+  text-decoration: none solid rgb(51,51,51);
+  text-align: left;
+}
+
+a{
+  text-decoration: none;
+
+  :hover{
+    color: black;
+  }
+}
+` 
 
 // Apply for leave
 
