@@ -146,7 +146,7 @@ export const Elements = createBrowserRouter([
     element: <SignUpAdmin/>
   },
   {
-    path:"/:id/sign-in-admin",
+    path:"/sign-in-admin",
     element: <SignInAdmin/>
   },
   {
