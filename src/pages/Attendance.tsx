@@ -335,6 +335,10 @@ const Attendance: React.FC = () => {
 
           <SearchButton>Search</SearchButton>
         </TimingColumn> */}
+
+        <LastComp>
+
+        </LastComp>
         
 
         {show ? (
@@ -351,6 +355,10 @@ const Attendance: React.FC = () => {
 };
 
 export default Attendance;
+const LastComp = styled.div`
+  
+`
+
 const Employee = styled.div`
 margin-right: 30px;
 `
@@ -723,8 +731,8 @@ const BreakAndOvertime = styled.div`
 const PunchButton = styled.button`
   height: 50px;
   width: 180px;
-  background-color: blue;
-  border: 2px solid blue;
+  background-color: #1F337C;
+  border: 2px solid #1F337C;
   color: white;
   border-radius: 100px;
   margin-top: 20px;
@@ -732,6 +740,11 @@ const PunchButton = styled.button`
   font-weight: 600;
   cursor: pointer;
   transition: all 960ms;
+
+  :hover{
+    color:#1F337C;
+    background-color: whitesmoke;
+  }
 `;
 
 const CircleTimer = styled.div`
