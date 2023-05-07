@@ -124,6 +124,7 @@ const Attendance: React.FC = () => {
           </Word>
 
           <StaffDetail>
+
            <Details>
             <Pic>
               DC
@@ -137,7 +138,31 @@ const Attendance: React.FC = () => {
               </Post>
             </Div>
            </Details>
-           
+
+           <Employee>
+           <Name>
+                Valerian Pedro
+              </Name>
+              <Post>
+                Full Stack Developer
+              </Post>
+           </Employee>
+           <Employee>
+           <Name>
+                Valerian Pedro
+              </Name>
+              <Post>
+                Full Stack Developer
+              </Post>
+           </Employee>
+           <Employee>
+           <Name>
+                Valerian Pedro
+              </Name>
+              <Post>
+                Full Stack Developer
+              </Post>
+           </Employee>
          </StaffDetail>
 
         <StatisticColumn>
@@ -346,6 +371,10 @@ const Attendance: React.FC = () => {
 };
 
 export default Attendance;
+const Employee = styled.div`
+margin-right: 30px;
+`
+
 const Post = styled.div`
 font-weight: 500;
 font-size: 14px;
@@ -395,6 +424,7 @@ border-radius: 10px;
 height: 80px;
 display: flex;
 align-items: center;
+justify-content: space-between;
 `
 
 
