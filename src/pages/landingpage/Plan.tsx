@@ -2,7 +2,9 @@ import React from 'react'
 
 const Plan = () => {
   return (
-    <div>Plan</div>
+      <div className='w-full flex justify-center'>
+          
+    </div>
   )
 }
 

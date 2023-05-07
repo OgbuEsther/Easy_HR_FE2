@@ -21,14 +21,14 @@ const Superhero = () => {
   
   return (
     <div>
-      <Slider {...settings}>
+      {/* <Slider {...settings}> */}
       <div className='w-full  bg-hero flex justify-center overflow-hidden bg-no-repeat bg-center bg-cover'>
           <div className='w-full pb-28 bg-black bg-opacity-50 flex-col items-center flex xmd:justify-center xmd:flex xmd:items-center'>
             <div className='mt-56 w-11/12 text-white xmd:mt-36'>
             <Fade
-              duration={3000}
+              duration={2000}
             >
-              <div className='w-6/12 xmd:w-full text-8xl font-bold xmd:text-5xl xmd:text-center sm:text-3xl'>
+              <div className='w-6/12 xmd:w-full text-8xl lg:w-full lg:text-7xl font-bold xmd:text-5xl xmd:text-center sm:text-3xl'>
                 Payroll & HR Solutions
               </div>
             </Fade>
@@ -47,7 +47,7 @@ const Superhero = () => {
       </div>
       </div>
 
-      <div className='w-full bg-righthero flex justify-center overflow-hidden bg-no-repeat bg-center bg-cover'>
+      {/* <div className='w-full bg-righthero flex justify-center overflow-hidden bg-no-repeat bg-center bg-cover'>
       <div className='w-full pb-28 bg-black bg-opacity-50 flex-col items-center flex xmd:justify-center xmd:flex xmd:items-center '>
         <div className='mt-56 w-11/12 text-white xmd:mt-36'>
             <Fade
@@ -95,8 +95,8 @@ const Superhero = () => {
             </div>
             </div>
       </div>
-      </div>
-    </Slider>
+      </div> */}
+    {/* </Slider> */}
     </div>
   )
 }
