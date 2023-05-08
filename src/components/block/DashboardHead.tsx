@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { FiMenu } from "react-icons/fi";
 import img from "../../Assets/new.png"
+import {HiUsers} from "react-icons/hi"
 
 import { useAppSelector } from '../global/Store';
 
@@ -49,8 +50,12 @@ const DashboardHead = () => {
           <Drop>
             <p>Organization</p>
             <Orgname>
-
+              <Icon><HiUsers /></Icon>
+              <Name><h4>CodeLab</h4></Name>
             </Orgname>
+              <Line></Line>
+              <Account>Account Settings</Account>
+              <Account>Sign Out</Account>
         </Drop>
         ) : null}
       </Wrapper>
@@ -59,15 +64,41 @@ const DashboardHead = () => {
 }
 
 export default DashboardHead
+const Account = styled.div`
+  color: #035fcb!important;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+`
+const Line = styled.div`
+  width: 100%;
+  height: 1px;
+  background-color: #6c757d;
+  margin-top: 9px;
+`
+const Name = styled.div`
+  h4{
+    font-weight: 800;
+    font-size: 15px;
+    margin-left: 7px;
+    color: #242424;
+  }
+`
+const Icon = styled.div`
+  margin-left: 12px;
+`
 const Orgname = styled.div`
-  width: 140px;
-  height: 30px;
+  width: 150px;
+  height: 40px;
   display: flex;
   border: 1px solid #ededed;
-  background-color: red;
+  background-color: #fff;
+  align-items: center;
   color: #333;
   cursor: pointer;
   transition: all .1s ease;
+  margin-top: 7px;
+  border-radius: 50px;
 `
 const Drop = styled.div`
   width: 180px;
@@ -81,6 +112,7 @@ const Drop = styled.div`
   position: absolute;
   right: 0;
   top: 70px;
+  padding-bottom: 10px;
   p{
     color: #6c757d!important;
     font-size: 15px;
