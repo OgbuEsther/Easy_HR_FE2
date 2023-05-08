@@ -56,7 +56,7 @@ const SignupForm = () => {
               timerProgressBar: true,
       
              willClose: ()=>{
-              navigate("/verify")
+              navigate("/check-mail")
              }
             });
             reset()
