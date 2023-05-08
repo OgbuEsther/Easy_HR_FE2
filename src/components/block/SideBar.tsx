@@ -18,7 +18,7 @@ const SideBar = () => {
   return (
     <Container>
       <Top>
-        <Img src={img} />
+        <p>Realtime</p>
       </Top>
 
       <Home>
@@ -30,11 +30,11 @@ const SideBar = () => {
           style={({ isActive }) => {
             return {
               textDecoration: isActive ? "none" : "none",
-              color: isActive ? "#2AA7FF" : "#fff",
+              color: isActive ? "#2AA7FF" : "#gray",
             };
           }}
         >
-          <Text1>Dashboard</Text1>
+          <Text1>Overview</Text1>
         </NavLink>
       </Home>
 
@@ -213,18 +213,22 @@ const Top = styled.div`
   display: flex;
   width: 100%;
   margin-top: 15px;
+  p{
+    font-size: 14px;
+  }
 `;
 const Container = styled.div`
   width: 220px;
-  height: 100vh;
+  height: calc(100vh - 70px);
   position: fixed;
-  background-color: #1F337C;
+  background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   overflow: hidden;
   padding-left: 25px;
   display: flex;
   flex-direction: column;
   z-index: 2;
+  margin-top: 70px;
   @media screen and (max-width: 900px) {
     display: none;
   }
