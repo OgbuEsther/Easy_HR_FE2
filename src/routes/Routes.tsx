@@ -128,7 +128,7 @@ export const Elements = createBrowserRouter([
   },
   
   {
-    path:"/:id/:token/verification",
+    path:"/:id/verification",
     element: <Otp/>
   },
   {
