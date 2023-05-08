@@ -1,12 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 import { FiMenu } from "react-icons/fi";
+import img from "../../Assets/new.png"
 
 import { useAppSelector } from '../global/Store';
 
 const DashboardHead = () => {
   const [show, setShow] = React.useState(false);
+  const [drop, setDrop] = React.useState(false)
 
+  const Dropdown = () => {
+    setDrop(!drop)
+  }
 
   const Toggle = () => {
     setShow(!show);
@@ -20,11 +25,11 @@ const DashboardHead = () => {
   return (
       <Container>
       <Wrapper>
-        <Left onClick={Toggle}>
-          <FiMenu />
+        <Left>
+          <Img src={img} />
         </Left>
 
-        <Mid>
+        {/* <Mid>
           <Welcome>
             <Circ>{admin?.companyname?.charAt(0)}</Circ>
             <Prof>
@@ -33,23 +38,58 @@ const DashboardHead = () => {
               <Id>ID:{admin?.companyCode} </Id>
             </Prof>
           </Welcome>
-        </Mid>
+        </Mid> */}
 
         <Right>
-          <Icons>
-            <Hello>Hello {admin?.yourName?.split(" ")[0]}</Hello>
-            {/* <Circle>2</Circle> */}
-          </Icons>
           <Up>
-            <Profile>{admin?.yourName?.charAt(0)} </Profile>
+            <Profile onClick={Dropdown}>{admin?.yourName?.charAt(0)} </Profile>
           </Up>
         </Right>
+        {drop ? (
+          <Drop>
+            <p>Organization</p>
+            <Orgname>
+
+            </Orgname>
+        </Drop>
+        ) : null}
       </Wrapper>
     </Container>
   )
 }
 
 export default DashboardHead
+const Orgname = styled.div`
+  width: 140px;
+  height: 30px;
+  display: flex;
+  border: 1px solid #ededed;
+  background-color: red;
+  color: #333;
+  cursor: pointer;
+  transition: all .1s ease;
+`
+const Drop = styled.div`
+  width: 180px;
+  display: flex;
+  border-radius: 10px;
+  flex-direction: column;
+  padding-left: 12px;
+  padding-top: 10px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  position: absolute;
+  right: 0;
+  top: 70px;
+  p{
+    color: #6c757d!important;
+    font-size: 15px;
+    font-weight: 400;
+  }
+`
+const Img = styled.img`
+  height: 60px;
+`
 
 const Profile = styled.div`
   width: 48px;
@@ -60,12 +100,10 @@ const Profile = styled.div`
   align-items: center;
   overflow: hidden;
   display: flex;
-  margin-right: 35px;
   border-radius: 50px;
   font-weight: bold;
-  color: black;
-  border: 1px solid black;
-  background-color: blanchedalmond;
+  color: #2e2e2e;
+  background-color: white;
 `;
 
 const Up = styled.div`
@@ -73,87 +111,18 @@ const Up = styled.div`
   align-items: center;
 `;
 
-
-
-const Hello = styled.div`
-  display: flex;
-  font-size: 14px;
-`
-
-const Icons = styled.div`
-  height: 100%;
-  display: flex;
-  align-items: center;
-  font-size: 27px;
-  margin-right: 30px;
-`;
-
 const Right = styled.div`
   display: flex;
   height: 100%;
   align-items: center;
-  width: 120px;
-  justify-content: space-between;
   @media screen and (max-width: 500px) {
     width: 30px;
   }
 `;
 
-const Id = styled.div`
-  font-size: 11px;
-`
-
-const Nam = styled.div`
-  font-size: 17px;
-  font-weight: 400px;
-`
-
-const Comp = styled.div`
-  font-size: 11px;
-`
-
-const Prof = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-left: 10px;
-`
-
-const Circ = styled.div`
- width: 50px;
-  height: 50px;
-  margin: 3px;
-  font-size: 30px;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  border-radius: 50px;
-  font-weight: bold;
-  color: black;
-  background-color: blanchedalmond;
-  border: 1px solid black;
-`
-
-const Welcome = styled.div`
-  width: 190px;
-  padding-left: 15px;
-  text-align: center;
-  height: 60px;
-  display: flex;
-  border-radius: 8px;
-  align-items: center;
-  border: 1px solid #CEC2C2;
-`;
-
-const Mid = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
 const Left = styled.div`
   font-size: 25px;
   cursor: pointer;
-  display: none;
   @media screen and (max-width: 1024px) {
     display: flex;
   }
@@ -163,11 +132,10 @@ const Left = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 74%;
+  width: 95%;
   height: 100%;
   display: flex;
   align-items: center;
-  padding-right: 30px;
   justify-content: space-between;
   position: relative;
   @media screen and (max-width: 1024px) {
@@ -184,13 +152,13 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
   width: 100%;
-  height: 80px;
-  background-color: #fff;
+  height: 70px;
+  background-color: #1F337C;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   position: fixed;
   z-index: 11;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   @media screen and (max-width: 500px) {
     justify-content: center;
     display: flex;
