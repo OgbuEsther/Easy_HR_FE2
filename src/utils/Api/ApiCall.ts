@@ -38,6 +38,14 @@ export const createStaff = async(data: StaffData)=>{
     })
 }
 
+export const staffVerification = async (id: string) => {
+    try {
+      return await axios.get(`${url}/${id}/verifystaff`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
 export const getOneAdmin = async(id:any)=>{
     return await axios.get(`${url}/admin/${id}`).then((res)=>{
         return res.data
