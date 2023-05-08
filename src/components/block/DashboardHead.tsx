@@ -51,7 +51,7 @@ const DashboardHead = () => {
             <p>Organization</p>
             <Orgname>
               <Icon><HiUsers /></Icon>
-              <Name><h4>CodeLab</h4></Name>
+              <Name><h4>{admin?.companyname} </h4></Name>
             </Orgname>
               <Line></Line>
               <Account>Account Settings</Account>
@@ -124,8 +124,8 @@ const Img = styled.img`
 `
 
 const Profile = styled.div`
-  width: 48px;
-  height: 48px;
+  width: 45px;
+  height: 45px;
   font-size: 20px;
   justify-content: center;
   display: flex;
@@ -136,6 +136,7 @@ const Profile = styled.div`
   font-weight: bold;
   color: #2e2e2e;
   background-color: white;
+  cursor: pointer;
 `;
 
 const Up = styled.div`
