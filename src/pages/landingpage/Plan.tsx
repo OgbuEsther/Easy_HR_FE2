@@ -3,6 +3,9 @@ import styled from "styled-components"
 import { Fade } from 'react-awesome-reveal'
 import img from "../../Assets/dollar.png"
 import {RiExchangeDollarLine} from "react-icons/ri"
+import {DiFsharp} from "react-icons/di"
+import {MdOutlineManageHistory} from "react-icons/md"
+import {GiTimeBomb,GiClockwork} from "react-icons/gi"
 
 const Plan = () => {
   return (
@@ -16,16 +19,36 @@ const Plan = () => {
             <Hold>
                   <Circlehold>
                       <Circle>
-                      <Img>
                       <RiExchangeDollarLine/>
-                      </Img>
                       </Circle>
                       <Text>Payroll</Text>
                   </Circlehold>
+
+                  <Circlehold>
+                  <Circle>
+                    <GiClockwork/>
+                  </Circle>
+                  <Text>Time & Attendance</Text>
+                  </Circlehold>
+
+                  <Circlehold>
+                  <Circle>
+                    <DiFsharp/>
+                  </Circle>
+                  <Text>Benefits</Text>
+                  </Circlehold>
+
+                 <Circlehold>
+                 <Circle>
+                    <MdOutlineManageHistory/>
+                 </Circle>
+                 <Text>Hr Management</Text>
+                 </Circlehold>
+
+                 <Circlehold>
                   <Circle></Circle>
-                  <Circle></Circle>
-                  <Circle></Circle>
-                  <Circle></Circle>
+                  <Text>Hiring</Text>
+                 </Circlehold>
                </Hold>
             </Fade>
           </Wrapper>
@@ -36,7 +59,6 @@ const Plan = () => {
 export default Plan
 const Text = styled.div`
     font-size: 16px;
-    margin-top: 30px;
     margin: 0;
     color: #001328;
     font-weight: 800;
@@ -45,15 +67,13 @@ const Circlehold = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 40px;
 `
-const Img = styled.div`
-font-size: 80px;
-color: #001328;
-:hover{
-    color: white;
-} 
-`
+
 const Circle = styled.div`
+font-size: 60px;
+color: #001328;
+
     width: 150px;
     height: 150px;
     border-radius: 100px;
@@ -63,15 +83,17 @@ const Circle = styled.div`
     justify-content: center;
     align-items: center;
     background-color: #fff;
+    margin-bottom: 20px;
     :hover{
         background-color: #dc3545;
+        color: white;
     }
 `
 const Hold = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-    margin: 70px;
+    /* margin: 70px; */
     align-items:center;
     margin-left: 30px;
 `
