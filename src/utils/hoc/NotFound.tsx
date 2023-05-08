@@ -65,12 +65,20 @@ const Big = styled.div`
 font-size: 60px;
 
 font-weight: bold;
+
+@media screen and (max-width: 500px) {
+
+ font-size: 30px;
+  }
 `
 const Not = styled.div`
 color: blue;
 span{
   color: black;
 }
+@media screen and (max-width: 500px) {
+
+  }
 `
 const Tiny = styled.div`
 font-weight: bold;
