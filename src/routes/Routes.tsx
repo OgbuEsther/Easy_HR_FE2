@@ -20,6 +20,7 @@ import Staffcomp from "../pages/Staffcomp";
 import Leave from "../pages/Leave/Leave";
 import LeavePage from "../pages/LeavePage";
 import CheckMail from "../pages/Auth/CheckMail";
+import Waiting from "../pages/Auth/Waiting";
 
 
 
@@ -157,10 +158,10 @@ export const Elements = createBrowserRouter([
     path:"/api/admin/:id/verify",
     element: <Verification/>
   },
-  // {
-  //   path:"/:id/token/verify",
-  //   element: <Verification/>
-  // },
+  {
+    path:"/:id/verifystaff",
+    element: <Waiting/>
+  },
   {
     path:"/reset-password",
     element: <ResetPassword/>,
