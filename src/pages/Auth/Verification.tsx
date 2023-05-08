@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import img from "../../Assets/easy.png"
 import {HiOutlineMail} from "react-icons/hi"
 import {Link, useParams} from "react-router-dom"
-import { useAppSelector } from '../../components/global/Store'
 import { adminVerification } from '../../utils/Api/ApiCall'
 
 const Verification = () => {
