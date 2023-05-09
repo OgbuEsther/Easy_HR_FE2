@@ -7,6 +7,10 @@ const Leave = () => {
 
     const [show1, setShow1] = useState(true)
   const [isLoading, setIsLoading] = useState(false)
+
+  const Toggle1 = () => {
+    setShow1(true)
+  }
   
   useEffect(() => {
    setTimeout(() => {
@@ -20,7 +24,7 @@ const Leave = () => {
     <Container>
       <Wrapper>
         <Top>
-          <Pending><h3>Pending Leave</h3><span>{isLoading ? (1) : <RotatingLines  visible={true}
+          <Pending onClick={Toggle1}><h3>Pending Leave</h3><span>{isLoading ? (1) : <RotatingLines  visible={true}
             strokeColor="#007bff"
             strokeWidth="5"
             animationDuration="0.75"
@@ -45,9 +49,10 @@ const Leave = () => {
             strokeColor="#007bff"
             strokeWidth="5"
             animationDuration="0.75"
-            width="40"/>}</span></Pending>
+            width="30"/>}</span></Pending>
         </Top>
-        <Down>
+        {show1 ? (
+          <Down>
           <Inputhold>
             <Input placeholder='All Employees' />
             <Icon><IoMdArrowDropdown /></Icon>
@@ -94,10 +99,11 @@ const Leave = () => {
             strokeColor="#007bff"
             strokeWidth="5"
             animationDuration="0.75"
-            width="40"/>}
+            width="30"/>}
           </Mid>
           
         </Down>
+        ) : null}
       </Wrapper>
     </Container>
   )
