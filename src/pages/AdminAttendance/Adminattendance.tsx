@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import { useAppSelector } from "../../components/global/Store";
 import { CgPerformance } from "react-icons/cg";
@@ -8,6 +8,7 @@ import { SiSecurityscorecard } from "react-icons/si";
 import axios from "axios";
 import { genAttendanceToken, getOneAdmin, url } from "../../utils/Api/ApiCall";
 import { useQuery } from "@tanstack/react-query";
+import { RotatingLines } from 'react-loader-spinner'
 
 const Adminattendance = () => {
   const admin = useAppSelector((state) => state.currentUser);
@@ -21,13 +22,54 @@ const Adminattendance = () => {
   // console.log("this is admin",admin?._id)
   // console.log("this is admin22",)
 
+   const [show1, setShow1] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
+
+  const Toggle1 = () => {
+    setShow1(true)
+  }
+  
+  useEffect(() => {
+   setTimeout(() => {
+      setIsLoading(true)
+    },2000)
+
+  }, [])
+
   return (
     <div>
       <Container>
         <Wrapper>
-          
+          <Top>
+          <Pending onClick={Toggle1}><h3>All Employees</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
+            strokeColor="#007bff"
+            strokeWidth="5"
+            animationDuration="0.75"
+            width="30"/>}</span>
+          </Pending>
 
-            {/* <Button
+          <Pending><h3>Absent Employees</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
+            strokeColor="#007bff"
+            strokeWidth="5"
+            animationDuration="0.75"
+            width="30" />}</span>
+          </Pending>
+
+          <Pending><h3>Late Clock in Employees</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
+            strokeColor="#007bff"
+            strokeWidth="5"
+            animationDuration="0.75"
+            width="30" />}</span>
+          </Pending>
+
+          <Pending><h3>Uninformed Leaves</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
+            strokeColor="#007bff"
+            strokeWidth="5"
+            animationDuration="0.75"
+              width="30" />}</span>
+            </Pending>
+
+            <Button
               onClick={() => {
                 axios
                   .post(`${url}/createattendance/${admin?._id}`)
@@ -39,7 +81,9 @@ const Adminattendance = () => {
               Generate Token
             </Button>
 
-            <p>{token}</p> */}
+            <p>{token}</p>
+        </Top>
+            
           
           <Two>
             <Title>Today's Attendance:</Title>
@@ -92,6 +136,29 @@ const Adminattendance = () => {
 };
 
 export default Adminattendance;
+const Pending = styled.div`
+  display: flex;
+  margin: 18px;
+  cursor: pointer;
+  h3{
+    font-weight: 500;
+  font-size: 19px;
+  color: #6c757d;
+  }
+  span{
+    margin-left: 7px;
+    font-weight: 500;
+  font-size: 19px;
+  color: #6c757d;
+  }
+`
+const Top = styled.div`
+  width: 100%;
+  display: flex;
+  height: 70px;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+`
 
 const Cir = styled.div`
   margin: 5px;
@@ -222,7 +289,7 @@ const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 33px;
+  /* margin-top: 33px; */
   background-color: #1f337c;
   border-radius: 10px;
   cursor: pointer;
@@ -271,15 +338,16 @@ const One = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 97%;
+  width: 95%;
   display: flex;
   flex-direction: column;
-  /* align-items: flex-start; */
-  /* margin-left: 30px; */
-  margin-top: 100px;
-  padding-left: 30px;
-  padding-right: 30px;
-  /* background-color:yellow; */
+  align-items: center;
+  padding-top: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* background-color: red; */
 `;
 
 const Container = styled.div`
