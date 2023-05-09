@@ -37,7 +37,6 @@ const AbsentEmployee = () => {
                   <th>Check In</th>
                   <th>Shift</th>
                   <th>Status</th>
-                  <th>Action</th>
                 </tr>
 
                 <tr>
@@ -54,17 +53,7 @@ const AbsentEmployee = () => {
                   </td>
                   <td>Shift 1</td>
                   <td>
-                    <Box>Present</Box>
-                  </td>
-                  <td>
-                    <Action>
-                      <Cir>
-                        <BsPencilFill />
-                      </Cir>
-                      <Cir1>
-                        <RiDeleteBin2Line />
-                      </Cir1>
-                    </Action>
+                    <Box>Absent</Box>
                   </td>
                 </tr>
               </table>
@@ -110,8 +99,7 @@ const Chc = styled.div`
 `;
 
 const Box = styled.div`
-  color: #28a745;
-  border-color: #28a745;
+  color: red;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -121,8 +109,6 @@ const Box = styled.div`
   height: 35px;
   font-weight: 400;
   border-radius: 50px;
-  border: 1px solid #28a745;
-  outline-color: 2px solid #619c6f;
   cursor: pointer;
 `;
 
