@@ -116,31 +116,46 @@ const Plan = () => {
             <Box>
              {
                 show ? (
-                    <PlanProps text='' image='' writeup=''/>
+                    <PlanProps 
+                    text='Payroll' 
+                    image=""
+                    writeup='Save time and improve payroll accuracy with the latest in time and attendance software. However you prefer to track employee time, we have flexible options to fit your business'/>
                 ) 
                 :null
              }
              {
                 show2 ? (
-                    <PlanProps text='' image='' writeup=''/>
+                    <PlanProps 
+                    text='Time & Attendance' 
+                    image=''
+                     writeup='Save time and improve payroll accuracy with the latest in time and attendance software. However you prefer to track employee time, we have flexible options to fit your business.'/>
                 ) 
                 :null
              }
              {
                 show3 ? (
-                    <PlanProps text='' image='' writeup=''/>
+                    <PlanProps 
+                    text='Benefits' 
+                    image='' 
+                    writeup='Save time and improve payroll accuracy with the latest in time and attendance software. However you prefer to track employee time, we have flexible options to fit your business.'/>
                 ) 
                 :null
              }
              {
                 show4 ? (
-                    <PlanProps text='' image='' writeup=''/>
+                    <PlanProps 
+                    text='HR Management'
+                     image=''
+                     writeup='Save time and improve payroll accuracy with the latest in time and attendance software. However you prefer to track employee time, we have flexible options to fit your business'/>
                 ) 
                 :null
              }
              {
                 show5 ? (
-                    <PlanProps text='' image='' writeup=''/>
+                    <PlanProps
+                     text='Hiring' 
+                    image=''
+                     writeup='Save time and improve payroll accuracy with the latest in time and attendance software. However you prefer to track employee time, we have flexible options to fit your business.'/>
                 ) 
                 :null
              }

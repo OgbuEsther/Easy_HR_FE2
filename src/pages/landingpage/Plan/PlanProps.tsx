@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import {MdOutlineManageHistory} from "react-icons/md"
 
 interface Iprops{
-    image:string;
+    image:any;
     text:string;
     writeup:string;
 }
@@ -13,7 +13,7 @@ const PlanProps:React.FC<Iprops> = ({text,image,writeup}) => {
     <div>
         <Container>
           <One>
-            {image}
+            <Img src={image} />
             </One>
             <Two>
                 <Text>
@@ -54,7 +54,7 @@ width: 800px;
 margin-bottom: 30px;
 `
 
-const Img = styled.div`
+const Img = styled.img`
 `
 
 const One = styled.div`
