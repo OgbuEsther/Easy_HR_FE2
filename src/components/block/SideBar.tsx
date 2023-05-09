@@ -1,15 +1,20 @@
-import React from 'react'
+import React, { useDebugValue } from 'react'
 import styled from 'styled-components'
 import img from "../../Assets/easyhr.png"
 import { MdDashboard } from "react-icons/md";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { FiPower } from "react-icons/fi";
 import { BsFillPersonFill } from "react-icons/bs"
 import { RiMoneyDollarCircleFill } from "react-icons/ri"
 import {GiMoneyStack,GiFlatTire,GiAbstract013} from "react-icons/gi"
+import { useDispatch } from 'react-redux';
+import Swal from 'sweetalert2';
+import { logoutAdmin } from '../global/ReduxState';
 
 const SideBar = () => {
     const [show, setShow] = React.useState(false);
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
 
   const Toggle = () => {
     setShow(!show);
@@ -126,7 +131,49 @@ const SideBar = () => {
         </NavLink>
       </Home3>
 
-      <Power>
+      <Power  onClick={() => {
+        
+
+        const swalWithBootstrapButtons = Swal.mixin({
+          customClass: {
+            confirmButton: "btn btn-success",
+            cancelButton: "btn btn-danger",
+          },
+          buttonsStyling: false,
+        });
+
+        swalWithBootstrapButtons
+          .fire({
+            title: "Are you sure you want to logout?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Yes, logout!",
+            cancelButtonText: "No, cancel!",
+            reverseButtons: true,
+          })
+          .then((result) => {
+            if (result.isConfirmed) {
+              dispatch(logoutAdmin());
+              navigate("/optionsignin");
+              swalWithBootstrapButtons.fire(
+                "logout successful!",
+                "logout successful.",
+                "success"
+                //   navigate("/optionsignin")
+              );
+            } else if (
+              /* Read more about handling dismissals below */
+              result.dismiss === Swal.DismissReason.cancel
+            ) {
+              navigate("/dashboard");
+              swalWithBootstrapButtons.fire(
+                "Cancelled",
+                "still on dashboard :)",
+                "error"
+              );
+            }
+          });
+      }}>
         <Icon2>
           <FiPower />
         </Icon2>
