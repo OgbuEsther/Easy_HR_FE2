@@ -5,7 +5,7 @@ import { BsPencilFill } from "react-icons/bs";
 import Inputdate from "./Inputdate/Inputdate";
 import {IoMdArrowDropdown} from "react-icons/io"
 
-const AbsentEmployee = () => {
+const LateEmployees = () => {
 
      const [selectedDate, setSelectedDate] = useState<Date>(new Date());
         const handleDateChange = (date: Date) => {
@@ -26,7 +26,7 @@ const AbsentEmployee = () => {
         </Down>
             
             <Two>
-            <Title>Absent Employees:</Title>
+            <Title>Late Employees:</Title>
 
             <Table>
               <table>
@@ -75,7 +75,7 @@ const AbsentEmployee = () => {
   )
 }
 
-export default AbsentEmployee
+export default LateEmployees
 const Cir = styled.div`
   margin: 5px;
   border-radius: 50px;
