@@ -35,6 +35,7 @@ export default Yesorno
 const Write = styled.div`
 color: #05305e;
 font-size: 25px;
+
 `
 const Name = styled.div``
 
