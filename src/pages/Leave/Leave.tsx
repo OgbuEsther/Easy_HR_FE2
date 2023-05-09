@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { Vortex } from 'react-loader-spinner'
+import { RotatingLines } from 'react-loader-spinner'
 
 const Leave = () => {
 
@@ -10,7 +10,7 @@ const Leave = () => {
   useEffect(() => {
    setTimeout(() => {
       setIsLoading(true)
-    }, 1000)
+    },5000)
 
   }, [])
 
@@ -19,17 +19,19 @@ const Leave = () => {
     <Container>
       <Wrapper>
         <Top>
-          <Pending><h3>Pending Leave</h3><span>{isLoading ? (1) : <Vortex  visible={true}
-            height="40"
-            width="40"
-            ariaLabel="vortex-loading"
-            wrapperStyle={{}}
-            wrapperClass="vortex-wrapper"
-            colors={['red', 'green', 'blue', 'yellow', 'orange', 'purple']} />}</span>
+          <Pending><h3>Pending Leave</h3><span>{isLoading ? (1) : <RotatingLines  visible={true}
+            strokeColor="grey"
+            strokeWidth="5"
+            animationDuration="0.75"
+            width="40"/>}</span>
           </Pending>
           <Pending><h3>Approved Leave</h3></Pending>
           <Pending><h3>Rejected Leave</h3></Pending>
-          <Pending><h3>All Leave (1)</h3></Pending>
+          <Pending><h3>All Leave</h3><span>{isLoading ? (1) : <RotatingLines  visible={true}
+            strokeColor="grey"
+            strokeWidth="5"
+            animationDuration="0.75"
+            width="40"/>}</span></Pending>
         </Top>
       </Wrapper>
     </Container>
