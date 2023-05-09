@@ -11,7 +11,7 @@ const Leave = () => {
   useEffect(() => {
    setTimeout(() => {
       setIsLoading(true)
-    },5000)
+    },2000)
 
   }, [])
 
@@ -53,7 +53,9 @@ const Leave = () => {
             <Icon><IoMdArrowDropdown /></Icon>
           </Inputhold>
 
-          <Table>
+          <Mid>
+            {isLoading ? (
+            <Table>
               <table>
                 <tr>
                   <th>Employee Name</th>
@@ -85,8 +87,16 @@ const Leave = () => {
                   </Hold>
                 </td>
                 </tr>
-              </table>
+                </table>
+                <Plan>On the free plan, you can access the last 14 days of data only. Upgrade to the Pro plan to get the historical data.</Plan>
             </Table>
+            ) : <RotatingLines  visible={true}
+            strokeColor="#007bff"
+            strokeWidth="5"
+            animationDuration="0.75"
+            width="40"/>}
+          </Mid>
+          
         </Down>
       </Wrapper>
     </Container>
@@ -94,6 +104,23 @@ const Leave = () => {
 }
 
 export default Leave
+const Plan = styled.div`
+  margin-top: 19px;
+  color: grey;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-top: 50px;
+`
+const Mid = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+  flex-direction: column;
+  align-items: center;
+`
 const Hold = styled.div`
   display: flex;
 `
@@ -172,12 +199,13 @@ const Circle = styled.div`
 const Table = styled.div`
   display: flex;
   height: auto;
-  width: auto;
+  width: 100%;
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 10px;
   overflow-x: auto;
   margin-top: 40px;
+  flex-direction: column;
 
   table {
     min-width: 400px;
