@@ -11,6 +11,7 @@ import { useQuery } from "@tanstack/react-query";
 import { RotatingLines } from 'react-loader-spinner'
 import {IoMdArrowDropdown} from "react-icons/io"
 import Inputdate from "../Inputdate/Inputdate";
+import AbsentEmployee from "../AbsentEmployee";
 
 const Adminattendance: React.FC = () => {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
@@ -28,11 +29,18 @@ const Adminattendance: React.FC = () => {
   // console.log("this is admin",admin?._id)
   // console.log("this is admin22",)
 
-   const [show1, setShow1] = useState(true)
+  const [show1, setShow1] = useState(true)
+  const [show2, setShow2] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
   const Toggle1 = () => {
     setShow1(true)
+    setShow2(false)
+  }
+
+  const Toggle2 = () => {
+    setShow2(!show2)
+    setShow1(false)
   }
   
   useEffect(() => {
@@ -54,7 +62,7 @@ const Adminattendance: React.FC = () => {
             width="30"/>}</span>
           </Pending>
 
-          <Pending><h3>Absent Employees</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
+          <Pending onClick={Toggle2}><h3>Absent Employees</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
             strokeColor="#007bff"
             strokeWidth="5"
             animationDuration="0.75"
@@ -90,7 +98,11 @@ const Adminattendance: React.FC = () => {
             <p>{token}</p>
         </Top>
 
-          <Down>
+          {show1 ? (
+            <div style={{
+              width: "100%"
+            }}>
+              <Down>
             <Inputhold>
             <Input placeholder='All Employees' />
             <Icon><IoMdArrowDropdown /></Icon>
@@ -100,8 +112,9 @@ const Adminattendance: React.FC = () => {
             </Inputhold>
         </Down>
             
-          
-          <Two>
+              <Mid>
+                {isLoading ? (
+                   <Two>
             <Title>Today's Attendance:</Title>
 
             <Table>
@@ -146,6 +159,18 @@ const Adminattendance: React.FC = () => {
               </table>
             </Table>
           </Two>
+                  ) : <RotatingLines  visible={true}
+            strokeColor="#007bff"
+            strokeWidth="5"
+            animationDuration="0.75"
+            width="30"/>}
+              </Mid>
+            </div>
+          ) : null}
+
+          {show2 ? (
+            <AbsentEmployee />
+          ) : null}
         </Wrapper>
       </Container>
     </div>
@@ -153,6 +178,14 @@ const Adminattendance: React.FC = () => {
 };
 
 export default Adminattendance;
+const Mid = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+  flex-direction: column;
+  align-items: center;
+`
 const Name = styled.div`
     color: #34495e;
     font-size: .9rem;
@@ -267,11 +300,20 @@ const Chc = styled.div`
 `;
 
 const Box = styled.div`
-  border: 1px solid green;
-  color: green;
+  color: #28a745;
+  border-color: #28a745;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: .875rem;
+  line-height: 1.5;
+  width: 90px;
+  height: 35px;
+  font-weight: 400;
+  border-radius: 50px;
+  border: 1px solid #28a745;
+  outline-color: 2px solid #619c6f;
+  cursor: pointer;
 `;
 
 const Circle = styled.div`
