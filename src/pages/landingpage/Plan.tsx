@@ -2,6 +2,7 @@ import React from 'react'
 import styled from "styled-components"
 import { Fade } from 'react-awesome-reveal'
 import img from "../../Assets/dollar.png"
+import {RiExchangeDollarLine} from "react-icons/ri"
 
 const Plan = () => {
   return (
@@ -9,28 +10,33 @@ const Plan = () => {
           <Wrapper>
               <Fade direction='up'>
                   <Par>WE DO MORE FOR YOUR WORLD</Par>
-                  <Bolder>All-in-one payroll and HR your business</Bolder>
+                  <Bolder>all-in-one Payroll and HR your business</Bolder>
               </Fade>
-              <Hold>
+            <Fade direction='up'>
+            <Hold>
                   <Circlehold>
                       <Circle>
-                      <Img src={img} />
+                      <Img>
+                      <RiExchangeDollarLine/>
+                      </Img>
                       </Circle>
-                      <Pay>Payroll</Pay>
+                      <Text>Payroll</Text>
                   </Circlehold>
                   <Circle></Circle>
                   <Circle></Circle>
                   <Circle></Circle>
+                  <Circle></Circle>
                </Hold>
+            </Fade>
           </Wrapper>
     </Container>
   )
 }
 
 export default Plan
-const Pay = styled.div`
+const Text = styled.div`
     font-size: 16px;
-    margin-top: 20px;
+    margin-top: 30px;
     margin: 0;
     color: #001328;
     font-weight: 800;
@@ -40,12 +46,16 @@ const Circlehold = styled.div`
     flex-direction: column;
     align-items: center;
 `
-const Img = styled.img`
-    
+const Img = styled.div`
+font-size: 80px;
+color: #001328;
+:hover{
+    color: white;
+} 
 `
 const Circle = styled.div`
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: 100px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     cursor: pointer;
@@ -59,9 +69,11 @@ const Circle = styled.div`
 `
 const Hold = styled.div`
     width: 100%;
-    margin-top: 70px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    margin: 70px;
+    align-items:center;
+    margin-left: 30px;
 `
 const Bolder = styled.h2`
     margin: 0;
@@ -87,6 +99,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     padding-top: 50px;
     align-items: center;
+    justify-content: center;
 `
 const Container = styled.div`
     width: 100%;
