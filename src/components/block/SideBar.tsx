@@ -105,7 +105,7 @@ const SideBar = () => {
             };
           }}
         >
-          <Text3>Transaction</Text3>
+          <Text3>Performance</Text3>
         </NavLink>
       </Home2>
       <Leave>Leave Management</Leave>
@@ -237,7 +237,7 @@ const Container = styled.div`
   padding-left: 25px;
   display: flex;
   flex-direction: column;
-  z-index: 2;
+  z-index: 4;
   @media screen and (max-width: 900px) {
     display: none;
   }
