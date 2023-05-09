@@ -35,9 +35,7 @@ const LateEmployees = () => {
                   <th>Employee ID</th>
                   <th>Department</th>
                   <th>Check In</th>
-                  <th>Shift</th>
                   <th>Status</th>
-                  <th>Action</th>
                 </tr>
 
                 <tr>
@@ -52,19 +50,8 @@ const LateEmployees = () => {
                   <td>
                     <Chc>10:28</Chc>
                   </td>
-                  <td>Shift 1</td>
                   <td>
                     <Box>Present</Box>
-                  </td>
-                  <td>
-                    <Action>
-                      <Cir>
-                        <BsPencilFill />
-                      </Cir>
-                      <Cir1>
-                        <RiDeleteBin2Line />
-                      </Cir1>
-                    </Action>
                   </td>
                 </tr>
               </table>
@@ -110,19 +97,16 @@ const Chc = styled.div`
 `;
 
 const Box = styled.div`
-  color: #28a745;
-  border-color: #28a745;
+  color: red;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: .875rem;
+  font-size: 16px;
   line-height: 1.5;
   width: 90px;
   height: 35px;
-  font-weight: 400;
+  font-weight: 500;
   border-radius: 50px;
-  border: 1px solid #28a745;
-  outline-color: 2px solid #619c6f;
   cursor: pointer;
 `;
 
