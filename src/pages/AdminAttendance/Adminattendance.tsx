@@ -41,17 +41,20 @@ const Adminattendance: React.FC = () => {
     setShow1(true)
     setShow2(false)
     setShow3(false)
+    setShow4(false)
   }
 
   const Toggle2 = () => {
     setShow2(!show2)
     setShow1(false)
     setShow3(false)
+    setShow4(false)
   }
   const Toggle3 = () => {
     setShow3(!show3)
     setShow2(false)
     setShow1(false)
+    setShow4(false)
   }
   const Toggle4 = () => {
     setShow4(!show4)
