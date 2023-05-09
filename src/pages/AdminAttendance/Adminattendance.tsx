@@ -25,15 +25,9 @@ const Adminattendance = () => {
     <div>
       <Container>
         <Wrapper>
-          <One>
-            <Word>
-              Attendance <br />
-              <span>
-                <a href="/dashboard">Dashboard</a>/ Attendance History
-              </span>
-            </Word>
+          
 
-            <Button
+            {/* <Button
               onClick={() => {
                 axios
                   .post(`${url}/createattendance/${admin?._id}`)
@@ -45,8 +39,8 @@ const Adminattendance = () => {
               Generate Token
             </Button>
 
-            <p>{token}</p>
-          </One>
+            <p>{token}</p> */}
+          
           <Two>
             <Title>Today's Attendance:</Title>
 
