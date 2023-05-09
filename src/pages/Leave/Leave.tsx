@@ -66,15 +66,18 @@ const Leave = () => {
 
                 <tr>
                   <td>
+                  <Circlehold>
                     <Circle>O</Circle>
+                    <Name>Okwoli Godwin</Name>
+                    </Circlehold>
                   </td>
-                  <td>David Brown</td>
-                  <td>1001</td>
-                  <td>Development</td>
+                  <td>09 May, 2023</td>
+                  <td>1 Day</td>
+                  <td>Casual Leave</td>
                   <td>
-                    <Chc>10:28</Chc>
+                    07 May, 2023
                   </td>
-                  <td>Shift 1</td>
+                  <td>nothing</td>
                   <td>
                     <Box>Present</Box>
                   </td>
@@ -93,6 +96,15 @@ const Leave = () => {
 }
 
 export default Leave
+const Name = styled.div`
+    color: #34495e;
+    font-size: .9rem;
+    margin-left: 5px;
+`
+const Circlehold = styled.div`
+  display: flex;
+  align-items: center;
+`
 const Action = styled.div`
   display: flex;
 `;
@@ -121,6 +133,7 @@ const Circle = styled.div`
   font-weight: 500;
   color: #fff;
   border-radius: 50px;
+  background-color: #40baab;
 
   @media screen and (max-width: 900px) {
     height: 30px;
@@ -157,16 +170,15 @@ const Table = styled.div`
     border-top: 1px solid #e2e5e8;
     padding-left: 18px;
     padding-right: 18px;
-    color: grey;
-    font-size: 15px;
-    font-weight: bold;
+    
   }
 
   td {
-    @media screen and (max-width: 900px) {
-      font-size: 12px;
+      color: #34495e;
+    font-size: .9rem;
+    font-weight: 500;
     }
-  }
+  
 
   th {
     border-top: 1px solid #e2e5e8;
@@ -174,6 +186,9 @@ const Table = styled.div`
     padding: 1rem 0.75rem;
     padding-left: 20px;
     padding-right: 20px;
+    color: #383838;
+    font-size: 16px;
+    font-weight: bold;
   }
 `;
 const Icon = styled.div`
