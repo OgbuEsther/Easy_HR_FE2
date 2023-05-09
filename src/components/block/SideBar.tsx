@@ -108,7 +108,8 @@ const SideBar = () => {
           <Text3>Transaction</Text3>
         </NavLink>
       </Home2>
-      <Home2>
+      <Leave>Leave Management</Leave>
+      <Home3>
         <Icon2>
           <GiAbstract013 />
         </Icon2>
@@ -121,9 +122,9 @@ const SideBar = () => {
             };
           }}
         >
-          <Text3>Leave</Text3>
+          <Text3>Manage Leave</Text3>
         </NavLink>
-      </Home2>
+      </Home3>
 
       <Power>
         <Icon2>
@@ -136,6 +137,18 @@ const SideBar = () => {
 }
 
 export default SideBar
+const Home3 = styled.div`
+  width: 100%;
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+`
+const Leave = styled.div`
+  display: flex;
+  color: #b4b4b4;
+  font-size: 14px;
+  margin-top: 20px;
+`
 const Text = styled.div`
   font-size: 17px;
   cursor: pointer;
