@@ -12,6 +12,7 @@ import { RotatingLines } from 'react-loader-spinner'
 import {IoMdArrowDropdown} from "react-icons/io"
 import Inputdate from "../Inputdate/Inputdate";
 import AbsentEmployee from "../AbsentEmployee";
+import LateEmployees from "../LateEmployees";
 
 const Adminattendance: React.FC = () => {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
@@ -31,15 +32,23 @@ const Adminattendance: React.FC = () => {
 
   const [show1, setShow1] = useState(true)
   const [show2, setShow2] = useState(false)
+  const [show3, setShow3] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
   const Toggle1 = () => {
     setShow1(true)
     setShow2(false)
+    setShow3(false)
   }
 
   const Toggle2 = () => {
     setShow2(!show2)
+    setShow1(false)
+    setShow3(false)
+  }
+  const Toggle3 = () => {
+    setShow3(!show3)
+    setShow2(false)
     setShow1(false)
   }
   
@@ -69,7 +78,7 @@ const Adminattendance: React.FC = () => {
             width="30" />}</span>
           </Pending>
 
-          <Pending><h3>Late Clock in Employees</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
+          <Pending onClick={Toggle3}><h3>Late Clock in Employees</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
             strokeColor="#007bff"
             strokeWidth="5"
             animationDuration="0.75"
@@ -170,6 +179,10 @@ const Adminattendance: React.FC = () => {
 
           {show2 ? (
             <AbsentEmployee />
+          ) : null}
+
+          {show3 ? (
+            <LateEmployees />
           ) : null}
         </Wrapper>
       </Container>
