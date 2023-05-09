@@ -27,7 +27,7 @@ const DashboardHead = () => {
       <Container>
       <Wrapper>
         <Left>
-          <Img src={img} />
+          {/* <Img src={img} /> */}
         </Left>
 
         {/* <Mid>
@@ -119,9 +119,6 @@ const Drop = styled.div`
     font-weight: 400;
   }
 `
-const Img = styled.img`
-  height: 60px;
-`
 
 const Profile = styled.div`
   width: 45px;
@@ -134,8 +131,8 @@ const Profile = styled.div`
   display: flex;
   border-radius: 50px;
   font-weight: bold;
-  color: #2e2e2e;
-  background-color: white;
+  color: #fff;
+  background-color: blue;
   cursor: pointer;
 `;
 
@@ -186,10 +183,10 @@ const Wrapper = styled.div`
 const Container = styled.div`
   width: 100%;
   height: 70px;
-  background-color: #1F337C;
+  background-color: #fff;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   position: fixed;
-  z-index: 11;
+  z-index: 3;
   display: flex;
   justify-content: center;
   @media screen and (max-width: 500px) {

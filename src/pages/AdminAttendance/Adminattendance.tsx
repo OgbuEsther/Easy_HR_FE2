@@ -10,8 +10,13 @@ import { genAttendanceToken, getOneAdmin, url } from "../../utils/Api/ApiCall";
 import { useQuery } from "@tanstack/react-query";
 import { RotatingLines } from 'react-loader-spinner'
 import {IoMdArrowDropdown} from "react-icons/io"
+import Inputdate from "../Inputdate/Inputdate";
 
-const Adminattendance = () => {
+const Adminattendance: React.FC = () => {
+  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+  const handleDateChange = (date: Date) => {
+    setSelectedDate(date);
+  };
   const admin = useAppSelector((state) => state.currentUser);
 
   const [token, setToken] = React.useState("");
@@ -89,7 +94,10 @@ const Adminattendance = () => {
             <Inputhold>
             <Input placeholder='All Employees' />
             <Icon><IoMdArrowDropdown /></Icon>
-          </Inputhold>
+            </Inputhold>
+            <Inputhold>
+              <Inputdate selectedDate={selectedDate} onDateChange={handleDateChange} />
+            </Inputhold>
         </Down>
             
           
@@ -99,8 +107,7 @@ const Adminattendance = () => {
             <Table>
               <table>
                 <tr>
-                  <th>#</th>
-                  <th>Name</th>
+                  <th>Employee Name</th>
                   <th>Employee ID</th>
                   <th>Department</th>
                   <th>Check In</th>
@@ -111,9 +118,11 @@ const Adminattendance = () => {
 
                 <tr>
                   <td>
-                    <Circle>DC</Circle>
+                    <Circlehold>
+                    <Circle>O</Circle>
+                    <Name>Okwoli Godwin</Name>
+                    </Circlehold>
                   </td>
-                  <td>David Brown</td>
                   <td>1001</td>
                   <td>Development</td>
                   <td>
@@ -144,6 +153,15 @@ const Adminattendance = () => {
 };
 
 export default Adminattendance;
+const Name = styled.div`
+    color: #34495e;
+    font-size: .9rem;
+    margin-left: 5px;
+`
+const Circlehold = styled.div`
+  display: flex;
+  align-items: center;
+`
 const Icon = styled.div`
   flex: 1;
   height: 100%;
