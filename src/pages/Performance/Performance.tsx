@@ -1,10 +1,15 @@
 import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import { RotatingLines } from 'react-loader-spinner'
+import Inputdate from "../Inputdate/Inputdate";
 
 
 
 const Transaction = () => {
+  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+  const handleDateChange = (date: Date) => {
+    setSelectedDate(date);
+  };
 
   const [show1, setShow1] = useState(true)
   const [isLoading, setIsLoading] = useState(false)
@@ -44,6 +49,9 @@ const Transaction = () => {
             <Textarea placeholder="Set Goals.....">
 
             </Textarea>
+            <Inputhold>
+              <Inputdate selectedDate={selectedDate} onDateChange={handleDateChange} />
+            </Inputhold>
           </Textplace>
         </Wrapper>
       </Container>
@@ -52,6 +60,24 @@ const Transaction = () => {
 };
 
 export default Transaction;
+const Inputhold = styled.div`
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    border-color: #007bff;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    cursor: default;
+    display: flex;
+    justify-content: space-between;
+    height: 43px;
+    transition: all 100ms ease 0s;
+    box-sizing: border-box;
+    outline: 0px !important;
+    width: 300px;
+    overflow: hidden;
+    margin-left: 20px;
+`
 const Textarea = styled.textarea`
   width: 700px;
   height: 150px;
@@ -64,6 +90,7 @@ const Textplace = styled.div`
   width: 100%;
   display: flex;
   margin-top: 30px;
+  align-items: center;
 `
 const Pending = styled.div`
   display: flex;
