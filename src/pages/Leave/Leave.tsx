@@ -1,24 +1,71 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import { Vortex } from 'react-loader-spinner'
 
 const Leave = () => {
+
+    const [show1, setShow1] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
+  
+  useEffect(() => {
+   setTimeout(() => {
+      setIsLoading(true)
+    }, 1000)
+
+  }, [])
+
+
   return (
-    <div>Leave</div>
+    <Container>
+      <Wrapper>
+        <Top>
+          <Pending><h3>Pending Leave</h3><span>{isLoading ? (1) : <Vortex  visible={true}
+            height="40"
+            width="40"
+            ariaLabel="vortex-loading"
+            wrapperStyle={{}}
+            wrapperClass="vortex-wrapper"
+            colors={['red', 'green', 'blue', 'yellow', 'orange', 'purple']} />}</span>
+          </Pending>
+          <Pending><h3>Approved Leave</h3></Pending>
+          <Pending><h3>Rejected Leave</h3></Pending>
+          <Pending><h3>All Leave (1)</h3></Pending>
+        </Top>
+      </Wrapper>
+    </Container>
   )
 }
 
 export default Leave
-
-
-
-
-
+const Pending = styled.div`
+  display: flex;
+  margin: 18px;
+  cursor: pointer;
+  h3{
+    font-weight: 500;
+  font-size: 19px;
+  color: #6c757d;
+  }
+  span{
+    margin-left: 7px;
+    font-weight: 500;
+  font-size: 19px;
+  color: #6c757d;
+  }
+`
+const Top = styled.div`
+  width: 100%;
+  display: flex;
+  height: 70px;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+`
 const Wrapper = styled.div`
-  width: 92%;
+  width: 95%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 90px;
+  padding-top: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
