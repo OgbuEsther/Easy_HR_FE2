@@ -21,6 +21,7 @@ import Leave from "../pages/Leave/Leave";
 import LeavePage from "../pages/LeavePage";
 import CheckMail from "../pages/Auth/CheckMail";
 import Waiting from "../pages/Auth/Waiting";
+import Yesorno from "../pages/Yesorno/Yesorno";
 
 
 
@@ -148,7 +149,7 @@ export const Elements = createBrowserRouter([
   },
   {
     path:"/sign-in-admin",
-    element: <SignInAdmin/>
+    element: <Yesorno/>
   },
   {
     path:"/check-mail",
@@ -229,7 +230,8 @@ export const Elements = createBrowserRouter([
         element: <LeavePage />,
         hasErrorBoundary: true,
         errorElement: <ErrorBoundary />,
-      }
+      },
+      
     ]
   },
 ]);
