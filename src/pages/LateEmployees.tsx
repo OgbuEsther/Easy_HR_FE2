@@ -51,7 +51,7 @@ const LateEmployees = () => {
                     <Chc>10:28</Chc>
                   </td>
                   <td>
-                    <Box>Present</Box>
+                    <Box>Late</Box>
                   </td>
                 </tr>
               </table>
