@@ -35,7 +35,6 @@ const AbsentEmployee = () => {
                   <th>Employee ID</th>
                   <th>Department</th>
                   <th>Check In</th>
-                  <th>Shift</th>
                   <th>Status</th>
                 </tr>
 
@@ -51,7 +50,6 @@ const AbsentEmployee = () => {
                   <td>
                     <Chc>10:28</Chc>
                   </td>
-                  <td>Shift 1</td>
                   <td>
                     <Box>Absent</Box>
                   </td>
@@ -94,8 +92,9 @@ const Action = styled.div`
 `;
 
 const Chc = styled.div`
-  color: green;
+  color: red;
   font-weight: bold;
+  /* font-size: 14px; */
 `;
 
 const Box = styled.div`
@@ -103,11 +102,11 @@ const Box = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: .875rem;
+  font-size: 16px;
   line-height: 1.5;
   width: 90px;
   height: 35px;
-  font-weight: 400;
+  font-weight: 500;
   border-radius: 50px;
   cursor: pointer;
 `;
