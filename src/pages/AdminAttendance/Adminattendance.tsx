@@ -9,6 +9,7 @@ import axios from "axios";
 import { genAttendanceToken, getOneAdmin, url } from "../../utils/Api/ApiCall";
 import { useQuery } from "@tanstack/react-query";
 import { RotatingLines } from 'react-loader-spinner'
+import {IoMdArrowDropdown} from "react-icons/io"
 
 const Adminattendance = () => {
   const admin = useAppSelector((state) => state.currentUser);
@@ -83,6 +84,13 @@ const Adminattendance = () => {
 
             <p>{token}</p>
         </Top>
+
+          <Down>
+            <Inputhold>
+            <Input placeholder='All Employees' />
+            <Icon><IoMdArrowDropdown /></Icon>
+          </Inputhold>
+        </Down>
             
           
           <Two>
@@ -136,6 +144,53 @@ const Adminattendance = () => {
 };
 
 export default Adminattendance;
+const Icon = styled.div`
+  flex: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+`
+const Input = styled.input`
+  height: 100%;
+  border: none;
+  outline: none;
+  width: 250px;
+  border-right: 1px solid rgb(204, 204, 204);
+  color: rgb(26, 26, 26);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: left;
+  padding-left: 10px;
+`
+const Inputhold = styled.div`
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    border-color: #007bff;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    cursor: default;
+    display: flex;
+    justify-content: space-between;
+    height: 43px;
+    transition: all 100ms ease 0s;
+    box-sizing: border-box;
+    outline: 0px !important;
+    width: 300px;
+    overflow: hidden;
+    margin-left: 20px;
+`
+  const Down = styled.div`
+  width: 100%;
+  display: flex;
+  height: 90px;
+  border: 1px solid lightgray;
+  margin-top: 15px;
+  align-items: center;
+`
 const Pending = styled.div`
   display: flex;
   margin: 18px;
@@ -226,12 +281,12 @@ const Circle = styled.div`
 const Table = styled.div`
   display: flex;
   height: auto;
-  width: auto;
+  width: 100%;
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 10px;
   overflow-x: auto;
-  margin-top: 20px;
+  margin-top: 50px;
 
   table {
     min-width: 400px;
@@ -277,10 +332,11 @@ const Title = styled.div`
 `;
 
 const Two = styled.div`
-  width: 1050px;
+  width: 100%;
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
-  margin-bottom: 20px;
+  margin-top: 50px;
+  margin-bottom: 15px;
 `;
 
 const Button = styled.button`
