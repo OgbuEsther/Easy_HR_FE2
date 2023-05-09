@@ -79,13 +79,11 @@ const Leave = () => {
                   </td>
                   <td>nothing</td>
                   <td>
-                    <Box>Present</Box>
-                  </td>
-                  <td>
-                    <Action>
-                      
-                    </Action>
-                  </td>
+                  <Hold>
+                    <Box>Approve</Box>
+                  <Box2>Reject</Box2>
+                  </Hold>
+                </td>
                 </tr>
               </table>
             </Table>
@@ -96,6 +94,9 @@ const Leave = () => {
 }
 
 export default Leave
+const Hold = styled.div`
+  display: flex;
+`
 const Name = styled.div`
     color: #34495e;
     font-size: .9rem;
@@ -114,12 +115,39 @@ const Chc = styled.div`
   font-weight: bold;
 `;
 
-const Box = styled.div`
-  border: 1px solid green;
-  color: green;
+const Box2 = styled.div`
+  color: #dc3545;
+  border-color: #dc3545;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: .875rem;
+  line-height: 1.5;
+  width: 90px;
+  height: 35px;
+  font-weight: 400;
+  border-radius: 50px;
+  border: 1px solid #dc3545;
+  outline-color: 2px solid #dc3545;
+  cursor: pointer;
+  margin-left: 10px;
+`
+
+const Box = styled.div`
+  color: #28a745;
+  border-color: #28a745;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .875rem;
+  line-height: 1.5;
+  width: 90px;
+  height: 35px;
+  font-weight: 400;
+  border-radius: 50px;
+  border: 1px solid #28a745;
+  outline-color: 2px solid #619c6f;
+  cursor: pointer;
 `;
 const Circle = styled.div`
   width: 40px;
@@ -170,7 +198,6 @@ const Table = styled.div`
     border-top: 1px solid #e2e5e8;
     padding-left: 18px;
     padding-right: 18px;
-    
   }
 
   td {
