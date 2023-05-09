@@ -4,6 +4,7 @@ import { Fade } from 'react-awesome-reveal'
 import img from "../../Assets/dollar.png"
 import {RiExchangeDollarLine} from "react-icons/ri"
 import {DiFsharp} from "react-icons/di"
+import {HiCubeTransparent} from "react-icons/hi"
 import {MdOutlineManageHistory} from "react-icons/md"
 import {GiTimeBomb,GiClockwork} from "react-icons/gi"
 
@@ -46,7 +47,9 @@ const Plan = () => {
                  </Circlehold>
 
                  <Circlehold>
-                  <Circle></Circle>
+                  <Circle>
+                    <HiCubeTransparent/>
+                  </Circle>
                   <Text>Hiring</Text>
                  </Circlehold>
                </Hold>
