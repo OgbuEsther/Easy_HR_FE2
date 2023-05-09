@@ -32,7 +32,7 @@ import Waiting from "../pages/Auth/Waiting";
 const Home = lazy(() => import("../pages/landingpage/Home"));
 const About = lazy(() => import("../pages/landingpage/Connect"));
 const Staffs = lazy(() => import("../pages/Staffs"));
-const Transaction = lazy(()=> import("../pages/Transaction/Transaction"))
+const Performance = lazy(()=> import("../pages/Performance/Performance"))
 const ParentComp = lazy(() => import("../pages/ParentComp"));
 const ContactUs = lazy(() => import("../pages/landingpage/ContactUs"));
 const Attendance = lazy(() => import("../pages/AdminAttendance/Adminattendance"))
@@ -103,8 +103,8 @@ export const Elements = createBrowserRouter([
         errorElement: <ErrorBoundary />,
       },
       {
-        path: "/dashboard/transaction",
-        element: <Transaction/>,
+        path: "/dashboard/performance",
+        element: <Performance/>,
         hasErrorBoundary: true,
         errorElement: <ErrorBoundary />,
       },

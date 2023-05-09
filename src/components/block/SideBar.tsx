@@ -97,7 +97,7 @@ const SideBar = () => {
           <GiMoneyStack />
         </Icon2>
         <NavLink
-          to="/dashboard/transaction"
+          to="/dashboard/performance"
           style={({ isActive }) => {
             return {
               textDecoration: isActive ? "none" : "none",
