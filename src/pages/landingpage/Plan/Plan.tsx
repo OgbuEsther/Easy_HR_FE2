@@ -117,45 +117,45 @@ const Plan = () => {
              {
                 show ? (
                     <PlanProps 
-                    text='Payroll' 
+                    text='' 
                     image=""
-                    writeup='Save time and improve payroll accuracy with the latest in time and attendance software. However you prefer to track employee time, we have flexible options to fit your business'/>
+                    writeup=''/>
                 ) 
                 :null
              }
              {
                 show2 ? (
                     <PlanProps 
-                    text='Time & Attendance' 
+                    text=""
                     image=''
-                     writeup='Save time and improve payroll accuracy with the latest in time and attendance software. However you prefer to track employee time, we have flexible options to fit your business.'/>
+                     writeup=""/>
                 ) 
                 :null
              }
              {
                 show3 ? (
                     <PlanProps 
-                    text='Benefits' 
+                    text="" 
                     image='' 
-                    writeup='Save time and improve payroll accuracy with the latest in time and attendance software. However you prefer to track employee time, we have flexible options to fit your business.'/>
+                    writeup=""/>
                 ) 
                 :null
              }
              {
                 show4 ? (
                     <PlanProps 
-                    text='HR Management'
+                    text=""
                      image=''
-                     writeup='Save time and improve payroll accuracy with the latest in time and attendance software. However you prefer to track employee time, we have flexible options to fit your business'/>
+                     writeup=""/>
                 ) 
                 :null
              }
              {
                 show5 ? (
                     <PlanProps
-                     text='Hiring' 
+                     text=""
                     image=''
-                     writeup='Save time and improve payroll accuracy with the latest in time and attendance software. However you prefer to track employee time, we have flexible options to fit your business.'/>
+                     writeup=""/>
                 ) 
                 :null
              }
