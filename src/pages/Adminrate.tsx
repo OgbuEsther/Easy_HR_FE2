@@ -29,8 +29,8 @@ const Adminrate = () => {
             <Table>
               <table>
                 <tr>
-                  <th>Employee Name</th>
-                  <th>Id</th>
+                  <th>Milestone</th>
+                  
                   <th>Staff Ratings</th>
                   <th>Admin Ratings</th>
                 </tr>
@@ -42,7 +42,7 @@ const Adminrate = () => {
                     <Name>Okwoli Godwin</Name>
                     </Circlehold>
                   </td>
-                  <td>001</td>
+                  
                     <td>
                          <Rate>40</Rate>
                   </td>
@@ -62,7 +62,7 @@ const Adminrate = () => {
                     <Name>Okwoli Godwin</Name>
                     </Circlehold>
                   </td>
-                  <td>001</td>
+                  
                     <td>
                           <Rate>40</Rate>
                   </td>

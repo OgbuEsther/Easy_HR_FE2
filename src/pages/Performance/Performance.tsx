@@ -4,10 +4,20 @@ import { RotatingLines } from 'react-loader-spinner'
 import Inputdate from "../Inputdate/Inputdate";
 import Adminrate from "../Adminrate";
 import RateDetails from "../RateDetails";
-
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup"
+import { useDispatch } from "react-redux";
+import {useForm} from "react-hook-form";
+import { useMutation } from "@tanstack/react-query";
+import { mileStone } from "../../components/global/ReduxState";
+import Swal from "sweetalert2";
+import { setMilestones } from "../../utils/Api/ApiCall";
+import { useAppSelector } from "../../components/global/Store";
 
 
 const Transaction = () => {
+  const dispatch = useDispatch()
+const admin = useAppSelector((state)=> state.currentUser)
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const handleDateChange = (date: Date) => {
     setSelectedDate(date);
@@ -61,7 +71,44 @@ const Transaction = () => {
       window.removeEventListener('storage', handleStorageChange)
     }
   }, [])
- 
+
+
+
+  const schema = yup.object({
+    mileStone: yup.string().required(),
+  }).required()
+  
+  type formData = yup.InferType<typeof schema>
+  
+  const{handleSubmit, formState: {errors}, reset, register} = useForm<formData>({
+    resolver: yupResolver(schema),
+  })
+
+
+    const posting = useMutation({
+      mutationKey: ["milestone"],
+      mutationFn: (data: any) => setMilestones(data,admin?._id ),
+
+
+      onSuccess: (myData) => {
+        dispatch(mileStone(myData.data))
+        reset()
+  
+        Swal.fire({
+          title: "admin registered successfully",
+          html: "redirecting to login",
+          timer: 1000,
+          timerProgressBar: true,    
+        })
+  
+  },
+});
+
+  const Submit = handleSubmit(async (data: any) => {
+    console.log("milestone", data)
+    posting.mutate(data);
+  });
+
 
   return (
     <div>
@@ -97,9 +144,12 @@ const Transaction = () => {
               width: "100%"
             }}>
               <Textplace>
-            <Texthold>
-              <Textarea placeholder="Set Goals....." value={text} onChange={handleTextChange}/>
-              <Button onClick={handleSaveClick}>Submit</Button>
+            <Texthold onSubmit={Submit}>
+              <Textarea 
+                {...register("mileStone")}
+               placeholder="Set Goals....." value={text} onChange={handleTextChange}/>
+                           <span style={{color: "#D8000C"}}>{errors.mileStone && "please input your milestone"}</span>
+              <Button type="submit" onClick={handleSaveClick}>Submit</Button>
             </Texthold>
             <Inputhold>
               <Inputdate selectedDate={selectedDate} onDateChange={handleDateChange} />
@@ -121,7 +171,7 @@ const Transaction = () => {
             width="30" />}
 
           {show2 ? (
-            <Adminrate />
+            <Adminrate/>
           ) : null}
 
           {show3 ? (
@@ -131,9 +181,10 @@ const Transaction = () => {
       </Container>
     </div>
   );
-};
+}
 
 export default Transaction;
+
 const Mid = styled.div`
   width: 100%;
   margin-top: 10px;
@@ -159,7 +210,7 @@ const Button = styled.button`
   cursor: pointer;
   margin-top: 7px;
 `
-const Texthold = styled.div`
+const Texthold = styled.form`
   display: flex;
   flex-direction: column;
 `
@@ -249,4 +300,4 @@ const Container = styled.div`
   @media screen and (max-width: 1024px) {
     width: 100vw;
   }
-`;
+`
