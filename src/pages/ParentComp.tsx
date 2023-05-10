@@ -3,19 +3,13 @@ import { MdOutlineCancel } from "react-icons/md";
 import { FaGoogleWallet } from "react-icons/fa";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import DashBoardCardProps from "./DashBoardCardProps";
-import { FaJediOrder } from "react-icons/fa";
-import { BsFillArrowRightCircleFill } from "react-icons/bs";
-import { GiHypersonicMelon } from "react-icons/gi";
-import {
-  AiFillAlert,
-  AiOutlineDeploymentUnit,
-  AiFillDashboard,
-} from "react-icons/ai";
 import { useAppSelector } from "../components/global/Store";
 import { useQuery } from "@tanstack/react-query";
 import { getOneAdmin } from "../utils/Api/ApiCall";
 import AdminCard from "./AdminCard";
+import DoughnutChat from "./DoughnutAdmin";
+import { Charts } from "../components/Graph";
+import DoughnutAdmin from "./DoughnutAdmin";
 
 const ParentComp = () => {
   const [show, setShow] = React.useState(false);
@@ -99,8 +93,14 @@ const ParentComp = () => {
               </Slidein>
             ) : null}
           </Top>
-           <AdminCard/>
-
+          <AdminCard />
+          
+          <Hold>
+            <Cha>
+              <Charts />
+            </Cha>
+            <DoughnutAdmin />
+          </Hold>
          
         </Wrapper>
       </Container>
@@ -109,6 +109,24 @@ const ParentComp = () => {
 };
 
 export default ParentComp;
+const Cha = styled.div`
+  width: 49%;
+  display: flex;
+  padding: 10px;
+   background-color: #fff;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+`
+const Dough = styled.div`
+  width: 48%;
+  display: flex;
+`
+const Hold = styled.div`
+  width: 100%;
+  display: flex;
+  /* background-color: red; */
+  margin-top: 50px;
+  justify-content: space-between;
+`
 const CardHold = styled.div`
   display: flex;
   flex-wrap: wrap;
