@@ -14,6 +14,7 @@ import { StaffClockIn } from "../../components/global/ReduxState";
 const InputStaffAttendance = () => {
 
   const staff = useAppSelector((state) => state.currentStaff);
+  const admin = useAppSelector((state) => state.currentUser);
 
   // https://easyhr.onrender.com/api/clockin/644e8e63cfbe10e9cc38bb04
   // const staffClockIn =  async() => {
@@ -52,7 +53,7 @@ const InputStaffAttendance = () => {
   const posting = useMutation({
     mutationKey: ["create_Leave"],
     // mutationFn: createAdmin,
-    mutationFn: (data: any) => staffClockIn(data , staff?._id),
+    mutationFn: (data: any) => staffClockIn(data , staff?._id , admin?._id ),
 
     onSuccess: (myData: any) => {
       dispatch(StaffClockIn(myData.data))
