@@ -11,6 +11,10 @@ const DoughnutAdmin = () => {
         <div>
           <Bold>Set the expected clock-in time to get the live report</Bold>
           <Steps>Here are the steps to set the expected clock-in time:</Steps>
+          <ol>
+            <Steps><li>Visit Settings = Track Settings page</li></Steps>
+            <Steps><li>Set the expected clock-in time</li></Steps>
+          </ol>
         </div>
       )}
       {showdefault.map((transaction, index) => (

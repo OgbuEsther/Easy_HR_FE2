@@ -10,6 +10,7 @@ import AdminCard from "./AdminCard";
 import DoughnutChat from "./DoughnutAdmin";
 import { Charts } from "../components/Graph";
 import DoughnutAdmin from "./DoughnutAdmin";
+import HomeLeave from "./HomeLeave";
 
 const ParentComp = () => {
   const [show, setShow] = React.useState(false);
@@ -101,7 +102,7 @@ const ParentComp = () => {
             </Cha>
             <DoughnutAdmin />
           </Hold>
-         
+         {/* <HomeLeave /> */}
         </Wrapper>
       </Container>
     </div>
