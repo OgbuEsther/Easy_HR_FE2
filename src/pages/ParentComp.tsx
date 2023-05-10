@@ -102,7 +102,7 @@ const ParentComp = () => {
             </Cha>
             <DoughnutAdmin />
           </Hold>
-         {/* <HomeLeave /> */}
+         <HomeLeave />
         </Wrapper>
       </Container>
     </div>
@@ -318,7 +318,7 @@ const Top = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 96%;
+  width: 92%;
   display: flex;
   flex-direction: column;
   align-items: center;
