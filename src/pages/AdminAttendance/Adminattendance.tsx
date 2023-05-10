@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import { useAppSelector } from "../../components/global/Store";
 import { CgPerformance } from "react-icons/cg";
@@ -8,8 +8,18 @@ import { SiSecurityscorecard } from "react-icons/si";
 import axios from "axios";
 import { genAttendanceToken, getOneAdmin, url } from "../../utils/Api/ApiCall";
 import { useQuery } from "@tanstack/react-query";
+import { RotatingLines } from 'react-loader-spinner'
+import {IoMdArrowDropdown} from "react-icons/io"
+import Inputdate from "../Inputdate/Inputdate";
+import AbsentEmployee from "../AbsentEmployee";
+import LateEmployees from "../LateEmployees";
+import UninformedLeave from "../UninformedLeave";
 
-const Adminattendance = () => {
+const Adminattendance: React.FC = () => {
+  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+  const handleDateChange = (date: Date) => {
+    setSelectedDate(date);
+  };
   const admin = useAppSelector((state) => state.currentUser);
 
   const [token, setToken] = React.useState("");
@@ -21,17 +31,77 @@ const Adminattendance = () => {
   // console.log("this is admin",admin?._id)
   // console.log("this is admin22",)
 
+  const [show1, setShow1] = useState(true)
+  const [show2, setShow2] = useState(false)
+  const [show3, setShow3] = useState(false)
+  const [show4, setShow4] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+
+  const Toggle1 = () => {
+    setShow1(true)
+    setShow2(false)
+    setShow3(false)
+    setShow4(false)
+  }
+
+  const Toggle2 = () => {
+    setShow2(!show2)
+    setShow1(false)
+    setShow3(false)
+    setShow4(false)
+  }
+  const Toggle3 = () => {
+    setShow3(!show3)
+    setShow2(false)
+    setShow1(false)
+    setShow4(false)
+  }
+  const Toggle4 = () => {
+    setShow4(!show4)
+    setShow3(false)
+    setShow2(false)
+    setShow1(false)
+  }
+  
+  useEffect(() => {
+   setTimeout(() => {
+      setIsLoading(true)
+    },2000)
+
+  }, [])
+
   return (
     <div>
       <Container>
         <Wrapper>
-          <One>
-            <Word>
-              Attendance <br />
-              <span>
-                <a href="/dashboard">Dashboard</a>/ Attendance History
-              </span>
-            </Word>
+          <Top>
+          <Pending onClick={Toggle1}><h3>All Employees</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
+            strokeColor="#007bff"
+            strokeWidth="5"
+            animationDuration="0.75"
+            width="30"/>}</span>
+          </Pending>
+
+          <Pending onClick={Toggle2}><h3>Absent Employees</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
+            strokeColor="#007bff"
+            strokeWidth="5"
+            animationDuration="0.75"
+            width="30" />}</span>
+          </Pending>
+
+          <Pending onClick={Toggle3}><h3>Late Clock in Employees</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
+            strokeColor="#007bff"
+            strokeWidth="5"
+            animationDuration="0.75"
+            width="30" />}</span>
+          </Pending>
+
+          <Pending onClick={Toggle4}><h3>Uninformed Leaves</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
+            strokeColor="#007bff"
+            strokeWidth="5"
+            animationDuration="0.75"
+              width="30" />}</span>
+            </Pending>
 
             <Button
               onClick={() => {
@@ -46,15 +116,31 @@ const Adminattendance = () => {
             </Button>
 
             <p>{token}</p>
-          </One>
-          <Two>
+        </Top>
+
+          {show1 ? (
+            <div style={{
+              width: "100%"
+            }}>
+              <Down>
+            <Inputhold>
+            <Input placeholder='All Employees' />
+            <Icon><IoMdArrowDropdown /></Icon>
+            </Inputhold>
+            <Inputhold>
+              <Inputdate selectedDate={selectedDate} onDateChange={handleDateChange} />
+            </Inputhold>
+        </Down>
+            
+              <Mid>
+                {isLoading ? (
+                   <Two>
             <Title>Today's Attendance:</Title>
 
             <Table>
               <table>
                 <tr>
-                  <th>#</th>
-                  <th>Name</th>
+                  <th>Employee Name</th>
                   <th>Employee ID</th>
                   <th>Department</th>
                   <th>Check In</th>
@@ -65,9 +151,11 @@ const Adminattendance = () => {
 
                 <tr>
                   <td>
-                    <Circle>DC</Circle>
+                    <Circlehold>
+                    <Circle>O</Circle>
+                    <Name>Okwoli Godwin</Name>
+                    </Circlehold>
                   </td>
-                  <td>David Brown</td>
                   <td>1001</td>
                   <td>Development</td>
                   <td>
@@ -91,6 +179,26 @@ const Adminattendance = () => {
               </table>
             </Table>
           </Two>
+                  ) : <RotatingLines  visible={true}
+            strokeColor="#007bff"
+            strokeWidth="5"
+            animationDuration="0.75"
+            width="30"/>}
+              </Mid>
+            </div>
+          ) : null}
+
+          {show2 ? (
+            <AbsentEmployee />
+          ) : null}
+
+          {show3 ? (
+            <LateEmployees />
+          ) : null}
+
+          {show4 ? (
+            <UninformedLeave />
+          ) : null}
         </Wrapper>
       </Container>
     </div>
@@ -98,6 +206,93 @@ const Adminattendance = () => {
 };
 
 export default Adminattendance;
+const Mid = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+  flex-direction: column;
+  align-items: center;
+`
+const Name = styled.div`
+    color: #34495e;
+    font-size: .9rem;
+    margin-left: 5px;
+`
+const Circlehold = styled.div`
+  display: flex;
+  align-items: center;
+`
+const Icon = styled.div`
+  flex: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+`
+const Input = styled.input`
+  height: 100%;
+  border: none;
+  outline: none;
+  width: 250px;
+  border-right: 1px solid rgb(204, 204, 204);
+  color: rgb(26, 26, 26);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: left;
+  padding-left: 10px;
+`
+const Inputhold = styled.div`
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    border-color: #007bff;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    cursor: default;
+    display: flex;
+    justify-content: space-between;
+    height: 43px;
+    transition: all 100ms ease 0s;
+    box-sizing: border-box;
+    outline: 0px !important;
+    width: 300px;
+    overflow: hidden;
+    margin-left: 20px;
+`
+  const Down = styled.div`
+  width: 100%;
+  display: flex;
+  height: 90px;
+  border: 1px solid lightgray;
+  margin-top: 15px;
+  align-items: center;
+`
+const Pending = styled.div`
+  display: flex;
+  margin: 18px;
+  cursor: pointer;
+  h3{
+    font-weight: 500;
+  font-size: 19px;
+  color: #6c757d;
+  }
+  span{
+    margin-left: 7px;
+    font-weight: 500;
+  font-size: 19px;
+  color: #6c757d;
+  }
+`
+const Top = styled.div`
+  width: 100%;
+  display: flex;
+  height: 70px;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+`
 
 const Cir = styled.div`
   margin: 5px;
@@ -133,11 +328,20 @@ const Chc = styled.div`
 `;
 
 const Box = styled.div`
-  border: 1px solid green;
-  color: green;
+  color: #28a745;
+  border-color: #28a745;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: .875rem;
+  line-height: 1.5;
+  width: 90px;
+  height: 35px;
+  font-weight: 400;
+  border-radius: 50px;
+  border: 1px solid #28a745;
+  outline-color: 2px solid #619c6f;
+  cursor: pointer;
 `;
 
 const Circle = styled.div`
@@ -165,12 +369,12 @@ const Circle = styled.div`
 const Table = styled.div`
   display: flex;
   height: auto;
-  width: auto;
+  width: 100%;
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 10px;
   overflow-x: auto;
-  margin-top: 20px;
+  margin-top: 50px;
 
   table {
     min-width: 400px;
@@ -216,10 +420,11 @@ const Title = styled.div`
 `;
 
 const Two = styled.div`
-  width: 1050px;
+  width: 100%;
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
-  margin-bottom: 20px;
+  margin-top: 50px;
+  margin-bottom: 15px;
 `;
 
 const Button = styled.button`
@@ -228,7 +433,7 @@ const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 33px;
+  /* margin-top: 33px; */
   background-color: #1f337c;
   border-radius: 10px;
   cursor: pointer;
@@ -277,15 +482,16 @@ const One = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 97%;
+  width: 95%;
   display: flex;
   flex-direction: column;
-  /* align-items: flex-start; */
-  /* margin-left: 30px; */
-  margin-top: 100px;
-  padding-left: 30px;
-  padding-right: 30px;
-  /* background-color:yellow; */
+  align-items: center;
+  padding-top: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* background-color: red; */
 `;
 
 const Container = styled.div`
