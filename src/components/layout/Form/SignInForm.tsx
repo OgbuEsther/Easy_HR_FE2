@@ -11,12 +11,18 @@ import { useMutation } from '@tanstack/react-query'
 import { useDispatch } from 'react-redux'
 import { Staff } from '../../global/ReduxState'
 import Swal from 'sweetalert2'
-// import { LoginStaff } from '../../../utils/Api/ApiCall'
 import { LoginStaff } from '../../../utils/Api/ApiCall'
+import BackButton from '../../Buttons/BackButton'
 
 
 
 const SigninForm = () => {
+
+const [work, setWork] = useState(false);
+
+const WorkSet = () =>{
+  setWork(true)
+}
 
 const dispatch = useDispatch()
 
@@ -86,15 +92,17 @@ SetViewPassword(!ViewPassword)
   return (
 
         <Form  onSubmit={Submit}>
+<BackButton path='/sign-in-option'/>
+
 <SignUpTitle>Sign In</SignUpTitle>
 {/* <SignUpDescription>Pay smart and save time with Easy Pay</SignUpDescription> */}
 <SignUpDescription>You will be signed in as a Staff</SignUpDescription>
 
 <InputField>
 
-<CompanyNameInputHold>
+<CompanyNameInputHold onClick={WorkSet}>
     
-    <CompanyNameInput {...register("companyname")} placeholder='Company Name'/>
+    <CompanyNameInput outline={work? "lightblue":""} {...register("companyname")} placeholder='Company Name'/>
     <span>{errors?.companyname && errors?.companyname?.message}</span>
 
 </CompanyNameInputHold>
@@ -106,22 +114,17 @@ SetViewPassword(!ViewPassword)
 
 </EmailInputColumn>
 <CompanyPasswordColumn>
+    <PasswordInputHold>
+      <InputmainHold>
+        <MainPassword {...register("password")} type={ViewPassword? "text":"password"} placeholder='password'/> <ShowPassword  onClick={ViewPasswordFunction}>
+        {
+          ViewPassword?<AiOutlineEye/>:<AiOutlineEyeInvisible/>
+        }
+        </ShowPassword>
+      </InputmainHold>
+    </PasswordInputHold>
     
-    <CompanyPasswordInputHold>
-    <CompanyPasswordInput {...register("password")}placeholder='Password' type={ViewPassword? "text":"password"} />
-    <span>{errors?.password && errors?.password?.message}</span>
-
-    </CompanyPasswordInputHold>
-
     <ShowPasswordAndForgetPassword>
-<ShowPassword onClick={ViewPasswordFunction}>
-  <ShowPasswordInput  type='checkbox' checked={ViewPassword}/>
-              <span>{errors?.password && errors?.password?.message}</span>
-
-  <ShowPasswordText>
-    show password
-  </ShowPasswordText>
-</ShowPassword>
 <ForgetPassword >
   Forget Password
 </ForgetPassword>
@@ -144,41 +147,18 @@ SetViewPassword(!ViewPassword)
 
 export default SigninForm;
 
+
+
+
 const ForgetPassword = styled.div`
   height: auto;
   width: auto;
-  font-size: 13px;
+  font-size: 14px;
+  font-weight: 500;
   color: #0174f7c8;
   cursor: pointer;
 `
 
-const ShowPasswordInput = styled.input`
-  height: 12px;
-  width: 12px;
- 
-
-  
-`
-const ShowPasswordText = styled.div`
-  height: auto;
-  width: auto;
-  font-size: 13px;
-  margin-bottom: 3px;
-  margin-left: 2px;
-   :hover{
-    color: #0174f78d;;
-  }
-`
-const ShowPassword = styled.div`
-  height: auto;
-  width: auto;
-  display: flex;
-  align-items: center;
-  background-color: white;
-  border: none;
-  cursor: pointer;
-  /* background-color: blue; */
-`
 
 const ShowPasswordAndForgetPassword = styled.div`
   height: auto;
@@ -192,33 +172,22 @@ const ShowPasswordAndForgetPassword = styled.div`
 
 `
 
-const CompanyNameInput = styled.input`
+const CompanyNameInput = styled.input<{outline:string;}>`
     height: 50px;
     width: auto;
     border-radius: 5px;
     border: 1px solid #0174f78d;
-    outline: none;
+    outline-color: ${(prop)=>prop.outline};
     padding-left: 10px;
 `
 
 const CompanyNameInputHold = styled.div`
-    height: 70px;
+    height: auto;
     width: 100%;
     margin-bottom: 15px;
     display: flex;
     flex-direction:column;
-`
 
-
-const CompanyPasswordInput = styled.input`
-    height: 40px;
-    width: 100%;
-    border-radius: 5px;
-    border: 1px solid #0174f78d;
-    outline: none;
-    padding-left: 10px;
-    
-   
 `
 
 
@@ -247,6 +216,8 @@ const InputField = styled.div`
 
  
 
+ 
+
   button{
     cursor: pointer;
   }
@@ -266,13 +237,6 @@ const EmailInput = styled.input`
 `
 
 
-
-const Label = styled.label`
-font-weight: 600;
-font-size: 13px;
-margin-bottom: 5px;
-
-`
 
 const FifthInputColumn = styled.div`
 height: 50px;
@@ -295,33 +259,63 @@ const FourtInputColumn = styled.div`
 height: 50px;
 width: 100%;
 margin-top: 50px;
+@media screen and (max-width: 600px) {
+  text-align: center;
+}`
+
+const ShowPassword = styled.div`
+  height: 50px;
+  width: 50px;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: larger;
+color: grey;
+
+`
+
+const MainPassword = styled.input`
+  height: 45px;
+  flex: 1;
+  padding-left: 10px;
+  outline: none;
+
+`
+
+const InputmainHold = styled.div`
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border: 1px solid  #0174f78d;
+  border-radius: 5px;
+`
+const PasswordInputHold = styled.div`
+  height: auto;
+  width: 100%;
+
 `
 const CompanyPasswordColumn = styled.div`
-height: 100px;
-width: 100%;
-margin-bottom: 60px;
-margin-top: 20px;
-display: flex;
-flex-direction: column;
-/* background-color: blue; */
-`
-
-
-
-const CompanyPasswordInputHold = styled.div`
 height: auto;
-width: 100%;
-display: flex;
-
-`
-
-
-const EmailInputColumn = styled.div`
- height: 70px;
    width: 100%;
     margin-bottom: 15px;
     display: flex;
     flex-direction:column;
+
+    /* background-color: blue; */
+`
+
+
+const EmailInputColumn = styled.div`
+ height: auto;
+   width: 100%;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    display: flex;
+    flex-direction:column;
+
+    /* background-color: blue; */
 `
 
 
@@ -339,16 +333,16 @@ color: #0174f7b5;
 
 const Form = styled.form`
   height: auto;
-  width: 500px;
+  width: 600px;
   padding-top: 40px;
-  padding-left: 5px;
-  /* background-color: blue; */
- 
-  @media screen and (max-width: 960px){
-    width: 285px;
-    padding: 10px 20px;
-    border-radius: 10px;
-    padding-top: 40px;
+  padding-left: 50px;
+@media screen and (max-width: 600px) {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-left: 0px;
 }
 
 `

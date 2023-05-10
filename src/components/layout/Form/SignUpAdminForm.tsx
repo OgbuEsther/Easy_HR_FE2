@@ -1,4 +1,4 @@
-import React from "react";
+import {useState} from "react";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -9,10 +9,20 @@ import { createAdmin } from "../../../utils/Api/ApiCall";
 import { UseAppDispach } from "../../global/Store";
 import { Admin } from "../../global/ReduxState";
 import Swal from "sweetalert2";
+import {AiOutlineEyeInvisible} from "react-icons/ai"
+import {AiOutlineEye} from "react-icons/ai"
+import BackButton from "../../Buttons/BackButton";
 
 const SignupAdminForm = () => {
   const dispatch = UseAppDispach();
   const navigate = useNavigate();
+
+  const [ViewPassword, SetViewPassword] = useState(false);
+
+
+  const ViewPasswordFunction = () => {
+    SetViewPassword(!ViewPassword);
+  };
 
   const schema = yup
     .object({
@@ -41,6 +51,8 @@ const SignupAdminForm = () => {
 
     onSuccess: (myData) => {
       dispatch(Admin(myData.data))
+      reset()
+
       Swal.fire({
         title: "admin registered successfully",
         html: "redirecting to login",
@@ -58,19 +70,22 @@ const SignupAdminForm = () => {
   const Submit = handleSubmit(async (data: any) => {
     console.log("user", data)
     posting.mutate(data);
-    // reset();
+    
   });
 
   return (
     <Form onSubmit={Submit}>
+      <BackButton path="/sign-up-option"/>
+
       <SignUpTitle>Sign Up</SignUpTitle>
       <SignUpDescription>You will be signup as an Admin</SignUpDescription>
-      {/* <SignUpDescription>Pay smart and save time with Easy Pay</SignUpDescription> */}
+  
 
       <InputField>
         <NameInputColumn>
           <FirstNameInputContainer>
             <FirstNameInput {...register("yourName")} placeholder="Your Name" />
+            <span style={{color: "#D8000C"}}>{errors.yourName && "your name is required"}</span>
           </FirstNameInputContainer>
         </NameInputColumn>
 
@@ -81,6 +96,7 @@ const SignupAdminForm = () => {
               {...register("email")}
               placeholder="Email Address"
             />
+            <span style={{color: "#D8000C"}}>{errors.email && "your email is required"}</span>
           </AdminEmailContainer>
         </AdminEmailColumn>
 
@@ -91,14 +107,24 @@ const SignupAdminForm = () => {
               {...register("companyname")}
               placeholder="Company Name"
             />
+            <span style={{color: "#D8000C"}}>{errors.companyname && "your company name is required"}</span>
           </CompanyNameInputContainer>
-          <PasswordInputContainer>
-            <PasswordInput
-              {...register("password")}
-              placeholder="Password"
-              type="password"
-            />
-          </PasswordInputContainer>
+          <PasswordInputHold>
+      <InputmainHold>
+        <MainPassword className="password" {...register("password")} type={ViewPassword? "text":"password"} placeholder='password'/> <ShowPassword  onClick={ViewPasswordFunction}>
+        {
+          ViewPassword?<AiOutlineEye/>:<AiOutlineEyeInvisible/>
+        }
+        </ShowPassword>
+      </InputmainHold>
+      <span style={{color: "#D8000C"}}>{errors.password && "your password is required"}</span>
+    </PasswordInputHold>
+    
+    <ShowPasswordAndForgetPassword>
+<ForgetPassword >
+  Forget Password
+</ForgetPassword>
+    </ShowPasswordAndForgetPassword>
         </CompanyNameAndPasswordInputColumn>
 
         {/* Admin Sign up Button Area */}
@@ -124,33 +150,89 @@ const SignupAdminForm = () => {
 
 export default SignupAdminForm;
 
-const PasswordInput = styled.input`
-  height: 50px;
+
+const ShowPasswordAndForgetPassword = styled.div`
+  height: auto;
   width: auto;
-  border: 1px solid silver;
+  margin-top: 5px;
+  padding-right: 40px;
+  padding: 0px 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
 `;
+
+const MainPassword = styled.input`
+  height: 45px;
+  flex: 1;
+  padding-left: 10px;
+  outline: none;
+  background-color: transparent;
+
+`
+const InputmainHold = styled.div`
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border: 1px solid #007bff8c;
+  border-radius: 5px;
+
+  .password {
+    outline: none;
+    border: none;
+  }
+`
+
+const PasswordInputHold = styled.div`
+  height: auto;
+  width: 100%;
+
+`
+
+const ForgetPassword = styled.div`
+  height: auto;
+  width: auto;
+  font-size: 16px;
+  color: #0174f7c8;
+`;
+
+
+const ShowPassword = styled.div`
+  height: 40px;
+  width: 50px;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: gray;
+  border: none;
+  cursor: pointer;
+`;
+
+
 
 const CompanyNameInput = styled.input`
   height: 50px;
   width: auto;
-  border: 1px solid silver;
 `;
 
-const PasswordInputContainer = styled.div`
-  height: 100px;
-  width: 300px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-`;
+
 
 const CompanyNameInputContainer = styled.div`
-  height: 100px;
+  height: auto;
   width: 300px;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-right: 5px;
+
+  @media screen and (max-width:960px) {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 `;
 
 const CompanyNameAndPasswordInputColumn = styled.div`
@@ -172,26 +254,26 @@ const AdminEmailInput = styled.input`
 `;
 
 const AdminEmailColumn = styled.div`
-  height: 100px;
+  height: auto;
   width: 100%;
   display: flex;
   justify-content: center;
-  /* background-color: gray; */
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 960px) {
     align-items: center;
   }
 `;
 
 const AdminEmailContainer = styled.div`
-  height: 100px;
+  height: auto;
   width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
 
-  @media screen and (max-width: 500px) {
-    width: 300px;
+  @media screen and (max-width: 960px) {
+    width: 100%;
+    margin-bottom: 20px;
   }
 `;
 
@@ -202,12 +284,11 @@ const FirstNameInput = styled.input`
 `;
 
 const FirstNameInputContainer = styled.div`
-  height: 100px;
+  height: auto;
   width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-right: 5px;
 `;
 
 const NameInputColumn = styled.div`
@@ -218,8 +299,9 @@ const NameInputColumn = styled.div`
   align-items: center;
   flex-wrap: wrap;
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 960px) {
     justify-content: center;
+    margin-bottom: 20px;
   }
 `;
 
@@ -254,7 +336,6 @@ const InputField = styled.div`
   input {
     border-radius: 5px;
     border: 1px solid black;
-    outline-color: #00d1ff;
     padding-left: 10px;
     border: 1px solid #007bff8c;
   }

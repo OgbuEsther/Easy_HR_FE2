@@ -1,10 +1,7 @@
-import React from 'react'
 import styled from 'styled-components'
 import Admin from "../../Assets/hr_group.jpg"
-import {BsArrowLeft} from "react-icons/bs"
-import { NavLink } from 'react-router-dom';
 import SigninForm from '../../components/layout/Form/SignInForm';
-import OutlineButton from '../../components/Buttons/OutlineButton';
+import BackButton from '../../components/Buttons/BackButton';
 
 
 const SignIn = () => {
@@ -14,13 +11,11 @@ const SignIn = () => {
 <SipInPage>
 <SigInDetailContainer>
 <ImageContainer>
-<NavLink to="/sign-in-option">
-<OutlineButton  color='white' border='2px solid white' positioning='absolute' top='20px' left='20px'/>
-</NavLink>
+
+<BackButton path='/sign-in-option'/>
+
   <Image  src={Admin}/>
-  {/* <AdsWriteUp className='AdswriteUp'>Increase productivity and sales, paying staffs quickly with low rate at your comfort with <span>
-  easy pay</span>.
-</AdsWriteUp> */}
+
 </ImageContainer>
 <FormContainer>
 <SigninForm />
@@ -35,49 +30,10 @@ const SignIn = () => {
 
 export default SignIn;
 
-const BacKToDashBoardIconHold = styled.div`
-    position: absolute;
-    top: 0;
-    left: 0;
-    size: 24;
-    padding: 10px 0px 0px 10px;
-    font-size: 24px;
-    color: white;
-  
-
-   
-` 
 
 
 
-const AdsWriteUp = styled.div`
-  height: 150px;
-  width: auto;
-  padding-left: 50px;
-  padding-right: 50px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
 
-
-  @media screen and (max-width: 1040px){
-    font-size: 25px;
-    line-height: 35px;
-
-}
-
-span{
-}
-
-font-family: Arial, Helvetica, sans-serif;
-  font-size: 30px;
-  font-weight: bold;
-  line-height: 45px;
-  text-align: justify;
-
-  background-color: rgba(100, 100, 100, 0);
-  color: white;
-`
 
 const Image = styled.img`
   height: 100%;

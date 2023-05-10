@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React  from 'react'
 import styled from 'styled-components'
 import LeftSectionImage from "../../Assets/hr_group.jpg"
 import { NavLink } from 'react-router-dom'
-import OutlineButton from '../../components/Buttons/OutlineButton'
+import BackButton from '../../components/Buttons/BackButton'
 import logo from "../../Assets/logos2.png"
 
 
@@ -15,31 +15,27 @@ const SignUpOption = () => {
     
     <SignUpOptionPageContainer>
         <LeftSection>
-        <NavLink to="/">
-           <OutlineButton color='white' border='2px solid white' 
-            top='20px'
-            left='20px'
-            fontSize='200px'
-            positioning='absolute'
-            />
-           </NavLink>
+       
+           <BackButton path='/'/>
+      
+         
             <Image src={LeftSectionImage}/>
         </LeftSection>
         <RightSection>
             
-            <MobileViewBackButton>
-            <OutlineButton color=' #0170f6' border='2px solid  #0170f6' top='15%' left='20px' positioning='fixed' fontSize='24px'/>
-            </MobileViewBackButton>
+            
+            <BackButton path='/'/>
+           
             <SignUpOptionField>
                 <LogoHold>
                     <Logo src={logo}/>
                 </LogoHold>
                 <TitleAndDescriptionContainer>
-                    <Description>track your company's salary <br /> disbursment with easy</Description>
+                <Description>track your company's performance  & enhance more production with easyHR</Description>
                 </TitleAndDescriptionContainer>
                 <OptionButtonContainer>
                     <NavLink to="/sign-up-admin" style={{width:"100%", textDecoration:"none", color:"white", display:"flex", justifyContent:"center"}}>
-                        <AdminSignUpOption>Sign Up As A Company</AdminSignUpOption>
+                        <AdminSignUpOption>Sign Up As Company</AdminSignUpOption>
 
                     </NavLink>
 
@@ -58,27 +54,6 @@ export default SignUpOption;
 
 
 // Rignt Section Codes
-
-const MobileViewBackButton = styled.div`
-    height: 50px;
-    width: 50px;
-    display: none;
-    justify-content: center;
-    position: absolute;
-    top: 15%;
-    left: 10px;
-
-    @media screen and (max-width: 960px) {
-        display: flex;
-        justify-content: center;
-    position: absolute;
-    }
-
-    
-    /* background-color: blue; */
-
-`
-
 const Description = styled.div`
 height: 100px;
 width: auto;
@@ -87,7 +62,13 @@ font-weight: bold;
 text-align: center;
 color: #0170f6;
 margin-top: 20px;
-/* background-color: blue; */
+
+@media screen and (max-width: 960px) {
+    font-size: 16px;
+    text-align: center;
+    width: 90%;
+    padding-left: 10%;
+}
 `
 
 const Logo = styled.img`

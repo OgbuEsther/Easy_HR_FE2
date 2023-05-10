@@ -1,10 +1,7 @@
-import React from 'react'
 import styled from 'styled-components'
 import Admin from "../../Assets/hr_group.jpg"
 import SignupForm from '../../components/layout/Form/SignUpForm'
-import {BsArrowLeft} from "react-icons/bs"
-import { NavLink } from 'react-router-dom';
-import OutlineButton from '../../components/Buttons/OutlineButton'
+import BackButton from '../../components/Buttons/BackButton'
 
 
 const SignUp = () => {
@@ -14,20 +11,11 @@ const SignUp = () => {
 <SipupPage>
   <SigupDetailContainer>
 <ImageContainer>
-
-<NavLink to='/sign-up-option'>
-      <OutlineButton positioning='absolute' border='2px solid white' color='white' top='20px' left='20px'/>
+     <BackButton path='/sign-up-option'/>
   <Image  src={Admin}/>
-      </NavLink>
-  <Image  src={Admin}/>
-  {/* <AdsWriteUp className='AdswriteUp'>Increase productivity and sales, paying staffs quickly with low rate at your comfort with <span>
-  easy pay</span>.
-</AdsWriteUp> */}
 </ImageContainer>
 <FormContainer>
-{/* <MobileViewBackButton>
-  <OutlineButton positioning='fixed' color='black' border='2px solid black'/>
-</MobileViewBackButton> */}
+
   <SignupForm />
 </FormContainer>
 </SigupDetailContainer>
@@ -39,30 +27,6 @@ const SignUp = () => {
 }
 
 export default SignUp;
-
-
-const MobileViewBackButton = styled.div`
-  height: 50px;
-  width: 50px;
-  
-`
-
-const AdsWriteUp = styled.p`
-  height: 150px;
-  width: auto;
-  padding-left: 50px;
-  padding-right: 50px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-font-family: Arial, Helvetica, sans-serif;
-  font-size: 30px;
-  font-weight: bold;
-  line-height: 45px;
-  text-align: justify;
-  background-color: rgba(100, 100, 100, 0);
-  color: white;
-`
 
 const Image = styled.img`
   height: 100%;
