@@ -18,6 +18,7 @@ const HomeScreen = () => {
         <Connect/>
         <Payment/>
         <Facts/>
+        
         <End/>
     </div>
   )

@@ -92,6 +92,10 @@ margin: 10px;
   width: 250px;
   height: 60px;
 }
+@media screen and (max-width:320px) {
+  width: 250px;
+  height: 60px;
+}
 `
 
 const ButtonHold = styled.div`
@@ -100,6 +104,12 @@ flex-wrap: wrap;
 margin-top:30px ;
 
 @media screen and (max-width:320px) {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+@media screen and (max-width:375px) {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -221,6 +231,9 @@ flex-wrap: wrap;
 
 @media screen and (max-width:320px) {
   margin-left: 5px;
+}
+@media screen and (max-width:375px) {
+  margin-left: 10px;
 }
 @media screen and (max-width:375px) {
   margin-left: 10px;
