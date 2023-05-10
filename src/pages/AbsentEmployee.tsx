@@ -7,7 +7,7 @@ import {IoMdArrowDropdown} from "react-icons/io"
 import axios from 'axios';
 import { useAppSelector } from '../components/global/Store';
 import { useQuery } from '@tanstack/react-query';
-import { genAttendanceToken } from '../utils/Api/ApiCall';
+import { genAttendanceToken, getOneAdmin } from '../utils/Api/ApiCall';
 
 const AbsentEmployee = () => {
 
@@ -24,10 +24,9 @@ const AbsentEmployee = () => {
   const [token, setToken] = React.useState("");
 
   const getAdmin = useQuery({
-    queryKey: ["genToken"],
-    queryFn: () => genAttendanceToken(admin?._id),
+    queryKey: ["singleAdmin"],
+    queryFn: () => getOneAdmin(admin?._id),
   });
-
   const searchData = async (e: any) => {
     if (e.key === "Enter") {
       await axios

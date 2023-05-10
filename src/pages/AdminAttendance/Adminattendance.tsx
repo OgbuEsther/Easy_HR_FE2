@@ -24,7 +24,7 @@ const Adminattendance: React.FC = () => {
 
   const [token, setToken] = React.useState("");
 
-  const getAdmin = useQuery({
+  const getAdminToken = useQuery({
     queryKey: ["genToken"],
     queryFn: () => genAttendanceToken(admin?._id),
   });
@@ -69,6 +69,11 @@ const Adminattendance: React.FC = () => {
     },2000)
 
   }, [])
+
+  const getAdmin = useQuery({
+    queryKey: ["singleAdmin"],
+    queryFn: () => getOneAdmin(admin?._id),
+  });
 
     const [search, setSearch] = React.useState("");
   const [searchProps, setSearchProps] = React.useState<any[]>([]);
@@ -157,7 +162,7 @@ const Adminattendance: React.FC = () => {
             <Title>Today's Attendance:</Title>
             {searchProps.length === 0 ? (
           <>
-            {getAdmin?.data?.data?.viewUser.map((el: any) => (
+            {getAdmin?.data?.data?.viewStaffAttendance.map((el: any) => (
             <Table>
               <table>
                 <tr>
@@ -257,7 +262,7 @@ const Adminattendance: React.FC = () => {
                 )}
               </>
             )}
-        )
+        
           </Two>
                   ) : <RotatingLines  visible={true}
             strokeColor="#007bff"
