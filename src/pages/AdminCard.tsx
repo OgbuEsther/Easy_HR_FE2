@@ -314,7 +314,7 @@ const Popups = styled.div`
 
 const Card3 = styled.div`
   height: 120px;
-  width: 329px;
+  width: 385px;
   background: radial-gradient(circle at 4.3% 10.7%, rgb(138, 118, 249) 13.6%, rgb(75, 252, 235) 100.7%);
   border-radius: 3px;
   border-bottom: 2px solid #0d71fa;
@@ -337,7 +337,7 @@ const Card3 = styled.div`
 `;
 const Card2 = styled.div`
   height: 120px;
-  width: 329px;
+  width: 385px;
   background: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
   border-radius: 3px;
   border-bottom: 2px solid #0d71fa;
@@ -362,7 +362,7 @@ const Card2 = styled.div`
 
 const Card1 = styled.div`
   height: 120px;
-  width: 329px;
+  width: 385px;
   background: radial-gradient(484px at 49.4% 19%, rgb(23, 156, 214) 0%, rgb(52, 48, 111) 100.2%);
   border-radius: 3px;
   border-bottom: 2px solid #0d71fa;
