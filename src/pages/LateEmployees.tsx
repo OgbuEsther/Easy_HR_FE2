@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import styled from "styled-components"
-import { RiDeleteBin2Line } from "react-icons/ri";
-import { BsPencilFill } from "react-icons/bs";
+
 import Inputdate from "./Inputdate/Inputdate";
 import {IoMdArrowDropdown} from "react-icons/io"
 
@@ -63,33 +62,9 @@ const LateEmployees = () => {
 }
 
 export default LateEmployees
-const Cir = styled.div`
-  margin: 5px;
-  border-radius: 50px;
-  background-color: green;
-  height: 35px;
-  width: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-`;
 
-const Cir1 = styled.div`
-  margin: 5px;
-  border-radius: 50px;
-  background-color: red;
-  height: 35px;
-  width: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-`;
 
-const Action = styled.div`
-  display: flex;
-`;
+
 
 const Chc = styled.div`
   color: green;

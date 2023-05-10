@@ -157,7 +157,7 @@ const Adminattendance: React.FC = () => {
             <Title>Today's Attendance:</Title>
             {searchProps.length === 0 ? (
           <>
-            {getAdmin?.data?.data?.viewUser.map((el: any) => (
+            {getAdmin?.data?.data?.viewStaffAttendance.map((el: any) => (
             <Table>
               <table>
                 <tr>
@@ -257,7 +257,7 @@ const Adminattendance: React.FC = () => {
                 )}
               </>
             )}
-        )
+        
           </Two>
                   ) : <RotatingLines  visible={true}
             strokeColor="#007bff"

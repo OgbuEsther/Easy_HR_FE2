@@ -44,7 +44,11 @@ const UninformedLeave = () => {
           <Wrapper>
               <Down>
             <Inputhold>
-            <Input placeholder='All Employees' />
+            <Input onKeyPress={searchData}
+              onChange={(e) => {
+                setSearch(e.target.value);
+              }}
+              placeholder="Search by staff name "  />
             <Icon><IoMdArrowDropdown /></Icon>
             </Inputhold>
             <Inputhold>
@@ -57,7 +61,7 @@ const UninformedLeave = () => {
 
             {searchProps.length === 0 ? (
           <>
-            {getAdmin?.data?.data?.viewAbsentStaff.map((el: any) => (
+            {getAdmin?.data?.data?.viewStaffHistory.map((el: any) => (
             <Table>
               <table>
                 <tr>

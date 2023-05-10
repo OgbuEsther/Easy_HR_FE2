@@ -154,7 +154,7 @@ const SideBar = () => {
           .then((result) => {
             if (result.isConfirmed) {
               dispatch(logoutAdmin());
-              navigate("/optionsignin");
+              navigate("/");
               swalWithBootstrapButtons.fire(
                 "logout successful!",
                 "logout successful.",
