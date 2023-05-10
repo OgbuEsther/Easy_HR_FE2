@@ -24,7 +24,7 @@ const Adminattendance: React.FC = () => {
 
   const [token, setToken] = React.useState("");
 
-  const getAdmin = useQuery({
+  const getAdminToken = useQuery({
     queryKey: ["genToken"],
     queryFn: () => genAttendanceToken(admin?._id),
   });
@@ -69,6 +69,11 @@ const Adminattendance: React.FC = () => {
     },2000)
 
   }, [])
+
+  const getAdmin = useQuery({
+    queryKey: ["singleAdmin"],
+    queryFn: () => getOneAdmin(admin?._id),
+  });
 
     const [search, setSearch] = React.useState("");
   const [searchProps, setSearchProps] = React.useState<any[]>([]);

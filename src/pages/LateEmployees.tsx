@@ -2,12 +2,13 @@ import React, {useState} from 'react'
 import styled from "styled-components"
 import {IoMdArrowDropdown} from "react-icons/io"
 import Inputdate from "./Inputdate/Inputdate";
-import {IoMdArrowDropdown} from "react-icons/io"
+
 import { RiDeleteBin2Line } from "react-icons/ri";
 import { BsPencilFill } from "react-icons/bs";
 import axios from 'axios';
 import { useAppSelector } from '../components/global/Store';
 import { useQuery } from '@tanstack/react-query';
+import { genAttendanceToken, getOneAdmin } from '../utils/Api/ApiCall';
 const LateEmployees = () => {
 
      const [selectedDate, setSelectedDate] = useState<Date>(new Date());
@@ -16,11 +17,10 @@ const LateEmployees = () => {
   };
   const admin = useAppSelector((state) => state.currentUser);
 
-  const [token, setToken] = React.useState("");
 
   const getAdmin = useQuery({
-    queryKey: ["genToken"],
-    queryFn: () => genAttendanceToken(admin?._id),
+    queryKey: ["singleAdmin"],
+    queryFn: () => getOneAdmin(admin?._id),
   });
 
   const [search, setSearch] = React.useState("");
