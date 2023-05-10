@@ -56,7 +56,9 @@ const Transaction = () => {
           </Textplace>
 
           <Goals>
-            fububu
+            <ul>
+              <li>jdjdjdjdj</li>
+            </ul>
           </Goals>
         </Wrapper>
       </Container>
@@ -66,7 +68,11 @@ const Transaction = () => {
 
 export default Transaction;
 const Goals = styled.div`
-  
+  width: 100%;
+  display: flex;
+  margin-top: 25px;
+  border: 1px solid lightgray;
+  padding: 12px;
 `
 const Button = styled.button`
   width: 130px;
@@ -78,7 +84,7 @@ const Button = styled.button`
   background-color: #007bff;
   border: none;
   outline: none;
-  border-radius: 7px;
+  border-radius: 12px;
   cursor: pointer;
   margin-top: 7px;
 `
