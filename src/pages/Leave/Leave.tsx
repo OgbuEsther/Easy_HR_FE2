@@ -56,7 +56,11 @@ const Leave = () => {
           <Inputhold>
             <Input placeholder='All Employees' />
             <Icon><IoMdArrowDropdown /></Icon>
-          </Inputhold>
+            </Inputhold>
+            
+          <Create>
+          
+        </Create>
 
           <Mid>
             {isLoading ? (
@@ -110,6 +114,11 @@ const Leave = () => {
 }
 
 export default Leave
+const Create = styled.div`
+  width: 470px;
+  height: 40px;
+  background: #EEEEEE;
+`
 const Plan = styled.div`
   margin-top: 19px;
   color: grey;
