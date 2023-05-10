@@ -70,8 +70,12 @@ const Transaction = () => {
           </Pending>
           </Top>
           
-          {show1 ? (
-            <div>
+          {isLoading ? (
+            <Mid>
+              {show1 ? (
+            <div style={{
+              width: "100%"
+            }}>
               <Textplace>
             <Texthold>
               <Textarea placeholder="Set Goals....." value={text} onChange={handleTextChange}/>
@@ -89,6 +93,12 @@ const Transaction = () => {
           </Goals>
             </div>
           ) : null}
+            </Mid>
+          ) : <RotatingLines  visible={true}
+            strokeColor="#007bff"
+            strokeWidth="5"
+            animationDuration="0.75"
+            width="30" />}
         </Wrapper>
       </Container>
     </div>
@@ -96,6 +106,10 @@ const Transaction = () => {
 };
 
 export default Transaction;
+const Mid = styled.div`
+  width: 100%;
+  margin-top: 10px;
+`
 const Goals = styled.div`
   width: 100%;
   display: flex;
