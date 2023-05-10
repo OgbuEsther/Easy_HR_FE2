@@ -73,7 +73,10 @@ const Adminattendance: React.FC = () => {
   const getAdmin = useQuery({
     queryKey: ["singleAdmin"],
     queryFn: () => getOneAdmin(admin?._id),
+
   });
+
+  console.log("this is todays mapping ", getAdmin?.data?.data?.viewStaffAttendance)
 
     const [search, setSearch] = React.useState("");
   const [searchProps, setSearchProps] = React.useState<any[]>([]);
@@ -89,6 +92,7 @@ const Adminattendance: React.FC = () => {
         });
     }
   };
+  
 
   return (
     <div>

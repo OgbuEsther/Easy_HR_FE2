@@ -26,6 +26,7 @@ const AbsentEmployee = () => {
     queryKey: ["singleAdmin"],
     queryFn: () => getOneAdmin(admin?._id),
   });
+  console.log("this is todays absent ", getAdmin?.data?.data?.viewAbsentStaff)
   const searchData = async (e: any) => {
     if (e.key === "Enter") {
       await axios
@@ -68,27 +69,27 @@ const AbsentEmployee = () => {
                   <th>Department</th>
                   <th>Check In</th>
                   <th>Shift</th>
-                  <th>Status</th>
-                  <th>Action</th>
+                  {/* <th>Status</th>
+                  <th>Action</th> */}
                 </tr>
 
                 <tr>
                   <td>
                     <Circlehold>
-                    <Circle>O</Circle>
-                    <Name>Okwoli Godwin</Name>
+                    <Circle>{el?.yourName}</Circle>
+                    <Name>{el?.yourName} </Name>
                     </Circlehold>
                   </td>
-                  <td>1001</td>
+                  <td>{el?.companyCode}</td>
                   <td>Development</td>
-                  <td>
+                  {/* <td>
                     <Chc>10:28</Chc>
-                  </td>
+                  </td> */}
                   <td>Shift 1</td>
-                  <td>
+                  {/* <td>
                     <Box>Present</Box>
-                  </td>
-                  <td>
+                  </td> */}
+                  {/* <td>
                     <Action>
                       <Cir>
                         <BsPencilFill />
@@ -97,7 +98,7 @@ const AbsentEmployee = () => {
                         <RiDeleteBin2Line />
                       </Cir1>
                     </Action>
-                  </td>
+                  </td> */}
                 </tr>
               </table>
             </Table>
