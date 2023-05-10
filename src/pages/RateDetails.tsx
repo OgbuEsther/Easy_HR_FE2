@@ -32,6 +32,7 @@ const RateDetails = () => {
                   <th>Id</th>
                   <th>Staff Ratings</th>
                   <th>Admin Ratings</th>
+                  <th>Grade</th>
                 </tr>
 
                 <tr>
@@ -46,13 +47,16 @@ const RateDetails = () => {
                          <Rate>40</Rate>
                   </td>
                     <td>
-                        <Input
-                        type="number"            
-                    />
+                        <Rate>80</Rate>          
                     </td>
                     <td>
-                     <Button>Submit</Button>
-                  </td>
+                     <Alpha>A</Alpha>
+                                  </td>
+                                  <td>
+                        <Alpha>
+                             <Txt2>Very Good</Txt2>             
+                     </Alpha>
+                    </td>
                               </tr>
                               <tr>
                   <td>
@@ -66,12 +70,17 @@ const RateDetails = () => {
                           <Rate>40</Rate>
                   </td>
                     <td>
-                        <Input
-                        type="number"            
-                    />
+                        <Rate>40</Rate>          
                     </td>
                     <td>
-                  </td>
+                     <Alpha>C</Alpha>
+                    </td>
+                        <td>
+                        <Alpha>
+                             <Txt>Poor</Txt>             
+                     </Alpha>
+                    </td>
+                                  
                               </tr>
                               
                     
@@ -89,6 +98,17 @@ const RateDetails = () => {
 }
 
 export default RateDetails
+const Txt2 = styled.div`
+    font-size: 18px;
+    color: Green;
+`
+const Txt = styled.div`
+    font-size: 18px;
+    color: yellow;
+`
+const Alpha = styled.div`
+    font-size: 17px;
+`
 const Rate = styled.div`
     font-size: 17px;
 `
