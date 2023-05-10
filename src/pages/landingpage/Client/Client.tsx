@@ -44,6 +44,10 @@ h3{
   color: #fff;
   margin: 0;
   margin-bottom: 40px;
+
+  @media screen and  (max-width:320px) {
+    font-size: 20px;
+  }
 }
 
 ul li{
@@ -54,6 +58,10 @@ ul li{
   padding-left: 0;
   display: list-item;
   text-align:-webkit-match-parent;
+
+  @media screen and (max-width:320px) {
+    font-size: 15px;
+  }
 }
 `
 
@@ -81,6 +89,22 @@ p{
   font-weight: 700;
   color: #fff;
 
+  @media screen and (max-width:320px) {
+    font-size: 22px;
+    line-height: 35px;
+    width: 100%;
+    /* margin-left: 100px; */
+  }
+
+}
+
+@media screen and (max-width:320px) {
+  margin: 0;
+  width: 900%;
+  height:800px;
+  margin-left: 10px;
+  padding-right: 30px;
+  /* background-color: red; */
 }
 `
 
@@ -96,10 +120,15 @@ justify-content: center;
 
 const Container = styled.div`
 background-image: url(${img});
-height: 700px;
+height: 800px;
 width: 100%;
 background-size: cover;
 display: flex;
 align-items: center;
 justify-content: center;
+
+
+@media screen and (max-width:320px) {
+  height: 900px;
+}
 `
