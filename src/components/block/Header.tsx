@@ -16,10 +16,10 @@ const Header = () => {
         <img src={img} alt="" className='h-16'/>
 
         <div className='flex items-center xmd:hidden'>
-          <div className='text-white text-sm m-6 hover:text-hover'>Home</div>
-          <div className='text-white text-sm m-6 hover:text-hover'>Our Solution</div>
-          <div className='text-white text-sm m-6 hover:text-hover'>About</div>
-          <div className='text-white text-sm m-6 hover:text-hover'>How we work</div>
+          <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>Home</div>
+          <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>Our Solution</div>
+          <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>About</div>
+          <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>How we work</div>
         </div>
 
         <div className='flex items-center md:hidden'>

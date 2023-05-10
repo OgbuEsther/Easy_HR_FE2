@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 // import images from "../Assets/logo7.png";
-import images from "../../Assets/easyhr.jpeg"
+import images from "../../Assets/new.png"
+import foot from "../../Assets/footer1.jpg"
 
 import { MdFacebook }  from "react-icons/md"
 import { AiFillTwitterCircle }  from "react-icons/ai"
@@ -90,9 +91,9 @@ const Footer = () => {
               style={{ textDecoration: "none" }}
             >
               <Navs>
-                <Icons >
+                <Icon >
                   <BsWhatsapp/>
-                </Icons>
+                </Icon>
                 WhatsApp
               </Navs>
             </NavLink>
@@ -102,9 +103,9 @@ const Footer = () => {
           style={{ textDecoration: "none" }}
           >
           <Navs>
-              <Icons>
+              <Icon>
                 <BsLinkedin />
-              </Icons>
+              </Icon>
               LinkedIn
             </Navs>
           </NavLink>
@@ -114,9 +115,9 @@ const Footer = () => {
          style={{ textDecoration: "none" }}
          >
          <Navs>
-              <Iconss>
+              <Icon>
               <MdFacebook/>
-              </Iconss>
+              </Icon>
               FaceBook
             </Navs>
          </NavLink>
@@ -126,9 +127,9 @@ const Footer = () => {
          style={{ textDecoration: "none" }}
          >
          <Navs>
-              <Iconsss>
+              <Icon>
                 <BsYoutube />
-              </Iconsss>
+              </Icon>
               YouTube
             </Navs>
          </NavLink>
@@ -138,9 +139,9 @@ const Footer = () => {
          style={{ textDecoration: "none" }}
          >
          <Navs>
-              <Iconssss>
+              <Icon>
                 <GrInstagram />
-              </Iconssss>
+              </Icon>
               Instagram
             </Navs>
          </NavLink>
@@ -150,9 +151,9 @@ const Footer = () => {
          style={{ textDecoration: "none" }}
          >
          <Navs>
-              <Iconssss>
+              <Icon>
                 <AiFillTwitterCircle />
-              </Iconssss>
+              </Icon>
               Twitter
             </Navs>
          </NavLink>
@@ -216,31 +217,17 @@ border-radius: 50%;
   }
 `
 
-const Iconssss = styled.div`
-  color: #00244E;
-  margin-right: 7px;
-  margin-top: 2px;
-`;
-const Iconsss = styled.div`
-  color: #00244E;
-  margin-right: 7px;
-  margin-top: 2px;
-`;
-const Iconss = styled.div`
+const Icon = styled.div`
   color: black;
   margin-right: 7px;
   margin-top: 2px;
+  font-size: 20px;
+
+  :hover{
+    color: white;
+  }
 `;
-const Icons = styled.div`
-  color: #00244E;
-  margin-right: 7px;
-  margin-top: 2px;
-`;
-const Icon = styled.div`
-  color: #00244E;
-  margin-right: 7px;
-  margin-top: 2px;
-`;
+
 const Dow = styled.div`
   width: 100%;
   height: 35%;
@@ -262,18 +249,18 @@ const Navs = styled.div`
   line-height: 24px;
   align-items: center;
   font-weight: 400;
-  color: rgb(107, 107, 107);
+  color:white;
   margin-bottom: 7px;
   cursor: pointer;
   :hover {
-    color: #00244E;
+    color: #DC3545;
   }
 `;
 const Bold = styled.h2`
   font-size: 18px;
   line-height: 1.28;
   letter-spacing: -0.12px;
-  color: rgb(78, 78, 78);
+  color: white;
   margin: 0;
   font-weight: 600;
   text-align: start;
@@ -313,7 +300,7 @@ const Down = styled.div`
   align-items: center;
   justify-content: center;
   margin-left: 20px;
-  margin-top:-35px;
+  /* margin-top:-1px; */
 `;
 const Images = styled.img`
   height: 150px;
@@ -341,7 +328,11 @@ const Container = styled.div`
   height: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 30px;
+  padding-top: 40px;
+  padding-bottom: 30px;
+  /* background-color: #001328; */
+  background-image: url(${foot});
 
   @media screen and (max-width: 320px) {
     margin-bottom:2px;

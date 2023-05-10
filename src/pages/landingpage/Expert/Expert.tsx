@@ -6,21 +6,27 @@ import img3 from "../../../Assets/esther.jpg"
 import img4 from "../../../Assets/shazam.jpg"
 import img5 from "../../../Assets/spider.jpg"
 import {SiApplemusic} from "react-icons/si"
+import {  BsWhatsapp} from "react-icons/bs"
+import { Fade } from 'react-awesome-reveal'
+
 
 const Expert = () => {
   return (
     <div>
         <Container>
           <Wrapper>
-          <Text>PEOPLE BEHIND THE SUCCESS</Text>
+            <Fade direction='up'>
+            <Text>PEOPLE BEHIND THE SUCCESS</Text>
             <Word>
              <h2>   Meet Our Expert People <br /> of EasyHR</h2>
             </Word>
+            </Fade>
             <ImageHold>
-                <Image>
+              <Fade direction='left'>
+              <Image>
                     <Pic src={img2}/>
                     <Icon>
-                        <SiApplemusic/>
+                        <BsWhatsapp/>
                     </Icon>
                     <Bio>
                         <h3>Esther Ogbu</h3>
@@ -33,7 +39,7 @@ const Expert = () => {
                 <Image>
                     <Pic src={img4}/>
                     <Icon>
-                        <SiApplemusic/>
+                        <BsWhatsapp/>
                     </Icon>
                     <Bio>
                         <h3>Godwin Okowli</h3>
@@ -46,7 +52,7 @@ const Expert = () => {
                 <Image>
                     <Pic src={img5}/>
                     <Icon>
-                        <SiApplemusic/>
+                        <BsWhatsapp/>
                     </Icon>
                     <Bio>
                         <h3>Joshua </h3>
@@ -59,7 +65,7 @@ const Expert = () => {
                 <Image>
                     <Pic src={img3}/>
                     <Icon>
-                        <SiApplemusic/>
+                        <BsWhatsapp/>
                     </Icon>
                     <Bio>
                         <h3>Esther Ovoke</h3>
@@ -68,11 +74,13 @@ const Expert = () => {
                        <p> Lead HR Personnel</p>
                     </Bio1>
                 </Image>
+              </Fade>
 
-                <Image>
+               <Fade direction='right'>
+               <Image>
                     <Pic src={img1}/>
                     <Icon>
-                        <SiApplemusic/>
+                        <BsWhatsapp/>
                     </Icon>
                     <Bio>
                         <h3>Valerian Pedro</h3>
@@ -81,6 +89,7 @@ const Expert = () => {
                        <p> Lead FrontEnd Engineer</p>
                     </Bio1>
                 </Image>
+               </Fade>
             </ImageHold>
           </Wrapper>
         </Container>
