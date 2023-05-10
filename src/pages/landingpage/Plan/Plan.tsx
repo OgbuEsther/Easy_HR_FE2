@@ -168,7 +168,10 @@ const Plan = () => {
 }
 
 export default Plan
-const Box = styled.div``
+const Box = styled.div`
+display: flex;
+flex-wrap: wrap;
+`
 
 const Text = styled.div`
     font-size: 16px;
