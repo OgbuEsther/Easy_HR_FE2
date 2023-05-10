@@ -152,7 +152,7 @@ margin: 40px;
 
 const ImageHold = styled.div`
 width: 100%;
-background-color: red;
+/* background-color: red; */
 display: flex;
 justify-content: space-evenly;
 align-items: center;
@@ -170,16 +170,26 @@ font-weight: 800;
 line-height: 1.2;
 font-family: inherit;
 margin: 0;
+
+@media screen and (max-width:320px) {
+    font-size: 25px;
+    text-align: center;
+}
+@media screen and (max-width:768px) {
+    font-size: 30px;
+    text-align: center;
+}
 `
 
 const Text = styled.div`
-font-size: 14px;
+font-size: 15px;
+font-weight: 500;
 margin: 0px 0px 5px;
 color: #0F6FD5;
 `
 
 const Wrapper = styled.div`
-background-color: purple;
+/* background-color: purple; */
 width: 100%;
 display: flex;
 align-items:center;
@@ -189,12 +199,12 @@ flex-wrap: wrap;
 `
 
 const Container = styled.div`
-background-color: brown;
+/* background-color: brown; */
 width:100% ;
 display: flex;
 align-items:center;
 justify-content: center;
 flex-direction: column;
 flex-wrap: wrap;
-margin: 30px 0px;
+margin: 50px 0px;
 `
