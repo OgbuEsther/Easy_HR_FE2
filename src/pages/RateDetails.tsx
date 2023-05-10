@@ -1,11 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import { RotatingLines } from 'react-loader-spinner'
-import {IoMdArrowDropdown} from "react-icons/io"
 
-const Adminrate = () => {
+const RateDetails = () => {
 
-     const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
 
      useEffect(() => {
    setTimeout(() => {
@@ -72,7 +71,6 @@ const Adminrate = () => {
                     />
                     </td>
                     <td>
-                     <Button>Submit</Button>
                   </td>
                               </tr>
                               
@@ -90,7 +88,7 @@ const Adminrate = () => {
   )
 }
 
-export default Adminrate
+export default RateDetails
 const Rate = styled.div`
     font-size: 17px;
 `
@@ -191,14 +189,6 @@ const Table = styled.div`
     font-weight: bold;
   }
 `;
-const Mid = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding-top: 15px;
-  flex-direction: column;
-  align-items: center;
-`
 const Box4 = styled.div`
     width: 25px;
     height: 25px;
@@ -232,7 +222,14 @@ const Box = styled.div`
     margin-right: 5px;
     border-radius: 3px;
 `
-
+const Mid = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+  flex-direction: column;
+  align-items: center;
+`
 const Pending = styled.div`
   display: flex;
   margin: 18px;
@@ -275,6 +272,7 @@ const Wrapper = styled.div`
     width: 90%;
   }
 `
+
 const Container = styled.div`
     width: 100%;
     display: flex;

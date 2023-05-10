@@ -42,16 +42,6 @@ const ParentComp = () => {
       <Container>
         <Wrapper>
           <Top>
-            <Left>
-              <Bold>
-                <Icn>
-                  <AiFillDashboard />
-                </Icn>
-                Dashboard
-              </Bold>
-              <button onClick={Toggle}>Credit Wallet</button>
-            </Left>
-            <hr />
 
             {show ? (
               <Slidein>

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { RotatingLines } from 'react-loader-spinner'
 import Inputdate from "../Inputdate/Inputdate";
 import Adminrate from "../Adminrate";
+import RateDetails from "../RateDetails";
 
 
 
@@ -14,14 +15,23 @@ const Transaction = () => {
 
   const [show1, setShow1] = useState(true)
   const [show2, setShow2] = useState(false)
+  const [show3, setShow3] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
    const Toggle1 = () => {
      setShow1(true)
      setShow2(false)
+     setShow3(false)
   }
   const Toggle2 = () => {
     setShow2(!show2)
+    setShow1(false)
+    setShow3(false)
+  }
+
+  const Toggle3 = () => {
+    setShow3(!show3)
+    setShow2(false)
     setShow1(false)
   }
 
@@ -71,6 +81,13 @@ const Transaction = () => {
             animationDuration="0.75"
             width="30" />}</span>
           </Pending>
+
+            <Pending onClick={Toggle3}><h3>Details</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
+            strokeColor="#007bff"
+            strokeWidth="5"
+            animationDuration="0.75"
+            width="30" />}</span>
+          </Pending>
           </Top>
           
           {isLoading ? (
@@ -105,6 +122,10 @@ const Transaction = () => {
 
           {show2 ? (
             <Adminrate />
+          ) : null}
+
+          {show3 ? (
+            <RateDetails />
           ) : null}
         </Wrapper>
       </Container>

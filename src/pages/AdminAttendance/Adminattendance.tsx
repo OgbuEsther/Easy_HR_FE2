@@ -80,6 +80,7 @@ const Adminattendance: React.FC = () => {
         .then((res) => {
           console.log(res.data.data);
           setSearchProps(res.data.data);
+          console.log(`searchlog`, setSearchProps)
         });
     }
   };
