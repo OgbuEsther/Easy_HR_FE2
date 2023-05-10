@@ -161,7 +161,7 @@ const AbsentEmployee = () => {
                 )}
               </>
             )}
-        )
+        
           </Two>
           </Wrapper>
     </Container>
