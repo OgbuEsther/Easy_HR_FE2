@@ -1,30 +1,21 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import img from "../../Assets/easy.png"
+// import img from "../../Assets/easy.png"
 import {HiOutlineMail} from "react-icons/hi"
-import {Link, useParams} from "react-router-dom"
-import { adminVerification } from '../../utils/Api/ApiCall'
 
-const Verification = () => {
-
-    const { id }: any = useParams();
-    console.log("user id: ", id);
-  
-    useEffect(() => {
-        adminVerification(id);
-    });
+const CheckMail = () => {
   return (
       <Container>
           <Box>
-              <Img src={img} />
+              {/* <Img src={img} /> */}
               <Card>
                   <Linehold>
                       <Line></Line>
                       <Icons><HiOutlineMail /></Icons>
                       <Line></Line>
                   </Linehold>
-                  <Thanks>THANKS FOR CLICKING!</Thanks>
-                  <Verify><h3>your email has been verified</h3></Verify>
+                  <Thanks>THANKS FOR SIGNING UP!</Thanks>
+                  <Verify><h3>Verify Your E-email Address</h3></Verify>
               </Card>
               <Textspace>
                   <p>Hi,</p>
@@ -32,21 +23,21 @@ const Verification = () => {
                       You're almost ready to get started. Please click on the button below to verify your email and enjoy exclusive service with us
                   </Texthold>
               </Textspace>
-              <Button to = {`/sign-in-admin`}>sign in now!</Button>
+              <Button>VERIFY YOUR EMAIL</Button>
               <Thank>Thanks <br /> The Company's Team</Thank>
           </Box>
     </Container>
   )
 }
 
-export default Verification
+export default CheckMail
 const Thank = styled.div`
     display: flex;
     text-align: center;
     margin-top: 25px;
     color: #505050;
 `
-const Button = styled(Link)`
+const Button = styled.button`
     width: 170px;
     height: 35px;
     display: flex;

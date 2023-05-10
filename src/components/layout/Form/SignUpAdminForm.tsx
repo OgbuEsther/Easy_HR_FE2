@@ -62,7 +62,7 @@ const SignupAdminForm = () => {
          
         
       })
-      navigate("/sign-in-admin");
+      navigate("/check-mail");
     
     },
   });

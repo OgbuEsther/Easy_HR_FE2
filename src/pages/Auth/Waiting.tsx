@@ -3,9 +3,10 @@ import styled from 'styled-components'
 import img from "../../Assets/easy.png"
 import {HiOutlineMail} from "react-icons/hi"
 import {Link, useParams} from "react-router-dom"
+import { useAppSelector } from '../../components/global/Store'
 import { adminVerification } from '../../utils/Api/ApiCall'
 
-const Verification = () => {
+const Waiting = () => {
 
     const { id }: any = useParams();
     console.log("user id: ", id);
@@ -29,17 +30,17 @@ const Verification = () => {
               <Textspace>
                   <p>Hi,</p>
                   <Texthold>
-                      You're almost ready to get started. Please click on the button below to verify your email and enjoy exclusive service with us
+                      You're almost ready to get started. Please check your email for verification by your company's admin
                   </Texthold>
               </Textspace>
-              <Button to = {`/sign-in-admin`}>sign in now!</Button>
+              {/* <Button to = {`/sign-in-admin`}>sign in now!</Button> */}
               <Thank>Thanks <br /> The Company's Team</Thank>
           </Box>
     </Container>
   )
 }
 
-export default Verification
+export default Waiting
 const Thank = styled.div`
     display: flex;
     text-align: center;

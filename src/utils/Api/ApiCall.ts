@@ -7,9 +7,18 @@ export const url = "https://easyhr.onrender.com/api"
 const staffUrl ="staff"
 
 
+
 export const createAdmin = async(data:any)=>{
     return await axios.post(`https://easyhr.onrender.com/api/admin/register`,data).then((res)=> res.data)
 }
+
+export const adminVerification = async (id: string) => {
+    try {
+      return await axios.get(`${url}/admin/${id}/verify`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
 export const LoginAdmin = async(data:AdminData)=>{
     return await axios.post(`${url}/admin/login`,data).then((res)=>
@@ -28,6 +37,14 @@ export const createStaff = async(data: StaffData)=>{
         return res.data
     })
 }
+
+export const staffVerification = async (id: string) => {
+    try {
+      return await axios.get(`${url}/${id}/verifystaff`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
 export const getOneAdmin = async(id:any)=>{
     return await axios.get(`${url}/admin/${id}`).then((res)=>{

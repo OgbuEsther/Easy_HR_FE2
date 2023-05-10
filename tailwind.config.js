@@ -10,13 +10,18 @@ module.exports = {
       'herotext': '#00214f',
       'black': '#000',
       'heroparagraph': '#232333',
-      'herobutton': '#3CD19C'
+      'herobutton': '#3CD19C',
+      'header': '#001328',
+      'hover': '#dc3545',
+      'buttoncol': '#001328',
+      'buttonhover': '#007bff',
+      'h3text': '#0057B3',
     },
     screens: {
       'xl': { 'max': '1280px' },
       'xsm': {'max': '320px'},
       'sm': {'max': '375px'},
-      'xmd': {'max': '425px'},
+      'xmd': {'max': '500px'},
       'md': {'max': '768px'},
       'lg': {'max': '1024px'}
     },
@@ -25,9 +30,9 @@ module.exports = {
         'custom': '33.125rem'
       },
       backgroundImage: {
-        'hero': "url('../src/Assets/roundtwo.jpg')",
-        'righthero': "url('../src/Assets/roundthree.jpg')",
-        'lefthero': "url('../src/Assets/roundone.jpg')"
+        'hero': "url('../src/Assets/banner1.jpg')",
+        'righthero': "url('../src/Assets/banner2.jpg')",
+        'lefthero': "url('../src/Assets/banner3.jpg')"
       },
 
       animation: {

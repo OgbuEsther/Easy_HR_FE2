@@ -57,7 +57,7 @@ SetViewPassword(!ViewPassword)
               timerProgressBar: true,
       
              willClose: ()=>{
-              navigate("/sign-in")
+              navigate("/check-mail")
              }
             });
             reset()

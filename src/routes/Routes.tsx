@@ -19,12 +19,21 @@ import { Staffdashboard } from "../components/layout/Staffdashboard";
 import Staffcomp from "../pages/Staffcomp";
 import Leave from "../pages/Leave/Leave";
 import LeavePage from "../pages/LeavePage";
+import CheckMail from "../pages/Auth/CheckMail";
+import Waiting from "../pages/Auth/Waiting";
+import Yesorno from "../pages/Yesorno/Yesorno";
+
+
+
+
+
+
 
 
 const Home = lazy(() => import("../pages/landingpage/Home"));
 const About = lazy(() => import("../pages/landingpage/Connect"));
 const Staffs = lazy(() => import("../pages/Staffs"));
-const Transaction = lazy(()=> import("../pages/Transaction/Transaction"))
+const Performance = lazy(()=> import("../pages/Performance/Performance"))
 const ParentComp = lazy(() => import("../pages/ParentComp"));
 const ContactUs = lazy(() => import("../pages/landingpage/ContactUs"));
 const Attendance = lazy(() => import("../pages/AdminAttendance/Adminattendance"))
@@ -37,7 +46,11 @@ const PayBills = lazy(()=>import("../pages/StaffdasBoard/PayBills/PayBill"));
 // const StaffAttendance = lazy(() => import("../pages/StaffdasBoard/Attendance/Attendance"))
 const StaffTransaction = lazy(()=>import("../pages/StaffTransaction/StaffTransactionSide"))
 
+
+
+
 export const Elements = createBrowserRouter([
+  
   {
     path: "/",
     element: <HomeLayout />,
@@ -91,8 +104,8 @@ export const Elements = createBrowserRouter([
         errorElement: <ErrorBoundary />,
       },
       {
-        path: "/dashboard/transaction",
-        element: <Transaction/>,
+        path: "/dashboard/performance",
+        element: <Performance/>,
         hasErrorBoundary: true,
         errorElement: <ErrorBoundary />,
       },
@@ -117,7 +130,7 @@ export const Elements = createBrowserRouter([
   },
   
   {
-    path:"/verification",
+    path:"/:id/verification",
     element: <Otp/>
   },
   {
@@ -136,11 +149,19 @@ export const Elements = createBrowserRouter([
   },
   {
     path:"/sign-in-admin",
-    element: <SignInAdmin/>
+    element: <Yesorno/>
   },
   {
-    path:"/verify",
+    path:"/check-mail",
+    element: <CheckMail/>
+  },
+  {
+    path:"/api/admin/:id/verify",
     element: <Verification/>
+  },
+  {
+    path:"/:id/verifystaff",
+    element: <Waiting/>
   },
   {
     path:"/reset-password",
@@ -209,7 +230,8 @@ export const Elements = createBrowserRouter([
         element: <LeavePage />,
         hasErrorBoundary: true,
         errorElement: <ErrorBoundary />,
-      }
+      },
+      
     ]
   },
 ]);

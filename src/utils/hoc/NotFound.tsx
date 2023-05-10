@@ -18,7 +18,7 @@ const NotFound = () => {
    {/* <Tiny>oh, we can't seem to find the page you're looking for.
     <br/>Try going back to previous page .
    </Tiny> */}
-   <Button>Go Back</Button>
+   <Button></Button>
   </Two>
   
  </Container>
@@ -65,12 +65,20 @@ const Big = styled.div`
 font-size: 60px;
 
 font-weight: bold;
+
+@media screen and (max-width: 500px) {
+
+ font-size: 30px;
+  }
 `
 const Not = styled.div`
 color: blue;
 span{
   color: black;
 }
+@media screen and (max-width: 500px) {
+
+  }
 `
 const Tiny = styled.div`
 font-weight: bold;
