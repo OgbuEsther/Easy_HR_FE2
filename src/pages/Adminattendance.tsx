@@ -73,17 +73,16 @@ setShow(false);
 
           <Button
            onClick={() => {
-            axios
-              .post(`${url}/createattendance/${admin?._id}`)
-              .then((res) => {
-                setToken(res.data.data.setToken);
-              });
-          }}
+                axios
+                  .post(`${url}/createattendance/${admin?._id}`)
+                  .then((res) => {
+                    setToken(res.data.data.setToken);
+                  });
+              }}
           
           >
             Generate Token
           </Button>
-          <p>{token} </p>
         </One>
 
         <Two>

@@ -4,12 +4,39 @@ import { RiDeleteBin2Line } from "react-icons/ri";
 import { BsPencilFill } from "react-icons/bs";
 import Inputdate from "./Inputdate/Inputdate";
 import {IoMdArrowDropdown} from "react-icons/io"
+import { useAppSelector } from '../components/global/Store';
+import { useQuery } from '@tanstack/react-query';
+import { genAttendanceToken } from '../utils/Api/ApiCall';
+import axios from 'axios';
 
 const UninformedLeave = () => {
 
      const [selectedDate, setSelectedDate] = useState<Date>(new Date());
         const handleDateChange = (date: Date) => {
     setSelectedDate(date);
+  };
+
+  const [search, setSearch] = React.useState("");
+  const [searchProps, setSearchProps] = React.useState<any[]>([]);
+
+  const admin = useAppSelector((state) => state.currentUser);
+
+  const [token, setToken] = React.useState("");
+
+  const getAdmin = useQuery({
+    queryKey: ["genToken"],
+    queryFn: () => genAttendanceToken(admin?._id),
+  });
+
+  const searchData = async (e: any) => {
+    if (e.key === "Enter") {
+      await axios
+        .get(`https://easyhr.onrender.com/api/staff/search?yourName=${search}`)
+        .then((res) => {
+          console.log(res.data.data);
+          setSearchProps(res.data.data);
+        });
+    }
   };
 
   return (
@@ -28,6 +55,9 @@ const UninformedLeave = () => {
             <Two>
             <Title>Staff History:</Title>
 
+            {searchProps.length === 0 ? (
+          <>
+            {getAdmin?.data?.data?.viewAbsentStaff.map((el: any) => (
             <Table>
               <table>
                 <tr>
@@ -35,7 +65,9 @@ const UninformedLeave = () => {
                   <th>Employee ID</th>
                   <th>Department</th>
                   <th>Check In</th>
+                  <th>Shift</th>
                   <th>Status</th>
+                  <th>Action</th>
                 </tr>
 
                 <tr>
@@ -50,12 +82,81 @@ const UninformedLeave = () => {
                   <td>
                     <Chc>10:28</Chc>
                   </td>
+                  <td>Shift 1</td>
                   <td>
-                    <Box>Uninformed</Box>
+                    <Box>Present</Box>
+                  </td>
+                  <td>
+                    <Action>
+                      <Cir>
+                        <BsPencilFill />
+                      </Cir>
+                      <Cir1>
+                        <RiDeleteBin2Line />
+                      </Cir1>
+                    </Action>
                   </td>
                 </tr>
               </table>
             </Table>
+
+              ))} 
+          </>
+        ) :(
+          <>
+          {searchProps?.length >= 1 ? (
+            <>
+              {searchProps?.map((el: any) => (
+                  <Table>
+                  <table>
+                    <tr>
+                      <th>Employee Name</th>
+                      <th>Employee ID</th>
+                      <th>Department</th>
+                      <th>Check In</th>
+                      <th>Shift</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                    </tr>
+    
+                    <tr>
+                      <td>
+                        <Circlehold>
+                        <Circle>O</Circle>
+                        <Name>Okwoli Godwin</Name>
+                        </Circlehold>
+                      </td>
+                      <td>1001</td>
+                      <td>Development</td>
+                      <td>
+                        <Chc>10:28</Chc>
+                      </td>
+                      <td>Shift 1</td>
+                      <td>
+                        <Box>Present</Box>
+                      </td>
+                      <td>
+                        <Action>
+                          <Cir>
+                            <BsPencilFill />
+                          </Cir>
+                          <Cir1>
+                            <RiDeleteBin2Line />
+                          </Cir1>
+                        </Action>
+                      </td>
+                    </tr>
+                  </table>
+                </Table>
+                  ))} 
+                  </>
+                ) :(
+                  <>
+                  <p>oops!! staff doesn't exist</p>
+                  </>
+                )}
+              </>
+            )}
           </Two>
           </Wrapper>
     </Container>
