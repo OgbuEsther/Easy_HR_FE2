@@ -299,7 +299,7 @@ const Top = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 92%;
+  width: 96%;
   display: flex;
   flex-direction: column;
   align-items: center;

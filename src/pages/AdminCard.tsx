@@ -29,20 +29,21 @@ const AdminCard = () => {
 
   return (
     <Container>
-      <Card>
-        <Left>
-          <Icos>
-            <FaGoogleWallet />
-          </Icos>
-          <Wallet> Balance:</Wallet>
-        </Left>
+      <Wrapper>
+        <Card1>
+        <Total>Total Employees</Total>
+        <Num>13</Num>
+      </Card1>
 
-   
-          <Right>
-            <Bal>NGN </Bal>
-          </Right>
-      
-      </Card>
+      <Card2>
+        <Total>Attendance</Total>
+        <Num>05</Num>
+      </Card2>
+
+      <Card3>
+        <Total>Leave Apply</Total>
+        <Num>15</Num>
+      </Card3>
 
       
       
@@ -121,11 +122,26 @@ const AdminCard = () => {
           <Airtels />
         </Airtelhold>
       ) : null}
+      </Wrapper>
     </Container>
   );
 };
 
 export default AdminCard;
+const Wrapper = styled.div`
+  width: 100%;
+  display: flex;
+  /* background-color: red; */
+`
+const Num = styled.div`
+  font-size: 42px;
+  margin-top: 5px;
+  color: #fff;
+`
+const Total = styled.div`
+  font-size: 18px;
+  color: #fff;
+`
 const Left3 = styled.div`
   background-color: #ed413e;
   width: 120px;
@@ -296,12 +312,10 @@ const Popups = styled.div`
   z-index: 7;
 `;
 
-
-
-const Card = styled.div`
+const Card3 = styled.div`
   height: 120px;
   width: 329px;
-  background-color: #fff;
+  background: radial-gradient(circle at 4.3% 10.7%, rgb(138, 118, 249) 13.6%, rgb(75, 252, 235) 100.7%);
   border-radius: 3px;
   border-bottom: 2px solid #0d71fa;
   display: flex;
@@ -309,7 +323,57 @@ const Card = styled.div`
   margin: 10px;
   border-radius: 10px;
   cursor: pointer;
+  padding: 15px;
   overflow: hidden;
+  flex-direction: column;
+
+  @media (max-width: 1024px) {
+    width: 320px;
+  }
+
+  @media (max-width: 500px) {
+    width: 90%;
+  }
+`;
+const Card2 = styled.div`
+  height: 120px;
+  width: 329px;
+  background: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
+  border-radius: 3px;
+  border-bottom: 2px solid #0d71fa;
+  display: flex;
+  border: 1px solid #d5dbe1;
+  margin: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 15px;
+  overflow: hidden;
+  flex-direction: column;
+
+  @media (max-width: 1024px) {
+    width: 320px;
+  }
+
+  @media (max-width: 500px) {
+    width: 90%;
+  }
+`;
+
+
+const Card1 = styled.div`
+  height: 120px;
+  width: 329px;
+  background: radial-gradient(484px at 49.4% 19%, rgb(23, 156, 214) 0%, rgb(52, 48, 111) 100.2%);
+  border-radius: 3px;
+  border-bottom: 2px solid #0d71fa;
+  display: flex;
+  border: 1px solid #d5dbe1;
+  margin: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 15px;
+  overflow: hidden;
+  flex-direction: column;
 
   @media (max-width: 1024px) {
     width: 320px;
@@ -323,6 +387,7 @@ const Card = styled.div`
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
   @media screen and (max-width: 768px) {
     display: flex;
     justify-content: center;

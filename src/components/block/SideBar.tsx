@@ -131,6 +131,24 @@ const SideBar = () => {
         </NavLink>
       </Home3>
 
+      <Leave>Configuration</Leave>
+      <Home3>
+        <Icon2>
+          <GiAbstract013 />
+        </Icon2>
+        <NavLink
+          to=""
+          style={({ isActive }) => {
+            return {
+              textDecoration: isActive ? "none" : "none",
+              color: isActive ? "#2AA7FF" : "#3e4956",
+            };
+          }}
+        >
+          <Text3>Settings</Text3>
+        </NavLink>
+      </Home3>
+
       <Power  onClick={() => {
         
 
@@ -272,7 +290,7 @@ const Img = styled.img`
 const Top = styled.div`
   display: flex;
   width: 100%;
-  margin-top: 15px;
+  /* margin-top: 15px; */
 `;
 const Container = styled.div`
   width: 220px;
