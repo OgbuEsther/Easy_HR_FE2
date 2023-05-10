@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 // import images from "../Assets/logo7.png";
-import images from "../../Assets/easyhr.jpeg"
+import images from "../../Assets/new.png"
+import foot from "../../Assets/footer1.jpg"
 
 import { MdFacebook }  from "react-icons/md"
 import { AiFillTwitterCircle }  from "react-icons/ai"
@@ -21,6 +22,7 @@ import {BsFillArrowUpCircleFill} from "react-icons/bs"
 
 import { NavLink } from "react-router-dom";
 import { Link } from "react-scroll";
+import { Fade } from 'react-awesome-reveal'
 
 const Footer = () => {
 
@@ -38,11 +40,13 @@ const Footer = () => {
   return (
     <Container id="footer">
       <Wrapper>
-        <Left>
+      
+       <Left>
           <Images src={images} />
           <Down>© 2023 EasyHR,Inc.</Down>
         </Left>
-        <Right>
+       
+     <Right>
           <Start>
             <Bold>Product</Bold>
             <Navs>Staff Performance</Navs>
@@ -90,9 +94,9 @@ const Footer = () => {
               style={{ textDecoration: "none" }}
             >
               <Navs>
-                <Icons >
+                <Icon >
                   <BsWhatsapp/>
-                </Icons>
+                </Icon>
                 WhatsApp
               </Navs>
             </NavLink>
@@ -102,9 +106,9 @@ const Footer = () => {
           style={{ textDecoration: "none" }}
           >
           <Navs>
-              <Icons>
+              <Icon>
                 <BsLinkedin />
-              </Icons>
+              </Icon>
               LinkedIn
             </Navs>
           </NavLink>
@@ -114,9 +118,9 @@ const Footer = () => {
          style={{ textDecoration: "none" }}
          >
          <Navs>
-              <Iconss>
+              <Icon>
               <MdFacebook/>
-              </Iconss>
+              </Icon>
               FaceBook
             </Navs>
          </NavLink>
@@ -126,9 +130,9 @@ const Footer = () => {
          style={{ textDecoration: "none" }}
          >
          <Navs>
-              <Iconsss>
+              <Icon>
                 <BsYoutube />
-              </Iconsss>
+              </Icon>
               YouTube
             </Navs>
          </NavLink>
@@ -138,9 +142,9 @@ const Footer = () => {
          style={{ textDecoration: "none" }}
          >
          <Navs>
-              <Iconssss>
+              <Icon>
                 <GrInstagram />
-              </Iconssss>
+              </Icon>
               Instagram
             </Navs>
          </NavLink>
@@ -150,19 +154,18 @@ const Footer = () => {
          style={{ textDecoration: "none" }}
          >
          <Navs>
-              <Iconssss>
+              <Icon>
                 <AiFillTwitterCircle />
-              </Iconssss>
+              </Icon>
               Twitter
             </Navs>
          </NavLink>
 
           </Start>
         </Right>
-
       </Wrapper>
       {show ? (
-        <Link offset={-100} smooth={true} duration={500} to="her">
+        <Link offset={-7000} smooth={true} duration={5000} to="her">
           <ScroolToTop>
             <BsFillArrowUpCircleFill />
           </ScroolToTop>
@@ -177,15 +180,15 @@ const Footer = () => {
 export default Footer;
 const ScroolToTop = styled.div`
 
-border-radius: 50%;
+border-radius: 20%;
   cursor: pointer;
-  width: 50px;
+  width: 80px;
   height: 50px;
   -webkit-animation: mover 1s infinite alternate;
   animation: mover 1s infinite alternate;
   -webkit-animation: mover 1s infinite alternate;
   animation: mover 1s infinite alternate;
-  background-color: #00244E;
+  background-color: #001328;
   @-webkit-keyframes mover {
     0% {
       transform: translateY(0);
@@ -216,31 +219,17 @@ border-radius: 50%;
   }
 `
 
-const Iconssss = styled.div`
-  color: #00244E;
-  margin-right: 7px;
-  margin-top: 2px;
-`;
-const Iconsss = styled.div`
-  color: #00244E;
-  margin-right: 7px;
-  margin-top: 2px;
-`;
-const Iconss = styled.div`
+const Icon = styled.div`
   color: black;
   margin-right: 7px;
   margin-top: 2px;
+  font-size: 20px;
+
+  :hover{
+    color: white;
+  }
 `;
-const Icons = styled.div`
-  color: #00244E;
-  margin-right: 7px;
-  margin-top: 2px;
-`;
-const Icon = styled.div`
-  color: #00244E;
-  margin-right: 7px;
-  margin-top: 2px;
-`;
+
 const Dow = styled.div`
   width: 100%;
   height: 35%;
@@ -262,18 +251,18 @@ const Navs = styled.div`
   line-height: 24px;
   align-items: center;
   font-weight: 400;
-  color: rgb(107, 107, 107);
+  color:white;
   margin-bottom: 7px;
   cursor: pointer;
   :hover {
-    color: #00244E;
+    color: #DC3545;
   }
 `;
 const Bold = styled.h2`
   font-size: 18px;
   line-height: 1.28;
   letter-spacing: -0.12px;
-  color: rgb(78, 78, 78);
+  color: white;
   margin: 0;
   font-weight: 600;
   text-align: start;
@@ -313,7 +302,7 @@ const Down = styled.div`
   align-items: center;
   justify-content: center;
   margin-left: 20px;
-  margin-top:-35px;
+  /* margin-top:-1px; */
 `;
 const Images = styled.img`
   height: 150px;
@@ -341,18 +330,22 @@ const Container = styled.div`
   height: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 40px;
+  /* margin-top: 3px; */
+  padding-top: 40px;
+  padding-bottom: 20px;
+  /* background-color: #001328; */
+  background-image: url(${foot});
 
   @media screen and (max-width: 320px) {
-    margin-bottom:2px;
-  margin-top:50px;
+  margin-top:500px;
     /* background-color: red; */
   }
   @media screen and (max-width: 500px) {
     margin-top: -900px;
   }
+
   @media screen and (max-width: 768px) {
-    margin-top: 200px;
+    margin-top: 5px;
   }
 
 `;
