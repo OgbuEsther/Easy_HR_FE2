@@ -8,11 +8,10 @@ const Adminrate = () => {
       <Container>
           <Wrapper>
               <Top>
-                  <Pending><h3>Set Goals</h3><span></span>
-                </Pending>
-
-          <Pending><h3>Rate Staffs</h3><span></span>
-          </Pending>
+                  <Pending><h3>Very Poor</h3><Box></Box> = <h3>1 - 25</h3> </Pending>
+                <Pending><h3>Very Poor</h3><Box2></Box2> = <h3>1 - 25</h3> </Pending>
+                <Pending><h3>Very Poor</h3><Box3></Box3> = <h3>1 - 25</h3> </Pending>
+                <Pending><h3>Very Poor</h3><Box4></Box4> = <h3>1 - 25</h3> </Pending>
               </Top>
           </Wrapper>
     </Container>
@@ -20,6 +19,39 @@ const Adminrate = () => {
 }
 
 export default Adminrate
+const Box4 = styled.div`
+    width: 25px;
+    height: 25px;
+    background-color: green;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 3px;
+`
+const Box3 = styled.div`
+    width: 25px;
+    height: 25px;
+    background-color: blue;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 3px;
+`
+const Box2 = styled.div`
+    width: 25px;
+    height: 25px;
+    background-color: yellow;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 3px;
+`
+
+const Box = styled.div`
+    width: 25px;
+    height: 25px;
+    background-color: red;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 3px;
+`
 
 const Pending = styled.div`
   display: flex;
@@ -27,8 +59,9 @@ const Pending = styled.div`
   cursor: pointer;
   h3{
     font-weight: 500;
-  font-size: 19px;
+  font-size: 16px;
   color: #6c757d;
+  margin-left: 5px;
   }
   span{
     margin-left: 7px;
@@ -50,7 +83,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 70px;
+  /* padding-top: 13px; */
   display: flex;
   align-items: center;
   justify-content: center;
