@@ -45,6 +45,13 @@ color: grey;
 const Text = styled.div`
 font-weight: bold;
 font-size: 20px;
+
+
+@media screen and (max-width:320px) {
+    font-size: 15px;
+    margin: 0;
+}
+
 `
 
 const Two = styled.div`
@@ -52,6 +59,12 @@ const Two = styled.div`
 width: 800px;
 /* background-color: brown; */
 margin-bottom: 30px;
+
+
+@media screen and (max-width:320px) {
+    width: 400px;
+    margin: 0;
+}
 `
 
 const Img = styled.img`
@@ -65,6 +78,10 @@ display: flex;
 justify-content: center;
 margin-bottom: 120px;
 color:#dc3545;
+
+@media screen and (max-width:320px) {
+    width: 100px;
+}
 `
 
 const Container = styled.div`
@@ -75,4 +92,13 @@ border: 1px solid black;
 display: flex;
 justify-content: center;
 align-items: center;
+flex-wrap: wrap;
+
+@media screen and (max-width:320px) {
+    height: 320px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 `
