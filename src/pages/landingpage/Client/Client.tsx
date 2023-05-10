@@ -2,13 +2,15 @@ import React from 'react'
 import styled from 'styled-components'
 import img from "../../../Assets/bgimage.jpg"
 import {ImQuotesLeft} from "react-icons/im"
+import { Fade } from 'react-awesome-reveal'
 
 
 const Client = () => {
   return (
     <div>
+          <Fade direction='left'>
         <Container>
-            <Wrapper>
+              <Wrapper>
              <One>
                  <Icon>
                     <ImQuotesLeft/>
@@ -31,6 +33,7 @@ const Client = () => {
              </Two>
             </Wrapper>
         </Container>
+          </Fade>
     </div>
   )
 }
@@ -96,11 +99,27 @@ p{
     /* margin-left: 100px; */
   }
 
+  @media screen and (max-width:425px) {
+    font-size: 22px;
+    line-height: 35px;
+    width: 100%;
+    /* margin-left: 100px; */
+  }
+
 }
 
 @media screen and (max-width:320px) {
   margin: 0;
   width: 900%;
+  height:800px;
+  margin-left: 10px;
+  padding-right: 30px;
+  /* background-color: red; */
+}
+
+@media screen and (max-width:425px) {
+  margin: 0;
+  width: 800%;
   height:800px;
   margin-left: 10px;
   padding-right: 30px;
