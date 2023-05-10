@@ -7,6 +7,7 @@ import Modern from './Modern/Modern'
 import Facts from "./Facts/Facts"
 import End from "./End/End"
 import Easier from './Easier/Easier'
+import Expert from './Expert/Expert'
 
 const HomeScreen = () => {
   return (
@@ -17,8 +18,8 @@ const HomeScreen = () => {
         <Easier/>
         <Connect/>
         <Payment/>
-        <Facts/>
-        
+        {/* <Facts/> */}
+        <Expert/>
         <End/>
     </div>
   )
