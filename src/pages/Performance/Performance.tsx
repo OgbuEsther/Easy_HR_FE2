@@ -12,10 +12,14 @@ const Transaction = () => {
   };
 
   const [show1, setShow1] = useState(true)
+  const [show2, setShow2] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
    const Toggle1 = () => {
     setShow1(true)
+  }
+  const Toggle2 = () => {
+    setShow2(!show2)
   }
 
   const [text, setText] = useState(localStorage.getItem('myTextArea') || '')
@@ -66,7 +70,9 @@ const Transaction = () => {
           </Pending>
           </Top>
           
-          <Textplace>
+          {show1 ? (
+            <div>
+              <Textplace>
             <Texthold>
               <Textarea placeholder="Set Goals....." value={text} onChange={handleTextChange}/>
               <Button onClick={handleSaveClick}>Submit</Button>
@@ -81,6 +87,8 @@ const Transaction = () => {
               <li>{text}</li>
             </ol>
           </Goals>
+            </div>
+          ) : null}
         </Wrapper>
       </Container>
     </div>
