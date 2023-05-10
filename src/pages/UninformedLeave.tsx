@@ -6,7 +6,7 @@ import Inputdate from "./Inputdate/Inputdate";
 import {IoMdArrowDropdown} from "react-icons/io"
 import { useAppSelector } from '../components/global/Store';
 import { useQuery } from '@tanstack/react-query';
-import { genAttendanceToken, getOneAdmin } from '../utils/Api/ApiCall';
+import {  getOneAdmin } from '../utils/Api/ApiCall';
 import axios from 'axios';
 
 const UninformedLeave = () => {
@@ -21,7 +21,7 @@ const UninformedLeave = () => {
 
   const admin = useAppSelector((state) => state.currentUser);
 
-  const [token, setToken] = React.useState("");
+ 
 
   const getAdmin = useQuery({
     queryKey: ["singleAdmin"],
