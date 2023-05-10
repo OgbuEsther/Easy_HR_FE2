@@ -211,7 +211,7 @@ color: #1271D5;
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: red;
+        /* background-color: red; */
     }
 `
 const Hold = styled.div`
