@@ -18,13 +18,34 @@ const Transaction = () => {
     setShow1(true)
   }
 
+  const [text, setText] = useState(localStorage.getItem('myTextArea') || '')
+  
+  const handleTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const newText = event.target.value;
+    setText(newText)
+  }
+
+  const handleSaveClick = () => {
+    localStorage.setItem('myTextArea', text)
+  }
+
   useEffect(() => {
    setTimeout(() => {
       setIsLoading(true)
     },2000)
 
+    const handleStorageChange = () => {
+        setText(localStorage.getItem('myTextArea')  || '')
+    }
+    
+    window.addEventListener('storage', handleStorageChange)
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange)
+    }
   }, [])
  
+
   return (
     <div>
       <Container>
@@ -47,8 +68,8 @@ const Transaction = () => {
           
           <Textplace>
             <Texthold>
-              <Textarea placeholder="Set Goals....." />
-              <Button>Submit</Button>
+              <Textarea placeholder="Set Goals....." value={text} onChange={handleTextChange}/>
+              <Button onClick={handleSaveClick}>Submit</Button>
             </Texthold>
             <Inputhold>
               <Inputdate selectedDate={selectedDate} onDateChange={handleDateChange} />
@@ -56,9 +77,9 @@ const Transaction = () => {
           </Textplace>
 
           <Goals>
-            <ul>
-              <li>jdjdjdjdj</li>
-            </ul>
+            <ol style={{ listStyleType: 'decimal', marginLeft: '30px'}}>
+              <li>{text}</li>
+            </ol>
           </Goals>
         </Wrapper>
       </Container>
@@ -117,6 +138,7 @@ const Textarea = styled.textarea`
   resize: none;
   padding: 12px;
   border-radius: 10px;
+  outline: #007bff;
 `
 const Textplace = styled.div`
   width: 100%;
