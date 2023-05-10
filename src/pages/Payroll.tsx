@@ -144,7 +144,7 @@ const Payroll = () => {
               onChange={(e) => {
                 setSearch(e.target.value);
               }}
-              placeholder="Search by author name "
+              placeholder="Search by staff name "
             />
           </Inputhold>
         </Head>
@@ -163,7 +163,7 @@ const Payroll = () => {
 
         {searchProps.length === 0 ? (
           <>
-            {/* {getAdmin?.data?.data?.viewUser.map((el: any) => ( */}
+            {getAdmin?.data?.data?.viewUser.map((el: any) => (
               <Table2>
                 <Lists>
                   <Name2>
@@ -184,13 +184,13 @@ const Payroll = () => {
                   </Status2>
                 </Lists>
               </Table2>
-            {/* ))} */}
+           ))} 
           </>
         ) : (
           <>
             {searchProps?.length >= 1 ? (
               <>
-                {/* {searchProps?.map((el: any) => ( */}
+                {searchProps?.map((el: any) => (
                   <Table2>
                     <Lists>
                       <Name2>
@@ -211,7 +211,7 @@ const Payroll = () => {
                       </Status2>
                     </Lists>
                   </Table2>
-                {/* ))} */}
+                 ))} 
               </>
             ) : (
               <>

@@ -26,7 +26,7 @@ const UninformedLeave = () => {
         </Down>
             
             <Two>
-            <Title>Uninformed Leave:</Title>
+            <Title>Staff History:</Title>
 
             <Table>
               <table>
