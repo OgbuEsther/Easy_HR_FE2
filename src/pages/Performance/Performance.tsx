@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import { RotatingLines } from 'react-loader-spinner'
 import Inputdate from "../Inputdate/Inputdate";
+import Adminrate from "../Adminrate";
 
 
 
@@ -16,10 +17,12 @@ const Transaction = () => {
   const [isLoading, setIsLoading] = useState(false)
 
    const Toggle1 = () => {
-    setShow1(true)
+     setShow1(true)
+     setShow2(false)
   }
   const Toggle2 = () => {
     setShow2(!show2)
+    setShow1(false)
   }
 
   const [text, setText] = useState(localStorage.getItem('myTextArea') || '')
@@ -62,7 +65,7 @@ const Transaction = () => {
             width="30"/>}</span>
           </Pending>
 
-          <Pending><h3>Rate Staffs</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
+          <Pending onClick={Toggle2}><h3>Rate Staffs</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
             strokeColor="#007bff"
             strokeWidth="5"
             animationDuration="0.75"
@@ -99,6 +102,10 @@ const Transaction = () => {
             strokeWidth="5"
             animationDuration="0.75"
             width="30" />}
+
+          {show2 ? (
+            <Adminrate />
+          ) : null}
         </Wrapper>
       </Container>
     </div>
@@ -201,6 +208,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-bottom: 15px;
   /* background-color: red; */
 
   @media screen and (max-width: 768px) {
