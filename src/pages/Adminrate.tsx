@@ -43,9 +43,44 @@ const Adminrate = () => {
                     </Circlehold>
                   </td>
                   <td>001</td>
-                  <td>1 Day</td>
-                  <td>Casual Leave</td>
-                </tr>
+                    <td>
+                         <Input
+                            type="number"            
+                        />
+                  </td>
+                    <td>
+                        <Input
+                        type="number"            
+                    />
+                    </td>
+                    <td>
+                     <Button>Submit</Button>
+                  </td>
+                              </tr>
+                              <tr>
+                  <td>
+                  <Circlehold>
+                    <Circle>O</Circle>
+                    <Name>Okwoli Godwin</Name>
+                    </Circlehold>
+                  </td>
+                  <td>001</td>
+                    <td>
+                         <Input
+                            type="number"            
+                        />
+                  </td>
+                    <td>
+                        <Input
+                        type="number"            
+                    />
+                    </td>
+                    <td>
+                     <Button>Submit</Button>
+                  </td>
+                              </tr>
+                              
+                    
                 </table>
             </Table>
             ) : <RotatingLines  visible={true}
@@ -60,6 +95,24 @@ const Adminrate = () => {
 }
 
 export default Adminrate
+const Button = styled.button`
+    width: 120px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    color: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+`
+const Input = styled.input`
+    height: 30px;
+    padding-left: 10px;
+    width: 110px;
+    border: 1px solid lightgray;
+    outline-color: lightblue;
+`
 const Name = styled.div`
     color: #34495e;
     font-size: .9rem;
