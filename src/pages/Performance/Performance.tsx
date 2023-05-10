@@ -46,13 +46,18 @@ const Transaction = () => {
           </Top>
           
           <Textplace>
-            <Textarea placeholder="Set Goals.....">
-
-            </Textarea>
+            <Texthold>
+              <Textarea placeholder="Set Goals....." />
+              <Button>Submit</Button>
+            </Texthold>
             <Inputhold>
               <Inputdate selectedDate={selectedDate} onDateChange={handleDateChange} />
             </Inputhold>
           </Textplace>
+
+          <Goals>
+            fububu
+          </Goals>
         </Wrapper>
       </Container>
     </div>
@@ -60,6 +65,27 @@ const Transaction = () => {
 };
 
 export default Transaction;
+const Goals = styled.div`
+  
+`
+const Button = styled.button`
+  width: 130px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  outline: none;
+  border-radius: 7px;
+  cursor: pointer;
+  margin-top: 7px;
+`
+const Texthold = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 const Inputhold = styled.div`
     align-items: center;
     background-color: rgb(255, 255, 255);
