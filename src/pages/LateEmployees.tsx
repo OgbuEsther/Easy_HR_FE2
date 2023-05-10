@@ -8,7 +8,7 @@ import { BsPencilFill } from "react-icons/bs";
 import axios from 'axios';
 import { useAppSelector } from '../components/global/Store';
 import { useQuery } from '@tanstack/react-query';
-import { genAttendanceToken, getOneAdmin } from '../utils/Api/ApiCall';
+import {  getOneAdmin } from '../utils/Api/ApiCall';
 const LateEmployees = () => {
 
      const [selectedDate, setSelectedDate] = useState<Date>(new Date());
