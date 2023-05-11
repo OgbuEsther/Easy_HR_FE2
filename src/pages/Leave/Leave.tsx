@@ -3,6 +3,15 @@ import styled from 'styled-components'
 import { RotatingLines } from 'react-loader-spinner'
 import { IoMdArrowDropdown } from "react-icons/io"
 import {AiOutlineClose} from "react-icons/ai"
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import { UseAppDispach, useAppSelector } from '../../components/global/Store'
+import { useMutation, useQuery } from '@tanstack/react-query'
+import { createLeave, getOneAdmin } from '../../utils/Api/ApiCall'
+import { CreateLeave } from "../../components/global/ReduxState";
 
 const Leave = () => {
 
@@ -28,6 +37,61 @@ const Leave = () => {
     },2000)
 
   }, [])
+
+  const admin = useAppSelector((state) => state.currentUser);
+  const navigate = useNavigate()
+  const dispatch = UseAppDispach()
+
+  const schema = yup
+    .object({
+      title: yup.string().required(),
+      days: yup.number().required(),
+    })
+    .required();
+
+  type formData = yup.InferType<typeof schema>;
+
+  const {
+    handleSubmit,
+    formState: { errors },
+    reset,
+    register,
+  } = useForm<formData>({
+    resolver: yupResolver(schema),
+  });
+
+  const posting = useMutation({
+    mutationKey: ["create_Leave"],
+    // mutationFn: createAdmin,
+    mutationFn: (data: any) => createLeave(data, admin?._id),
+
+    onSuccess: (myData) => {
+      dispatch(CreateLeave(myData.data));
+      Swal.fire({
+        title: "leave created  successfully",
+        html: "redirecting to dashbaord",
+        timer: 1000,
+        timerProgressBar: true,
+
+        willClose: () => {
+          // navigate("/sign-in-admin");
+        },
+      });
+    },
+  });
+
+  const Submit = handleSubmit(async (data: any) => {
+    console.log("user", data);
+    posting.mutate(data);
+    // reset();
+  });
+
+  const user = useAppSelector((state) => state.currentUser);
+  const getAdmin = useQuery({
+    queryKey: ["singleAdmin"],
+    queryFn: () => getOneAdmin(user?._id),
+  });
+  console.log("this is getAdmin id", user);
 
 
   return (
@@ -76,15 +140,23 @@ const Leave = () => {
               <Secomd><p>Define Custom Leave Types Suitable For Your Organization.</p></Secomd>
               {show2 ? (
                 <Leavetype>
-                  <Card>
+                  <Card onSubmit={Submit}>
                     <Lve>
                       <Type><h4>Add Leave Type</h4></Type>
                       <Ico onClick={Cancle}><AiOutlineClose /></Ico>
                     </Lve>
                     <Of><p>Name of the Leave Type</p></Of>
-                    <Inputs placeholder='Ex: Casual Leave' />
+                    <Inputs
+                      {...register("title")}
+                      type="text"
+                      placeholder="e.g maternity leave"
+                    />
+                    <span>{errors?.title && errors?.title?.message}</span>
+                    <br />
+                    <input {...register("days")} type="text" placeholder="number of days " />
+                    <span>{errors?.days && errors?.days?.message}</span>
                     <Buthold>
-                      <Buton>Create Leave Type</Buton>
+                      <Buton type ="submit">Create Leave Type</Buton>
                     </Buthold>
                   </Card>
                 </Leavetype>
@@ -148,7 +220,7 @@ const Ico = styled.div`
   font-size: 17px;
   cursor: pointer;
 `
-const Buton = styled.div`
+const Buton = styled.button`
   width: 160px;
   height: 40px;
   background-color: blue;
@@ -201,7 +273,7 @@ const Lve = styled.div`
   align-items: center;
   justify-content: space-between;
 `
-const Card = styled.div`
+const Card = styled.form`
   width: 500px;
   display: flex;
   background-color: #fff;
