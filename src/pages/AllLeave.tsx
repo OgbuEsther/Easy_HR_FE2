@@ -2,16 +2,13 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { RotatingLines } from 'react-loader-spinner'
 import { IoMdArrowDropdown } from "react-icons/io"
-import {AiOutlineClose} from "react-icons/ai"
-import { useForm } from "react-hook-form";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
-import { UseAppDispach, useAppSelector } from '../components/global/Store'
-import { useMutation, useQuery } from '@tanstack/react-query'
-import { getOneAdmin, createAdmin } from '../utils/Api/ApiCall'
-import { CreateLeave } from '../components/global/ReduxState'
+
+
+
+import {  useAppSelector } from '../components/global/Store'
+import {  useQuery } from '@tanstack/react-query'
+import { getOneAdmin } from '../utils/Api/ApiCall'
+
 
 const AllLeave = () => {
 
@@ -19,17 +16,7 @@ const AllLeave = () => {
   const [show2, setShow2] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
-  const Toggle1 = () => {
-    setShow1(true)
-  }
 
-  const Toggle2 = () => {
-    setShow2(!show2)
-  }
-
-  const Cancle = () => {
-    setShow2(false)
-  }
   
   useEffect(() => {
    setTimeout(() => {
@@ -38,7 +25,6 @@ const AllLeave = () => {
 
   }, [])
 
-  const admin = useAppSelector((state) => state.currentUser);
  
 
   const user = useAppSelector((state) => state.currentUser);
@@ -62,18 +48,24 @@ const AllLeave = () => {
 
           <Mid>
             {isLoading ? (
+                  
+                 
+                  
             <Table>
+              
               <table>
                 <tr>
                   <th>Leave type</th>
                   <th>Leave Period</th>
                 </tr>
-
+                {getAdmin?.data?.data?.adminLeave?.map((el: any) => (
                 <tr>
-                  <td>Casual Leave</td>
-                  <td>1 Day</td>
+                  <td>{el?.title}</td>
+                  <td>{el?.days} Days</td>
                 </tr>
+                   ))}
                 </table>
+             
                 <Plan>On the free plan, you can access the last 14 days of data only. Upgrade to the Pro plan to get the historical data.</Plan>
             </Table>
             ) : <RotatingLines  visible={true}
@@ -111,38 +103,7 @@ const Mid = styled.div`
   align-items: center;
 `
 
-const Name = styled.div`
-    color: #34495e;
-    font-size: .9rem;
-    margin-left: 5px;
-`
-const Circlehold = styled.div`
-  display: flex;
-  align-items: center;
-`
 
-
-
-const Circle = styled.div`
-  width: 40px;
-  height: 40px;
-  margin: 3px;
-  font-size: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  font-weight: 500;
-  color: #fff;
-  border-radius: 50px;
-  background-color: #40baab;
-
-  @media screen and (max-width: 900px) {
-    height: 30px;
-    width: 30px;
-    font-size: 12px;
-  }
-`;
 const Table = styled.div`
   display: flex;
   height: auto;

@@ -112,8 +112,8 @@ export const setMilestones  = async(data : any , adminId:any)=>{
 }
 
 //staff to apply for leave
-export const applyForLeave = async(data : any , staffId:any)=>{
-    return await axios.post(`${url}/applyforleave/${staffId}` , data).then((res)=> res.data)
+export const applyForLeave = async(data : any , staffId:any ,adminId:any)=>{
+    return await axios.post(`${url}/applyforleave/${staffId}/${adminId}` , data).then((res)=> res.data)
 }
 
 
