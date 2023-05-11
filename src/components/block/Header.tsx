@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
 import img from "../../Assets/new.png"
 import {BiMenu} from "react-icons/bi"
+import {GiCancel} from "react-icons/gi"
 import { NavLink } from 'react-router-dom'
 import { Fade } from 'react-awesome-reveal'
-import {  BsFillArrowUpCircleFill, BsCalendar2CheckFill} from "react-icons/bs"
+import {  BsFillArrowUpCircleFill, BsFillDiscFill} from "react-icons/bs"
 import { Link } from "react-scroll";
 import styled from 'styled-components'
 
@@ -48,11 +49,11 @@ const Header = () => {
 
      {
       show ? (
-        <div className='hidden  items-center text-white text-3xl md:flex cursor-pointer' onClick={Toggle}>
-        <BsCalendar2CheckFill/>
+        <div className='hidden  items-center text-white text-4xl md:flex cursor-pointer' onClick={Toggle}>
+        <BsFillDiscFill/>
       </div>
       ) : (
-        <div className='hidden items-center text-white text-3xl md:flex cursor-pointer' onClick={Toggle}>
+        <div className='hidden items-center text-white text-4xl md:flex cursor-pointer' onClick={Toggle}>
           <BiMenu />
       </div>
       )

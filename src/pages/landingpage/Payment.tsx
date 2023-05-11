@@ -196,6 +196,9 @@ const Box2 = styled.div`
     overflow: hidden;
     border-radius: 10px;
     margin-bottom: 30px;
+    @media screen and (max-width: 320px) {
+        width: 400px;
+    }
     @media screen and (max-width: 1024px) {
         width: 440px;
     }

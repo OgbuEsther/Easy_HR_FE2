@@ -6,6 +6,7 @@ import img3 from "../../../Assets/esther.jpg"
 import img4 from "../../../Assets/shazam.jpg"
 import img5 from "../../../Assets/spider.jpg"
 import {  BsWhatsapp} from "react-icons/bs"
+import {  SiFacebook} from "react-icons/si"
 import { Fade } from 'react-awesome-reveal'
 
 
@@ -54,7 +55,7 @@ const Expert = () => {
                         <BsWhatsapp/>
                     </Icon>
                     <Bio>
-                        <h3>Joshua </h3>
+                        <h3>Enyinnaya Joshua Ifesinachi </h3>
                     </Bio>
                     <Bio1>
                        <p>Lead Strategist</p>
@@ -79,10 +80,10 @@ const Expert = () => {
                <Image>
                     <Pic src={img1}/>
                     <Icon>
-                        <BsWhatsapp/>
+                        <SiFacebook/>
                     </Icon>
                     <Bio>
-                        <h3>Valerian Pedro</h3>
+                        <h3>Valerian Pedro Adimike  </h3>
                     </Bio>
                     <Bio1>
                        <p> Lead FrontEnd Engineer</p>
