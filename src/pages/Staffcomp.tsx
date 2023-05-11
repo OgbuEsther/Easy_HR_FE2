@@ -505,6 +505,9 @@ const Pee = styled.div`
     @media screen and (max-width: 768px) {
       width: 100%;
     }
+    @media screen and (max-width: 500px) {
+      width: 100%;
+    }
 `
 const Title = styled.div`
     margin-bottom: 10px;
