@@ -115,3 +115,10 @@ export const setMilestones  = async(data : any , adminId:any)=>{
 export const applyForLeave = async(data : any , staffId:any)=>{
     return await axios.post(`${url}/applyforleave/${staffId}` , data).then((res)=> res.data)
 }
+
+
+//admin to rate staff
+
+export const adminScore = async(data:any , rateId:any) =>{
+    return await axios.patch(`${url}/createadminscore/${rateId}` ,data).then((res)=> res.data)
+}
