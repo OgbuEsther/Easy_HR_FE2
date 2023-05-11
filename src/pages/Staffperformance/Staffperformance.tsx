@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { RotatingLines } from 'react-loader-spinner'
 import Inputdate from "../Inputdate/Inputdate";
 import Staffrate from "./Staffrate";
-import RateDetails from "../RateDetails";
+import Staffdetails from "./Staffdetails";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup"
 import { useDispatch } from "react-redux";
@@ -175,7 +175,7 @@ const admin = useAppSelector((state)=> state.currentUser)
           ) : null}
 
           {show3 ? (
-            <RateDetails />
+            <Staffdetails />
           ) : null}
         </Wrapper>
       </Container>
