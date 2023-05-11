@@ -11,7 +11,7 @@ const HomeScreen = () => {
   return (
     <div className='overflow-hidden'>
         <Home/>
-        <Plan/>
+        {/* <Plan/> */}
         <Easier/>
         <Client/>
         <Payment/>
