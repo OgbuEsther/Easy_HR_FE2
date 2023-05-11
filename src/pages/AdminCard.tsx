@@ -141,6 +141,9 @@ const Num = styled.div`
 const Total = styled.div`
   font-size: 18px;
   color: #fff;
+  @media screen and (max-width: 500px) {
+    font-size: 13px;
+  }
 `
 const Left3 = styled.div`
   background-color: #ed413e;
