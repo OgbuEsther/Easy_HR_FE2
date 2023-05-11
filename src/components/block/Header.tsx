@@ -38,12 +38,16 @@ const Header = () => {
         </div>
 
         <div className='flex items-center md:hidden'>
-          <button className='w-32 h-10 bg-white text-buttoncol flex justify-center items-center font-semibold rounded-3xl hover:bg-buttonhover hover:text-white cursor-pointer transition-all duration-150 ease-in-out delay-150 m-3'>
+          <NavLink to= "/sign-in-option">
+          <button  className='w-32 h-10 bg-white text-buttoncol flex justify-center items-center font-semibold rounded-3xl hover:bg-buttonhover hover:text-white cursor-pointer transition-all duration-150 ease-in-out delay-150 m-3'>
             Sign in
           </button>
+          </NavLink>
+          <NavLink to= "/sign-up-option">
           <button className='w-32 h-10 bg-white text-buttoncol flex justify-center items-center font-semibold rounded-3xl hover:bg-buttonhover hover:text-white cursor-pointer transition-all duration-150 ease-in-out delay-150'>
             Sign up
           </button>
+          </NavLink>
         </div>
 
      {

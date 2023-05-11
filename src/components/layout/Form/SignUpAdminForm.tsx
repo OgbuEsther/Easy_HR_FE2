@@ -60,15 +60,26 @@ const SignupAdminForm = () => {
         timerProgressBar: true,
 
          
-        
+        didOpen: () => {
+          Swal.showLoading();
+        },
+        willClose: ()=>{
+          navigate("/check-mail")
+         }
       })
-      navigate("/check-mail");
-    
+     
     },
+
+    onError: (error: any) => {
+      Swal.fire({
+        title: "registration failed",
+        text: "email or password incorrect",
+        icon: "error",
+      });
+    }
   });
 
   const Submit = handleSubmit(async (data: any) => {
-    console.log("user", data)
     posting.mutate(data);
     
   });

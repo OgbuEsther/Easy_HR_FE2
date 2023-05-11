@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import { RotatingLines } from 'react-loader-spinner'
+import { useAppSelector } from '../components/global/Store'
+import { useQuery } from '@tanstack/react-query'
+import { getOneAdmin } from '../utils/Api/ApiCall'
 
 const RateDetails = () => {
 
@@ -13,9 +16,17 @@ const RateDetails = () => {
 
   }, [])
 
+  const admin = useAppSelector((state) => state.currentUser);
 
+  const [token, setToken] = React.useState("");
 
-  
+  const getAdmin = useQuery({
+    queryKey: ["singleAdmin"],
+    queryFn: () => getOneAdmin(admin?._id),
+
+  });
+console.log("getadminb", getAdmin?.data?.data?.PerformanceMilestone)
+
   return (
       <Container>
           <Wrapper>
@@ -29,6 +40,7 @@ const RateDetails = () => {
               <Mid>
             {isLoading ? (
             <Table>
+            {getAdmin?.data?.data?.PerformanceMilestone.map((el: any) => (
               <table>
                 <tr>
                   <th>Milestone</th>
@@ -37,12 +49,11 @@ const RateDetails = () => {
                   <th>Admin Ratings</th>
                   <th>Grade</th>
                 </tr>
-
                 <tr>
                   <td>
                   <Circlehold>
-                    <Circle>O</Circle>
-                    <Name>Okwoli Godwin</Name>
+                    
+                    <Name> {el.mileStone} </Name>
                     </Circlehold>
                   </td>
                   
@@ -88,6 +99,7 @@ const RateDetails = () => {
                               
                     
                 </table>
+            ))}
             </Table>
             ) : <RotatingLines  visible={true}
             strokeColor="#007bff"

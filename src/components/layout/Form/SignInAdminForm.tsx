@@ -63,9 +63,12 @@ const SigninForm = () => {
         didOpen: () => {
           Swal.showLoading();
         },
+
+        willClose: () => {
+          navigate("/dashboard");
+        },
       });
-      navigate("/dashboard");
-      reset()
+      
     },
     onError: (error: any) => {
       Swal.fire({
@@ -75,11 +78,11 @@ const SigninForm = () => {
       });
     },
   });
-
+  reset()
 
   const Submit = handleSubmit((data) => {
     LoginAdminFunction.mutate(data);    
-    
+    // console.log("sign in admin", data)
   });
 
   return (

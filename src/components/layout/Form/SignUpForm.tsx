@@ -50,18 +50,33 @@ SetViewPassword(!ViewPassword)
 
     onSuccess: (data)=>{
       dispatch(Staff(data?.data))
+      reset()
       Swal.fire({
               title: "User registered sucessfully",
               html: "redirecting to login",
               timer: 1000,
               timerProgressBar: true,
-      
+
+              didOpen: () => {
+                Swal.showLoading();
+              },
+
              willClose: ()=>{
               navigate("/check-mail")
              }
+
+             
+    
             });
-            reset()
-    }
+            
+    },
+    onError: (error: any) => {
+      Swal.fire({
+        title: "registration failed",
+        text: "email or password incorrect",
+        icon: "error",
+      });
+    },
   })
 
   // console.log('here',StaffSignUp);
@@ -70,7 +85,7 @@ SetViewPassword(!ViewPassword)
   
   const Submit = handleSubmit(async(data: any)=>{
     StaffSignUp.mutate(data)
-    console.log("this is the submitted data "+ data);
+    console.log("this is the submitted data ", data);
     
   })
 
