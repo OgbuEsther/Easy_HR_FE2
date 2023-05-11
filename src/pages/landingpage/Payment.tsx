@@ -10,14 +10,14 @@ import img14 from "../../Assets/val.jpg"
 // import { NavLink } from 'react-router-dom'
 
 
-const Payment: React.FC = () => {
+const Payment = () => {
 
 
 
   return (
     <Container>
-        <Text>Our Undergraduate Researchers</Text>
-        <P>It is a Catch Them Young approach to help promote research culture among undergraduate students in University of Abuja</P>
+        <Text>Sell world-class HR solutions <br /> and increase profitability</Text>
+        <P>It is a Catch Them Young approach to help promote Business culture</P>
         <Wrapper >
          
              <Box2>
@@ -25,7 +25,10 @@ const Payment: React.FC = () => {
                     <Img  src={img14}/>
                 </Up>
                 <Down6>
-                    <Data><span>Faiza Doyinsola  </span><br /><p>Clinical science </p> <h5>Research: Cardiovascular Disease Risk among Undergraduates in University of Abuja</h5></Data>
+                    <Data><span>Channel Manager  </span>
+                     <h5>
+                        Get all the strategy advice and business support you'll need to help you maximize 
+                        </h5></Data>
 
                 <New>Collaborator  🥉</New>
                 </Down6>
@@ -36,7 +39,11 @@ const Payment: React.FC = () => {
                     <Img  src={img4}/>
                 </Up>
                 <Down6>
-                    <Data><span>Oyeleye Blessing Simon </span><br /><p>Clinical science </p> <h5>Research: Bacteria associated with milk and milk products sold on campus of university of Abuja, Nigeria</h5></Data>
+                    <Data><span>Product Knowledge  </span>
+                     <h5>
+                       We will teach your sales and support personnels to help you imporve sales, better support your customers and improve product adoption
+                    </h5>
+                    </Data>
 
                 <New>Researcher 🥉</New>
                 </Down6>
@@ -47,23 +54,17 @@ const Payment: React.FC = () => {
                     <Img  src={img8}/>
                 </Up>
                 <Down6>
-                    <Data><span>Abayomi Phebe Oluwatosin</span><br /><p>Veterinary Medicine</p> <h5>Research: Bacteria associated with milk and milk products sold on campus of university of Abuja, Nigeria</h5></Data>
+                    <Data><span>Marketing Collateral</span>
+                     <h5>
+                     We will provide you with sales support tools to communicate EasyHR product offerings.
+                     </h5>
+                     </Data>
 
                 <New>Collaborator 🥉</New>
                 </Down6>
               </Box2>
 
-          
-            <Box3>
-                <Up>
-                    <Img  />
-                </Up>
-                <Down6>
-                    <Data><span>Muhammad Shamsudeen Ibrahim  </span><br /><p>Clinical science </p> <h5>Research: Development of Uniabuja electronic document management system on blockchain technology</h5></Data>
 
-                <New>Collaborator  🥉</New>
-                </Down6>
-            </Box3>
         </Wrapper>
         {/* <NavLink to="/gallery" style={({ isActive }) => ({
     textDecoration: "none",
@@ -76,36 +77,7 @@ const Payment: React.FC = () => {
 }
 
 export default Payment
-const Button2 = styled.div`
-    height: 60px;
-    width: 250px;
-    background-color:  #00A85A;
-    display: flex;
-    margin-top: 50px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 350ms;
-    font-weight: bold;
-	color: white;
-    :hover{
-        transform: scale(0.9);
-        background-color: #F5F5F5;
-        color: #00A85A;
-        border: 1px solid #00A85A;
-    };
-    @media screen and (max-width: 425px) {
-        margin-top: 10px;
-    }
-`;
-const Boot = styled.div`
-    width: 200px;
-    height: 30px;
-    background-color: red;
-    position: absolute;
-    bottom: 40px;
-`
+
 const New = styled.div`
     width: 150px;
     height: 40px;
@@ -119,7 +91,7 @@ const New = styled.div`
     /* padding-right: 20px; */
     justify-content: center;
     border-radius: 50px;
-    bottom: 450px;
+    bottom: 480px;
     right: 220px;
     @media screen and (max-width: 1024px) {
         right: 340px;
@@ -136,22 +108,13 @@ const New = styled.div`
         bottom: 475px;
     }
 `
-const Icon = styled.div`
-    margin-left: 25px;
-    margin-top: 5px;
-`
-const View = styled.div`
-    line-height: 1.75rem;
-    font-size: 1.125rem;
-    display: flex;
-    margin-top: 20px;
-`
+
 const Data = styled.div`
     h5{
         margin: 0px;
         font-weight: 500;
         font-size: 15px;
-        margin-top: 10px;
+        margin-top: 30px;
         line-height: 20px;
     }
     font-size: 1.5rem;
@@ -175,80 +138,13 @@ const Data = styled.div`
     }
    
 `
-const Down = styled.div`
-    width: 100%;
-    height: 50%;
-    background-color: #A74F46;
-    display: flex;
-    padding-top: 40px;
-    padding-left: 40px;
-    color: white;
-    flex-direction: column;
-    position: relative;
-    @media screen and (max-width: 425px) {
-        padding-left: 15px;
-    }
-`
-const Down2 = styled.div`
-    width: 100%;
-    height: 50%;
-    background-color: #0C8F54;
-    display: flex;
-    padding-top: 40px;
-    padding-left: 40px;
-    color: white;
-    flex-direction: column;
-    position: relative;
-    @media screen and (max-width: 425px) {
-        padding-left: 15px;
-    }
-`
-const Down3 = styled.div`
-    width: 100%;
-    height: 50%;
-    background-color: #A74F46;
-    display: flex;
-    padding-top: 40px;
-    padding-left: 30px;
-    color: white;
-    flex-direction: column;
-    position: relative;
-    @media screen and (max-width: 425px) {
-        padding-left: 15px;
-    }
-`
-const Down4 = styled.div`
-    width: 100%;
-    height: 50%;
-    background-color: #0C8F54;
-    display: flex;
-    padding-top: 40px;
-    padding-left: 40px;
-    color: white;
-    flex-direction: column;
-    position: relative;
-    @media screen and (max-width: 425px) {
-        padding-left: 15px;
-    }
-`
-const Down5 = styled.div`
-    width: 100%;
-    height: 50%;
-    background-color: #A74F46;
-    display: flex;
-    padding-top: 40px;
-    padding-left: 40px;
-    color: white;
-    flex-direction: column;
-    position: relative;
-    @media screen and (max-width: 425px) {
-        padding-left: 15px;
-    }
-`
+
+
+
 const Down6 = styled.div`
     width: 100%;
     height: 50%;
-    background-color: #0C8F54;
+    background-color: #001328;
     display: flex;
     padding-top: 40px;
     padding-left: 40px;
@@ -259,27 +155,7 @@ const Down6 = styled.div`
         padding-left: 15px;
     }
 `
-const Down7 = styled.div`
-    width: 100%;
-    height: 50%;
-    background-color: #10A662;
-    display: flex;
-    padding-top: 40px;
-    padding-left: 40px;
-    color: white;
-    flex-direction: column;
-`
-const Down8 = styled.div`
-    width: 100%;
-    height: 50%;
-    background-color: #000269;
-    display: flex;
-    padding-top: 40px;
-    padding-left: 40px;
-    color: white;
-    flex-direction: column;
-    
-`
+
 const Img = styled.img`
     transition: all 350ms;
     object-fit: cover;
@@ -302,24 +178,7 @@ const Up = styled.div`
         
     }
 `
-const Box = styled.div`
-    width: 390px;
-    height: 490px;
-    overflow: hidden;
-    border-radius: 10px;
-    margin: 5px;
-    margin-bottom: 35px;
-    @media screen and (max-width: 1024px) {
-        width: 440px;
-    }
-    @media screen and (max-width: 768px) {
-        width: 320px;
-    }
-    @media screen and (max-width: 445px) {
-        width: 100%;
-    }
 
-`
 const Box2 = styled.div`
     width: 390px;
     height: 490px;
@@ -345,14 +204,7 @@ const Box3 = styled.div`
     margin-top: 40px;
     visibility: hidden;
 `
-const Box4 = styled.div`
-    width: 390px;
-    height: 420px;
-    overflow: hidden;
-    border-radius: 10px;
-    margin-top: 40px;
-    visibility: hidden;
-`
+
 const P = styled.div`
     font-size: 1.125rem;
     width: 85%;
@@ -406,5 +258,5 @@ const Container = styled.div`
     align-items: center;
     flex-direction: column;
     /* margin-top: 140px; */
-    padding-bottom: 20px;
+    /* padding-bottom: 20px; */
 `

@@ -224,5 +224,5 @@ align-items:center;
 justify-content: center;
 flex-direction: column;
 flex-wrap: wrap;
-margin: 50px 0px;
+/* margin: 50px 0px; */
 `
