@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import Select from "react-select";
-import { BsCalendar4Event } from "react-icons/bs";
+
 import InputStaffAttendance from "./InputFieldAttendance/InputStaffAttendance";
 import { MdOutlineCancel } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
@@ -89,10 +88,7 @@ const Attendance: React.FC = () => {
   console.log("this is value: " + value);
 
   const user = useAppSelector((state) => state.currentStaff);
-  const getStaff = useQuery({
-    queryKey: ["singleStaff"],
-    queryFn: () => getOneStaff(user?._id),
-  });
+
   //admin
 
   const admin = useAppSelector((state) => state.currentUser);
@@ -104,9 +100,12 @@ const Attendance: React.FC = () => {
   const total = useAppSelector((state)=> state.leave)
 
   const clockin = useAppSelector((state) => state.clockIn);
-  const clockout = useAppSelector((state) => state.clockOut);
+  const late = useAppSelector((state) => state.late);
 
-  const [selectOption, setSelectOption] = useState<any>(null);
+
+  const [early , setEarly] = useState({})
+
+
 
   //api consumption
 
@@ -168,7 +167,16 @@ const Attendance: React.FC = () => {
         <StatisticColumn>
           <Card className="one">
             <CardTitle>
-              Timesheet <span>{clockin?.date} </span>
+              Timesheet <span>{
+                early ?(
+                  <>
+                   {clockin?.date} 
+                  </>
+                ): (
+                  <>
+                  {late?.data} 
+                  </>
+                )} </span>
             </CardTitle>
 
             <CardContent>

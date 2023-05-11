@@ -69,6 +69,13 @@ const ClockOut = () => {
       })
     
     },
+     onError: (error: any) => {
+      Swal.fire({
+        title: "punch out failed",
+        text: `${error?.response?.data?.message}`,
+        icon: "error",
+      });
+    }
   });
 
   const Submit = handleSubmit(async (data: any) => {

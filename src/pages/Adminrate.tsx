@@ -2,6 +2,15 @@ import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import { RotatingLines } from 'react-loader-spinner'
 import {IoMdArrowDropdown} from "react-icons/io"
+import { useDispatch } from 'react-redux'
+import { useAppSelector } from '../components/global/Store'
+import {useForm} from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup"
+import { useMutation } from "@tanstack/react-query";
+
+import { adminScore } from '../utils/Api/ApiCall' 
+import Swal from 'sweetalert2'
 
 const Adminrate = () => {
 
@@ -13,6 +22,53 @@ const Adminrate = () => {
     },2000)
 
   }, [])
+
+  const dispatch = useDispatch()
+  const admin = useAppSelector((state)=> state.currentUser)
+
+  const schema = yup.object({
+    mileStone: yup.string().required(),
+  }).required()
+  
+  type formData = yup.InferType<typeof schema>
+  
+  const{handleSubmit, formState: {errors}, reset, register} = useForm<formData>({
+    resolver: yupResolver(schema),
+  })
+
+
+    const posting = useMutation({
+      mutationKey: ["milestone"],
+      mutationFn: (data: any) => adminScore(data,admin?._id ),
+
+
+      onSuccess: (myData) => {
+        // dispatch(mileStone(myData.data))
+        reset()
+  
+        Swal.fire({
+          title: "admin registered successfully",
+          html: "redirecting to login",
+          timer: 1000,
+          timerProgressBar: true,    
+        })
+  
+  },
+  onError: (error: any) => {
+    Swal.fire({
+      title: `leave creation error`,
+      text: `${error?.response?.data?.message}`,
+      icon: "error",
+    });
+  }
+});
+
+  const Submit = handleSubmit(async (data: any) => {
+    console.log("milestone", data)
+    posting.mutate(data);
+  });
+
+
 
   return (
       <Container>

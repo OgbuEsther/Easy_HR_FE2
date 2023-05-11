@@ -9,7 +9,7 @@ import Swal from "sweetalert2";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { staffClockIn } from "../../utils/Api/ApiCall";
-import { StaffClockIn } from "../../components/global/ReduxState";
+import { StaffClockIn, StaffClockInLate } from "../../components/global/ReduxState";
 
 const InputStaffAttendance = () => {
 
@@ -69,6 +69,14 @@ const InputStaffAttendance = () => {
       })
     
     },
+    onError: (error: any) => {
+      dispatch(StaffClockInLate(error.response))
+      Swal.fire({
+        title: "punch in failed",
+        text: `${error?.response?.data?.message}`,
+        icon: "error",
+      });
+    }
   });
 
   const Submit = handleSubmit(async (data: any) => {
