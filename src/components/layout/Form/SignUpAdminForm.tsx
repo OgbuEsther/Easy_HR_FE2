@@ -73,7 +73,7 @@ const SignupAdminForm = () => {
     onError: (error: any) => {
       Swal.fire({
         title: "registration failed",
-        text: "email or password incorrect",
+        text: `${error?.response?.data?.message}`,
         icon: "error",
       });
     }

@@ -161,7 +161,8 @@ const Leave = () => {
                     />
                     <span>{errors?.title && errors?.title?.message}</span>
                     <br />
-                    <input {...register("days")} type="text" placeholder="number of days " />
+                    <Of><p>Number Of Days</p></Of>
+                    <Inputs {...register("days")} type="number" placeholder="number of days " />
                     <span>{errors?.days && errors?.days?.message}</span>
                     <Buthold>
                       <Buton type ="submit">Create Leave Type</Buton>

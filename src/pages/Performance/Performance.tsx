@@ -102,6 +102,13 @@ const admin = useAppSelector((state)=> state.currentUser)
         })
   
   },
+  onError: (error: any) => {
+    Swal.fire({
+      title: `leave creation error`,
+      text: `${error?.response?.data?.message}`,
+      icon: "error",
+    });
+  }
 });
 
   const Submit = handleSubmit(async (data: any) => {
