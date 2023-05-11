@@ -137,7 +137,7 @@ const SideBar = () => {
           <GiAbstract013 />
         </Icon2>
         <NavLink
-          to=""
+          to="/dashboard/settings"
           style={({ isActive }) => {
             return {
               textDecoration: isActive ? "none" : "none",
