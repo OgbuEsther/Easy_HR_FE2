@@ -114,6 +114,8 @@ const Textarea = styled.textarea`
     border-style: solid;
     border-width: 1px;
     border-radius: 4px;
+    padding: 13px;
+    outline: none;
 `
 const Inputhold = styled.div`
     width: 100%;
@@ -146,7 +148,8 @@ const Select = styled.select`
     margin-bottom: 15px;
     line-height: 1.5;
     border: none;
-    outline-color: #4dccff;
+    outline: none;
+    /* outline-color: #4dccff; */
     color: #495057;
     background-color: #fff;
     display: flex;
