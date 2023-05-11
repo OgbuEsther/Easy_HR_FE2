@@ -112,6 +112,7 @@ const Save = styled.div`
     margin-top: 13px;
     border-radius: 5px;
     cursor: pointer;
+    color: #fff;
 `
 const Holder = styled.div`
     display: flex;

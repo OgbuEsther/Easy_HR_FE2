@@ -116,6 +116,10 @@ const Cha = styled.div`
   padding: 10px;
    background-color: #fff;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 `
 const Dough = styled.div`
   width: 48%;
@@ -127,6 +131,10 @@ const Hold = styled.div`
   /* background-color: red; */
   margin-top: 50px;
   justify-content: space-between;
+
+  @media screen and (max-width: 768px) {
+    flex-wrap: wrap;
+  }
 `
 const CardHold = styled.div`
   display: flex;

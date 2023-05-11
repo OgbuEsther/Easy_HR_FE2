@@ -211,7 +211,7 @@ const Table = styled.div`
   overflow-x: auto;
   margin-top: 40px;
   flex-direction: column;
-
+  overflow-x: scroll;
   table {
     min-width: 400px;
     max-width: 1440px;

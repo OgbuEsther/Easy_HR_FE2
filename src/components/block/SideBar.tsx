@@ -303,7 +303,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   z-index: 4;
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 1024px) {
     display: none;
   }
 `
