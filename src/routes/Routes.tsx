@@ -145,6 +145,10 @@ export const Elements = createBrowserRouter([
     path:"/sign-in-option",
     element: <SignInOption/>
   },
+  {
+  path:"/confirm",
+  element: <Yesorno />
+},
 
   {
     path:"/sign-up-admin",
@@ -152,7 +156,7 @@ export const Elements = createBrowserRouter([
   },
   {
     path:"/sign-in-admin",
-    element: <Yesorno/>
+    element: <SignInAdmin />
   },
   {
     path:"/check-mail",
