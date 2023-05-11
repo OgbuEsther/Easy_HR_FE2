@@ -110,28 +110,13 @@ const AllLeave = () => {
             <Table>
               <table>
                 <tr>
-                  <th>Employee Name</th>
+                  <th>Leave type</th>
                   <th>Leave Period</th>
-                  <th>Days</th>
-                  <th>Type</th>
-                  <th>Applied On</th>
-                  <th>Reason</th>
                 </tr>
 
                 <tr>
-                  <td>
-                  <Circlehold>
-                    <Circle>O</Circle>
-                    <Name>Okwoli Godwin</Name>
-                    </Circlehold>
-                  </td>
-                  <td>09 May, 2023</td>
-                  <td>1 Day</td>
                   <td>Casual Leave</td>
-                  <td>
-                    07 May, 2023
-                  </td>
-                  <td>nothing</td>
+                  <td>1 Day</td>
                 </tr>
                 </table>
                 <Plan>On the free plan, you can access the last 14 days of data only. Upgrade to the Pro plan to get the historical data.</Plan>
