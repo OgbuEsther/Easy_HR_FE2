@@ -1,10 +1,7 @@
-import React from 'react'
 import styled from 'styled-components'
 import Admin from "../../Assets/hr_group.jpg"
-import {BsArrowLeft} from "react-icons/bs"
-import { NavLink } from 'react-router-dom';
 import SigninAdminForm from '../../components/layout/Form/SignInAdminForm';
-import OutlineButton from '../../components/Buttons/OutlineButton';
+import BackButton from '../../components/Buttons/BackButton';
 
 
 const SignInAdmin = () => {
@@ -16,12 +13,13 @@ const SignInAdmin = () => {
   <SigInDetailContainer>
 
 <ImageContainer>
-      <NavLink to='/sign-in-option'>
-      <OutlineButton fontSize='19px' positioning='absolute' border='2px solid white' color='white' top='20px' left='20px'/>
-      </NavLink>
+      
+        <BackButton path='/sign-in-option'/>
+      
   <Image  src={Admin}/>
 </ImageContainer>
 <FormContainer>
+  
 <SigninAdminForm />
 </FormContainer>
   </SigInDetailContainer>
@@ -33,6 +31,8 @@ const SignInAdmin = () => {
 }
 
 export default SignInAdmin;
+
+
 
 
 const Image = styled.img`
@@ -50,10 +50,7 @@ const FormContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
-
-
-  
+  position : relative;
 `
 const ImageContainer = styled.div`
   height: 100%;

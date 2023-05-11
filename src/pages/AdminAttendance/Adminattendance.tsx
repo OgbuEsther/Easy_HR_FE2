@@ -24,7 +24,7 @@ const Adminattendance: React.FC = () => {
 
   const [token, setToken] = React.useState("");
 
-  const getAdmin = useQuery({
+  const getAdminToken = useQuery({
     queryKey: ["genToken"],
     queryFn: () => genAttendanceToken(admin?._id),
   });
@@ -69,6 +69,26 @@ const Adminattendance: React.FC = () => {
     },2000)
 
   }, [])
+
+  const getAdmin = useQuery({
+    queryKey: ["singleAdmin"],
+    queryFn: () => getOneAdmin(admin?._id),
+  });
+
+    const [search, setSearch] = React.useState("");
+  const [searchProps, setSearchProps] = React.useState<any[]>([]);
+
+  const searchData = async (e: any) => {
+    if (e.key === "Enter") {
+      await axios
+        .get(`https://easyhr.onrender.com/api/staff/search?yourName=${search}`)
+        .then((res) => {
+          console.log(res.data.data);
+          setSearchProps(res.data.data);
+          console.log(`searchlog`, setSearchProps)
+        });
+    }
+  };
 
   return (
     <div>
@@ -124,7 +144,11 @@ const Adminattendance: React.FC = () => {
             }}>
               <Down>
             <Inputhold>
-            <Input placeholder='All Employees' />
+            <Input onKeyPress={searchData}
+              onChange={(e) => {
+                setSearch(e.target.value);
+              }}
+              placeholder="Search by staff name " />
             <Icon><IoMdArrowDropdown /></Icon>
             </Inputhold>
             <Inputhold>
@@ -136,7 +160,9 @@ const Adminattendance: React.FC = () => {
                 {isLoading ? (
                    <Two>
             <Title>Today's Attendance:</Title>
-
+            {searchProps.length === 0 ? (
+          <>
+            {getAdmin?.data?.data?.viewStaffAttendance.map((el: any) => (
             <Table>
               <table>
                 <tr>
@@ -178,6 +204,65 @@ const Adminattendance: React.FC = () => {
                 </tr>
               </table>
             </Table>
+
+              ))} 
+          </>
+        ) :(
+          <>
+          {searchProps?.length >= 1 ? (
+            <>
+              {searchProps?.map((el: any) => (
+                  <Table>
+                  <table>
+                    <tr>
+                      <th>Employee Name</th>
+                      <th>Employee ID</th>
+                      <th>Department</th>
+                      <th>Check In</th>
+                      <th>Shift</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                    </tr>
+    
+                    <tr>
+                      <td>
+                        <Circlehold>
+                        <Circle>O</Circle>
+                        <Name>Okwoli Godwin</Name>
+                        </Circlehold>
+                      </td>
+                      <td>1001</td>
+                      <td>Development</td>
+                      <td>
+                        <Chc>10:28</Chc>
+                      </td>
+                      <td>Shift 1</td>
+                      <td>
+                        <Box>Present</Box>
+                      </td>
+                      <td>
+                        <Action>
+                          <Cir>
+                            <BsPencilFill />
+                          </Cir>
+                          <Cir1>
+                            <RiDeleteBin2Line />
+                          </Cir1>
+                        </Action>
+                      </td>
+                    </tr>
+                  </table>
+                </Table>
+                  ))} 
+                  </>
+                ) :(
+                  <>
+                  <p>oops!! staff doesn't exist</p>
+                  </>
+                )}
+              </>
+            )}
+        
           </Two>
                   ) : <RotatingLines  visible={true}
             strokeColor="#007bff"

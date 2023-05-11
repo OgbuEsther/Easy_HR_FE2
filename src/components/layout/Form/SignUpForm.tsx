@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import styled from 'styled-components'
 import {useForm} from "react-hook-form"
 import * as yup from "yup"
@@ -10,17 +10,19 @@ import { useMutation } from '@tanstack/react-query'
 import { createStaff } from '../../../utils/Api/ApiCall'
 import { Staff } from '../../global/ReduxState'
 import Swal from 'sweetalert2'
+import {AiOutlineEyeInvisible} from "react-icons/ai"
+import {AiOutlineEye} from "react-icons/ai"
+import BackButton from '../../Buttons/BackButton'
 
 
 
 const SignupForm = () => {
 
+  const [ViewPassword, SetViewPassword] = useState(false)
 
-  const [viewpassword, setViewpassword]=useState(false)
-  const ShowPasswordFunction = (e:any)=>{
-    e.preventDefault()
-    setViewpassword(!viewpassword)
-  }
+    const ViewPasswordFunction = ()=>{
+SetViewPassword(!ViewPassword)
+    }
 
   const dispatch = UseAppDispach();
   const navigate = useNavigate()
@@ -44,7 +46,6 @@ const SignupForm = () => {
 
   const StaffSignUp = useMutation({
     mutationKey:['creating_staff'],
-    // mutationFn: createStaff,
     mutationFn: (data: any) => createStaff(data),
 
     onSuccess: (data)=>{
@@ -77,9 +78,10 @@ const SignupForm = () => {
   return (
 
         <Form onClick={Submit}>
+          <BackButton path='/sign-up-option'/>
 <SignUpTitle>Sign Up</SignUpTitle>
 <SignUpDescription>You will be signup as a Staff</SignUpDescription>
-{/* <SignUpDescription>Pay smart and save time with Easy Pay</SignUpDescription> */}
+
 
 
 
@@ -89,6 +91,8 @@ const SignupForm = () => {
   <FirstNameInputContainer>
     
     <FirstNameInput {...register("yourName")} placeholder='Your Name'/>
+
+    <span style={{color:"#d8000c"}}>{errors.yourName && "your name is required"}</span>
   </FirstNameInputContainer>
 </NameInputColumn>
 
@@ -97,6 +101,8 @@ const SignupForm = () => {
 <StaffEmailContainer>
  
   <StaffEmailInput {...register("email")} placeholder='Email Address' />
+
+  <span style={{color:"#d8000c"}}>{errors.email && "your email is required"}</span>
 </StaffEmailContainer>
 </StaffEmailColumn>
 
@@ -105,18 +111,19 @@ const SignupForm = () => {
   <CompanyNameInputContainer>
   
     <CompanyNameInput {...register("companyname")} placeholder='Company Name'/>
+
+    <span style={{color:"#d8000c"}}>{errors.companyname && "your company name is required"}</span>
   </CompanyNameInputContainer>
-  <PasswordInputContainer>
-    <PasswordInputHold>
-      
-     <PasswordInput type={viewpassword?"text":"password"} {...register("password")} placeholder='Password'/>
+  <PasswordInputHold>
+      <InputmainHold>
+        <MainPassword className='password' {...register("password")} type={ViewPassword? "text":"password"} placeholder='password'/> <ShowPassword  onClick={ViewPasswordFunction}>
+        {
+          ViewPassword?<AiOutlineEye/>:<AiOutlineEyeInvisible/>
+        }
+        </ShowPassword>
+      </InputmainHold>
+      <span style={{color:"#d8000c"}}>{errors.password && "your password is required"}</span>
     </PasswordInputHold>
-    <ShowPassword onClick={ShowPasswordFunction}>
-      <CheckedInput type='checkbox' checked={viewpassword?true:false}/> <ShowPasswordText>
-        Show Password
-      </ShowPasswordText>
-    </ShowPassword>
-  </PasswordInputContainer>
 </CompanyNameAndPasswordInputColumn>
 
 {/* Staff Sign up Button Area */}
@@ -143,11 +150,7 @@ export default SignupForm;
 
 
 
-const PasswordInput = styled.input`
-height: 50px;
-width: auto;
-border: 1px solid silver;
-`
+
 
 const CompanyNameInput = styled.input`
 height: 50px;
@@ -156,53 +159,56 @@ border: 1px solid silver;
 `
 
 
-
-const PasswordInputHold = styled.div`
-  height: 100px;
-  width: auto;
-  display: flex;
-justify-content: flex-start;
-flex-direction: column;
-`
-
-const CheckedInput = styled.input`
-height: 15px;
-width: 15px;
-cursor: pointer;
-`;
-
-const ShowPasswordText = styled.div`
-font-size: 15px;
-font-weight: 600;
-margin-left: 5px;
-`;
-
 const ShowPassword = styled.div`
-height: auto;
-width: 250px;
+  height: 50px;
+  width: 50px;
 display: flex;
+justify-content: center;
 align-items: center;
-margin-bottom: 15px;
-cursor: pointer;
+font-size: larger;
+color: grey;
+
 `
 
-const PasswordInputContainer = styled.div`
-  height: 100px;
-  width: 300px;
+const MainPassword = styled.input`
+  height: 45px;
+  flex: 1;
+  padding-left: 10px;
+
+`
+
+const InputmainHold = styled.div`
+  height: auto;
+  width: 100%;
   display: flex;
-flex-direction: column;
-/* background-color: green; */
+  justify-content: flex-end;
+  align-items: center;
+  border: 1px solid  #0174f78d;
+  border-radius: 5px;
+
+  .password{
+    outline: none;
+    border: none;
+  }
+`
+const PasswordInputHold = styled.div`
+  height: auto;
+  width: 100%;
+
 `
 
 const CompanyNameInputContainer = styled.div`
-  height: 100px;
+  height: auto;
   width: 300px;
-  padding-bottom: 50px;
   display: flex;
-justify-content: center;
-flex-direction: column;
-margin-right: 5px;
-/* background-color: blue; */
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+@media screen and (max-width: 1200px) {
+  width: 100%;
+}
 `
 
 const CompanyNameAndPasswordInputColumn = styled.div`
@@ -213,39 +219,36 @@ const CompanyNameAndPasswordInputColumn = styled.div`
   align-items: center;
   flex-wrap: wrap;
 
+
+
   @media screen and (max-width: 500px) {
     justify-content: center;
-    
   }
   `
 
 const StaffEmailInput = styled.input`
   height: 50px;
   width: auto;
-`
+  `
 
 const StaffEmailColumn = styled.div`
-  height: 100px;
+  height: auto;
   width: 100%;
   display: flex;
   justify-content: center;
-  /* background-color: gray; */
 
-  @media screen and (max-width: 500px){
+  @media screen and (max-width: 1200px){
     align-items: center;
   }
 `
 
 const StaffEmailContainer = styled.div`
-  height: 100px;
+  height: auto;
   width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
 
-@media screen and (max-width: 500px) {
-  width: 300px;
-}
 `
 
 const FirstNameInput = styled.input`
@@ -256,12 +259,12 @@ border: 1px solid silver;
 
 
 const FirstNameInputContainer = styled.div`
-  height: 100px;
+  height:auto;
   width: 100%;
   display: flex;
 justify-content: center;
 flex-direction: column;
-margin-right: 5px;
+margin-bottom: 20px;
 `
 
 const NameInputColumn = styled.div`
@@ -301,12 +304,10 @@ const InputField = styled.div`
   padding: 10px 0px;
   margin-top: 30px;
   position: relative;
-  /* background-color: blue; */
   
   input{
     border-radius: 5px;
     border: 1px solid black;
-    outline-color: #00d1ff;
     padding-left: 10px;
     border: 1px solid #007bff8c;
   }
@@ -372,9 +373,8 @@ const Form = styled.form`
   width: 620px;
   padding-top: 40px;
   overflow: hidden;
-  /* background-color: blue; */
   
-  @media screen and (max-width: 960px){
+  @media screen and (max-width: 1200px){
     width: 620px;
     padding: 10px;
     padding-left: 15px;

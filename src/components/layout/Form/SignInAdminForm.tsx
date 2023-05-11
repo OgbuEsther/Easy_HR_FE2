@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { AiOutlineEyeInvisible } from "react-icons/ai";
-import { AiOutlineEye } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { UseAppDispach } from "../../global/Store";
 import { useMutation } from "@tanstack/react-query";
 import { LoginAdmin } from "../../../utils/Api/ApiCall";
 import { Admin } from "../../global/ReduxState";
 import Swal from "sweetalert2";
 import { useDispatch } from "react-redux";
+import BackButton from '../../Buttons/BackButton';
+import {AiOutlineEyeInvisible} from "react-icons/ai"
+import {AiOutlineEye} from "react-icons/ai"
 
 const SigninForm = () => {
   const dispatch = useDispatch();
@@ -84,8 +84,14 @@ const SigninForm = () => {
 
   return (
     <FormHold>
+      
+      <BackButton path="/sign-in-option"/>
+     
+      <BackButtonHold>
+    <BackButton path="/sign-in-option"/>
+  </BackButtonHold>
       <SignUpTitle>Sign In</SignUpTitle>
-      {/* <SignUpDescription>Pay smart and save time with Easy Pay</SignUpDescription> */}
+     
       <SignUpDescription>You will be signed in as an Admin</SignUpDescription>
 
       <InputField onSubmit={Submit}>
@@ -102,27 +108,21 @@ const SigninForm = () => {
           <span>{errors?.email && errors?.email?.message}</span>
         </EmailInputColumn>
         <CompanyPasswordColumn>
-          <CompanyPasswordInputHold>
-            <CompanyPasswordInput
-              type={ViewPassword ? "text" : "password"}
-              {...register("password")}
-              placeholder="Password"
-            />
-            <span>{errors?.password && errors?.password?.message}</span>
-          </CompanyPasswordInputHold>
-
-          <ShowPasswordAndForgetPassword>
-            <ShowPassword onClick={ViewPasswordFunction}>
-              <ShowPasswordInput
-                type="checkbox"
-                {...register("password")}
-                checked={ViewPassword}
-              />
-              <span>{errors?.password && errors?.password?.message}</span>
-              <ShowPasswordText>show password</ShowPasswordText>
-            </ShowPassword>
-            <ForgetPassword>Forget Password</ForgetPassword>
-          </ShowPasswordAndForgetPassword>
+           <PasswordInputHold>
+      <InputmainHold>
+        <MainPassword {...register("password")} type={ViewPassword? "text":"password"} placeholder='password'/> <ShowPassword  onClick={ViewPasswordFunction}>
+        {
+          ViewPassword?<AiOutlineEye/>:<AiOutlineEyeInvisible/>
+        }
+        </ShowPassword>
+      </InputmainHold>
+    </PasswordInputHold>
+    
+    <ShowPasswordAndForgetPassword>
+<ForgetPassword >
+  Forget Password
+</ForgetPassword>
+    </ShowPasswordAndForgetPassword>
         </CompanyPasswordColumn>
         <FourtInputColumn>
           <SignUpButton>
@@ -144,6 +144,30 @@ const SigninForm = () => {
 
 export default SigninForm;
 
+const MainPassword = styled.input`
+  height: 45px;
+  flex: 1;
+  padding-left: 10px;
+  outline: none;
+  background-color: transparent;
+
+`
+const InputmainHold = styled.div`
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border: 1px solid  #0174f78d;
+  border-radius: 5px;
+`
+
+const PasswordInputHold = styled.div`
+  height: auto;
+  width: 100%;
+
+`
+
 const ForgetPassword = styled.div`
   height: auto;
   width: auto;
@@ -151,24 +175,16 @@ const ForgetPassword = styled.div`
   color: #0174f7c8;
 `;
 
-const ShowPasswordInput = styled.input`
-  height: 10px;
-  width: 10px;
-  border-radius: 0px;
-`;
-const ShowPasswordText = styled.div`
-  height: auto;
-  width: auto;
-  font-size: 13px;
-  margin-bottom: 3px;
-  margin-left: 2px;
-`;
+
 const ShowPassword = styled.div`
-  height: auto;
-  width: auto;
+  height: 40px;
+  width: 50px;
+  font-size: 24px;
   display: flex;
+  justify-content: center;
   align-items: center;
   background-color: white;
+  color: gray;
   border: none;
   cursor: pointer;
 `;
@@ -201,14 +217,7 @@ const CompanyNameInputHold = styled.div`
   flex-direction: column;
 `;
 
-const CompanyPasswordInput = styled.input`
-  height: 45px;
-  width: 100%;
-  border-radius: 5px;
-  border: 1px solid #0174f78d;
-  outline: none;
-  padding-left: 10px;
-`;
+
 
 const Button = styled.button`
   height: 40px;
@@ -249,18 +258,13 @@ const InputField = styled.form`
 
 const EmailInput = styled.input`
   height: 50px;
-  width: auto;
+  width: 100%;
   border-radius: 5px;
   border: 1px solid #0174f78d;
   outline: none;
   padding-left: 10px;
 `;
 
-const Label = styled.label`
-  font-weight: 600;
-  font-size: 13px;
-  margin-bottom: 5px;
-`;
 
 const FifthInputColumn = styled.div`
   height: 50px;
@@ -283,6 +287,10 @@ const FourtInputColumn = styled.div`
   height: 50px;
   width: 100%;
   margin-top: 50px;
+
+  @media screen and (max-width: 510px) {
+    text-align: center;
+  }
 `;
 const CompanyPasswordColumn = styled.div`
   height: 70px;
@@ -291,14 +299,8 @@ const CompanyPasswordColumn = styled.div`
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  /* background-color: blue; */
 `;
 
-const CompanyPasswordInputHold = styled.div`
-  height: auto;
-  width: 100%;
-  display: flex;
-`;
 
 const EmailInputColumn = styled.div`
   height: 70px;
@@ -320,17 +322,34 @@ const SignUpTitle = styled.h3`
   color: #0174f7b5;
 `;
 
+const BackButtonHold = styled.div`
+  height: auto;
+  height: auto;
+  display: none;
+
+  @media screen and (max-width: 960px) {
+    display: flex;
+  }
+`
+
 const FormHold = styled.div`
   height: auto;
   width: 500px;
   padding-top: 40px;
   padding-left: 5px;
-  /* background-color: blue; */
 
   @media screen and (max-width: 960px) {
-    width: 285px;
+    width: 500px;
     padding: 10px 20px;
-    border-radius: 10px;
     padding-top: 40px;
+  }
+  @media screen and (max-width: 510px) {
+    width: 100%;
+    padding: 10px 20px;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 `;

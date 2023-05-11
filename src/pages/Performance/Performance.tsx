@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import { RotatingLines } from 'react-loader-spinner'
 import Inputdate from "../Inputdate/Inputdate";
+import Adminrate from "../Adminrate";
+import RateDetails from "../RateDetails";
 
 
 
@@ -12,10 +14,25 @@ const Transaction = () => {
   };
 
   const [show1, setShow1] = useState(true)
+  const [show2, setShow2] = useState(false)
+  const [show3, setShow3] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
    const Toggle1 = () => {
-    setShow1(true)
+     setShow1(true)
+     setShow2(false)
+     setShow3(false)
+  }
+  const Toggle2 = () => {
+    setShow2(!show2)
+    setShow1(false)
+    setShow3(false)
+  }
+
+  const Toggle3 = () => {
+    setShow3(!show3)
+    setShow2(false)
+    setShow1(false)
   }
 
   const [text, setText] = useState(localStorage.getItem('myTextArea') || '')
@@ -58,7 +75,14 @@ const Transaction = () => {
             width="30"/>}</span>
           </Pending>
 
-          <Pending><h3>Rate Staffs</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
+          <Pending onClick={Toggle2}><h3>Rate Staffs</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
+            strokeColor="#007bff"
+            strokeWidth="5"
+            animationDuration="0.75"
+            width="30" />}</span>
+          </Pending>
+
+            <Pending onClick={Toggle3}><h3>Details</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
             strokeColor="#007bff"
             strokeWidth="5"
             animationDuration="0.75"
@@ -66,7 +90,13 @@ const Transaction = () => {
           </Pending>
           </Top>
           
-          <Textplace>
+          {isLoading ? (
+            <Mid>
+              {show1 ? (
+            <div style={{
+              width: "100%"
+            }}>
+              <Textplace>
             <Texthold>
               <Textarea placeholder="Set Goals....." value={text} onChange={handleTextChange}/>
               <Button onClick={handleSaveClick}>Submit</Button>
@@ -81,6 +111,22 @@ const Transaction = () => {
               <li>{text}</li>
             </ol>
           </Goals>
+            </div>
+          ) : null}
+            </Mid>
+          ) : <RotatingLines  visible={true}
+            strokeColor="#007bff"
+            strokeWidth="5"
+            animationDuration="0.75"
+            width="30" />}
+
+          {show2 ? (
+            <Adminrate />
+          ) : null}
+
+          {show3 ? (
+            <RateDetails />
+          ) : null}
         </Wrapper>
       </Container>
     </div>
@@ -88,6 +134,10 @@ const Transaction = () => {
 };
 
 export default Transaction;
+const Mid = styled.div`
+  width: 100%;
+  margin-top: 10px;
+`
 const Goals = styled.div`
   width: 100%;
   display: flex;
@@ -179,6 +229,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-bottom: 15px;
   /* background-color: red; */
 
   @media screen and (max-width: 768px) {

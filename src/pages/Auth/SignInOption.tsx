@@ -1,10 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import LeftSectionImage from "../../Assets/hr_group.jpg"
 import { NavLink } from 'react-router-dom'
-import OutlineButton from '../../components/Buttons/OutlineButton'
+import BackButton from '../../components/Buttons/BackButton'
 import logo from "../../Assets/logos2.png"
-import { log } from 'console'
 
 const SignInOption = () => {
 
@@ -15,36 +13,33 @@ const SignInOption = () => {
     
     <SignUpOptionPageContainer>
         <LeftSection>
-           <NavLink to="/">
-           <OutlineButton color='white' border='2px solid white' 
-            top='20px'
-            left='20px'
-            fontSize='200px'
-            positioning='absolute'
-            />
-           </NavLink>
+        
+           <BackButton path='/'/>
+
+          
             <Image src={LeftSectionImage}/>
         </LeftSection>
         <RightSection>
             
-            <MobileViewBackButton>
-            <OutlineButton color=' #0170f6' border='2px solid  #0170f6' top='15%' left='20px' positioning='fixed' fontSize='24px'/>
-            </MobileViewBackButton>
+           
+            <BackButton path='/'/>
+
+        
             <SignUpOptionField>
                 <LogoHold>
                     <Logo src={logo}/>
                 </LogoHold>
                 <TitleAndDescriptionContainer>
-                    <Description>track your company's salary <br /> disbursment with easy</Description>
+                    <Description>track your company's performance  & enhance more production with easyHR</Description>
                 </TitleAndDescriptionContainer>
                 <OptionButtonContainer>
                     <NavLink to="/sign-in-admin" style={{width:"100%", textDecoration:"none", color:"white", display:"flex", justifyContent:"center"}}>
-                        <AdminSignUpOption>Sign In As A Company</AdminSignUpOption>
+                        <AdminSigninOption>Sign In As Company</AdminSigninOption>
 
                     </NavLink>
 
                     <NavLink to="/sign-in"  style={{width:"100%", textDecoration:"none", color:"white", display:"flex", justifyContent:"center"}}>
-                    <StaffSignUpOption>Sign In As A Staff</StaffSignUpOption>
+                    <StaffSignInOption>Sign In As A Staff</StaffSignInOption>
                     </NavLink>
                 </OptionButtonContainer>
             </SignUpOptionField>
@@ -59,25 +54,6 @@ export default SignInOption;
 
 // Rignt Section Codes
 
-const MobileViewBackButton = styled.div`
-    height: 50px;
-    width: 50px;
-    display: none;
-    justify-content: center;
-    position: absolute;
-    top: 15%;
-    left: 10px;
-
-    @media screen and (max-width: 960px) {
-        display: flex;
-        justify-content: center;
-    position: absolute;
-    }
-
-    
-    /* background-color: blue; */
-
-`
 
 const Description = styled.div`
 height: 100px;
@@ -87,7 +63,13 @@ font-weight: bold;
 text-align: center;
 color: #0170f6;
 margin-top: 20px;
-/* background-color: blue; */
+
+@media screen and (max-width: 960px) {
+    font-size: 16px;
+    text-align: center;
+    width: 90%;
+    padding-left: 10%;
+}
 `
 
 const Logo = styled.img`
@@ -101,7 +83,7 @@ width: 150px;
 overflow: hidden;
 `
 
-const StaffSignUpOption = styled.button`
+const StaffSignInOption = styled.button`
  height: 70px;
     width: 80%;
     border-radius: 50px;
@@ -125,13 +107,11 @@ const StaffSignUpOption = styled.button`
 
 `
 
-const AdminSignUpOption = styled.button`
+const AdminSigninOption = styled.button`
     height: 70px;
     width: 80%;
-    /* background-color: #0791fb6a; */
     background-color: #d01904;
     border-radius: 50px;
-    /* color: #078dfb; */
     color: white;
     font-size: 20px;
     font-weight: 600;
@@ -170,7 +150,6 @@ const SignUpOptionField = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-color: blue; */
 `
 
 const RightSection = styled.div`
@@ -180,7 +159,6 @@ display: flex;
 justify-content: center;
 align-items: center;
 position: relative;
-/* background-color: blue; */
 
 
 
