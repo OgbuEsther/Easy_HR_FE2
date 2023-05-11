@@ -5,7 +5,6 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import Cards from "./Cards";
 import Charts from "../components/Graph/Charts";
-import { Doughnuts } from "../components/Graph";
 import {  BsFillHousesFill, BsBusFront } from "react-icons/bs";
 import img from "../Assets/saves.svg"
 import { useAppSelector } from "../components/global/Store";
@@ -20,7 +19,6 @@ import StaffTransactionhome from "./StaffTransaction/StaffTransactionhome";
 import { useQuery } from "@tanstack/react-query";
 import { getOneStaff } from "../utils/Api/ApiCall";
 import Mobilecard from "./Mobilecard/Mobilecard";
-import { Stafffooter } from "../components";
 
 
 
@@ -507,6 +505,8 @@ const Pee = styled.div`
     }
     @media screen and (max-width: 500px) {
       width: 100%;
+      margin-top: 12px;
+      margin-bottom: 12px;
     }
 `
 const Title = styled.div`
@@ -526,6 +526,10 @@ const Piehold = styled.div`
 
     @media screen and (max-width: 768px) {
       width: 90%;
+    }
+    @media screen and (max-width: 500px) {
+      width: 90%;
+      margin-top: 16px;
     }
 `
 const Down = styled.div`
