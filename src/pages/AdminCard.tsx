@@ -30,7 +30,8 @@ const AdminCard = () => {
   return (
     <Container>
       <Wrapper>
-        <Card1>
+        <Holder>
+          <Card1>
         <Total>Total Employees</Total>
         <Num>13</Num>
       </Card1>
@@ -44,6 +45,7 @@ const AdminCard = () => {
         <Total>Leave Apply</Total>
         <Num>15</Num>
       </Card3>
+        </Holder>
 
       
       
@@ -128,6 +130,13 @@ const AdminCard = () => {
 };
 
 export default AdminCard;
+const Holder = styled.div`
+  width: 100%;
+  display: flex;
+  @media screen and (max-width: 375px) {
+    flex-wrap: wrap;
+  }
+`
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
@@ -382,8 +391,8 @@ const Card1 = styled.div`
     width: 320px;
   }
 
-  @media (max-width: 500px) {
-    width: 90%;
+  @media screen and (max-width: 375px) {
+    width: 100%;
   }
 `;
 
