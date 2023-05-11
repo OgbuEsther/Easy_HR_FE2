@@ -80,7 +80,7 @@ const Expert = () => {
                <Image>
                     <Pic src={img1}/>
                     <Icon>
-                        <SiFacebook/>
+                        <BsWhatsapp/>
                     </Icon>
                     <Bio>
                         <h3>Valerian Pedro Adimike  </h3>
