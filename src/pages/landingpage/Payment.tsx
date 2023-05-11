@@ -97,14 +97,19 @@ const New = styled.div`
         right: 340px;
     }
     @media screen and (max-width: 768px) {
-        right: 220px;
+        right: 150px;
     }
     @media screen and (max-width: 425px) {
         right: 205px;
         bottom: 500px;
     }
+    @media screen and (max-width: 375px) {
+        right: 50px;
+        bottom: 100px;
+        background-color: red;
+    }
     @media screen and (max-width: 320px) {
-        right: 180px;
+        right: 130px;
         bottom: 475px;
     }
 `
@@ -116,6 +121,12 @@ const Data = styled.div`
         font-size: 15px;
         margin-top: 30px;
         line-height: 20px;
+
+        @media screen and (max-width:768px) {
+            text-align: center;
+            font-size: 14px;
+            margin-right: 50px;
+        }
     }
     font-size: 1.5rem;
     line-height: 2rem;
@@ -217,7 +228,7 @@ const P = styled.div`
         font-size: 15px;
         text-align: center;
         line-height: 1.65rem;
-        width: 80%;
+        width: 100%;
         padding-left: 20px;
         padding-right: 20px;
     }
@@ -229,6 +240,11 @@ const Text = styled.h2`
     font-size: 3rem;
     color: #001328;
     text-align: center;
+    @media screen and (max-width: 320px) {
+        font-size: 15px;
+        text-align: center;
+        width: 100%;
+    }
     @media screen and (max-width: 445px) {
         font-size: 32px;
         text-align: center;

@@ -11,10 +11,10 @@ import { Fade } from 'react-awesome-reveal'
 const Easier = () => {
   return (
     <div>
-       <Fade direction='down'>
+       {/* <Fade direction='down'> */}
       <Container>
        <Wrapper>
-        <Fade direction='left'>
+        {/* <Fade direction='left'> */}
         <One>
             {/* <Nic src={arrow}/> */}
             <Nice>
@@ -45,19 +45,19 @@ const Easier = () => {
                 <Icon>
                   <AiFillApple/>
                 </Icon>
-                Google Play
+                Play Store
               </Button>
             </ButtonHold>
           </One>
-        </Fade>
-        <Fade direction='right'>
+        {/* </Fade> */}
+        {/* <Fade direction='right'> */}
         <Two>
             <Pic src={mock}/>
           </Two>
-        </Fade>
+        {/* </Fade> */}
         </Wrapper>
       </Container>
-       </Fade>
+       {/* </Fade> */}
     </div>
   )
 }
@@ -178,7 +178,7 @@ margin-bottom: 18px;
 @media screen and (max-width:320px) {
   width: 30px;
   height: 30px;
-  background-color: red;
+  /* background-color: red; */
 }
 `
 
@@ -201,6 +201,9 @@ width: 600px;
 height: 750px;
 margin-top: 60px;
 
+@media screen and (max-width:768px) {
+  display: none;
+}
 
 `
 
@@ -217,6 +220,12 @@ justify-content: center;
 @media screen and (max-width:320px) {
   width: 600px;
   display: flex;
+}
+
+@media screen and (max-width:768px) {
+  margin-right: 400px;
+  height: 400px;
+  margin-top: 10px;
 }
 `
 
@@ -238,6 +247,14 @@ flex-wrap: wrap;
 @media screen and (max-width:375px) {
   margin-left: 10px;
 }
+@media screen and (max-width:768px) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  /* background-color: red; */
+}
 
 `
 
@@ -251,4 +268,6 @@ align-items: center;
 justify-content: center;
 flex-direction: column;
 flex-wrap: wrap;
+
+
 `

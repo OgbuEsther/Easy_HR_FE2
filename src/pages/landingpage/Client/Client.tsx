@@ -125,6 +125,10 @@ p{
   padding-right: 30px;
   /* background-color: red; */
 }
+
+@media screen and (max-width:768px) {
+   margin-left: 40px;
+}
 `
 
 
@@ -150,4 +154,6 @@ justify-content: center;
 @media screen and (max-width:320px) {
   height: 900px;
 }
+
+
 `
