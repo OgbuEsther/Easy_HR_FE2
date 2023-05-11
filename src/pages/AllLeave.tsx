@@ -39,52 +39,7 @@ const AllLeave = () => {
   }, [])
 
   const admin = useAppSelector((state) => state.currentUser);
-  const navigate = useNavigate()
-  const dispatch = UseAppDispach()
-
-  const schema = yup
-    .object({
-      title: yup.string().required(),
-      days: yup.number().required(),
-    })
-    .required();
-
-  type formData = yup.InferType<typeof schema>;
-
-  const {
-    handleSubmit,
-    formState: { errors },
-    reset,
-    register,
-  } = useForm<formData>({
-    resolver: yupResolver(schema),
-  });
-
-  const posting = useMutation({
-    mutationKey: ["create_Leave"],
-    // mutationFn: createAdmin,
-    mutationFn: (data: any) => createLeave(data, admin?._id),
-
-    onSuccess: (myData) => {
-      dispatch(CreateLeave(myData.data));
-      Swal.fire({
-        title: "leave created  successfully",
-        html: "redirecting to dashbaord",
-        timer: 1000,
-        timerProgressBar: true,
-
-        willClose: () => {
-          // navigate("/sign-in-admin");
-        },
-      });
-    },
-  });
-
-  const Submit = handleSubmit(async (data: any) => {
-    console.log("user", data);
-    posting.mutate(data);
-    // reset();
-  });
+ 
 
   const user = useAppSelector((state) => state.currentUser);
   const getAdmin = useQuery({
@@ -136,125 +91,8 @@ const AllLeave = () => {
 }
 
 export default AllLeave
-const Ico = styled.div`
-  margin-right: 10px;
-  font-size: 17px;
-  cursor: pointer;
-`
-const Buton = styled.button`
-  width: 160px;
-  height: 40px;
-  background-color: blue;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
-  cursor: pointer;
-`
-const Buthold = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 22px;
-    margin-bottom: 15px;
-`
-const Inputs = styled.input`
-  width: 87%;
-  height: 40px;
-  border-radius: 5px;
-  outline: none;
-  padding-left: 12px;
-  margin-top: 7px;
-  border: 1px solid lightgray;
-  margin-left: 10px;
-`
-const Of = styled.div`
-  p{
-    font-size: .95rem;
-    font-weight: 500;
-    color: rgba(0,0,0,.6705882352941176);
-    margin-top: 20px;
-    margin-left: 10px;
-  }
-`
-const Type = styled.div`
-  h4{
-    font-size: 17px;
-    font-weight: 500;
-    color: #212529;
-    margin-left: 10px;
-  }
-`
-const Lve = styled.div`
-  width: 100%;
-  display: flex;
-  height: 60px;
-  border-bottom: 1px solid lightgray;
-  align-items: center;
-  justify-content: space-between;
-`
-const Card = styled.form`
-  width: 500px;
-  display: flex;
-  background-color: #fff;
-  border-radius: 5px;
-  flex-direction: column;
-`
-const Leavetype = styled.div`
-  width: 100%;
-  height: 100vh;
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 0;
-  left: 0;
-  z-index: 11;
-` 
-const Secomd = styled.div`
-  p{
-    font-size: 12px;
-    color: grey;
-    margin-bottom: 0;
-    margin-top: 0;
-    font-weight: 400;
-    line-height: 1.5;
-    margin-top: 10px;
-  }
-`
-const Add = styled.div`
-  text-decoration: underline;
-    cursor: pointer;
-    font-size: 14px;
-    color: #007bff;
-    font-weight: 500;
-    text-decoration-color: #007bff;
-`
-const First = styled.div`
-  h6{
-    color: #000;
-  font-size: 1rem;
-  font-weight: 500;
-    line-height: 1.2;
-  }
-`
-const Up = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-`
-const Create = styled.div`
-  width: 460px;
-  background: #EEEEEE;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  padding: 14px;
-  border: 1px solid #d3d3d3;
-  margin-top: 15px;
-`
+
+
 const Plan = styled.div`
   margin-top: 19px;
   color: grey;
@@ -272,9 +110,7 @@ const Mid = styled.div`
   flex-direction: column;
   align-items: center;
 `
-const Hold = styled.div`
-  display: flex;
-`
+
 const Name = styled.div`
     color: #34495e;
     font-size: .9rem;
@@ -284,44 +120,9 @@ const Circlehold = styled.div`
   display: flex;
   align-items: center;
 `
-const Action = styled.div`
-  display: flex;
-`;
 
-const Chc = styled.div`
-  color: green;
-  font-weight: bold;
-`;
 
-const Box2 = styled.div`
-  color: #dc3545;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: .875rem;
-  line-height: 1.5;
-  width: 90px;
-  height: 35px;
-  font-weight: 400;
-  border-radius: 50px;
-  cursor: pointer;
-  margin-left: 10px;
-`
 
-const Box = styled.div`
-  color: #28a745;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: .875rem;
-  line-height: 1.5;
-  width: 90px;
-  height: 35px;
-  font-weight: 400;
-  border-radius: 50px;
-  outline-color: 2px solid #619c6f;
-  cursor: pointer;
-`;
 const Circle = styled.div`
   width: 40px;
   height: 40px;
@@ -438,29 +239,8 @@ const Down = styled.div`
   flex-direction: column;
   margin-top: 33px;
 `
-const Pending = styled.div`
-  display: flex;
-  margin: 18px;
-  cursor: pointer;
-  h3{
-    font-weight: 500;
-  font-size: 19px;
-  color: #6c757d;
-  }
-  span{
-    margin-left: 7px;
-    font-weight: 500;
-  font-size: 19px;
-  color: #6c757d;
-  }
-`
-const Top = styled.div`
-  width: 100%;
-  display: flex;
-  height: 70px;
-  align-items: center;
-  border-bottom: 1px solid lightgray;
-`
+
+
 const Wrapper = styled.div`
   width: 95%;
   display: flex;
