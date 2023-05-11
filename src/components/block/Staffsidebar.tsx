@@ -109,7 +109,18 @@ const SideBar = () => {
             <Icon2>
               <GiStarSattelites/>
             </Icon2>
-            <Text2 onClick={Toggle}>Savings</Text2>
+            <NavLink
+            to="/staffdashboard/staffperformance"
+            style={({ isActive }) => {
+                return {
+                textDecoration: isActive ? "none" : "none",
+                color: isActive ? "#2AA7FF" : "#fff",
+                };
+            }}
+            >
+                      <Text1>Performance</Text1>
+
+            </NavLink>
           </Home2>
 
           {show ? (

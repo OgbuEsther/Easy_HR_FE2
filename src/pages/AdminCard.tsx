@@ -133,7 +133,7 @@ export default AdminCard;
 const Holder = styled.div`
   width: 100%;
   display: flex;
-  @media screen and (max-width: 375px) {
+  @media screen and (max-width: 500px) {
     flex-wrap: wrap;
   }
 `
@@ -344,7 +344,7 @@ const Card3 = styled.div`
   }
 
   @media (max-width: 500px) {
-    width: 90%;
+    width: 100%;
   }
 `;
 const Card2 = styled.div`
@@ -367,7 +367,7 @@ const Card2 = styled.div`
   }
 
   @media (max-width: 500px) {
-    width: 90%;
+    width: 100%;
   }
 `;
 
