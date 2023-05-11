@@ -10,11 +10,11 @@ import { useQuery } from "@tanstack/react-query";
 import { getOneAdmin, getOneStaff } from "../utils/Api/ApiCall";
 import { useAppSelector } from "../components/global/Store";
 
-const Option = [
-  { value: "chocolate", label: "Chocolate" },
-  { value: "chocolate", label: "Chocolate" },
-  { value: "chocolate", label: "Chocolate" },
-];
+// const Option = [
+//   { value: "chocolate", label: "Chocolate" },
+//   { value: "chocolate", label: "Chocolate" },
+//   { value: "chocolate", label: "Chocolate" },
+// ];
 
 const Attendance: React.FC = () => {
   const [value, setValue] = useState("");
@@ -74,17 +74,17 @@ const Attendance: React.FC = () => {
     setmathanityCheck(false);
   };
 
-  const int = () => {
-    setWidth(width + 10);
-  };
+  // const int = () => {
+  //   setWidth(width + 10);
+  // };
 
   const Toggle = () => {
     setShow(true);
   };
 
-  const PunchStateChangerFunction = () => {
-    setPunchStateChanger(!PunchStateChanger);
-  };
+  // const PunchStateChangerFunction = () => {
+  //   setPunchStateChanger(!PunchStateChanger);
+  // };
 
   console.log("this is value: " + value);
 

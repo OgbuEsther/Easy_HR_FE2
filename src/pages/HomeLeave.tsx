@@ -1,25 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { RotatingLines } from 'react-loader-spinner'
-import { IoMdArrowDropdown } from "react-icons/io"
-import {AiOutlineClose} from "react-icons/ai"
+import {IoMdArrowDropdown} from "react-icons/io"
 
 const Leave = () => {
 
-  const [show1, setShow1] = useState(true)
-  const [show2, setShow2] = useState(false)
+    const [show1, setShow1] = useState(true)
   const [isLoading, setIsLoading] = useState(false)
 
   const Toggle1 = () => {
     setShow1(true)
-  }
-
-  const Toggle2 = () => {
-    setShow2(!show2)
-  }
-
-  const Cancle = () => {
-    setShow2(false)
   }
   
   useEffect(() => {
@@ -34,26 +24,6 @@ const Leave = () => {
     <Container>
       <Wrapper>
         <Top>
-          <Pending onClick={Toggle1}><h3>Pending Leave</h3><span>{isLoading ? (1) : <RotatingLines  visible={true}
-            strokeColor="#007bff"
-            strokeWidth="5"
-            animationDuration="0.75"
-            width="30"/>}</span>
-          </Pending>
-
-          <Pending><h3>Approved Leave</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
-            strokeColor="#007bff"
-            strokeWidth="5"
-            animationDuration="0.75"
-            width="30" />}</span>
-          </Pending>
-
-          <Pending><h3>Rejected Leave</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
-            strokeColor="#007bff"
-            strokeWidth="5"
-            animationDuration="0.75"
-            width="30" />}</span>
-          </Pending>
 
           <Pending><h3>All Leave</h3><span>{isLoading ? (1) : <RotatingLines  visible={true}
             strokeColor="#007bff"
@@ -63,33 +33,7 @@ const Leave = () => {
         </Top>
         {show1 ? (
           <Down>
-          <Inputhold>
-            <Input placeholder='All Employees' />
-            <Icon><IoMdArrowDropdown /></Icon>
-            </Inputhold>
-            
-          <Create>
-              <Up>
-                <First><h6>Leave Type Settings</h6></First>
-                <Add onClick={Toggle2}>Add New Leave Type</Add>
-              </Up>
-              <Secomd><p>Define Custom Leave Types Suitable For Your Organization.</p></Secomd>
-              {show2 ? (
-                <Leavetype>
-                  <Card>
-                    <Lve>
-                      <Type><h4>Add Leave Type</h4></Type>
-                      <Ico onClick={Cancle}><AiOutlineClose /></Ico>
-                    </Lve>
-                    <Of><p>Name of the Leave Type</p></Of>
-                    <Inputs placeholder='Ex: Casual Leave' />
-                    <Buthold>
-                      <Buton>Create Leave Type</Buton>
-                    </Buthold>
-                  </Card>
-                </Leavetype>
-              ) : null}
-        </Create>
+
 
           <Mid>
             {isLoading ? (
@@ -125,7 +69,13 @@ const Leave = () => {
                   </Hold>
                 </td>
                 </tr>
-                </table>
+                 </table>
+                                  <Buttonhold>
+                                      <Button>
+                        See more         
+                    </Button>
+                    </Buttonhold>
+                                  
                 <Plan>On the free plan, you can access the last 14 days of data only. Upgrade to the Pro plan to get the historical data.</Plan>
             </Table>
             ) : <RotatingLines  visible={true}
@@ -143,124 +93,22 @@ const Leave = () => {
 }
 
 export default Leave
-const Ico = styled.div`
-  margin-right: 10px;
-  font-size: 17px;
-  cursor: pointer;
+const Buttonhold = styled.div`
+    width: 95%;
+    display: flex;
+    justify-content: flex-end;
 `
-const Buton = styled.div`
-  width: 160px;
-  height: 40px;
-  background-color: blue;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
-  cursor: pointer;
-`
-const Buthold = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 22px;
-    margin-bottom: 15px;
-`
-const Inputs = styled.input`
-  width: 87%;
-  height: 40px;
-  border-radius: 5px;
-  outline: none;
-  padding-left: 12px;
-  margin-top: 7px;
-  border: 1px solid lightgray;
-  margin-left: 10px;
-`
-const Of = styled.div`
-  p{
-    font-size: .95rem;
-    font-weight: 500;
-    color: rgba(0,0,0,.6705882352941176);
-    margin-top: 20px;
-    margin-left: 10px;
-  }
-`
-const Type = styled.div`
-  h4{
-    font-size: 17px;
-    font-weight: 500;
-    color: #212529;
-    margin-left: 10px;
-  }
-`
-const Lve = styled.div`
-  width: 100%;
-  display: flex;
-  height: 60px;
-  border-bottom: 1px solid lightgray;
-  align-items: center;
-  justify-content: space-between;
-`
-const Card = styled.div`
-  width: 500px;
-  display: flex;
-  background-color: #fff;
-  border-radius: 5px;
-  flex-direction: column;
-`
-const Leavetype = styled.div`
-  width: 100%;
-  height: 100vh;
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 0;
-  left: 0;
-  z-index: 11;
-` 
-const Secomd = styled.div`
-  p{
-    font-size: 12px;
-    color: grey;
-    margin-bottom: 0;
-    margin-top: 0;
-    font-weight: 400;
-    line-height: 1.5;
-    margin-top: 10px;
-  }
-`
-const Add = styled.div`
-  text-decoration: underline;
+const Button = styled.button`
+    width: 120px;
+    height: 38px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    color: #fff;
     cursor: pointer;
-    font-size: 14px;
-    color: #007bff;
-    font-weight: 500;
-    text-decoration-color: #007bff;
-`
-const First = styled.div`
-  h6{
-    color: #000;
-  font-size: 1rem;
-  font-weight: 500;
-    line-height: 1.2;
-  }
-`
-const Up = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-`
-const Create = styled.div`
-  width: 460px;
-  background: #EEEEEE;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  padding: 14px;
-  border: 1px solid #d3d3d3;
-  margin-top: 15px;
+    margin-top: 15px;
 `
 const Plan = styled.div`
   margin-top: 19px;
@@ -275,7 +123,6 @@ const Mid = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  padding-top: 15px;
   flex-direction: column;
   align-items: center;
 `
@@ -448,7 +295,7 @@ const Down = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-top: 33px;
+  /* margin-top: 33px; */
 `
 const Pending = styled.div`
   display: flex;
@@ -471,19 +318,18 @@ const Top = styled.div`
   display: flex;
   height: 70px;
   align-items: center;
-  border-bottom: 1px solid lightgray;
 `
 const Wrapper = styled.div`
-  width: 95%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 70px;
+  /* padding-top: 70px; */
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  /* background-color: red; */
+  background-color: #fff;
 
   @media screen and (max-width: 768px) {
     width: 90%;
@@ -491,14 +337,16 @@ const Wrapper = styled.div`
 `;
 
 const Container = styled.div`
-  width: calc(100vw - 220px);
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #f5f7fa;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   overflow: hidden;
   margin-top: 20px;
   flex-direction: column;
+  margin-bottom: 15px;
   @media screen and (max-width: 1024px) {
     width: 100vw;
   }

@@ -11,10 +11,10 @@ import { Fade } from 'react-awesome-reveal'
 const Easier = () => {
   return (
     <div>
-       {/* <Fade direction='down'> */}
+       <Fade direction='down'>
       <Container>
        <Wrapper>
-        {/* <Fade direction='left'> */}
+        <Fade direction='left'>
         <One>
             {/* <Nic src={arrow}/> */}
             <Nice>
@@ -49,15 +49,15 @@ const Easier = () => {
               </Button>
             </ButtonHold>
           </One>
-        {/* </Fade> */}
-        {/* <Fade direction='right'> */}
+        </Fade>
+        <Fade direction='right'>
         <Two>
             <Pic src={mock}/>
           </Two>
-        {/* </Fade> */}
+        </Fade>
         </Wrapper>
       </Container>
-       {/* </Fade> */}
+       </Fade>
     </div>
   )
 }

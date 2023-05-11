@@ -81,14 +81,14 @@ export const genAttendanceToken = async(adminId:string)=>{
 
 
 // Staff ClockIn
-export const staffClockIn = async(data: any , staffId : any) =>{
-    return await axios.post(`${url}/clockin/${staffId}` , data).then((res)=> res.data)
+export const staffClockIn = async(data: any , staffId : any , adminId:any) =>{
+    return await axios.post(`${url}/clockin/${staffId}/${adminId}` , data).then((res)=> res.data)
 
 }
 
 //staff clock out
-export const staffClockOut = async(data: any , staffId : any) =>{
-    return await axios.post(`${url}/clockout/${staffId}` , data).then((res)=> res.data)
+export const staffClockOut = async(data: any , staffId : any , adminId:any) =>{
+    return await axios.post(`${url}/clockout/${staffId}/${adminId}` , data).then((res)=> res.data)
 
 }
 
