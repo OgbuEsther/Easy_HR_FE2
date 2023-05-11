@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import { RotatingLines } from 'react-loader-spinner'
 import Inputdate from "../Inputdate/Inputdate";
-import Adminrate from "../Adminrate";
+import Staffrate from "./Staffrate";
 import RateDetails from "../RateDetails";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup"
@@ -129,7 +129,7 @@ const admin = useAppSelector((state)=> state.currentUser)
             width="30"/>}</span>
           </Pending>
 
-          <Pending onClick={Toggle2}><h3>Rate Staffs</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
+          <Pending onClick={Toggle2}><h3>Rating</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
             strokeColor="#007bff"
             strokeWidth="5"
             animationDuration="0.75"
@@ -171,7 +171,7 @@ const admin = useAppSelector((state)=> state.currentUser)
             width="30" />}
 
           {show2 ? (
-            <Adminrate/>
+            <Staffrate />
           ) : null}
 
           {show3 ? (
