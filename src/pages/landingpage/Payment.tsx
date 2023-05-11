@@ -1,11 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import img4 from "../../Assets/spider.jpg"
+import img14 from "../../Assets/hr3.avif"
 
-import img8 from "../../Assets/shazam.jpg"
+import img4 from "../../Assets/hr.avif"
 
-import img14 from "../../Assets/val.jpg"
+import img8 from "../../Assets/hr4.jpg"
+
+import { Fade } from 'react-awesome-reveal'
+
 
 // import { NavLink } from 'react-router-dom'
 
@@ -15,64 +18,66 @@ const Payment = () => {
 
 
   return (
+    <Fade direction='right'>
     <Container>
         <Text>Sell world-class HR solutions <br /> and increase profitability</Text>
         <P>Leverage your most valuable asset, improve worker efficiency, and gain greater visibility into employee time and attendance</P>
-        <Wrapper >
+    <Wrapper >
          
-             <Box2>
-                <Up>
-                    <Img  src={img14}/>
-                </Up>
-                <Down6>
-                    <Data><span>Channel Manager  </span>
-                     <h5>
-                        Get all the strategy advice and business support you'll need to help you maximize 
-                        </h5></Data>
+         <Box2>
+            <Up>
+                <Img  src={img14}/>
+            </Up>
+            <Down6>
+                <Data><span>Channel Manager  </span>
+                 <h5>
+                    Get all the strategy advice and business support you'll need to help you maximize 
+                    </h5></Data>
 
-                <New>Collaborator  🥉</New>
-                </Down6>
-            </Box2>
+            <New>Collaborator  🥉</New>
+            </Down6>
+        </Box2>
 
-            <Box2>
-                <Up>
-                    <Img  src={img4}/>
-                </Up>
-                <Down6>
-                    <Data><span>Product Knowledge  </span>
-                     <h5>
-                       We will teach your sales and support personnels to help you imporve sales, better support your customers and improve product adoption
-                    </h5>
-                    </Data>
+        <Box2>
+            <Up>
+                <Img  src={img4}/>
+            </Up>
+            <Down6>
+                <Data><span>Product Knowledge  </span>
+                 <h5>
+                   We will teach your sales and support personnels to help you imporve sales, better support your customers and improve product adoption
+                </h5>
+                </Data>
 
-                <New>Researcher 🥉</New>
-                </Down6>
-              </Box2>
+            <New>Researcher 🥉</New>
+            </Down6>
+          </Box2>
 
-              <Box2>
-                <Up>
-                    <Img  src={img8}/>
-                </Up>
-                <Down6>
-                    <Data><span>Marketing Collateral</span>
-                     <h5>
-                     We will provide you with sales support tools to communicate EasyHR product offerings.
-                     </h5>
-                     </Data>
+          <Box2>
+            <Up>
+                <Img  src={img8}/>
+            </Up>
+            <Down6>
+                <Data><span>Marketing Collateral</span>
+                 <h5>
+                 We will provide you with sales support tools to communicate EasyHR product offerings.
+                 </h5>
+                 </Data>
 
-                <New>Collaborator 🥉</New>
-                </Down6>
-              </Box2>
+            <New>Collaborator 🥉</New>
+            </Down6>
+          </Box2>
 
 
-        </Wrapper>
+    </Wrapper>
         {/* <NavLink to="/gallery" style={({ isActive }) => ({
-    textDecoration: "none",
+            textDecoration: "none",
     color: isActive ? '#219653' : '#5f5f5f'
   })}>
-
-        </NavLink> */}
+  
+</NavLink> */}
     </Container>
+</Fade>
   )
 }
 
@@ -118,9 +123,10 @@ const Data = styled.div`
     h5{
         margin: 0px;
         font-weight: 500;
-        font-size: 15px;
+        font-size: 14px;
         margin-top: 30px;
         line-height: 20px;
+        text-align: center;
 
         @media screen and (max-width:768px) {
             text-align: center;
@@ -158,7 +164,7 @@ const Down6 = styled.div`
     background-color: #001328;
     display: flex;
     padding-top: 40px;
-    padding-left: 40px;
+    padding-left: 30px;
     color: white;
     flex-direction: column;
     position: relative;
