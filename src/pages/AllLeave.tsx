@@ -8,52 +8,23 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { UseAppDispach, useAppSelector } from '../../components/global/Store'
+import { UseAppDispach, useAppSelector } from '../components/global/Store'
 import { useMutation, useQuery } from '@tanstack/react-query'
-import { createLeave, getOneAdmin } from '../../utils/Api/ApiCall'
-import { CreateLeave } from "../../components/global/ReduxState";
-import Approved from '../Approved'
-import Rejected from '../Rejected'
-import AllLeave from '../AllLeave'
+import { getOneAdmin, createAdmin } from '../utils/Api/ApiCall'
+import { CreateLeave } from '../components/global/ReduxState'
 
-const Leave = () => {
+const AllLeave = () => {
 
   const [show1, setShow1] = useState(true)
   const [show2, setShow2] = useState(false)
-  const [show3, setShow3] = useState(false)
-  const [show4, setShow4] = useState(false)
-  const [show5, setShow5] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
   const Toggle1 = () => {
     setShow1(true)
-    setShow2(false)
-    setShow3(false)
-    setShow4(false)
-    setShow5(false)
   }
 
   const Toggle2 = () => {
     setShow2(!show2)
-  }
-
-  const Toggle3 = () => {
-    setShow3(!show3)
-    setShow1(false)
-    setShow4(false)
-    setShow5(false)
-  }
-  const Toggle4 = () => {
-    setShow4(!show4)
-    setShow3(false)
-    setShow1(false)
-    setShow5(false)
-  }
-  const Toggle5 = () => {
-    setShow5(!show5)
-    setShow4(false)
-    setShow3(false)
-    setShow1(false)
   }
 
   const Cancle = () => {
@@ -126,71 +97,13 @@ const Leave = () => {
   return (
     <Container>
       <Wrapper>
-        <Top>
-          <Pending onClick={Toggle1}><h3>Pending Leave</h3><span>{isLoading ? (1) : <RotatingLines  visible={true}
-            strokeColor="#007bff"
-            strokeWidth="5"
-            animationDuration="0.75"
-            width="30"/>}</span>
-          </Pending>
-
-          <Pending onClick={Toggle3}><h3>Approved Leave</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
-            strokeColor="#007bff"
-            strokeWidth="5"
-            animationDuration="0.75"
-            width="30" />}</span>
-          </Pending>
-
-          <Pending onClick={Toggle4}><h3>Rejected Leave</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
-            strokeColor="#007bff"
-            strokeWidth="5"
-            animationDuration="0.75"
-            width="30" />}</span>
-          </Pending>
-
-          <Pending onClick={Toggle5}><h3>All Leave</h3><span>{isLoading ? (1) : <RotatingLines  visible={true}
-            strokeColor="#007bff"
-            strokeWidth="5"
-            animationDuration="0.75"
-            width="30"/>}</span></Pending>
-        </Top>
+       
         {show1 ? (
           <Down>
           <Inputhold>
             <Input placeholder='All Employees' />
             <Icon><IoMdArrowDropdown /></Icon>
             </Inputhold>
-            
-          <Create>
-              <Up>
-                <First><h6>Leave Type Settings</h6></First>
-                <Add onClick={Toggle2}>Add New Leave Type</Add>
-              </Up>
-              <Secomd><p>Define Custom Leave Types Suitable For Your Organization.</p></Secomd>
-              {show2 ? (
-                <Leavetype>
-                  <Card onSubmit={Submit}>
-                    <Lve>
-                      <Type><h4>Add Leave Type</h4></Type>
-                      <Ico onClick={Cancle}><AiOutlineClose /></Ico>
-                    </Lve>
-                    <Of><p>Name of the Leave Type</p></Of>
-                    <Inputs
-                      {...register("title")}
-                      type="text"
-                      placeholder="e.g maternity leave"
-                    />
-                    <span>{errors?.title && errors?.title?.message}</span>
-                    <br />
-                    <input {...register("days")} type="text" placeholder="number of days " />
-                    <span>{errors?.days && errors?.days?.message}</span>
-                    <Buthold>
-                      <Buton type ="submit">Create Leave Type</Buton>
-                    </Buthold>
-                  </Card>
-                </Leavetype>
-              ) : null}
-        </Create>
 
           <Mid>
             {isLoading ? (
@@ -219,12 +132,6 @@ const Leave = () => {
                     07 May, 2023
                   </td>
                   <td>nothing</td>
-                  <td>
-                  <Hold>
-                    <Box>Approve</Box>
-                  <Box2>Reject</Box2>
-                  </Hold>
-                </td>
                 </tr>
                 </table>
                 <Plan>On the free plan, you can access the last 14 days of data only. Upgrade to the Pro plan to get the historical data.</Plan>
@@ -238,24 +145,12 @@ const Leave = () => {
           
         </Down>
         ) : null}
-
-        {show3 ? (
-          <Approved />
-        ) : null}
-
-        {show4 ? (
-          <Rejected />
-        ) : null}
-
-        {show5 ? (
-          <AllLeave />
-        ) : null}
       </Wrapper>
     </Container>
   )
 }
 
-export default Leave
+export default AllLeave
 const Ico = styled.div`
   margin-right: 10px;
   font-size: 17px;
@@ -415,7 +310,6 @@ const Chc = styled.div`
 
 const Box2 = styled.div`
   color: #dc3545;
-  border-color: #dc3545;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -425,15 +319,12 @@ const Box2 = styled.div`
   height: 35px;
   font-weight: 400;
   border-radius: 50px;
-  border: 1px solid #dc3545;
-  outline-color: 2px solid #dc3545;
   cursor: pointer;
   margin-left: 10px;
 `
 
 const Box = styled.div`
   color: #28a745;
-  border-color: #28a745;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -443,7 +334,6 @@ const Box = styled.div`
   height: 35px;
   font-weight: 400;
   border-radius: 50px;
-  border: 1px solid #28a745;
   outline-color: 2px solid #619c6f;
   cursor: pointer;
 `;
@@ -591,7 +481,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 70px;
+  padding-top: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -610,7 +500,7 @@ const Container = styled.div`
   align-items: center;
   background-color: #f5f7fa;
   overflow: hidden;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   flex-direction: column;
   @media screen and (max-width: 1024px) {
     width: 100vw;
