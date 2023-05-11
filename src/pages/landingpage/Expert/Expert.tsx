@@ -13,7 +13,7 @@ import { Fade } from 'react-awesome-reveal'
 const Expert = () => {
   return (
     <div>
-        <Container>
+        <Container id='expert'>
           <Wrapper>
             <Fade direction='up'>
             <Text>PEOPLE BEHIND THE SUCCESS</Text>
@@ -168,6 +168,14 @@ align-items: center;
 flex-wrap: wrap;
 grid-template-columns: 1fr 3fr;
 
+@media screen and (max-width:320px) {
+    display: flex;
+    flex-direction: column-reverse;
+}
+@media screen and (max-width:425px) {
+    display: flex;
+    flex-direction: column-reverse;
+}
 
 `
 

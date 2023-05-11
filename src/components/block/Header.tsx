@@ -1,25 +1,40 @@
 import React, {useState} from 'react'
 import img from "../../Assets/new.png"
 import {BiMenu} from "react-icons/bi"
+import { NavLink } from 'react-router-dom'
+import { Fade } from 'react-awesome-reveal'
+import {  BsFillArrowUpCircleFill, BsCalendar2CheckFill} from "react-icons/bs"
+import { Link } from "react-scroll";
+import styled from 'styled-components'
+
+
 
 const Header = () => {
 
   const [show, setShow] = useState(false)
+
+  const [Arrow,setArrow] = React.useState(false)
+
+  
 
   const Toggle = () => {
       setShow(!show)
     }
 
   return (
-    <div className='w-full h-20 z-10 bg-header flex justify-center fixed'>
+    <div className='w-full h-20 z-10 bg-header flex justify-center fixed' id='her'>
       <div className='w-11/12 flex items-center justify-between'>
         <img src={img} alt="" className='h-16'/>
 
         <div className='flex items-center xmd:hidden'>
-          <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>Home</div>
+       <NavLink to="">
+       <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>Home</div>
+       </NavLink>
           <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>Our Solution</div>
           <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>About</div>
-          <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>How we work</div>
+          <Link to="expert">
+          <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>Our Expert</div>
+          </Link>
         </div>
 
         <div className='flex items-center md:hidden'>
@@ -31,13 +46,21 @@ const Header = () => {
           </button>
         </div>
 
+     {
+      show ? (
+        <div className='hidden  items-center text-white text-3xl md:flex cursor-pointer' onClick={Toggle}>
+        <BsCalendar2CheckFill/>
+      </div>
+      ) : (
         <div className='hidden items-center text-white text-3xl md:flex cursor-pointer' onClick={Toggle}>
           <BiMenu />
-        </div>
+      </div>
+      )
+     }
       </div>
       
       {show ? (
-        <div className='hidden md:flex absolute h-screen w-44 bg-white top-20 right-0 fixed flex-col items-center'>
+              <div className='hidden md:flex absolute h-screen w-44 bg-white top-20 right-0 fixed flex-col items-center'>
           <div className='text-hover text-sm m-4 hover:text-hover'>Home</div>
           <div className='text-hover text-sm m-4 hover:text-hover'>Our Solution</div>
           <div className='text-hover text-sm m-4 hover:text-hover'>About</div>
@@ -50,8 +73,57 @@ const Header = () => {
           </button>
         </div>
       ) : null}
+
+{Arrow ? (
+        <Link offset={-7000} smooth={true} duration={5000} to="her">
+          <ScroolToTop>
+            <BsFillArrowUpCircleFill />
+          </ScroolToTop>
+        </Link>
+      ) : null}
     </div>
   )
 }
 
 export default Header
+
+const ScroolToTop = styled.div`
+
+border-radius: 50%;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: mover 1s infinite alternate;
+  animation: mover 1s infinite alternate;
+  -webkit-animation: mover 1s infinite alternate;
+  animation: mover 1s infinite alternate;
+  background-color: #00244E;
+  @-webkit-keyframes mover {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-10px);
+    }
+  }
+  @keyframes mover {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-10px);
+    }
+  }
+  right: 1%;
+  font-size: 30px;
+  box-shadow: #8a2be2 0px 8px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: fixed;
+  bottom: 2%;
+  @media screen and (max-width: 768px) {
+    right: 3%;
+  }
+`
