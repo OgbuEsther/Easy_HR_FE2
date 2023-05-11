@@ -4,6 +4,11 @@ import styled from 'styled-components'
 const Settingspage = () => {
 
     const [category, setCategory] = React.useState("")
+    const [time, setTime] = React.useState("")
+
+    const handleTimeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setTime(event.target.value);
+  };
 
   return (
       <Container>
@@ -67,6 +72,7 @@ const Settingspage = () => {
                               <option value='Hour'>8 hour 30mins</option>
                           </Select>
                           
+                          <Choose><h6>Minimum work hours</h6></Choose>
                           <Select onChange={(e) => {
 						setCategory(e.target.value);
                           }}>
@@ -78,16 +84,35 @@ const Settingspage = () => {
                               <option value='Hour'>7 hour 30mins</option>
                               <option value='Hour'>8 hour</option>
                               <option value='Hour'>8 hour 30mins</option>
-                        </Select>
+                          </Select>
+
+                          <Choose><h6>Expected Clock-in</h6></Choose>
+                          <Card2>
+                    <Input2 type='time' value={time} onChange={handleTimeChange} /> 
+                      </Card2>
             </Cardhold>
                   </Workcard2>
-                  </Holder>
+              </Holder>
+              <Save>
+                  Save Settings
+              </Save>
           </Wrapper>
     </Container>
   )
 }
 
 export default Settingspage
+const Save = styled.div`
+    width: 140px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    margin-top: 13px;
+    border-radius: 5px;
+    cursor: pointer;
+`
 const Holder = styled.div`
     display: flex;
     width: 100%;
@@ -103,7 +128,10 @@ const Day = styled.div`
 const Input = styled.input``
 
 const Input2 = styled.input`
-
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
 `
 const Select = styled.select`
     width: 320px;
@@ -118,6 +146,26 @@ const Select = styled.select`
     line-height: 1.5;
     border: none;
     outline-color: #4dccff;
+    color: #495057;
+    background-color: #fff;
+    display: flex;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    cursor: pointer;
+`
+const Card2 = styled.div`
+    width: 320px;
+    height: 40px;
+    padding-right: 10px;
+    align-items: center;
+    padding-left: 10px;
+    display: flex;
+    font-size: .8rem;
+    font-weight: 400;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    line-height: 1.5;
     color: #495057;
     background-color: #fff;
     display: flex;
