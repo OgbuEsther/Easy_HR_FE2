@@ -1,11 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import img1 from "../../../Assets/val.jpg"
-import img2 from "../../../Assets/slider1.jpg"
+import img2 from "../../../Assets/ceo.jpg"
 import img3 from "../../../Assets/esther.jpg"
 import img4 from "../../../Assets/shazam.jpg"
 import img5 from "../../../Assets/spider.jpg"
-import {SiApplemusic} from "react-icons/si"
 import {  BsWhatsapp} from "react-icons/bs"
 import { Fade } from 'react-awesome-reveal'
 
@@ -112,9 +111,9 @@ cursor: pointer;
 /* transition: all 300ms; */
 position: relative;
 
+
 :hover{
-    backdrop-filter: blur(0.93);
-    /* transform: scale(0.98); */
+    background-color: rgb(51, 66, 83,0.7);
 }
 `
 
@@ -157,6 +156,8 @@ display: flex;
 align-items: center;
 flex-direction: column;
 margin: 40px;
+
+
 `
 
 const ImageHold = styled.div`
