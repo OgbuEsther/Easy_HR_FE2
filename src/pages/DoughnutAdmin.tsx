@@ -116,6 +116,7 @@ const Table = styled.div`
   display: flex;
   height: auto;
   width: 100%;
+  overflow-x: scroll;
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 10px;
@@ -169,4 +170,7 @@ const Container = styled.div`
   padding: 15px;
   background-color: #fff;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `

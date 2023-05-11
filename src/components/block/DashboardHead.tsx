@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { FiMenu } from "react-icons/fi";
-import img from "../../Assets/new.png"
+import img from "../../Assets/easyhr.png"
 import {HiUsers} from "react-icons/hi"
 
 import { useAppSelector } from '../global/Store';
@@ -27,7 +27,7 @@ const DashboardHead = () => {
       <Container>
       <Wrapper>
         <Left>
-          {/* <Img src={img} /> */}
+          <Img src={img} />
         </Left>
 
         {/* <Mid>
@@ -64,6 +64,9 @@ const DashboardHead = () => {
 }
 
 export default DashboardHead
+const Img = styled.img`
+  height: 80px;
+`
 const Account = styled.div`
   color: #035fcb!important;
   font-size: 16px;
