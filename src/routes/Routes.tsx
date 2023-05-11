@@ -39,6 +39,7 @@ const Schoolfees = lazy(() => import("../pages/Schoolfeesfile/Schoolfeesfile"))
 const Tour = lazy(() => import("../pages/Tourfile/Tourfile"))
 const Rents = lazy(() => import("../pages/Rentsfile/Rentsfile"))
 const Staffperformance = lazy(() => import("../pages/Staffperformance/Staffperformance"))
+const StaffLeave = lazy(() => import("../pages/Staffperformance/Staffleave"))
 
 const PayBills = lazy(()=>import("../pages/StaffdasBoard/PayBills/PayBill"));
 // const StaffAttendance = lazy(() => import("../pages/StaffdasBoard/Attendance/Attendance"))
@@ -236,6 +237,12 @@ export const Elements = createBrowserRouter([
       {
         path:"/staffdashboard/leave-form",
         element: <LeavePage />,
+        hasErrorBoundary: true,
+        errorElement: <ErrorBoundary />,
+      },
+      {
+        path:"/staffdashboard/leave-applycation",
+        element: <StaffLeave />,
         hasErrorBoundary: true,
         errorElement: <ErrorBoundary />,
       },

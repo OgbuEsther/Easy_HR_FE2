@@ -123,139 +123,23 @@ const SideBar = () => {
             </NavLink>
           </Home2>
 
-          {show ? (
-              <Staffs>
-                  <NavLink to="/staffdashboard/schoolfees-plan" style={({isActive}) => {
-                return {
-                    textDecoration: isActive ? "none" : "none",
-                    color: isActive ? "#2AA7FF" : "#3e4956",
-                }
-            }}>
-                      <p>School Fees</p>
-                  </NavLink>
-                  
-                  <NavLink to="/staffdashboard/travel&tour-plan" style={({isActive}) => {
-                return {
-                    textDecoration: isActive ? "none" : "none",
-                    color: isActive ? "#2AA7FF" : "#3e4956",
-                }
-            }}>
-                      <p>Travel & Tour</p>
-                  </NavLink>
-                  <NavLink to="/staffdashboard/rents-plan" style={({isActive}) => {
-                return {
-                    textDecoration: isActive ? "none" : "none",
-                    color: isActive ? "#2AA7FF" : "#3e4956",
-                }
-            }}>
-                      <p>Rents</p>
-                  </NavLink>
-          </Staffs>
-          ) : null}
-
           <Home2>
             <Icon2>
             <FaHornbill />
             </Icon2>
-            <Text1 onClick={Togglepopup}>Pay Bills</Text1>
+            <NavLink
+            to="/staffdashboard/leave-applycation"
+            style={({ isActive }) => {
+                return {
+                textDecoration: isActive ? "none" : "none",
+                color: isActive ? "#2AA7FF" : "#fff",
+                };
+            }}
+            >
+                      <Text1>Leave</Text1>
+
+            </NavLink>
       </Home2>
-
-          {showPopup ? (
-              <Popups>
-                  <Popup_content>
-                      <h3>Payments</h3>
-                      <p>Select the service you want to make payment for</p>
-                      <h4>Data Services</h4>
-                      <Box>
-                          <Airtel onClick={ToggleAirtel}>
-                              <Img src={img1} />
-                              <AirtelText>
-                                  <strong>Airtel Data</strong>
-                                  <Text4>Airtel Data - Get instant top up</Text4>
-                              </AirtelText>
-                          </Airtel>
-
-                          <Airtel onClick={ToggleMtn}>
-                            <Img src={img2} />
-                            <AirtelText>
-                                <strong>MTN Data</strong>
-                                <Text4>MTN Data - Get instant Data Top up</Text4>
-                             </AirtelText>
-                          </Airtel>
-                          
-                          <Airtel onClick={ToggleGlo}>
-                            <Img src={img3} />
-                            <AirtelText>
-                                <strong>GLO Data</strong>
-                                <Text4>GLO Data - Get instant Top up</Text4>
-                            </AirtelText>
-                          </Airtel>
-                          
-                          <Airtel>
-                            <Img src={img4} />
-                            <AirtelText>
-                                <strong>9mobile Data</strong>
-                                <Text4>9mobile Data - Get instant Top up</Text4>
-                            </AirtelText>
-                          </Airtel>
-                          
-                          <Airtel>
-                            <Img src={img5} />
-                            <AirtelText>
-                                <strong>Smile Payment</strong>
-                                <Text4>Pay for Smile Airtime and Internet Data</Text4>
-                            </AirtelText>
-                          </Airtel>
-                          
-                          <Airtel>
-                            <Img src={img3} />
-                            <AirtelText>
-                                 <strong>GLO Data</strong>
-                                <Text4>GLO Data - Get instant Top up</Text4>
-                            </AirtelText>
-                          </Airtel>
-                          
-                          <Airtel>
-                            <Img src={img3} />
-                            <AirtelText>
-                                <strong>GLO Data</strong>
-                                <Text4>GLO Data - Get instant Top up</Text4>
-                         </AirtelText>
-                        </Airtel>
-                      </Box>
-                      
-                  </Popup_content>
-                  <Icon onClick={cancelPopup}><AiOutlineClose /></Icon>
-              </Popups>
-          ) : null}
-
-          {showAirtel ? (
-              <Airtelhold>
-                  <Airtels />
-          <Ico onClick={Remove}>
-            <AiOutlineClose />
-                  </Ico>
-              </Airtelhold>
-      ) : null}
-      
-      {showMtn ? (
-        <Airtelhold>
-          <Mtn />
-          <Ico onClick={Remove}>
-            <AiOutlineClose />
-                  </Ico>
-        </Airtelhold>
-      ) : null}
-
-      {showGlo ? (
-        <Airtelhold>
-          <Glo />
-          <Ico onClick={Remove}>
-            <AiOutlineClose />
-                  </Ico>
-        </Airtelhold>
-      ) : null}
-
           <Home2>
             <Icon2>
             <GiTransportationRings />
@@ -269,7 +153,7 @@ const SideBar = () => {
                 };
             }}
             >
-            <Text1>Transaction</Text1>
+            <Text1>Settings</Text1>
             </NavLink>
       </Home2>
       <Power  onClick={() => {
