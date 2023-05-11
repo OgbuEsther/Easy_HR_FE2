@@ -17,7 +17,7 @@ const Payment = () => {
   return (
     <Container>
         <Text>Sell world-class HR solutions <br /> and increase profitability</Text>
-        <P>It is a Catch Them Young approach to help promote Business culture</P>
+        <P>Leverage your most valuable asset, improve worker efficiency, and gain greater visibility into employee time and attendance</P>
         <Wrapper >
          
              <Box2>
@@ -92,7 +92,7 @@ const New = styled.div`
     justify-content: center;
     border-radius: 50px;
     bottom: 480px;
-    right: 220px;
+    right: 180px;
     @media screen and (max-width: 1024px) {
         right: 340px;
     }
@@ -180,7 +180,7 @@ const Up = styled.div`
 `
 
 const Box2 = styled.div`
-    width: 390px;
+    width: 350px;
     height: 490px;
     overflow: hidden;
     border-radius: 10px;
@@ -196,14 +196,7 @@ const Box2 = styled.div`
     }
 
 `
-const Box3 = styled.div`
-    width: 390px;
-    height: 420px;
-    overflow: hidden;
-    border-radius: 10px;
-    margin-top: 40px;
-    visibility: hidden;
-`
+
 
 const P = styled.div`
     font-size: 1.125rem;
@@ -214,7 +207,7 @@ const P = styled.div`
     padding-right: 15px;
     color: #000000;
     /* background-color: red; */
-    margin-top: -8px;
+    margin-top: 8px;
     @media screen and (max-width: 425px) {
         font-size: 17px;
         text-align: center;
@@ -234,7 +227,8 @@ const Text = styled.h2`
     /* text-align: center; */
     line-height: 1.25;
     font-size: 3rem;
-    color: #00A85A;
+    color: #001328;
+    text-align: center;
     @media screen and (max-width: 445px) {
         font-size: 32px;
         text-align: center;
@@ -244,7 +238,7 @@ const Wrapper = styled.div`
     width: 91%;
     display: flex;
     flex-wrap: wrap;
-    margin-top: 80px;
+    margin-top: 50px;
     justify-content: space-between;
     flex-wrap: wrap;
     @media screen and (max-width: 425px) {
@@ -257,6 +251,7 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
-    /* margin-top: 140px; */
+    margin-top: 50px;
+    margin-bottom: 50px;
     /* padding-bottom: 20px; */
 `
