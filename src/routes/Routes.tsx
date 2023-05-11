@@ -22,6 +22,7 @@ import LeavePage from "../pages/LeavePage";
 import CheckMail from "../pages/Auth/CheckMail";
 import Waiting from "../pages/Auth/Waiting";
 import Yesorno from "../pages/Yesorno/Yesorno";
+import Settingspage from "../pages/Settingspage";
 // import Transaction from "../pages/Performance/Performance";
 
 
@@ -108,6 +109,12 @@ export const Elements = createBrowserRouter([
       {
         path: "/dashboard/leave",
         element: <Leave/>,
+        hasErrorBoundary: true,
+        errorElement: <ErrorBoundary />,
+      },
+      {
+        path: "/dashboard/settings",
+        element: <Settingspage/>,
         hasErrorBoundary: true,
         errorElement: <ErrorBoundary />,
       },
