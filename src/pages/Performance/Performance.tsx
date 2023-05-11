@@ -8,10 +8,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup"
 import { useDispatch } from "react-redux";
 import {useForm} from "react-hook-form";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { mileStone } from "../../components/global/ReduxState";
 import Swal from "sweetalert2";
-import { setMilestones } from "../../utils/Api/ApiCall";
+import { getOneAdmin, setMilestones } from "../../utils/Api/ApiCall";
 import { useAppSelector } from "../../components/global/Store";
 
 
@@ -116,6 +116,12 @@ const admin = useAppSelector((state)=> state.currentUser)
     posting.mutate(data);
   });
 
+  
+
+  const getAdmin = useQuery({
+    queryKey: ["singleAdmin"],
+    queryFn: () => getOneAdmin(admin?._id),
+  });
 
   return (
     <div>
@@ -163,11 +169,21 @@ const admin = useAppSelector((state)=> state.currentUser)
             </Inputhold>
           </Textplace>
 
-          <Goals>
+          {
+getAdmin?.data?.data?.PerformanceMilestone?.map((el:any)=>(
+  <Goals>
+  <ol style={{ listStyleType: 'decimal', marginLeft: '30px'}}>
+    <li>{el?.mileStone} </li>
+  </ol>
+</Goals>
+))
+          }
+
+          {/* <Goals>
             <ol style={{ listStyleType: 'decimal', marginLeft: '30px'}}>
               <li>{text}</li>
             </ol>
-          </Goals>
+          </Goals> */}
             </div>
           ) : null}
             </Mid>

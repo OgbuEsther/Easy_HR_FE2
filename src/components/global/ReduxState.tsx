@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { PayloadAction } from "@reduxjs/toolkit/dist/createAction";
 import { AdminData } from "../../types/AllInterfaces";
 import { StaffData } from "../../types/AllInterfaces";
-import { AttendanceData } from "../../types/AllInterfaces";
+
 
 const initialState = {
   currentUser: {} as any | null,
@@ -13,7 +13,9 @@ const initialState = {
   applyLeave: {} as any | null,
   clockIn: {} as any | null,
   clockOut: {} as any | null,
+  late : {} as any | null,
   mileStone: {} as any | null,
+  ratings : {} as any | null
 };
 
 const ReduxState = createSlice({
@@ -38,6 +40,9 @@ const ReduxState = createSlice({
     StaffClockIn: (state, { payload }: PayloadAction<any>) => {
       state.clockIn = payload;
     },
+    StaffClockInLate: (state, { payload }: PayloadAction<any>) => {
+      state.late = payload;
+    },
     StaffClockOut: (state, { payload }: PayloadAction<any>) => {
       state.clockOut = payload;
     },
@@ -61,6 +66,7 @@ export const {
   StaffClockOut,
   ApplyForLeave,
   mileStone,
+  StaffClockInLate
 } = ReduxState.actions;
 
 export default ReduxState.reducer;
