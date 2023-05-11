@@ -216,6 +216,7 @@ const Apply = styled.button`
   cursor: pointer;
 `;
 const Textarea = styled.textarea`
+
   width: 100%;
   height: 120px;
   resize: none;
@@ -224,6 +225,7 @@ const Textarea = styled.textarea`
   border-width: 1px;
   border-radius: 4px;
 `;
+
 const Inputhold = styled.div`
   width: 100%;
   height: 40px;
@@ -243,6 +245,7 @@ const Inputhold = styled.div`
   margin-top: 4px;
 `;
 const Select = styled.select`
+
   width: 100%;
   height: 40px;
   align-items: center;
@@ -267,6 +270,8 @@ const Select = styled.select`
     font-size: 17px;
   }
 `;
+
+
 const Selectholder3 = styled.div`
   display: flex;
   flex-direction: column;
