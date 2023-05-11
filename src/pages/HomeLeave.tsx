@@ -350,4 +350,7 @@ const Container = styled.div`
   @media screen and (max-width: 1024px) {
     width: 100vw;
   }
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `;
