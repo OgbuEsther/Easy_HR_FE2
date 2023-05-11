@@ -105,7 +105,7 @@ background-image:url(${bg});
 background-repeat: no-repeat;
 background-size: 1200px;
 background-position: center;
-width: 90%;
+width: 98%;
 height: 500px;
 display: flex;
 flex-direction: column;
