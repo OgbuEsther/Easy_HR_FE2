@@ -111,7 +111,7 @@ p{
 @media screen and (max-width:320px) {
   margin: 0;
   width: 900%;
-  height:800px;
+  /* height:300px; */
   margin-left: 10px;
   padding-right: 30px;
   /* background-color: red; */
@@ -152,7 +152,12 @@ justify-content: center;
 
 
 @media screen and (max-width:320px) {
-  height: 900px;
+  height: 500px;
+}
+
+@media screen and (max-width:425px) {
+  height: 2000px;
+  background-color: red;
 }
 
 
