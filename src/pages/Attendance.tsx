@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-
-
 import InputStaffAttendance from "./InputFieldAttendance/InputStaffAttendance";
 import { MdOutlineCancel } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { getOneAdmin, getOneStaff } from "../utils/Api/ApiCall";
 import { useAppSelector } from "../components/global/Store";
+// import {SiMattermost} from "react-icons/si"
 
 // const Option = [
 //   { value: "chocolate", label: "Chocolate" },
@@ -113,6 +112,7 @@ const Attendance: React.FC = () => {
     <AttendancePage>
       <AttendanceMainPage>
       <Word>
+        {/* <SiMattermost/> */}
         Attendance <br />
            <span>
           <a href="/dashboard">
@@ -590,12 +590,13 @@ justify-content: space-between;
 `
 
 const LastComp = styled.div`
-  width: 1000px;
+  width: 930px;
 background-color:white;
 box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 /* background-color: red; */
 border-radius: 10px;
 margin-top: 20px;
+margin-left: 10px;
 `
 
 const Employee = styled.div`
@@ -646,8 +647,9 @@ margin-left: 10px;
 
 const StaffDetail = styled.div`
 background-color: white;
-width: 1000px;
+width: 930px;
 border-radius: 10px;
+margin-left: 10px;
 height: 80px;
 display: flex;
 align-items: center;
@@ -751,61 +753,12 @@ const Holds = styled.div`
   z-index: 5;
 `;
 
-// Timing styling area
-const DateText = styled.div``;
 
-const SearchButton = styled.button`
-  height: 40px;
-  width: 180px;
-  font-size: 16px;
-  font-weight: 600;
-  background-color: white;
-  margin-left: 20px;
-  border-radius: 4px;
-  border: none;
-  background-color: #079b2e;
-  margin-bottom: 10px;
-  color: white;
-`;
 
-const TimeCard = styled.div`
-  height: auto;
-  width: 240px;
-  background-color: white;
-  margin-left: 20px;
-  border-radius: 4px;
-  margin-bottom: 10px;
-  outline: none;
-`;
 
-const TimingColumn = styled.div`
-  height: auto;
-  width: auto;
-  margin-top: 10px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
-
-  .date {
-    border: 1px solid silver;
-    display: flex;
-    align-items: center;
-    height: 35px;
-    padding: 0px 10px;
-    justify-content: space-between;
-  }
-`;
 
 // Leave stats area
-const Icon = styled.div`
-  height: auto;
-  width: auto;
-  color: silver;
-  margin-top: 6px;
-  margin-right: 1px;
-  font-weight: 600;
-`;
+
 
 const ProgressBar = styled.div<{ width: number }>`
   width: ${({ width }) => width}%;
@@ -871,48 +824,8 @@ const Timer = styled.div`
   font-weight: 600;
   color: #6b6b6b;
 `;
-const OverTimeText = styled.div``;
 
-const OverTimeBox = styled.div`
-  height: 50px;
-  width: 120px;
-  border: 1px solid silver;
-  border-radius: 4px;
-  background-color: #cfcdcd29;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  flex-direction: column;
-  font-size: 12px;
-`;
 
-const BreakBox = styled.div`
-  height: 50px;
-  width: 120px;
-  text-align: center;
-  border: 1px solid silver;
-  border-radius: 4px;
-  background-color: #cfcdcd29;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  font-weight: bold;
-  font-size: 12px;
-`;
-
-const HourText = styled.div``;
-const BreakText = styled.div``;
-
-const BreakAndOvertime = styled.div`
-  height: auto;
-  width: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  margin-top: 20px;
-`;
 
 const PunchButton = styled.button`
   height: 50px;
@@ -1032,6 +945,7 @@ const AttendanceMainPage = styled.div`
   height: auto;
   width: calc(100vw - 320px);
   padding-bottom: 30px;
+  overflow: hidden;
   @media screen and (max-width: 960px) {
     width: 100%;
   }
