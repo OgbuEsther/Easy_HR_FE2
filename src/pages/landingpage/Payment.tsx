@@ -18,7 +18,7 @@ const Payment = () => {
 
 
   return (
-    <Fade direction='right'>
+    <Fade direction='left'>
     <Container>
         <Text>Sell world-class HR solutions <br /> and increase profitability</Text>
         <P>Track  attendance and location, improve worker efficiency, and gain greater visibility into employee time and attendance</P>
@@ -34,7 +34,7 @@ const Payment = () => {
                     This is the right software maintain efficiency and productivity 
                     </h5></Data>
 
-            <New>Collaborator  🥉</New>
+            
             </Down6>
         </Box2>
 
@@ -50,7 +50,7 @@ const Payment = () => {
                 </h5>
                 </Data>
 
-            <New>Researcher 🥉</New>
+       
             </Down6>
           </Box2>
 
@@ -65,7 +65,7 @@ const Payment = () => {
                  </h5>
                  </Data>
 
-            <New>Collaborator 🥉</New>
+         
             </Down6>
           </Box2>
 
