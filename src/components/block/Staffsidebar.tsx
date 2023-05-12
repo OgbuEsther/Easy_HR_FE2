@@ -78,7 +78,7 @@ const SideBar = () => {
             <FaHornbill />
             </Icon2>
             <NavLink
-            to="/staffdashboard/leave-applycation"
+            to="/staffdashboard/leave-form"
             style={({ isActive }) => {
                 return {
                 textDecoration: isActive ? "none" : "none",

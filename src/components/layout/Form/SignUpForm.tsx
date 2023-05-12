@@ -50,7 +50,7 @@ SetViewPassword(!ViewPassword)
 
     onSuccess: (data)=>{
       dispatch(Staff(data?.data))
-      reset()
+     
       Swal.fire({
               title: "User registered sucessfully",
               html: "redirecting to login",
@@ -79,13 +79,13 @@ SetViewPassword(!ViewPassword)
     }
   })
 
-  // console.log('here',StaffSignUp);
+  reset();
   
 
   
   const Submit = handleSubmit(async(data: any)=>{
     StaffSignUp.mutate(data)
-    
+    console.log('here',data);
   })
 
 
