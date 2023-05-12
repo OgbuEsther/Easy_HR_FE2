@@ -97,7 +97,7 @@ const Adminattendance: React.FC = () => {
       <Container>
         <Wrapper>
           <Top>
-          <Pending onClick={Toggle1}><h3>All Employees</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
+          <Pending onClick={Toggle1}><h3>Today's Attendance</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
             strokeColor="#007bff"
             strokeWidth="5"
             animationDuration="0.75"
@@ -118,7 +118,7 @@ const Adminattendance: React.FC = () => {
             width="30" />}</span>
           </Pending>
 
-          <Pending onClick={Toggle4}><h3>Uninformed Leaves</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
+          <Pending onClick={Toggle4}><h3>Staff History </h3><span>{isLoading ? "" : <RotatingLines  visible={true}
             strokeColor="#007bff"
             strokeWidth="5"
             animationDuration="0.75"
@@ -164,34 +164,44 @@ const Adminattendance: React.FC = () => {
             <Title>Today's Attendance:</Title>
             {searchProps.length === 0 ? (
           <>
-            {getAdmin?.data?.data?.viewStaffAttendance.map((el: any) => (
+          
             <Table>
               <table>
                 <tr>
                   <th>Employee Name</th>
                   <th>Employee ID</th>
-                  <th>Department</th>
+                  <th>Date</th>
                   <th>Check In</th>
-                  <th>Shift</th>
+                
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
-
+                {getAdmin?.data?.data?.viewStaffAttendance.map((el: any) => (
                 <tr>
                   <td>
                     <Circlehold>
                     <Circle>O</Circle>
-                    <Name>Okwoli Godwin</Name>
+                    <Name>{el?.nameOfStaff}</Name>
                     </Circlehold>
                   </td>
-                  <td>1001</td>
-                  <td>Development</td>
+                  <td>{el?.staffId}</td>
+                  <td>{el?.date}</td>
                   <td>
-                    <Chc>10:28</Chc>
+                    <Chc>{el?.time}</Chc>
                   </td>
-                  <td>Shift 1</td>
+                 
                   <td>
-                    <Box>Present</Box>
+                  {
+                    el?.clockIn === true ? (
+                      <>
+                        <Box>Present</Box>
+                      </>
+                    ):(
+                      <>
+                       <Box>Absent</Box>
+                      </>
+                    )
+                  }
                   </td>
                   <td>
                     <Action>
@@ -204,10 +214,11 @@ const Adminattendance: React.FC = () => {
                     </Action>
                   </td>
                 </tr>
+                   ))} 
               </table>
             </Table>
 
-              ))} 
+           
           </>
         ) :(
           <>

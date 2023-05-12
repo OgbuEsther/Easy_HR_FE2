@@ -9,6 +9,7 @@ import { useQuery } from '@tanstack/react-query';
 import {  getOneAdmin } from '../utils/Api/ApiCall';
 import axios from 'axios';
 
+
 const UninformedLeave = () => {
 
      const [selectedDate, setSelectedDate] = useState<Date>(new Date());
@@ -61,7 +62,7 @@ const UninformedLeave = () => {
 
             {searchProps.length === 0 ? (
           <>
-            {getAdmin?.data?.data?.viewStaffHistory.map((el: any) => (
+           
             <Table>
               <table>
                 <tr>
@@ -73,7 +74,7 @@ const UninformedLeave = () => {
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
-
+                {getAdmin?.data?.data?.viewStaffHistory.map((el: any) => (
                 <tr>
                   <td>
                     <Circlehold>
@@ -100,11 +101,13 @@ const UninformedLeave = () => {
                       </Cir1>
                     </Action>
                   </td>
+                  
                 </tr>
+                      ))} 
               </table>
             </Table>
 
-              ))} 
+        
           </>
         ) :(
           <>

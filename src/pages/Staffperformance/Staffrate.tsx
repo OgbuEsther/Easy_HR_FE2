@@ -93,28 +93,28 @@ const admin = useAppSelector((state)=> state.currentUser)
                   
                   <th>Staff Ratings</th>
                 </tr>
-                {
-getAdmin?.data?.data?.PerformanceMilestone?.map((el:any)=>(
+                
+
                 <tr>
                   <td>
                   <Circlehold>
                 
-                    <Name>{el?.mileStone}</Name>
+                    <Name>{milerStoneId?.mileStone}</Name>
                     </Circlehold>
                   </td>
                   
                     <td>
-                        <Input
+                        <Input {...register("staffScore")}
                         type="number"            
                     />
+                    <span style={{color: "#D8000C"}}>{errors.staffScore && "please input your ratings"}</span>
                     </td>
                     <td>
                      <Button type="submit">Submit</Button>
                   </td>
                               </tr>
-                              ))
-          }
-                              <tr>
+       
+                              {/* <tr>
                   <td>
                   <Circlehold>
                     <Circle>O</Circle>
@@ -130,7 +130,7 @@ getAdmin?.data?.data?.PerformanceMilestone?.map((el:any)=>(
                     <td>
                      <Button>Submit</Button>
                   </td>
-                              </tr>
+                              </tr> */}
                               
                     
                 </table>

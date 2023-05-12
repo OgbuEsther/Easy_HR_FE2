@@ -83,6 +83,7 @@ setShow(false);
           >
             Generate Token
           </Button>
+          {token}
         </One>
 
         <Two>
