@@ -11,6 +11,7 @@ import { useMutation } from "@tanstack/react-query";
 
 import { adminScore } from '../utils/Api/ApiCall' 
 import Swal from 'sweetalert2'
+import { adminScoreRate } from '../components/global/ReduxState'
 
 const Adminrate = () => {
 
@@ -25,9 +26,10 @@ const Adminrate = () => {
 
   const dispatch = useDispatch()
   const admin = useAppSelector((state)=> state.currentUser)
+  const rate = useAppSelector((state) => state.ratings)
 
   const schema = yup.object({
-    mileStone: yup.string().required(),
+    adminScore: yup.number().required(),
   }).required()
   
   type formData = yup.InferType<typeof schema>
@@ -38,17 +40,17 @@ const Adminrate = () => {
 
 
     const posting = useMutation({
-      mutationKey: ["milestone"],
-      mutationFn: (data: any) => adminScore(data,admin?._id ),
+      mutationKey: ["adminRatings"],
+      mutationFn: (data: any) => adminScore(data,rate?._id ),
 
 
       onSuccess: (myData) => {
-        // dispatch(mileStone(myData.data))
+        dispatch(adminScoreRate(myData.data))
         reset()
   
         Swal.fire({
-          title: "admin registered successfully",
-          html: "redirecting to login",
+          title: "rated staff successfully",
+          html: "redirecting to dashboard",
           timer: 1000,
           timerProgressBar: true,    
         })
@@ -56,7 +58,7 @@ const Adminrate = () => {
   },
   onError: (error: any) => {
     Swal.fire({
-      title: `leave creation error`,
+      title: `rate creation error`,
       text: `${error?.response?.data?.message}`,
       icon: "error",
     });
@@ -82,7 +84,7 @@ const Adminrate = () => {
 
               <Mid>
             {isLoading ? (
-            <Table>
+            <Table onSubmit={Submit}>
               <table>
                 <tr>
                   <th>Milestone</th>
@@ -103,15 +105,16 @@ const Adminrate = () => {
                          <Rate>40</Rate>
                   </td>
                     <td>
-                        <Input
+                    <Input {...register("adminScore")}
                         type="number"            
                     />
+                    <span style={{color: "#D8000C"}}>{errors.adminScore && "please input your ratings"}</span>
                     </td>
                     <td>
-                     <Button>Submit</Button>
+                     <Button type="submit">Submit</Button>
                   </td>
                               </tr>
-                              <tr>
+                              {/* <tr>
                   <td>
                   <Circlehold>
                     <Circle>O</Circle>
@@ -130,7 +133,7 @@ const Adminrate = () => {
                     <td>
                      <Button>Submit</Button>
                   </td>
-                              </tr>
+                              </tr> */}
                               
                     
                 </table>
@@ -197,7 +200,7 @@ const Circle = styled.div`
     font-size: 12px;
   }
 `;
-const Table = styled.div`
+const Table = styled.form`
   display: flex;
   height: auto;
   width: 100%;

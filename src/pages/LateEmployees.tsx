@@ -3,6 +3,7 @@ import styled from "styled-components"
 import {IoMdArrowDropdown} from "react-icons/io"
 import Inputdate from "./Inputdate/Inputdate";
 
+
 import { RiDeleteBin2Line } from "react-icons/ri";
 import { BsPencilFill } from "react-icons/bs";
 import axios from 'axios';
@@ -56,7 +57,7 @@ const LateEmployees = () => {
 
             {searchProps.length === 0 ? (
           <>
-            {getAdmin?.data?.data?.viewStaffAttendance.map((el: any) => (
+            {getAdmin?.data?.data?.viewLateStaff.map((el: any) => (
             <Table>
               <table>
                 <tr>
