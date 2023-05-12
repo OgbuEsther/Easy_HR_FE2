@@ -18,7 +18,7 @@ const NotFound = () => {
    {/* <Tiny>oh, we can't seem to find the page you're looking for.
     <br/>Try going back to previous page .
    </Tiny> */}
-   <Button></Button>
+   <Button>Go back</Button>
   </Two>
   
  </Container>

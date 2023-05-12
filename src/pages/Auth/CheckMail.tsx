@@ -20,7 +20,7 @@ const CheckMail = () => {
               <Textspace>
                   <p>Hi,</p>
                   <Texthold>
-                      You're almost ready to get started. Please click on the button below to verify your email and enjoy exclusive service with us
+                      You're almost ready to get started. Please click on the button below to sign in and enjoy exclusive service with us
                   </Texthold>
               </Textspace>
               <Button>VERIFY YOUR EMAIL</Button>
