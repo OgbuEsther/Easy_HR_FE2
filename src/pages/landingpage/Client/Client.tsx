@@ -16,8 +16,7 @@ const Client = () => {
                     <ImQuotesLeft/>
                 </Icon>
                 <p>
-                Payroll has to be done right. If the client has problems with payroll and the provider, it comes right back to us. We know that when they go to Payonline, they're going to be taken care of and everything's done.
-                </p>
+                Employee management has to be done right. A system has to be in place to track perfomance of every empolyee in a company for productivity and time management.</p>
 
                 <Word>
                 <h3>  ~ Mr Peter Oti, Managing Partner</h3>

@@ -216,7 +216,7 @@ const Leave = () => {
   <tr>
                   <td>
                   <Circlehold>
-                    <Circle>{getStaff?.data?.data?.yourName}</Circle>
+                    <Circle>{getStaff?.data?.data?.yourName.charAt(0)}</Circle>
                     <Name>{getStaff?.data?.data?.yourName}</Name>
                     </Circlehold>
                   </td>
