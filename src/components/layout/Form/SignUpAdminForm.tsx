@@ -288,6 +288,7 @@ const AdminEmailContainer = styled.div`
   }
 `;
 
+// First Nane input
 const FirstNameInput = styled.input`
   height: 50px;
   width: auto;
