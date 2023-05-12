@@ -23,6 +23,9 @@ import CheckMail from "../pages/Auth/CheckMail";
 import Waiting from "../pages/Auth/Waiting";
 import Yesorno from "../pages/Yesorno/Yesorno";
 import Settingspage from "../pages/Settingspage";
+import Easier from "../pages/landingpage/Easier/Easier";
+import Payment from "../pages/landingpage/Payment";
+import Expert from "../pages/landingpage/Expert/Expert";
 // import Transaction from "../pages/Performance/Performance";
 
 
@@ -38,8 +41,6 @@ const StaffAttendance = lazy(() => import("../pages/Attendance"))
 const Schoolfees = lazy(() => import("../pages/Schoolfeesfile/Schoolfeesfile"))
 const Tour = lazy(() => import("../pages/Tourfile/Tourfile"))
 const Rents = lazy(() => import("../pages/Rentsfile/Rentsfile"))
-const Staffperformance = lazy(() => import("../pages/Staffperformance/Staffperformance"))
-const StaffLeave = lazy(() => import("../pages/Staffperformance/Staffleave"))
 
 const PayBills = lazy(()=>import("../pages/StaffdasBoard/PayBills/PayBill"));
 // const StaffAttendance = lazy(() => import("../pages/StaffdasBoard/Attendance/Attendance"))
@@ -61,6 +62,12 @@ export const Elements = createBrowserRouter([
         errorElement: <ErrorBoundary />,
       },
       {
+        path: "/solution",
+        element: <Payment/>,
+        hasErrorBoundary: true,
+        errorElement: <ErrorBoundary />,
+      },
+      {
         path: "/contact",
         element: <ContactUs />,
         hasErrorBoundary: true,
@@ -68,7 +75,13 @@ export const Elements = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About />,
+        element: <Easier/>,
+        hasErrorBoundary: true,
+        errorElement: <ErrorBoundary />,
+      },
+      {
+        path: "/expert",
+        element: <Expert/>,
         hasErrorBoundary: true,
         errorElement: <ErrorBoundary />,
       },
@@ -205,8 +218,8 @@ export const Elements = createBrowserRouter([
         errorElement: <ErrorBoundary />,
       },
       {
-       path:"/staffdashboard/staffperformance",
-        element: <Staffperformance/>,
+       path:"/staffdashboard/stafftransaction",
+        element: <StaffTransaction/>,
         hasErrorBoundary: true,
         errorElement: <ErrorBoundary />,
       },
@@ -237,12 +250,6 @@ export const Elements = createBrowserRouter([
       {
         path:"/staffdashboard/leave-form",
         element: <LeavePage />,
-        hasErrorBoundary: true,
-        errorElement: <ErrorBoundary />,
-      },
-      {
-        path:"/staffdashboard/leave-applycation",
-        element: <StaffLeave />,
         hasErrorBoundary: true,
         errorElement: <ErrorBoundary />,
       },

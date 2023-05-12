@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import { useAppSelector } from "../../components/global/Store";
+import { CgPerformance } from "react-icons/cg";
 import { RiDeleteBin2Line } from "react-icons/ri";
 import { BsPencilFill } from "react-icons/bs";
+import { SiSecurityscorecard } from "react-icons/si";
 import axios from "axios";
 import { genAttendanceToken, getOneAdmin, url } from "../../utils/Api/ApiCall";
 import { useQuery } from "@tanstack/react-query";
@@ -225,7 +227,7 @@ const Adminattendance: React.FC = () => {
                       <th>Status</th>
                       <th>Action</th>
                     </tr>
-    
+                    {getAdmin?.data?.data?.viewStaffAttendance.map((el: any) => (
                     <tr>
                       <td>
                         <Circlehold>
@@ -253,6 +255,7 @@ const Adminattendance: React.FC = () => {
                         </Action>
                       </td>
                     </tr>
+                    ))}
                   </table>
                 </Table>
                   ))} 
@@ -579,9 +582,6 @@ const Wrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   /* background-color: red; */
-  @media screen and (max-width: 500px) {
-    padding-top: 120px;
-  }
 `;
 
 const Container = styled.div`
@@ -592,7 +592,4 @@ const Container = styled.div`
   align-items: center;
   flex-direction: column;
   margin-bottom: 30px;
-  @media screen and (max-width: 500px) {
-    width: 100vw;
-  }
 `;
