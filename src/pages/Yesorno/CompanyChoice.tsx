@@ -13,7 +13,7 @@ import axios from "axios";
 
 export const url = "https://easyhr.onrender.com/api"
 
-const CompanyDesides = () => {
+const CompanyChoice = () => {
 	const { id } = useParams();
 	const navigate = useNavigate();
 
@@ -21,7 +21,7 @@ const CompanyDesides = () => {
 	const [loading, setLoading] = useState(false);
 
 	const noStaff = async () => {
-		const newURL = `${url}/${id}/verifystaff`;
+		const newURL = `${url}/staff/${id}/verifystaff`;
 		setLoading(true);
 		await axios
 			.post(newURL, { response: "No" })
@@ -64,7 +64,7 @@ const CompanyDesides = () => {
 					showConfirmButton: false,
 					timer: 2500,
 				}).then(() => {
-					navigate("/");
+					navigate("/check-mail");
 				});
 				setLoading(false);
 			})
@@ -87,11 +87,7 @@ const CompanyDesides = () => {
 			{/* {loading ? <LoadingState /> : null} */}
 			<Wrapper>
 				<Card>
-					<LogoHolder to='/'>
-						<Logo>ETA</Logo>
-						<LogoTitle>Expense Tracker App</LogoTitle>
-					</LogoHolder>
-
+					
 					<Title>
 						<TitleHead>Verify this Account </TitleHead>
 						<br />
@@ -147,7 +143,7 @@ const CompanyDesides = () => {
 	);
 };
 
-export default CompanyDesides;
+export default CompanyChoice;
 
 const Text = styled.div`
 	font-size: 15px;
