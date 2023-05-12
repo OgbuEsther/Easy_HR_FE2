@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {Fade} from "react-awesome-reveal"
+import { NavLink } from 'react-router-dom';
 
 const Superhero = () => {
 
@@ -28,19 +29,21 @@ const Superhero = () => {
             <Fade
               duration={2000}
             >
-              <div className='w-3/12 xmd:w-full text-7xl lg:w-full font-bold xmd:text-5xl xmd:text-center'>
+              <div className='w-3/12 xmd:w-full text-6xl lg:w-full font-bold xmd:text-5xl xmd:text-center '>
                EMPLOYEE PERFORMANCE MANAGEMENT
               </div>
             </Fade>
             <Fade direction="down">
-              <p className='text-white text-3xl mt-3 xmd:text-center sm:text-2xl'>to take your business further</p>
+              <p className='text-white text-2xl mt-3 xmd:text-center sm:text-2xl'>to take your business further</p>
             </Fade>
 
             <div className='xmd:w-full xmd:flex xmd:justify-center xmd:items-center'>
               <Fade direction="up">
-              <button className='w-48 h-12 text-white bg-hover flex justify-center items-center font-semibold rounded-3xl hover:bg-white hover:text-hover cursor-pointer transition-all duration-150 ease-in-out delay-150 mt-10'>
+                <NavLink to="/sign-up-option">
+                  <button className='w-48 h-12 text-white bg-hover flex justify-center items-center font-semibold rounded-3xl hover:bg-white hover:text-hover cursor-pointer transition-all duration-150 ease-in-out delay-150 mt-10'>
               Get started
             </button>
+              </NavLink>
             </Fade>
             </div>
             </div>
