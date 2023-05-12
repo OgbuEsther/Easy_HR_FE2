@@ -361,10 +361,20 @@ const Pending = styled.div`
   display: flex;
   margin: 18px;
   cursor: pointer;
+  background-color: red;
+  height: 40px;
+  width: 170px;
+  border-radius: 50px;
   h3{
     font-weight: 500;
   font-size: 19px;
   color: #6c757d;
+  @media screen and (max-width: 500px) {
+    font-size: 16px;
+  }
+  }
+  @media screen and (max-width: 500px) {
+    margin: 11px;
   }
   span{
     margin-left: 7px;
@@ -379,6 +389,10 @@ const Top = styled.div`
   height: 70px;
   align-items: center;
   border-bottom: 1px solid lightgray;
+  @media screen and (max-width: 500px) {
+    flex-wrap: wrap;
+    height: 140px;
+  }
 `
 
 const Cir = styled.div`

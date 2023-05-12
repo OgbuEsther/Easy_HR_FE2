@@ -175,7 +175,9 @@ const Staffleave = () => {
 
                   <Selectholder3>
                     <h4>*Reason</h4>
-                    <Input {...register("reason")} placeholder='reasons....'  />
+                        <Inputhold2>
+                            <Input3 {...register("reason")} placeholder='reasons....'  />           
+                        </Inputhold2>
                   </Selectholder3>
                   <span>{errors?.reason && errors?.reason?.message}</span>
                   <Apply type = "submit">Apply</Apply>
@@ -198,9 +200,28 @@ const Staffleave = () => {
 };
 
 export default Staffleave;
+const Input3 = styled.input`
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ced4da;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
+    padding-left: 10px;
+    outline: none;
+    display: flex;
+    align-items: flex-start;
+    /* background-color: red; */
+    ::placeholder{
+        margin-bottom: 80px;
+    }
+`
 
 const Input = styled.input`
-
+    padding-left: 10px;
+    width: 100%;
+    height: 100%;
+    outline: none;
 `
 const Apply = styled.button`
   width: 120px;
@@ -215,15 +236,24 @@ const Apply = styled.button`
   margin-top: 15px;
   cursor: pointer;
 `;
-const Textarea = styled.textarea`
 
+const Inputhold2 = styled.div`
   width: 100%;
-  height: 120px;
-  resize: none;
-  border: 1px solid #ced4da;
+  height: 100px;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
   border-style: solid;
   border-width: 1px;
-  border-radius: 4px;
+  cursor: default;
+  display: flex;
+  border: 1px solid #ced4da;
+  justify-content: space-between;
+  transition: all 100ms ease 0s;
+  box-sizing: border-box;
+  outline: 0px !important;
+  overflow: hidden;
+  margin-top: 4px;
 `;
 
 const Inputhold = styled.div`
