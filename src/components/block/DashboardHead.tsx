@@ -27,6 +27,7 @@ const DashboardHead = () => {
       <Container>
       <Wrapper>
         <Left>
+          <FiMenu />
           <Img src={img} />
         </Left>
 
@@ -156,6 +157,8 @@ const Right = styled.div`
 const Left = styled.div`
   font-size: 25px;
   cursor: pointer;
+  align-items: center;
+  color: #fff;
   @media screen and (max-width: 1024px) {
     display: flex;
   }
