@@ -181,16 +181,18 @@ const Attendance: React.FC = () => {
 
             <CardContent>
               <PunchInRecord>
-                <PunchInat>Punch In at</PunchInat>
+                <PunchInat>Punch in at:</PunchInat>
                 <Date>{`${clockin?.date} ${clockin?.time}`}</Date>
               </PunchInRecord>
               <CircleTimerHold>
                 <CircleTimer>
                   <Timer>{clockin?.time} </Timer>
                 </CircleTimer>
-                <PunchButton onClick={Toggle}>Punch In</PunchButton>
+              <ButtonHold>
+              <PunchButton onClick={Toggle}>Punch In</PunchButton>
 
-                <PunchButton onClick={Toggle}>Punch Out</PunchButton>
+<PunchButton onClick={Toggle}>Punch Out</PunchButton>
+              </ButtonHold>
               </CircleTimerHold>
 
               {/* <BreakAndOvertime>
@@ -205,7 +207,7 @@ const Attendance: React.FC = () => {
               </BreakAndOvertime> */}
             </CardContent>
           </Card>
-          <Card className="two">
+          {/* <Card className="two">
             <CardTitle>Leave Stats</CardTitle>
            
               <CardContent>
@@ -222,14 +224,13 @@ const Attendance: React.FC = () => {
                   </DayAndHourColumn>
                   <ProgressBarHold>
                     <ProgressBar width={width}></ProgressBar>
-                    {/* <button onClick={int}>click me</button> */}
                   </ProgressBarHold>
                 </StatisticsMeasureColumn>
                 ))}
               </CardContent>
             
-          </Card>
-          <Card className="three">
+          </Card> */}
+          {/* <Card className="three">
             <CardTitle>Apply For Leave</CardTitle>
             <CardContent>
               <LeaveOptionForm>
@@ -315,7 +316,7 @@ const Attendance: React.FC = () => {
                 </OptionInputHold>
               </LeaveOptionForm>
             </CardContent>
-          </Card>
+          </Card> */}
         </StatisticColumn>
 
         
@@ -466,6 +467,10 @@ const Attendance: React.FC = () => {
 };
 
 export default Attendance;
+const ButtonHold = styled.div`
+flex-wrap: wrap;
+`
+
 // TABLE STYLING AREA
 
 const Time = styled.div`
@@ -830,8 +835,9 @@ const Timer = styled.div`
 const PunchButton = styled.button`
   height: 50px;
   width: 180px;
-  background-color: #1F337C;
-  border: 2px solid #1F337C;
+  margin: 10px;
+  background-color: #001328;
+  border: 2px solid #001328;
   color: white;
   border-radius: 100px;
   margin-top: 20px;
@@ -841,14 +847,14 @@ const PunchButton = styled.button`
   transition: all 960ms;
 
   :hover{
-    color:#1F337C;
+    color:#001328;
     background-color: whitesmoke;
   }
 `;
 
 const CircleTimer = styled.div`
-  height: 120px;
-  width: 120px;
+  height: 180px;
+  width: 180px;
   border-radius: 100%;
   border: 2px solid silver;
   display: flex;
@@ -901,7 +907,7 @@ const CardTitle = styled.h4`
 
 const Card = styled.div`
   height: auto;
-  width: 300px;
+  width: 600px;
   background-color: white;
   box-shadow: 1px 1px 3px 1px rgba(166, 165, 165, 0.5);
   margin-left: 30px;
@@ -909,6 +915,9 @@ const Card = styled.div`
   padding-left: 10px;
   padding-bottom: 18px;
   padding-right: 10px;
+  
+
+ 
 `;
 
 const StatisticColumn = styled.div`
@@ -922,23 +931,6 @@ const StatisticColumn = styled.div`
   flex-wrap: wrap;
 `;
 
-// Title and BreadCrum styling area
-const TitleAndBreadCrumColumn = styled.div`
-  height: 100px;
-  width: auto;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding-left: 30px;
-`;
-
-const BreadCrum = styled.h4`
-  margin: 0px;
-`;
-
-const Title = styled.h1`
-  margin: 0px;
-`;
 
 // Attendance main Page
 const AttendanceMainPage = styled.div`

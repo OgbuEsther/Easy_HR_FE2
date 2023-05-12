@@ -1,6 +1,6 @@
 import React, { useDebugValue } from 'react'
 import styled from 'styled-components'
-import img from "../../Assets/easyhr.png"
+import img from "../../Assets/new.png"
 import { MdDashboard } from "react-icons/md";
 import { NavLink, useNavigate } from 'react-router-dom';
 import { FiPower } from "react-icons/fi";
@@ -284,7 +284,7 @@ const Home = styled.div`
 `;
 
 const Img = styled.img`
-  height: 120px;
+  height: 100px;
 `;
 
 const Top = styled.div`
