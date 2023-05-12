@@ -28,14 +28,20 @@ const Header = () => {
         <img src={img} alt="" className='h-16'/>
 
         <div className='flex items-center xmd:hidden'>
-       <NavLink to="">
+       <NavLink to="/">
        <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>Home</div>
-       </NavLink>
+       </NavLink >
+       <NavLink to="/solution">
           <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>Our Solution</div>
+          </NavLink>
+          <NavLink to="/about">
           <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>About</div>
-          <Link to="expert">
+          </NavLink>
+          <NavLink
+ to="/expert">
           <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>Our Expert</div>
-          </Link>
+          </NavLink>
+
         </div>
 
         <div className='flex items-center md:hidden'>

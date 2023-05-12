@@ -85,7 +85,6 @@ SetViewPassword(!ViewPassword)
   
   const Submit = handleSubmit(async(data: any)=>{
     StaffSignUp.mutate(data)
-    console.log("this is the submitted data ", data);
     
   })
 
