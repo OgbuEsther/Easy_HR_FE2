@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { UseAppDispach, useAppSelector } from '../../components/global/Store'
 import { useMutation, useQuery } from '@tanstack/react-query'
-import { createLeave, getOneAdmin } from '../../utils/Api/ApiCall'
+import { createLeave, getOneAdmin, getOneStaff } from '../../utils/Api/ApiCall'
 import { CreateLeave } from "../../components/global/ReduxState";
 import Approved from '../Approved'
 import Rejected from '../Rejected'
@@ -122,6 +122,13 @@ const Leave = () => {
   });
   console.log("this is getAdmin id", user);
 
+  const staff = useAppSelector((state) => state.currentStaff);
+  const getStaff = useQuery({
+    queryKey: ["singleStaff"],
+    queryFn: () => getOneStaff(staff?._id),
+  });
+  
+
 
   return (
     <Container>
@@ -205,21 +212,21 @@ const Leave = () => {
                   <th>Applied On</th>
                   <th>Reason</th>
                 </tr>
-
-                <tr>
+{getAdmin?.data?.data?.staffLeave?.map((el:any)=>(
+  <tr>
                   <td>
                   <Circlehold>
-                    <Circle>O</Circle>
-                    <Name>Okwoli Godwin</Name>
+                    <Circle>{getStaff?.data?.data?.yourName}</Circle>
+                    <Name>{getStaff?.data?.data?.yourName}</Name>
                     </Circlehold>
                   </td>
-                  <td>09 May, 2023</td>
-                  <td>1 Day</td>
-                  <td>Casual Leave</td>
+                  <td>{el?.startDate}</td>
+                  <td>{el?.numberOfDays} Day(s)</td>
+                  <td>{el?.title}</td>
                   <td>
                     07 May, 2023
                   </td>
-                  <td>nothing</td>
+                  <td>{el?.reason}</td>
                   <td>
                   <Hold>
                     <Box>Approve</Box>
@@ -227,6 +234,8 @@ const Leave = () => {
                   </Hold>
                 </td>
                 </tr>
+))}
+                
                 </table>
                 <Plan>On the free plan, you can access the last 14 days of data only. Upgrade to the Pro plan to get the historical data.</Plan>
             </Table>

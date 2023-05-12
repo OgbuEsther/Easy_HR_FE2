@@ -122,3 +122,6 @@ export const applyForLeave = async(data : any , staffId:any ,adminId:any)=>{
 export const adminScore = async(data:any , rateId:any) =>{
     return await axios.patch(`${url}/createadminscore/${rateId}` ,data).then((res)=> res.data)
 }
+export const staffScore = async(data:any , MileStoneId:any) =>{
+    return await axios.post(`${url}/createstaffscore/${MileStoneId}` ,data).then((res)=> res.data)
+}

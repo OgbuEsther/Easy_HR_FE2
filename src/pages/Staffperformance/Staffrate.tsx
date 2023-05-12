@@ -1,8 +1,15 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import { RotatingLines } from 'react-loader-spinner'
-import {IoMdArrowDropdown} from "react-icons/io"
-
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup"
+import { useDispatch } from "react-redux";
+import {useForm} from "react-hook-form";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { useAppSelector } from "../../components/global/Store";
+import Swal from "sweetalert2";
+import { getOneAdmin, staffScore } from '../../utils/Api/ApiCall';
+import { staffScoreRate } from '../../components/global/ReduxState';
 const Staffrate = () => {
 
      const [isLoading, setIsLoading] = useState(false)
@@ -13,6 +20,59 @@ const Staffrate = () => {
     },2000)
 
   }, [])
+
+  const dispatch = useDispatch()
+  const milerStoneId = useAppSelector((state) => state.mileStone)
+
+  const schema = yup.object({
+    staffScore: yup.number().required(),
+  }).required()
+  
+  type formData = yup.InferType<typeof schema>
+  
+  const{handleSubmit, formState: {errors}, reset, register} = useForm<formData>({
+    resolver: yupResolver(schema),
+  })
+
+
+    const posting = useMutation({
+      mutationKey: ["staffratings"],
+      mutationFn: (data: any) => staffScore(data,milerStoneId?._id ),
+
+
+      onSuccess: (myData) => {
+        dispatch(staffScoreRate(myData.data))
+        reset()
+  
+        Swal.fire({
+          title: "admin registered successfully",
+          html: "redirecting to login",
+          timer: 1000,
+          timerProgressBar: true,    
+        })
+  
+  },
+  onError: (error: any) => {
+    Swal.fire({
+      title: `staff  ratings failed`,
+      text: `${error?.response?.data?.message}`,
+      icon: "error",
+    });
+  }
+});
+
+  const Submit = handleSubmit(async (data: any) => {
+    console.log("staff score ratings", data)
+    posting.mutate(data);
+  });
+
+
+const admin = useAppSelector((state)=> state.currentUser)
+  const getAdmin = useQuery({
+    queryKey: ["singleAdmin"],
+    queryFn: () => getOneAdmin(admin?._id),
+  });
+
 
   return (
       <Container>
@@ -26,19 +86,20 @@ const Staffrate = () => {
 
               <Mid>
             {isLoading ? (
-            <Table>
+            <Table onSubmit={Submit}>
               <table>
                 <tr>
                   <th>Milestone</th>
                   
                   <th>Staff Ratings</th>
                 </tr>
-
+                {
+getAdmin?.data?.data?.PerformanceMilestone?.map((el:any)=>(
                 <tr>
                   <td>
                   <Circlehold>
-                    <Circle>O</Circle>
-                    <Name>Okwoli Godwin</Name>
+                
+                    <Name>{el?.mileStone}</Name>
                     </Circlehold>
                   </td>
                   
@@ -48,9 +109,11 @@ const Staffrate = () => {
                     />
                     </td>
                     <td>
-                     <Button>Submit</Button>
+                     <Button type="submit">Submit</Button>
                   </td>
                               </tr>
+                              ))
+          }
                               <tr>
                   <td>
                   <Circlehold>
@@ -134,7 +197,7 @@ const Circle = styled.div`
     font-size: 12px;
   }
 `;
-const Table = styled.div`
+const Table = styled.form`
   display: flex;
   height: auto;
   width: 100%;

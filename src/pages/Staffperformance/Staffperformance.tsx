@@ -4,19 +4,18 @@ import { RotatingLines } from 'react-loader-spinner'
 import Inputdate from "../Inputdate/Inputdate";
 import Staffrate from "./Staffrate";
 import Staffdetails from "./Staffdetails";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup"
-import { useDispatch } from "react-redux";
-import {useForm} from "react-hook-form";
-import { useMutation } from "@tanstack/react-query";
+
 import { mileStone } from "../../components/global/ReduxState";
-import Swal from "sweetalert2";
+
 import { setMilestones } from "../../utils/Api/ApiCall";
+
 import { useAppSelector } from "../../components/global/Store";
 
 
+
 const Transaction = () => {
-  const dispatch = useDispatch()
+ 
+  
 const admin = useAppSelector((state)=> state.currentUser)
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const handleDateChange = (date: Date) => {
@@ -74,47 +73,7 @@ const admin = useAppSelector((state)=> state.currentUser)
 
 
 
-  const schema = yup.object({
-    mileStone: yup.string().required(),
-  }).required()
-  
-  type formData = yup.InferType<typeof schema>
-  
-  const{handleSubmit, formState: {errors}, reset, register} = useForm<formData>({
-    resolver: yupResolver(schema),
-  })
 
-
-    const posting = useMutation({
-      mutationKey: ["milestone"],
-      mutationFn: (data: any) => setMilestones(data,admin?._id ),
-
-
-      onSuccess: (myData) => {
-        dispatch(mileStone(myData.data))
-        reset()
-  
-        Swal.fire({
-          title: "admin registered successfully",
-          html: "redirecting to login",
-          timer: 1000,
-          timerProgressBar: true,    
-        })
-  
-  },
-  onError: (error: any) => {
-    Swal.fire({
-      title: `leave creation error`,
-      text: `${error?.response?.data?.message}`,
-      icon: "error",
-    });
-  }
-});
-
-  const Submit = handleSubmit(async (data: any) => {
-    console.log("milestone", data)
-    posting.mutate(data);
-  });
 
 
   return (

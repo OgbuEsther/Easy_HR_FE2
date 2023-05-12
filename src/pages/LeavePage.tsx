@@ -15,6 +15,7 @@ const LeavePage = () => {
     const navigate = useNavigate();
   
     const staff = useAppSelector((state)=> state.currentStaff)
+    const admin = useAppSelector((state)=> state.currentUser)
   
     const schema = yup
       .object({
@@ -41,7 +42,7 @@ const LeavePage = () => {
     const posting = useMutation({
       mutationKey: ["apply4leave"],
       // mutationFn: createAdmin,
-      mutationFn: (data: any) => applyForLeave(data , staff?._id),
+      mutationFn: (data: any) => applyForLeave(data , staff?._id , admin?._id),
   
       onSuccess: (myData) => {
         dispatch(ApplyForLeave(myData.data))
