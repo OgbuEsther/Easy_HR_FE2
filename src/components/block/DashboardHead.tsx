@@ -27,20 +27,11 @@ const DashboardHead = () => {
       <Container>
       <Wrapper>
         <Left>
-          <FiMenu />
+          <Ico>
+            <FiMenu />
+          </Ico>
           <Img src={img} />
         </Left>
-
-        {/* <Mid>
-          <Welcome>
-            <Circ>{admin?.companyname?.charAt(0)}</Circ>
-            <Prof>
-              <Comp>Company's profile</Comp>
-              <Nam>{admin?.companyname} </Nam>
-              <Id>ID:{admin?.companyCode} </Id>
-            </Prof>
-          </Welcome>
-        </Mid> */}
 
         <Right>
           <Up>
@@ -65,8 +56,14 @@ const DashboardHead = () => {
 }
 
 export default DashboardHead
+const Ico = styled.div`
+  margin-top: 9px;
+`
 const Img = styled.img`
   height: 80px;
+  @media screen and (max-width: 500px) {
+    margin-left: 16px;
+  }
 `
 const Account = styled.div`
   color: #035fcb!important;
@@ -138,6 +135,10 @@ const Profile = styled.div`
   color: #fff;
   background-color: blue;
   cursor: pointer;
+  @media screen and (max-width: 500px) {
+    background-color: #fff;
+    color: lightgray;
+  }
 `;
 
 const Up = styled.div`
@@ -150,7 +151,6 @@ const Right = styled.div`
   height: 100%;
   align-items: center;
   @media screen and (max-width: 500px) {
-    width: 30px;
   }
 `;
 
@@ -163,7 +163,7 @@ const Left = styled.div`
     display: flex;
   }
   @media screen and (max-width: 500px) {
-    margin-left: 30px;
+    /* margin-left: 30px; */
   }
 `;
 
@@ -180,9 +180,9 @@ const Wrapper = styled.div`
     display: flex;
   }
   @media screen and (max-width: 500px) {
-    width: 93%;
-    justify-content: space-between;
+    width: 90%;
     display: flex;
+    justify-content: space-between;
   }
 `;
 
