@@ -150,7 +150,7 @@ const Footer = () => {
          </NavLink>
 
          <NavLink 
-         to="https://twitter.com/EasyHr_payroll"
+         to=""
          style={{ textDecoration: "none" }}
          >
          <Navs>
@@ -220,7 +220,7 @@ border-radius: 20%;
 `
 
 const Icon = styled.div`
-  color: black;
+  color: white;
   margin-right: 7px;
   margin-top: 2px;
   font-size: 20px;
