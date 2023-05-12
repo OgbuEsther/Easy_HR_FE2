@@ -27,6 +27,7 @@ import Easier from "../pages/landingpage/Easier/Easier";
 import Payment from "../pages/landingpage/Payment";
 import Expert from "../pages/landingpage/Expert/Expert";
 import StaffPerformance from "../pages/Staffperformance/Staffperformance";
+import Staffleave from "../pages/Staffperformance/Staffleave";
 // import Transaction from "../pages/Performance/Performance";
 // import Transaction from "../pages/Staffperformance/Staffperformance";
 
@@ -250,7 +251,7 @@ export const Elements = createBrowserRouter([
       },
       {
         path:"/staffdashboard/leave-form",
-        element: <LeavePage />,
+        element: <Staffleave />,
         hasErrorBoundary: true,
         errorElement: <ErrorBoundary />,
       },

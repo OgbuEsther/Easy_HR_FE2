@@ -76,7 +76,7 @@ const Staffleave = () => {
   const Submit = handleSubmit(async (data: any) => {
     console.log("apply for leave", data);
     posting.mutate(data);
-    // reset();
+    reset();
   });
 
   const user = useAppSelector((state) => state.currentUser);

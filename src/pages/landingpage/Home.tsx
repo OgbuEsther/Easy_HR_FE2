@@ -29,7 +29,7 @@ const Superhero = () => {
               duration={2000}
             >
               <div className='w-6/12 xmd:w-full text-8xl lg:w-full font-bold xmd:text-5xl xmd:text-center'>
-                Payroll & HR Solutions
+               EMPLOYEE PERFORMANCE MANAGEMENT
               </div>
             </Fade>
             <Fade direction="down">

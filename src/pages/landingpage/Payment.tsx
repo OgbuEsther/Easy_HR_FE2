@@ -21,7 +21,7 @@ const Payment = () => {
     <Fade direction='right'>
     <Container>
         <Text>Sell world-class HR solutions <br /> and increase profitability</Text>
-        <P>Leverage your most valuable asset, improve worker efficiency, and gain greater visibility into employee time and attendance</P>
+        <P>Track  attendance and location, improve worker efficiency, and gain greater visibility into employee time and attendance</P>
     <Wrapper >
          
          <Box2>
@@ -31,7 +31,7 @@ const Payment = () => {
             <Down6>
                 <Data><span>Channel Manager  </span>
                  <h5>
-                    Get all the strategy advice and business support you'll need to help you maximize 
+                    This is the right software maintain efficiency and productivity 
                     </h5></Data>
 
             <New>Collaborator  🥉</New>
@@ -45,7 +45,8 @@ const Payment = () => {
             <Down6>
                 <Data><span>Product Knowledge  </span>
                  <h5>
-                   We will teach your sales and support personnels to help you imporve sales, better support your customers and improve product adoption
+                 We provide you with good employee management tools for efficiency and sustainability.
+                 
                 </h5>
                 </Data>
 
@@ -60,7 +61,7 @@ const Payment = () => {
             <Down6>
                 <Data><span>Marketing Collateral</span>
                  <h5>
-                 We will provide you with sales support tools to communicate EasyHR product offerings.
+                    Boosting employee efficiency to about 99%
                  </h5>
                  </Data>
 
