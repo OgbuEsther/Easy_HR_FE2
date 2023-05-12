@@ -182,7 +182,7 @@ const ScroolToTop = styled.div`
 
 border-radius: 20%;
   cursor: pointer;
-  width: 80px;
+  width: 50px;
   height: 50px;
   -webkit-animation: mover 1s infinite alternate;
   animation: mover 1s infinite alternate;
