@@ -60,7 +60,7 @@ const AbsentEmployee = () => {
 
             {searchProps.length === 0 ? (
           <>
-            {getAdmin?.data?.data?.viewAbsentStaff.map((el: any) => (
+           
             <Table>
               <table>
                 <tr>
@@ -72,7 +72,7 @@ const AbsentEmployee = () => {
                   {/* <th>Status</th>
                   <th>Action</th> */}
                 </tr>
-
+                {getAdmin?.data?.data?.viewAbsentStaff.map((el: any) => (
                 <tr>
                   <td>
                     <Circlehold>
@@ -100,10 +100,11 @@ const AbsentEmployee = () => {
                     </Action>
                   </td> */}
                 </tr>
+                        ))} 
               </table>
             </Table>
 
-              ))} 
+      
           </>
         ) :(
           <>

@@ -68,7 +68,7 @@ const UninformedLeave = () => {
                 <tr>
                   <th>Employee Name</th>
                   <th>Employee ID</th>
-                  <th>Department</th>
+                  <th>Date</th>
                   <th>Check In</th>
                   <th>Shift</th>
                   <th>Status</th>
@@ -79,17 +79,27 @@ const UninformedLeave = () => {
                   <td>
                     <Circlehold>
                     <Circle>O</Circle>
-                    <Name>Okwoli Godwin</Name>
+                    <Name>{el?.nameOfStaff}</Name>
                     </Circlehold>
                   </td>
-                  <td>1001</td>
-                  <td>Development</td>
+                  <td>{getAdmin?.data?.data?.companyCode}</td>
+                  <td>{el?.date}</td>
                   <td>
-                    <Chc>10:28</Chc>
+                    <Chc>{el?.time}</Chc>
                   </td>
                   <td>Shift 1</td>
                   <td>
-                    <Box>Present</Box>
+                  {
+                     el?.clockIn === true? (
+                      <>
+                        <Box>Present</Box>
+                      </>
+                    ):(
+                      <>
+                       <Box>Absent</Box>
+                      </>
+                    )
+                  }
                   </td>
                   <td>
                     <Action>
