@@ -161,7 +161,7 @@ export const Elements = createBrowserRouter([
     element: <SignInOption/>
   },
   {
-  path:"/confirm",
+  path:"/api/staff/:id/verification",
   element: <Yesorno />
 },
 

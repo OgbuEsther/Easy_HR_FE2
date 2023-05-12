@@ -47,20 +47,7 @@ const Thank = styled.div`
     margin-top: 25px;
     color: #505050;
 `
-const Button = styled(Link)`
-    width: 170px;
-    height: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    background-color: #F76808;
-    border-radius: 4px;
-    margin-top: 30px;
-    cursor: pointer;
-    border: none;
-    outline: none;
-`
+
 const Texthold = styled.div`
     width: 320px;
     text-align: center;
