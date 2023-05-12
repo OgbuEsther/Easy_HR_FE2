@@ -30,11 +30,12 @@ const Easier = () => {
 
             <Words>
           <p>
-          Get access to your HR data anytime, anywhere, with the <br /> Payonline app. There are many variations of passages of lorem <br /> Ipsum available, but the majority have suffered alteration <br /> in some form, by injected humour, or randomised words which <br /> don't look even slightly believable.
+          with the use of technology, software, and services to streamline and automate human resources (HR) processes within an organization. Making it easier for employee engagement, performance management, payroll and benefits administration, and compliance management.
           </p>
+          
             </Words>
 
-            <ButtonHold>
+            {/* <ButtonHold>
               <Button bcc='#0F6FD5'>
                 <Icon>
                   <BsFillPlayFill/>
@@ -47,7 +48,7 @@ const Easier = () => {
                 </Icon>
                 Play Store
               </Button>
-            </ButtonHold>
+            </ButtonHold> */}
           </One>
         {/* </Fade> */}
         {/* <Fade direction='right'> */}
