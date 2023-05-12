@@ -335,6 +335,9 @@ const Container = styled.div`
   padding-bottom: 20px;
   /* background-color: #001328; */
   background-image: url(${foot});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   @media screen and (max-width: 320px) {
   margin-top:500px;
