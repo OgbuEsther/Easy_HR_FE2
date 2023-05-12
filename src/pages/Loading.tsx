@@ -1,22 +1,27 @@
 import React from "react";
 import styled from "styled-components";
-import {Vortex} from "react-loader-spinner";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const Loading = () => {
 	return (
-		<div>
-			<Vortex
-				visible={true}
-  height="80"
-  width="80"
-  ariaLabel="vortex-loading"
-  wrapperStyle={{}}
-  wrapperClass="vortex-wrapper"
-  colors={['red', 'green', 'blue', 'yellow', 'orange', 'purple']}
-			/>
-		</div>
+		<Container>
+			<ClipLoader size={30} color='#fff' />
+		</Container>
 	);
 };
 
 export default Loading;
 
+const Container = styled.div`
+	position: absolute;
+	top: 0;
+	background-color: rgba(0, 0, 0, 0.6);
+	height: 100%;
+	width: 100%;
+	color: white;
+	display: flex;
+	position: fixed;
+	justify-content: center;
+	align-items: center;
+	backdrop-filter: blur(5px);
+`;
