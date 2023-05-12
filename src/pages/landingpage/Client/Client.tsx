@@ -8,7 +8,7 @@ import { Fade } from 'react-awesome-reveal'
 const Client = () => {
   return (
     <div>
-          <Fade direction='left'>
+          {/* <Fade direction='left'> */}
         <Container>
               <Wrapper>
              <One>
@@ -32,7 +32,7 @@ const Client = () => {
              </Two>
             </Wrapper>
         </Container>
-          </Fade>
+          {/* </Fade> */}
     </div>
   )
 }
@@ -142,6 +142,7 @@ justify-content: center;
 
 const Container = styled.div`
 background-image: url(${img});
+background-attachment: fixed;
 height: 800px;
 width: 100%;
 background-size: cover;
