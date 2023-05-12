@@ -152,7 +152,7 @@ const Adminattendance: React.FC = () => {
               onChange={(e) => {
                 setSearch(e.target.value);
               }}
-              placeholder="Search by staff name " />
+              placeholder="Search name " />
             <Icon><IoMdArrowDropdown /></Icon>
             </Inputhold>
             <Inputhold>
@@ -407,6 +407,9 @@ const Pending4 = styled.h3<{ bg: string}>`
     margin: 5px;
     width: 200px;
   }
+  @media screen and (max-width: 375px) {
+    width: 100%;
+  }
   span{
     margin-left: 7px;
     font-weight: 500;
@@ -435,6 +438,9 @@ const Pending3 = styled.h3<{ bg: string}>`
   @media screen and (max-width: 500px) {
     margin: 5px;
     width: 170px;
+  }
+  @media screen and (max-width: 375px) {
+    width: 100%;
   }
   span{
     margin-left: 7px;
@@ -465,6 +471,9 @@ const Pending2 = styled.div<{ bg: string}>`
   @media screen and (max-width: 500px) {
     margin: 5px;
   }
+  @media screen and (max-width: 375px) {
+    width: 100%;
+  }
   span{
     margin-left: 7px;
     font-weight: 500;
@@ -494,6 +503,9 @@ const Pending = styled.div<{ bg: string}>`
   }
   @media screen and (max-width: 500px) {
     margin: 5px;
+  }
+  @media screen and (max-width: 375px) {
+    width: 100%;
   }
   span{
     margin-left: 7px;
