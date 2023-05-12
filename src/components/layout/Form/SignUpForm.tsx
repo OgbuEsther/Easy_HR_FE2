@@ -73,10 +73,10 @@ SetViewPassword(!ViewPassword)
     onError: (error: any) => {
       Swal.fire({
         title: "registration failed",
-        text: "email or password incorrect",
+        text: `${error?.response?.data?.message}`,
         icon: "error",
       });
-    },
+    }
   })
 
   // console.log('here',StaffSignUp);
@@ -85,7 +85,6 @@ SetViewPassword(!ViewPassword)
   
   const Submit = handleSubmit(async(data: any)=>{
     StaffSignUp.mutate(data)
-    console.log("this is the submitted data ", data);
     
   })
 

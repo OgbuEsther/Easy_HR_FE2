@@ -9,6 +9,7 @@ import { useQuery } from '@tanstack/react-query';
 import {  getOneAdmin } from '../utils/Api/ApiCall';
 import axios from 'axios';
 
+
 const UninformedLeave = () => {
 
      const [selectedDate, setSelectedDate] = useState<Date>(new Date());
@@ -61,34 +62,44 @@ const UninformedLeave = () => {
 
             {searchProps.length === 0 ? (
           <>
-            {getAdmin?.data?.data?.viewStaffHistory.map((el: any) => (
+           
             <Table>
               <table>
                 <tr>
                   <th>Employee Name</th>
                   <th>Employee ID</th>
-                  <th>Department</th>
+                  <th>Date</th>
                   <th>Check In</th>
                   <th>Shift</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
-
+                {getAdmin?.data?.data?.viewStaffHistory.map((el: any) => (
                 <tr>
                   <td>
                     <Circlehold>
                     <Circle>O</Circle>
-                    <Name>Okwoli Godwin</Name>
+                    <Name>{el?.nameOfStaff}</Name>
                     </Circlehold>
                   </td>
-                  <td>1001</td>
-                  <td>Development</td>
+                  <td>{getAdmin?.data?.data?.companyCode}</td>
+                  <td>{el?.date}</td>
                   <td>
-                    <Chc>10:28</Chc>
+                    <Chc>{el?.time}</Chc>
                   </td>
                   <td>Shift 1</td>
                   <td>
-                    <Box>Present</Box>
+                  {
+                     el?.clockIn === true? (
+                      <>
+                        <Box>Present</Box>
+                      </>
+                    ):(
+                      <>
+                       <Box>Absent</Box>
+                      </>
+                    )
+                  }
                   </td>
                   <td>
                     <Action>
@@ -100,11 +111,13 @@ const UninformedLeave = () => {
                       </Cir1>
                     </Action>
                   </td>
+                  
                 </tr>
+                      ))} 
               </table>
             </Table>
 
-              ))} 
+        
           </>
         ) :(
           <>

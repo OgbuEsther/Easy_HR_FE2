@@ -28,14 +28,20 @@ const Header = () => {
         <img src={img} alt="" className='h-16'/>
 
         <div className='flex items-center xmd:hidden'>
-       <NavLink to="">
+       <NavLink to="/">
        <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>Home</div>
-       </NavLink>
+       </NavLink >
+       <NavLink to="/solution">
           <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>Our Solution</div>
+          </NavLink>
+          <NavLink to="/about">
           <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>About</div>
-          <Link to="expert">
+          </NavLink>
+          <NavLink
+ to="/expert">
           <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>Our Expert</div>
-          </Link>
+          </NavLink>
+
         </div>
 
         <div className='flex items-center md:hidden'>
@@ -65,17 +71,29 @@ const Header = () => {
       </div>
       
       {show ? (
-              <div className='hidden md:flex absolute h-screen w-44 bg-white top-20 right-0 fixed flex-col items-center'>
+         <div className='hidden md:flex absolute h-screen w-44 bg-white top-20 right-0 fixed flex-col items-center'>
+          <NavLink to="/">
           <div className='text-hover text-sm m-4 hover:text-hover'>Home</div>
+          </NavLink>
+          <NavLink to="/solution">
           <div className='text-hover text-sm m-4 hover:text-hover'>Our Solution</div>
+          </NavLink>
+          <NavLink to="/about">
           <div className='text-hover text-sm m-4 hover:text-hover'>About</div>
+          </NavLink>
+          <NavLink to="/expert">
           <div className='text-hover text-sm m-4 hover:text-hover'>How we work</div>
+          </NavLink>
+          <NavLink to= "/sign-in-option">
           <button className='w-32 h-10 bg-buttonhover text-white flex justify-center items-center font-semibold rounded-3xl hover:bg-buttonhover hover:text-white cursor-pointer transition-all duration-150 ease-in-out delay-150 m-3'>
             Sign in
           </button>
+          </NavLink>
+          <NavLink to= "/sign-up-option">
           <button className='w-32 h-10 bg-buttonhover text-white flex justify-center items-center font-semibold rounded-3xl hover:bg-buttonhover hover:text-white cursor-pointer transition-all duration-150 ease-in-out delay-150'>
             Sign up
           </button>
+          </NavLink>
         </div>
       ) : null}
 

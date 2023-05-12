@@ -13,7 +13,7 @@ import { useAppSelector } from "../../components/global/Store";
 
 
 
-const Transaction = () => {
+const StaffPerformance = () => {
  
   
 const admin = useAppSelector((state)=> state.currentUser)
@@ -142,7 +142,7 @@ const admin = useAppSelector((state)=> state.currentUser)
   );
 }
 
-export default Transaction;
+export default StaffPerformance ;
 
 const Mid = styled.div`
   width: 100%;

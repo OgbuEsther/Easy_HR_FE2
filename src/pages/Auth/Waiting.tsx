@@ -4,7 +4,7 @@ import img from "../../Assets/easy.png"
 import {HiOutlineMail} from "react-icons/hi"
 import {Link, useParams} from "react-router-dom"
 import { useAppSelector } from '../../components/global/Store'
-import { adminVerification } from '../../utils/Api/ApiCall'
+import { adminVerification, staffVerification } from '../../utils/Api/ApiCall'
 
 const Waiting = () => {
 
@@ -12,7 +12,7 @@ const Waiting = () => {
     console.log("user id: ", id);
   
     useEffect(() => {
-        adminVerification(id);
+        staffVerification(id);
     });
   return (
       <Container>
@@ -47,20 +47,7 @@ const Thank = styled.div`
     margin-top: 25px;
     color: #505050;
 `
-const Button = styled(Link)`
-    width: 170px;
-    height: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    background-color: #F76808;
-    border-radius: 4px;
-    margin-top: 30px;
-    cursor: pointer;
-    border: none;
-    outline: none;
-`
+
 const Texthold = styled.div`
     width: 320px;
     text-align: center;

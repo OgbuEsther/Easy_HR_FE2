@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import { useAppSelector } from "../../components/global/Store";
+import { CgPerformance } from "react-icons/cg";
 import { RiDeleteBin2Line } from "react-icons/ri";
 import { BsPencilFill } from "react-icons/bs";
+import { SiSecurityscorecard } from "react-icons/si";
 import axios from "axios";
 import { genAttendanceToken, getOneAdmin, url } from "../../utils/Api/ApiCall";
 import { useQuery } from "@tanstack/react-query";
@@ -97,7 +99,7 @@ const Adminattendance: React.FC = () => {
       <Container>
         <Wrapper>
           <Top>
-          <Pending bg={show1 ? "red" : ""} onClick={Toggle1}><h3>All Employees</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
+          <Pending bg={show1 ? "red" : ""} onClick={Toggle1}><h3>Today's Attendance</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
             strokeColor="#007bff"
             strokeWidth="5"
             animationDuration="0.75"
@@ -118,12 +120,12 @@ const Adminattendance: React.FC = () => {
             width="30" />}</span>
           </Pending3>
 
-          <Pending4 bg={show4 ? "red" : ""} onClick={Toggle4}><h3>Uninformed Leaves</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
+          <Pending4 bg={show4 ? "red" : ""}  onClick={Toggle3}><h3>Late Employees</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
             strokeColor="#007bff"
             strokeWidth="5"
             animationDuration="0.75"
-              width="30" />}</span>
-            </Pending4>
+            width="30" />}</span>
+          </Pending4>
 
             <Button
               onClick={() => {
@@ -164,34 +166,44 @@ const Adminattendance: React.FC = () => {
             <Title>Today's Attendance:</Title>
             {searchProps.length === 0 ? (
           <>
-            {getAdmin?.data?.data?.viewStaffAttendance.map((el: any) => (
+          
             <Table>
               <table>
                 <tr>
                   <th>Employee Name</th>
                   <th>Employee ID</th>
-                  <th>Department</th>
+                  <th>Date</th>
                   <th>Check In</th>
-                  <th>Shift</th>
+                
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
-
+                {getAdmin?.data?.data?.viewStaffAttendance.map((el: any) => (
                 <tr>
                   <td>
                     <Circlehold>
                     <Circle>O</Circle>
-                    <Name>Okwoli Godwin</Name>
+                    <Name>{el?.nameOfStaff}</Name>
                     </Circlehold>
                   </td>
-                  <td>1001</td>
-                  <td>Development</td>
+                  <td>{getAdmin?.data?.data?.companyCode}</td>
+                  <td>{el?.date}</td>
                   <td>
-                    <Chc>10:28</Chc>
+                    <Chc>{el?.time}</Chc>
                   </td>
-                  <td>Shift 1</td>
+                 
                   <td>
-                    <Box>Present</Box>
+                  {
+                    getAdmin?.data?.data?.expectedClockIn <=el?.time ? (
+                      <>
+                        <Box>Early</Box>
+                      </>
+                    ):(
+                      <>
+                       <Box>Late</Box>
+                      </>
+                    )
+                  }
                   </td>
                   <td>
                     <Action>
@@ -204,10 +216,11 @@ const Adminattendance: React.FC = () => {
                     </Action>
                   </td>
                 </tr>
+                   ))} 
               </table>
             </Table>
 
-              ))} 
+           
           </>
         ) :(
           <>
@@ -225,7 +238,7 @@ const Adminattendance: React.FC = () => {
                       <th>Status</th>
                       <th>Action</th>
                     </tr>
-    
+                    {getAdmin?.data?.data?.viewStaffAttendance.map((el: any) => (
                     <tr>
                       <td>
                         <Circlehold>
@@ -253,6 +266,7 @@ const Adminattendance: React.FC = () => {
                         </Action>
                       </td>
                     </tr>
+                    ))}
                   </table>
                 </Table>
                   ))} 
@@ -685,9 +699,6 @@ const Wrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   /* background-color: red; */
-  @media screen and (max-width: 500px) {
-    padding-top: 120px;
-  }
 `;
 
 const Container = styled.div`
@@ -698,7 +709,4 @@ const Container = styled.div`
   align-items: center;
   flex-direction: column;
   margin-bottom: 30px;
-  @media screen and (max-width: 500px) {
-    width: 100vw;
-  }
 `;
