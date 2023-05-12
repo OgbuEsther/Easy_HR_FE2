@@ -143,6 +143,9 @@ justify-content: center;
 const Container = styled.div`
 background-image: url(${img});
 background-attachment: fixed;
+background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 height: 800px;
 width: 100%;
 background-size: cover;
