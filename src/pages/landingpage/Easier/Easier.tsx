@@ -224,7 +224,7 @@ justify-content: center;
 }
 
 @media screen and (max-width:768px) {
-  margin-right: 400px;
+  margin-right: 800px;
   height: 400px;
   margin-top: 10px;
 }

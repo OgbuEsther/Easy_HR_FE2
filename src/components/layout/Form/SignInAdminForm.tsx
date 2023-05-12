@@ -52,7 +52,7 @@ const SigninForm = () => {
 
     onSuccess(myData) {
       dispatch(Admin(myData.data));
-      
+      reset();
 
       Swal.fire({
         title: "Login succesful",
@@ -78,9 +78,9 @@ const SigninForm = () => {
       });
     },
   });
-  reset()
+ 
 
-  const Submit = handleSubmit((data) => {
+  const Submit = handleSubmit(async(data: any) => {
     LoginAdminFunction.mutate(data);    
     // console.log("sign in admin", data)
   });
