@@ -75,6 +75,7 @@ const Card3 = styled.div`
 
   @media (max-width: 500px) {
     width: 100%;
+    margin: 7px;
   }
 `;
 const Card2 = styled.div`
@@ -98,6 +99,7 @@ const Card2 = styled.div`
 
   @media (max-width: 500px) {
     width: 100%;
+    margin: 7px;
   }
 `;
 
@@ -123,6 +125,7 @@ const Card1 = styled.div`
 
   @media (max-width: 500px) {
     width: 100%;
+    margin: 7px;
   }
 `;
 
