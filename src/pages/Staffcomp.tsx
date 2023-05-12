@@ -19,8 +19,7 @@ import StaffTransactionhome from "./StaffTransaction/StaffTransactionhome";
 import { useQuery } from "@tanstack/react-query";
 import { getOneStaff } from "../utils/Api/ApiCall";
 import Mobilecard from "./Mobilecard/Mobilecard";
-
-
+import {FaCentos} from "react-icons/fa"
 
 
 
@@ -105,7 +104,12 @@ console.log("this is getStaff ",getStaff?.data?.data?.wallet)
         <Wrapper>
           <Top>
             <Left>
-              <Bold>Dashboard</Bold>
+              <Bold>
+                <Icos>
+                  <FaCentos/>
+                </Icos>
+                Dashboard
+                </Bold>
               <button onClick={Toggle}>Credit Wallet</button>
             </Left>
 
@@ -267,6 +271,12 @@ console.log("this is getStaff ",getStaff?.data?.data?.wallet)
 }
 
 export default ParentComp;
+const Icos = styled.div`
+  font-size: 25px;
+  margin:8px;
+  font-weight: 500;
+`
+
 const Holds = styled.div`
     width: 100%;
   height: 100vh;
@@ -462,9 +472,9 @@ const Savehold = styled.div`
     align-items: center;
     flex-direction: column;
 
-    @media screen and (max-width:500px) {
+    /* @media screen and (max-width:500px) {
       display: none;
-    }
+    } */
 `
 const Img = styled.img`
     height: 140px;
