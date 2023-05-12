@@ -15,7 +15,7 @@ const End = () => {
                   EasyHR makes it easy to take your human capital management to the next level by <br />
                    automating administrative  HR and providing robust <br /> context rich reporting 
                 </Word>
-              <NavLink to="/sign-in">
+              <NavLink to="/sign-in-option">
               <Button>
                   Contact Us
                 </Button>
@@ -30,7 +30,7 @@ export default End
 
 const Button = styled.button`
 margin: 20px;
-font-size: 20px;
+font-size: 25px;
 background-color: #00244E;
 height: 50px;
 font-weight: 300;
@@ -44,13 +44,15 @@ line-height: 21px;
 font-weight: 400;
 text-decoration: none solid rgb(1,28,57);
 text-align: center;
-transition: all 350ms;
+transition: all ease-in-out;
 
 :hover{
-  color: #00244E;
-  border: 1px solid #00244E;
-  background-color: whitesmoke;
-  transform: scale(0.98);
+  color: white;
+  border: 1px solid #007BFF;
+  background-color: #007BFF;
+  /* transform: scale(0.98); */
+  border: none;
+  outline: none;
 }
 `
 
