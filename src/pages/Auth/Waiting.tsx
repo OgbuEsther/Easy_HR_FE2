@@ -4,7 +4,7 @@ import img from "../../Assets/easy.png"
 import {HiOutlineMail} from "react-icons/hi"
 import {Link, useParams} from "react-router-dom"
 import { useAppSelector } from '../../components/global/Store'
-import { adminVerification } from '../../utils/Api/ApiCall'
+import { adminVerification, staffVerification } from '../../utils/Api/ApiCall'
 
 const Waiting = () => {
 
@@ -12,7 +12,7 @@ const Waiting = () => {
     console.log("user id: ", id);
   
     useEffect(() => {
-        adminVerification(id);
+        staffVerification(id);
     });
   return (
       <Container>
