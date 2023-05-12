@@ -28,7 +28,7 @@ const Superhero = () => {
             <Fade
               duration={2000}
             >
-              <div className='w-6/12 xmd:w-full text-8xl lg:w-full font-bold xmd:text-5xl xmd:text-center'>
+              <div className='w-3/12 xmd:w-full text-7xl lg:w-full font-bold xmd:text-5xl xmd:text-center'>
                EMPLOYEE PERFORMANCE MANAGEMENT
               </div>
             </Fade>
