@@ -186,7 +186,7 @@ const Adminattendance: React.FC = () => {
                     <Name>{el?.nameOfStaff}</Name>
                     </Circlehold>
                   </td>
-                  <td>{el?.staffId}</td>
+                  <td>{getAdmin?.data?.data?.companyCode}</td>
                   <td>{el?.date}</td>
                   <td>
                     <Chc>{el?.time}</Chc>
@@ -194,13 +194,13 @@ const Adminattendance: React.FC = () => {
                  
                   <td>
                   {
-                    el?.clockIn === true ? (
+                    getAdmin?.data?.data?.expectedClockIn <=el?.time ? (
                       <>
-                        <Box>Present</Box>
+                        <Box>Early</Box>
                       </>
                     ):(
                       <>
-                       <Box>Absent</Box>
+                       <Box>Late</Box>
                       </>
                     )
                   }
