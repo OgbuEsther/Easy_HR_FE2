@@ -143,25 +143,12 @@ justify-content: center;
 const Container = styled.div`
 background-image: url(${img});
 background-attachment: fixed;
-background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-height: 800px;
+height: 100%;
 width: 100%;
 background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
 display: flex;
 align-items: center;
 justify-content: center;
-
-
-@media screen and (max-width:320px) {
-  height: 500px;
-}
-
-@media screen and (max-width:425px) {
-  height: 2000px;
-  background-color: red;
-}
-
-
 `
