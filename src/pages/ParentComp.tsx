@@ -121,10 +121,6 @@ const Cha = styled.div`
     margin-bottom: 20px;
   }
 `
-const Dough = styled.div`
-  width: 48%;
-  display: flex;
-`
 const Hold = styled.div`
   width: 100%;
   display: flex;
@@ -135,11 +131,13 @@ const Hold = styled.div`
   @media screen and (max-width: 768px) {
     flex-wrap: wrap;
   }
+  @media screen and (max-width: 500px) {
+    flex-wrap: wrap;
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
 `
-const CardHold = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`;
+
 
 const Holder = styled.div`
   display: flex;
@@ -281,26 +279,6 @@ const Slidein = styled.div`
     }
   }
 `;
-const Icn = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 30px;
-  margin: 3px;
-`;
-
-const Bold = styled.div`
-  font-size: 30px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-const Left = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-`;
 
 const Top = styled.div`
   width: 100%;
@@ -335,7 +313,6 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  /* background-color: red; */
 
   @media screen and (max-width: 768px) {
     width: 90%;
