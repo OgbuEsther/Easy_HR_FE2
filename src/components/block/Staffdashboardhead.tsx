@@ -3,8 +3,6 @@ import styled from 'styled-components'
 import { NavLink } from "react-router-dom"
 import { FiMenu, FiPower } from "react-icons/fi";
 import { MdDashboard } from "react-icons/md";
-import {IoMdPerson } from "react-icons/io";
-import img from "../../Assets/easyhr.png"
 import { AiOutlineClose } from "react-icons/ai";
 import { useAppSelector } from '../global/Store';
 import { FaBattleNet,FaHornbill } from "react-icons/fa"
@@ -480,16 +478,6 @@ const Power = styled.div`
   display: flex;
   margin-top: 80px;
 `;
-const Text3 = styled.div`
-  font-size: 17px;
-  font-family: U8, sans-serif;
-  cursor: pointer;
-  align-items: center;
-  display: flex;
-  margin-left: 15px;
-  width: 410px;
-  height: 40px;
-`;
 const Text2 = styled.div`
   font-size: 17px;
   font-family: U8, sans-serif;
@@ -526,11 +514,6 @@ const Home = styled.div`
   display: flex;
   margin-top: 15px;
   align-items: center;
-`;
-const Top = styled.div`
-  display: flex;
-  width: 100%;
-  /* margin-top: 50px; */
 `;
 const Box = styled.div`
   display: flex;
