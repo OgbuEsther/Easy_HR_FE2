@@ -128,26 +128,26 @@ const admin = useAppSelector((state)=> state.currentUser)
       <Container>
         <Wrapper>
           <Top>
-          <Pending onClick={Toggle1}><h3>Set Goals</h3><span>{isLoading ? (1) : <RotatingLines  visible={true}
+          <Pending bg={show1 ? "red" : ""} onClick={Toggle1}><h3>Set Goals</h3><span>{isLoading ? (1) : <RotatingLines  visible={true}
             strokeColor="#007bff"
             strokeWidth="5"
             animationDuration="0.75"
             width="30"/>}</span>
           </Pending>
 
-          <Pending onClick={Toggle2}><h3>Rate Staffs</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
+          <Pending2 bg={show2 ? "red" : ""} onClick={Toggle2}><h3>Rate Staffs</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
             strokeColor="#007bff"
             strokeWidth="5"
             animationDuration="0.75"
             width="30" />}</span>
-          </Pending>
+          </Pending2>
 
-            <Pending onClick={Toggle3}><h3>Details</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
+            <Pending3 bg={show3 ? "red" : ""} onClick={Toggle3}><h3>Details</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
             strokeColor="#007bff"
             strokeWidth="5"
             animationDuration="0.75"
             width="30" />}</span>
-          </Pending>
+          </Pending3>
           </Top>
           
           {isLoading ? (
@@ -270,14 +270,102 @@ const Textplace = styled.div`
   margin-top: 30px;
   align-items: center;
 `
-const Pending = styled.div`
+const Pending3 = styled.h3<{ bg: string}>`
   display: flex;
-  margin: 18px;
+  margin: 14px;
   cursor: pointer;
+  border: 1px solid ${({ bg }) => (bg ? "#219653" : "#fff")};
+  height: 40px;
+  width: 210px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 19px;
+  color: #6c757d;
   h3{
+    
+  @media screen and (max-width: 500px) {
+    font-size: 17px;
+    font-weight: 600;
+  }
+  }
+  @media screen and (max-width: 500px) {
+    margin: 5px;
+    width: 100%;
+    height: 43px;
+  }
+  @media screen and (max-width: 375px) {
+    width: 100%;
+  }
+  span{
+    margin-left: 7px;
     font-weight: 500;
   font-size: 19px;
   color: #6c757d;
+  }
+`
+const Pending2 = styled.div<{ bg: string}>`
+  display: flex;
+  margin: 14px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid ${({ bg }) => (bg ? "#219653" : "#fff")};
+  height: 40px;
+  width: 220px;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 19px;
+  color: #6c757d;
+  h3{
+    
+  @media screen and (max-width: 500px) {
+    font-size: 17px;
+    font-weight: 600;
+  }
+  }
+  @media screen and (max-width: 500px) {
+    margin: 5px;
+    width: 100%;
+    height: 43px;
+  }
+  @media screen and (max-width: 375px) {
+    width: 100%;
+  }
+  span{
+    margin-left: 7px;
+    font-weight: 500;
+  font-size: 19px;
+  color: #6c757d;
+  }
+`
+const Pending = styled.div<{ bg: string}>`
+  display: flex;
+  margin: 18px;
+  cursor: pointer;
+  height: 40px;
+  border: 1px solid ${({ bg }) => (bg ? "#219653" : "#fff")};
+  width: 220px;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 19px;
+  color: #6c757d;
+  justify-content: center;
+  align-items: center;
+  h3{
+    @media screen and (max-width: 500px) {
+    font-size: 17px;
+    font-weight: 600;
+  }
+  @media screen and (max-width: 500px) {
+    margin: 5px;
+    width: 100%;
+    height: 43px;
+  }
+  @media screen and (max-width: 375px) {
+    width: 100%;
+  }
   }
   span{
     margin-left: 7px;
@@ -292,15 +380,13 @@ const Top = styled.div`
   /* height: 70px; */
   align-items: center;
   border-bottom: 1px solid lightgray;
-  margin-top: 50px;
-  flex-wrap: wrap;
 
-    @media screen and (max-width: 500px) {
+
+  @media screen and (max-width: 500px) {
     flex-wrap: wrap;
     /* height: 140px; */
     padding-bottom: 10px;
-}
-
+  }
 `
 const Wrapper = styled.div`
   width: 95%;

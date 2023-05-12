@@ -21,7 +21,7 @@ import Leave from "../pages/Leave/Leave";
 import LeavePage from "../pages/LeavePage";
 import CheckMail from "../pages/Auth/CheckMail";
 import Waiting from "../pages/Auth/Waiting";
-import Yesorno from "../pages/Yesorno/Yesorno";
+// import CompanyChoic from "../pages/Yesorno/CompanyChoice";
 import Settingspage from "../pages/Settingspage";
 import Easier from "../pages/landingpage/Easier/Easier";
 import Payment from "../pages/landingpage/Payment";
@@ -45,6 +45,7 @@ const Tour = lazy(() => import("../pages/Tourfile/Tourfile"))
 const Rents = lazy(() => import("../pages/Rentsfile/Rentsfile"))
 
 const PayBills = lazy(()=>import("../pages/StaffdasBoard/PayBills/PayBill"));
+const CompanyChoice = lazy(()=>import("../pages/Yesorno/CompanyChoice"))
 // const StaffAttendance = lazy(() => import("../pages/StaffdasBoard/Attendance/Attendance"))
 const StaffTransaction = lazy(()=>import("../pages/StaffTransaction/StaffTransactionSide"))
 
@@ -164,7 +165,7 @@ export const Elements = createBrowserRouter([
   },
   {
   path:"/api/staff/:id/verification",
-  element: <Yesorno />
+  element: <CompanyChoice />
 },
 
   {

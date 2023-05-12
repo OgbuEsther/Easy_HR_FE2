@@ -67,12 +67,16 @@ const Header = () => {
           <div className='text-hover text-sm m-4 hover:text-hover'>Our Solution</div>
           <div className='text-hover text-sm m-4 hover:text-hover'>About</div>
           <div className='text-hover text-sm m-4 hover:text-hover'>How we work</div>
-          <button className='w-32 h-10 bg-buttonhover text-white flex justify-center items-center font-semibold rounded-3xl hover:bg-buttonhover hover:text-white cursor-pointer transition-all duration-150 ease-in-out delay-150 m-3'>
+          <NavLink to="/sign-in-option">
+            <button className='w-32 h-10 bg-buttonhover text-white flex justify-center items-center font-semibold rounded-3xl hover:bg-buttonhover hover:text-white cursor-pointer transition-all duration-150 ease-in-out delay-150 m-3'>
             Sign in
           </button>
-          <button className='w-32 h-10 bg-buttonhover text-white flex justify-center items-center font-semibold rounded-3xl hover:bg-buttonhover hover:text-white cursor-pointer transition-all duration-150 ease-in-out delay-150'>
+          </NavLink>
+          <NavLink to="/sign-up-option">
+            <button className='w-32 h-10 bg-buttonhover text-white flex justify-center items-center font-semibold rounded-3xl hover:bg-buttonhover hover:text-white cursor-pointer transition-all duration-150 ease-in-out delay-150'>
             Sign up
           </button>
+          </NavLink>
         </div>
       ) : null}
 
