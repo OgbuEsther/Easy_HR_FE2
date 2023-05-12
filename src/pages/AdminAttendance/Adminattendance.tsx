@@ -460,7 +460,7 @@ const Pending2 = styled.div<{ bg: string}>`
   align-items: center;
   border: 1px solid ${({ bg }) => (bg ? "#219653" : "#fff")};
   height: 40px;
-  width: 220px;
+  width: 250px;
   border-radius: 50px;
   font-weight: 500;
   font-size: 19px;
@@ -494,7 +494,7 @@ const Pending = styled.div<{ bg: string}>`
   /* background-color: red; */
   height: 40px;
   border: 1px solid ${({ bg }) => (bg ? "#219653" : "#fff")};
-  width: 220px;
+  width: 250px;
   border-radius: 50px;
   font-weight: 500;
   font-size: 19px;
@@ -670,7 +670,7 @@ const Two = styled.div`
 `;
 
 const Button = styled.button`
-  width: 145px;
+  width: 160px;
   height: 40px;
   display: flex;
   align-items: center;

@@ -166,12 +166,12 @@ console.log("this is getStaff ",getStaff?.data?.data?.wallet)
             ) : null}
           </Top>
 
-          <Cards />
+          {/* <Cards /> */}
           <Mobilecard />
           <Down>
             <Piehold>
                           <Pee>
-                              <Title>Transaction Chart</Title>
+                              <Title>Performance Chart</Title>
                               <Charts />
                           </Pee>
                       </Piehold>
@@ -257,7 +257,7 @@ console.log("this is getStaff ",getStaff?.data?.data?.wallet)
                       </Holds>
                   ) : null}            
 
-          <StaffTransactionhome />
+          {/* <StaffTransactionhome /> */}
           {/* <Stafffooter /> */}
         </Wrapper>
       </Container>
@@ -451,6 +451,7 @@ const P = styled.div`
 `
 const Title2 = styled.div`
     font-size: 23px;
+    font-weight: 600;
 `
 const Savehold = styled.div`
     height: 100%;
@@ -460,6 +461,10 @@ const Savehold = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+    @media screen and (max-width:500px) {
+      display: none;
+    }
 `
 const Img = styled.img`
     height: 140px;
@@ -513,6 +518,7 @@ const Title = styled.div`
     margin-bottom: 10px;
     font-size: 20px;
     text-align: center;
+    font-weight: 600;
 `
 const Piehold = styled.div`
     width: 48%;
@@ -536,6 +542,7 @@ const Down = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
+    margin-top: 20px;
 
     @media screen and (max-width: 768px) {
       display: flex;
@@ -710,6 +717,7 @@ const Left = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
+  margin-bottom: 10px;
   @media screen and (max-width: 500px) {
     display: none;
   }
@@ -759,6 +767,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 10px;
   flex-direction: column;
   /* background-color: red; */
 

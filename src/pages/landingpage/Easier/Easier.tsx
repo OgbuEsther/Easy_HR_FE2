@@ -30,7 +30,7 @@ const Easier = () => {
 
             <Words>
           <p>
-          with the use of technology, software, and services to streamline and automate human resources (HR) processes within an organization. Making it easier for employee engagement, performance management, payroll and benefits administration, and compliance management.
+          With the use of technology, software, and services to streamline and automate human resources (HR) processes within an organization. Making it easier for employee engagement, performance management, payroll and benefits administration, and compliance management.
           </p>
           
             </Words>
@@ -124,11 +124,11 @@ p{
   font-size:18px;
 
   @media screen and (max-width:320px) {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 35px;
   display: flex;
-  align-items: center;
-  width: 320px;
+  /* align-items: center; */
+  width: 100%;
   /* background-color: red; */
   margin: 0px 0px 50px;
 }
@@ -150,10 +150,13 @@ font-weight: 800;
 font-size: 27px;
 
 @media screen and (max-width:320px) {
-  font-size: 21px;
+  font-size: 22px;
+  /* text-align: center; */
+  color: red;
+  margin-right: 180px;
 }
 @media screen and (max-width:375px) {
-  font-size: 24px;
+  font-size: 22px;
 }
 }
 
@@ -263,12 +266,20 @@ const Container = styled.div`
 height: 800px;
 /* width: auto; */
 background-image: url(${img});
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
 margin-top: 40px;
 display: flex;
 align-items: center;
 justify-content: center;
 flex-direction: column;
 flex-wrap: wrap;
+
+
+@media screen and (max-width:500px) {
+  display: none;
+}
 
 
 `

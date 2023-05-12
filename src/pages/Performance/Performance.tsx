@@ -289,9 +289,18 @@ const Pending = styled.div`
 const Top = styled.div`
   width: 100%;
   display: flex;
-  height: 70px;
+  /* height: 70px; */
   align-items: center;
   border-bottom: 1px solid lightgray;
+  margin-top: 50px;
+  flex-wrap: wrap;
+
+    @media screen and (max-width: 500px) {
+    flex-wrap: wrap;
+    /* height: 140px; */
+    padding-bottom: 10px;
+}
+
 `
 const Wrapper = styled.div`
   width: 95%;
