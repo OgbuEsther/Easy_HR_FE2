@@ -212,11 +212,11 @@ const Leave = () => {
                   <th>Applied On</th>
                   <th>Reason</th>
                 </tr>
-{getAdmin?.data?.data?.viewAppliedLeave?.map((el:any)=>(
+{getAdmin?.data?.data?.staffLeave?.map((el:any)=>(
   <tr>
                   <td>
                   <Circlehold>
-                    <Circle>{getStaff?.data?.data?.yourName.chartAt(0)}</Circle>
+                    <Circle>{getStaff?.data?.data?.yourName}</Circle>
                     <Name>{getStaff?.data?.data?.yourName}</Name>
                     </Circlehold>
                   </td>

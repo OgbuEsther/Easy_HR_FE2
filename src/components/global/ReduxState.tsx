@@ -46,6 +46,9 @@ const ReduxState = createSlice({
     StaffClockOut: (state, { payload }: PayloadAction<any>) => {
       state.clockOut = payload;
     },
+    staffScoreRate: (state, { payload }: PayloadAction<any>) => {
+      state.ratings = payload;
+    },
 
     logoutAdmin: (state) => {
       state.currentUser = null;
@@ -66,7 +69,8 @@ export const {
   StaffClockOut,
   ApplyForLeave,
   mileStone,
-  StaffClockInLate
+  StaffClockInLate,
+  staffScoreRate
 } = ReduxState.actions;
 
 export default ReduxState.reducer;
