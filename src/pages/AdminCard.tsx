@@ -154,62 +154,6 @@ const Total = styled.div`
     font-size: 13px;
   }
 `
-const Left3 = styled.div`
-  background-color: #ed413e;
-  width: 120px;
-  height: 100%;
-  border-right: 3px solid #f0f0f0;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-`;
-const Left2 = styled.div`
-  width: 120px;
-  height: 100%;
-  background-color: #f9d949;
-  border-right: 3px solid #f0f0f0;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-`;
-const Bal = styled.div`
-  /* color: #3f3f3f; */
-  color: black;
-  margin-left: 30px;
-  font-size: 26px;
-  font-weight: 600;
-`;
-const Right = styled.div`
-  flex: 1;
-  height: 100%;
-  /* background-color: red; */
-  display: flex;
-  align-items: center;
-`;
-const Wallet = styled.div`
-  color: #fff;
-  font-weight: 500;
-  font-size: 13px;
-`;
-const Icos = styled.div`
-  color: #fff;
-  font-size: 30px;
-`;
-const Left = styled.div`
-  width: 120px;
-  height: 100%;
-  background-color: #ff8400;
-  border-right: 3px solid #ffd93d;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-`;
-
-
-
 const Airtelhold = styled.div`
   width: 100%;
   height: 100vh;
@@ -391,10 +335,11 @@ const Card1 = styled.div`
     width: 320px;
   }
 
-  @media screen and (max-width: 375px) {
+  @media (max-width: 500px) {
     width: 100%;
   }
 `;
+
 
 const Container = styled.div`
   display: flex;
