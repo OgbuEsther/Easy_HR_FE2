@@ -4,65 +4,15 @@ import img from "../../Assets/easyhr.png"
 import { MdDashboard } from "react-icons/md";
 import { NavLink, useNavigate } from 'react-router-dom';
 import { FiPower } from "react-icons/fi";
-import { AiOutlineClose } from "react-icons/ai";
-import img1 from "../../Assets/airtel.jpg"
-import img2 from "../../Assets/mtn.jpg"
-import img3 from "../../Assets/glo.jpg"
-import img4 from "../../Assets/9mobile.jpg"
-import img5 from "../../Assets/smile.jpg"
-import Airtels from '../../pages/Airtels';
 import { FaBattleNet,FaHornbill } from "react-icons/fa"
 import {GiStarSattelites,GiTransportationRings} from "react-icons/gi"
-import Mtn from '../../pages/Mtn';
-import Glo from '../../pages/Glo';
 import { useDispatch } from 'react-redux';
 import Swal from 'sweetalert2';
 import { logoutstaff } from '../global/ReduxState';
 
 const SideBar = () => {
-
-    const [show, setShow] = React.useState(false)
-  const [showAirtel, setShowAirtel] = React.useState(false);
-  const [showMtn, setShowMtn] = React.useState(false);
-   const [showGlo, setShowGlo] = React.useState(false);
-    const [showPopup, setShowPopup] = React.useState(false);
   const dispatch = useDispatch()
   const navigate = useNavigate()
-    const Toggle = () => {
-        setShow(!show)
-    }
-
-    const cancelPopup = () => {
-    setShowPopup(false);
-    };
-    
-    const Togglepopup = () => {
-    setShowPopup(!showPopup);
-  }
-
-  const Remove = () => {
-    setShowAirtel(false)
-    setShowMtn(false)
-    setShowGlo(false)
-  }
-
-    const ToggleAirtel = () => {
-    setShowAirtel(!showAirtel);
-    setShowPopup(false);
-  }
-
-  const ToggleMtn = () => {
-    setShowMtn(!showMtn);
-    setShowPopup(false);
-  }
-
-  const ToggleGlo = () => {
-    setShowGlo(!showGlo);
-    setShowPopup(false);
-  }
-
-
-    
 
   return (
     <Container>
