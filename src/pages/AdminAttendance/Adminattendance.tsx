@@ -99,33 +99,33 @@ const Adminattendance: React.FC = () => {
       <Container>
         <Wrapper>
           <Top>
-          <Pending onClick={Toggle1}><h3>Today's Attendance</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
+          <Pending bg={show1 ? "red" : ""} onClick={Toggle1}><h3>Today's Attendance</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
             strokeColor="#007bff"
             strokeWidth="5"
             animationDuration="0.75"
             width="30"/>}</span>
           </Pending>
 
-          <Pending onClick={Toggle2}><h3>Absent Employees</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
+          <Pending2 bg={show2 ? "red" : ""} onClick={Toggle2}><h3>Absent Employees</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
             strokeColor="#007bff"
             strokeWidth="5"
             animationDuration="0.75"
             width="30" />}</span>
-          </Pending>
+          </Pending2>
 
-          <Pending onClick={Toggle3}><h3>Late Clock in Employees</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
+          <Pending3 bg={show3 ? "red" : ""}  onClick={Toggle3}><h3>Late Employees</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
             strokeColor="#007bff"
             strokeWidth="5"
             animationDuration="0.75"
             width="30" />}</span>
-          </Pending>
+          </Pending3>
 
-          <Pending onClick={Toggle4}><h3>Staff History </h3><span>{isLoading ? "" : <RotatingLines  visible={true}
+          <Pending4 bg={show4 ? "red" : ""}  onClick={Toggle3}><h3>Late Employees</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
             strokeColor="#007bff"
             strokeWidth="5"
             animationDuration="0.75"
-              width="30" />}</span>
-            </Pending>
+            width="30" />}</span>
+          </Pending4>
 
             <Button
               onClick={() => {
@@ -371,24 +371,115 @@ const Inputhold = styled.div`
   margin-top: 15px;
   align-items: center;
 `
-const Pending = styled.div`
+const Pending4 = styled.h3<{ bg: string}>`
   display: flex;
-  margin: 18px;
+  margin: 14px;
   cursor: pointer;
-  background-color: red;
+  border: 1px solid ${({ bg }) => (bg ? "#219653" : "#fff")};
   height: 40px;
-  width: 170px;
+  width: 250px;
+  align-items: center;
+  justify-content: center;
   border-radius: 50px;
-  h3{
-    font-weight: 500;
+  font-weight: 500;
   font-size: 19px;
-  color: #6c757d;
+  h3{
+    
   @media screen and (max-width: 500px) {
     font-size: 16px;
   }
   }
   @media screen and (max-width: 500px) {
-    margin: 11px;
+    margin: 5px;
+    width: 200px;
+  }
+  span{
+    margin-left: 7px;
+    font-weight: 500;
+  font-size: 19px;
+  color: #6c757d;
+  }
+`
+const Pending3 = styled.h3<{ bg: string}>`
+  display: flex;
+  margin: 14px;
+  cursor: pointer;
+  border: 1px solid ${({ bg }) => (bg ? "#219653" : "#fff")};
+  height: 40px;
+  width: 210px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 19px;
+  h3{
+    
+  @media screen and (max-width: 500px) {
+    font-size: 16px;
+  }
+  }
+  @media screen and (max-width: 500px) {
+    margin: 5px;
+    width: 170px;
+  }
+  span{
+    margin-left: 7px;
+    font-weight: 500;
+  font-size: 19px;
+  color: #6c757d;
+  }
+`
+const Pending2 = styled.div<{ bg: string}>`
+  display: flex;
+  margin: 14px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid ${({ bg }) => (bg ? "#219653" : "#fff")};
+  height: 40px;
+  width: 210px;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 19px;
+  color: #6c757d;
+  h3{
+    
+  @media screen and (max-width: 500px) {
+    font-size: 16px;
+  }
+  }
+  @media screen and (max-width: 500px) {
+    margin: 5px;
+  }
+  span{
+    margin-left: 7px;
+    font-weight: 500;
+  font-size: 19px;
+  color: #6c757d;
+  }
+`
+const Pending = styled.div<{ bg: string}>`
+  display: flex;
+  margin: 14px;
+  cursor: pointer;
+  /* background-color: red; */
+  height: 40px;
+  border: 1px solid ${({ bg }) => (bg ? "#219653" : "#fff")};
+  width: 160px;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 19px;
+  color: #6c757d;
+  justify-content: center;
+  align-items: center;
+  h3{
+    
+  @media screen and (max-width: 500px) {
+    font-size: 16px;
+  }
+  }
+  @media screen and (max-width: 500px) {
+    margin: 5px;
   }
   span{
     margin-left: 7px;
@@ -400,12 +491,13 @@ const Pending = styled.div`
 const Top = styled.div`
   width: 100%;
   display: flex;
-  height: 70px;
+  /* height: 70px; */
   align-items: center;
   border-bottom: 1px solid lightgray;
   @media screen and (max-width: 500px) {
     flex-wrap: wrap;
-    height: 140px;
+    /* height: 140px; */
+    padding-bottom: 10px;
   }
 `
 
