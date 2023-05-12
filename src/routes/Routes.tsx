@@ -26,8 +26,9 @@ import Settingspage from "../pages/Settingspage";
 import Easier from "../pages/landingpage/Easier/Easier";
 import Payment from "../pages/landingpage/Payment";
 import Expert from "../pages/landingpage/Expert/Expert";
+import StaffPerformance from "../pages/Staffperformance/Staffperformance";
 // import Transaction from "../pages/Performance/Performance";
-
+// import Transaction from "../pages/Staffperformance/Staffperformance";
 
 
 const Home = lazy(() => import("../pages/landingpage/Home"));
@@ -250,6 +251,12 @@ export const Elements = createBrowserRouter([
       {
         path:"/staffdashboard/leave-form",
         element: <LeavePage />,
+        hasErrorBoundary: true,
+        errorElement: <ErrorBoundary />,
+      },
+      {
+        path:"/staffdashboard/staffperformance",
+        element: <StaffPerformance />,
         hasErrorBoundary: true,
         errorElement: <ErrorBoundary />,
       },
