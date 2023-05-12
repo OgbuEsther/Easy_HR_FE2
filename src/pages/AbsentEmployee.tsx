@@ -47,7 +47,7 @@ const AbsentEmployee = () => {
               onChange={(e) => {
                 setSearch(e.target.value);
               }}
-              placeholder="Search by staff name " />
+              placeholder="Search name " />
             <Icon><IoMdArrowDropdown /></Icon>
             </Inputhold>
             <Inputhold>
@@ -353,6 +353,9 @@ const Inputhold = styled.div`
   border: 1px solid lightgray;
   /* margin-top: 15px; */
   align-items: center;
+  @media screen and (max-width: 500px) {
+    padding-right: 18px;
+  }
 `
 const Wrapper = styled.div`
   width: 100%;

@@ -346,9 +346,6 @@ const Input = styled.input`
   padding-left: 10px;
   @media screen and (max-width: 500px) {
     width: 220px;
-    ::placeholder{
-      font-size: 13px;
-    }
   }
 `
 const Inputhold = styled.div`
@@ -397,15 +394,18 @@ const Pending4 = styled.h3<{ bg: string}>`
   border-radius: 50px;
   font-weight: 500;
   font-size: 19px;
+  color: #6c757d;
   h3{
     
   @media screen and (max-width: 500px) {
-    font-size: 14px;
+    font-size: 17px;
+    font-weight: 600;
   }
   }
   @media screen and (max-width: 500px) {
     margin: 5px;
-    width: 200px;
+    width: 100%;
+    height: 43px;
   }
   @media screen and (max-width: 375px) {
     width: 100%;
@@ -429,15 +429,18 @@ const Pending3 = styled.h3<{ bg: string}>`
   border-radius: 50px;
   font-weight: 500;
   font-size: 19px;
+  color: #6c757d;
   h3{
     
   @media screen and (max-width: 500px) {
-    font-size: 14px;
+    font-size: 17px;
+    font-weight: 600;
   }
   }
   @media screen and (max-width: 500px) {
     margin: 5px;
-    width: 170px;
+    width: 100%;
+    height: 43px;
   }
   @media screen and (max-width: 375px) {
     width: 100%;
@@ -457,7 +460,7 @@ const Pending2 = styled.div<{ bg: string}>`
   align-items: center;
   border: 1px solid ${({ bg }) => (bg ? "#219653" : "#fff")};
   height: 40px;
-  width: 180px;
+  width: 220px;
   border-radius: 50px;
   font-weight: 500;
   font-size: 19px;
@@ -465,11 +468,14 @@ const Pending2 = styled.div<{ bg: string}>`
   h3{
     
   @media screen and (max-width: 500px) {
-    font-size: 14px;
+    font-size: 17px;
+    font-weight: 600;
   }
   }
   @media screen and (max-width: 500px) {
     margin: 5px;
+    width: 100%;
+    height: 43px;
   }
   @media screen and (max-width: 375px) {
     width: 100%;
@@ -488,7 +494,7 @@ const Pending = styled.div<{ bg: string}>`
   /* background-color: red; */
   height: 40px;
   border: 1px solid ${({ bg }) => (bg ? "#219653" : "#fff")};
-  width: 180px;
+  width: 220px;
   border-radius: 50px;
   font-weight: 500;
   font-size: 19px;
@@ -498,11 +504,14 @@ const Pending = styled.div<{ bg: string}>`
   h3{
     
   @media screen and (max-width: 500px) {
-    font-size: 14px;
+    font-size: 17px;
+    font-weight: 600;
   }
   }
   @media screen and (max-width: 500px) {
     margin: 5px;
+    width: 100%;
+    height: 43px;
   }
   @media screen and (max-width: 375px) {
     width: 100%;
