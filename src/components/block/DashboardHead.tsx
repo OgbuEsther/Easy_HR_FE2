@@ -193,7 +193,12 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   @media screen and (max-width: 500px) {
+    @media screen and (max-width: 500px) {
     justify-content: center;
     display: flex;
+    height: 100px;
+    background-color: #00244E;
+    position: fixed;
+  }
   }
 `
