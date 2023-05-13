@@ -361,7 +361,7 @@ const Container = styled.div`
   width: 220px;
   height: 100vh;
   position: fixed;
-  background-color: #1F337C;
+  background-color: #001328;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   overflow: hidden;
   padding-left: 25px;
