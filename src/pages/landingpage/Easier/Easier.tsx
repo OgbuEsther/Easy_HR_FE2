@@ -235,11 +235,11 @@ justify-content: center;
 
 const Wrapper = styled.div`
 display: flex;
-/* align-items: center; */
+align-items: center;
 justify-content: center;
-height: 830px;
+height: 100%;
 /* background-color: brown; */
-width: 1200px;
+width: 95%;
 flex-wrap: wrap;
 
 @media screen and (max-width:320px) {
@@ -251,30 +251,28 @@ flex-wrap: wrap;
 @media screen and (max-width:375px) {
   margin-left: 10px;
 }
-@media screen and (max-width:768px) {
+@media screen and (max-width:500px) {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   flex-wrap: wrap;
-  /* background-color: red; */
+  background-color: red;
 }
 
 `
 
 const Container = styled.div`
-height: 800px;
+height: 100%;
 /* width: auto; */
 background-image: url(${img});
 background-size: cover;
 background-repeat: no-repeat;
 background-position: center;
-margin-top: 40px;
+/* margin-top: 40px; */
 display: flex;
 align-items: center;
 justify-content: center;
-flex-direction: column;
-flex-wrap: wrap;
 
 
 @media screen and (max-width:500px) {
