@@ -15,15 +15,15 @@ const CheckMail = () => {
                       <Line></Line>
                   </Linehold>
                   <Thanks>THANKS FOR SIGNING UP!</Thanks>
-                  <Verify><h3>Verify Your E-email Address</h3></Verify>
+                  <Verify><h3>Check your mail Verify Your Account</h3></Verify>
               </Card>
               <Textspace>
                   <p>Hi,</p>
                   <Texthold>
-                      You're almost ready to get started. Please click on the button below to sign in and enjoy exclusive service with us
+                      You're almost ready to get started. Enjoy exclusive service with us
                   </Texthold>
               </Textspace>
-              <Button>VERIFY YOUR EMAIL</Button>
+              {/* <Button>VERIFY YOUR EMAIL</Button> */}
               <Thank>Thanks <br /> The Company's Team</Thank>
           </Box>
     </Container>
