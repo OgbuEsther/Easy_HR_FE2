@@ -148,14 +148,14 @@ const Attendance: React.FC = () => {
              {users?.walletNumber}
               </Post>
            </Employee>
-           {/* <Employee>
+           <Employee>
            <Name>
            Joining Date
               </Name>
               <Post>
               3 April 2033
               </Post>
-           </Employee> */}
+           </Employee>
            <Employee>
            <Name>
            company' code
