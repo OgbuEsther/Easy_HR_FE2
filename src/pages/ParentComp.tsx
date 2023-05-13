@@ -94,7 +94,7 @@ const ParentComp = () => {
               </Slidein>
             ) : null}
           </Top>
-          {/* <AdminCard /> */}
+          <AdminCard />
           
           <Hold>
             <Cha>
