@@ -20,7 +20,10 @@ const Container = styled.div`
 	width: 100%;
 	color: white;
 	display: flex;
-	position: fixed;
+	/* position: fixed; */
+	position: absolute;
+	left: 0;
+	right: 0;
 	justify-content: center;
 	align-items: center;
 	backdrop-filter: blur(5px);

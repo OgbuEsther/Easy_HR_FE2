@@ -13,7 +13,7 @@ import { Staff } from '../../global/ReduxState'
 import Swal from 'sweetalert2'
 import { LoginStaff } from '../../../utils/Api/ApiCall'
 import BackButton from '../../Buttons/BackButton'
-
+import Loading from '../../../pages/Loading'
 
 
 const SigninForm = () => {
@@ -91,7 +91,10 @@ SetViewPassword(!ViewPassword)
 
 
   return (
-
+    <Container>
+      {
+              loginin.isLoading ? <Loading /> : null
+            }
         <Form  onSubmit={Submit}>
 <BackButton path='/sign-in-option'/>
 
@@ -142,6 +145,8 @@ SetViewPassword(!ViewPassword)
 </FifthInputColumn>
 </InputField>
 </Form>
+    </Container>
+        
   
   )
 }
@@ -149,7 +154,9 @@ SetViewPassword(!ViewPassword)
 export default SigninForm;
 
 
-
+const Container = styled.div`
+  
+`
 
 const ForgetPassword = styled.div`
   height: auto;
