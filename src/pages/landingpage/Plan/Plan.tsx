@@ -1,301 +1,272 @@
-import React,{useState} from 'react'
-import styled from "styled-components"
-import { Fade } from 'react-awesome-reveal'
-import img from "../../Assets/dollar.png"
-import {RiExchangeDollarLine} from "react-icons/ri"
-import {DiFsharp} from "react-icons/di"
-import {HiCubeTransparent} from "react-icons/hi"
-import {MdOutlineManageHistory} from "react-icons/md"
-import {GiTimeBomb,GiClockwork} from "react-icons/gi"
-import PlanProps from './PlanProps'
 
-const Plan = () => {
+import React, { useState } from "react";
+import styled from "styled-components";
+import { AiOutlineDollarCircle } from "react-icons/ai";
+import { BiTime } from "react-icons/bi";
+import { GrStatusGood } from "react-icons/gr";
+import PlanProps from "./PlanProps";
 
-    const [show, setshow] = useState<Boolean>(true);
-    const [show2, setshow2] = useState<Boolean>(false);
-    const [show3, setshow3] = useState<Boolean>(false);
-    const [show4, setshow4] = useState<Boolean>(false);
-    const [show5, setshow5] = useState<Boolean>(false);
+const App = () => {
+  const [payroll, setPayroll] = useState(true);
+  const [time, setTime] = useState(false);
+  const [benefits, setBenefits] = useState(false);
+  const [hr, sethr] = useState(false);
+  const [hire, sethire] = useState(false);
 
-    const Toogle = () =>{
-        setshow(true);
-        setshow2(false);
-        setshow3(false);
-        setshow4(false);
-        setshow5(false);
-    }
-    const Toogle2 = () =>{
-        setshow(false);
-        setshow2(true);
-        setshow3(false);
-        setshow4(false);
-        setshow5(false);
-    }
-    const Toogle3 = () =>{
-        setshow(false);
-        setshow2(false);
-        setshow3(true);
-        setshow4(false);
-        setshow5(false);
-    }
-    const Toogle4 = () =>{
-        setshow(false);
-        setshow2(false);
-        setshow3(false);
-        setshow4(true);
-        setshow5(false);
-    }
-    const Toogle5 = () =>{
-        setshow(false);
-        setshow2(false);
-        setshow3(false);
-        setshow4(false);
-        setshow5(true);
-    }
+  const Payroll = () => {
+    setPayroll(true);
+    setTime(false);
+    setBenefits(false);
+    sethr(false);
+    sethire(false);
+  };
+  const Time = () => {
+    setPayroll(false);
+    setTime(true);
+    setBenefits(false);
+    sethr(false);
+    sethire(false);
+  };
 
+  const Benefits = () => {
+    setPayroll(false);
+    setTime(false);
+    setBenefits(true);
+    sethr(false);
+    sethire(false);
+  };
+
+  const Hr = () => {
+    setPayroll(false);
+    setTime(false);
+    setBenefits(false);
+    sethr(true);
+    sethire(false);
+  };
+
+  const Hire = () => {
+    setPayroll(false);
+    setTime(false);
+    setBenefits(false);
+    sethr(false);
+    sethire(true);
+  };
   return (
-      <Container>
-          <Wrapper>
-              <Fade direction='up'>
-                  <Par>WE DO MORE FOR YOUR WORLD</Par>
-                  <Bolder>all-in-one Payroll and HR your business</Bolder>
-              </Fade>
-            <Fade direction='up'>
-            <Hold>
-                  <Circlehold>
-                      <Circle
-                       bg={show ? "#dc3545" : ""}
-                       onClick={Toogle}
-                      >
-                      <RiExchangeDollarLine/>
-                      </Circle>
-                      <Text>Payroll</Text>
-                  </Circlehold>
+    <Container>
+      <Main>
+        <Hold>
+          <Cricle
+            onClick={Payroll}
+            style={{ backgroundColor: payroll ? "red" : "" }}
+          >
+            <Icon className="cha" />
+          </Cricle>
+          <p>Payroll</p>
+        </Hold>
+        <Hold>
+          <Cricle onClick={Time} style={{ backgroundColor: time ? "red" : "" }}>
+            <BiTime size={80} className="cha" />
+          </Cricle>
+          <p>Time & Attendance</p>
+        </Hold>
+        <Hold>
+          <Cricle
+            onClick={Benefits}
+            style={{ backgroundColor: benefits ? "red" : "" }}
+          >
+            <GrStatusGood size={80} className="cha" />
+          </Cricle>
+          <p>Benefits</p>
+        </Hold>
+        <Hold>
+          <Cricle onClick={Hr} style={{ backgroundColor: hr ? "red" : "" }}>
+            <Icon className="cha" />
+          </Cricle>
+          <p>Hr Management</p>
+        </Hold>
+        <Hold>
+          <Cricle onClick={Hire} style={{ backgroundColor: hire ? "red" : "" }}>
+            <Icon className="cha" />
+          </Cricle>
+          <p>Hiring</p>
+        </Hold>
+      </Main>
+      {payroll ? (
+        <Second>
+          <AiOutlineDollarCircle
+            size={100}
+            style={{ color: "red", marginLeft: "70px", marginTop: "50px" }}
+          />
+          <Holder>
+            <h3>Payroll</h3>
+            <p>
+              Save time and improve payroll accuracy with the latest in time and
+              attendance software. However you prefer to track employee time, we
+              have flexible options to fit your business.
+            </p>
+            <Read>Read More</Read>
+          </Holder>
+        </Second>
+      ) : null}
+      {time ? (
+        <Second>
+          <BiTime
+            size={100}
+            style={{ color: "red", marginLeft: "70px", marginTop: "50px" }}
+          />
+          <Holder>
+            <h3>Time</h3>
+            <p>
+              Save time and improve payroll accuracy with the latest in time and
+              attendance software. However you prefer to track employee time, we
+              have flexible options to fit your business.
+            </p>
+            <Read>Read More</Read>
+          </Holder>
+        </Second>
+      ) : null}
 
-                  <Circlehold>
-                  <Circle 
-                  bg={show2 ? "#dc3545" : ""}
-                  onClick={Toogle2}
-                  >
-                    <GiClockwork/>
-                  </Circle>
-                  <Text>Time & Attendance</Text>
-                  </Circlehold>
+      {benefits ? (
+        <Second>
+          <GrStatusGood
+            size={100}
+            style={{ color: "red", marginLeft: "70px", marginTop: "50px" }}
+          />
+          <Holder>
+            <h3>Benefits</h3>
+            <p>
+              Save time and improve payroll accuracy with the latest in time and
+              attendance software. However you prefer to track employee time, we
+              have flexible options to fit your business.
+            </p>
+            <Read>Read More</Read>
+          </Holder>
+        </Second>
+      ) : null}
+      {hr ? (
+        <Second>
+          <AiOutlineDollarCircle
+            size={100}
+            style={{ color: "red", marginLeft: "70px", marginTop: "50px" }}
+          />
+          <Holder>
+            <h3>Hr Management</h3>
+            <p>
+              Save time and improve payroll accuracy with the latest in time and
+              attendance software. However you prefer to track employee time, we
+              have flexible options to fit your business.
+            </p>
+            <Read>Read More</Read>
+          </Holder>
+        </Second>
+      ) : null}
 
-                  <Circlehold>
-                  <Circle
-                   bg={show3 ? "#dc3545" : ""}
-                   onClick={Toogle3}
-                   >
-                    <DiFsharp/>
-                  </Circle>
-                  <Text>Benefits</Text>
-                  </Circlehold>
-
-                 <Circlehold>
-                 <Circle 
-                 bg={show4 ? "#dc3545" : ""}
-                 onClick={Toogle4}
-                 >
-                    <MdOutlineManageHistory/>
-                 </Circle>
-                 <Text>Hr Management</Text>
-                 </Circlehold>
-
-                 <Circlehold>
-                  <Circle
-                 bg={show5 ? "#dc3545" : ""}
-                 onClick={Toogle5}
-                  >
-                    <HiCubeTransparent/>
-                  </Circle>
-                  <Text>Hiring</Text>
-                 </Circlehold>
-               </Hold>
-            <Fade direction='down'>
-            <Box>
-             {
-                show ? (
-                    <PlanProps 
-                    text='' 
-                    image=""
-                    writeup=''/>
-                ) 
-                :null
-             }
-             {
-                show2 ? (
-                    <PlanProps 
-                    text=""
-                    image=''
-                     writeup=""/>
-                ) 
-                :null
-             }
-             {
-                show3 ? (
-                    <PlanProps 
-                    text="" 
-                    image='' 
-                    writeup=""/>
-                ) 
-                :null
-             }
-             {
-                show4 ? (
-                    <PlanProps 
-                    text=""
-                     image=''
-                     writeup=""/>
-                ) 
-                :null
-             }
-             {
-                show5 ? (
-                    <PlanProps
-                     text=""
-                    image=''
-                     writeup=""/>
-                ) 
-                :null
-             }
-              </Box>
-            </Fade>
-            </Fade>
-          </Wrapper>
+      {hire ? (
+        <Second>
+          <AiOutlineDollarCircle
+            size={100}
+            style={{ color: "red", marginLeft: "70px", marginTop: "50px" }}
+          />
+          <Holder>
+            <h3>Hiring</h3>
+            <p>
+              Save time and improve payroll accuracy with the latest in time and
+              attendance software. However you prefer to track employee time, we
+              have flexible options to fit your business.
+            </p>
+            <Read>Read More</Read>
+          </Holder>
+        </Second>
+      ) : null}
     </Container>
-  )
-}
+  );
+};
 
-export default Plan
-const Box = styled.div`
-display: flex;
-flex-wrap: wrap;
-`
+export default App;
 
-const Text = styled.div`
-    font-size: 16px;
+const Read = styled.div`
+  color: #0e6fd5;
+  text-decoration: underline;
+  margin-top: 40px;
+`;
+
+const Icons = styled.div``;
+const Holder = styled.div`
+  margin-left: 35px;
+  margin-top: 50px;
+
+  h3 {
+    font-size: 30px;
     margin: 0;
-    color: #001328;
-    font-weight: 800;
-`
-const Circlehold = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 40px;
-`
+  }
 
-const Circle = styled.div<{bg:string}>`
-font-size: 60px;
-color: #1271D5;
-    width: 150px;
-    height: 150px;
-    border-radius: 100px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: ${(props) => props.bg};
-    margin-bottom: 20px;
-    :hover{
-        background-color: #dc3545;
-        color: white;
-    }
+  p {
+    color: gray;
+    font-size: 20px;
+  }
+`;
 
-    @media screen and (max-width:320px) {
-        width: 100px;
-        height: 100px;
-        background-color: blue;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        /* background-color: red; */
-    }
-`
+const Second = styled.div`
+  width: 90%;
+  height: 300px;
+  border: 1px solid gray;
+  margin-bottom: 10px;
+  margin-top: 70px;
+  display: flex;
+  /* align-items: center; */
+`;
+
 const Hold = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    /* margin: 70px; */
-    align-items:center;
-    margin-left: 30px;
-    flex-wrap: wrap;
-
-    @media screen and (max-width:320px) {
-        width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-    }
-`
-const Bolder = styled.h2`
-    margin: 0;
-    color: #001328;
-    font-weight: 800;
-    font-size: 40px;
-    letter-spacing: -0.03em;
-    width: 500px;
-    text-align: center;
-
-    @media screen and (max-width:320px) {
-        font-size:3px;
-        margin: 0;
-        width: 400px;
-        text-align: center;
-        /* font-weight: 700; */
-        line-height: 30px;
-        letter-spacing: -0.04em;
-    }
-
-    @media screen and (max-width:360px) {
-        font-size:20px;
-        /* color: yellow; */
-        width: 400px;
-        text-align: center;
-    }
-    @media screen and (max-width:375px) {
-        font-size: 24px;
-        width: 400px;
-    }
-    @media screen and (max-width:425px) {
-        font-size: 33px;
-        width: 450px;
-    }
-`
-const Par = styled.div`
-    display: block;
-    text-transform: uppercase;
-    color: #0057B3;
-    font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  p {
     font-weight: 700;
-    letter-spacing: .04em;
-    margin-bottom: 5px;
+    font-size: 22px;
+    margin: 0;
+    margin-top: 35px;
+  }
+`;
 
-    @media screen and (max-width:320px) {
-        font-size: 12px;
-    }
+const Icon = styled(AiOutlineDollarCircle)`
+  font-size: 80px;
+  color: #0e6fd5;
+`;
 
-    @media screen and (max-width:375px) {
-        font-size: 15px;
-    }
-`
-const Wrapper = styled.div`
-    width: 91.666667%;
-    display: flex;
-    flex-direction: column;
-    padding-top: 50px;
-    align-items: center;
-    justify-content: center;
+const Cricle = styled.div`
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  color: #0e6fd5;
+  cursor: pointer;
+  background-color: white;
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+    #9cc7ff 0px 50px 100px -20px, #9cc7ff 0px 30px 60px -30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    @media screen and (max-width:320px) {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-`
+  :hover {
+    background-color: red;
+    transition: all 350ms ease-in-out;
+  }
+
+  :hover .cha {
+    color: white;
+  }
+`;
+const Main = styled.div`
+  width: 80%;
+  /* background-color: gray; */
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
 const Container = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: center;
-`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`;

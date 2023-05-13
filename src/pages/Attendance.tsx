@@ -469,6 +469,12 @@ const Attendance: React.FC = () => {
 export default Attendance;
 const ButtonHold = styled.div`
 flex-wrap: wrap;
+
+@media screen and (max-width:500px) {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 `
 
 // TABLE STYLING AREA
@@ -482,10 +488,6 @@ color: red;
 font-weight: bold;
 `
 
-const Chc = styled.div`
-color: green;
-font-weight: bold;
-`
 
 const Box1 = styled.div`
   border: 1px solid red;
@@ -585,6 +587,12 @@ margin-left: 30px;
 margin-right: 30px;
 text-align: center;
 margin-top: 30px;
+
+@media screen and (max-width:500px) {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
 `
 
 const First = styled.div`
@@ -592,20 +600,46 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 /* background-color: yellow; */
+flex-wrap: wrap;
+
+@media screen and (max-width:500px) {
+  display: flex;
+  flex-wrap: wrap;
+  /* background-color: red; */
+  width: 250px;
+  height: 380px;
+
+}
 `
 
 const LastComp = styled.div`
   width: 930px;
 background-color:white;
+height: 150px;
 box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 /* background-color: red; */
 border-radius: 10px;
 margin-top: 20px;
 margin-left: 10px;
+display: flex;
+flex-wrap: wrap;
+
+@media screen and (max-width:500px) {
+  display: flex;
+  flex-wrap: wrap;
+  /* background-color: brown; */
+  width: 250px;
+  height: 350px;
+  box-shadow: none;
+}
 `
 
 const Employee = styled.div`
 margin-right: 30px;
+
+@media screen and (max-width:500px) {
+  margin-left: 70px;
+}
 `
 
 const Post = styled.div`
@@ -616,6 +650,10 @@ font-size: 14px;
 const Name = styled.div`
 font-weight: 600;
 font-size: 20px;
+
+@media screen and (max-width:500px) {
+  width: 100%;
+}
 `
 
 const Div = styled.div`
@@ -638,9 +676,10 @@ border: 2px solid black;
 border-radius: 50px;
 
 @media screen and (max-width: 900px) {
-  height: 30px;
-  width: 30px;
-  font-size: 12px;
+  height: 50px;
+  width: 50px;
+  font-size: 15px;
+  border-radius: 100%;
 }
 `
 
@@ -648,6 +687,7 @@ const Details = styled.div`
 display: flex;
 align-items: center;
 margin-left: 10px;
+
 `
 
 const StaffDetail = styled.div`
@@ -657,10 +697,21 @@ border-radius: 10px;
 margin-left: 10px;
 height: 80px;
 display: flex;
+flex-wrap: wrap;
 align-items: center;
 justify-content: space-between;
 box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
 /* box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px; */
+
+
+@media screen and (max-width:500px) {
+  display: flex;
+  flex-wrap: wrap;
+  /* background-color: brown; */
+  width: 250px;
+  height: 350px;
+
+}
 `
 
 
@@ -681,12 +732,14 @@ margin-top: 30px;
 span{
   color: rgb(51,51,51);
   background-color: rgba(0,0,0,0);
-  font-size: 16px;
+  font-size: 15px;
   line-height: 24px;
   letter-spacing: normal;
   font-weight: 500;
   text-decoration: none solid rgb(51,51,51);
   text-align: left;
+
+
 }
 
 a{
@@ -699,37 +752,6 @@ a{
 `
 
 
-// Apply for leave
-
-const Label = styled.label`
-  font-size: medium;
-  font-weight: 550;
-  cursor: pointer;
-`;
-
-const OptionInput = styled.input`
-  cursor: pointer;
-`;
-
-const OptionInputHold = styled.div<{ bg: string; bd: string; cl: string }>`
-  height: 40px;
-  width: auto;
-  background-color: ${({ bg }) => bg};
-  color: ${({ cl }) => cl};
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0px 8px;
-  margin-top: 12px;
-  border: 1px solid ${({ bd }) => bd};
-  cursor: pointer;
-`;
-
-const LeaveOptionForm = styled.form`
-  height: auto;
-  width: auto;
-  transition: all 390ms;
-`;
 
 const Icron = styled.div`
   position: absolute;
@@ -765,53 +787,6 @@ const Holds = styled.div`
 // Leave stats area
 
 
-const ProgressBar = styled.div<{ width: number }>`
-  width: ${({ width }) => width}%;
-  height: 10px;
-  background-color: blue;
-  border-radius: 50px;
-  transition: width 0.5s ease;
-`;
-
-const ProgressBarHold = styled.div`
-  width: 90%;
-  height: auto;
-  background-color: #ddd;
-  margin-top: 10px;
-  border-radius: 50px;
-`;
-
-const HourMeasure = styled.div`
-  height: auto;
-  width: auto;
-`;
-
-const Day = styled.div`
-  height: auto;
-  width: auto;
-`;
-
-const DayAndHourColumn = styled.div`
-  height: auto;
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
-  font-weight: 600;
-`;
-
-const StatisticsMeasureColumn = styled.div`
-  height: 50px;
-  width: auto;
-  margin-top: 10px;
-  border: 1px solid #c5c5c5;
-  border-radius: 4px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`;
 
 const Date = styled.div`
   font-size: 14px;
@@ -917,6 +892,11 @@ const Card = styled.div`
   padding-right: 10px;
   
 
+  @media screen and (max-width:500px) {
+    width: 250px;
+    height: 500px;
+  }
+
  
 `;
 
@@ -929,6 +909,11 @@ const StatisticColumn = styled.div`
   margin-top: 30px;
   align-items: flex-start;
   flex-wrap: wrap;
+
+
+  @media screen and (max-width:500px) {
+    margin-left:-12px;
+  }
 `;
 
 
@@ -937,7 +922,7 @@ const AttendanceMainPage = styled.div`
   height: auto;
   width: calc(100vw - 320px);
   padding-bottom: 30px;
-  overflow: hidden;
+  /* overflow: hidden; */
   @media screen and (max-width: 960px) {
     width: 100%;
   }
@@ -951,4 +936,8 @@ const AttendancePage = styled.div`
   justify-content: flex-end;
   align-items: center;
   padding-top: 100px;
+
+  @media screen and (max-width:500px) {
+    margin-right: 30px;
+  }
 `;
