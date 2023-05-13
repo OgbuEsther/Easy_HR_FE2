@@ -232,6 +232,9 @@ const Button = styled.button`
   border-radius: 12px;
   cursor: pointer;
   margin-top: 7px;
+  @media screen and (max-width: 500px) {
+    margin-bottom: 15px;
+  }
 `
 const Texthold = styled.form`
   display: flex;
@@ -254,6 +257,10 @@ const Inputhold = styled.div`
     width: 300px;
     overflow: hidden;
     margin-left: 20px;
+    @media screen and (max-width: 500px) {
+      width: 400px;
+      margin: 0;
+    }
 `
 const Textarea = styled.textarea`
   width: 700px;
@@ -263,12 +270,19 @@ const Textarea = styled.textarea`
   padding: 12px;
   border-radius: 10px;
   outline: #007bff;
+  @media screen and (max-width: 500px){
+    width: 400px;
+  }
 `
 const Textplace = styled.div`
   width: 100%;
   display: flex;
   margin-top: 30px;
   align-items: center;
+  @media screen and (max-width: 500px){
+    display: flex;
+    flex-direction: column;
+  }
 `
 const Pending3 = styled.h3<{ bg: string}>`
   display: flex;
@@ -342,30 +356,32 @@ const Pending2 = styled.div<{ bg: string}>`
 `
 const Pending = styled.div<{ bg: string}>`
   display: flex;
-  margin: 18px;
+  margin: 14px;
   cursor: pointer;
-  height: 40px;
+  justify-content: center;
+  align-items: center;
   border: 1px solid ${({ bg }) => (bg ? "#219653" : "#fff")};
+  height: 40px;
   width: 220px;
   border-radius: 50px;
   font-weight: 500;
   font-size: 19px;
   color: #6c757d;
-  justify-content: center;
-  align-items: center;
   h3{
-    @media screen and (max-width: 500px) {
+    
+  @media screen and (max-width: 500px) {
     font-size: 17px;
     font-weight: 600;
+  }
   }
   @media screen and (max-width: 500px) {
     margin: 5px;
     width: 100%;
     height: 43px;
+    margin-top: 23px;
   }
   @media screen and (max-width: 375px) {
     width: 100%;
-  }
   }
   span{
     margin-left: 7px;
