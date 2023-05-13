@@ -274,6 +274,10 @@ const Top = styled.div`
   height: 70px;
   align-items: center;
   border-bottom: 1px solid lightgray;
+  @media screen and (max-width:500px) {
+    flex-wrap: wrap;
+    height: 300px;
+  }
 `;
 const Wrapper = styled.div`
   width: 95%;
@@ -284,7 +288,6 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
   margin-bottom: 15px;
   /* background-color: red; */
 
