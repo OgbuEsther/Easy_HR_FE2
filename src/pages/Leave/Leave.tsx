@@ -134,28 +134,28 @@ const Leave = () => {
     <Container>
       <Wrapper>
         <Top>
-          <Pending onClick={Toggle1}><h3>Pending Leave</h3><span>{isLoading ? (1) : <RotatingLines  visible={true}
+          <Pending bg={show1 ? "red" : ""} onClick={Toggle1}><h3>Pending Leave</h3><span>{isLoading ? (1) : <RotatingLines  visible={true}
             strokeColor="#007bff"
             strokeWidth="5"
             animationDuration="0.75"
             width="30"/>}</span>
           </Pending>
 
-          <Pending onClick={Toggle3}><h3>Approved Leave</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
+          <Pending bg={show3 ? "red" : ""} onClick={Toggle3}><h3>Approved Leave</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
             strokeColor="#007bff"
             strokeWidth="5"
             animationDuration="0.75"
             width="30" />}</span>
           </Pending>
 
-          <Pending onClick={Toggle4}><h3>Rejected Leave</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
+          <Pending bg={show4 ? "red" : ""} onClick={Toggle4}><h3>Rejected Leave</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
             strokeColor="#007bff"
             strokeWidth="5"
             animationDuration="0.75"
             width="30" />}</span>
           </Pending>
 
-          <Pending onClick={Toggle5}><h3>All Leave</h3><span>{isLoading ? (1) : <RotatingLines  visible={true}
+          <Pending bg={show5 ? "red" : ""} onClick={Toggle5}><h3>All Leave</h3><span>{isLoading ? (1) : <RotatingLines  visible={true}
             strokeColor="#007bff"
             strokeWidth="5"
             animationDuration="0.75"
@@ -573,14 +573,32 @@ const Down = styled.div`
   flex-direction: column;
   margin-top: 33px;
 `
-const Pending = styled.div`
+const Pending = styled.div<{ bg: string}>`
   display: flex;
   margin: 18px;
   cursor: pointer;
-  h3{
-    font-weight: 500;
+  height: 40px;
+  border: 1px solid ${({ bg }) => (bg ? "#219653" : "#fff")};
+  width: 220px;
+  border-radius: 50px;
+  font-weight: 500;
   font-size: 19px;
   color: #6c757d;
+  justify-content: center;
+  align-items: center;
+  h3{
+    @media screen and (max-width: 500px) {
+    font-size: 17px;
+    font-weight: 600;
+  }
+  @media screen and (max-width: 500px) {
+    margin: 5px;
+    width: 100%;
+    height: 43px;
+  }
+  @media screen and (max-width: 375px) {
+    width: 100%;
+  }
   }
   span{
     margin-left: 7px;
