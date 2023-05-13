@@ -175,7 +175,7 @@ const Container = styled.div`
 
 const CompanyNameInput = styled.input`
   height: 50px;
-  width: auto;
+  width: 100%;
   border: 1px solid silver;
 `;
 
@@ -211,20 +211,24 @@ const InputmainHold = styled.div`
 `;
 const PasswordInputHold = styled.div`
   height: auto;
-  width: 100%;
+  width: 300px;
+
+  @media screen and (max-width: 1200px) {
+    width: 100%;
+  }
 `;
 
 const CompanyNameInputContainer = styled.div`
   height: auto;
   width: 300px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-right: 5px;
+  background-color: transparent;
+  
 
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width:1200px) {
     width: 100%;
+    margin-right: 0px;
+    margin-bottom: 40px;
   }
 `;
 
@@ -243,7 +247,8 @@ const CompanyNameAndPasswordInputColumn = styled.div`
 
 const StaffEmailInput = styled.input`
   height: 50px;
-  width: auto;
+  width: 100%;
+  background-color: transparent;
 `;
 
 const StaffEmailColumn = styled.div`
@@ -251,6 +256,7 @@ const StaffEmailColumn = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  background-color: transparent;
 
   @media screen and (max-width: 1200px) {
     align-items: center;
@@ -260,24 +266,20 @@ const StaffEmailColumn = styled.div`
 const StaffEmailContainer = styled.div`
   height: auto;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  margin-bottom: 40px;
+  background-color: transparent;
 `;
 
 const FirstNameInput = styled.input`
   height: 50px;
-  width: auto;
+  width: 100%;
   border: 1px solid silver;
 `;
 
 const FirstNameInputContainer = styled.div`
   height: auto;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 `;
 
 const NameInputColumn = styled.div`
@@ -326,6 +328,7 @@ const InputField = styled.div`
     border-radius: 5px;
     border: 1px solid black;
     padding-left: 10px;
+    outline: none;
     border: 1px solid #007bff8c;
   }
 
@@ -386,7 +389,6 @@ const Form = styled.form`
   overflow: hidden;
 
   @media screen and (max-width: 1200px) {
-    width: 620px;
     padding: 10px;
     padding-left: 15px;
     border-radius: 10px;
