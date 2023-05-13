@@ -4,7 +4,7 @@ import img1 from "../../../Assets/val.jpg"
 import img2 from "../../../Assets/ceo.jpg"
 import img3 from "../../../Assets/esther.jpg"
 import img4 from "../../../Assets/cto.jpg"
-import img5 from "../../../Assets/lead.jpg"
+import img5 from "../../../Assets/lead.jpeg"
 import {  BsWhatsapp} from "react-icons/bs"
 import {  SiFacebook} from "react-icons/si"
 import { Fade } from 'react-awesome-reveal'
