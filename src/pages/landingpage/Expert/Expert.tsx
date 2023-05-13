@@ -13,6 +13,7 @@ import { Fade } from 'react-awesome-reveal'
 const Expert = () => {
   return (
     <div>
+        {/* Expert section */}
         <Container id='expert'>
           <Wrapper>
             <Fade direction='up'>
