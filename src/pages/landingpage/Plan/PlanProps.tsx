@@ -18,7 +18,6 @@ const PlanProps: React.FC<Itext> = ({ image, title, description }) => {
       <Two>
         <Title></Title>
         <Description></Description>
-        <Read></Read>
       </Two>
     </Container>
   );

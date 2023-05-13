@@ -152,6 +152,8 @@ display: flex;
 align-items: center;
 justify-content: center;
 
-
+@media screen and (max-width:500px) {
+  margin-top:20px;
+}
 
 `

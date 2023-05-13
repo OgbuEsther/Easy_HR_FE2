@@ -13,6 +13,17 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { applyForLeave, getOneAdmin } from "../../utils/Api/ApiCall";
 
 const Staffleave = () => {
+
+  const [show,setShow] = React.useState(false)
+  const [show1,setShow1] = React.useState(true)
+
+  const Toggle = () =>{
+    setShow(true)
+  }
+  const Toggle1 = () =>{
+    setShow1(false)
+  }
+
   const [isLoading, setIsLoading] = useState(false);
   const [category, setCategory] = React.useState("");
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
@@ -92,7 +103,7 @@ const Staffleave = () => {
         <Wrapper>
           <Top>
             <Pending>
-              <h3>Apply for Leave</h3>
+              <h3 onClick={Toggle1}>Apply for Leave</h3>
               <span>
                 {isLoading ? (
                   ""
@@ -109,7 +120,9 @@ const Staffleave = () => {
             </Pending>
 
             <Pending>
-              <h3>Leave Stats</h3>
+              <h3 
+              onClick={Toggle}
+              >Leave Stats</h3>
               <span>
                 {isLoading ? (
                   ""
@@ -125,6 +138,36 @@ const Staffleave = () => {
               </span>
             </Pending>
           </Top>
+
+          {
+            show ? (
+              <Card className="two">
+            <CardTitle>Leave Stats</CardTitle>
+           
+              <CardContent>
+                 {/* {getAdmin?.data?.data?.adminLeave?.map((el: any) => (
+                <StatisticsMeasureColumn className="today">
+                  <DayAndHourColumn>
+                    <Day>
+                    {el?.title}
+                    </Day>
+                    <HourMeasure>
+                     Total Days :{el?.days}
+               
+                    </HourMeasure>
+                  </DayAndHourColumn>
+                  <ProgressBarHold>
+                    <ProgressBar width={width}></ProgressBar>
+                  </ProgressBarHold>
+                </StatisticsMeasureColumn>
+                ))} */}
+                    </CardContent>
+            
+            </Card>
+
+            ):null
+          }
+
 
           {isLoading ? (
             <Mid>
@@ -200,6 +243,44 @@ const Staffleave = () => {
 };
 
 export default Staffleave;
+const CardTitle = styled.h4`
+  height: auto;
+  width: auto;
+  margin: 0px;
+  font-size: 20px;
+  text-align: start;
+  font-weight: 600;
+  padding-top: 10px;
+
+  span {
+    color: silver;
+  }
+`;
+
+const CardContent = styled.div`
+  height: auto;
+  width: auto;
+`;
+const Card = styled.div`
+  height: auto;
+  width: 600px;
+  background-color: white;
+  box-shadow: 1px 1px 3px 1px rgba(166, 165, 165, 0.5);
+  margin-left: 30px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  padding-bottom: 18px;
+  padding-right: 10px;
+  
+
+  @media screen and (max-width:500px) {
+    width: 250px;
+    height: 500px;
+  }
+
+ 
+`;
+
 const Input3 = styled.input`
     width: 100%;
     height: 100%;
@@ -230,7 +311,7 @@ const Apply = styled.button`
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  background-color: blue;
+  background-color: #001328;
   color: white;
   border: none;
   margin-top: 15px;

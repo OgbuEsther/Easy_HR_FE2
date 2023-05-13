@@ -17,117 +17,16 @@ const StaffTransactionSide = () => {
   return (
       <Container>
           <Wrapper>
-              <Top><h3>Transaction History</h3></Top>
-      
-      <Table>
-            <table>
-              <tr>
-                <th>Transaction Time</th>
-                <th>ID</th>
-                <th>Net pay</th>
-                <th>Status</th>
-              </tr>
-
-
-              {getStaff?.data?.data?.transactionHistory.map((el: any) => (
-              <tr key={el?._id}>
-                <td>
-                <CirleHold>
-                  <Name>
-                   {el?.date}
-                  </Name>
-                </CirleHold>
-                 </td>
-                <td> <Id>
-                 {el?.transactionReference}
-               </Id></td>
-                <td>{el?.amount} </td>
-                <td>
-                <Account>
-                  Received
-               </Account>
-              </td>
-              </tr>
-            ))}
-
-              {/* <tr>
-              <td>
-                <CirleHold>
-                  <Name>
-                    2020-12-14 22:01:01
-                  </Name>
-                </CirleHold>
-              </td>
-              <td>
-                <Id>
-                  #A3161
-               </Id>
-              </td>
-              <td>
-                <Dat>
-                  $0.00
-               </Dat>
-              </td>
-              <td>
-                <Account>
-                  Received
-               </Account>
-              </td>
-          </tr>
-          
-          <tr>
-              <td>
-                <CirleHold>
-                  <Name>
-                    2020-12-14 22:01:01
-                  </Name>
-                </CirleHold>
-              </td>
-              <td>
-                <Id>
-                  #A3161
-               </Id>
-              </td>
-              <td>
-                <Dat>
-                  $0.00
-               </Dat>
-              </td>
-              <td>
-                <Account>
-                  Received
-               </Account>
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <CirleHold>
-                  <Name>
-                    2020-12-14 22:01:01
-                  </Name>
-                </CirleHold>
-              </td>
-              <td>
-                <Id>
-                  #A3161
-               </Id>
-              </td>
-              <td>
-                <Dat>
-                  $0.00
-               </Dat>
-              </td>
-              <td>
-                <Account>
-                  Received
-               </Account>
-              </td>
-            </tr> */}
-            </table>
-
-         
-      </Table>
+          <Word>
+        {/* <SiMattermost/> */}
+        Settings  <br />
+           <span>
+          <a href="/dashboard">
+          Dashboard
+          </a>
+           / Employee's Settings
+           </span>
+          </Word>
           </Wrapper>
     </Container>
   )
@@ -135,6 +34,41 @@ const StaffTransactionSide = () => {
 
 export default StaffTransactionSide
 
+const Word = styled.div`
+font-weight: 500;
+font-size: 26px;
+color: rgb(31,31,31);
+background-color: rgba(0,0,0,0);
+line-height: 31.2px;
+text-decoration: none solid rgb(31,31,31);
+text-align: start;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+margin-bottom: 30px;
+margin-top: 30px;
+
+span{
+  color: rgb(51,51,51);
+  background-color: rgba(0,0,0,0);
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: normal;
+  font-weight: 500;
+  text-decoration: none solid rgb(51,51,51);
+  text-align: left;
+
+
+}
+
+a{
+  text-decoration: none;
+
+  :hover{
+    color: black;
+  }
+}
+`
 
 const Account = styled.div`
 font-weight: 500;

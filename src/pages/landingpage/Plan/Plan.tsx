@@ -2,8 +2,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { AiOutlineDollarCircle } from "react-icons/ai";
-import { BiTime } from "react-icons/bi";
+import { RiFocus2Line } from "react-icons/ri";
 import { GrStatusGood } from "react-icons/gr";
+import { SiOpenai, SiSemanticuireact,SiWhitesource } from "react-icons/si";
+import { IoTimer } from "react-icons/io5";
+import { ImIcoMoon } from "react-icons/im";
 import PlanProps from "./PlanProps";
 
 const App = () => {
@@ -57,46 +60,45 @@ const App = () => {
         <Hold>
           <Cricle
             onClick={Payroll}
-            style={{ backgroundColor: payroll ? "red" : "" }}
+            style={{ backgroundColor: payroll ? "#DC3545" : "" }}
           >
             <Icon className="cha" />
           </Cricle>
           <p>Payroll</p>
         </Hold>
         <Hold>
-          <Cricle onClick={Time} style={{ backgroundColor: time ? "red" : "" }}>
-            <BiTime size={80} className="cha" />
+          <Cricle onClick={Time} style={{ backgroundColor: time ? "#DC3545" : "" }}>
+            <Icons1 className="cha" />
           </Cricle>
           <p>Time & Attendance</p>
         </Hold>
         <Hold>
           <Cricle
             onClick={Benefits}
-            style={{ backgroundColor: benefits ? "red" : "" }}
+            style={{ backgroundColor: benefits ? "#DC3545" : "" }}
           >
-            <GrStatusGood size={80} className="cha" />
+            <Icons2 className="cha" />
           </Cricle>
           <p>Benefits</p>
         </Hold>
         <Hold>
-          <Cricle onClick={Hr} style={{ backgroundColor: hr ? "red" : "" }}>
-            <Icon className="cha" />
+          <Cricle onClick={Hr} style={{ backgroundColor: hr ? "#DC3545" : "" }}>
+            <Icon5 className="cha" />
           </Cricle>
           <p>Hr Management</p>
         </Hold>
         <Hold>
-          <Cricle onClick={Hire} style={{ backgroundColor: hire ? "red" : "" }}>
-            <Icon className="cha" />
+          <Cricle onClick={Hire} style={{ backgroundColor: hire ? "#DC3545" : "" }}>
+            <Icon6 className="cha" />
           </Cricle>
           <p>Hiring</p>
         </Hold>
       </Main>
       {payroll ? (
         <Second>
-          <AiOutlineDollarCircle
-            size={100}
-            style={{ color: "red", marginLeft: "70px", marginTop: "50px" }}
-          />
+          <Iconm>
+            <SiOpenai />
+          </Iconm>
           <Holder>
             <h3>Payroll</h3>
             <p>
@@ -104,34 +106,32 @@ const App = () => {
               attendance software. However you prefer to track employee time, we
               have flexible options to fit your business.
             </p>
-            <Read>Read More</Read>
+          
           </Holder>
         </Second>
       ) : null}
       {time ? (
         <Second>
-          <BiTime
-            size={100}
-            style={{ color: "red", marginLeft: "70px", marginTop: "50px" }}
-          />
+          <Iconm>
+            <IoTimer />
+          </Iconm>
           <Holder>
-            <h3>Time</h3>
+            <h3>Time & Attendance</h3>
             <p>
               Save time and improve payroll accuracy with the latest in time and
               attendance software. However you prefer to track employee time, we
               have flexible options to fit your business.
             </p>
-            <Read>Read More</Read>
+           
           </Holder>
         </Second>
       ) : null}
 
       {benefits ? (
         <Second>
-          <GrStatusGood
-            size={100}
-            style={{ color: "red", marginLeft: "70px", marginTop: "50px" }}
-          />
+          <Iconm>
+            <ImIcoMoon />
+          </Iconm>
           <Holder>
             <h3>Benefits</h3>
             <p>
@@ -139,16 +139,15 @@ const App = () => {
               attendance software. However you prefer to track employee time, we
               have flexible options to fit your business.
             </p>
-            <Read>Read More</Read>
+         
           </Holder>
         </Second>
       ) : null}
       {hr ? (
         <Second>
-          <AiOutlineDollarCircle
-            size={100}
-            style={{ color: "red", marginLeft: "70px", marginTop: "50px" }}
-          />
+          <Iconm>
+            <RiFocus2Line />
+          </Iconm>
           <Holder>
             <h3>Hr Management</h3>
             <p>
@@ -156,17 +155,16 @@ const App = () => {
               attendance software. However you prefer to track employee time, we
               have flexible options to fit your business.
             </p>
-            <Read>Read More</Read>
+           
           </Holder>
         </Second>
       ) : null}
 
       {hire ? (
         <Second>
-          <AiOutlineDollarCircle
-            size={100}
-            style={{ color: "red", marginLeft: "70px", marginTop: "50px" }}
-          />
+          <Iconm>
+            <SiWhitesource />
+          </Iconm>
           <Holder>
             <h3>Hiring</h3>
             <p>
@@ -174,7 +172,7 @@ const App = () => {
               attendance software. However you prefer to track employee time, we
               have flexible options to fit your business.
             </p>
-            <Read>Read More</Read>
+         
           </Holder>
         </Second>
       ) : null}
@@ -183,6 +181,34 @@ const App = () => {
 };
 
 export default App;
+
+const Iconm = styled.div`
+  color: #DC3545;
+  margin-left: 70px;
+  margin-top: 50px;
+  font-size: 60px;
+
+  @media screen and (max-width: 500px) {
+    margin: 0;
+  }
+`;
+
+const Icons1 = styled(IoTimer)`
+  font-size: 50px;
+  color: #0e6fd5  ;
+
+  @media screen and (max-width: 900px) {
+    font-size: 47px;
+  }
+`;
+const Icons2 = styled(ImIcoMoon)`
+  font-size: 50px;
+  color: #0e6fd5;
+
+  @media screen and (max-width: 900px) {
+    font-size: 47px;
+  }
+`;
 
 const Read = styled.div`
   color: #0e6fd5;
@@ -195,6 +221,10 @@ const Holder = styled.div`
   margin-left: 35px;
   margin-top: 50px;
 
+  @media screen and (max-width: 500px) {
+    margin: 0;
+  }
+
   h3 {
     font-size: 30px;
     margin: 0;
@@ -203,17 +233,32 @@ const Holder = styled.div`
   p {
     color: gray;
     font-size: 20px;
+
+    @media screen and (max-width: 500px) {
+      width: 80%;
+    }
   }
 `;
 
 const Second = styled.div`
   width: 90%;
-  height: 300px;
+  height: 200px;
   border: 1px solid gray;
   margin-bottom: 10px;
   margin-top: 70px;
   display: flex;
+  border-radius: 5px;
   /* align-items: center; */
+
+  @media screen and (max-width: 500px) {
+    display: block;
+    margin: 0;
+    height: 440px;
+    padding-left: 40px;
+    width: 75%;
+    margin-top: 34px;
+    /* background-color: brown; */
+  }
 `;
 
 const Hold = styled.div`
@@ -221,17 +266,46 @@ const Hold = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  @media screen and (max-width: 500px) {
+    margin-bottom: 20px;
+  }
   p {
     font-weight: 700;
     font-size: 22px;
     margin: 0;
     margin-top: 35px;
+
+    @media screen and (max-width: 500px) {
+      margin-top: 14px;
+    }
   }
 `;
 
-const Icon = styled(AiOutlineDollarCircle)`
-  font-size: 80px;
+const Icon = styled(SiSemanticuireact)`
+  font-size: 50px;
   color: #0e6fd5;
+
+  @media screen and (max-width: 900px) {
+    font-size: 47px;
+  }
+`;
+
+const Icon5 = styled(RiFocus2Line)`
+  font-size: 50px;
+  color: #0e6fd5;
+
+  @media screen and (max-width: 900px) {
+    font-size: 47px;
+  }
+`;
+
+const Icon6 = styled(SiWhitesource)`
+  font-size: 50px;
+  color: #0e6fd5;
+
+  @media screen and (max-width: 900px) {
+    font-size: 47px;
+  }
 `;
 
 const Cricle = styled.div`
@@ -247,8 +321,19 @@ const Cricle = styled.div`
   align-items: center;
   justify-content: center;
 
+  @media screen and (max-width: 500px) {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    color: #0e6fd5;
+    cursor: pointer;
+    background-color: white;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+      #9cc7ff 0px 50px 100px -20px, #9cc7ff 0px 30px 60px -30px;
+  }
+
   :hover {
-    background-color: red;
+    background-color: #DC3545;
     transition: all 350ms ease-in-out;
   }
 
@@ -263,6 +348,13 @@ const Main = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media screen and (max-width: 500px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
 `;
 const Container = styled.div`
   display: flex;
