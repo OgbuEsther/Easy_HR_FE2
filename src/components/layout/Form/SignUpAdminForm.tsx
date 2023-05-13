@@ -201,6 +201,10 @@ const PasswordInputHold = styled.div`
   height: auto;
   width: 300px;
 
+  @media screen and (max-width: 960px) {
+    width: 100%;
+  }
+
 `
 
 const ForgetPassword = styled.div`
@@ -237,10 +241,11 @@ const CompanyNameInputContainer = styled.div`
   height: auto;
   width: 300px;
   margin-right: 5px;
-  
 
   @media screen and (max-width:960px) {
     width: 100%;
+    margin-right: 0px;
+    margin-bottom: 40px;
   }
 `;
 
@@ -415,3 +420,4 @@ const Form = styled.form`
     width: auto;
   }
 `;
+
