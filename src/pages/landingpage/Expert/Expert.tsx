@@ -156,7 +156,7 @@ const Image = styled.div`
 display: flex;
 align-items: center;
 flex-direction: column;
-margin: 40px;
+margin: 27px;
 
 
 `
