@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Admin from "../../Assets/hr_group.jpg"
+import Admin from "../../Assets/eazy.png"
 import SigninForm from '../../components/layout/Form/SignInForm';
 import BackButton from '../../components/Buttons/BackButton';
 

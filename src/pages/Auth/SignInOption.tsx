@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import LeftSectionImage from "../../Assets/hr_group.jpg"
 import { NavLink } from 'react-router-dom'
 import BackButton from '../../components/Buttons/BackButton'
-import logo from "../../Assets/logos2.png"
+import logo from "../../Assets/eazy.png"
 
 const SignInOption = () => {
 
@@ -178,7 +178,7 @@ position: relative;
 
 // Left Section Codes
 const Image = styled.img`
-height: 100%;
+height: 50px;
 width: 100%;
 object-fit: cover;
 overflow: hidden;
