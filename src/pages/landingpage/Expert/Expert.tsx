@@ -176,24 +176,25 @@ grid-template-columns: 1fr 3fr;
 }
 @media screen and (max-width:425px) {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
 }
 
 `
 
 const Word = styled.div`
-text-align: center;
+h2{
+    line-height: 1.2;
+margin: 0;
+    text-align: center;
 font-size: 27px;
 color:  #001328;
 font-weight: 800;
-line-height: 1.2;
-font-family: inherit;
-margin: 0;
-
-@media screen and (max-width:320px) {
-    font-size: 25px;
+    @media screen and (max-width:500px) {
+    font-size: 24px;
     text-align: center;
 }
+}
+
 @media screen and (max-width:768px) {
     font-size: 30px;
     text-align: center;
