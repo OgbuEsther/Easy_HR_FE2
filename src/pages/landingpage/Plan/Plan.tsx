@@ -118,9 +118,8 @@ const App = () => {
           <Holder>
             <h3>Time & Attendance</h3>
             <p>
-              Save time and improve payroll accuracy with the latest in time and
-              attendance software. However you prefer to track employee time, we
-              have flexible options to fit your business.
+            Tracking time and attendance is critical for all organizations, no matter its size or the methods used to determine employee pay.
+            Having an automated time and attendance tracking system in place can help organizations across all industries save money and improve operations.
             </p>
            
           </Holder>
@@ -135,9 +134,7 @@ const App = () => {
           <Holder>
             <h3>Benefits</h3>
             <p>
-              Save time and improve payroll accuracy with the latest in time and
-              attendance software. However you prefer to track employee time, we
-              have flexible options to fit your business.
+            HR systems help reduce administrative time, broaden headhunting options, assist with onboarding, speed up information dissemination among team members, improve security and simplify payroll processing, among other things
             </p>
          
           </Holder>
@@ -151,9 +148,7 @@ const App = () => {
           <Holder>
             <h3>Hr Management</h3>
             <p>
-              Save time and improve payroll accuracy with the latest in time and
-              attendance software. However you prefer to track employee time, we
-              have flexible options to fit your business.
+            The purpose of HR management software is to combine different human resource and administration processes in a centralized location, from where the manager can also assign tasks, monitor, and evaluate progress, and reward the best performers in the team.
             </p>
            
           </Holder>
@@ -168,9 +163,7 @@ const App = () => {
           <Holder>
             <h3>Hiring</h3>
             <p>
-              Save time and improve payroll accuracy with the latest in time and
-              attendance software. However you prefer to track employee time, we
-              have flexible options to fit your business.
+            Human resource managers go through a series of steps to identify and acquire the best candidates to fill a posted job requirement.
             </p>
          
           </Holder>
@@ -244,8 +237,8 @@ const Second = styled.div`
   width: 90%;
   height: 200px;
   border: 1px solid gray;
-  margin-bottom: 10px;
-  margin-top: 70px;
+  margin-bottom: 40px;
+  margin-top: 40px;
   display: flex;
   border-radius: 5px;
   /* align-items: center; */

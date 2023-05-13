@@ -23,7 +23,7 @@ const Header = () => {
     }
 
   return (
-    <div className='w-full h-20 z-10 bg-header flex justify-center fixed'>
+    <div className='w-full h-20 z-10 bg-header flex justify-center fixed' id='her'>
       <div className='w-11/12 flex items-center justify-between'>
         <img src={img} alt="" className='h-16'/>
 
