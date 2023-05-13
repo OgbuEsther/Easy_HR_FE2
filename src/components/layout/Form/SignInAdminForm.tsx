@@ -13,6 +13,7 @@ import { useDispatch } from "react-redux";
 import BackButton from '../../Buttons/BackButton';
 import {AiOutlineEyeInvisible} from "react-icons/ai"
 import {AiOutlineEye} from "react-icons/ai"
+import Loading from "../../../pages/Loading";
 
 const SigninForm = () => {
   const dispatch = useDispatch();
@@ -86,17 +87,18 @@ const SigninForm = () => {
   });
 
   return (
-    <FormHold>
-      
+    <Container>
+      <FormHold>
+        
       <BackButton path="/sign-in-option"/>
      
       <BackButtonHold>
     <BackButton path="/sign-in-option"/>
   </BackButtonHold>
       <SignUpTitle>Sign In</SignUpTitle>
+      
      
       <SignUpDescription>You will be signed in as an Admin</SignUpDescription>
-
       <InputField onSubmit={Submit}>
         <CompanyNameInputHold>
           <CompanyNameInput
@@ -142,10 +144,20 @@ const SigninForm = () => {
         </FifthInputColumn>
       </InputField>
     </FormHold>
+    </Container>
   );
 };
 
 export default SigninForm;
+const Contain = styled.div`
+  width: 100vw;
+  position: absolute;
+  height: 100%;
+  width: 100vw;
+`
+const Container = styled.div`
+  position: relative;
+`
 
 const MainPassword = styled.input`
   height: 45px;

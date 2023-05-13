@@ -12,6 +12,7 @@ import Swal from "sweetalert2";
 import {AiOutlineEyeInvisible} from "react-icons/ai"
 import {AiOutlineEye} from "react-icons/ai"
 import BackButton from "../../Buttons/BackButton";
+import Loading from "../../../pages/Loading";
 
 const SignupAdminForm = () => {
   const dispatch = UseAppDispach();
@@ -85,7 +86,11 @@ const SignupAdminForm = () => {
   });
 
   return (
-    <Form onSubmit={Submit}>
+    <Container>
+      {
+              posting.isLoading ? <Loading /> : null
+            }
+      <Form onSubmit={Submit}>
       <BackButton path="/sign-up-option"/>
 
       <SignUpTitle>Sign Up</SignUpTitle>
@@ -156,10 +161,14 @@ const SignupAdminForm = () => {
         </AdminSignOptionColumn>
       </InputField>
     </Form>
+    </Container>
+    
   );
 };
 
 export default SignupAdminForm;
+const Container = styled.div`
+`
 
 
 const ShowPasswordAndForgetPassword = styled.div`

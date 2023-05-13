@@ -13,6 +13,7 @@ import Swal from "sweetalert2";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
 import { AiOutlineEye } from "react-icons/ai";
 import BackButton from "../../Buttons/BackButton";
+import Loading from "../../../pages/Loading";
 
 const SignupForm = () => {
   const [ViewPassword, SetViewPassword] = useState(false);
@@ -81,7 +82,11 @@ const SignupForm = () => {
   });
 
   return (
-    <Form onClick={Submit}>
+    <Container>
+      {
+              StaffSignUp.isLoading ? <Loading /> : null
+            }
+        <Form onClick={Submit}>
       <BackButton path="/sign-up-option" />
       <SignUpTitle>Sign Up</SignUpTitle>
       <SignUpDescription>You will be signup as a Staff</SignUpDescription>
@@ -159,10 +164,14 @@ const SignupForm = () => {
         </AdminSignOptionColumn>
       </InputField>
     </Form>
+    </Container>
+    
   );
 };
 
 export default SignupForm;
+const Container = styled.div`
+`
 
 const CompanyNameInput = styled.input`
   height: 50px;
