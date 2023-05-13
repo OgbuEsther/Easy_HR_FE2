@@ -7,10 +7,10 @@ import { useAppSelector } from "../components/global/Store";
 import { useQuery } from "@tanstack/react-query";
 import { getOneAdmin } from "../utils/Api/ApiCall";
 import AdminCard from "./AdminCard";
-import DoughnutChat from "./DoughnutAdmin";
 import { Charts } from "../components/Graph";
 import DoughnutAdmin from "./DoughnutAdmin";
 import HomeLeave from "./HomeLeave";
+import Cards from "../pages/Cards"
 
 const ParentComp = () => {
   const [show, setShow] = React.useState(false);
@@ -94,7 +94,8 @@ const ParentComp = () => {
               </Slidein>
             ) : null}
           </Top>
-          <AdminCard />
+          
+          <Cards />
           
           <Hold>
             <Cha>
