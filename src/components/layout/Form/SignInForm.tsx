@@ -54,6 +54,7 @@ SetViewPassword(!ViewPassword)
 
     onSuccess: (myData) => {
       dispatch(Staff(myData.data));
+      reset();
       // console.log(myData)
 
       Swal.fire({
@@ -71,7 +72,6 @@ SetViewPassword(!ViewPassword)
         },
 
       });
-      reset()
 
     },
     onError: (error: any) => {
@@ -84,10 +84,10 @@ SetViewPassword(!ViewPassword)
 });
 
   const Submit = handleSubmit(async(data: any)=>{
-    loginin.mutate(data)
+    loginin.mutate(data);
     // console.log("this is sign in data" , data)
 
-  })
+  });
 
 
   return (

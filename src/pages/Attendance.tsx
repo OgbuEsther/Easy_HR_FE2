@@ -104,10 +104,11 @@ const Attendance: React.FC = () => {
 
   const [early , setEarly] = useState({})
 
-
-
   //api consumption
 
+  const users = useAppSelector((state) => state.currentStaff);
+  
+  console.log("this is staff", )
   return (
     <AttendancePage>
       <AttendanceMainPage>
@@ -123,14 +124,15 @@ const Attendance: React.FC = () => {
           </Word>
 
           <StaffDetail>
-
+          {/* {getStaff?.data?.data?.map((el: any) => ( */}
+           {/* <div> */}
            <Details>
             <Pic>
-              DC
+            {users?.yourName?.charAt(0)}
             </Pic>
             <Div>
               <Name>
-                Valerian Pedro
+               {users?.yourName}
               </Name>
               <Post>
                 Full Stack Developer
@@ -143,27 +145,28 @@ const Attendance: React.FC = () => {
            Employee ID
               </Name>
               <Post>
-              IM062587UT
+             {users?.walletNumber}
               </Post>
            </Employee>
-           <Employee>
+           {/* <Employee>
            <Name>
            Joining Date
               </Name>
               <Post>
               3 April 2033
               </Post>
-           </Employee>
+           </Employee> */}
            <Employee>
            <Name>
-           Department
+           company' code
               </Name>
               <Post>
-               API Consumption
+              {users?.companyCode}
               </Post>
            </Employee>
+           
          </StaffDetail>
-
+        
         <StatisticColumn>
           <Card className="one">
             <CardTitle>
@@ -195,16 +198,7 @@ const Attendance: React.FC = () => {
               </ButtonHold>
               </CircleTimerHold>
 
-              {/* <BreakAndOvertime>
-                <BreakBox>
-                  <BreakText>Break</BreakText>
-                  <HourText>1.21 hrs</HourText>
-                </BreakBox>
-                <OverTimeBox>
-                  <OverTimeText>Over</OverTimeText>
-                  <HourText>3.21 hrs</HourText>
-                </OverTimeBox>
-              </BreakAndOvertime> */}
+    
             </CardContent>
           </Card>
           {/* <Card className="two">
@@ -319,33 +313,7 @@ const Attendance: React.FC = () => {
           </Card> */}
         </StatisticColumn>
 
-        
-        {/* <TimingColumn>
-          <TimeCard className="date">
-            <DateText>2023-04-21</DateText>
-            <Icon>
-              <BsCalendar4Event />
-            </Icon>
-          </TimeCard>
-          <TimeCard className="select">
-            <Select
-              defaultInputValue={selectOption}
-              onChange={setSelectOption}
-              options={Option}
-              placeholder="choose an option"
-            />
-          </TimeCard>
-          <TimeCard className="select">
-            <Select
-              defaultInputValue={selectOption}
-              onChange={setSelectOption}
-              options={Option}
-              placeholder="choose an option"
-            />
-          </TimeCard>
-
-          <SearchButton>Search</SearchButton>
-        </TimingColumn> */}
+       
 
         <LastComp>
           <First>
