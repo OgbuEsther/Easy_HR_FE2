@@ -199,7 +199,7 @@ const InputmainHold = styled.div`
 
 const PasswordInputHold = styled.div`
   height: auto;
-  width: 100%;
+  width: 300px;
 
 `
 
@@ -228,7 +228,7 @@ const ShowPassword = styled.div`
 
 const CompanyNameInput = styled.input`
   height: 50px;
-  width: auto;
+  width: 100%;
 `;
 
 
@@ -236,13 +236,11 @@ const CompanyNameInput = styled.input`
 const CompanyNameInputContainer = styled.div`
   height: auto;
   width: 300px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  margin-right: 5px;
+  
 
   @media screen and (max-width:960px) {
     width: 100%;
-    margin-bottom: 20px;
   }
 `;
 
@@ -261,7 +259,7 @@ const CompanyNameAndPasswordInputColumn = styled.div`
 
 const AdminEmailInput = styled.input`
   height: 50px;
-  width: auto;
+  width: 100%;
 `;
 
 const AdminEmailColumn = styled.div`
@@ -278,42 +276,33 @@ const AdminEmailColumn = styled.div`
 const AdminEmailContainer = styled.div`
   height: auto;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  margin-bottom: 40px;
 
   @media screen and (max-width: 960px) {
     width: 100%;
-    margin-bottom: 20px;
   }
 `;
 
 // First Nane input
 const FirstNameInput = styled.input`
   height: 50px;
-  width: auto;
+  width: 100%;
   border: 1px solid silver;
 `;
 
 const FirstNameInputContainer = styled.div`
   height: auto;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+ 
 `;
 
 const NameInputColumn = styled.div`
   height: auto;
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+  margin-bottom: 40px;
 
   @media screen and (max-width: 960px) {
     justify-content: center;
-    margin-bottom: 20px;
   }
 `;
 
