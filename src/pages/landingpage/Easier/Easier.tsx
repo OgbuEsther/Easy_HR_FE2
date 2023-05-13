@@ -30,7 +30,7 @@ const Easier = () => {
 
             <Words>
           <p>
-          with the use of technology, software, and services to streamline and automate human resources (HR) processes within an organization. Making it easier for employee engagement, performance management, payroll and benefits administration, and compliance management.
+          With the use of technology, software, and services to streamline and automate human resources (HR) processes within an organization. Making it easier for employee engagement, performance management, payroll and benefits administration, and compliance management.
           </p>
           
             </Words>
@@ -124,11 +124,11 @@ p{
   font-size:18px;
 
   @media screen and (max-width:320px) {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 35px;
   display: flex;
-  align-items: center;
-  width: 320px;
+  /* align-items: center; */
+  width: 100%;
   /* background-color: red; */
   margin: 0px 0px 50px;
 }
@@ -150,10 +150,13 @@ font-weight: 800;
 font-size: 27px;
 
 @media screen and (max-width:320px) {
-  font-size: 21px;
+  font-size: 22px;
+  /* text-align: center; */
+  color: red;
+  margin-right: 180px;
 }
 @media screen and (max-width:375px) {
-  font-size: 24px;
+  font-size: 22px;
 }
 }
 
@@ -232,11 +235,11 @@ justify-content: center;
 
 const Wrapper = styled.div`
 display: flex;
-/* align-items: center; */
+align-items: center;
 justify-content: center;
-height: 830px;
+height: 100%;
 /* background-color: brown; */
-width: 1200px;
+width: 95%;
 flex-wrap: wrap;
 
 @media screen and (max-width:320px) {
@@ -248,27 +251,33 @@ flex-wrap: wrap;
 @media screen and (max-width:375px) {
   margin-left: 10px;
 }
-@media screen and (max-width:768px) {
+@media screen and (max-width:500px) {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   flex-wrap: wrap;
-  /* background-color: red; */
+  background-color: red;
 }
 
 `
 
 const Container = styled.div`
-height: 800px;
+height: 100%;
 /* width: auto; */
 background-image: url(${img});
-margin-top: 40px;
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+/* margin-top: 40px; */
 display: flex;
 align-items: center;
 justify-content: center;
-flex-direction: column;
-flex-wrap: wrap;
+
+
+@media screen and (max-width:500px) {
+  display: none;
+}
 
 
 `

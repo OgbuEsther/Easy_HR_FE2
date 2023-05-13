@@ -4,7 +4,7 @@ import img1 from "../../../Assets/val.jpg"
 import img2 from "../../../Assets/ceo.jpg"
 import img3 from "../../../Assets/esther.jpg"
 import img4 from "../../../Assets/cto.jpg"
-import img5 from "../../../Assets/lead.jpg"
+import img5 from "../../../Assets/lead.jpeg"
 import {  BsWhatsapp} from "react-icons/bs"
 import {  SiFacebook} from "react-icons/si"
 import { Fade } from 'react-awesome-reveal'
@@ -13,6 +13,7 @@ import { Fade } from 'react-awesome-reveal'
 const Expert = () => {
   return (
     <div>
+        {/* Expert section */}
         <Container id='expert'>
           <Wrapper>
             <Fade direction='up'>
@@ -156,7 +157,7 @@ const Image = styled.div`
 display: flex;
 align-items: center;
 flex-direction: column;
-margin: 40px;
+margin: 27px;
 
 
 `
@@ -176,24 +177,25 @@ grid-template-columns: 1fr 3fr;
 }
 @media screen and (max-width:425px) {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
 }
 
 `
 
 const Word = styled.div`
-text-align: center;
+h2{
+    line-height: 1.2;
+margin: 0;
+    text-align: center;
 font-size: 27px;
 color:  #001328;
 font-weight: 800;
-line-height: 1.2;
-font-family: inherit;
-margin: 0;
-
-@media screen and (max-width:320px) {
-    font-size: 25px;
+    @media screen and (max-width:500px) {
+    font-size: 24px;
     text-align: center;
 }
+}
+
 @media screen and (max-width:768px) {
     font-size: 30px;
     text-align: center;

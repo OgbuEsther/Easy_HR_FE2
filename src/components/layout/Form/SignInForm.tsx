@@ -13,7 +13,7 @@ import { Staff } from '../../global/ReduxState'
 import Swal from 'sweetalert2'
 import { LoginStaff } from '../../../utils/Api/ApiCall'
 import BackButton from '../../Buttons/BackButton'
-
+import Loading from '../../../pages/Loading'
 
 
 const SigninForm = () => {
@@ -91,7 +91,10 @@ SetViewPassword(!ViewPassword)
 
 
   return (
-
+    <Container>
+      {
+              loginin.isLoading ? <Loading /> : null
+            }
         <Form  onSubmit={Submit}>
 <BackButton path='/sign-in-option'/>
 
@@ -142,6 +145,8 @@ SetViewPassword(!ViewPassword)
 </FifthInputColumn>
 </InputField>
 </Form>
+    </Container>
+        
   
   )
 }
@@ -149,7 +154,9 @@ SetViewPassword(!ViewPassword)
 export default SigninForm;
 
 
-
+const Container = styled.div`
+  
+`
 
 const ForgetPassword = styled.div`
   height: auto;
@@ -185,7 +192,7 @@ const CompanyNameInput = styled.input<{outline:string;}>`
 const CompanyNameInputHold = styled.div`
     height: auto;
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 40px;
     display: flex;
     flex-direction:column;
 
@@ -280,6 +287,7 @@ const MainPassword = styled.input`
   flex: 1;
   padding-left: 10px;
   outline: none;
+  background-color: transparent;
 
 `
 
@@ -291,10 +299,12 @@ const InputmainHold = styled.div`
   align-items: center;
   border: 1px solid  #0174f78d;
   border-radius: 5px;
+  background-color: transparent;
 `
 const PasswordInputHold = styled.div`
   height: auto;
   width: 100%;
+  background-color: transparent;
 
 `
 const CompanyPasswordColumn = styled.div`
@@ -303,6 +313,7 @@ height: auto;
     margin-bottom: 15px;
     display: flex;
     flex-direction:column;
+    background-color: transparent;
 
     /* background-color: blue; */
 `
@@ -311,8 +322,7 @@ height: auto;
 const EmailInputColumn = styled.div`
  height: auto;
    width: 100%;
-    margin-bottom: 25px;
-    margin-top: 25px;
+    margin-bottom: 40px;
     display: flex;
     flex-direction:column;
 

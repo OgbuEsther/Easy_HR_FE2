@@ -12,6 +12,7 @@ import Swal from "sweetalert2";
 import {AiOutlineEyeInvisible} from "react-icons/ai"
 import {AiOutlineEye} from "react-icons/ai"
 import BackButton from "../../Buttons/BackButton";
+import Loading from "../../../pages/Loading";
 
 const SignupAdminForm = () => {
   const dispatch = UseAppDispach();
@@ -85,7 +86,11 @@ const SignupAdminForm = () => {
   });
 
   return (
-    <Form onSubmit={Submit}>
+    <Container>
+      {
+              posting.isLoading ? <Loading /> : null
+            }
+      <Form onSubmit={Submit}>
       <BackButton path="/sign-up-option"/>
 
       <SignUpTitle>Sign Up</SignUpTitle>
@@ -156,10 +161,14 @@ const SignupAdminForm = () => {
         </AdminSignOptionColumn>
       </InputField>
     </Form>
+    </Container>
+    
   );
 };
 
 export default SignupAdminForm;
+const Container = styled.div`
+`
 
 
 const ShowPasswordAndForgetPassword = styled.div`
@@ -199,7 +208,11 @@ const InputmainHold = styled.div`
 
 const PasswordInputHold = styled.div`
   height: auto;
-  width: 100%;
+  width: 300px;
+
+  @media screen and (max-width: 960px) {
+    width: 100%;
+  }
 
 `
 
@@ -228,7 +241,7 @@ const ShowPassword = styled.div`
 
 const CompanyNameInput = styled.input`
   height: 50px;
-  width: auto;
+  width: 100%;
 `;
 
 
@@ -236,13 +249,12 @@ const CompanyNameInput = styled.input`
 const CompanyNameInputContainer = styled.div`
   height: auto;
   width: 300px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  margin-right: 5px;
 
   @media screen and (max-width:960px) {
     width: 100%;
-    margin-bottom: 20px;
+    margin-right: 0px;
+    margin-bottom: 40px;
   }
 `;
 
@@ -261,7 +273,7 @@ const CompanyNameAndPasswordInputColumn = styled.div`
 
 const AdminEmailInput = styled.input`
   height: 50px;
-  width: auto;
+  width: 100%;
 `;
 
 const AdminEmailColumn = styled.div`
@@ -278,41 +290,33 @@ const AdminEmailColumn = styled.div`
 const AdminEmailContainer = styled.div`
   height: auto;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  margin-bottom: 40px;
 
   @media screen and (max-width: 960px) {
     width: 100%;
-    margin-bottom: 20px;
   }
 `;
 
+// First Nane input
 const FirstNameInput = styled.input`
   height: 50px;
-  width: auto;
+  width: 100%;
   border: 1px solid silver;
 `;
 
 const FirstNameInputContainer = styled.div`
   height: auto;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+ 
 `;
 
 const NameInputColumn = styled.div`
   height: auto;
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+  margin-bottom: 40px;
 
   @media screen and (max-width: 960px) {
     justify-content: center;
-    margin-bottom: 20px;
   }
 `;
 
@@ -425,3 +429,4 @@ const Form = styled.form`
     width: auto;
   }
 `;
+

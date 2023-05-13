@@ -1,6 +1,6 @@
 import React, { useDebugValue } from 'react'
 import styled from 'styled-components'
-import img from "../../Assets/easyhr.png"
+import img from "../../Assets/new.png"
 import { MdDashboard } from "react-icons/md";
 import { NavLink, useNavigate } from 'react-router-dom';
 import { FiPower } from "react-icons/fi";
@@ -284,7 +284,7 @@ const Home = styled.div`
 `;
 
 const Img = styled.img`
-  height: 120px;
+  height: 100px;
 `;
 
 const Top = styled.div`
@@ -296,7 +296,7 @@ const Container = styled.div`
   width: 220px;
   height: 100vh;
   position: fixed;
-  background-color: #1F337C;
+  background-color: #001328;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   overflow: hidden;
   padding-left: 25px;

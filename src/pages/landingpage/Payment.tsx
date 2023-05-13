@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import img14 from "../../Assets/hr3.avif"
 
-import img4 from "../../Assets/hr.avif"
+import img4 from "../../Assets/image.jpg"
 
 import img8 from "../../Assets/hr4.jpg"
 
@@ -18,7 +18,7 @@ const Payment = () => {
 
 
   return (
-    <Fade direction='up'>
+    // <Fade direction='up'>
     <Container>
         <Text>Sell world-class HR solutions <br /> and increase profitability</Text>
         <P>Track  attendance and location, improve worker efficiency, and gain greater visibility into employee time and attendance</P>
@@ -78,7 +78,7 @@ const Payment = () => {
   
 </NavLink> */}
     </Container>
-</Fade>
+// </Fade>
   )
 }
 

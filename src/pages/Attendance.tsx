@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-
-
 import InputStaffAttendance from "./InputFieldAttendance/InputStaffAttendance";
 import { MdOutlineCancel } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { getOneAdmin, getOneStaff } from "../utils/Api/ApiCall";
 import { useAppSelector } from "../components/global/Store";
+// import {SiMattermost} from "react-icons/si"
 
 // const Option = [
 //   { value: "chocolate", label: "Chocolate" },
@@ -114,6 +113,7 @@ const Attendance: React.FC = () => {
     <AttendancePage>
       <AttendanceMainPage>
       <Word>
+        {/* <SiMattermost/> */}
         Attendance <br />
            <span>
           <a href="/dashboard">
@@ -184,22 +184,24 @@ const Attendance: React.FC = () => {
 
             <CardContent>
               <PunchInRecord>
-                <PunchInat>Punch In at</PunchInat>
+                <PunchInat>Punch in at:</PunchInat>
                 <Date>{`${clockin?.date} ${clockin?.time}`}</Date>
               </PunchInRecord>
               <CircleTimerHold>
                 <CircleTimer>
                   <Timer>{clockin?.time} </Timer>
                 </CircleTimer>
-                <PunchButton onClick={Toggle}>Punch In</PunchButton>
+              <ButtonHold>
+              <PunchButton onClick={Toggle}>Punch In</PunchButton>
 
-                <PunchButton onClick={Toggle}>Punch Out</PunchButton>
+<PunchButton onClick={Toggle}>Punch Out</PunchButton>
+              </ButtonHold>
               </CircleTimerHold>
 
     
             </CardContent>
           </Card>
-          <Card className="two">
+          {/* <Card className="two">
             <CardTitle>Leave Stats</CardTitle>
            
               <CardContent>
@@ -216,14 +218,13 @@ const Attendance: React.FC = () => {
                   </DayAndHourColumn>
                   <ProgressBarHold>
                     <ProgressBar width={width}></ProgressBar>
-                    {/* <button onClick={int}>click me</button> */}
                   </ProgressBarHold>
                 </StatisticsMeasureColumn>
                 ))}
               </CardContent>
             
-          </Card>
-          <Card className="three">
+          </Card> */}
+          {/* <Card className="three">
             <CardTitle>Apply For Leave</CardTitle>
             <CardContent>
               <LeaveOptionForm>
@@ -309,7 +310,7 @@ const Attendance: React.FC = () => {
                 </OptionInputHold>
               </LeaveOptionForm>
             </CardContent>
-          </Card>
+          </Card> */}
         </StatisticColumn>
 
        
@@ -434,6 +435,16 @@ const Attendance: React.FC = () => {
 };
 
 export default Attendance;
+const ButtonHold = styled.div`
+flex-wrap: wrap;
+
+@media screen and (max-width:500px) {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+`
+
 // TABLE STYLING AREA
 
 const Time = styled.div`
@@ -445,10 +456,6 @@ color: red;
 font-weight: bold;
 `
 
-const Chc = styled.div`
-color: green;
-font-weight: bold;
-`
 
 const Box1 = styled.div`
   border: 1px solid red;
@@ -548,6 +555,12 @@ margin-left: 30px;
 margin-right: 30px;
 text-align: center;
 margin-top: 30px;
+
+@media screen and (max-width:500px) {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
 `
 
 const First = styled.div`
@@ -555,19 +568,46 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 /* background-color: yellow; */
+flex-wrap: wrap;
+
+@media screen and (max-width:500px) {
+  display: flex;
+  flex-wrap: wrap;
+  /* background-color: red; */
+  width: 250px;
+  height: 380px;
+
+}
 `
 
 const LastComp = styled.div`
-  width: 1000px;
+  width: 930px;
 background-color:white;
+height: 150px;
 box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 /* background-color: red; */
 border-radius: 10px;
 margin-top: 20px;
+margin-left: 10px;
+display: flex;
+flex-wrap: wrap;
+
+@media screen and (max-width:500px) {
+  display: flex;
+  flex-wrap: wrap;
+  /* background-color: brown; */
+  width: 250px;
+  height: 350px;
+  box-shadow: none;
+}
 `
 
 const Employee = styled.div`
 margin-right: 30px;
+
+@media screen and (max-width:500px) {
+  margin-left: 70px;
+}
 `
 
 const Post = styled.div`
@@ -578,6 +618,10 @@ font-size: 14px;
 const Name = styled.div`
 font-weight: 600;
 font-size: 20px;
+
+@media screen and (max-width:500px) {
+  width: 100%;
+}
 `
 
 const Div = styled.div`
@@ -600,9 +644,10 @@ border: 2px solid black;
 border-radius: 50px;
 
 @media screen and (max-width: 900px) {
-  height: 30px;
-  width: 30px;
-  font-size: 12px;
+  height: 50px;
+  width: 50px;
+  font-size: 15px;
+  border-radius: 100%;
 }
 `
 
@@ -610,18 +655,31 @@ const Details = styled.div`
 display: flex;
 align-items: center;
 margin-left: 10px;
+
 `
 
 const StaffDetail = styled.div`
 background-color: white;
-width: 1000px;
+width: 930px;
 border-radius: 10px;
+margin-left: 10px;
 height: 80px;
 display: flex;
+flex-wrap: wrap;
 align-items: center;
 justify-content: space-between;
 box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
 /* box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px; */
+
+
+@media screen and (max-width:500px) {
+  display: flex;
+  flex-wrap: wrap;
+  /* background-color: brown; */
+  width: 250px;
+  height: 350px;
+
+}
 `
 
 
@@ -642,12 +700,14 @@ margin-top: 30px;
 span{
   color: rgb(51,51,51);
   background-color: rgba(0,0,0,0);
-  font-size: 16px;
+  font-size: 15px;
   line-height: 24px;
   letter-spacing: normal;
   font-weight: 500;
   text-decoration: none solid rgb(51,51,51);
   text-align: left;
+
+
 }
 
 a{
@@ -660,37 +720,6 @@ a{
 `
 
 
-// Apply for leave
-
-const Label = styled.label`
-  font-size: medium;
-  font-weight: 550;
-  cursor: pointer;
-`;
-
-const OptionInput = styled.input`
-  cursor: pointer;
-`;
-
-const OptionInputHold = styled.div<{ bg: string; bd: string; cl: string }>`
-  height: 40px;
-  width: auto;
-  background-color: ${({ bg }) => bg};
-  color: ${({ cl }) => cl};
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0px 8px;
-  margin-top: 12px;
-  border: 1px solid ${({ bd }) => bd};
-  cursor: pointer;
-`;
-
-const LeaveOptionForm = styled.form`
-  height: auto;
-  width: auto;
-  transition: all 390ms;
-`;
 
 const Icron = styled.div`
   position: absolute;
@@ -719,109 +748,13 @@ const Holds = styled.div`
   z-index: 5;
 `;
 
-// Timing styling area
-const DateText = styled.div``;
 
-const SearchButton = styled.button`
-  height: 40px;
-  width: 180px;
-  font-size: 16px;
-  font-weight: 600;
-  background-color: white;
-  margin-left: 20px;
-  border-radius: 4px;
-  border: none;
-  background-color: #079b2e;
-  margin-bottom: 10px;
-  color: white;
-`;
 
-const TimeCard = styled.div`
-  height: auto;
-  width: 240px;
-  background-color: white;
-  margin-left: 20px;
-  border-radius: 4px;
-  margin-bottom: 10px;
-  outline: none;
-`;
 
-const TimingColumn = styled.div`
-  height: auto;
-  width: auto;
-  margin-top: 10px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
-
-  .date {
-    border: 1px solid silver;
-    display: flex;
-    align-items: center;
-    height: 35px;
-    padding: 0px 10px;
-    justify-content: space-between;
-  }
-`;
 
 // Leave stats area
-const Icon = styled.div`
-  height: auto;
-  width: auto;
-  color: silver;
-  margin-top: 6px;
-  margin-right: 1px;
-  font-weight: 600;
-`;
 
-const ProgressBar = styled.div<{ width: number }>`
-  width: ${({ width }) => width}%;
-  height: 10px;
-  background-color: blue;
-  border-radius: 50px;
-  transition: width 0.5s ease;
-`;
 
-const ProgressBarHold = styled.div`
-  width: 90%;
-  height: auto;
-  background-color: #ddd;
-  margin-top: 10px;
-  border-radius: 50px;
-`;
-
-const HourMeasure = styled.div`
-  height: auto;
-  width: auto;
-`;
-
-const Day = styled.div`
-  height: auto;
-  width: auto;
-`;
-
-const DayAndHourColumn = styled.div`
-  height: auto;
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
-  font-weight: 600;
-`;
-
-const StatisticsMeasureColumn = styled.div`
-  height: 50px;
-  width: auto;
-  margin-top: 10px;
-  border: 1px solid #c5c5c5;
-  border-radius: 4px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`;
 
 const Date = styled.div`
   font-size: 14px;
@@ -839,54 +772,15 @@ const Timer = styled.div`
   font-weight: 600;
   color: #6b6b6b;
 `;
-const OverTimeText = styled.div``;
 
-const OverTimeBox = styled.div`
-  height: 50px;
-  width: 120px;
-  border: 1px solid silver;
-  border-radius: 4px;
-  background-color: #cfcdcd29;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  flex-direction: column;
-  font-size: 12px;
-`;
 
-const BreakBox = styled.div`
-  height: 50px;
-  width: 120px;
-  text-align: center;
-  border: 1px solid silver;
-  border-radius: 4px;
-  background-color: #cfcdcd29;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  font-weight: bold;
-  font-size: 12px;
-`;
-
-const HourText = styled.div``;
-const BreakText = styled.div``;
-
-const BreakAndOvertime = styled.div`
-  height: auto;
-  width: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  margin-top: 20px;
-`;
 
 const PunchButton = styled.button`
   height: 50px;
   width: 180px;
-  background-color: #1F337C;
-  border: 2px solid #1F337C;
+  margin: 10px;
+  background-color: #001328;
+  border: 2px solid #001328;
   color: white;
   border-radius: 100px;
   margin-top: 20px;
@@ -896,14 +790,14 @@ const PunchButton = styled.button`
   transition: all 960ms;
 
   :hover{
-    color:#1F337C;
+    color:#001328;
     background-color: whitesmoke;
   }
 `;
 
 const CircleTimer = styled.div`
-  height: 120px;
-  width: 120px;
+  height: 180px;
+  width: 180px;
   border-radius: 100%;
   border: 2px solid silver;
   display: flex;
@@ -956,7 +850,7 @@ const CardTitle = styled.h4`
 
 const Card = styled.div`
   height: auto;
-  width: 300px;
+  width: 600px;
   background-color: white;
   box-shadow: 1px 1px 3px 1px rgba(166, 165, 165, 0.5);
   margin-left: 30px;
@@ -964,6 +858,14 @@ const Card = styled.div`
   padding-left: 10px;
   padding-bottom: 18px;
   padding-right: 10px;
+  
+
+  @media screen and (max-width:500px) {
+    width: 250px;
+    height: 500px;
+  }
+
+ 
 `;
 
 const StatisticColumn = styled.div`
@@ -975,31 +877,20 @@ const StatisticColumn = styled.div`
   margin-top: 30px;
   align-items: flex-start;
   flex-wrap: wrap;
+
+
+  @media screen and (max-width:500px) {
+    margin-left:-12px;
+  }
 `;
 
-// Title and BreadCrum styling area
-const TitleAndBreadCrumColumn = styled.div`
-  height: 100px;
-  width: auto;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding-left: 30px;
-`;
-
-const BreadCrum = styled.h4`
-  margin: 0px;
-`;
-
-const Title = styled.h1`
-  margin: 0px;
-`;
 
 // Attendance main Page
 const AttendanceMainPage = styled.div`
   height: auto;
   width: calc(100vw - 320px);
   padding-bottom: 30px;
+  /* overflow: hidden; */
   @media screen and (max-width: 960px) {
     width: 100%;
   }
@@ -1013,4 +904,8 @@ const AttendancePage = styled.div`
   justify-content: flex-end;
   align-items: center;
   padding-top: 100px;
+
+  @media screen and (max-width:500px) {
+    margin-right: 30px;
+  }
 `;

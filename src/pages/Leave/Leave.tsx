@@ -134,32 +134,16 @@ const Leave = () => {
     <Container>
       <Wrapper>
         <Top>
-          <Pending onClick={Toggle1}><h3>Pending Leave</h3><span>{isLoading ? (1) : <RotatingLines  visible={true}
-            strokeColor="#007bff"
-            strokeWidth="5"
-            animationDuration="0.75"
-            width="30"/>}</span>
+          <Pending bg={show1 ? "red" : ""} onClick={Toggle1}><h3>Pending</h3>
           </Pending>
 
-          <Pending onClick={Toggle3}><h3>Approved Leave</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
-            strokeColor="#007bff"
-            strokeWidth="5"
-            animationDuration="0.75"
-            width="30" />}</span>
-          </Pending>
+          <Pending2 bg={show3 ? "red" : ""} onClick={Toggle3}><h3>Approved Leave</h3>
+          </Pending2>
 
-          <Pending onClick={Toggle4}><h3>Rejected Leave</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
-            strokeColor="#007bff"
-            strokeWidth="5"
-            animationDuration="0.75"
-            width="30" />}</span>
-          </Pending>
+          <Pending3 bg={show4 ? "red" : ""} onClick={Toggle4}><h3>Rejected Leave</h3>
+          </Pending3>
 
-          <Pending onClick={Toggle5}><h3>All Leave</h3><span>{isLoading ? (1) : <RotatingLines  visible={true}
-            strokeColor="#007bff"
-            strokeWidth="5"
-            animationDuration="0.75"
-            width="30"/>}</span></Pending>
+          <Pending4 bg={show5 ? "red" : ""} onClick={Toggle5}><h3>All Leave</h3></Pending4>
         </Top>
         {show1 ? (
           <Down>
@@ -369,6 +353,9 @@ const First = styled.div`
   font-weight: 500;
     line-height: 1.2;
   }
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
 `
 const Up = styled.div`
   width: 100%;
@@ -384,6 +371,10 @@ const Create = styled.div`
   padding: 14px;
   border: 1px solid #d3d3d3;
   margin-top: 15px;
+  @media screen and (max-width: 500px) {
+    width: 320px;
+    flex-wrap: wrap;
+  }
 `
 const Plan = styled.div`
   margin-top: 19px;
@@ -573,14 +564,154 @@ const Down = styled.div`
   flex-direction: column;
   margin-top: 33px;
 `
-const Pending = styled.div`
-  display: flex;
+const Pending4 = styled.div<{ bg: string}>`
+display: flex;
   margin: 18px;
   cursor: pointer;
+  height: 40px;
+  border: 1px solid ${({ bg }) => (bg ? "#219653" : "#fff")};
+  width: 220px;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 19px;
+  color: #6c757d;
+  justify-content: center;
+  align-items: center;
+  @media screen and (max-width: 500px) {
+    margin: 5px;
+    width: 100%;
+    height: 43px;
+    margin-top: 10px;
+  }
   h3{
+    @media screen and (max-width: 500px) {
+    font-size: 17px;
+    font-weight: 600;
+  }
+  
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  }
+  span{
+    margin-left: 7px;
     font-weight: 500;
   font-size: 19px;
   color: #6c757d;
+  }
+`
+const Pending3 = styled.div<{ bg: string}>`
+display: flex;
+  margin: 18px;
+  cursor: pointer;
+  height: 40px;
+  border: 1px solid ${({ bg }) => (bg ? "#219653" : "#fff")};
+  width: 220px;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 19px;
+  color: #6c757d;
+  justify-content: center;
+  align-items: center;
+  @media screen and (max-width: 500px) {
+    margin: 5px;
+    width: 100%;
+    height: 43px;
+    margin-top: 10px;
+  }
+  h3{
+    @media screen and (max-width: 500px) {
+    font-size: 17px;
+    font-weight: 600;
+  }
+  
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  }
+  span{
+    margin-left: 7px;
+    font-weight: 500;
+  font-size: 19px;
+  color: #6c757d;
+  }
+`
+const Pending2 = styled.div<{ bg: string}>`
+display: flex;
+  margin: 18px;
+  cursor: pointer;
+  height: 40px;
+  border: 1px solid ${({ bg }) => (bg ? "#219653" : "#fff")};
+  width: 220px;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 19px;
+  color: #6c757d;
+  justify-content: center;
+  align-items: center;
+  @media screen and (max-width: 500px) {
+    margin: 5px;
+    width: 100%;
+    height: 43px;
+    margin-top: 10px;
+  }
+  h3{
+    @media screen and (max-width: 500px) {
+    font-size: 17px;
+    font-weight: 600;
+  }
+  
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  }
+  span{
+    margin-left: 7px;
+    font-weight: 500;
+  font-size: 19px;
+  color: #6c757d;
+  }
+`
+const Pending = styled.div<{ bg: string}>`
+display: flex;
+  margin: 18px;
+  cursor: pointer;
+  height: 40px;
+  border: 1px solid ${({ bg }) => (bg ? "#219653" : "#fff")};
+  width: 220px;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 19px;
+  color: #6c757d;
+  justify-content: center;
+  align-items: center;
+  @media screen and (max-width: 500px) {
+    margin: 5px;
+    width: 100%;
+    height: 43px;
+    margin-top: 30px;
+  }
+  h3{
+    @media screen and (max-width: 500px) {
+    font-size: 17px;
+    font-weight: 600;
+  }
+  
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   }
   span{
     margin-left: 7px;
@@ -592,9 +723,16 @@ const Pending = styled.div`
 const Top = styled.div`
   width: 100%;
   display: flex;
-  height: 70px;
+  /* height: 70px; */
   align-items: center;
   border-bottom: 1px solid lightgray;
+
+
+  @media screen and (max-width: 500px) {
+    flex-wrap: wrap;
+    /* height: 140px; */
+    padding-bottom: 10px;
+  }
 `
 const Wrapper = styled.div`
   width: 95%;
@@ -607,6 +745,9 @@ const Wrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   /* background-color: red; */
+  @media screen and (max-width: 50px) {
+    padding-top: 120px;
+  }
 
   @media screen and (max-width: 768px) {
     width: 90%;

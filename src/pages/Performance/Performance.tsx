@@ -380,6 +380,8 @@ const Top = styled.div`
   /* height: 70px; */
   align-items: center;
   border-bottom: 1px solid lightgray;
+
+
   @media screen and (max-width: 500px) {
     flex-wrap: wrap;
     /* height: 140px; */

@@ -19,8 +19,7 @@ import StaffTransactionhome from "./StaffTransaction/StaffTransactionhome";
 import { useQuery } from "@tanstack/react-query";
 import { getOneStaff } from "../utils/Api/ApiCall";
 import Mobilecard from "./Mobilecard/Mobilecard";
-
-
+import {FaCentos} from "react-icons/fa"
 
 
 
@@ -105,7 +104,12 @@ console.log("this is getStaff ",getStaff?.data?.data?.wallet)
         <Wrapper>
           <Top>
             <Left>
-              <Bold>Dashboard</Bold>
+              <Bold>
+                <Icos>
+                  <FaCentos/>
+                </Icos>
+                Dashboard
+                </Bold>
               <button onClick={Toggle}>Credit Wallet</button>
             </Left>
 
@@ -166,12 +170,12 @@ console.log("this is getStaff ",getStaff?.data?.data?.wallet)
             ) : null}
           </Top>
 
-          <Cards />
+          {/* <Cards /> */}
           <Mobilecard />
           <Down>
             <Piehold>
                           <Pee>
-                              <Title>Transaction Chart</Title>
+                              <Title>Performance Chart</Title>
                               <Charts />
                           </Pee>
                       </Piehold>
@@ -257,7 +261,7 @@ console.log("this is getStaff ",getStaff?.data?.data?.wallet)
                       </Holds>
                   ) : null}            
 
-          <StaffTransactionhome />
+          {/* <StaffTransactionhome /> */}
           {/* <Stafffooter /> */}
         </Wrapper>
       </Container>
@@ -267,6 +271,12 @@ console.log("this is getStaff ",getStaff?.data?.data?.wallet)
 }
 
 export default ParentComp;
+const Icos = styled.div`
+  font-size: 25px;
+  margin:8px;
+  font-weight: 500;
+`
+
 const Holds = styled.div`
     width: 100%;
   height: 100vh;
@@ -451,6 +461,7 @@ const P = styled.div`
 `
 const Title2 = styled.div`
     font-size: 23px;
+    font-weight: 600;
 `
 const Savehold = styled.div`
     height: 100%;
@@ -460,6 +471,10 @@ const Savehold = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+    /* @media screen and (max-width:500px) {
+      display: none;
+    } */
 `
 const Img = styled.img`
     height: 140px;
@@ -513,6 +528,7 @@ const Title = styled.div`
     margin-bottom: 10px;
     font-size: 20px;
     text-align: center;
+    font-weight: 600;
 `
 const Piehold = styled.div`
     width: 48%;
@@ -536,6 +552,7 @@ const Down = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
+    margin-top: 20px;
 
     @media screen and (max-width: 768px) {
       display: flex;
@@ -710,6 +727,7 @@ const Left = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
+  margin-bottom: 10px;
   @media screen and (max-width: 500px) {
     display: none;
   }
@@ -759,6 +777,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 10px;
   flex-direction: column;
   /* background-color: red; */
 
