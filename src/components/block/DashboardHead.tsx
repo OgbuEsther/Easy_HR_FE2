@@ -6,7 +6,7 @@ import { HiUsers } from "react-icons/hi"
 import { MdDashboard } from "react-icons/md";
 import { NavLink } from "react-router-dom"
 import { FaBattleNet} from "react-icons/fa"
-import { GiStarSattelites, GiTransportationRings } from "react-icons/gi"
+import {GiMoneyStack,GiFlatTire,GiAbstract013} from "react-icons/gi"
 
 import { useAppSelector } from '../global/Store';
 
@@ -63,11 +63,11 @@ const DashboardHead = () => {
                 <MdDashboard />
               </Icon2>
               <NavLink
-            to="/staffdashboard"
+            to="/dashboard"
             style={({ isActive }) => {
                 return {
                 textDecoration: isActive ? "none" : "none",
-                color: isActive ? "#2AA7FF" : "#fff",
+                color: isActive ? "#2AA7FF" : "#3e4956",
                 };
             }}
             >
@@ -80,11 +80,11 @@ const DashboardHead = () => {
             <FaBattleNet />
             </Icon2>
             <NavLink
-            to=""
+            to="/dashboard/admin-attendance"
             style={({ isActive }) => {
                 return {
                 textDecoration: isActive ? "none" : "none",
-                color: isActive ? "#2AA7FF" : "#fff",
+                color: isActive ? "#2AA7FF" : "#3e4956",
                 };
             }}
             >
@@ -93,30 +93,56 @@ const DashboardHead = () => {
       </Home2>
 
             <Home2>
-            <Icon2>
-              <GiStarSattelites/>
-            </Icon2>
-            <Text2>Savings</Text2>
-          </Home2>
-
-          
-      <Home2>
-            <Icon2>
-            <GiTransportationRings />
-            </Icon2>
-            <NavLink
-            to="/staffdashboard/stafftransaction"
-            style={({ isActive }) => {
+        <Icon2>
+          <GiMoneyStack />
+        </Icon2>
+        <NavLink
+          to="/dashboard/performance"
+          style={({ isActive }) => {
                 return {
                 textDecoration: isActive ? "none" : "none",
                 color: isActive ? "#2AA7FF" : "#3e4956",
                 };
             }}
-            >
-            <Text1>Transaction</Text1>
-            </NavLink>
+        >
+          <Text3>Performance</Text3>
+        </NavLink>
       </Home2>
-                  
+
+          <Leave>Leave Management</Leave>
+      <Home3>
+        <Icon2>
+          <GiAbstract013 />
+        </Icon2>
+        <NavLink
+          to="/dashboard/leave"
+          style={({ isActive }) => {
+                return {
+                textDecoration: isActive ? "none" : "none",
+                color: isActive ? "#2AA7FF" : "#3e4956",
+                };
+            }}
+        >
+          <Text3>Manage Leave</Text3>
+        </NavLink>
+      </Home3>
+              <Leave>Configuration</Leave>  
+            <Home3>
+        <Icon2>
+          <GiAbstract013 />
+        </Icon2>
+        <NavLink
+          to="/dashboard/settings"
+          style={({ isActive }) => {
+                return {
+                textDecoration: isActive ? "none" : "none",
+                color: isActive ? "#2AA7FF" : "#3e4956",
+                };
+            }}
+        >
+          <Text3>Settings</Text3>
+        </NavLink>
+      </Home3>
             <Power>
               <Icon2>
                 <FiPower />
@@ -132,6 +158,28 @@ const DashboardHead = () => {
 }
 
 export default DashboardHead
+const Text3 = styled.div`
+  font-size: 17px;
+  font-family: U8, sans-serif;
+  cursor: pointer;
+  align-items: center;
+  display: flex;
+  margin-left: 15px;
+  width: 410px;
+  height: 40px;
+`;
+const Home3 = styled.div`
+  width: 100%;
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+`
+const Leave = styled.div`
+  display: flex;
+  color: #b4b4b4;
+  font-size: 14px;
+  margin-top: 20px;
+`
 const Text = styled.div`
   margin-left: 25px;
 `;
@@ -179,7 +227,7 @@ const Home = styled.div`
 `;
 const Box = styled.div`
   display: flex;
-  width: 40%;
+  width: 43%;
   height: 100vh;
   flex-direction: column;
   background-color: #fff;
