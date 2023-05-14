@@ -52,7 +52,7 @@ export default SignInOption;
 
 
 
-// Rignt Section Codes
+
 
 
 const Description = styled.div`
