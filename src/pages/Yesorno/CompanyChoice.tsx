@@ -215,19 +215,7 @@ const Social = styled.div`
 	margin-bottom: 10px;
 `;
 
-const Span = styled(Link)`
-	text-decoration: none;
-	color: #000269;
-	font-weight: 700;
-	margin-left: 5px;
-	cursor: pointer;
-`;
 
-const Content = styled.div`
-	display: flex;
-	font-size: 13px;
-	justify-content: center;
-`;
 
 const BUtton = styled.button<{ bg: string }>`
 	margin: 20px;
