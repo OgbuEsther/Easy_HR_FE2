@@ -1,10 +1,10 @@
 import axios from "axios";
-import { AdminData, AttendanceData } from "../../types/AllInterfaces";
+import { AdminData } from "../../types/AllInterfaces";
 import { StaffData } from "../../types/AllInterfaces";
 
 export const url = "https://easyhr.onrender.com/api"
 
-const staffUrl ="staff"
+
 
 
 
@@ -49,7 +49,7 @@ export const staffVerification = async (id: string) => {
 export const getOneAdmin = async(id:any)=>{
     return await axios.get(`${url}/admin/${id}`).then((res)=>{
         return res.data
-        // console.log(res.data)
+      
     })
 }
 export const getOneStaff = async(id:any)=>{
