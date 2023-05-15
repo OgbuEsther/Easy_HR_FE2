@@ -50,11 +50,6 @@ const SignInOption = () => {
  
 export default SignInOption;
 
-
-
-
-
-
 const Description = styled.div`
 height: 100px;
 width: auto;
