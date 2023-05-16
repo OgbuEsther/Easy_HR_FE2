@@ -13,7 +13,7 @@ const End = () => {
                 </Text>
                 <Word>
                   EasyHR makes it easy to take your human capital management to the next level by <br />
-                   automating administrative  HR and providing robust <br /> context rich reporting 
+                   automating administrative  HR and providing robust <br /> context rich reporting. 
                 </Word>
               <NavLink to="/sign-in-option">
               <Button>
