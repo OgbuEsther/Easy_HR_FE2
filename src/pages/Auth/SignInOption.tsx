@@ -50,11 +50,6 @@ const SignInOption = () => {
  
 export default SignInOption;
 
-
-
-// Rignt Section Codes
-
-
 const Description = styled.div`
 height: 100px;
 width: auto;
