@@ -6,8 +6,8 @@ import { Outlet } from 'react-router-dom'
 const Staffdashboard = () => {
   return (
       <div>
-          <Staffdashboardhead />
-          <Staffsidebar />
+          <div style={{display: "flex", justifyContent: "flex-end"}}><Staffdashboardhead /></div>
+          <div><Staffsidebar /></div>
           <Container>
         <Outlet />
           </Container>

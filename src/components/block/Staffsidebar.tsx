@@ -367,7 +367,7 @@ const Container = styled.div`
   padding-left: 25px;
   display: flex;
   flex-direction: column;
-  z-index: 2;
+  /* z-index: 2; */
   @media screen and (max-width: 1024px) {
     display: none;
   }
