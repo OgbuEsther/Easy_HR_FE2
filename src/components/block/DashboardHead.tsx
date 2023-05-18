@@ -415,6 +415,7 @@ const Container = styled.div`
   position: fixed;
   z-index: 3;
   display: flex;
+  background-color: red;
   justify-content: center;
   @media screen and (max-width: 500px) {
     @media screen and (max-width: 500px) {
