@@ -6,6 +6,8 @@ import { HiUsers } from "react-icons/hi"
 import { MdDashboard } from "react-icons/md";
 import { NavLink } from "react-router-dom"
 import { FaBattleNet} from "react-icons/fa"
+import { IoIosNotifications} from "react-icons/io"
+import { AiOutlineSearch} from "react-icons/ai"
 import {GiMoneyStack,GiFlatTire,GiAbstract013} from "react-icons/gi"
 
 import { useAppSelector } from '../global/Store';
@@ -41,13 +43,29 @@ const DashboardHead = () => {
           <User>
             Welcome Valerian Pedro
           </User>
+
+          <SearchHold>
+                    <SearchIcon />
+                    <Search placeholder='Search' />
+                </SearchHold>
+
+                <Holder>
+                    <Not />
+                    <Profile1
+                    onClick={Dropdown}
+                    ></Profile1>
+                    <div>
+                        <Big>Peter Oti</Big>
+                        <Small>Admin</Small>
+                    </div>
+                </Holder>
         </Main>
 
-        <Right>
+        {/* <Right>
           <Up>
             <Profile onClick={Dropdown}>{admin?.yourName?.charAt(0)} </Profile>
           </Up>
-        </Right>
+        </Right> */}
         {drop ? (
           <Drop>
             <p>Organization</p>
@@ -164,6 +182,57 @@ const DashboardHead = () => {
 }
 
 export default DashboardHead
+
+const Profile1 = styled.div`
+height: 45px;
+width: 45px;
+border-radius: 50%;
+margin:0 15px;
+background-color: black;
+cursor: pointer;
+`;
+
+const Not = styled(IoIosNotifications)`
+font-size: 30px;
+`;
+
+const Big = styled.div`
+font-size: 18px;
+`;
+
+const Small = styled.div`
+font-size: 12px;
+`;
+
+const Holder = styled.div`
+display: flex;
+align-items: center;
+`;
+
+const Search = styled.input`
+color: white;
+border-radius: 10px;
+padding: 10px 15px;
+outline: none;
+border: none;
+margin-left: 10px;
+
+`;
+
+const SearchIcon = styled(AiOutlineSearch)`
+font-size: 30px;
+color: black;
+`;
+
+const SearchHold = styled.div`
+align-items: center;
+
+height: 40px;
+background-color: transparent;
+display: flex;
+
+`;
+
 const User = styled.div`
 
 
@@ -172,7 +241,11 @@ const User = styled.div`
 }
 `
 
-const Main = styled.div``
+const Main = styled.div`
+display: flex;
+align-items: center;
+justify-content: space-between;
+`
 
 const Text3 = styled.div`
   font-size: 17px;
@@ -393,6 +466,7 @@ const Right = styled.div`
 `;
 
 const Left = styled.div`
+display:none;
   font-size: 25px;
   cursor: pointer;
   align-items: center;
@@ -402,6 +476,7 @@ const Left = styled.div`
   }
   @media screen and (max-width: 500px) {
     /* margin-left: 30px; */
+    display:flex;
   }
 `;
 
@@ -410,7 +485,7 @@ const Wrapper = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   position: relative;
   @media screen and (max-width: 1024px) {
     width: 93%;
