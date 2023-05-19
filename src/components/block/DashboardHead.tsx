@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { FiMenu, FiPower } from "react-icons/fi";
-import img from "../../Assets/easyhr.png"
+import img from "../../Assets/new.png"
 import { HiUsers } from "react-icons/hi"
 import { MdDashboard } from "react-icons/md";
 import { NavLink } from "react-router-dom"
@@ -36,6 +36,12 @@ const DashboardHead = () => {
           </Ico>
           <Img src={img} />
         </Left>
+
+        <Main>
+          <User>
+            Welcome Valerian Pedro
+          </User>
+        </Main>
 
         <Right>
           <Up>
@@ -158,6 +164,16 @@ const DashboardHead = () => {
 }
 
 export default DashboardHead
+const User = styled.div`
+
+
+@media screen and (max-width:500px){
+  display:none;
+}
+`
+
+const Main = styled.div``
+
 const Text3 = styled.div`
   font-size: 17px;
   font-family: U8, sans-serif;
@@ -371,6 +387,7 @@ const Right = styled.div`
   display: flex;
   height: 100%;
   align-items: center;
+  background-color: yellow;
   @media screen and (max-width: 500px) {
   }
 `;
