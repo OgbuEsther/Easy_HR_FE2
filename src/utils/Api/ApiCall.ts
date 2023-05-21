@@ -92,12 +92,7 @@ export const staffClockOut = async(data: any , staffId : any , adminId:any) =>{
 
 }
 
-/**export const deactiavteAStaff = async()=>{
-  return await axios.delete(`https://easyhr.onrender.com/api/staff/deactivateStaff/${staff?._id}/${user?._id}`).then((res)=>{
-    console.log(res.data)
-    window.location.reload()
-  })
-} */
+
 
 //create leave on admin side
 
