@@ -38,6 +38,7 @@ const AdminCard = () => {
 };
 
 export default AdminCard;
+
 const Holder = styled.div`
   width: 90%;
   display: flex;

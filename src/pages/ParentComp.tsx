@@ -98,10 +98,17 @@ const ParentComp = () => {
           <Cards />
           
           <Hold>
-            <Cha>
+         <Cha>
+          <Title>
+            Monthly Acquisition
+         <IconHold>
+         <Icon1>Cost</Icon1>
+         <Icon1>Item</Icon1>
+         </IconHold>
+          </Title>
               <Charts />
             </Cha>
-            <DoughnutAdmin />
+            {/* <DoughnutAdmin /> */}
           </Hold>
          <HomeLeave />
         </Wrapper>
@@ -111,9 +118,24 @@ const ParentComp = () => {
 };
 
 export default ParentComp;
+const ChartHold = styled.div`
+width: 52%;
+background-color: grey;
+display: flex;
+flex-direction: column;
+`
+
+const Icon1 = styled.div``
+
+const IconHold = styled.div``
+
+const Title = styled.div``
+  
+
 const Cha = styled.div`
-  width: 49%;
+  width: 52%;
   display: flex;
+  flex-direction: column;
   padding: 10px;
    background-color: #fff;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
