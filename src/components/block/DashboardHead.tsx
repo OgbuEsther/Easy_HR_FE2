@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom"
 import { FaBattleNet} from "react-icons/fa"
 import { IoIosNotifications} from "react-icons/io"
 import { AiOutlineSearch} from "react-icons/ai"
-import {GiMoneyStack,GiFlatTire,GiAbstract013} from "react-icons/gi"
+import {GiMoneyStack,GiAbstract013} from "react-icons/gi"
 
 import { useAppSelector } from '../global/Store';
 
@@ -24,9 +24,6 @@ const DashboardHead = () => {
     setShow(!show);
   };
 
-
-  
-
   const admin = useAppSelector((state) => state.currentUser);
 
   return (
@@ -39,149 +36,35 @@ const DashboardHead = () => {
           <Img src={img} />
         </Left>
 
-        <Main>
-          <User>
-            Welcome Valerian Pedro
-          </User>
+           <Holder1>
+            {/* <Icon1 /> */}
+            <DashBoard>TEAM II</DashBoard>
+          </Holder1>
 
-          <SearchHold>
-                    <SearchIcon />
-                    <Search placeholder='Search' />
-                </SearchHold>
+     
 
-                <Holder>
-                    <Not />
-                    <Profile1
-                    onClick={Dropdown}
-                    ></Profile1>
-                    <div>
-                        <Big>Peter Oti</Big>
-                        <Small>Admin</Small>
-                    </div>
-                </Holder>
-        </Main>
-
-        {/* <Right>
-          <Up>
-            <Profile onClick={Dropdown}>{admin?.yourName?.charAt(0)} </Profile>
-          </Up>
-        </Right> */}
-        {drop ? (
-          <Drop>
-            <p>Organization</p>
-            <Orgname>
-              <Icon><HiUsers /></Icon>
-              <Name><h4>{admin?.companyname} </h4></Name>
-            </Orgname>
-              <Line></Line>
-              <Account>Account Settings</Account>
-              <Account>Sign Out</Account>
-        </Drop>
-        ) : null}
-
-        {show ? (
-        <Hold>
-          <Box>
-            <Home>
-              <Icon2>
-                <MdDashboard />
-              </Icon2>
-              <NavLink
-            to="/dashboard"
-            style={({ isActive }) => {
-                return {
-                textDecoration: isActive ? "none" : "none",
-                color: isActive ? "#2AA7FF" : "#3e4956",
-                };
-            }}
-            >
-            <Text1>Dashboard</Text1>
-            </NavLink>
-            </Home>
-
-            <Home2>
-            <Icon2>
-            <FaBattleNet />
-            </Icon2>
-            <NavLink
-            to="/dashboard/admin-attendance"
-            style={({ isActive }) => {
-                return {
-                textDecoration: isActive ? "none" : "none",
-                color: isActive ? "#2AA7FF" : "#3e4956",
-                };
-            }}
-            >
-                      <Text1>Attendance</Text1>
-            </NavLink>
-      </Home2>
-
-            <Home2>
-        <Icon2>
-          <GiMoneyStack />
-        </Icon2>
-        <NavLink
-          to="/dashboard/performance"
-          style={({ isActive }) => {
-                return {
-                textDecoration: isActive ? "none" : "none",
-                color: isActive ? "#2AA7FF" : "#3e4956",
-                };
-            }}
-        >
-          <Text3>Performance</Text3>
-        </NavLink>
-      </Home2>
-
-          <Leave>Leave Management</Leave>
-      <Home3>
-        <Icon2>
-          <GiAbstract013 />
-        </Icon2>
-        <NavLink
-          to="/dashboard/leave"
-          style={({ isActive }) => {
-                return {
-                textDecoration: isActive ? "none" : "none",
-                color: isActive ? "#2AA7FF" : "#3e4956",
-                };
-            }}
-        >
-          <Text3>Manage Leave</Text3>
-        </NavLink>
-      </Home3>
-              <Leave>Configuration</Leave>  
-            <Home3>
-        <Icon2>
-          <GiAbstract013 />
-        </Icon2>
-        <NavLink
-          to="/dashboard/settings"
-          style={({ isActive }) => {
-                return {
-                textDecoration: isActive ? "none" : "none",
-                color: isActive ? "#2AA7FF" : "#3e4956",
-                };
-            }}
-        >
-          <Text3>Settings</Text3>
-        </NavLink>
-      </Home3>
-            <Power>
-              <Icon2>
-                <FiPower />
-              </Icon2>
-              <Text>Logout</Text>
-            </Power>
-          </Box>
-        </Hold>
-      ) : null}
+      
       </Wrapper>
     </Container>
   )
 }
 
 export default DashboardHead
+
+const DashBoard = styled.div`
+  color: black;
+  font-weight: 700;
+  font-size: 20px;
+`;
+
+const Holder1 = styled.div`
+  height: 40px;
+  width: 13%;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
 
 const Profile1 = styled.div`
 height: 45px;
@@ -226,7 +109,6 @@ color: black;
 
 const SearchHold = styled.div`
 align-items: center;
-
 height: 40px;
 background-color: transparent;
 display: flex;
@@ -234,7 +116,7 @@ display: flex;
 `;
 
 const User = styled.div`
-
+background-color: brown;
 
 @media screen and (max-width:500px){
   display:none;
@@ -244,7 +126,13 @@ const User = styled.div`
 const Main = styled.div`
 display: flex;
 align-items: center;
-justify-content: space-between;
+justify-content: space-evenly;
+background-color: yellow;
+width: 90%;
+
+@media screen and (max-width:500px) {
+  display: none;
+}
 `
 
 const Text3 = styled.div`
@@ -373,63 +261,10 @@ const Img = styled.img`
   height: 80px;
   @media screen and (max-width: 500px) {
     margin-left: 16px;
+    display: none;
   }
 `
-const Account = styled.div`
-  color: #035fcb!important;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 10px;
-`
-const Line = styled.div`
-  width: 100%;
-  height: 1px;
-  background-color: #6c757d;
-  margin-top: 9px;
-`
-const Name = styled.div`
-  h4{
-    font-weight: 800;
-    font-size: 15px;
-    margin-left: 7px;
-    color: #242424;
-  }
-`
-const Icon = styled.div`
-  margin-left: 12px;
-`
-const Orgname = styled.div`
-  width: 150px;
-  height: 40px;
-  display: flex;
-  border: 1px solid #ededed;
-  background-color: #fff;
-  align-items: center;
-  color: #333;
-  cursor: pointer;
-  transition: all .1s ease;
-  margin-top: 7px;
-  border-radius: 50px;
-`
-const Drop = styled.div`
-  width: 180px;
-  display: flex;
-  border-radius: 10px;
-  flex-direction: column;
-  padding-left: 12px;
-  padding-top: 10px;
-  background-color: #fff;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  position: absolute;
-  right: 0;
-  top: 70px;
-  padding-bottom: 10px;
-  p{
-    color: #6c757d!important;
-    font-size: 15px;
-    font-weight: 400;
-  }
-`
+
 
 const Profile = styled.div`
   width: 45px;
@@ -472,7 +307,7 @@ display:none;
   align-items: center;
   color: #fff;
   @media screen and (max-width: 1024px) {
-    display: flex;
+    display: none;
   }
   @media screen and (max-width: 500px) {
     /* margin-left: 30px; */
@@ -481,12 +316,13 @@ display:none;
 `;
 
 const Wrapper = styled.div`
-  width: 95%;
+  width: 90%;
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   position: relative;
+  background-color: blue;
   @media screen and (max-width: 1024px) {
     width: 93%;
     justify-content: space-between;
@@ -500,8 +336,8 @@ const Wrapper = styled.div`
 `;
 
 const Container = styled.div`
-  width: 100%;
-  height: 70px;
+  width: calc(100% - 220px);
+  height: 80px;
   background-color: #fff;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   position: fixed;
@@ -510,12 +346,11 @@ const Container = styled.div`
   background-color: red;
   justify-content: center;
   @media screen and (max-width: 500px) {
-    @media screen and (max-width: 500px) {
     justify-content: center;
     display: flex;
     height: 100px;
     background-color: #00244E;
     position: fixed;
-  }
+  
   }
 `
