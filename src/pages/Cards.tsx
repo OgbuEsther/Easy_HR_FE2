@@ -39,8 +39,9 @@ const AdminCard = () => {
 
 export default AdminCard;
 const Holder = styled.div`
-  width: 100%;
+  width: 90%;
   display: flex;
+  justify-content: space-between;
   @media screen and (max-width: 500px) {
     flex-wrap: wrap;
   }
@@ -48,6 +49,8 @@ const Holder = styled.div`
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
   /* background-color: red; */
 `
 const Num = styled.div`
@@ -67,7 +70,7 @@ const Card3 = styled.div`
 height: 120px;
 width:250px;
 /* background-color:rgb(250, 190,0, 0.9); */
-background-image: url(${img});
+background-image: url(${img3});
 background-repeat: no-repeat;
 background-size: cover;
 margin: 10px;
@@ -86,7 +89,7 @@ const Card2 = styled.div`
 height: 120px;
 width:250px;
 /* background-color:rgb(250, 190,0, 0.9); */
-background-image: url(${img});
+background-image: url(${img2});
 background-repeat: no-repeat;
 background-size: cover;
 margin: 10px;
@@ -105,7 +108,7 @@ border-radius: 10px;
 const Holder3 = styled.div`
 width: 100%;
 height: 100%;
-background-color:rgb(253, 188,0, 0.5);
+background-color:rgb(235, 109, 98,0.7);
 padding: 15px;
 border-radius: 10px;
 
@@ -113,7 +116,7 @@ border-radius: 10px;
 const Holder2 = styled.div`
 width: 100%;
 height: 100%;
-background-color:rgb(253, 188,0, 0.5);
+background-color:rgb(67, 133, 246,0.4);
 padding: 15px;
 border-radius: 10px;
 
