@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { NavLink } from "react-router-dom"
 import { FiMenu, FiPower } from "react-icons/fi";
@@ -31,6 +31,14 @@ const DashboardHead = () => {
     setShow4(!show4);
   };
 
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((res) => {
+        console.log(res)
+      })
+    }
+  })
+
 
 
   const user = useAppSelector((state) => state.currentStaff);
@@ -50,24 +58,9 @@ const DashboardHead = () => {
             </Prof>
         </Left2>
 
-        <Mid>
-          <Welcome>
-            <Circ>{user?.companyname?.charAt(0)}</Circ>
-            <Prof>
-              <Comp>Company's profile</Comp>
-              <Nam>{user?.companyname} </Nam>
-              <Id>ID: {user?.companyCode}</Id>
-            </Prof>
-          </Welcome>
-        </Mid>
-
         <Right>
-          <Icons>
-            <Hello>Hello {user?.yourName?.split(" ")[0]} </Hello>
-            {/* <Circle>2</Circle> */}
-          </Icons>
           <Up>
-            <Profile>{user?.yourName?.charAt(0)}</Profile>
+            <Profile>kk</Profile>
           </Up>
         </Right>
 
@@ -431,6 +424,7 @@ const Container = styled.div`
     justify-content: center;
     display: flex;
     height: 100px;
+    width: 100%;
     background-color: #00244E;
     position: fixed;
   }
