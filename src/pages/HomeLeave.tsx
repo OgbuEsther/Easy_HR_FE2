@@ -61,7 +61,7 @@ const Leave = () => {
                   <td>
                     07 May, 2023
                   </td>
-                  <td>nothing</td>
+                  <td>Nothing</td>
                   <td>
                   <Hold>
                     <Box>Approve</Box>
