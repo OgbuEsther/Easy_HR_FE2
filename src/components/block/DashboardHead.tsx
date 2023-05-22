@@ -128,6 +128,10 @@ const Name = styled.div`
   font-size: 14px;
   /* background-color: purple; */
   display: flex;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
 `;
 
 const Drop = styled(RiArrowDropDownLine)`
