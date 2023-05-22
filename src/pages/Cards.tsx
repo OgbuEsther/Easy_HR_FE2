@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from "styled-components"
 import img from "../Assets/wave_img.svg"
+import img2 from "../Assets/wave_img2.svg"
+import img3 from "../Assets/wave_img3.svg"
 
 const AdminCard = () => {
 
@@ -10,18 +12,24 @@ const AdminCard = () => {
       <Wrapper>
         <Holder>
           <Card1>
-        <Total>Total Employees</Total>
+      <Holder1>
+      <Total>Total Employees</Total>
         <Num>13</Num>
+      </Holder1>
       </Card1>
 
       <Card2>
-        <Total>Attendance</Total>
+      <Holder2>
+      <Total>Attendance</Total>
         <Num>05</Num>
+      </Holder2>
       </Card2>
 
       <Card3>
-        <Total>Leave Apply</Total>
+     <Holder3>
+     <Total>Leave Apply</Total>
         <Num>15</Num>
+     </Holder3>
       </Card3>
         </Holder>
       </Wrapper>
@@ -45,7 +53,7 @@ const Wrapper = styled.div`
 const Num = styled.div`
   font-size: 42px;
   margin-top: 5px;
-  color: #fff;
+  color: white;
 `
 const Total = styled.div`
   font-size: 18px;
@@ -56,19 +64,14 @@ const Total = styled.div`
 `
 
 const Card3 = styled.div`
-  height: 120px;
-  width: 385px;
-  background: radial-gradient(circle at 4.3% 10.7%, rgb(138, 118, 249) 13.6%, rgb(75, 252, 235) 100.7%);
-  border-radius: 3px;
-  border-bottom: 2px solid #0d71fa;
-  display: flex;
-  border: 1px solid #d5dbe1;
-  margin: 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  padding: 15px;
-  overflow: hidden;
-  flex-direction: column;
+height: 120px;
+width:250px;
+/* background-color:rgb(250, 190,0, 0.9); */
+background-image: url(${img});
+background-repeat: no-repeat;
+background-size: cover;
+margin: 10px;
+border-radius: 10px;
 
   @media (max-width: 1024px) {
     width: 320px;
@@ -80,19 +83,14 @@ const Card3 = styled.div`
   }
 `;
 const Card2 = styled.div`
-  height: 120px;
-  width: 385px;
-  background: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
-  border-radius: 3px;
-  border-bottom: 2px solid #0d71fa;
-  display: flex;
-  border: 1px solid #d5dbe1;
-  margin: 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  padding: 15px;
-  overflow: hidden;
-  flex-direction: column;
+height: 120px;
+width:250px;
+/* background-color:rgb(250, 190,0, 0.9); */
+background-image: url(${img});
+background-repeat: no-repeat;
+background-size: cover;
+margin: 10px;
+border-radius: 10px;
 
   @media (max-width: 1024px) {
     width: 320px;
@@ -104,24 +102,41 @@ const Card2 = styled.div`
   }
 `;
 
+const Holder3 = styled.div`
+width: 100%;
+height: 100%;
+background-color:rgb(253, 188,0, 0.5);
+padding: 15px;
+border-radius: 10px;
+
+`
+const Holder2 = styled.div`
+width: 100%;
+height: 100%;
+background-color:rgb(253, 188,0, 0.5);
+padding: 15px;
+border-radius: 10px;
+
+`
+const Holder1 = styled.div`
+width: 100%;
+height: 100%;
+background-color:rgb(253, 188,0, 0.5);
+padding: 15px;
+border-radius: 10px;
+
+`
 
 const Card1 = styled.div`
-  height: 120px;
-  width: 385px;
-  background-image: url(${img});
-  background-repeat: no-repeat;
-  background-color: red;
-  /* background: radial-gradient(484px at 49.4% 19%, rgb(23, 156, 214) 0%, rgb(52, 48, 111) 100.2%); */
-  border-radius: 3px;
-  border-bottom: 2px solid #0d71fa;
-  display: flex;
-  border: 1px solid #d5dbe1;
-  margin: 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  padding: 15px;
-  overflow: hidden;
-  flex-direction: column;
+height: 120px;
+width:250px;
+/* background-color:rgb(250, 190,0, 0.9); */
+background-image: url(${img});
+background-repeat: no-repeat;
+background-size: cover;
+margin: 10px;
+border-radius: 10px;
+
 
   @media (max-width: 1024px) {
     width: 320px;
