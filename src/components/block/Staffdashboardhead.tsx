@@ -6,6 +6,7 @@ import { MdDashboard } from "react-icons/md";
 import { useAppSelector } from '../global/Store';
 import { FaBattleNet} from "react-icons/fa"
 import { GiStarSattelites, GiTransportationRings } from "react-icons/gi"
+import {CiSearch} from "react-icons/ci"
 
 const DashboardHead = () => {
   const [show, setShow] = React.useState(false);
@@ -50,8 +51,12 @@ const DashboardHead = () => {
           <FiMenu />
         </Left>
 
-        <Input>
-        </Input>
+        <Inputhold>
+          <Icohold>
+            <CiSearch />
+          </Icohold>
+          <Input placeholder='search'/>
+        </Inputhold>
         <Left2>
           <Person></Person>
           <Prof>
@@ -138,7 +143,21 @@ const DashboardHead = () => {
 }
 
 export default DashboardHead
-const Input = styled.div`
+const Input = styled.input`
+  flex: 1;
+  height: 100%;
+  border: none;
+  outline: none;
+`
+const Icohold = styled.div`
+  display: flex;
+  width: 43px;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: 21px;
+`
+const Inputhold = styled.div`
   width: 350px;
   height: 42px;
   /* background-color: red; */
