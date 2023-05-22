@@ -60,7 +60,7 @@ const DashboardHead = () => {
 
         <Right>
           <Up>
-            <Profile>kk</Profile>
+            <Profile>kK</Profile>
           </Up>
         </Right>
 
