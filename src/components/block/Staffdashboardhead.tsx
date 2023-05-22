@@ -6,7 +6,8 @@ import { MdDashboard } from "react-icons/md";
 import { useAppSelector } from '../global/Store';
 import { FaBattleNet} from "react-icons/fa"
 import { GiStarSattelites, GiTransportationRings } from "react-icons/gi"
-import {CiSearch, CiSettings} from "react-icons/ci"
+import { CiSearch, CiSettings } from "react-icons/ci"
+import {IoIosNotificationsOutline} from "react-icons/io"
 
 const DashboardHead = () => {
   const [show, setShow] = React.useState(false);
@@ -47,10 +48,6 @@ const DashboardHead = () => {
   return (
       <Container>
       <Wrapper>
-        <Left onClick={Toggle}>
-          <FiMenu />
-        </Left>
-
         <Inputhold>
           <Icohold>
             <CiSearch />
@@ -62,7 +59,20 @@ const DashboardHead = () => {
           <Seticon>
             <CiSettings />
           </Seticon>
+          <Notification>
+            <IoIosNotificationsOutline />
+            <Red></Red>
+          </Notification>
+          <Circlehold>
+            <Circle></Circle>
+            <Name>Okwoli Godwin</Name>
+          </Circlehold>
         </Settingshold>
+        <Left onClick={Toggle}>
+          <FiMenu />
+        </Left>
+
+      
         <Left2>
           <Person></Person>
           <Prof>
@@ -149,13 +159,42 @@ const DashboardHead = () => {
 }
 
 export default DashboardHead
+const Name = styled.div`
+  margin-left: 6px;
+`
+const Circle = styled.div`
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: red;
+`
+const Circlehold = styled.div`
+  display: flex;
+  align-items: center;
+`
+const Red = styled.div`
+  width: 13px;
+  height: 13px;
+  background-color: red;
+  border-radius: 50px;
+  position: absolute;
+  top: 0;
+  right: 4px;
+`
+const Notification = styled.div`
+  font-size: 30px;
+  cursor: pointer;
+  position: relative;
+`
 const Seticon = styled.div`
-  font-size: 25px;
+  font-size: 30px;
   cursor: pointer;
 `
 const Settingshold = styled.div`
   display: flex;
   align-items: center;
+  width: 270px;
+  justify-content: space-between;
 `
 const Input = styled.input`
   flex: 1;
@@ -398,24 +437,6 @@ const Circ = styled.div`
   border: 1px solid black;
 `
 
-const Welcome = styled.div`
-  width: 190px;
-  padding-left: 15px;
-  text-align: center;
-  height: 60px;
-  display: flex;
-  border-radius: 8px;
-  align-items: center;
-  border: 1px solid #CEC2C2;
-`;
-
-const Mid = styled.div`
-  display: flex;
-  align-items: center;
-  @media screen and (max-width: 500px){
-    display: none;
-  }
-`;
 
 const Left = styled.div`
   font-size: 25px;
@@ -432,11 +453,12 @@ const Left = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 74%;
+  width: 97%;
   height: 100%;
   display: flex;
   align-items: center;
-  padding-right: 30px;
+  /* background-color: blue; */
+  /* padding-right: 30px; */
   justify-content: space-between;
   position: relative;
   @media screen and (max-width: 1024px) {
@@ -459,7 +481,8 @@ const Container = styled.div`
   position: fixed;
   z-index: 15;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  /* justify-content: flex-end; */
   @media screen and (max-width: 500px) {
     justify-content: center;
     display: flex;
