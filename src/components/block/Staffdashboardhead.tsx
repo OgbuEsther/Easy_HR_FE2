@@ -140,13 +140,13 @@ const DashboardHead = () => {
 export default DashboardHead
 const Input = styled.div`
   width: 350px;
-  height: 45px;
+  height: 42px;
   /* background-color: red; */
   overflow: hidden;
   border-radius: 4px;
   display: flex;
   align-items: center;
-  border: 1px solid #3e4956;
+  border: 1px solid #BABFC4;
 `
 const Iden = styled.div`
   color: #fff;
