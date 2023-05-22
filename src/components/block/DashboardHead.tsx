@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { FiMenu, FiPower } from "react-icons/fi";
+import { FiMenu, FiPower, FiSearch } from "react-icons/fi";
 import img from "../../Assets/new.png"
 import { HiUsers } from "react-icons/hi"
-import { MdDashboard } from "react-icons/md";
+import { MdDashboard, MdNotificationsActive } from "react-icons/md";
 import { NavLink } from "react-router-dom"
 import { FaBattleNet} from "react-icons/fa"
 import { IoIosNotifications} from "react-icons/io"
@@ -11,8 +11,16 @@ import { AiOutlineSearch} from "react-icons/ai"
 import {GiMoneyStack,GiAbstract013} from "react-icons/gi"
 
 import { useAppSelector } from '../global/Store';
+import { RiArrowDropDownLine } from 'react-icons/ri';
 
 const DashboardHead = () => {
+  const [toggle, setToggle] = React.useState<boolean>(false);
+
+  const onToggled = () => {
+    setToggle(!toggle);
+  };
+
+
   const [show, setShow] = React.useState(false);
   const [drop, setDrop] = React.useState(false)
 
@@ -38,29 +46,188 @@ const DashboardHead = () => {
 
            <Holder1>
             {/* <Icon1 /> */}
-            <DashBoard>TEAM II</DashBoard>
+            <DashBoard>
+              Welcome Valerian Pedro
+            </DashBoard>
           </Holder1>
 
-     
+          
+          <Holder2>
+            <Search placeholder="Search..." />
+            <IconBack>
+              <SearchIcon />
+            </IconBack>
+          </Holder2>
 
-      
+          <Holder3>
+            <Im>
+              <Wrap>
+                <Not></Not>
+                  {/* <People>
+                    <Team>
+                      Vale
+                    </Team>
+                  </People> */}
+              </Wrap>
+              {/* <Image src={flow} /> */}
+              <Right>
+          <Up>
+            <Profile>PO</Profile>
+              <Name>Valerian Pedro</Name>
+              
+          </Up>
+        </Right>
+            </Im>
+          </Holder3>
+
       </Wrapper>
     </Container>
   )
 }
 
 export default DashboardHead
+const Profile = styled.div`
+  width: 48px;
+  height: 48px;
+  font-size: 20px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  display: flex;
+  margin-right: 12px;
+  border-radius: 50px;
+  font-weight: bold;
+  color: black;
+  border: 1px solid black;
+  background-color: blanchedalmond;
+`;
 
+const Up = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: aliceblue; */
+`;
+
+const Right = styled.div`
+  display: flex;
+  height: 100%;
+  align-items: center;
+  width: 200px;
+  justify-content: center;
+  /* background-color: yellow; */
+  @media screen and (max-width: 500px) {
+    width: 30px;
+    display: none;
+  }
+`;
+
+const Name = styled.div`
+  color: black;
+  font-size: 14px;
+  /* background-color: purple; */
+  display: flex;
+`;
+
+const Drop = styled(RiArrowDropDownLine)`
+  color: black;
+  font-size: 25px;
+  cursor: pointer;
+
+  :hover{
+    color: #2e2e2e;
+  }
+`;
+
+const Team = styled.div``;
+
+const People = styled.div`
+  position: absolute;
+  margin-top: 10px;
+  height: 150px;
+  width: 170px;
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+
+const Wrap = styled.div`
+margin-right: 10px;
+`;
+
+const Not = styled(MdNotificationsActive)`
+  font-size: 20px;
+  transition: all 450ms;
+
+  :hover {
+    transform: scale(1.3);
+    cursor: pointer;
+  }
+`;
+
+const Im = styled.div`
+  display: flex;
+  width: 90%;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Holder3 = styled.div`
+  height: 40px;
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const IconBack = styled.div`
+  background-color:#001328;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin-left: 355px;
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+`;
+const Search = styled.input`
+  width: 100%;
+  height: 30px;
+  border: none;
+  border-radius: 3px;
+  background: #dadada;
+  outline: 2px solid silver;
+  position: relative;
+`;
+const SearchIcon = styled(FiSearch)`
+  color: white;
+  font-size: 20px;
+`;
+
+const Holder2 = styled.div`
+  height: 40px;
+  width: 36%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
 const DashBoard = styled.div`
   color: black;
   font-weight: 700;
   font-size: 20px;
+  width: 100%;
 `;
 
 const Holder1 = styled.div`
   height: 40px;
-  width: 13%;
+  width: 29%;
   color: black;
+  /* background-color: yellow; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -75,9 +242,6 @@ background-color: black;
 cursor: pointer;
 `;
 
-const Not = styled(IoIosNotifications)`
-font-size: 30px;
-`;
 
 const Big = styled.div`
 font-size: 18px;
@@ -90,21 +254,6 @@ font-size: 12px;
 const Holder = styled.div`
 display: flex;
 align-items: center;
-`;
-
-const Search = styled.input`
-color: white;
-border-radius: 10px;
-padding: 10px 15px;
-outline: none;
-border: none;
-margin-left: 10px;
-
-`;
-
-const SearchIcon = styled(AiOutlineSearch)`
-font-size: 30px;
-color: black;
 `;
 
 const SearchHold = styled.div`
@@ -266,39 +415,6 @@ const Img = styled.img`
 `
 
 
-const Profile = styled.div`
-  width: 45px;
-  height: 45px;
-  font-size: 20px;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  display: flex;
-  border-radius: 50px;
-  font-weight: bold;
-  color: #fff;
-  background-color: blue;
-  cursor: pointer;
-  @media screen and (max-width: 500px) {
-    background-color: #fff;
-    color: lightgray;
-  }
-`;
-
-const Up = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const Right = styled.div`
-  display: flex;
-  height: 100%;
-  align-items: center;
-  background-color: yellow;
-  @media screen and (max-width: 500px) {
-  }
-`;
 
 const Left = styled.div`
 display:none;
@@ -316,13 +432,13 @@ display:none;
 `;
 
 const Wrapper = styled.div`
-  width: 90%;
+  width: 95%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
-  background-color: blue;
+  /* background-color: blue; */
   @media screen and (max-width: 1024px) {
     width: 93%;
     justify-content: space-between;
@@ -343,7 +459,7 @@ const Container = styled.div`
   position: fixed;
   z-index: 3;
   display: flex;
-  background-color: red;
+  /* background-color: red; */
   justify-content: center;
   @media screen and (max-width: 500px) {
     justify-content: center;
