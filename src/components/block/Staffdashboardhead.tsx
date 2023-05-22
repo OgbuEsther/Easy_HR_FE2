@@ -49,6 +49,9 @@ const DashboardHead = () => {
         <Left onClick={Toggle}>
           <FiMenu />
         </Left>
+
+        <Input>
+        </Input>
         <Left2>
           <Person></Person>
           <Prof>
@@ -135,6 +138,16 @@ const DashboardHead = () => {
 }
 
 export default DashboardHead
+const Input = styled.div`
+  width: 350px;
+  height: 45px;
+  /* background-color: red; */
+  overflow: hidden;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #3e4956;
+`
 const Iden = styled.div`
   color: #fff;
   font-size: 14px;
