@@ -58,11 +58,6 @@ const DashboardHead = () => {
             </Prof>
         </Left2>
 
-        <Right>
-          <Up>
-            <Profile>kk</Profile>
-          </Up>
-        </Right>
 
         {show ? (
         <Hold onClick={Toggle3}>
