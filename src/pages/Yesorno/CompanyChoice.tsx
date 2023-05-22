@@ -215,19 +215,7 @@ const Social = styled.div`
 	margin-bottom: 10px;
 `;
 
-const Span = styled(Link)`
-	text-decoration: none;
-	color: #000269;
-	font-weight: 700;
-	margin-left: 5px;
-	cursor: pointer;
-`;
 
-const Content = styled.div`
-	display: flex;
-	font-size: 13px;
-	justify-content: center;
-`;
 
 const BUtton = styled.button<{ bg: string }>`
 	margin: 20px;
@@ -248,90 +236,6 @@ const BUtton = styled.button<{ bg: string }>`
 	}
 `;
 
-const COntent = styled.div`
-	font-size: 13px;
-	span {
-		color: #000269;
-		font-weight: 700;
-	}
-`;
-
-const CheckBox = styled.input`
-	margin-right: 10px;
-`;
-
-const CheckHolder = styled.div`
-	display: flex;
-`;
-
-const Error = styled.div`
-	color: red;
-	position: absolute;
-	bottom: -25px;
-	font-size: 10px;
-	font-weight: bolder;
-`;
-
-const Input = styled.input`
-	width: 97%;
-	height: 100%;
-	outline: none;
-	border: 0;
-	padding-left: 10px;
-	background-color: transparent;
-	::placeholder {
-		font-family: Poppins;
-		color: lightgray;
-	}
-`;
-
-const Label = styled.label`
-	font-size: 14px;
-	position: absolute;
-	top: -10px;
-	left: 10px;
-	background-color: white;
-	padding: 0 3px;
-	font-weight: 700;
-`;
-
-const InputHolder2 = styled.div`
-	display: flex;
-	flex-direction: column;
-	position: relative;
-	margin-bottom: 35px;
-	border: 1px solid #000269;
-	width: 100%;
-	height: 40px;
-	border-radius: 3px;
-	margin-left: 3px;
-	color: #000269;
-`;
-
-const InputHolder1 = styled.div`
-	display: flex;
-	flex-direction: column;
-	position: relative;
-	margin-bottom: 35px;
-	border: 1px solid #000269;
-	width: 100%;
-	height: 40px;
-	border-radius: 5px;
-	margin-right: 5px;
-	color: #000269;
-`;
-
-const InputHolder = styled.div`
-	display: flex;
-	flex-direction: column;
-	position: relative;
-	margin-bottom: 35px;
-	border: 1px solid #000269;
-	width: 100%;
-	height: 40px;
-	border-radius: 5px;
-	color: #000269;
-`;
 
 const TitleSub2 = styled.div`
 	color: gray;
@@ -363,31 +267,7 @@ const Title = styled.div`
 	margin-top: 30px;
 `;
 
-const LogoTitle = styled.div`
-	font-weight: 700;
-	color: gray;
-	width: 100px;
-	line-height: 1;
-	font-size: 25px;
-	color: #5833c7;
-`;
 
-const Logo = styled.div`
-	padding: 30px 20px;
-	background-color: #5833c7;
-	color: white;
-	border-radius: 3px;
-	margin-right: 5px;
-	font-weight: 700;
-`;
-
-const LogoHolder = styled(Link)`
-	margin-top: 30px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-decoration: none;
-`;
 const Card = styled.div`
 	width: 90%;
 	height: 100%;
@@ -411,34 +291,9 @@ const Wrapper = styled.div`
 	}
 `;
 
-const Right = styled.img`
-	width: 200px;
-	height: 300px;
-	object-fit: cover;
-	@media screen and (max-width: 500px) {
-		display: none;
-	}
-`;
 
-const Left = styled.img`
-	width: 248px;
-	height: 185px;
-	object-fit: cover;
-`;
 
-const Holder = styled.div`
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	background-image: url("https://demos.themeselection.com/materio-mui-react-nextjs-admin-template-free/images/pages/auth-v1-mask-light.png");
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
-`;
 
-const Space = styled.div`
-	flex: 1;
-`;
 
 const Container = styled.div`
 	width: 100%;

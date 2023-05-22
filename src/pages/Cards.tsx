@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from "styled-components"
+import img from "../Assets/wave_img.svg"
 
 const AdminCard = () => {
 
@@ -107,7 +108,10 @@ const Card2 = styled.div`
 const Card1 = styled.div`
   height: 120px;
   width: 385px;
-  background: radial-gradient(484px at 49.4% 19%, rgb(23, 156, 214) 0%, rgb(52, 48, 111) 100.2%);
+  background-image: url(${img});
+  background-repeat: no-repeat;
+  background-color: red;
+  /* background: radial-gradient(484px at 49.4% 19%, rgb(23, 156, 214) 0%, rgb(52, 48, 111) 100.2%); */
   border-radius: 3px;
   border-bottom: 2px solid #0d71fa;
   display: flex;

@@ -58,7 +58,6 @@ const DashboardHead = () => {
             </Prof>
         </Left2>
 
-
         {show ? (
         <Hold onClick={Toggle3}>
           <Box>

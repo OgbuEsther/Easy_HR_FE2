@@ -64,13 +64,13 @@ const App = () => {
           >
             <Icon className="cha" />
           </Cricle>
-          <p>Payroll</p>
+          <p>~ Payroll</p>
         </Hold>
         <Hold>
           <Cricle onClick={Time} style={{ backgroundColor: time ? "#DC3545" : "" }}>
             <Icons1 className="cha" />
           </Cricle>
-          <p>Time & Attendance</p>
+          <p>~ Time & Attendance</p>
         </Hold>
         <Hold>
           <Cricle
@@ -79,33 +79,30 @@ const App = () => {
           >
             <Icons2 className="cha" />
           </Cricle>
-          <p>Benefits</p>
+          <p>~ Benefits</p>
         </Hold>
         <Hold>
           <Cricle onClick={Hr} style={{ backgroundColor: hr ? "#DC3545" : "" }}>
             <Icon5 className="cha" />
           </Cricle>
-          <p>Hr Management</p>
+          <p>~ Hr Management</p>
         </Hold>
         <Hold>
           <Cricle onClick={Hire} style={{ backgroundColor: hire ? "#DC3545" : "" }}>
             <Icon6 className="cha" />
           </Cricle>
-          <p>Hiring</p>
+          <p>~ Hiring</p>
         </Hold>
       </Main>
       {payroll ? (
         <Second>
           <Iconm>
-            <SiOpenai />
+            <SiSemanticuireact />
           </Iconm>
           <Holder>
-            <h3>Payroll</h3>
+            <h3>~ Payroll</h3>
             <p>
-              Save time and improve payroll accuracy with the latest in time and
-              attendance software. However you prefer to track employee time, we
-              have flexible options to fit your business.
-            </p>
+            Our pre-configured algorithms provide prompt and precise computations, seamlessly integrating with HRIS to facilitate quick access to payroll updates. With the inclusion of latest compliance standards, you can effortlessly process payroll within a matter of minutes.            </p>
           
           </Holder>
         </Second>
@@ -116,7 +113,7 @@ const App = () => {
             <IoTimer />
           </Iconm>
           <Holder>
-            <h3>Time & Attendance</h3>
+            <h3>~ Time & Attendance</h3>
             <p>
             Tracking time and attendance is critical for all organizations, no matter its size or the methods used to determine employee pay.
             Having an automated time and attendance tracking system in place can help organizations across all industries save money and improve operations.
@@ -132,7 +129,7 @@ const App = () => {
             <ImIcoMoon />
           </Iconm>
           <Holder>
-            <h3>Benefits</h3>
+            <h3>~ Benefits</h3>
             <p>
             HR systems help reduce administrative time, broaden headhunting options, assist with onboarding, speed up information dissemination among team members, improve security and simplify payroll processing, among other things
             </p>
@@ -146,7 +143,7 @@ const App = () => {
             <RiFocus2Line />
           </Iconm>
           <Holder>
-            <h3>Hr Management</h3>
+            <h3>~ Hr Management</h3>
             <p>
             The purpose of HR management software is to combine different human resource and administration processes in a centralized location, from where the manager can also assign tasks, monitor, and evaluate progress, and reward the best performers in the team.
             </p>
@@ -161,7 +158,7 @@ const App = () => {
             <SiWhitesource />
           </Iconm>
           <Holder>
-            <h3>Hiring</h3>
+            <h3>~ Hiring</h3>
             <p>
             Human resource managers go through a series of steps to identify and acquire the best candidates to fill a posted job requirement.
             </p>
@@ -212,7 +209,7 @@ const Read = styled.div`
 const Icons = styled.div``;
 const Holder = styled.div`
   margin-left: 35px;
-  margin-top: 50px;
+  margin-top: 20px;
 
   @media screen and (max-width: 500px) {
     margin: 0;
@@ -237,8 +234,8 @@ const Second = styled.div`
   width: 90%;
   height: 200px;
   border: 1px solid gray;
-  margin-bottom: 40px;
-  margin-top: 40px;
+  margin-bottom: 20px;
+  margin-top: 20px;
   display: flex;
   border-radius: 5px;
   /* align-items: center; */

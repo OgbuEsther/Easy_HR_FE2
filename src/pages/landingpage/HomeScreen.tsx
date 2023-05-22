@@ -15,7 +15,7 @@ const HomeScreen = () => {
         <Easier/>
         <Client/>
         <Payment/>
-        <Expert/>
+        {/* <Expert/> */}
         <End/>
     </div>
   )
