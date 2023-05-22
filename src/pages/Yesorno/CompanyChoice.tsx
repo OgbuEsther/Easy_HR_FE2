@@ -267,31 +267,7 @@ const Title = styled.div`
 	margin-top: 30px;
 `;
 
-const LogoTitle = styled.div`
-	font-weight: 700;
-	color: gray;
-	width: 100px;
-	line-height: 1;
-	font-size: 25px;
-	color: #5833c7;
-`;
 
-const Logo = styled.div`
-	padding: 30px 20px;
-	background-color: #5833c7;
-	color: white;
-	border-radius: 3px;
-	margin-right: 5px;
-	font-weight: 700;
-`;
-
-const LogoHolder = styled(Link)`
-	margin-top: 30px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-decoration: none;
-`;
 const Card = styled.div`
 	width: 90%;
 	height: 100%;
@@ -315,34 +291,9 @@ const Wrapper = styled.div`
 	}
 `;
 
-const Right = styled.img`
-	width: 200px;
-	height: 300px;
-	object-fit: cover;
-	@media screen and (max-width: 500px) {
-		display: none;
-	}
-`;
 
-const Left = styled.img`
-	width: 248px;
-	height: 185px;
-	object-fit: cover;
-`;
 
-const Holder = styled.div`
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	background-image: url("https://demos.themeselection.com/materio-mui-react-nextjs-admin-template-free/images/pages/auth-v1-mask-light.png");
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
-`;
 
-const Space = styled.div`
-	flex: 1;
-`;
 
 const Container = styled.div`
 	width: 100%;
