@@ -56,9 +56,6 @@ const DashboardHead = () => {
         </Inputhold>
 
         <Settingshold>
-          <Seticon>
-            <CiSettings />
-          </Seticon>
           <Notification>
             <IoIosNotificationsOutline />
             <Red></Red>
