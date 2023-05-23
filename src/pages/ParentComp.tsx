@@ -102,8 +102,14 @@ const ParentComp = () => {
           <Title>
           <Word>  Monthly Acquisition</Word>
          <IconHold>
-         <Icon1>Cost</Icon1>
-         <Icon1>Item</Icon1>
+         <Icon1>
+          <Dot bcc="#82CDFF"></Dot>
+          Cost
+          </Icon1>
+         <Icon1>
+          <Dot bcc=""></Dot>
+          Item
+          </Icon1>
          </IconHold>
           </Title>
               <Charts />
@@ -125,7 +131,21 @@ display: flex;
 flex-direction: column;
 `
 
-const Icon1 = styled.div``
+const Dot = styled.div<{bcc:string}>`
+width: 10px;
+height: 10px;
+background-color: ${(props)=>props.bcc};
+border-radius: 50px;
+margin:3px;
+`
+  
+
+const Icon1 = styled.div`
+margin:5px;
+display: flex;
+align-items: center;
+justify-content: center;
+`
 
 const Word = styled.div``
 
