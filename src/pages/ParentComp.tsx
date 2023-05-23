@@ -107,7 +107,7 @@ const ParentComp = () => {
           Cost
           </Icon1>
          <Icon1>
-          <Dot bcc=""></Dot>
+          <Dot bcc="#FFB1C1"></Dot>
           Item
           </Icon1>
          </IconHold>
@@ -147,7 +147,10 @@ align-items: center;
 justify-content: center;
 `
 
-const Word = styled.div``
+const Word = styled.div`
+font-weight: 500;
+
+`
 
 const IconHold = styled.div`
 display: flex;
