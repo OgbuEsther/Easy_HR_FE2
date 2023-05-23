@@ -7,7 +7,8 @@ import { useAppSelector } from '../global/Store';
 import { FaBattleNet} from "react-icons/fa"
 import { GiStarSattelites, GiTransportationRings } from "react-icons/gi"
 import { CiSearch, CiSettings } from "react-icons/ci"
-import {IoIosNotificationsOutline} from "react-icons/io"
+import { IoIosNotificationsOutline } from "react-icons/io"
+import img from "../../Assets/ceo.jpg"
 
 const DashboardHead = () => {
   const [show, setShow] = React.useState(false);
@@ -61,7 +62,9 @@ const DashboardHead = () => {
             <Red></Red>
           </Notification>
           <Circlehold>
-            <Circle></Circle>
+            <Circle>
+              <Img src={img} />
+            </Circle>
             <Name>Okwoli Godwin</Name>
           </Circlehold>
         </Settingshold>
@@ -156,6 +159,11 @@ const DashboardHead = () => {
 }
 
 export default DashboardHead
+const Img = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`
 const Name = styled.div`
   margin-left: 6px;
 `
@@ -163,7 +171,8 @@ const Circle = styled.div`
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: red;
+  overflow: hidden;
+  /* background-color: red; */
 `
 const Circlehold = styled.div`
   display: flex;
@@ -190,7 +199,7 @@ const Seticon = styled.div`
 const Settingshold = styled.div`
   display: flex;
   align-items: center;
-  width: 270px;
+  width: 220px;
   justify-content: space-between;
 `
 const Input = styled.input`
