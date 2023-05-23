@@ -20,6 +20,8 @@ export const adminVerification = async (id: string) => {
     }
   };
 
+
+//login admin  
 export const LoginAdmin = async(data:AdminData)=>{
     return await axios.post(`${url}/admin/login`,data).then((res)=>
     {return res.data})
