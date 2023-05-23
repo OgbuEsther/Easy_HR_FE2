@@ -701,7 +701,7 @@ const Top = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 94%;
+  width: 99%;
   display: flex;
   flex-direction: column;
   align-items: center;
