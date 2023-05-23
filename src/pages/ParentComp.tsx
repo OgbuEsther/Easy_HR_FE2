@@ -100,7 +100,7 @@ const ParentComp = () => {
           <Hold>
          <Cha>
           <Title>
-            Monthly Acquisition
+          <Word>  Monthly Acquisition</Word>
          <IconHold>
          <Icon1>Cost</Icon1>
          <Icon1>Item</Icon1>
@@ -127,9 +127,17 @@ flex-direction: column;
 
 const Icon1 = styled.div``
 
-const IconHold = styled.div``
+const Word = styled.div``
 
-const Title = styled.div``
+const IconHold = styled.div`
+display: flex;
+
+`
+
+const Title = styled.div`
+display: flex;
+justify-content: space-between;
+`
   
 
 const Cha = styled.div`
