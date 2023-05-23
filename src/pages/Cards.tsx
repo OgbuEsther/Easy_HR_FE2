@@ -45,7 +45,7 @@ const AdminCard = () => {
           <Card3>
             <Holder3>
               <Total>Leave Apply</Total>
-              <Num>15</Num>
+            <Num> { getAdmin?.data?.data?.staffLeave?.length} </Num>
             </Holder3>
           </Card3>
         </Holder>
