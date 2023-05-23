@@ -1,52 +1,21 @@
-import React from "react";
-import { MdOutlineCancel } from "react-icons/md";
-import { FaGoogleWallet } from "react-icons/fa";
+
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
-import Cards from "./Cards";
 import Charts from "../components/Graph/Charts";
-import {  BsFillHousesFill, BsBusFront } from "react-icons/bs";
-import img from "../Assets/saves.svg"
-import { useAppSelector } from "../components/global/Store";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm } from "react-hook-form";
-import { useQuery } from "@tanstack/react-query";
-import { getOneStaff } from "../utils/Api/ApiCall";
-import Mobilecard from "./Mobilecard/Mobilecard";
 
 
 
 const ParentComp = () => {
 
-    const schema = yup
-    .object({
-      amount: yup.number().required("field must be"),
-      subscribe: yup.boolean().required("field must be checked"),
-    })
-    .required();
-  type formData = yup.InferType<typeof schema>;
-  const {
-    formState: { errors },
-  } = useForm<formData>({
-    resolver: yupResolver(schema),
-  });
-
-  const user = useAppSelector((state) => state.currentStaff);
-  const getStaff = useQuery({
-    queryKey: ["singleStaff"],
-    queryFn: () => getOneStaff(user?._id),
-  });
-console.log("this is getStaff id",user?._id)
-console.log("this is getStaff ",getStaff?.data?.data?.wallet)
-
   return (
     <div>
       <Container>
         <Wrapper>
+          <Top>
+            <Advert>
 
-          {/* <Cards /> */}
-          <Mobilecard />
+            </Advert>
+          </Top>
+          {/* <Mobilecard /> */}
           <Down>
             <Piehold>
                           <Pee>
@@ -63,6 +32,13 @@ console.log("this is getStaff ",getStaff?.data?.data?.wallet)
 }
 
 export default ParentComp;
+const Advert = styled.div`
+  
+`
+const Top = styled.div`
+  width: 100%;
+  display: flex;
+`
 
 const Pee = styled.div`
     width: 100%;
