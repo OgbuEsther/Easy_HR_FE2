@@ -36,6 +36,36 @@ const ParentComp = () => {
                   <Img2 src={img2} />
                 </Imagehold>
               </Hold1>
+              <Hold1>
+                <Texthold>
+                  <h3>Leave</h3>
+                  <p>Apply for a vacation today.</p>
+                  <button>Apply</button>
+                </Texthold>
+                <Imagehold>
+                  <Img2 src={img2} />
+                </Imagehold>
+              </Hold1>
+              <Hold1>
+                <Texthold>
+                  <h3>Leave</h3>
+                  <p>Apply for a vacation today.</p>
+                  <button>Apply</button>
+                </Texthold>
+                <Imagehold>
+                  <Img2 src={img2} />
+                </Imagehold>
+              </Hold1>
+              <Hold1>
+                <Texthold>
+                  <h3>Leave</h3>
+                  <p>Apply for a vacation today.</p>
+                  <button>Apply</button>
+                </Texthold>
+                <Imagehold>
+                  <Img2 src={img2} />
+                </Imagehold>
+              </Hold1>
             </Cards>
           </Top>
           {/* <Mobilecard /> */}
@@ -56,7 +86,7 @@ const ParentComp = () => {
 
 export default ParentComp;
 const Img2 = styled.img`
-  width: 290px;
+  width: 320px;
 `
 const Imagehold = styled.div`
   width: 48%;
@@ -86,22 +116,25 @@ const Texthold = styled.div`
     margin-top: 9px;
     border-radius: 50px;
     cursor: pointer;
+    font-size: 15px;
   }
 `
 const Hold1 = styled.div`
-  width: 250px;
+  width: 249px;
   height: 130px;
   display: flex;
   border-radius: 12px;
   overflow: hidden;
   background-color: #fd625e;
   padding: 12px;
+  margin-bottom: 12px;
 `
 const Cards = styled.div`
   width: 47%;
   display: flex;
   height: 40px;
   flex-wrap: wrap;
+  justify-content: space-between;
 `
 const Img = styled.img`
   height: 200px;
