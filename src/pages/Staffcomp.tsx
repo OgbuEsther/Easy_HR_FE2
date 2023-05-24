@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Charts from "../components/Graph/Charts";
 import img from ".././Assets/attends.png"
 import img2 from ".././Assets/leave.png"
-import {BsFillPersonFill} from "react-icons/bs"
+import img3 from ".././Assets/performance.png"
 
 
 
