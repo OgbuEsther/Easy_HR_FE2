@@ -1,4 +1,3 @@
-
 import styled from "styled-components";
 import Charts from "../components/Graph/Charts";
 import img from ".././Assets/attends.png"
@@ -6,6 +5,8 @@ import img2 from ".././Assets/leave.png"
 import img3 from ".././Assets/perform.png"
 import img4 from ".././Assets/goal.png"
 import img5 from ".././Assets/holiday.png"
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 
 
@@ -76,11 +77,14 @@ const ParentComp = () => {
           {/* <Mobilecard /> */}
           <Down>
             <Piehold>
-                          <Pee>
-                              <Title>Performance Chart</Title>
-                              <Charts />
-                          </Pee>
-                      </Piehold>
+                <Pee>
+                  <Title>Performance Chart</Title>
+                      <Charts />
+                      </Pee>
+            </Piehold>
+            <Progress>
+
+            </Progress>
           </Down>
         </Wrapper>
       </Container>
@@ -90,6 +94,10 @@ const ParentComp = () => {
 }
 
 export default ParentComp;
+const Progress = styled.div`
+  width: 48%;
+  display: flex;
+`
 const Img3 = styled.img`
   width: 370px;
 `
