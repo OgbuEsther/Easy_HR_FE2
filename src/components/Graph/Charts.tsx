@@ -52,12 +52,12 @@ export const data = {
     {
       label: "cost",
       data: emptyArr.map((el: any) => el.cost),
-      backgroundColor: "rgba(53, 162, 235, 0.5)",
+      backgroundColor: "#fd625e",
     },
     {
       label: "item",
       data: emptyArr.map((el: any) => el.item),
-      backgroundColor: "rgba(255, 99, 132, 0.5)",
+      backgroundColor: "#28383c",
     },
   ],
 };
