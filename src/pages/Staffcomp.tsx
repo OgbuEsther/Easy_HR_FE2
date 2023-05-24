@@ -10,7 +10,9 @@ import 'react-circular-progressbar/dist/styles.css';
 
 
 
+
 const ParentComp = () => {
+  const percentage = 66;
 
   return (
     <div>
@@ -83,7 +85,9 @@ const ParentComp = () => {
                       </Pee>
             </Piehold>
             <Progress>
-
+              <Firstprog>
+                {/* <CircularProgressbar value={percentage} text={`${percentage}%`} />; */}
+              </Firstprog>
             </Progress>
           </Down>
         </Wrapper>
@@ -94,9 +98,19 @@ const ParentComp = () => {
 }
 
 export default ParentComp;
+const Firstprog = styled.div`
+  width: 50%;
+  height: 60px;
+  background-color: red;
+`
 const Progress = styled.div`
   width: 48%;
   display: flex;
+  margin-top: 80px;
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 12px;
 `
 const Img3 = styled.img`
   width: 370px;
