@@ -40,8 +40,8 @@ const ParentComp = () => {
               <Hold2>
                 <Texthold>
                   <h3>Performance</h3>
-                  <p>Rate your performance for the month.</p>
-                  <button>Apply</button>
+                  <p>Rate your performance.</p>
+                  <button>Rate</button>
                 </Texthold>
                 <Imagehold>
                   <Img3 src={img3} />
@@ -131,7 +131,7 @@ const Hold2 = styled.div`
   display: flex;
   border-radius: 12px;
   overflow: hidden;
-  background-color: #fd625e;
+  background-color: #28383c;
   padding: 12px;
   margin-bottom: 12px;
 `
