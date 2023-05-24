@@ -349,7 +349,7 @@ const Icon2 = styled.div`
 `;
 
 const Img2 = styled.img`
-  height: 100px;
+  height: 70px;
 `;
 
 const Top = styled.div`
