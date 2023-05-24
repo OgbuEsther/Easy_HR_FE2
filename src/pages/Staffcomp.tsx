@@ -104,7 +104,7 @@ const Button = styled.button`
   align-items: center;
   border: none;
   color: #fff;
-  background-color: #7C41F5;
+  background-color: #f2c80f;
   margin-top: 12px;
 `
 const Right = styled.div`
@@ -113,20 +113,20 @@ const Right = styled.div`
   flex-direction: column;
   h2{
     font-weight: 500;
-    color: #D69965;
+    color: #fff;
     font-size: 20px;
   }
   p{
     font-size: 15px;
     margin-top: 12px;
-    color: #D69965;
+    color: #fff;
   }
 `
 const Advert = styled.div`
   display: flex;
   padding: 20px;
   height: 200px;
-  background-color: #FDEDC9;
+  background-color: #0168aa;
   width: 50%;
   border-radius: 10px;
 `
