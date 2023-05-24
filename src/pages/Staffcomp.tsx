@@ -14,7 +14,8 @@ const ParentComp = () => {
             <Advert>
               <Right>
                 <h2>Hello Godwin!!!!</h2>
-                <p>Be reminded that you are to mark your attendance everyday you are at work</p>
+                <p>Be reminded that you are to mark your attendance everyday you are at work.</p>
+                <Button>Mark Attendance</Button>
               </Right>
             </Advert>
           </Top>
@@ -35,6 +36,19 @@ const ParentComp = () => {
 }
 
 export default ParentComp;
+const Button = styled.button`
+  width: 160px;
+  height: 38px;
+  border-radius: 50px;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  color: #fff;
+  background-color: #7C41F5;
+  margin-top: 12px;
+`
 const Right = styled.div`
   width: 50%;
   display: flex;
@@ -43,6 +57,11 @@ const Right = styled.div`
     font-weight: 500;
     color: #D69965;
     font-size: 20px;
+  }
+  p{
+    font-size: 15px;
+    margin-top: 12px;
+    color: #D69965;
   }
 `
 const Advert = styled.div`
@@ -107,7 +126,7 @@ const Down = styled.div`
 `
 
 const Wrapper = styled.div`
-  width: 99%;
+  width: 97%;
   display: flex;
   flex-direction: column;
   align-items: center;
