@@ -48,16 +48,16 @@ const ParentComp = () => {
                 </Imagehold>
               </Hold2>
 
-              <Hold1>
+              <Hold3>
                 <Texthold>
-                  <h3>Leave</h3>
-                  <p>Apply for a vacation today.</p>
+                  <h3>Goal</h3>
+                  <p>View Goals for the month.</p>
                   <button>Apply</button>
                 </Texthold>
                 <Imagehold>
                   <Img2 src={img2} />
                 </Imagehold>
-              </Hold1>
+              </Hold3>
               <Hold1>
                 <Texthold>
                   <h3>Leave</h3>
@@ -88,7 +88,6 @@ const ParentComp = () => {
 
 export default ParentComp;
 const Img3 = styled.img`
-  /* height: 370px; */
   width: 370px;
 `
 const Img2 = styled.img`
@@ -124,6 +123,16 @@ const Texthold = styled.div`
     cursor: pointer;
     font-size: 15px;
   }
+`
+const Hold3 = styled.div`
+  width: 249px;
+  height: 130px;
+  display: flex;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #28383c;
+  padding: 12px;
+  margin-bottom: 12px;
 `
 const Hold2 = styled.div`
   width: 249px;
