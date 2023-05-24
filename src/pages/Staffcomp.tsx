@@ -12,7 +12,10 @@ const ParentComp = () => {
         <Wrapper>
           <Top>
             <Advert>
-
+              <Right>
+                <h2>Hello Godwin!!!!</h2>
+                <p>Be reminded that you are to mark your attendance everyday you are at work</p>
+              </Right>
             </Advert>
           </Top>
           {/* <Mobilecard /> */}
@@ -32,8 +35,22 @@ const ParentComp = () => {
 }
 
 export default ParentComp;
+const Right = styled.div`
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  h2{
+    font-weight: 500;
+    color: #D69965;
+    font-size: 20px;
+  }
+`
 const Advert = styled.div`
-  
+  display: flex;
+  padding: 20px;
+  background-color: #FDEDC9;
+  width: 50%;
+  border-radius: 10px;
 `
 const Top = styled.div`
   width: 100%;
