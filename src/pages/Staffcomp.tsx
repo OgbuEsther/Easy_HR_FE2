@@ -5,6 +5,7 @@ import img from ".././Assets/attends.png"
 import img2 from ".././Assets/leave.png"
 import img3 from ".././Assets/perform.png"
 import img4 from ".././Assets/goal.png"
+import img5 from ".././Assets/holiday.png"
 
 
 
@@ -59,14 +60,15 @@ const ParentComp = () => {
                   <Img2 src={img4} />
                 </Imagehold>
               </Hold3>
+
               <Hold1>
                 <Texthold>
-                  <h3>Leave</h3>
-                  <p>Apply for a vacation today.</p>
-                  <button>Apply</button>
+                  <h3>Holiday</h3>
+                  <p>View company's holiday.</p>
+                  <button>View</button>
                 </Texthold>
                 <Imagehold>
-                  <Img2 src={img2} />
+                  <Img2 src={img5} />
                 </Imagehold>
               </Hold1>
             </Cards>
