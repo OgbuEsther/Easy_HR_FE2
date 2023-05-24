@@ -1,6 +1,7 @@
 
 import styled from "styled-components";
 import Charts from "../components/Graph/Charts";
+import img from ".././Assets/attends.png"
 
 
 
@@ -17,6 +18,9 @@ const ParentComp = () => {
                 <p>Be reminded that you are to mark your attendance everyday you are at work.</p>
                 <Button>Mark Attendance</Button>
               </Right>
+              <Left>
+                <Img src={img} />
+              </Left>
             </Advert>
           </Top>
           {/* <Mobilecard /> */}
@@ -36,6 +40,16 @@ const ParentComp = () => {
 }
 
 export default ParentComp;
+const Img = styled.img`
+  height: 200px;
+`
+const Left = styled.div`
+  width: 48%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+`
 const Button = styled.button`
   width: 160px;
   height: 38px;
@@ -50,7 +64,7 @@ const Button = styled.button`
   margin-top: 12px;
 `
 const Right = styled.div`
-  width: 50%;
+  width: 48%;
   display: flex;
   flex-direction: column;
   h2{
@@ -67,6 +81,7 @@ const Right = styled.div`
 const Advert = styled.div`
   display: flex;
   padding: 20px;
+  height: 200px;
   background-color: #FDEDC9;
   width: 50%;
   border-radius: 10px;
@@ -75,7 +90,6 @@ const Top = styled.div`
   width: 100%;
   display: flex;
 `
-
 const Pee = styled.div`
     width: 100%;
     margin-top: 15px;
