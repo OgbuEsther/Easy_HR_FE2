@@ -24,12 +24,12 @@ const ParentComp = () => {
                 <Img src={img} />
               </Left>
             </Advert>
+
             <Cards>
               <Hold1>
-                <Img2 src={img2} />
-                <Box>
-                  <Icon><BsFillPersonFill /></Icon>
-                </Box>
+                <Texthold>
+                  <h3>Leave</h3>
+                </Texthold>
               </Hold1>
             </Cards>
           </Top>
@@ -50,33 +50,24 @@ const ParentComp = () => {
 }
 
 export default ParentComp;
-const Icon = styled.div`
-  color: #fff;
-  font-size: 30px;
-`
-const Box = styled.div`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  background-color: rgba(124, 65, 245, 0.7);
+const Texthold = styled.div`
+  width: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding-left: 20px;
-`
-const Img2 = styled.img`
-  position: absolute;
-  bottom: 0;
+  h3{
+    color: #fff;
+    font-weight: 500;
+    font-size: 19px;
+  }
 `
 const Hold1 = styled.div`
   width: 220px;
   height: 110px;
   display: flex;
   border-radius: 12px;
-  align-items: flex-end;
   overflow: hidden;
-  position: relative;
+  background-color: #fd625e;
+  padding: 15px;
 `
 const Cards = styled.div`
   width: 47%;
@@ -106,6 +97,12 @@ const Button = styled.button`
   color: #fff;
   background-color: #f2c80f;
   margin-top: 12px;
+  transition: all 350ms ease-in-out;
+  :hover{
+    background-color: #fff;
+    color: #f2c80f;
+    border: 1px solid #f2c80f;
+  }
 `
 const Right = styled.div`
   width: 48%;
