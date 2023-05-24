@@ -26,25 +26,19 @@ const AdminCard = () => {
             <Holder1>
               <Total>Total Employees</Total>
 
-              {getAdmin?.data?.data?.viewUser?.map((el: any) => (
-                <Num>{el?.length === 0 ? (<p>No Staff Yet</p> ) : (<>{el?.length === 0} </> )} </Num>
-                // <p>{el?.yourName} </p>
-              ))} 
+             
+                <Num> { getAdmin?.data?.data?.viewUser?.length} </Num>
+          
             </Holder1>
           </Card1>
 
           <Card2>
             <Holder2>
               <Total>Attendance</Total>
-              {/* {getAdmin?.data?.data?.map((el: any) => (
-                <Num>
-                  {el?.viewUser?.length === 0 ? (
-                    <p>No Staff yet</p>
-                  ) : (
-                    <>{el?.viewUser?.length} </>
-                  )}{" "}
-                </Num>
-              ))} */}
+              
+              <Num>
+              { getAdmin?.data?.data?.viewStaffAttendance?.length}
+              </Num>
             </Holder2>
           </Card2>
 
