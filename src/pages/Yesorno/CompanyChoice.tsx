@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import styled from "styled-components";
 import Swal from "sweetalert2";
 import {
@@ -7,7 +7,7 @@ import {
 	AiFillLinkedin,
 	AiFillGoogleCircle,
 } from "react-icons/ai";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 // import LoadingState from "../../../LoadingScreen";
 
