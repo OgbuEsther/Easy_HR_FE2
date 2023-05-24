@@ -5,7 +5,7 @@ import img2 from ".././Assets/leave.png"
 import img3 from ".././Assets/perform.png"
 import img4 from ".././Assets/goal.png"
 import img5 from ".././Assets/holiday.png"
-import { CircularProgressbar } from 'react-circular-progressbar';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 
@@ -86,7 +86,23 @@ const ParentComp = () => {
             </Piehold>
             <Progress>
               <Firstprog>
-                {/* <CircularProgressbar value={percentage} text={`${percentage}%`} />; */}
+                <h2>Leave Statistic</h2>
+                <div style={{width: "130px", height: "130px", marginTop: "27px"}}>
+                  <CircularProgressbar value={percentage} text={`${percentage}%`} styles={buildStyles({
+                    pathColor: "#fd625e",
+                    trailColor: '#d6d6d6',
+                  })}/>;
+                </div>
+              </Firstprog>
+
+              <Firstprog>
+                <h2>Performance Statistic</h2>
+                <div style={{width: "130px", height: "130px", marginTop: "27px"}}>
+                  <CircularProgressbar value={percentage} text={`${percentage}%`} styles={buildStyles({
+                    pathColor: "#0168aa",
+                    trailColor: '#d6d6d6',
+                  })}/>;
+                </div>
               </Firstprog>
             </Progress>
           </Down>
@@ -100,15 +116,20 @@ const ParentComp = () => {
 export default ParentComp;
 const Firstprog = styled.div`
   width: 50%;
-  height: 60px;
-  background-color: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h2{
+    font-weight: 600;
+    font-size: 19px;
+  }
 `
 const Progress = styled.div`
   width: 48%;
   display: flex;
   margin-top: 80px;
   background-color: #fff;
-  padding: 10px;
+  padding: 12px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 12px;
 `
