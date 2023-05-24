@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Charts from "../components/Graph/Charts";
 import img from ".././Assets/attends.png"
 import img2 from ".././Assets/wave_img2.svg"
+import {BsFillPersonFill} from "react-icons/bs"
 
 
 
@@ -27,7 +28,7 @@ const ParentComp = () => {
               <Hold1>
                 <Img2 src={img2} />
                 <Box>
-
+                  <Icon><BsFillPersonFill /></Icon>
                 </Box>
               </Hold1>
             </Cards>
@@ -49,12 +50,20 @@ const ParentComp = () => {
 }
 
 export default ParentComp;
+const Icon = styled.div`
+  color: #fff;
+  font-size: 30px;
+`
 const Box = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
-  background-color: rgba(124, 65, 245, 0.6);
+  background-color: rgba(124, 65, 245, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20px;
 `
 const Img2 = styled.img`
   position: absolute;
