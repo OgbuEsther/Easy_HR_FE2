@@ -2,7 +2,7 @@
 import styled from "styled-components";
 import Charts from "../components/Graph/Charts";
 import img from ".././Assets/attends.png"
-import img2 from ".././Assets/wave_img.svg"
+import img2 from ".././Assets/wave_img2.svg"
 
 
 
@@ -26,6 +26,9 @@ const ParentComp = () => {
             <Cards>
               <Hold1>
                 <Img2 src={img2} />
+                <Box>
+
+                </Box>
               </Hold1>
             </Cards>
           </Top>
@@ -46,15 +49,25 @@ const ParentComp = () => {
 }
 
 export default ParentComp;
+const Box = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background-color: rgba(124, 65, 245, 0.6);
+`
 const Img2 = styled.img`
-  
+  position: absolute;
+  bottom: 0;
 `
 const Hold1 = styled.div`
   width: 220px;
   height: 110px;
   display: flex;
-  background-color: red;
   border-radius: 12px;
+  align-items: flex-end;
+  overflow: hidden;
+  position: relative;
 `
 const Cards = styled.div`
   width: 47%;
