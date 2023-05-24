@@ -4,6 +4,7 @@ import Charts from "../components/Graph/Charts";
 import img from ".././Assets/attends.png"
 import img2 from ".././Assets/leave.png"
 import img3 from ".././Assets/perform.png"
+import img4 from ".././Assets/goal.png"
 
 
 
@@ -48,16 +49,16 @@ const ParentComp = () => {
                 </Imagehold>
               </Hold2>
 
-              <Hold1>
+              <Hold3>
                 <Texthold>
-                  <h3>Leave</h3>
-                  <p>Apply for a vacation today.</p>
-                  <button>Apply</button>
+                  <h3>Goal</h3>
+                  <p>View Goals for the month.</p>
+                  <button>View</button>
                 </Texthold>
                 <Imagehold>
-                  <Img2 src={img2} />
+                  <Img2 src={img4} />
                 </Imagehold>
-              </Hold1>
+              </Hold3>
               <Hold1>
                 <Texthold>
                   <h3>Leave</h3>
@@ -88,7 +89,6 @@ const ParentComp = () => {
 
 export default ParentComp;
 const Img3 = styled.img`
-  /* height: 370px; */
   width: 370px;
 `
 const Img2 = styled.img`
@@ -124,6 +124,16 @@ const Texthold = styled.div`
     cursor: pointer;
     font-size: 15px;
   }
+`
+const Hold3 = styled.div`
+  width: 249px;
+  height: 130px;
+  display: flex;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #28383c;
+  padding: 12px;
+  margin-bottom: 12px;
 `
 const Hold2 = styled.div`
   width: 249px;
