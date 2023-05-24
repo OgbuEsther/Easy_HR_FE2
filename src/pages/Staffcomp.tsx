@@ -2,7 +2,7 @@
 import styled from "styled-components";
 import Charts from "../components/Graph/Charts";
 import img from ".././Assets/attends.png"
-import img2 from ".././Assets/wave_img2.svg"
+import img2 from ".././Assets/leave.png"
 import {BsFillPersonFill} from "react-icons/bs"
 
 
@@ -29,7 +29,12 @@ const ParentComp = () => {
               <Hold1>
                 <Texthold>
                   <h3>Leave</h3>
+                  <p>Apply for a vacation today.</p>
+                  <button>Apply</button>
                 </Texthold>
+                <Imagehold>
+                  <Img2 src={img2} />
+                </Imagehold>
               </Hold1>
             </Cards>
           </Top>
@@ -50,8 +55,18 @@ const ParentComp = () => {
 }
 
 export default ParentComp;
+const Img2 = styled.img`
+  width: 290px;
+`
+const Imagehold = styled.div`
+  width: 48%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+`
 const Texthold = styled.div`
-  width: 50%;
+  width: 48%;
   display: flex;
   flex-direction: column;
   h3{
@@ -59,15 +74,28 @@ const Texthold = styled.div`
     font-weight: 500;
     font-size: 19px;
   }
+  p{
+    font-size: 12px;
+    color: #fff;
+  }
+  button{
+    width: 100px;
+    height: 34px;
+    background-color: #8ad4eb;
+    color: #fff;
+    margin-top: 9px;
+    border-radius: 50px;
+    cursor: pointer;
+  }
 `
 const Hold1 = styled.div`
-  width: 220px;
-  height: 110px;
+  width: 250px;
+  height: 130px;
   display: flex;
   border-radius: 12px;
   overflow: hidden;
   background-color: #fd625e;
-  padding: 15px;
+  padding: 12px;
 `
 const Cards = styled.div`
   width: 47%;
