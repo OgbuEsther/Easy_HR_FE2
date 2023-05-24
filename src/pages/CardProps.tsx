@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import {BsThreeDotsVertical} from "react-icons/bs"
-import { deactiavteAStaff } from '../utils/Api/ApiCall';
+
 import { useAppSelector } from '../components/global/Store';
 import axios from 'axios';
 

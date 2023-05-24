@@ -17,7 +17,7 @@ const CompanyChoice = () => {
 	const { id } = useParams();
 	const navigate = useNavigate();
 
-	const [myChecked, setMyChacked] = useState(true);
+	const [myChecked, setMyChecked] = useState(true);
 	const [loading, setLoading] = useState(false);
 
 	const noStaff = async () => {
@@ -92,14 +92,12 @@ const CompanyChoice = () => {
 						<TitleHead>Verify this Account </TitleHead>
 						<br />
 						<TitleSub>
-							You are seeing this page because <span>NAME</span>, claims to be a
-							bolivian satff of your Company and will be expressing his/her
-							voting right exercise under your Company/Organisation/Association.
+							You are seeing this page because <span>NAME</span>, claims to be a staff of your Company
+							
 							<br />
 							<br />
 							<TitleSub2>
-								Would you <span>AGREE</span> that he/she is a responsible and
-								bolivian satff of your Company/Organisation/Association?
+								Would you <span>AGREE</span> that he/she is a responsible staff of your Company/Organisation/Association?
 							</TitleSub2>
 							{/* <br /> */}
 							<InputRow>
@@ -122,13 +120,13 @@ const CompanyChoice = () => {
 					<br />
 					<br />
 
-					<LineHolder>
+					{/* <LineHolder>
 						<Line />
 						<Text>OR</Text>
 						<Line />
-					</LineHolder>
+					</LineHolder> */}
 
-					<Social>
+					{/* <Social>
 						<SocialText>Stay connected with us via our Social Media</SocialText>
 						<Icons>
 							<Icon />
@@ -136,7 +134,7 @@ const CompanyChoice = () => {
 							<Icon2 />
 							<Icon3 />
 						</Icons>
-					</Social>
+					</Social> */}
 				</Card>
 			</Wrapper>
 		</Container>
@@ -248,7 +246,7 @@ const TitleSub2 = styled.div`
 `;
 
 const TitleSub = styled.div`
-	color: lightgray;
+	color: #000000bc;
 	font-weight: 500;
 	font-size: 13px;
 	span {

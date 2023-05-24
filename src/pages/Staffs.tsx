@@ -11,7 +11,7 @@ import { BsPencilFill } from "react-icons/bs";
 
 const Staffs = () => {
   const user = useAppSelector((state) => state.currentUser);
-
+  const staff = useAppSelector((state)=> state.currentStaff)
   const getAdmin = useQuery({
     queryKey: ["singleAdmin"],
     queryFn: () => getOneAdmin(user?._id),
@@ -32,6 +32,7 @@ const searchData = async (e: any) => {
       });
   }
 };
+
 
 
 
@@ -85,7 +86,13 @@ const searchData = async (e: any) => {
                           <Cir>
                             <BsPencilFill />
                           </Cir>
-                          <Cir1>
+                          <Cir1  onClick={()=>{
+                 axios.delete(`https://easyhr.onrender.com/api/staff/deactivateStaff/${staff?._id}/${user?._id}`).then((res)=>{
+                  console.log(res.data)
+                  window.location.reload()
+                })
+               
+             }}>
                             <RiDeleteBin2Line />
                           </Cir1>
                         </Action>
@@ -140,27 +147,7 @@ const Action = styled.div`
   display: flex;
 `;
 
-const Chc = styled.div`
-  color: green;
-  font-weight: bold;
-`;
 
-const Box = styled.div`
-  color: #28a745;
-  border-color: #28a745;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: .875rem;
-  line-height: 1.5;
-  width: 90px;
-  height: 35px;
-  font-weight: 400;
-  border-radius: 50px;
-  border: 1px solid #28a745;
-  outline-color: 2px solid #619c6f;
-  cursor: pointer;
-`;
 
 const Circle = styled.div`
   width: 40px;
@@ -230,14 +217,6 @@ const Table = styled.div`
   }
 `;
 
-const CardHold = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 80px;
-  align-items: center;
-  margin-top: 20px;
-  justify-content: center;
-`;
 
 const Text = styled.div`
   font-weight: 500;
