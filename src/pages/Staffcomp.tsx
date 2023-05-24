@@ -4,6 +4,7 @@ import Charts from "../components/Graph/Charts";
 import img from ".././Assets/attends.png"
 import img2 from ".././Assets/leave.png"
 import img3 from ".././Assets/perform.png"
+import img4 from ".././Assets/goal.png"
 
 
 
@@ -52,10 +53,10 @@ const ParentComp = () => {
                 <Texthold>
                   <h3>Goal</h3>
                   <p>View Goals for the month.</p>
-                  <button>Apply</button>
+                  <button>View</button>
                 </Texthold>
                 <Imagehold>
-                  <Img2 src={img2} />
+                  <Img2 src={img4} />
                 </Imagehold>
               </Hold3>
               <Hold1>
