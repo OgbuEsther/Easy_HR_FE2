@@ -349,7 +349,7 @@ const Icon2 = styled.div`
 `;
 
 const Img2 = styled.img`
-  height: 100px;
+  height: 70px;
 `;
 
 const Top = styled.div`
@@ -361,7 +361,7 @@ const Container = styled.div`
   width: 220px;
   height: 100vh;
   position: fixed;
-  background-color: #001328;
+  background-color: #0168aa;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   overflow: hidden;
   padding-left: 25px;
