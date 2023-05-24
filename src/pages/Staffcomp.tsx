@@ -81,7 +81,7 @@ const ParentComp = () => {
                               <Charts />
                           </Pee>
                       </Piehold>
-                  </Down>
+          </Down>
         </Wrapper>
       </Container>
     </div>
@@ -240,7 +240,7 @@ const Title = styled.div`
     font-weight: 600;
 `
 const Piehold = styled.div`
-    width: 48%;
+    width: 50%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -248,6 +248,7 @@ const Piehold = styled.div`
     background-color: #fff;
     padding: 10px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 12px;
 
     @media screen and (max-width: 768px) {
       width: 90%;
@@ -262,6 +263,7 @@ const Down = styled.div`
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+    /* background-color: red; */
 
     @media screen and (max-width: 768px) {
       display: flex;
