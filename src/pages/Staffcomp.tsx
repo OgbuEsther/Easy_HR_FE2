@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Charts from "../components/Graph/Charts";
 import img from ".././Assets/attends.png"
 import img2 from ".././Assets/leave.png"
-import img3 from ".././Assets/performance.png"
+import img3 from ".././Assets/perform.png"
 
 
 
@@ -36,16 +36,18 @@ const ParentComp = () => {
                   <Img2 src={img2} />
                 </Imagehold>
               </Hold1>
-              <Hold1>
+
+              <Hold2>
                 <Texthold>
-                  <h3>Leave</h3>
-                  <p>Apply for a vacation today.</p>
+                  <h3>Performance</h3>
+                  <p>Rate your performance for the month.</p>
                   <button>Apply</button>
                 </Texthold>
                 <Imagehold>
-                  <Img2 src={img2} />
+                  <Img3 src={img3} />
                 </Imagehold>
-              </Hold1>
+              </Hold2>
+
               <Hold1>
                 <Texthold>
                   <h3>Leave</h3>
@@ -85,6 +87,10 @@ const ParentComp = () => {
 }
 
 export default ParentComp;
+const Img3 = styled.img`
+  /* height: 370px; */
+  width: 370px;
+`
 const Img2 = styled.img`
   width: 320px;
 `
@@ -118,6 +124,16 @@ const Texthold = styled.div`
     cursor: pointer;
     font-size: 15px;
   }
+`
+const Hold2 = styled.div`
+  width: 249px;
+  height: 130px;
+  display: flex;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fd625e;
+  padding: 12px;
+  margin-bottom: 12px;
 `
 const Hold1 = styled.div`
   width: 249px;
