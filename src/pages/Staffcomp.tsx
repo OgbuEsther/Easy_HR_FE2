@@ -2,6 +2,7 @@
 import styled from "styled-components";
 import Charts from "../components/Graph/Charts";
 import img from ".././Assets/attends.png"
+import img2 from ".././Assets/wave_img.svg"
 
 
 
@@ -22,6 +23,11 @@ const ParentComp = () => {
                 <Img src={img} />
               </Left>
             </Advert>
+            <Cards>
+              <Hold1>
+                <Img2 src={img2} />
+              </Hold1>
+            </Cards>
           </Top>
           {/* <Mobilecard /> */}
           <Down>
@@ -40,6 +46,22 @@ const ParentComp = () => {
 }
 
 export default ParentComp;
+const Img2 = styled.img`
+  
+`
+const Hold1 = styled.div`
+  width: 220px;
+  height: 110px;
+  display: flex;
+  background-color: red;
+  border-radius: 12px;
+`
+const Cards = styled.div`
+  width: 47%;
+  display: flex;
+  height: 40px;
+  flex-wrap: wrap;
+`
 const Img = styled.img`
   height: 200px;
 `
@@ -89,6 +111,7 @@ const Advert = styled.div`
 const Top = styled.div`
   width: 100%;
   display: flex;
+  justify-content: space-between;
 `
 const Pee = styled.div`
     width: 100%;
