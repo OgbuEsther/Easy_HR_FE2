@@ -120,21 +120,7 @@ const CompanyChoice = () => {
 					<br />
 					<br />
 
-					{/* <LineHolder>
-						<Line />
-						<Text>OR</Text>
-						<Line />
-					</LineHolder> */}
-
-					{/* <Social>
-						<SocialText>Stay connected with us via our Social Media</SocialText>
-						<Icons>
-							<Icon />
-							<Icon1 />
-							<Icon2 />
-							<Icon3 />
-						</Icons>
-					</Social> */}
+					
 				</Card>
 			</Wrapper>
 		</Container>
@@ -143,75 +129,12 @@ const CompanyChoice = () => {
 
 export default CompanyChoice;
 
-const Text = styled.div`
-	font-size: 15px;
-	padding: 0 5px;
-`;
 
-const Line = styled.div`
-	border-bottom: 1px solid silver;
-	width: 100%;
-`;
-
-const LineHolder = styled.div`
-	display: flex;
-	align-items: center;
-	margin: 20px 0;
-`;
 
 const InputRow = styled.div`
 	display: flex;
 `;
 
-const Icon = styled(AiFillGoogleCircle)`
-	font-size: 35px;
-	color: red;
-	:hover {
-		cursor: pointer;
-	}
-`;
-
-const Icons = styled.div`
-	display: flex;
-	margin-top: 20px;
-`;
-
-const Icon3 = styled(AiFillLinkedin)`
-	font-size: 35px;
-	color: #0077b7;
-	:hover {
-		cursor: pointer;
-	}
-`;
-
-const Icon2 = styled(AiFillTwitterSquare)`
-	font-size: 35px;
-	color: #50abf1;
-	:hover {
-		cursor: pointer;
-	}
-`;
-
-const Icon1 = styled(AiFillFacebook)`
-	font-size: 35px;
-	color: #475993;
-	:hover {
-		cursor: pointer;
-	}
-`;
-
-const SocialText = styled.div`
-	font-size: 12px;
-	display: flex;
-	margin-top: 0px;
-`;
-
-const Social = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin-bottom: 10px;
-`;
 
 
 
@@ -273,7 +196,7 @@ const Card = styled.div`
 
 const Wrapper = styled.div`
 	width: 450px;
-	min-height: 700px;
+
 	background-color: white;
 	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 	position: absolute;
