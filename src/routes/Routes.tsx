@@ -151,7 +151,7 @@ export const Elements = createBrowserRouter([
   },
   
   {
-    path:"/:id/verification",
+    path:"/:id/checkotp",
     element: <Otp/>
   },
   {
@@ -164,7 +164,7 @@ export const Elements = createBrowserRouter([
     element: <SignInOption/>
   },
   {
-  path:"/api/staff/:id/activateaccount",
+  path:"/api/staff/:id/verification",
   element: <CompanyChoice />
 },
 
