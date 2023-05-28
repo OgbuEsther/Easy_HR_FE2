@@ -69,6 +69,7 @@ const CompanyChoice = () => {
 				setLoading(false);
 			})
 			.catch((error) => {
+				console.log(`this is error ` , error)
 				Swal.fire({
 					position: "center",
 					icon: "error",
