@@ -2,6 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import img from "../../Assets/verify.png";
 import { useNavigate, useParams } from "react-router-dom";
 import { url } from "../../utils/Api/ApiCall";
+import Swal from "sweetalert2";
+import axios from "axios";
+
 interface Props {}
 
 let currentOTPIndex: number = 0;
@@ -9,6 +12,10 @@ let currentOTPIndex: number = 0;
 const Otp: React.FC<Props> = (props): JSX.Element => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [myChecked, setMyChecked] = useState(true);
+	const [loading, setLoading] = useState(false);
+
+
 
   const GetOTP = async ({ OTP }: any) => {
     const newURL = `${url}/staff/${id}/staffotpcheck`;
@@ -102,9 +109,7 @@ const Otp: React.FC<Props> = (props): JSX.Element => {
         </div>
 
         <button
-          onClick={() => {
-            GetOTP();
-          }}
+          onClick={GetOTP}
           className="w-4/5 h-12 bg-header rounded mt-5 text-white cursor-pointer"
         >
           Verify
