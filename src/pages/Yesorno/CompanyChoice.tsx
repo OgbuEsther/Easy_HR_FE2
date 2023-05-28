@@ -52,7 +52,7 @@ const CompanyChoice = () => {
 	};
 
 	const yesStaff = async () => {
-		const newURL = `${url}/${id}/verifystaff`;
+		const newURL = `${url}/staff/${id}/verifystaff`;
 		setLoading(true);
 		await axios
 			.post(newURL, { response: "Yes" })
