@@ -1,12 +1,7 @@
 import React, { useState} from "react";
 import styled from "styled-components";
 import Swal from "sweetalert2";
-import {
-	AiFillFacebook,
-	AiFillTwitterSquare,
-	AiFillLinkedin,
-	AiFillGoogleCircle,
-} from "react-icons/ai";
+
 import {  useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 // import LoadingState from "../../../LoadingScreen";
