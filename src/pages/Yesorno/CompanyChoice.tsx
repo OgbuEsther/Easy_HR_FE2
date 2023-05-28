@@ -74,9 +74,9 @@ const CompanyChoice = () => {
 					icon: "error",
 					title: `An Error occur: ${error}`,
 					showConfirmButton: false,
-					timer: 2500,
+					// timer: 2500,
 				}).then(() => {
-					navigate("/");
+					// navigate("/");
 				});
 				setLoading(false);
 			});
@@ -89,10 +89,13 @@ const CompanyChoice = () => {
 				<Card>
 					
 					<Title>
-						<TitleHead>Verify this Account </TitleHead>
+						<TitleHead>Activate Staff Account </TitleHead>
 						<br />
 						<TitleSub>
-							You are seeing this page because <span>NAME</span>, claims to be a staff of your Company
+							{/* You are seeing this page because <span>NAME</span>, claims to be a staff of your Company */}
+
+							Click Yes to activate this staff account 
+							Click No to reject this staff account 
 							
 							<br />
 							<br />
@@ -113,8 +116,8 @@ const CompanyChoice = () => {
 									No
 								</BUtton>
 							</InputRow>
-							If you <span>AGREE</span>, his/her secret voting code will be sent
-							to you via eMail, pleas check and send to him/her!
+							If you <span>AGREE</span>, his/her secret Token code will be sent
+							to you via eMail, please check and send to him/her!
 						</TitleSub>
 					</Title>
 					<br />
@@ -142,7 +145,7 @@ const BUtton = styled.button<{ bg: string }>`
 	margin: 20px;
 	width: 80%;
 	height: 50px;
-	background-color: ${({ bg }) => (bg ? "green" : "red")};
+	background-color: ${({ bg }) => (bg ? "blue" : "red")};
 	color: white;
 	border: 0;
 	outline: none;
@@ -198,7 +201,7 @@ const Wrapper = styled.div`
 	width: 450px;
 
 	background-color: white;
-	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+	box-shadow: rgba(0, 0, 0, 0.185) 0px 1px 3px;
 	position: absolute;
 	border-radius: 5px;
 	display: flex;
