@@ -13,32 +13,29 @@ const Otp: React.FC<Props> = (props): JSX.Element => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [myChecked, setMyChecked] = useState(true);
-	const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
+  const obj = {}; // Your object with the circular reference
 
-    const obj = {}; // Your object with the circular reference
-
-const circularReplacer = () => {
-  const seen = new WeakSet();
-  return (key:any, value:any) => {
-    if (typeof value === 'object' && value !== null) {
-      if (seen.has(value)) {
-        return;
+  const circularReplacer = () => {
+    const seen = new WeakSet();
+    return (key: any, value: any) => {
+      if (typeof value === "object" && value !== null) {
+        if (seen.has(value)) {
+          return;
+        }
+        seen.add(value);
       }
-      seen.add(value);
-    }
-    return value;
+      return value;
+    };
   };
-};
 
-const jsonString = JSON.stringify(obj, circularReplacer());
-console.log(jsonString);
-
-
+  const jsonString = JSON.stringify(obj, circularReplacer());
+  console.log(jsonString);
 
   const GetOTP = async (data: any) => {
     const newURL = `${url}/staff/${id}/staffotpcheck`;
- 
+
     setLoading(true);
     await axios
       .post(newURL, data)
@@ -48,7 +45,7 @@ console.log(jsonString);
           icon: "success",
           title: "Staff's account has been deleted, successful",
           showConfirmButton: false,
-        //   timer: 2500,
+          //   timer: 2500,
         }).then(() => {
           // navigate("/");
         });
@@ -59,10 +56,10 @@ console.log(jsonString);
           position: "center",
           icon: "error",
           title: `Error: ${error}`,
-        
-           text: `${error?.response?.data?.message}`,
+
+          text: `${error?.response?.data?.message}`,
           showConfirmButton: false,
-        //   timer: 2500,
+          //   timer: 2500,
         }).then(() => {
           // navigate("/");
         });
@@ -70,7 +67,10 @@ console.log(jsonString);
       });
   };
 
+  const [token, setToken] = useState<number>(0);
+
   const [otp, setOtp] = useState<string[]>(new Array(4).fill(""));
+
   const [activeOTPIndex, setAtiveOTPIndex] = useState<number>(0);
 
   const inputRef = useRef<HTMLInputElement>(null);
@@ -108,7 +108,7 @@ console.log(jsonString);
         <div className="">Enter verification code</div>
 
         <div className="mt-2.5 flex justify-center items-center space-x-2">
-          {otp.map((_, index) => {
+          {/* {otp.map((_, index) => {
             return (
               <React.Fragment key={index}>
                 <input
@@ -127,7 +127,16 @@ console.log(jsonString);
                 )}
               </React.Fragment>
             );
-          })}
+          })} */}
+
+          <input
+            type="number"
+            placeholder="enter your secret token"
+            value={token}
+            onChange={(e: any) => {
+              setToken(e.target.value);
+            }}
+          />
         </div>
 
         <button
