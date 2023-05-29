@@ -16,19 +16,39 @@ const Otp: React.FC<Props> = (props): JSX.Element => {
 	const [loading, setLoading] = useState(false);
 
 
+    const obj = {}; // Your object with the circular reference
 
-  const GetOTP = async ({ OTP }: any) => {
+const circularReplacer = () => {
+  const seen = new WeakSet();
+  return (key:any, value:any) => {
+    if (typeof value === 'object' && value !== null) {
+      if (seen.has(value)) {
+        return;
+      }
+      seen.add(value);
+    }
+    return value;
+  };
+};
+
+const jsonString = JSON.stringify(obj, circularReplacer());
+console.log(jsonString);
+
+
+
+  const GetOTP = async (data: any) => {
     const newURL = `${url}/staff/${id}/staffotpcheck`;
+ 
     setLoading(true);
     await axios
-      .post(newURL, { OTP })
+      .post(newURL, data)
       .then((res) => {
         Swal.fire({
           position: "center",
           icon: "success",
           title: "Staff's account has been deleted, successful",
           showConfirmButton: false,
-          timer: 2500,
+        //   timer: 2500,
         }).then(() => {
           // navigate("/");
         });
@@ -39,8 +59,10 @@ const Otp: React.FC<Props> = (props): JSX.Element => {
           position: "center",
           icon: "error",
           title: `Error: ${error}`,
+        
+           text: `${error?.response?.data?.message}`,
           showConfirmButton: false,
-          timer: 2500,
+        //   timer: 2500,
         }).then(() => {
           // navigate("/");
         });
