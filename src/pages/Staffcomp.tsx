@@ -10,6 +10,7 @@ import 'react-circular-progressbar/dist/styles.css';
 import {NavLink} from "react-router-dom"
 
 
+
 const ParentComp = () => {
   const percentage = 66;
 
@@ -36,7 +37,6 @@ const ParentComp = () => {
                 <Texthold>
                   <h3>Leave</h3>
                   <p>Apply for a vacation today.</p>
-
                   <NavLink to="/staffdashboard/leave-form">
                     <button>Apply</button>
                   </NavLink>
