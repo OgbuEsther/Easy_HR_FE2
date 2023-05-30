@@ -9,6 +9,8 @@ import { GiStarSattelites, GiTransportationRings } from "react-icons/gi"
 import { CiSearch } from "react-icons/ci"
 import { IoIosNotificationsOutline } from "react-icons/io"
 import img from "../../Assets/ceo.jpg"
+import { useQuery } from '@tanstack/react-query';
+import { getOneAdmin } from '../../utils/Api/ApiCall';
 
 const DashboardHead = () => {
   const [show, setShow] = React.useState(false);
@@ -45,7 +47,13 @@ const DashboardHead = () => {
 
 
   const user = useAppSelector((state) => state.currentStaff);
-  
+  const admin = useAppSelector((state) => state.currentUser);
+ 
+  const getAdmin = useQuery({
+    queryKey: ["singleAdmin"],
+    queryFn: () => getOneAdmin(admin?._id),
+  });
+
   return (
       <Container>
       <Wrapper>
@@ -63,9 +71,10 @@ const DashboardHead = () => {
           </Notification>
           <Circlehold>
             <Circle>
-              <Img src={img} />
+              {/* <Img src={img} /> */}
+              {admin?.yourName?.charAt(0)}
             </Circle>
-            <Name>Okwoli Godwin</Name>
+            <Name>{admin?.yourName}</Name>
             {/* <DarkMode/> */}
           </Circlehold>
         </Settingshold>
@@ -173,7 +182,10 @@ const Circle = styled.div`
   height: 30px;
   border-radius: 50%;
   overflow: hidden;
-  /* background-color: red; */
+  background-color:rgb(1,104,170);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 const Circlehold = styled.div`
   display: flex;

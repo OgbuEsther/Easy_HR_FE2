@@ -8,11 +8,24 @@ import img5 from ".././Assets/holiday.png"
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import {NavLink} from "react-router-dom"
+import { useQuery } from "@tanstack/react-query";
+import { getOneAdmin } from "../utils/Api/ApiCall";
+import { useAppSelector } from "../components/global/Store";
 
 
 
 const ParentComp = () => {
   const percentage = 66;
+
+
+  const admin = useAppSelector((state) => state.currentUser);
+ 
+  const getAdmin = useQuery({
+    queryKey: ["singleAdmin"],
+    queryFn: () => getOneAdmin(admin?._id),
+  });
+
+  console.log("this is admin data", admin);
 
   return (
     <div>
@@ -21,7 +34,7 @@ const ParentComp = () => {
           <Top>
             <Advert>
               <Right>
-                <h2>Hello Godwin!!!!</h2>
+                <h2>Hello {admin?.yourName} !!!!</h2>
                 <p>Be reminded that you are to mark your attendance everyday you are at work.</p>
                 <NavLink to="/staffdashboard/staff-attendance">
                   <Button>Mark Attendance</Button>
