@@ -15,7 +15,7 @@ const Otp: React.FC<Props> = (props): JSX.Element => {
   const [myChecked, setMyChecked] = useState(true);
   const [loading, setLoading] = useState(false);
 
-  const [token, setToken] = useState<number>(0);
+  const [token, setToken] = useState<string>("");
 
   const [otp, setOtp] = useState<string[]>(new Array(4).fill(""));
 
@@ -26,7 +26,7 @@ const Otp: React.FC<Props> = (props): JSX.Element => {
 
     // setLoading(true);
     await axios
-      .post(newURL, {token})
+      .post(newURL, {OTP : token})
      
       .then((res) => {
         console.log(`this is token` , token)
@@ -90,9 +90,9 @@ const Otp: React.FC<Props> = (props): JSX.Element => {
   }, [activeOTPIndex]);
 
 
-  const checkBut = (data:any) =>{
-    console.log(`button dey click oo` , data)
-  }
+  // const checkBut = (data:any) =>{
+  //   console.log(`button dey click oo` , data)
+  // }
 
   return (
     <div className="h-screen w-full bg-gray-100 flex justify-center items-center flex-col">
@@ -127,7 +127,7 @@ const Otp: React.FC<Props> = (props): JSX.Element => {
          
         </div>
         <input
-            type="number"
+            type="text"
             placeholder="enter your secret token"
             value={token}
             
