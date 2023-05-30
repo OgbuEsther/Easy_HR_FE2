@@ -7,6 +7,7 @@ import img4 from ".././Assets/goal.png"
 import img5 from ".././Assets/holiday.png"
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { NavLink } from "react-router-dom";
 
 
 
@@ -35,7 +36,9 @@ const ParentComp = () => {
                 <Texthold>
                   <h3>Leave</h3>
                   <p>Apply for a vacation today.</p>
+                 <NavLink to="/staffdashboard/leave-form" >
                   <button>Apply</button>
+                  </NavLink>
                 </Texthold>
                 <Imagehold>
                   <Img2 src={img2} />
@@ -46,7 +49,9 @@ const ParentComp = () => {
                 <Texthold>
                   <h3>Performance</h3>
                   <p>Rate your performance.</p>
+                  <NavLink to="/staffdashboard/staffperformance" >
                   <button>Rate</button>
+                  </NavLink>
                 </Texthold>
                 <Imagehold>
                   <Img3 src={img3} />
@@ -57,6 +62,7 @@ const ParentComp = () => {
                 <Texthold>
                   <h3>Goal</h3>
                   <p>View Goals for the month.</p>
+                  <NavLink to="/staffdashboard/staffperformance" ></NavLink>
                   <button>View</button>
                 </Texthold>
                 <Imagehold>
