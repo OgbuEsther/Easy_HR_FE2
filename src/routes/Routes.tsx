@@ -1,4 +1,4 @@
-import React, { lazy } from "react";
+import React, { lazy,useState } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import { Dashboard, HomeLayout } from "../components";
 import  ErrorBoundary  from "../utils/hoc/ErrorBoundary";
@@ -28,6 +28,8 @@ import Payment from "../pages/landingpage/Payment";
 import Expert from "../pages/landingpage/Expert/Expert";
 import StaffPerformance from "../pages/Staffperformance/Staffperformance";
 import Staffleave from "../pages/Staffperformance/Staffleave";
+
+
 // import Transaction from "../pages/Performance/Performance";
 // import Transaction from "../pages/Staffperformance/Staffperformance";
 
@@ -51,12 +53,16 @@ const StaffTransaction = lazy(()=>import("../pages/StaffTransaction/StaffTransac
 
 
 
-
 export const Elements = createBrowserRouter([
+  
   
   {
     path: "/",
-    element: <HomeLayout />,
+    element: 
+ 
+      <HomeLayout />
+
+    ,
     children: [
       {
         index: true,

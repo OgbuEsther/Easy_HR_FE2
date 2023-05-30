@@ -1,15 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { FiMenu, FiPower, FiSearch } from "react-icons/fi";
+import { FiMenu, FiSearch } from "react-icons/fi";
 import img from "../../Assets/new.png"
-import { HiUsers } from "react-icons/hi"
-import { MdDashboard, MdNotificationsActive } from "react-icons/md";
-import { NavLink } from "react-router-dom"
-import { FaBattleNet} from "react-icons/fa"
-import { IoIosNotifications} from "react-icons/io"
-import { AiOutlineSearch} from "react-icons/ai"
-import {GiMoneyStack,GiAbstract013} from "react-icons/gi"
-
+import { MdNotificationsActive } from "react-icons/md";
+import DarkMode from '../global/DarkMode'
 import { useAppSelector } from '../global/Store';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 
@@ -79,7 +73,7 @@ const DashboardHead = () => {
         </Right>
             </Im>
           </Holder3>
-
+          {/* <DarkMode/> */}
       </Wrapper>
     </Container>
   )
