@@ -64,7 +64,7 @@ const Header = () => {
       </div>
       
       {show ? (
-         <div className='hidden md:flex absolute h-screen w-44 bg-white top-20 right-0 fixed flex-col items-center'>
+         <div className='hidden md:flex h-screen w-44 bg-white top-20 right-0 fixed flex-col items-center'>
           <div className='text-hover text-sm m-4 hover:text-hover'>Home</div>
           <div className='text-hover text-sm m-4 hover:text-hover'>Our Solution</div>
           <div className='text-hover text-sm m-4 hover:text-hover'>About</div>
