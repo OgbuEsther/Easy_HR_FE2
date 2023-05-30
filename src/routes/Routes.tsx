@@ -215,38 +215,8 @@ export const Elements = createBrowserRouter([
         errorElement: <ErrorBoundary />,
       },
       {
-       path:"/staffdashboard/paybills",
-        element: <PayBills/>,
-        hasErrorBoundary: true,
-        errorElement: <ErrorBoundary />,
-      },
-      {
-       path:"/staffdashboard/stafftransaction",
-        element: <StaffTransaction/>,
-        hasErrorBoundary: true,
-        errorElement: <ErrorBoundary />,
-      },
-      {
         path: "/staffdashboard/staff-attendance",
         element: <StaffAttendance />,
-        hasErrorBoundary: true,
-        errorElement: <ErrorBoundary />,
-      },
-      {
-        path: "/staffdashboard/schoolfees-plan",
-        element: <Schoolfees />,
-        hasErrorBoundary: true,
-        errorElement: <ErrorBoundary />,
-      },
-      {
-        path: "/staffdashboard/travel&tour-plan",
-        element: <Tour />,
-        hasErrorBoundary: true,
-        errorElement: <ErrorBoundary />,
-      },
-      {
-        path: "/staffdashboard/rents-plan",
-        element: <Rents />,
         hasErrorBoundary: true,
         errorElement: <ErrorBoundary />,
       },
