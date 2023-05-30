@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { FiMenu, FiSearch } from "react-icons/fi";
 import img from "../../Assets/new.png"
 import { MdNotificationsActive } from "react-icons/md";
-import DarkMode from '../global/DarkMode'
 import { useAppSelector } from '../global/Store';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 
