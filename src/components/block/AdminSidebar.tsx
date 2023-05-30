@@ -4,6 +4,7 @@ import img from "../../Assets/new.png"
 import { MdDashboard } from "react-icons/md";
 import { NavLink, useNavigate } from 'react-router-dom';
 import { FiPower } from "react-icons/fi";
+import { AiFillCodeSandboxCircle } from "react-icons/ai";
 import { BsFillPersonFill } from "react-icons/bs"
 import { RiMoneyDollarCircleFill } from "react-icons/ri"
 import {GiMoneyStack,GiFlatTire,GiAbstract013} from "react-icons/gi"
@@ -113,7 +114,6 @@ const SideBar = () => {
           <Text3>Performance</Text3>
         </NavLink>
       </Home2>
-      <Leave>Leave Management</Leave>
       <Home3>
         <Icon2>
           <GiAbstract013 />
@@ -131,10 +131,9 @@ const SideBar = () => {
         </NavLink>
       </Home3>
 
-      <Leave>Configuration</Leave>
       <Home3>
         <Icon2>
-          <GiAbstract013 />
+          <AiFillCodeSandboxCircle />
         </Icon2>
         <NavLink
           to="/dashboard/settings"
@@ -228,7 +227,7 @@ const Text = styled.div`
 const Power = styled.div`
     display: flex;
     align-items: center;
-    margin-top: 80px;
+    margin-top: 50px;
 `;
 
 const Staffs = styled.div`
@@ -296,7 +295,7 @@ const Container = styled.div`
   width: 220px;
   height: 100vh;
   position: fixed;
-  background-color: #001328;
+  background-color: #0168aa;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   overflow: hidden;
   padding-left: 25px;
