@@ -8,6 +8,7 @@ import { FaBattleNet} from "react-icons/fa"
 import { GiStarSattelites, GiTransportationRings } from "react-icons/gi"
 import { CiSearch, CiSettings } from "react-icons/ci"
 import { IoIosNotificationsOutline } from "react-icons/io"
+import DarkMode from '../global/DarkMode'
 import img from "../../Assets/ceo.jpg"
 
 const DashboardHead = () => {
@@ -66,6 +67,7 @@ const DashboardHead = () => {
               <Img src={img} />
             </Circle>
             <Name>Okwoli Godwin</Name>
+            {/* <DarkMode/> */}
           </Circlehold>
         </Settingshold>
         <Left onClick={Toggle}>

@@ -100,7 +100,7 @@ const ParentComp = () => {
           <Hold>
          <Cha>
           <Title>
-          <Word>  Monthly Acquisition</Word>
+          <Word>  Monthly Acquisition </Word>
          <IconHold>
          <Icon1>
           <Dot bcc="#82CDFF"></Dot>
