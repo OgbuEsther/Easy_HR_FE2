@@ -18,7 +18,7 @@ import Verification from "../pages/Auth/Verification";
 import { Staffdashboard } from "../components/layout/Staffdashboard";
 import Staffcomp from "../pages/Staffcomp";
 import Leave from "../pages/Leave/Leave";
-import LeavePage from "../pages/LeavePage";
+// import LeavePage from "../pages/LeavePage";
 import CheckMail from "../pages/Auth/CheckMail";
 import Waiting from "../pages/Auth/Waiting";
 // import CompanyChoic from "../pages/Yesorno/CompanyChoice";
@@ -34,8 +34,8 @@ import Staffleave from "../pages/Staffperformance/Staffleave";
 // import Transaction from "../pages/Staffperformance/Staffperformance";
 
 
-const Home = lazy(() => import("../pages/landingpage/Home"));
-const About = lazy(() => import("../pages/landingpage/Connect"));
+// const Home = lazy(() => import("../pages/landingpage/Home"));
+// const About = lazy(() => import("../pages/landingpage/Connect"));
 const Staffs = lazy(() => import("../pages/Staffs"));
 const Transaction = lazy(()=> import("../pages/Performance/Performance"))
 const ParentComp = lazy(() => import("../pages/ParentComp"));
@@ -157,7 +157,7 @@ export const Elements = createBrowserRouter([
   },
   
   {
-    path:"/:id/verification",
+    path:"/:id/checkotp",
     element: <Otp/>
   },
   {

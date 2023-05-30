@@ -39,6 +39,11 @@ export const createStaff = async(data: StaffData)=>{
         return res.data
     })
 }
+export const getOtp = async(OTP: any , staffId:any)=>{
+    return await axios.post(`${url}/staff/${staffId}/staffotpcheck`,OTP).then((res)=>{
+        return res.data
+    })
+}
 
 export const staffVerification = async (id: string) => {
     try {

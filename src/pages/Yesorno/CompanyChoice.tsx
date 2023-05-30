@@ -1,12 +1,7 @@
 import React, { useState} from "react";
 import styled from "styled-components";
 import Swal from "sweetalert2";
-import {
-	AiFillFacebook,
-	AiFillTwitterSquare,
-	AiFillLinkedin,
-	AiFillGoogleCircle,
-} from "react-icons/ai";
+
 import {  useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 // import LoadingState from "../../../LoadingScreen";
@@ -52,7 +47,7 @@ const CompanyChoice = () => {
 	};
 
 	const yesStaff = async () => {
-		const newURL = `${url}/${id}/verifystaff`;
+		const newURL = `${url}/staff/${id}/verifystaff`;
 		setLoading(true);
 		await axios
 			.post(newURL, { response: "Yes" })
@@ -69,14 +64,15 @@ const CompanyChoice = () => {
 				setLoading(false);
 			})
 			.catch((error) => {
+				console.log(`this is error ` , error)
 				Swal.fire({
 					position: "center",
 					icon: "error",
 					title: `An Error occur: ${error}`,
 					showConfirmButton: false,
-					timer: 2500,
+					// timer: 2500,
 				}).then(() => {
-					navigate("/");
+					// navigate("/");
 				});
 				setLoading(false);
 			});
@@ -89,10 +85,13 @@ const CompanyChoice = () => {
 				<Card>
 					
 					<Title>
-						<TitleHead>Verify this Account </TitleHead>
+						<TitleHead>Activate Staff Account </TitleHead>
 						<br />
 						<TitleSub>
-							You are seeing this page because <span>NAME</span>, claims to be a staff of your Company
+							{/* You are seeing this page because <span>NAME</span>, claims to be a staff of your Company */}
+
+							Click Yes to activate this staff account 
+							Click No to reject this staff account 
 							
 							<br />
 							<br />
@@ -113,28 +112,14 @@ const CompanyChoice = () => {
 									No
 								</BUtton>
 							</InputRow>
-							If you <span>AGREE</span>, his/her secret voting code will be sent
-							to you via eMail, pleas check and send to him/her!
+							If you <span>AGREE</span>, his/her secret Token code will be sent
+							to you via eMail, please check and send to him/her!
 						</TitleSub>
 					</Title>
 					<br />
 					<br />
 
-					{/* <LineHolder>
-						<Line />
-						<Text>OR</Text>
-						<Line />
-					</LineHolder> */}
-
-					{/* <Social>
-						<SocialText>Stay connected with us via our Social Media</SocialText>
-						<Icons>
-							<Icon />
-							<Icon1 />
-							<Icon2 />
-							<Icon3 />
-						</Icons>
-					</Social> */}
+					
 				</Card>
 			</Wrapper>
 		</Container>
@@ -143,75 +128,12 @@ const CompanyChoice = () => {
 
 export default CompanyChoice;
 
-const Text = styled.div`
-	font-size: 15px;
-	padding: 0 5px;
-`;
 
-const Line = styled.div`
-	border-bottom: 1px solid silver;
-	width: 100%;
-`;
-
-const LineHolder = styled.div`
-	display: flex;
-	align-items: center;
-	margin: 20px 0;
-`;
 
 const InputRow = styled.div`
 	display: flex;
 `;
 
-const Icon = styled(AiFillGoogleCircle)`
-	font-size: 35px;
-	color: red;
-	:hover {
-		cursor: pointer;
-	}
-`;
-
-const Icons = styled.div`
-	display: flex;
-	margin-top: 20px;
-`;
-
-const Icon3 = styled(AiFillLinkedin)`
-	font-size: 35px;
-	color: #0077b7;
-	:hover {
-		cursor: pointer;
-	}
-`;
-
-const Icon2 = styled(AiFillTwitterSquare)`
-	font-size: 35px;
-	color: #50abf1;
-	:hover {
-		cursor: pointer;
-	}
-`;
-
-const Icon1 = styled(AiFillFacebook)`
-	font-size: 35px;
-	color: #475993;
-	:hover {
-		cursor: pointer;
-	}
-`;
-
-const SocialText = styled.div`
-	font-size: 12px;
-	display: flex;
-	margin-top: 0px;
-`;
-
-const Social = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin-bottom: 10px;
-`;
 
 
 
@@ -219,7 +141,7 @@ const BUtton = styled.button<{ bg: string }>`
 	margin: 20px;
 	width: 80%;
 	height: 50px;
-	background-color: ${({ bg }) => (bg ? "green" : "red")};
+	background-color: ${({ bg }) => (bg ? "blue" : "red")};
 	color: white;
 	border: 0;
 	outline: none;
@@ -273,9 +195,9 @@ const Card = styled.div`
 
 const Wrapper = styled.div`
 	width: 450px;
-	min-height: 700px;
+
 	background-color: white;
-	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+	box-shadow: rgba(0, 0, 0, 0.185) 0px 1px 3px;
 	position: absolute;
 	border-radius: 5px;
 	display: flex;

@@ -1,14 +1,19 @@
-
 import styled from "styled-components";
 import Charts from "../components/Graph/Charts";
 import img from ".././Assets/attends.png"
 import img2 from ".././Assets/leave.png"
 import img3 from ".././Assets/perform.png"
 import img4 from ".././Assets/goal.png"
+import img5 from ".././Assets/holiday.png"
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
+import { NavLink } from "react-router-dom";
+
 
 
 
 const ParentComp = () => {
+  const percentage = 66;
 
   return (
     <div>
@@ -19,7 +24,9 @@ const ParentComp = () => {
               <Right>
                 <h2>Hello Godwin!!!!</h2>
                 <p>Be reminded that you are to mark your attendance everyday you are at work.</p>
-                <Button>Mark Attendance</Button>
+                <NavLink to="/staffdashboard/staff-attendance">
+                  <Button>Mark Attendance</Button>
+                </NavLink>
               </Right>
               <Left>
                 <Img src={img} />
@@ -31,7 +38,9 @@ const ParentComp = () => {
                 <Texthold>
                   <h3>Leave</h3>
                   <p>Apply for a vacation today.</p>
-                  <button>Apply</button>
+                  <NavLink to="/staffdashboard/leave-form">
+                    <button>Apply</button>
+                  </NavLink>
                 </Texthold>
                 <Imagehold>
                   <Img2 src={img2} />
@@ -42,7 +51,9 @@ const ParentComp = () => {
                 <Texthold>
                   <h3>Performance</h3>
                   <p>Rate your performance.</p>
-                  <button>Rate</button>
+                  <NavLink to="/staffdashboard/staffperformance">
+                    <button>Rate</button>
+                  </NavLink>
                 </Texthold>
                 <Imagehold>
                   <Img3 src={img3} />
@@ -53,20 +64,23 @@ const ParentComp = () => {
                 <Texthold>
                   <h3>Goal</h3>
                   <p>View Goals for the month.</p>
-                  <button>View</button>
+                  <NavLink to="/staffdashboard/staffperformance">
+                    <button>View</button>
+                  </NavLink>
                 </Texthold>
                 <Imagehold>
                   <Img2 src={img4} />
                 </Imagehold>
               </Hold3>
+
               <Hold1>
                 <Texthold>
-                  <h3>Leave</h3>
-                  <p>Apply for a vacation today.</p>
-                  <button>Apply</button>
+                  <h3>Holiday</h3>
+                  <p>View company's holiday.</p>
+                  <button>View</button>
                 </Texthold>
                 <Imagehold>
-                  <Img2 src={img2} />
+                  <Img2 src={img5} />
                 </Imagehold>
               </Hold1>
             </Cards>
@@ -74,12 +88,33 @@ const ParentComp = () => {
           {/* <Mobilecard /> */}
           <Down>
             <Piehold>
-                          <Pee>
-                              <Title>Performance Chart</Title>
-                              <Charts />
-                          </Pee>
-                      </Piehold>
-                  </Down>
+                <Pee>
+                  <Title>Performance Chart</Title>
+                      <Charts />
+                      </Pee>
+            </Piehold>
+            <Progress>
+              <Firstprog>
+                <h2>Leave Statistic</h2>
+                <div style={{width: "130px", height: "130px", marginTop: "27px"}}>
+                  <CircularProgressbar value={percentage} text={`${percentage}%`} styles={buildStyles({
+                    pathColor: "#fd625e",
+                    trailColor: '#d6d6d6',
+                  })}/>;
+                </div>
+              </Firstprog>
+
+              <Firstprog>
+                <h2>Performance Statistic</h2>
+                <div style={{width: "130px", height: "130px", marginTop: "27px"}}>
+                  <CircularProgressbar value={percentage} text={`${percentage}%`} styles={buildStyles({
+                    pathColor: "#0168aa",
+                    trailColor: '#d6d6d6',
+                  })}/>;
+                </div>
+              </Firstprog>
+            </Progress>
+          </Down>
         </Wrapper>
       </Container>
     </div>
@@ -88,6 +123,25 @@ const ParentComp = () => {
 }
 
 export default ParentComp;
+const Firstprog = styled.div`
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h2{
+    font-weight: 600;
+    font-size: 19px;
+  }
+`
+const Progress = styled.div`
+  width: 48%;
+  display: flex;
+  margin-top: 80px;
+  background-color: #fff;
+  padding: 12px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 12px;
+`
 const Img3 = styled.img`
   width: 370px;
 `
@@ -238,7 +292,7 @@ const Title = styled.div`
     font-weight: 600;
 `
 const Piehold = styled.div`
-    width: 48%;
+    width: 50%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -246,6 +300,7 @@ const Piehold = styled.div`
     background-color: #fff;
     padding: 10px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 12px;
 
     @media screen and (max-width: 768px) {
       width: 90%;
@@ -260,6 +315,7 @@ const Down = styled.div`
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+    /* background-color: red; */
 
     @media screen and (max-width: 768px) {
       display: flex;
