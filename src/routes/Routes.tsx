@@ -1,4 +1,4 @@
-import React, { lazy } from "react";
+import React, { lazy,useState } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import { Dashboard, HomeLayout } from "../components";
 import  ErrorBoundary  from "../utils/hoc/ErrorBoundary";
@@ -28,6 +28,8 @@ import Payment from "../pages/landingpage/Payment";
 import Expert from "../pages/landingpage/Expert/Expert";
 import StaffPerformance from "../pages/Staffperformance/Staffperformance";
 import Staffleave from "../pages/Staffperformance/Staffleave";
+
+
 // import Transaction from "../pages/Performance/Performance";
 // import Transaction from "../pages/Staffperformance/Staffperformance";
 
@@ -51,12 +53,16 @@ const StaffTransaction = lazy(()=>import("../pages/StaffTransaction/StaffTransac
 
 
 
-
 export const Elements = createBrowserRouter([
+  
   
   {
     path: "/",
-    element: <HomeLayout />,
+    element: 
+ 
+      <HomeLayout />
+
+    ,
     children: [
       {
         index: true,
@@ -215,38 +221,8 @@ export const Elements = createBrowserRouter([
         errorElement: <ErrorBoundary />,
       },
       {
-       path:"/staffdashboard/paybills",
-        element: <PayBills/>,
-        hasErrorBoundary: true,
-        errorElement: <ErrorBoundary />,
-      },
-      {
-       path:"/staffdashboard/stafftransaction",
-        element: <StaffTransaction/>,
-        hasErrorBoundary: true,
-        errorElement: <ErrorBoundary />,
-      },
-      {
         path: "/staffdashboard/staff-attendance",
         element: <StaffAttendance />,
-        hasErrorBoundary: true,
-        errorElement: <ErrorBoundary />,
-      },
-      {
-        path: "/staffdashboard/schoolfees-plan",
-        element: <Schoolfees />,
-        hasErrorBoundary: true,
-        errorElement: <ErrorBoundary />,
-      },
-      {
-        path: "/staffdashboard/travel&tour-plan",
-        element: <Tour />,
-        hasErrorBoundary: true,
-        errorElement: <ErrorBoundary />,
-      },
-      {
-        path: "/staffdashboard/rents-plan",
-        element: <Rents />,
         hasErrorBoundary: true,
         errorElement: <ErrorBoundary />,
       },

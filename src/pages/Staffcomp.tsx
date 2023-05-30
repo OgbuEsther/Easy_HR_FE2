@@ -7,9 +7,7 @@ import img4 from ".././Assets/goal.png"
 import img5 from ".././Assets/holiday.png"
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { NavLink } from "react-router-dom";
-
-
+import {NavLink} from "react-router-dom"
 
 
 const ParentComp = () => {
@@ -24,7 +22,9 @@ const ParentComp = () => {
               <Right>
                 <h2>Hello Godwin!!!!</h2>
                 <p>Be reminded that you are to mark your attendance everyday you are at work.</p>
-                <Button>Mark Attendance</Button>
+                <NavLink to="/staffdashboard/staff-attendance">
+                  <Button>Mark Attendance</Button>
+                </NavLink>
               </Right>
               <Left>
                 <Img src={img} />
@@ -36,8 +36,9 @@ const ParentComp = () => {
                 <Texthold>
                   <h3>Leave</h3>
                   <p>Apply for a vacation today.</p>
-                 <NavLink to="/staffdashboard/leave-form" >
-                  <button>Apply</button>
+
+                  <NavLink to="/staffdashboard/leave-form">
+                    <button>Apply</button>
                   </NavLink>
                 </Texthold>
                 <Imagehold>
@@ -49,8 +50,8 @@ const ParentComp = () => {
                 <Texthold>
                   <h3>Performance</h3>
                   <p>Rate your performance.</p>
-                  <NavLink to="/staffdashboard/staffperformance" >
-                  <button>Rate</button>
+                  <NavLink to="/staffdashboard/staffperformance">
+                    <button>Rate</button>
                   </NavLink>
                 </Texthold>
                 <Imagehold>
@@ -62,8 +63,9 @@ const ParentComp = () => {
                 <Texthold>
                   <h3>Goal</h3>
                   <p>View Goals for the month.</p>
-                  <NavLink to="/staffdashboard/staffperformance" ></NavLink>
-                  <button>View</button>
+                  <NavLink to="/staffdashboard/staffperformance">
+                    <button>View</button>
+                  </NavLink>
                 </Texthold>
                 <Imagehold>
                   <Img2 src={img4} />
