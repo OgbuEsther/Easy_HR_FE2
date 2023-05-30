@@ -6,9 +6,8 @@ import { MdDashboard } from "react-icons/md";
 import { useAppSelector } from '../global/Store';
 import { FaBattleNet} from "react-icons/fa"
 import { GiStarSattelites, GiTransportationRings } from "react-icons/gi"
-import { CiSearch, CiSettings } from "react-icons/ci"
+import { CiSearch } from "react-icons/ci"
 import { IoIosNotificationsOutline } from "react-icons/io"
-import DarkMode from '../global/DarkMode'
 import img from "../../Assets/ceo.jpg"
 import { useQuery } from '@tanstack/react-query';
 import { getOneAdmin } from '../../utils/Api/ApiCall';

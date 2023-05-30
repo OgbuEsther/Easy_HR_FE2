@@ -12,7 +12,6 @@ import { Provider } from "react-redux/es/exports";
 import { Store } from "./components/global/Store";
 import { persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
-import { MantineProvider, ColorSchemeProvider, ColorScheme } from '@mantine/core';
 
 const queryClient = new QueryClient();
 let persistor = persistStore(Store);

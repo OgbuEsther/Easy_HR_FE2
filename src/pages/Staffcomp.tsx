@@ -13,6 +13,7 @@ import { getOneAdmin } from "../utils/Api/ApiCall";
 import { useAppSelector } from "../components/global/Store";
 
 
+
 const ParentComp = () => {
   const percentage = 66;
 
@@ -49,7 +50,6 @@ const ParentComp = () => {
                 <Texthold>
                   <h3>Leave</h3>
                   <p>Apply for a vacation today.</p>
-
                   <NavLink to="/staffdashboard/leave-form">
                     <button>Apply</button>
                   </NavLink>
