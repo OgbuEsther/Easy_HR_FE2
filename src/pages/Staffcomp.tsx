@@ -64,7 +64,9 @@ const ParentComp = () => {
                 <Texthold>
                   <h3>Goal</h3>
                   <p>View Goals for the month.</p>
-                  <button>View</button>
+                  <NavLink to="/staffdashboard/staffperformance">
+                    <button>View</button>
+                  </NavLink>
                 </Texthold>
                 <Imagehold>
                   <Img2 src={img4} />
