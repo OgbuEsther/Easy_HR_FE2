@@ -1,32 +1,33 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import img from "../../Assets/verify.png";
 import { useNavigate, useParams } from "react-router-dom";
 import { url } from "../../utils/Api/ApiCall";
 import Swal from "sweetalert2";
 import axios from "axios";
+import styled from "styled-components";
 
 interface Props {}
 
-let currentOTPIndex: number = 0;
+// let currentOTPIndex: number = 0;
 
 const Otp: React.FC<Props> = (props): JSX.Element => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [myChecked, setMyChecked] = useState(true);
+  // const [myChecked, setMyChecked] = useState(true);
   const [loading, setLoading] = useState(false);
 
-  const [token, setToken] = useState<number>(0);
+  const [token, setToken] = useState<string>("");
 
-  const [otp, setOtp] = useState<string[]>(new Array(4).fill(""));
+  // const [otp, setOtp] = useState<string[]>(new Array(4).fill(""));
 
-  const [activeOTPIndex, setAtiveOTPIndex] = useState<number>(0);
+  // const [activeOTPIndex, setAtiveOTPIndex] = useState<number>(0);
 
   const GetOTP = async () => {
     const newURL = `${url}/staff/${id}/staffotpcheck`;
 
-    // setLoading(true);
+    setLoading(true);
     await axios
-      .post(newURL, {token})
+      .post(newURL, {OTP : token})
      
       .then((res) => {
         console.log(`this is token` , token)
@@ -34,11 +35,11 @@ const Otp: React.FC<Props> = (props): JSX.Element => {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: "Staff's account has been deleted, successful",
+          title: `${res.data.data.message}`,
           showConfirmButton: false,
-          //   timer: 2500,
+            timer: 2500,
         }).then(() => {
-          // navigate("/");
+          navigate("/sign-in");
         });
         setLoading(false);
       })
@@ -52,9 +53,9 @@ const Otp: React.FC<Props> = (props): JSX.Element => {
 
           text: `${error?.response?.data?.message}`,
           showConfirmButton: false,
-          //   timer: 2500,
+            timer: 2500,
         }).then(() => {
-          // navigate("/");
+          navigate("/");
         });
         setLoading(false);
       });
@@ -62,37 +63,37 @@ const Otp: React.FC<Props> = (props): JSX.Element => {
 
  
 
-  const inputRef = useRef<HTMLInputElement>(null);
+  // const inputRef = useRef<HTMLInputElement>(null);
 
-  const handleOnChange = ({
-    target,
-  }: React.ChangeEvent<HTMLInputElement>): void => {
-    const { value } = target;
-    const newOtp: string[] = [...otp];
-    newOtp[currentOTPIndex] = value.substring(value.length - 1);
+  // const handleOnChange = ({
+  //   target,
+  // }: React.ChangeEvent<HTMLInputElement>): void => {
+  //   const { value } = target;
+  //   const newOtp: string[] = [...otp];
+  //   newOtp[currentOTPIndex] = value.substring(value.length - 1);
 
-    if (!value) setAtiveOTPIndex(currentOTPIndex - 1);
-    else setAtiveOTPIndex(currentOTPIndex + 1);
+  //   if (!value) setAtiveOTPIndex(currentOTPIndex - 1);
+  //   else setAtiveOTPIndex(currentOTPIndex + 1);
 
-    setOtp(newOtp);
-  };
+  //   setOtp(newOtp);
+  // };
 
-  const handleOnKeyDown = (
-    { key }: React.KeyboardEvent<HTMLInputElement>,
-    index: number
-  ) => {
-    currentOTPIndex = index;
-    if (key === "Backspace") setAtiveOTPIndex(currentOTPIndex - 1);
-  };
+  // const handleOnKeyDown = (
+  //   { key }: React.KeyboardEvent<HTMLInputElement>,
+  //   index: number
+  // ) => {
+  //   currentOTPIndex = index;
+  //   if (key === "Backspace") setAtiveOTPIndex(currentOTPIndex - 1);
+  // };
 
-  useEffect(() => {
-    inputRef.current?.focus();
-  }, [activeOTPIndex]);
+  // useEffect(() => {
+  //   inputRef.current?.focus();
+  // }, [activeOTPIndex]);
 
 
-  const checkBut = (data:any) =>{
-    console.log(`button dey click oo` , data)
-  }
+  // const checkBut = (data:any) =>{
+  //   console.log(`button dey click oo` , data)
+  // }
 
   return (
     <div className="h-screen w-full bg-gray-100 flex justify-center items-center flex-col">
@@ -126,9 +127,9 @@ const Otp: React.FC<Props> = (props): JSX.Element => {
 
          
         </div>
-        <input
-            type="number"
-            placeholder="enter your secret token"
+        <Input
+            type="text"
+            placeholder="enter your secret OTP"
             value={token}
             
             onChange={(e: any) => {
@@ -149,3 +150,17 @@ const Otp: React.FC<Props> = (props): JSX.Element => {
 };
 
 export default Otp;
+
+
+const Input = styled.input`
+width: 80%;
+height: 50px;
+border-radius: 5px;
+border: 1px solid skyblue;
+outline-color: skyblue;
+
+::placeholder{
+  margin-left: 10px;
+
+}
+`
