@@ -15,31 +15,22 @@ const Otp: React.FC<Props> = (props): JSX.Element => {
   const [myChecked, setMyChecked] = useState(true);
   const [loading, setLoading] = useState(false);
 
-  const obj = {}; // Your object with the circular reference
+  const [token, setToken] = useState<number>(0);
 
-  const circularReplacer = () => {
-    const seen = new WeakSet();
-    return (key: any, value: any) => {
-      if (typeof value === "object" && value !== null) {
-        if (seen.has(value)) {
-          return;
-        }
-        seen.add(value);
-      }
-      return value;
-    };
-  };
+  const [otp, setOtp] = useState<string[]>(new Array(4).fill(""));
 
-  const jsonString = JSON.stringify(obj, circularReplacer());
-  console.log(jsonString);
+  const [activeOTPIndex, setAtiveOTPIndex] = useState<number>(0);
 
-  const GetOTP = async (data: any) => {
+  const GetOTP = async () => {
     const newURL = `${url}/staff/${id}/staffotpcheck`;
 
-    setLoading(true);
+    // setLoading(true);
     await axios
-      .post(newURL, data)
+      .post(newURL, {token})
+     
       .then((res) => {
+        console.log(`this is token` , token)
+        console.log(`this is token` , res)
         Swal.fire({
           position: "center",
           icon: "success",
@@ -52,6 +43,8 @@ const Otp: React.FC<Props> = (props): JSX.Element => {
         setLoading(false);
       })
       .catch((error) => {
+        console.log("this is error" , error)
+        console.log(`this is token` , token)
         Swal.fire({
           position: "center",
           icon: "error",
@@ -67,11 +60,7 @@ const Otp: React.FC<Props> = (props): JSX.Element => {
       });
   };
 
-  const [token, setToken] = useState<number>(0);
-
-  const [otp, setOtp] = useState<string[]>(new Array(4).fill(""));
-
-  const [activeOTPIndex, setAtiveOTPIndex] = useState<number>(0);
+ 
 
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -100,6 +89,11 @@ const Otp: React.FC<Props> = (props): JSX.Element => {
     inputRef.current?.focus();
   }, [activeOTPIndex]);
 
+
+  const checkBut = (data:any) =>{
+    console.log(`button dey click oo` , data)
+  }
+
   return (
     <div className="h-screen w-full bg-gray-100 flex justify-center items-center flex-col">
       <div className="mb-4 font-medium text-xl">Otp Verification</div>
@@ -112,6 +106,7 @@ const Otp: React.FC<Props> = (props): JSX.Element => {
             return (
               <React.Fragment key={index}>
                 <input
+           
                   ref={index === activeOTPIndex ? inputRef : null}
                   type="number"
                   className="w-12 h-12 border-2 rounded bg-transparent
@@ -129,15 +124,17 @@ const Otp: React.FC<Props> = (props): JSX.Element => {
             );
           })} */}
 
-          <input
+         
+        </div>
+        <input
             type="number"
             placeholder="enter your secret token"
             value={token}
+            
             onChange={(e: any) => {
               setToken(e.target.value);
             }}
           />
-        </div>
 
         <button
           onClick={GetOTP}
