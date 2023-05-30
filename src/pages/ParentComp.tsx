@@ -30,7 +30,7 @@ const ParentComp = () => {
     queryFn: () => getOneAdmin(admin?._id),
   });
 
-  console.log("this is admin data", admin?.companyname);
+  
 
   return (
     <div>
