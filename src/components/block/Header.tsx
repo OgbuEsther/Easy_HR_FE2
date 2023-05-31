@@ -1,9 +1,7 @@
 import React, {useState} from 'react'
 import img from "../../Assets/new.png"
 import {BiMenu} from "react-icons/bi"
-import {GiCancel} from "react-icons/gi"
 import { NavLink } from 'react-router-dom'
-import { Fade } from 'react-awesome-reveal'
 import {  BsFillArrowUpCircleFill, BsFillDiscFill} from "react-icons/bs"
 import { Link } from "react-scroll";
 import styled from 'styled-components'
@@ -21,6 +19,7 @@ const Header = () => {
   const Toggle = () => {
       setShow(!show)
     }
+
 
   return (
     <div className='w-full h-20 z-10 bg-header flex justify-center fixed' id='her'>

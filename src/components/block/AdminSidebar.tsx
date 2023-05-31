@@ -207,12 +207,7 @@ const Home3 = styled.div`
   margin-top: 10px;
   align-items: center;
 `
-const Leave = styled.div`
-  display: flex;
-  color: #b4b4b4;
-  font-size: 14px;
-  margin-top: 20px;
-`
+
 const Text = styled.div`
   font-size: 17px;
   cursor: pointer;

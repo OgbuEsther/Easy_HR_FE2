@@ -8,14 +8,10 @@ import { FaBattleNet} from "react-icons/fa"
 import { GiStarSattelites, GiTransportationRings } from "react-icons/gi"
 import { CiSearch } from "react-icons/ci"
 import { IoIosNotificationsOutline } from "react-icons/io"
-import img from "../../Assets/ceo.jpg"
-import { useQuery } from '@tanstack/react-query';
-import { getOneAdmin } from '../../utils/Api/ApiCall';
 
 const DashboardHead = () => {
   const [show, setShow] = React.useState(false);
   const [show2, setShow2] = React.useState(false);
-  const [show4, setShow4] = React.useState(false);
 
    const [show7, setShow7] = React.useState(false)
 
@@ -32,10 +28,7 @@ const DashboardHead = () => {
     setShow2(!show2);
   };
 
-  const Toggle4 = () => {
-    setShow4(!show4);
-  };
-
+ 
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((res) => {
@@ -48,11 +41,7 @@ const DashboardHead = () => {
 
   const user = useAppSelector((state) => state.currentStaff);
   const admin = useAppSelector((state) => state.currentUser);
- 
-  const getAdmin = useQuery({
-    queryKey: ["singleAdmin"],
-    queryFn: () => getOneAdmin(admin?._id),
-  });
+
 
   return (
       <Container>
@@ -169,11 +158,7 @@ const DashboardHead = () => {
 }
 
 export default DashboardHead
-const Img = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`
+
 const Name = styled.div`
   margin-left: 6px;
 `
@@ -205,10 +190,7 @@ const Notification = styled.div`
   cursor: pointer;
   position: relative;
 `
-const Seticon = styled.div`
-  font-size: 30px;
-  cursor: pointer;
-`
+
 const Settingshold = styled.div`
   display: flex;
   align-items: center;
@@ -260,20 +242,8 @@ const Left2 = styled.div`
     margin-left: 10px;
   }
 `
-const Img2 = styled.img`
-  height: 120px;
-  @media screen and (max-width: 1024px) {
-    height: 120px;
-  }
-`;
-const Staffs = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  p {
-    margin-left: 40px;
-  }
-`;
+
+
 const Text = styled.div`
   margin-left: 25px;
 `;
@@ -373,87 +343,11 @@ const Hold = styled.div`
   }
 `;
 
-const Profile = styled.div`
-  width: 48px;
-  height: 48px;
-  font-size: 20px;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  display: flex;
-  margin-right: 35px;
-  border-radius: 50px;
-  font-weight: bold;
-  color: black;
-  border: 1px solid black;
-  background-color: blanchedalmond;
-`;
-
-const Up = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-
-const Hello = styled.div`
-  display: flex;
-  font-size: 14px;
-`
-
-const Icons = styled.div`
-  height: 100%;
-  display: flex;
-  align-items: center;
-  font-size: 27px;
-  margin-right: 30px;
-`;
-
-const Right = styled.div`
-  display: flex;
-  height: 100%;
-  align-items: center;
-  width: 120px;
-  justify-content: space-between;
-  @media screen and (max-width: 500px) {
-    width: 30px;
-    display: none;
-  }
-`;
-
-const Id = styled.div`
-  font-size: 11px;
-`
-
-const Nam = styled.div`
-  font-size: 17px;
-  font-weight: 400px;
-`
-
-const Comp = styled.div`
-  font-size: 11px;
-`
 
 const Prof = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 10px;
-`
-
-const Circ = styled.div`
- width: 50px;
-  height: 50px;
-  margin: 3px;
-  font-size: 30px;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  border-radius: 50px;
-  font-weight: bold;
-  color: black;
-  background-color: blanchedalmond;
-  border: 1px solid black;
 `
 
 
