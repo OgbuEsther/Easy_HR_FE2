@@ -13,7 +13,6 @@ import { useDispatch } from "react-redux";
 import BackButton from '../../Buttons/BackButton';
 import {AiOutlineEyeInvisible} from "react-icons/ai"
 import {AiOutlineEye} from "react-icons/ai"
-import Loading from "../../../pages/Loading";
 
 const SigninForm = () => {
   const dispatch = useDispatch();
@@ -149,12 +148,6 @@ const SigninForm = () => {
 };
 
 export default SigninForm;
-const Contain = styled.div`
-  width: 100vw;
-  position: absolute;
-  height: 100%;
-  width: 100vw;
-`
 const Container = styled.div`
   position: relative;
 `
