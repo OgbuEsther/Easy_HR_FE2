@@ -1,28 +1,20 @@
 import React from "react";
 import styled from "styled-components";
-// import images from "../Assets/logo7.png";
 import images from "../../Assets/new.png"
 import foot from "../../Assets/footer1.jpg"
-
 import { MdFacebook }  from "react-icons/md"
 import { AiFillTwitterCircle }  from "react-icons/ai"
 import { GrInstagram }  from "react-icons/gr"
-import { HiArrowUp }  from "react-icons/hi"
 import {
-  BsTwitter,
   BsLinkedin,
-  BsGithub,
   BsYoutube,
-  BsTwitch,
   BsWhatsapp,
-  BsInstagram,
   
 } from "react-icons/bs";
 import {BsFillArrowUpCircleFill} from "react-icons/bs"
 
 import { NavLink } from "react-router-dom";
 import { Link } from "react-scroll";
-import { Fade } from 'react-awesome-reveal'
 
 const Footer = () => {
 
