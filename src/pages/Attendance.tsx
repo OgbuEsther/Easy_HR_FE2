@@ -4,15 +4,9 @@ import InputStaffAttendance from "./InputFieldAttendance/InputStaffAttendance";
 import { MdOutlineCancel } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { getOneAdmin, getOneStaff } from "../utils/Api/ApiCall";
+import { getOneAdmin} from "../utils/Api/ApiCall";
 import { useAppSelector } from "../components/global/Store";
-// import {SiMattermost} from "react-icons/si"
 
-// const Option = [
-//   { value: "chocolate", label: "Chocolate" },
-//   { value: "chocolate", label: "Chocolate" },
-//   { value: "chocolate", label: "Chocolate" },
-// ];
 
 const Attendance: React.FC = () => {
   const [value, setValue] = useState("");
@@ -877,7 +871,7 @@ const StatisticColumn = styled.div`
   margin-top: 30px;
   align-items: flex-start;
   flex-wrap: wrap;
-
+  background-color: red;
 
   @media screen and (max-width:500px) {
     margin-left:-12px;
