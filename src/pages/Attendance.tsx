@@ -762,10 +762,10 @@ const StatisticColumn = styled.div`
 
 // Attendance main Page
 const AttendanceMainPage = styled.div`
-  height: auto;
+  height: 100%;
   width: calc(100vw - 320px);
-  padding-bottom: 30px;
-  /* overflow: hidden; */
+  padding-top: 70px;
+  background-color: green;
   @media screen and (max-width: 960px) {
     width: 100%;
   }
@@ -773,13 +773,12 @@ const AttendanceMainPage = styled.div`
 
 // Attendance Page
 const AttendancePage = styled.div`
-  height: auto;
-  width: auto;
+  width: calc(100vw - 220px);
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding-top: 100px;
-
+  background-color: #F5F7FA;
+  padding-bottom: 20px;
   @media screen and (max-width:500px) {
     margin-right: 30px;
   }
