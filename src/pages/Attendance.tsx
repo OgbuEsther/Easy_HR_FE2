@@ -66,17 +66,11 @@ const Attendance: React.FC = () => {
     setmathanityCheck(false);
   };
 
-  // const int = () => {
-  //   setWidth(width + 10);
-  // };
 
   const Toggle = () => {
     setShow(true);
   };
 
-  // const PunchStateChangerFunction = () => {
-  //   setPunchStateChanger(!PunchStateChanger);
-  // };
 
   console.log("this is value: " + value);
 
@@ -107,7 +101,6 @@ const Attendance: React.FC = () => {
     <AttendancePage>
       <AttendanceMainPage>
       <Word>
-        {/* <SiMattermost/> */}
         Attendance <br />
            <span>
           <a href="/dashboard">
@@ -118,8 +111,6 @@ const Attendance: React.FC = () => {
           </Word>
 
           <StaffDetail>
-          {/* {getStaff?.data?.data?.map((el: any) => ( */}
-           {/* <div> */}
            <Details>
             <Pic>
             {users?.yourName?.charAt(0)}
@@ -195,116 +186,6 @@ const Attendance: React.FC = () => {
     
             </CardContent>
           </Card>
-          {/* <Card className="two">
-            <CardTitle>Leave Stats</CardTitle>
-           
-              <CardContent>
-                 {getAdmin?.data?.data?.adminLeave?.map((el: any) => (
-                <StatisticsMeasureColumn className="today">
-                  <DayAndHourColumn>
-                    <Day>
-                    {el?.title}
-                    </Day>
-                    <HourMeasure>
-                     Total Days :{el?.days}
-               
-                    </HourMeasure>
-                  </DayAndHourColumn>
-                  <ProgressBarHold>
-                    <ProgressBar width={width}></ProgressBar>
-                  </ProgressBarHold>
-                </StatisticsMeasureColumn>
-                ))}
-              </CardContent>
-            
-          </Card> */}
-          {/* <Card className="three">
-            <CardTitle>Apply For Leave</CardTitle>
-            <CardContent>
-              <LeaveOptionForm>
-                <OptionInputHold
-                  cl={annualcheck ? "white" : "black"}
-                  bd={annualcheck ? "none" : "silver"}
-                  onClick={annualchecker}
-                  bg={annualcheck ? "blue" : ""}
-                >
-                  <Label htmlFor="html">Anuual</Label>
-                  <OptionInput
-                    className="annual"
-                    type="radio"
-                    checked={annualcheck ? true : false}
-                    name="annual"
-                    id="html"
-                    value="annual"
-                  />
-                </OptionInputHold>
-
-                <OptionInputHold
-                  cl={examchecker ? "white" : "black"}
-                  bd={examchecker ? "none" : "silver"}
-                  onClick={ExamChecker}
-                  bg={examchecker ? "blue" : ""}
-                >
-                  <Label>Exam</Label>{" "}
-                  <OptionInput
-                    className="annual"
-                    type="radio"
-                    checked={examchecker ? true : false}
-                    name="annual"
-                    id="html"
-                  />
-                </OptionInputHold>
-
-                <OptionInputHold
-                  cl={sickchecker ? "white" : "black"}
-                  bd={sickchecker ? "none" : "silver"}
-                  onClick={Sickchecker}
-                  bg={sickchecker ? "blue" : ""}
-                >
-                  <Label>Sick</Label>{" "}
-                  <OptionInput
-                    className="annual"
-                    type="radio"
-                    checked={sickchecker ? true : false}
-                    name="annual"
-                    id="html"
-                  />
-                </OptionInputHold>
-
-                <OptionInputHold
-                  cl={mathanitychecker ? "white" : "black"}
-                  bd={mathanitychecker ? "none" : "silver"}
-                  onClick={Mathanitychecker}
-                  bg={mathanitychecker ? "blue" : ""}
-                >
-                  <Label>Maternity</Label>{" "}
-                  <OptionInput
-                    className="annual"
-                    type="radio"
-                    checked={mathanitychecker ? true : false}
-                    name="annual"
-                    id="html"
-                  />
-                </OptionInputHold>
-
-                <OptionInputHold
-                  cl={certificationchecker ? "white" : "black"}
-                  bd={certificationchecker ? "none" : "silver"}
-                  onClick={Certificationchecker}
-                  bg={certificationchecker ? "blue" : ""}
-                >
-                  <Label>Sick</Label>{" "}
-                  <OptionInput
-                    className="annual"
-                    type="radio"
-                    checked={certificationchecker ? true : false}
-                    name="annual"
-                    id="html"
-                  />
-                </OptionInputHold>
-              </LeaveOptionForm>
-            </CardContent>
-          </Card> */}
         </StatisticColumn>
 
        
