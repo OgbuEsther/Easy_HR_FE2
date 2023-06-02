@@ -7,25 +7,14 @@ import { useAppSelector } from '../global/Store';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 
 const DashboardHead = () => {
-  const [toggle, setToggle] = React.useState<boolean>(false);
-
-  const onToggled = () => {
-    setToggle(!toggle);
-  };
-
+ 
 
   const [show, setShow] = React.useState(false);
-  const [drop, setDrop] = React.useState(false)
 
-  const Dropdown = () => {
-    setDrop(!drop)
-  }
-
+ 
   const Toggle = () => {
     setShow(!show);
   };
-
-  const admin = useAppSelector((state) => state.currentUser);
 
   return (
       <Container>
@@ -127,30 +116,6 @@ const Name = styled.div`
 
 `;
 
-const Drop = styled(RiArrowDropDownLine)`
-  color: black;
-  font-size: 25px;
-  cursor: pointer;
-
-  :hover{
-    color: #2e2e2e;
-  }
-`;
-
-const Team = styled.div``;
-
-const People = styled.div`
-  position: absolute;
-  margin-top: 10px;
-  height: 150px;
-  width: 170px;
-  border-radius: 10px;
-  background-color: #f2f2f2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
 
 const Wrap = styled.div`
 margin-right: 10px;
@@ -230,176 +195,8 @@ const Holder1 = styled.div`
   justify-content: space-between;
 `;
 
-const Profile1 = styled.div`
-height: 45px;
-width: 45px;
-border-radius: 50%;
-margin:0 15px;
-background-color: black;
-cursor: pointer;
-`;
 
 
-const Big = styled.div`
-font-size: 18px;
-`;
-
-const Small = styled.div`
-font-size: 12px;
-`;
-
-const Holder = styled.div`
-display: flex;
-align-items: center;
-`;
-
-const SearchHold = styled.div`
-align-items: center;
-height: 40px;
-background-color: transparent;
-display: flex;
-
-`;
-
-const User = styled.div`
-background-color: brown;
-
-@media screen and (max-width:500px){
-  display:none;
-}
-`
-
-const Main = styled.div`
-display: flex;
-align-items: center;
-justify-content: space-evenly;
-background-color: yellow;
-width: 90%;
-
-@media screen and (max-width:500px) {
-  display: none;
-}
-`
-
-const Text3 = styled.div`
-  font-size: 17px;
-  font-family: U8, sans-serif;
-  cursor: pointer;
-  align-items: center;
-  display: flex;
-  margin-left: 15px;
-  width: 410px;
-  height: 40px;
-`;
-const Home3 = styled.div`
-  width: 100%;
-  display: flex;
-  margin-top: 10px;
-  align-items: center;
-`
-const Leave = styled.div`
-  display: flex;
-  color: #b4b4b4;
-  font-size: 14px;
-  margin-top: 20px;
-`
-const Text = styled.div`
-  margin-left: 25px;
-`;
-const Power = styled.div`
-  width: 100%;
-  display: flex;
-  margin-top: 80px;
-`;
-const Text2 = styled.div`
-  font-size: 17px;
-  font-family: U8, sans-serif;
-  cursor: pointer;
-  align-items: center;
-  display: flex;
-  margin-left: 15px;
-  width: 410px;
-  height: 40px;
-`;
-const Home2 = styled.div`
-  width: 100%;
-  display: flex;
-  margin-top: 23px;
-  align-items: center;
-`;
-const Text1 = styled.div`
-  font-size: 17px;
-  font-family: U8, sans-serif;
-  cursor: pointer;
-  align-items: center;
-  display: flex;
-  margin-left: 15px;
-  width: 210px;
-  height: 40px;
-`;
-const Icon2 = styled.div`
-  color: #3e4956;
-  font-size: 23px;
-  cursor: pointer;
-`;
-const Home = styled.div`
-  width: 100%;
-  display: flex;
-  margin-top: 15px;
-  align-items: center;
-`;
-const Box = styled.div`
-  display: flex;
-  width: 43%;
-  height: 100vh;
-  flex-direction: column;
-  background-color: #fff;
-  padding-left: 25px;
-  left: 0;
-  transition: all 350ms ease-in;
-  @media screen and (max-width: 1024px) {
-    width: 24%;
-  }
-  @media screen and (max-width: 500px) {
-    width: 44%;
-  }
-  @media screen and (max-width: 375px) {
-    width: 48%;
-  }
-`;
-const Hold = styled.div`
-  width: 18%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.4);
-  left: 0;
-  right: 0;
-  top: 0;
-  position: absolute;
-  position: fixed;
-  margin-top: 80px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  /* border-top-right-radius: 120px; */
-  z-index: 9999999;
-  overflow: hidden;
-  animation: slides 0.5s ease-in-out;
-
-  @keyframes slides {
-    from {
-      transform: translateY(-100%);
-    }
-    to {
-      transform: translateY(0);
-    }
-  }
-  @media screen and (max-width: 1024px) {
-    width: 100%;
-  }
-  @media screen and (max-width: 500px) {
-    width: 100%;
-  }
-`;
 const Ico = styled.div`
   margin-top: 9px;
 `

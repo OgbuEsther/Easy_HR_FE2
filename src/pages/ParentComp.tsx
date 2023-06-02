@@ -11,8 +11,16 @@ import { Charts } from "../components/Graph";
 import DoughnutAdmin from "./DoughnutAdmin";
 import HomeLeave from "./HomeLeave";
 import Cards from "../pages/Cards"
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
+
 
 const ParentComp = () => {
+  const percentage = 45;
+  const percentage1 = 55;
+
+
+
   const [show, setShow] = React.useState(false);
 
   const Toggle = () => {
@@ -30,7 +38,7 @@ const ParentComp = () => {
     queryFn: () => getOneAdmin(admin?._id),
   });
 
-  console.log("this is admin data", admin?.companyname);
+  
 
   return (
     <div>
@@ -103,11 +111,11 @@ const ParentComp = () => {
           <Word>  Monthly Acquisition </Word>
          <IconHold>
          <Icon1>
-          <Dot bcc="#82CDFF"></Dot>
+          <Dot bcc="#FD625E"></Dot>
           Cost
           </Icon1>
          <Icon1>
-          <Dot bcc="#FFB1C1"></Dot>
+          <Dot bcc="#28383C"></Dot>
           Item
           </Icon1>
          </IconHold>
@@ -115,6 +123,29 @@ const ParentComp = () => {
               <Charts />
             </Cha>
             {/* <DoughnutAdmin /> */}
+
+            <Progress>
+              <Firstprog>
+                <h2>Leave Statistic</h2>
+                <div style={{width: "130px", height: "130px", marginTop: "27px"}}>
+                  <CircularProgressbar value={percentage} text={`${percentage}%`} styles={buildStyles({
+                    pathColor: "#fd625e",
+                    trailColor: '#d6d6d6',
+                  })}/>
+                </div>
+              </Firstprog>
+
+              <Firstprog>
+                <h2>Performance Statistic</h2>
+                <div style={{width: "130px", height: "130px", marginTop: "27px"}}>
+                  <CircularProgressbar value={percentage1} text={`${percentage1}%`} styles={buildStyles({
+                    pathColor: "#0168aa",
+                    trailColor: '#d6d6d6',
+                  })}/>
+                </div>
+              </Firstprog>
+            </Progress>
+
           </Hold>
          <HomeLeave />
         </Wrapper>
@@ -124,6 +155,26 @@ const ParentComp = () => {
 };
 
 export default ParentComp;
+const Firstprog = styled.div`
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h2{
+    font-weight: 600;
+    font-size: 19px;
+  }
+`
+const Progress = styled.div`
+  width: 45%;
+  display: flex;
+  /* margin-top: 80px; */
+  background-color: #fff;
+  padding: 12px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 12px;
+`
+
 const ChartHold = styled.div`
 width: 52%;
 background-color: grey;
@@ -178,9 +229,11 @@ const Cha = styled.div`
 const Hold = styled.div`
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   /* background-color: red; */
   margin-top: 50px;
   justify-content: space-between;
+  align-items: center;
 
   @media screen and (max-width: 768px) {
     flex-wrap: wrap;
@@ -358,7 +411,7 @@ const Top = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 92%;
+  width: 95%;
   display: flex;
   flex-direction: column;
   align-items: center;

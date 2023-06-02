@@ -1,13 +1,10 @@
 import React, {useState} from 'react'
 import img from "../../Assets/new.png"
 import {BiMenu} from "react-icons/bi"
-import {GiCancel} from "react-icons/gi"
 import { NavLink } from 'react-router-dom'
-import { Fade } from 'react-awesome-reveal'
 import {  BsFillArrowUpCircleFill, BsFillDiscFill} from "react-icons/bs"
 import { Link } from "react-scroll";
 import styled from 'styled-components'
-
 
 
 const Header = () => {
@@ -22,16 +19,32 @@ const Header = () => {
       setShow(!show)
     }
 
+
   return (
     <div className='w-full h-20 z-10 bg-header flex justify-center fixed' id='her'>
       <div className='w-11/12 flex items-center justify-between'>
         <img src={img} alt="" className='h-16'/>
 
         <div className='flex items-center xmd:hidden'>
-       <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>Home</div>
-          <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>Our Solution</div>
-          <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>About</div>
-          <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>Our Expert</div>
+          <Link to="home" smooth={true} duration="600">
+          <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>Home</div>
+          </Link>
+
+         <Link to="services" smooth={true} duration="600">
+          <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>Services</div>
+         </Link>
+
+         <Link to="partners" smooth={true} duration="600">
+          <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>Partners</div>
+         </Link>
+
+         <Link to="oursolutions" smooth={true} duration="600">
+          <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>Our Solutions</div>
+         </Link>
+
+         <Link to="streamline" smooth={true} duration="600">
+         <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>StreamLine</div>
+         </Link>
 
         </div>
 
@@ -62,7 +75,7 @@ const Header = () => {
       </div>
       
       {show ? (
-         <div className='hidden md:flex absolute h-screen w-44 bg-white top-20 right-0 fixed flex-col items-center'>
+         <div className='hidden md:flex h-screen w-44 bg-white top-20 right-0 fixed flex-col items-center'>
           <div className='text-hover text-sm m-4 hover:text-hover'>Home</div>
           <div className='text-hover text-sm m-4 hover:text-hover'>Our Solution</div>
           <div className='text-hover text-sm m-4 hover:text-hover'>About</div>

@@ -1,5 +1,4 @@
 import React from 'react'
-import { Header } from '../../components'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -21,7 +20,7 @@ const Superhero = () => {
 	};
   
   return (
-    <div>
+    <div id="home">
       <Slider {...settings}>
       <div className='w-full  bg-hero flex justify-center overflow-hidden bg-no-repeat bg-center bg-cover'>
           <div className='w-full pb-36 bg-black bg-opacity-50 flex-col items-center flex xmd:justify-center xmd:flex xmd:items-center'>

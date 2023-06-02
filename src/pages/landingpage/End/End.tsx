@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 
 const End = () => {
   return (
-    <div>
+    <div id="streamline">
         <Container>
             <Wrapper>
                 <Text>

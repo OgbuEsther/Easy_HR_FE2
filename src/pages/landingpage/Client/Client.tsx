@@ -2,12 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import img from "../../../Assets/bgimage.jpg"
 import {ImQuotesLeft} from "react-icons/im"
-import { Fade } from 'react-awesome-reveal'
+// import { Fade } from 'react-awesome-reveal'
 
 
 const Client = () => {
   return (
-    <div>
+    <div id="partners">
           {/* <Fade direction='left'> */}
         <Container>
               <Wrapper>
