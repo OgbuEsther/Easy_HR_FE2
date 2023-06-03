@@ -3,6 +3,7 @@ import LeftSectionImage from "../../Assets/hr_group.jpg"
 import { NavLink } from 'react-router-dom'
 import BackButton from '../../components/Buttons/BackButton'
 import logo from "../../Assets/eazy.png"
+import img from "../../Assets/auth.jpg"
 
 const SignInOption = () => {
 
@@ -15,9 +16,18 @@ const SignInOption = () => {
         <LeftSection>
         
            <BackButton path='/'/>
+           {/* <Img src={img}/> */}
+        <Word>
+        <Text>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio dolor quisquam libero labore. Aperiam temporibus rerum itaque dignissimos numquam modi qui perspiciatis atque dolorum maxime cupiditate, perferendis omnis voluptates dolorem.
+           </Text>
+           <Sub>
+            Click me  naw jbvbv
+           </Sub>
 
           
-            <Image src={LeftSectionImage}/>
+        </Word>
+            {/* <Image src={LeftSectionImage}/> */}
         </LeftSection>
         <RightSection>
             
@@ -49,6 +59,25 @@ const SignInOption = () => {
 }
  
 export default SignInOption;
+const Sub = styled.div`
+margin-top: 30px;
+`
+
+const Text = styled.div`
+text-align: center;
+margin: 10px;
+`
+const Word = styled.div`
+/* background-color: red; */
+height: 300px;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+z-index: 99999;
+`
+
+// const Img = styled.img``
 
 const Description = styled.div`
 height: 100px;
@@ -70,12 +99,13 @@ margin-top: 20px;
 const Logo = styled.img`
 height: 100%;
 width: 100%;
-object-fit: contain;
+object-fit: cover;
 `
 const LogoHold = styled.div`
-height: 50px;
-width: 150px;
-overflow: hidden;
+height: 100px;
+width: 300px;
+/* overflow: hidden; */
+/* background-color: red; */
 `
 
 const StaffSignInOption = styled.button`
@@ -173,7 +203,7 @@ position: relative;
 
 // Left Section Codes
 const Image = styled.img`
-height: 50px;
+height: 100%;
 width: 100%;
 object-fit: cover;
 overflow: hidden;
@@ -183,15 +213,36 @@ const LeftSection = styled.div`
 height: 100vh;
 width: 50%;
 overflow: hidden;
+background-image: url(${img});
+background-size: cover;
+background-repeat: no-repeat;
+color: white;
+display: flex;
+align-items: center;
+justify-content: center;
 position: relative;
 
+::before{
+    content:"jbcw";
+    position:absolute;
+    height: 100%;
+    width:100%;
+    top:0;
+    background-color: rgba(0,0,0,0.6);
+}
+
+
+/* position: relative; */
+/* background: rgb(40,203,239); */
+/* background: linear-gradient(180deg, rgba(40,203,239,1) 32%, rgba(59,58,138,1) 69%, rgba(232,46,58,1) 100%); */
+/* 
 ::before{
     content: "";
     height: 100%;
     width: 100%;
     background-color: rgba(59, 59, 59, 0.483);
     position: absolute;
-}
+} */
 
 @media screen and (max-width: 960px) {
     display: none;
