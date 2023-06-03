@@ -765,7 +765,6 @@ const AttendanceMainPage = styled.div`
   height: 100%;
   width: 97%;
   padding-top: 80px;
-  background-color: green;
   @media screen and (max-width: 960px) {
     width: 100%;
   }
