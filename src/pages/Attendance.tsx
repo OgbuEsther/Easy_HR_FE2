@@ -763,8 +763,8 @@ const StatisticColumn = styled.div`
 // Attendance main Page
 const AttendanceMainPage = styled.div`
   height: 100%;
-  width: calc(100vw - 320px);
-  padding-top: 70px;
+  width: 97%;
+  padding-top: 80px;
   background-color: green;
   @media screen and (max-width: 960px) {
     width: 100%;
