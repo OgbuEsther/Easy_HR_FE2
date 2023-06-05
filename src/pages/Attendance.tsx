@@ -739,10 +739,6 @@ const StatisticColumn = styled.div`
   align-items: flex-start;
   flex-wrap: wrap;
   background-color: red;
-
-  @media screen and (max-width:500px) {
-    margin-left:-12px;
-  }
 `;
 
 
