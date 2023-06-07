@@ -1,176 +1,114 @@
-import React from "react";
+/** @format */
+
 import styled from "styled-components";
-import img from "../Assets/wave_img.svg";
-import img2 from "../Assets/wave_img2.svg";
-import img3 from "../Assets/wave_img3.svg";
-import { useAppSelector } from "../components/global/Store";
-import { useQuery } from "@tanstack/react-query";
-import { getOneAdmin } from "../utils/Api/ApiCall";
+import img from "./assets/wave (2).svg";
 
-const AdminCard = () => {
-  const admin = useAppSelector((state) => state.currentUser);
-
-  const getAdmin = useQuery({
-    queryKey: ["singleAdmin"],
-    queryFn: () => getOneAdmin(admin?._id),
-  });
-
-  console.log(`trying to get total length of all staff ${getAdmin?.data?.data?.viewUser}`)
-  console.log(`trying to get details ${admin?.viewUser}`)
-
+const App = () => {
   return (
-    <Container>
-      <Wrapper>
-        <Holder>
-          <Card1>
-            <Holder1>
-              <Total>Total Employees</Total>
-
-             
-                <Num> { getAdmin?.data?.data?.viewUser?.length} </Num>
-          
-            </Holder1>
-          </Card1>
-
-          <Card2>
-            <Holder2>
-              <Total>Attendance</Total>
-              
-              <Num>
-              { getAdmin?.data?.data?.viewStaffAttendance?.length}
-              </Num>
-            </Holder2>
-          </Card2>
-
-          <Card3>
-            <Holder3>
-              <Total>Leave Apply</Total>
-            <Num> { getAdmin?.data?.data?.staffLeave?.length} </Num>
-            </Holder3>
-          </Card3>
-        </Holder>
-      </Wrapper>
-    </Container>
+    <div>
+      <Container>
+        <Main>
+          <Image>
+            <p>Today Earning</p>
+            <h1>$15200</h1>
+            <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1140 320">
+              <path
+                fill="rgba(225,225,225,0.3)"
+                fill-opacity="1"
+                d="M0,320L34.3,314.7C68.6,309,137,299,206,272C274.3,245,343,203,411,181.3C480,160,549,160,617,181.3C685.7,203,754,245,823,245.3C891.4,245,960,203,1029,165.3C1097.1,128,1166,96,1234,85.3C1302.9,75,1371,85,1406,90.7L1440,96L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"
+              ></path>
+            </Svg>
+          </Image>
+          <Down>+12,6%</Down>
+        </Main>
+        <Main>
+          <Image>
+            <p>Today Earning</p>
+            <h1>$15200</h1>
+            <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1140 320">
+              <path
+                fill="rgba(225,225,225,0.3)"
+                fill-opacity="1"
+                d="M0,320L34.3,314.7C68.6,309,137,299,206,272C274.3,245,343,203,411,181.3C480,160,549,160,617,181.3C685.7,203,754,245,823,245.3C891.4,245,960,203,1029,165.3C1097.1,128,1166,96,1234,85.3C1302.9,75,1371,85,1406,90.7L1440,96L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"
+              ></path>
+            </Svg>
+          </Image>
+          <Down>+12,6%</Down>
+        </Main>
+        <Main>
+          <Image>
+            <p>Today Earning</p>
+            <h1>$15200</h1>
+            <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1140 320">
+              <path
+                fill="rgba(225,225,225,0.3)"
+                fill-opacity="1"
+                d="M0,320L34.3,314.7C68.6,309,137,299,206,272C274.3,245,343,203,411,181.3C480,160,549,160,617,181.3C685.7,203,754,245,823,245.3C891.4,245,960,203,1029,165.3C1097.1,128,1166,96,1234,85.3C1302.9,75,1371,85,1406,90.7L1440,96L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"
+              ></path>
+            </Svg>
+          </Image>
+          <Down>+12,6%</Down>
+        </Main>
+      </Container>
+    </div>
   );
 };
 
-export default AdminCard;
+export default App;
 
-const Holder = styled.div`
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-  @media screen and (max-width: 500px) {
-    flex-wrap: wrap;
-  }
+const Svg = styled.svg`
+  transform: scaleY(-1);
 `;
-const Wrapper = styled.div`
-  width: 100%;
+
+const Down = styled.div`
+  padding: 10px 15px;
+  background-color: white;
+  border-radius: 19px;
+  position: absolute;
   display: flex;
-  justify-content: center;
   align-items: center;
-  /* background-color: red; */
+  top: 350px;
+  left: 39%;
+  font-size: 15px;
+  font-weight: 600;
 `;
-const Num = styled.div`
-  font-size: 42px;
-  margin-top: 5px;
-  color: white;
-`;
-const Total = styled.div`
-  font-size: 18px;
-  color: #fff;
-  @media screen and (max-width: 500px) {
-    font-size: 13px;
+const Image = styled.div`
+  p {
+    color: white;
+    margin: 0;
+    margin-left: 20px;
+    margin-top: 10px;
+    font-size: 22px;
+    font-weight: 600;
   }
-`;
-
-const Card3 = styled.div`
-  height: 120px;
-  width: 250px;
-  /* background-color:rgb(250, 190,0, 0.9); */
-  background-image: url(${img3});
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin: 10px;
-  border-radius: 10px;
-
-  @media (max-width: 1024px) {
-    width: 320px;
+  h1 {
+    margin: 0;
+    margin-left: 20px;
+    /* margin-bottom: 40px; */
+    color: white;
+    font-weight: 500;
+    font-size: 50px;
   }
-
-  @media (max-width: 500px) {
+  transform: scaleY(1);
+  img {
     width: 100%;
-    margin: 7px;
+    height: 100%;
+    object-fit: cover;
   }
 `;
-const Card2 = styled.div`
-  height: 120px;
-  width: 250px;
-  /* background-color:rgb(250, 190,0, 0.9); */
-  background-image: url(${img2});
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin: 10px;
-  border-radius: 10px;
-
-  @media (max-width: 1024px) {
-    width: 320px;
-  }
-
-  @media (max-width: 500px) {
-    width: 100%;
-    margin: 7px;
-  }
+const Main = styled.div`
+  width: 350px;
+  height: 200px;
+  background-color: #5686d5;
+  border-radius: 20px;
+  /* position: relative; */
+  overflow: hidden;
 `;
-
-const Holder3 = styled.div`
-  width: 100%;
-  height: 100%;
-  background-color: rgb(235, 109, 98, 0.7);
-  padding: 15px;
-  border-radius: 10px;
-`;
-const Holder2 = styled.div`
-  width: 100%;
-  height: 100%;
-  background-color: rgb(67, 133, 246, 0.4);
-  padding: 15px;
-  border-radius: 10px;
-`;
-const Holder1 = styled.div`
-  width: 100%;
-  height: 100%;
-  background-color: rgb(253, 188, 0, 0.5);
-  padding: 15px;
-  border-radius: 10px;
-`;
-
-const Card1 = styled.div`
-  height: 120px;
-  width: 250px;
-  /* background-color:rgb(250, 190,0, 0.9); */
-  background-image: url(${img});
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin: 10px;
-  border-radius: 10px;
-
-  @media (max-width: 1024px) {
-    width: 320px;
-  }
-
-  @media (max-width: 500px) {
-    width: 100%;
-    margin: 7px;
-  }
-`;
-
 const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  /* height: 100vh; */
   width: 100%;
-  @media screen and (max-width: 768px) {
-    display: flex;
-    justify-content: center;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
+  
