@@ -7,8 +7,8 @@ import DashboardHead from '../../block/DashboardHead'
 const Dashboard = () => {
   return (
     <div>
-      <DashboardHead />
-        <SideBar />
+      <div style={{display: "flex", justifyContent: "flex-end"}}><DashboardHead /></div>
+        <div><SideBar /></div>
      <Container>
    
         <Outlet />

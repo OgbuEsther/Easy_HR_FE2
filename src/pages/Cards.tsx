@@ -1,340 +1,114 @@
-import React from 'react'
-import styled from "styled-components"
-import img from "../Assets/airtel.jpg"
-import img2 from "../Assets/mtn.jpg"
-import img3 from "../Assets/glo.jpg"
-import img4 from "../Assets/9mobile.jpg"
-import img5 from "../Assets/smile.jpg"
-import { AiOutlineClose } from "react-icons/ai"
-import { MdOutlineAccountBalanceWallet } from "react-icons/md";
-import { BsFillPiggyBankFill, BsTelephoneFill, BsDatabase } from "react-icons/bs";
-import Airtels from './Airtels'
+/** @format */
 
-const Cards = () => {
-      const [showAirtel, setShowAirtel] = React.useState(false);
-    const [showPopup, setShowPopup] = React.useState(false);
+import styled from "styled-components";
+import img from "./assets/wave (2).svg";
 
-     const cancelPopup = () => {
-    setShowPopup(false);
-    };
-    
-    const Togglepopup = () => {
-    setShowPopup(!showPopup);
-  }
-
-    const ToggleAirtel = () => {
-    setShowAirtel(!showAirtel);
-    setShowPopup(false);
-  }
-
+const App = () => {
   return (
+    <div>
       <Container>
-          <Card>
-              <CardHold>
-                  <IconHold
-                      style={{
-              backgroundColor: "#2a9d8f",
-            }}
-            >
-                    <MdOutlineAccountBalanceWallet />
-                  </IconHold>
-                  <CardTitle>wallet Number </CardTitle>
-                  <CardInfo>123456 </CardInfo>
-              </CardHold>
-          </Card>
+        <Main>
+          <Image>
+            <p>Today Earning</p>
+            <h1>$15200</h1>
+            <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1140 320">
+              <path
+                fill="rgba(225,225,225,0.3)"
+                fill-opacity="1"
+                d="M0,320L34.3,314.7C68.6,309,137,299,206,272C274.3,245,343,203,411,181.3C480,160,549,160,617,181.3C685.7,203,754,245,823,245.3C891.4,245,960,203,1029,165.3C1097.1,128,1166,96,1234,85.3C1302.9,75,1371,85,1406,90.7L1440,96L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"
+              ></path>
+            </Svg>
+          </Image>
+          <Down>+12,6%</Down>
+        </Main>
+        <Main>
+          <Image>
+            <p>Today Earning</p>
+            <h1>$15200</h1>
+            <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1140 320">
+              <path
+                fill="rgba(225,225,225,0.3)"
+                fill-opacity="1"
+                d="M0,320L34.3,314.7C68.6,309,137,299,206,272C274.3,245,343,203,411,181.3C480,160,549,160,617,181.3C685.7,203,754,245,823,245.3C891.4,245,960,203,1029,165.3C1097.1,128,1166,96,1234,85.3C1302.9,75,1371,85,1406,90.7L1440,96L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"
+              ></path>
+            </Svg>
+          </Image>
+          <Down>+12,6%</Down>
+        </Main>
+        <Main>
+          <Image>
+            <p>Today Earning</p>
+            <h1>$15200</h1>
+            <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1140 320">
+              <path
+                fill="rgba(225,225,225,0.3)"
+                fill-opacity="1"
+                d="M0,320L34.3,314.7C68.6,309,137,299,206,272C274.3,245,343,203,411,181.3C480,160,549,160,617,181.3C685.7,203,754,245,823,245.3C891.4,245,960,203,1029,165.3C1097.1,128,1166,96,1234,85.3C1302.9,75,1371,85,1406,90.7L1440,96L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"
+              ></path>
+            </Svg>
+          </Image>
+          <Down>+12,6%</Down>
+        </Main>
+      </Container>
+    </div>
+  );
+};
 
-          <Card>
-              <CardHold>
-                  <IconHold
-                      style={{
-              backgroundColor: "#e76f51",
-            }}
-            >
-                    <BsFillPiggyBankFill />
-                  </IconHold>
-                  <CardTitle>Balance </CardTitle>
-                  <CardInfo>NGN 1000 </CardInfo>
-              </CardHold>
-          </Card>
+export default App;
 
-          <Card >
-        <CardHold>
-          <IconHold
-            style={{
-              backgroundColor: "#2a9d8f",
-            }}
-          >
-            <BsTelephoneFill />
-          </IconHold>
-          
-            <CardInfo>Buy Airtime</CardInfo>
-        </CardHold>
-          </Card>
-          
-          <Card onClick={Togglepopup}>
-        <CardHold>
-          <IconHold
-            style={{
-              backgroundColor: "#e76f51",
-            }}
-          >
-            <BsDatabase />
-          </IconHold>
-          
-            <CardInfo>Buy Data</CardInfo>
-        </CardHold>
-          </Card>
-          
-          {showPopup ? (
-              <Popups>
-                  <Popup_content>
-                      <h3>Payments</h3>
-                      <p>Select the service you want to make payment for</p>
-                      <h4>Data Services</h4>
-                      <Box>
-                          <Airtel onClick={ToggleAirtel}>
-                              <Img src={img} />
-                              <AirtelText>
-                                  <strong>Airtel Data</strong>
-                                  <Text>Airtel Data - Get instant top up</Text>
-                              </AirtelText>
-                          </Airtel>
+const Svg = styled.svg`
+  transform: scaleY(-1);
+`;
 
-                          <Airtel>
-                            <Img src={img2} />
-                            <AirtelText>
-                                <strong>MTN Data</strong>
-                                <Text>MTN Data - Get instant Data Top up</Text>
-                             </AirtelText>
-                          </Airtel>
-                          
-                          <Airtel>
-                            <Img src={img3} />
-                            <AirtelText>
-                                <strong>GLO Data</strong>
-                                <Text>GLO Data - Get instant Top up</Text>
-                            </AirtelText>
-                          </Airtel>
-                          
-                          <Airtel>
-                            <Img src={img4} />
-                            <AirtelText>
-                                <strong>9mobile Data</strong>
-                                <Text>9mobile Data - Get instant Top up</Text>
-                            </AirtelText>
-                          </Airtel>
-                          
-                          <Airtel>
-                            <Img src={img5} />
-                            <AirtelText>
-                                <strong>Smile Payment</strong>
-                                <Text>Pay for Smile Airtime and Internet Data</Text>
-                            </AirtelText>
-                          </Airtel>
-                          
-                          <Airtel>
-                            <Img src={img3} />
-                            <AirtelText>
-                                 <strong>GLO Data</strong>
-                                <Text>GLO Data - Get instant Top up</Text>
-                            </AirtelText>
-                          </Airtel>
-                          
-                          <Airtel>
-                            <Img src={img3} />
-                            <AirtelText>
-                                <strong>GLO Data</strong>
-                                <Text>GLO Data - Get instant Top up</Text>
-                         </AirtelText>
-                        </Airtel>
-                      </Box>
-                  </Popup_content>
-                  <Icon onClick={cancelPopup}><AiOutlineClose /></Icon>
-              </Popups>
-          ) : null}
-
-          {showAirtel ? (
-              <Airtelhold>
-                  <Airtels />
-              </Airtelhold>
-          ) : null}
-    </Container>
-  )
-}
-
-export default Cards
-const Airtelhold = styled.div`
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    position: fixed;
-    z-index: 3;
-    justify-content: center;
-    align-items: center;
-`
-const Icon = styled.div`
-  display: flex;
-  position: absolute;
-  color: #fff; 
-  right: 180px;
-  font-size: 25px;
-  top: 80px;
-  cursor: pointer;
-`
-
-const Text = styled.div`
-    font-size: 11px;
-    color: #000;
-`
-
-const AirtelText = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin-left: 10px;
-    strong{
-        margin: 0;
-        font-weight: 500;
-        font-size: 15px;
-        color: #495463;
-    }
-`
-
-const Img = styled.img`
-    height: 50px;
-`
-
-const Airtel = styled.div`
-    width: 250px;
-    height: 50px;
-    border: 1px solid #CEC2C2;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    cursor: pointer;
-`
-
-const Box = styled.div`
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-`
-
-const Popup_content = styled.div`
-    width: 850px;
-    height: 450px;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-  padding: 25px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-   animation: popup-open 0.5s ease-out forwards;
-
-   @keyframes popup-open {
-  from {
-    transform: scale(0);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-  }
-  h3{
-    margin: 0px;
-    color: #173D52 !important;
-    font-size: 1.3em;
-    font-weight: 500;
-  }
-  p{
-    font-size: 15px;
-    margin-top: 7px;
-    color: #000;
-  }
-  h4{
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 1.3;
-    color: #495463
-  }
-`
-
-const Popups = styled.div`
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
+const Down = styled.div`
+  padding: 10px 15px;
+  background-color: white;
+  border-radius: 19px;
   position: absolute;
   display: flex;
-  justify-content: center;
   align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 7;
-`
-
-const CardInfo = styled.div`
-  font-size: 18px;
+  top: 350px;
+  left: 39%;
+  font-size: 15px;
   font-weight: 600;
-  margin-top: 20px;
 `;
-
-const CardTitle = styled.div`
-  font-size: 12px;
-  margin-bottom: 5px;
-`;
-
-const IconHold = styled.div`
-  height: 40px;
-  width: 40px;
-  border-radius: 30px;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  margin-bottom: 15px;
-`;
-
-const CardHold = styled.div`
-  width: 85%;
-  margin-top: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`;
-
-const Card = styled.div`
-  height: 180px;
-  width: 228px;
-  background-color: #fff;
-  border-radius: 3px;
-  border-bottom: 2px solid #0d71fa;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px;
-  cursor: pointer;
-
-  @media (max-width: 1024px) {
-    width: 320px;
+const Image = styled.div`
+  p {
+    color: white;
+    margin: 0;
+    margin-left: 20px;
+    margin-top: 10px;
+    font-size: 22px;
+    font-weight: 600;
   }
-
-  @media (max-width: 500px) {
-    width: 90%;
+  h1 {
+    margin: 0;
+    margin-left: 20px;
+    /* margin-bottom: 40px; */
+    color: white;
+    font-weight: 500;
+    font-size: 50px;
+  }
+  transform: scaleY(1);
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 `;
-
+const Main = styled.div`
+  width: 350px;
+  height: 200px;
+  background-color: #5686d5;
+  border-radius: 20px;
+  /* position: relative; */
+  overflow: hidden;
+`;
 const Container = styled.div`
+  /* height: 100vh; */
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  @media screen and (max-width: 768px){
-    display: flex;
-    justify-content: center;
-  }
+  align-items: center;
+  justify-content: center;
 `;
+  

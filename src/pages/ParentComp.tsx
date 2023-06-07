@@ -3,11 +3,24 @@ import { MdOutlineCancel } from "react-icons/md";
 import { FaGoogleWallet } from "react-icons/fa";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import Cards from "./Cards";
-
+import { useAppSelector } from "../components/global/Store";
+import { useQuery } from "@tanstack/react-query";
+import { getOneAdmin } from "../utils/Api/ApiCall";
+import AdminCard from "./AdminCard";
+import { Charts } from "../components/Graph";
+import DoughnutAdmin from "./DoughnutAdmin";
+import HomeLeave from "./HomeLeave";
+import Cards from "../pages/Cards"
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 
 const ParentComp = () => {
+  const percentage = 45;
+  const percentage1 = 55;
+
+
+
   const [show, setShow] = React.useState(false);
 
   const Toggle = () => {
@@ -18,15 +31,21 @@ const ParentComp = () => {
     setShow(false);
   };
 
+  const admin = useAppSelector((state) => state.currentUser);
+
+  const getAdmin = useQuery({
+    queryKey: ["singleAdmin"],
+    queryFn: () => getOneAdmin(admin?._id),
+  });
+
+  
+
   return (
     <div>
       <Container>
         <Wrapper>
           <Top>
-            <Left>
-              <Bold>Dashboard</Bold>
-              <button onClick={Toggle}>Credit Wallet</button>
-            </Left>
+
             {show ? (
               <Slidein>
                 <Wallets>
@@ -37,54 +56,98 @@ const ParentComp = () => {
                     <Circle>
                       <FaGoogleWallet />
                     </Circle>
-                    <Wallet>
-                      <p>Wallet Balance</p>
-                      <h3>NGN</h3>
-                    </Wallet>
+                    {getAdmin?.data?.data?.wallet?.map((el: any) => (
+                      <Wallet>
+                        <p>Wallet Balance</p>
+                        <h3>NGN:{el?.balance} </h3>
+                      </Wallet>
+                    ))}
                   </Card2>
 
                   <Tap>
                     <h3>Admin Details: </h3>
                     <p>
-                      Wallet number <strong>123456</strong>
+                      Wallet number <strong>{admin?.walletNumber} </strong>
                     </p>
                   </Tap>
 
                   <Tap2>
                     <p>
-                      Company name: <strong>Savio</strong>
+                      Company name: <strong>{admin?.companyname}</strong>
                     </p>
                   </Tap2>
 
                   <Tap2>
                     <p>
-                      Company code: <strong>468</strong>
+                      Company code: <strong>{admin?.companyCode} </strong>
                     </p>
                   </Tap2>
 
                   <Tap2>
                     <p>
-                      Admin name: <strong>Paul</strong>
+                      Admin name: <strong>{admin?.yourName} </strong>
                     </p>
                   </Tap2>
 
                   <Holder>
                     <NavLink to="/payment" style={{ textDecoration: "none" }}>
-                    <button>Credit wallet</button>
+                      <button>Credit wallet</button>
                     </NavLink>
-                    
-                    <NavLink to="/payout" style={{textDecoration: "none"}}>
-                    <button>Withdraw to bank</button>
-                  </NavLink>
+
+                    <NavLink to="/payout" style={{ textDecoration: "none" }}>
+                      <button>Withdraw to bank</button>
+                    </NavLink>
                   </Holder>
                 </Wallets>
               </Slidein>
             ) : null}
           </Top>
-          <br />
-          <br />
-          <br />
+          
           <Cards />
+          
+          <Hold>
+         <Cha>
+          <Title>
+          <Word>  Monthly Acquisition </Word>
+         <IconHold>
+         <Icon1>
+          <Dot bcc="#FD625E"></Dot>
+          Cost
+          </Icon1>
+         <Icon1>
+          <Dot bcc="#28383C"></Dot>
+          Item
+          </Icon1>
+         </IconHold>
+          </Title>
+              <Charts />
+            </Cha>
+            {/* <DoughnutAdmin /> */}
+
+            <Progress>
+              <Firstprog>
+                <h2>Leave Statistic</h2>
+                <div style={{width: "130px", height: "130px", marginTop: "27px"}}>
+                  <CircularProgressbar value={percentage} text={`${percentage}%`} styles={buildStyles({
+                    pathColor: "#fd625e",
+                    trailColor: '#d6d6d6',
+                  })}/>
+                </div>
+              </Firstprog>
+
+              <Firstprog>
+                <h2>Performance Statistic</h2>
+                <div style={{width: "130px", height: "130px", marginTop: "27px"}}>
+                  <CircularProgressbar value={percentage1} text={`${percentage1}%`} styles={buildStyles({
+                    pathColor: "#0168aa",
+                    trailColor: '#d6d6d6',
+                  })}/>
+                </div>
+              </Firstprog>
+            </Progress>
+
+          </Hold>
+         <HomeLeave />
         </Wrapper>
       </Container>
     </div>
@@ -92,18 +155,110 @@ const ParentComp = () => {
 };
 
 export default ParentComp;
+const Firstprog = styled.div`
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h2{
+    font-weight: 600;
+    font-size: 19px;
+  }
+`
+const Progress = styled.div`
+  width: 45%;
+  display: flex;
+  /* margin-top: 80px; */
+  background-color: #fff;
+  padding: 12px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 12px;
+`
+
+const ChartHold = styled.div`
+width: 52%;
+background-color: grey;
+display: flex;
+flex-direction: column;
+`
+
+const Dot = styled.div<{bcc:string}>`
+width: 10px;
+height: 10px;
+background-color: ${(props)=>props.bcc};
+border-radius: 50px;
+margin:3px;
+`
+  
+
+const Icon1 = styled.div`
+margin:5px;
+display: flex;
+align-items: center;
+justify-content: center;
+`
+
+const Word = styled.div`
+font-weight: 500;
+
+`
+
+const IconHold = styled.div`
+display: flex;
+
+`
+
+const Title = styled.div`
+display: flex;
+justify-content: space-between;
+`
+  
+
+const Cha = styled.div`
+  width: 52%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+   background-color: #fff;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+`
+const Hold = styled.div`
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  /* background-color: red; */
+  margin-top: 50px;
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and (max-width: 768px) {
+    flex-wrap: wrap;
+  }
+  @media screen and (max-width: 500px) {
+    flex-wrap: wrap;
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+`
+
+
 const Holder = styled.div`
   display: flex;
   button {
     width: 160%;
     height: 50px;
-    background-color: #3184f7;
+    background-color: red;
     color: #fff;
     border-radius: 5px;
     border: none;
     outline: none;
     margin-top: 60px;
     cursor: pointer;
+    font-size: 16px;
     margin-right: 10px;
   }
 `;
@@ -181,7 +336,7 @@ const Card2 = styled.div`
   width: 300px;
   height: 150px;
   margin-top: 30px;
-  background-color: #0d71fa;
+  background-color: #00244e;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -230,29 +385,20 @@ const Slidein = styled.div`
       transform: translateX(0);
     }
   }
-`
-
-const Bold = styled.div`
-  font-size: 20px;
-  font-weight: 600;
-`;
-const Left = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
 `;
 
 const Top = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
   button {
     width: 130px;
     height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #0d71fa;
+    background-color: #00244e;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -265,7 +411,7 @@ const Top = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 92%;
+  width: 95%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -276,18 +422,18 @@ const Wrapper = styled.div`
   flex-direction: column;
 
   @media screen and (max-width: 768px) {
-    width: 100%;
+    width: 90%;
   }
 `;
 
 const Container = styled.div`
-  width: calc(100vw - 270px);
+  width: calc(100vw - 220px);
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #F5F7FA;
+  background-color: #f5f7fa;
   overflow: hidden;
-  margin-top: 50px;
+  margin-top: 20px;
 
   @media screen and (max-width: 1024px) {
     width: 100vw;
