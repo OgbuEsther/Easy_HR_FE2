@@ -7,7 +7,6 @@ import { Link } from "react-scroll";
 import styled from 'styled-components'
 
 
-
 const Header = () => {
 
   const [show, setShow] = useState(false)
@@ -27,7 +26,7 @@ const Header = () => {
         <img src={img} alt="" className='h-16'/>
 
         <div className='flex items-center xmd:hidden'>
-       <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>Home</div>
+          
           <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>Our Solution</div>
           <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>About</div>
           <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>Our Expert</div>
