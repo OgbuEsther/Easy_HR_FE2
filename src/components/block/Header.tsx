@@ -26,10 +26,25 @@ const Header = () => {
         <img src={img} alt="" className='h-16'/>
 
         <div className='flex items-center xmd:hidden'>
-          
-          <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>Our Solution</div>
-          <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>About</div>
-          <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>Our Expert</div>
+          <Link to="home" smooth={true} duration="600">
+          <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>Home</div>
+          </Link>
+
+         <Link to="services" smooth={true} duration="600">
+          <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>Services</div>
+         </Link>
+
+         <Link to="partners" smooth={true} duration="600">
+          <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>Partners</div>
+         </Link>
+
+         <Link to="oursolutions" smooth={true} duration="600">
+          <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>Our Solutions</div>
+         </Link>
+
+         <Link to="streamline" smooth={true} duration="600">
+         <div className='text-white text-sm m-6 hover:text-hover cursor-pointer'>StreamLine</div>
+         </Link>
 
         </div>
 
