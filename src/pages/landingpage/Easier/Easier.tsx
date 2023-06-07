@@ -2,15 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import img from "../../../Assets/pic2.jpg"
 import mock from "../../../Assets/mockup1.png"
-import arrow from "../../../Assets/arrow2.png"
-import {BsFillPlayFill} from "react-icons/bs"
-import {AiFillApple} from "react-icons/ai"
-import { Fade } from 'react-awesome-reveal'
 
 
 const Easier = () => {
   return (
-    <div>
+    <div id="services">
        {/* <Fade direction='down'> */}
       <Container>
        <Wrapper>
@@ -64,58 +60,8 @@ const Easier = () => {
 }
 
 export default Easier
-const Icon = styled.div`
-margin: 5px;
-`
 
-const Button = styled.div<{bcc:string}>`
-display: flex;
-align-items: center;
-justify-content: center;
-color: white;
-width: 180px;
-height: 50px;
-background-color: ${(props)=>props.bcc};
-outline: none;
-border: none;
-border-radius: 30px;
-font-weight: 600;
-cursor: pointer;
-transition: all 350ms;
-margin: 10px;
 
-:hover{
-  background-color: black;
-  transform: scale(0.98);
-}
-
-@media screen and (max-width:320px) {
-  width: 250px;
-  height: 60px;
-}
-@media screen and (max-width:320px) {
-  width: 250px;
-  height: 60px;
-}
-`
-
-const ButtonHold = styled.div`
-display: flex;
-flex-wrap: wrap;
-margin-top:30px ;
-
-@media screen and (max-width:320px) {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-}
-
-@media screen and (max-width:375px) {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-}
-`
 
 const Words = styled.div`
 margin-top: 30px;
@@ -186,10 +132,7 @@ margin-bottom: 18px;
 }
 `
 
-const Nic = styled.img`
-width: 50px;
-object-fit: cover;
-`
+
 const Pic = styled.img`
 height: 700px;
 object-fit: cover;

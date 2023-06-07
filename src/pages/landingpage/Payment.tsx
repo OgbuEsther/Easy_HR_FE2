@@ -7,8 +7,6 @@ import img4 from "../../Assets/image.jpg"
 
 import img8 from "../../Assets/hr4.jpg"
 
-import { Fade } from 'react-awesome-reveal'
-
 
 // import { NavLink } from 'react-router-dom'
 
@@ -19,7 +17,7 @@ const Payment = () => {
 
   return (
     // <Fade direction='up'>
-    <Container>
+    <Container id="oursolutions">
         <Text>Sell world-class HR solutions <br /> and increase profitability</Text>
         <P>Track  attendance and location, improve worker efficiency, and gain greater visibility into employee time and attendance</P>
     <Wrapper >
@@ -83,42 +81,6 @@ const Payment = () => {
 }
 
 export default Payment
-
-const New = styled.div`
-    width: 150px;
-    height: 40px;
-    border: 1px solid #00A85A;
-    background-color: white;
-    cursor: pointer;
-    position: absolute;
-    color: #00A85A;
-    align-items: center;
-    display: flex;
-    /* padding-right: 20px; */
-    justify-content: center;
-    border-radius: 50px;
-    bottom: 480px;
-    right: 180px;
-    @media screen and (max-width: 1024px) {
-        right: 340px;
-    }
-    @media screen and (max-width: 768px) {
-        right: 150px;
-    }
-    @media screen and (max-width: 425px) {
-        right: 205px;
-        bottom: 500px;
-    }
-    @media screen and (max-width: 375px) {
-        right: 50px;
-        bottom: 100px;
-        background-color: red;
-    }
-    @media screen and (max-width: 320px) {
-        right: 130px;
-        bottom: 475px;
-    }
-`
 
 const Data = styled.div`
     h5{
