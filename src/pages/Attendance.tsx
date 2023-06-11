@@ -4,15 +4,9 @@ import InputStaffAttendance from "./InputFieldAttendance/InputStaffAttendance";
 import { MdOutlineCancel } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { getOneAdmin, getOneStaff } from "../utils/Api/ApiCall";
+import { getOneAdmin} from "../utils/Api/ApiCall";
 import { useAppSelector } from "../components/global/Store";
-// import {SiMattermost} from "react-icons/si"
 
-// const Option = [
-//   { value: "chocolate", label: "Chocolate" },
-//   { value: "chocolate", label: "Chocolate" },
-//   { value: "chocolate", label: "Chocolate" },
-// ];
 
 const Attendance: React.FC = () => {
   const [value, setValue] = useState("");
@@ -72,17 +66,11 @@ const Attendance: React.FC = () => {
     setmathanityCheck(false);
   };
 
-  // const int = () => {
-  //   setWidth(width + 10);
-  // };
 
   const Toggle = () => {
     setShow(true);
   };
 
-  // const PunchStateChangerFunction = () => {
-  //   setPunchStateChanger(!PunchStateChanger);
-  // };
 
   console.log("this is value: " + value);
 
@@ -113,7 +101,6 @@ const Attendance: React.FC = () => {
     <AttendancePage>
       <AttendanceMainPage>
       <Word>
-        {/* <SiMattermost/> */}
         Attendance <br />
            <span>
           <a href="/dashboard">
@@ -124,8 +111,6 @@ const Attendance: React.FC = () => {
           </Word>
 
           <StaffDetail>
-          {/* {getStaff?.data?.data?.map((el: any) => ( */}
-           {/* <div> */}
            <Details>
             <Pic>
             {users?.yourName?.charAt(0)}
@@ -201,116 +186,6 @@ const Attendance: React.FC = () => {
     
             </CardContent>
           </Card>
-          {/* <Card className="two">
-            <CardTitle>Leave Stats</CardTitle>
-           
-              <CardContent>
-                 {getAdmin?.data?.data?.adminLeave?.map((el: any) => (
-                <StatisticsMeasureColumn className="today">
-                  <DayAndHourColumn>
-                    <Day>
-                    {el?.title}
-                    </Day>
-                    <HourMeasure>
-                     Total Days :{el?.days}
-               
-                    </HourMeasure>
-                  </DayAndHourColumn>
-                  <ProgressBarHold>
-                    <ProgressBar width={width}></ProgressBar>
-                  </ProgressBarHold>
-                </StatisticsMeasureColumn>
-                ))}
-              </CardContent>
-            
-          </Card> */}
-          {/* <Card className="three">
-            <CardTitle>Apply For Leave</CardTitle>
-            <CardContent>
-              <LeaveOptionForm>
-                <OptionInputHold
-                  cl={annualcheck ? "white" : "black"}
-                  bd={annualcheck ? "none" : "silver"}
-                  onClick={annualchecker}
-                  bg={annualcheck ? "blue" : ""}
-                >
-                  <Label htmlFor="html">Anuual</Label>
-                  <OptionInput
-                    className="annual"
-                    type="radio"
-                    checked={annualcheck ? true : false}
-                    name="annual"
-                    id="html"
-                    value="annual"
-                  />
-                </OptionInputHold>
-
-                <OptionInputHold
-                  cl={examchecker ? "white" : "black"}
-                  bd={examchecker ? "none" : "silver"}
-                  onClick={ExamChecker}
-                  bg={examchecker ? "blue" : ""}
-                >
-                  <Label>Exam</Label>{" "}
-                  <OptionInput
-                    className="annual"
-                    type="radio"
-                    checked={examchecker ? true : false}
-                    name="annual"
-                    id="html"
-                  />
-                </OptionInputHold>
-
-                <OptionInputHold
-                  cl={sickchecker ? "white" : "black"}
-                  bd={sickchecker ? "none" : "silver"}
-                  onClick={Sickchecker}
-                  bg={sickchecker ? "blue" : ""}
-                >
-                  <Label>Sick</Label>{" "}
-                  <OptionInput
-                    className="annual"
-                    type="radio"
-                    checked={sickchecker ? true : false}
-                    name="annual"
-                    id="html"
-                  />
-                </OptionInputHold>
-
-                <OptionInputHold
-                  cl={mathanitychecker ? "white" : "black"}
-                  bd={mathanitychecker ? "none" : "silver"}
-                  onClick={Mathanitychecker}
-                  bg={mathanitychecker ? "blue" : ""}
-                >
-                  <Label>Maternity</Label>{" "}
-                  <OptionInput
-                    className="annual"
-                    type="radio"
-                    checked={mathanitychecker ? true : false}
-                    name="annual"
-                    id="html"
-                  />
-                </OptionInputHold>
-
-                <OptionInputHold
-                  cl={certificationchecker ? "white" : "black"}
-                  bd={certificationchecker ? "none" : "silver"}
-                  onClick={Certificationchecker}
-                  bg={certificationchecker ? "blue" : ""}
-                >
-                  <Label>Sick</Label>{" "}
-                  <OptionInput
-                    className="annual"
-                    type="radio"
-                    checked={certificationchecker ? true : false}
-                    name="annual"
-                    id="html"
-                  />
-                </OptionInputHold>
-              </LeaveOptionForm>
-            </CardContent>
-          </Card> */}
         </StatisticColumn>
 
        
@@ -853,44 +728,25 @@ const Card = styled.div`
   width: 600px;
   background-color: white;
   box-shadow: 1px 1px 3px 1px rgba(166, 165, 165, 0.5);
-  margin-left: 30px;
-  margin-bottom: 10px;
-  padding-left: 10px;
-  padding-bottom: 18px;
-  padding-right: 10px;
-  
-
-  @media screen and (max-width:500px) {
-    width: 250px;
-    height: 500px;
-  }
-
- 
 `;
 
 const StatisticColumn = styled.div`
   height: auto;
   width: auto;
-  margin-top: 10px;
   display: flex;
   justify-content: flex-start;
   margin-top: 30px;
   align-items: flex-start;
   flex-wrap: wrap;
-
-
-  @media screen and (max-width:500px) {
-    margin-left:-12px;
-  }
+  background-color: red;
 `;
 
 
 // Attendance main Page
 const AttendanceMainPage = styled.div`
-  height: auto;
-  width: calc(100vw - 320px);
-  padding-bottom: 30px;
-  /* overflow: hidden; */
+  height: 100%;
+  width: 97%;
+  padding-top: 80px;
   @media screen and (max-width: 960px) {
     width: 100%;
   }
@@ -898,13 +754,12 @@ const AttendanceMainPage = styled.div`
 
 // Attendance Page
 const AttendancePage = styled.div`
-  height: auto;
-  width: auto;
+  width: calc(100vw - 220px);
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding-top: 100px;
-
+  background-color: #F5F7FA;
+  padding-bottom: 20px;
   @media screen and (max-width:500px) {
     margin-right: 30px;
   }

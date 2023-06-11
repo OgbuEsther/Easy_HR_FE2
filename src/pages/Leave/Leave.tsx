@@ -214,7 +214,7 @@ const Leave = () => {
                   <td>
                   <Hold>
                     <Box>Approve</Box>
-                  <Box2>Reject</Box2>
+                  {/* <Box2>Reject</Box2> */}
                   </Hold>
                 </td>
                 </tr>

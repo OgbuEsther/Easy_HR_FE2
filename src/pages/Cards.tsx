@@ -1,7 +1,7 @@
-/** @format */
 
 import styled from "styled-components";
 import img from "./assets/wave (2).svg";
+
 
 const App = () => {
   return (
@@ -58,19 +58,24 @@ export default App;
 
 const Svg = styled.svg`
   transform: scaleY(-1);
+  position: absolute;
 `;
 
 const Down = styled.div`
-  padding: 10px 15px;
+  /* padding: 10px 15px; */
   background-color: white;
   border-radius: 19px;
-  position: absolute;
+  width: 80px;
+  height: 30px;
+  position: relative;
   display: flex;
   align-items: center;
-  top: 350px;
-  left: 39%;
-  font-size: 15px;
-  font-weight: 600;
+  justify-content: center;
+  margin-left: 20px;
+  top: 20px;
+  /* right: 200px; */
+  /* font-size: 15px; */
+  /* font-weight: 600; */
 `;
 const Image = styled.div`
   p {
@@ -86,7 +91,7 @@ const Image = styled.div`
     margin-left: 20px;
     /* margin-bottom: 40px; */
     color: white;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 50px;
   }
   transform: scaleY(1);
@@ -103,7 +108,9 @@ const Main = styled.div`
   border-radius: 20px;
   /* position: relative; */
   overflow: hidden;
+  margin: 5px;
 `;
+
 const Container = styled.div`
   /* height: 100vh; */
   width: 100%;
