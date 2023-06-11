@@ -38,3 +38,6 @@ export interface AttendanceData {
 
 }
 
+export interface DashBoardCard {
+    bcc:string;
+}
