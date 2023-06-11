@@ -728,25 +728,11 @@ const Card = styled.div`
   width: 600px;
   background-color: white;
   box-shadow: 1px 1px 3px 1px rgba(166, 165, 165, 0.5);
-  margin-left: 30px;
-  margin-bottom: 10px;
-  padding-left: 10px;
-  padding-bottom: 18px;
-  padding-right: 10px;
-  
-
-  @media screen and (max-width:500px) {
-    width: 250px;
-    height: 500px;
-  }
-
- 
 `;
 
 const StatisticColumn = styled.div`
   height: auto;
   width: auto;
-  margin-top: 10px;
   display: flex;
   justify-content: flex-start;
   margin-top: 30px;
