@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { CiSearch } from "react-icons/ci";
-
+import { FiSearch } from "react-icons/fi";
 import { AiFillPlusCircle, AiOutlineClose } from "react-icons/ai";
 import { useAppSelector } from "../components/global/Store";
 import {  useQuery } from "@tanstack/react-query";
@@ -137,7 +136,7 @@ const Payroll = () => {
         <Head>
           <Inputhold>
             <Search>
-              <CiSearch />
+              <FiSearch />
             </Search>
             <Input
               onKeyPress={searchData}
@@ -759,6 +758,7 @@ const Table = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background-color: white;
 `;
 
 const Input = styled.input`
@@ -775,6 +775,10 @@ const Search = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 23px;
+  background-color: #001328;
+  color:white;
+  /* font-weight: 500; */
+  /* font-size: 30px; */
 `;
 
 const Inputhold = styled.div`
@@ -807,4 +811,11 @@ const Container = styled.div`
   justify-content: center;
   padding-top: 100px;
   background-color: #F5F7FA;
+
+  background: radial-gradient(
+    rgba(103, 68, 2, 0.2) 8%,
+    transparent 2%
+);
+background-position: 0% 0%;
+background-size: 3vmin 3vmin;
 `;
