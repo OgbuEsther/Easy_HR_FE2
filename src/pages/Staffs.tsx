@@ -34,9 +34,6 @@ const searchData = async (e: any) => {
 };
 
 
-
-
-
   return (
     <div>
       <Container>
@@ -180,17 +177,21 @@ const Table = styled.div`
   margin-bottom: 10px;
   overflow-x: auto;
   margin-top: 50px;
+  background-color: white;
+  border:1px solid white;
 
   table {
     min-width: 400px;
     max-width: 1440px;
     width: 100%;
+    background-color: yellow;
   }
 
   table,
   th,
   tr:nth-child(even) {
     background-color: #fff;
+   
   }
 
   td,
@@ -198,6 +199,7 @@ const Table = styled.div`
     padding: 14px 2px;
     text-align: left;
     border-top: 1px solid #e2e5e8;
+    /* border-bottom: 1px solid #e2e5e8; */
     padding-left: 18px;
     padding-right: 18px;
   }
@@ -222,7 +224,7 @@ const Text = styled.div`
   font-weight: 500;
   font-size: 26px;
   color: rgb(31, 31, 31);
-  background-color: rgba(0, 0, 0, 0);
+  /* background-color: rgba(0, 0, 0, 0); */
   line-height: 31.2px;
   text-decoration: none solid rgb(31, 31, 31);
   text-align: start;
@@ -232,7 +234,8 @@ const Text = styled.div`
   /* align-items: center; */
   flex-direction: column;
   /* justify-content: center; */
-  /* background-color: greenyellow; */
+  background-color: white;
+  width: 198px;
   span {
     color: rgb(51, 51, 51);
     background-color: rgba(0, 0, 0, 0);
@@ -272,14 +275,20 @@ const Wrapper = styled.div`
 `;
 
 const Container = styled.div`
-  width: calc(100vw - 270px);
+  width: calc(100vw - 221px);
   height: 100vh;
   display: flex;
   /* justify-content: center;
   align-items: center; */
-  /* background-color: #ecf2ff92; */
-  /* background-color: deeppink; */
+  /* background-color: red; */
   overflow: hidden;
+  background: radial-gradient(
+    rgba(103, 68, 2, 0.2) 8%,
+    transparent 2%
+);
+background-position: 0% 0%;
+background-size: 3vmin 3vmin;
+
 
   @media screen and (max-width: 768px) {
     width: 100vw;
