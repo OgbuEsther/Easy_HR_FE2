@@ -434,6 +434,12 @@ const Container = styled.div`
   background-color: #f5f7fa;
   overflow: hidden;
   margin-top: 20px;
+  background: radial-gradient(
+    rgba(103, 68, 2, 0.2) 8%,
+    transparent 2%
+);
+background-position: 0% 0%;
+background-size: 3vmin 3vmin;
 
   @media screen and (max-width: 1024px) {
     width: 100vw;

@@ -1,10 +1,8 @@
 import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import { useAppSelector } from "../../components/global/Store";
-import { CgPerformance } from "react-icons/cg";
 import { RiDeleteBin2Line } from "react-icons/ri";
 import { BsPencilFill } from "react-icons/bs";
-import { SiSecurityscorecard } from "react-icons/si";
 import axios from "axios";
 import { genAttendanceToken, getOneAdmin, url } from "../../utils/Api/ApiCall";
 import { useQuery } from "@tanstack/react-query";
@@ -122,7 +120,7 @@ const Adminattendance: React.FC = () => {
             width="30" />}</span>
           </Pending3>
 
-          <Pending4 bg={show4 ? "red" : ""}  onClick={Toggle3}><h3>History</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
+          <Pending4 bg={show4 ? "red" : ""}  onClick={Toggle4}><h3>History</h3><span>{isLoading ? "" : <RotatingLines  visible={true}
             strokeColor="#007bff"
             strokeWidth="5"
             animationDuration="0.75"
@@ -388,7 +386,7 @@ const Pending4 = styled.h3<{ bg: string}>`
   display: flex;
   margin: 14px;
   cursor: pointer;
-  border: 1px solid ${({ bg }) => (bg ? "#219653" : "#fff")};
+  border: 1px solid ${({ bg }) => (bg ? "#001328" : "#fff")};
   height: 40px;
   width: 160px;
   align-items: center;
@@ -423,7 +421,7 @@ const Pending3 = styled.h3<{ bg: string}>`
   display: flex;
   margin: 14px;
   cursor: pointer;
-  border: 1px solid ${({ bg }) => (bg ? "#219653" : "#fff")};
+  border: 1px solid ${({ bg }) => (bg ? "#001328" : "#fff")};
   height: 40px;
   width: 210px;
   align-items: center;
@@ -460,7 +458,7 @@ const Pending2 = styled.div<{ bg: string}>`
   cursor: pointer;
   justify-content: center;
   align-items: center;
-  border: 1px solid ${({ bg }) => (bg ? "#219653" : "#fff")};
+  border: 1px solid ${({ bg }) => (bg ? "#001328" : "#fff")};
   height: 40px;
   width: 250px;
   border-radius: 50px;
@@ -493,10 +491,10 @@ const Pending = styled.div<{ bg: string}>`
   display: flex;
   margin: 14px;
   cursor: pointer;
-  /* background-color: red; */
+  /* background-color: yellow; */
   height: 40px;
-  border: 1px solid ${({ bg }) => (bg ? "#219653" : "#fff")};
-  width: 250px;
+  border: 1px solid ${({ bg }) => (bg ? "#001328" : "#fff")};
+  width: 220px;
   border-radius: 50px;
   font-weight: 500;
   font-size: 19px;
@@ -530,7 +528,9 @@ const Top = styled.div`
   display: flex;
   /* height: 70px; */
   align-items: center;
+  justify-content: center;
   border-bottom: 1px solid lightgray;
+  background-color: red;
   @media screen and (max-width: 500px) {
     flex-wrap: wrap;
     /* height: 140px; */
@@ -688,45 +688,8 @@ const Button = styled.button`
   }
 `;
 
-const Word = styled.div`
-  font-weight: 500;
-  font-size: 26px;
-  color: rgb(31, 31, 31);
-  background-color: rgba(0, 0, 0, 0);
-  line-height: 31.2px;
-  text-decoration: none solid rgb(31, 31, 31);
-  text-align: start;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin-bottom: 30px;
-  margin-top: 30px;
 
-  span {
-    color: rgb(51, 51, 51);
-    background-color: rgba(0, 0, 0, 0);
-    font-size: 18px;
-    line-height: 24px;
-    letter-spacing: normal;
-    font-weight: 500;
-    text-decoration: none solid rgb(51, 51, 51);
-    text-align: left;
-  }
 
-  a {
-    text-decoration: none;
-
-    :hover {
-      color: black;
-    }
-  }
-`;
-
-const One = styled.div`
-  /* background-color: red; */
-  display: flex;
-  justify-content: space-between;
-`;
 
 const Wrapper = styled.div`
   width: 95%;
@@ -738,6 +701,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-top: 30px;
   /* background-color: red; */
   @media screen and (max-width: 500px) {
     padding-top: 120px;
@@ -746,13 +710,24 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
   width: calc(100vw - 220px);
-  background-color: #f5f7fa;
+  height: 100vh;
+  background-color: red;
   overflow: hidden;
   display: flex;
   align-items: center;
   flex-direction: column;
   margin-bottom: 30px;
+  background: radial-gradient(
+    rgba(103, 68, 2, 0.2) 8%,
+    transparent 2%
+  );
+  background-position: 0% 0%; 
+  background-size: 3vmin 3vmin;
+
+  
   @media screen and (max-width: 500px) {
     width: 100vw;
   }
+
+
 `;
