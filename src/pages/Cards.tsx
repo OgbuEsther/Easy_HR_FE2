@@ -7,7 +7,7 @@ const App = () => {
   return (
     <div>
       <Container>
-        <Main>
+        <Main bcc="#FAC92E">
           <Image>
             <p>Today Earning</p>
             <h1>$15200</h1>
@@ -21,7 +21,7 @@ const App = () => {
           </Image>
           <Down>+12,6%</Down>
         </Main>
-        <Main>
+        <Main bcc="#56B46E">
           <Image>
             <p>Today Earning</p>
             <h1>$15200</h1>
@@ -35,7 +35,7 @@ const App = () => {
           </Image>
           <Down>+12,6%</Down>
         </Main>
-        <Main>
+        <Main bcc="#EF685C">
           <Image>
             <p>Today Earning</p>
             <h1>$15200</h1>
@@ -101,10 +101,10 @@ const Image = styled.div`
     object-fit: cover;
   }
 `;
-const Main = styled.div`
+const Main = styled.div<{bcc:string}>`
   width: 350px;
   height: 200px;
-  background-color: #5686d5;
+  background-color:${(props)=>props.bcc};
   border-radius: 20px;
   /* position: relative; */
   overflow: hidden;
