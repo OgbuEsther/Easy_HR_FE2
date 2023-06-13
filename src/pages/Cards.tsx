@@ -1,16 +1,26 @@
 
 import styled from "styled-components";
 import img from "./assets/wave (2).svg";
-
+import { useAppSelector } from "../components/global/Store";
+import { useQuery } from "@tanstack/react-query";
+import { getOneAdmin } from "../utils/Api/ApiCall";
 
 const App = () => {
+
+  const admin = useAppSelector((state) => state.currentUser);
+
+  const getAdmin = useQuery({
+    queryKey: ["singleAdmin"],
+    queryFn: () => getOneAdmin(admin?._id),
+  });
+
   return (
     <div>
       <Container>
         <Main bcc="#FAC92E">
           <Image>
-            <p>Today Earning</p>
-            <h1>$15200</h1>
+            <p>Total Employees</p>
+            <h1>{ getAdmin?.data?.data?.viewUser?.length}</h1>
             <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1140 320">
               <path
                 fill="rgba(225,225,225,0.3)"
@@ -19,12 +29,12 @@ const App = () => {
               ></path>
             </Svg>
           </Image>
-          <Down>+12,6%</Down>
+          {/* <Down>+12,6%</Down> */}
         </Main>
         <Main bcc="#56B46E">
           <Image>
-            <p>Today Earning</p>
-            <h1>$15200</h1>
+            <p>Attendance</p>
+            <h1> { getAdmin?.data?.data?.viewStaffAttendance?.length}</h1>
             <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1140 320">
               <path
                 fill="rgba(225,225,225,0.3)"
@@ -33,12 +43,12 @@ const App = () => {
               ></path>
             </Svg>
           </Image>
-          <Down>+12,6%</Down>
+          {/* <Down>+12,6%</Down> */}
         </Main>
         <Main bcc="#EF685C">
           <Image>
-            <p>Today Earning</p>
-            <h1>$15200</h1>
+            <p>Leave Apply</p>
+            <h1>{ getAdmin?.data?.data?.staffLeave?.length} </h1>
             <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1140 320">
               <path
                 fill="rgba(225,225,225,0.3)"
@@ -47,7 +57,7 @@ const App = () => {
               ></path>
             </Svg>
           </Image>
-          <Down>+12,6%</Down>
+          {/* <Down>+12,6%</Down> */}
         </Main>
       </Container>
     </div>
