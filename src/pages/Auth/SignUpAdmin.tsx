@@ -31,6 +31,28 @@ const SignUpAdmin = () => {
 export default SignUpAdmin;
 
 
+/*
+ * 
+ * 
+ * const client = useQueryClient();
+const newPostWithOutData = useMutation({
+  mutationFn : withOutData,
+  mutationKey : ["without_data"]
+
+  onSuccess:() =>{
+client.invalidateQueries(["getAll"])
+  }
+})
+
+const myActions = () =>{
+  newPostWithOutData.mutate({
+    title: title,
+    desc: details
+  })
+}
+
+ */
+
 const Image = styled.img`
   height: 100%;
   width: 100%;
