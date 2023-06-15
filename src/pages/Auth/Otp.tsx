@@ -35,7 +35,7 @@ const Otp: React.FC<Props> = (props): JSX.Element => {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: `${res.data.data.message}`,
+          title: `${res.data.message}`,
           showConfirmButton: false,
             timer: 2500,
         }).then(() => {

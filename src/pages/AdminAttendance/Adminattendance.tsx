@@ -4,7 +4,7 @@ import { useAppSelector } from "../../components/global/Store";
 import { RiDeleteBin2Line } from "react-icons/ri";
 import { BsPencilFill } from "react-icons/bs";
 import axios from "axios";
-import { genAttendanceToken, getOneAdmin, url } from "../../utils/Api/ApiCall";
+import { getOneAdmin, url } from "../../utils/Api/ApiCall";
 import { useQuery } from "@tanstack/react-query";
 import { RotatingLines } from 'react-loader-spinner'
 import {IoMdArrowDropdown} from "react-icons/io"
@@ -24,10 +24,10 @@ const Adminattendance: React.FC = () => {
 
   const [token, setToken] = React.useState("");
 
-  const getAdminToken = useQuery({
-    queryKey: ["genToken"],
-    queryFn: () => genAttendanceToken(admin?._id),
-  });
+  // const getAdminToken = useQuery({
+  //   queryKey: ["genToken"],
+  //   queryFn: () => genAttendanceToken(admin?._id),
+  // });
   // console.log("this is admin",admin?._id)
   // console.log("this is admin22",)
 
@@ -147,7 +147,7 @@ const Adminattendance: React.FC = () => {
               width: "100%"
             }}>
               <Down>
-            <Inputhold>
+            <Inputhold width="300px">
             <Input onKeyPress={searchData}
               onChange={(e) => {
                 setSearch(e.target.value);
@@ -155,7 +155,7 @@ const Adminattendance: React.FC = () => {
               placeholder="Search name " />
             <Icon><IoMdArrowDropdown /></Icon>
             </Inputhold>
-            <Inputhold>
+            <Inputhold width="120px">
               <Inputdate selectedDate={selectedDate} onDateChange={handleDateChange} />
             </Inputhold>
         </Down>
@@ -348,10 +348,10 @@ const Input = styled.input`
     width: 220px;
   }
 `
-const Inputhold = styled.div`
+const Inputhold = styled.div<{width:string}>`
     align-items: center;
     background-color: rgb(255, 255, 255);
-    border-color: #007bff;
+    border-color: #001328;
     border-radius: 4px;
     border-style: solid;
     border-width: 1px;
@@ -362,7 +362,7 @@ const Inputhold = styled.div`
     transition: all 100ms ease 0s;
     box-sizing: border-box;
     outline: 0px !important;
-    width: 300px;
+    width: ${(props)=>props.width};
     overflow: hidden;
     margin-left: 20px;
     @media screen and (max-width: 500px) {
@@ -370,12 +370,13 @@ const Inputhold = styled.div`
     }
 `
   const Down = styled.div`
-  width: 100%;
+  width: 500px;
   display: flex;
   height: 90px;
-  border: 1px solid lightgray;
-  margin-top: 15px;
+  /* border-top: 1px solid lightgray; */
+  margin-top: 30px;
   align-items: center;
+  background-color:white;
   @media screen and (max-width: 500px) {
     display: flex;
     justify-content: space-around;
@@ -386,7 +387,7 @@ const Pending4 = styled.h3<{ bg: string}>`
   display: flex;
   margin: 14px;
   cursor: pointer;
-  border: 1px solid ${({ bg }) => (bg ? "#001328" : "#fff")};
+  border: 1px solid ${({ bg }) => (bg ? "#001328" : "#FFEBCD")};
   height: 40px;
   width: 160px;
   align-items: center;
@@ -421,7 +422,7 @@ const Pending3 = styled.h3<{ bg: string}>`
   display: flex;
   margin: 14px;
   cursor: pointer;
-  border: 1px solid ${({ bg }) => (bg ? "#001328" : "#fff")};
+  border: 1px solid ${({ bg }) => (bg ? "#001328" : "#FFEBCD")};
   height: 40px;
   width: 210px;
   align-items: center;
@@ -458,7 +459,7 @@ const Pending2 = styled.div<{ bg: string}>`
   cursor: pointer;
   justify-content: center;
   align-items: center;
-  border: 1px solid ${({ bg }) => (bg ? "#001328" : "#fff")};
+  border: 1px solid ${({ bg }) => (bg ? "#001328" : "#FFEBCD")};
   height: 40px;
   width: 250px;
   border-radius: 50px;
@@ -493,7 +494,7 @@ const Pending = styled.div<{ bg: string}>`
   cursor: pointer;
   /* background-color: yellow; */
   height: 40px;
-  border: 1px solid ${({ bg }) => (bg ? "#001328" : "#fff")};
+  border: 1px solid ${({ bg }) => (bg ? "#001328" : "#FFEBCD")};
   width: 220px;
   border-radius: 50px;
   font-weight: 500;
@@ -529,8 +530,10 @@ const Top = styled.div`
   /* height: 70px; */
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid lightgray;
-  background-color: red;
+  /* border-top: 1px solid lightgray; */
+  background-color: white;
+  padding-right: 20px;
+  margin-bottom: 10px;
   @media screen and (max-width: 500px) {
     flex-wrap: wrap;
     /* height: 140px; */
@@ -612,13 +615,13 @@ const Circle = styled.div`
 
 const Table = styled.div`
   display: flex;
-  height: auto;
+  /* height: auto; */
   width: 100%;
   justify-content: flex-start;
   align-items: center;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   overflow-x: auto;
-  margin-top: 50px;
+  /* margin-top: 50px; */
 
   table {
     min-width: 400px;
@@ -659,16 +662,26 @@ const Table = styled.div`
 const Title = styled.div`
   font-weight: 600;
   font-size: 19px;
-  margin-top: 30px;
-  margin-left: 20px;
+  /* margin-top: 30px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin-left: 20px; */
+  background-color: red;
+  /* margin-top: 30px; */
+
 `;
 
 const Two = styled.div`
   width: 100%;
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
-  margin-top: 50px;
+  margin-top: 30px;
   margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const Button = styled.button`
@@ -678,7 +691,7 @@ const Button = styled.button`
   align-items: center;
   justify-content: center;
   /* margin-top: 33px; */
-  background-color: #1f337c;
+  background-color: #0168AA;
   border-radius: 10px;
   cursor: pointer;
   border: none;
