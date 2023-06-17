@@ -145,7 +145,7 @@ const Adminattendance: React.FC = () => {
           {show1 ? (
             <div style={{
               width: "100%"
-            }}>
+            }}> 
               <Down>
             <Inputhold width="300px">
             <Input onKeyPress={searchData}
@@ -667,7 +667,7 @@ const Title = styled.div`
   align-items: center;
   justify-content: center;
   /* margin-left: 20px; */
-  background-color: red;
+  /* background-color: red; */
   /* margin-top: 30px; */
 
 `;
