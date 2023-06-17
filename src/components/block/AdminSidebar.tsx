@@ -1,13 +1,15 @@
-import React, { useDebugValue } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import img from "../../Assets/new.png"
-import { MdDashboard } from "react-icons/md";
 import { NavLink, useNavigate } from 'react-router-dom';
 import { FiPower } from "react-icons/fi";
+import { FaArtstation } from "react-icons/fa";
 import { AiFillCodeSandboxCircle } from "react-icons/ai";
 import { BsFillPersonFill } from "react-icons/bs"
+import { CgPerformance } from "react-icons/cg"
 import { RiMoneyDollarCircleFill } from "react-icons/ri"
-import {GiMoneyStack,GiFlatTire,GiAbstract013} from "react-icons/gi"
+import {GiStarSattelites} from "react-icons/gi"
+import {DiFirefox} from "react-icons/di"
 import { useDispatch } from 'react-redux';
 import Swal from 'sweetalert2';
 import { logoutAdmin } from '../global/ReduxState';
@@ -29,7 +31,7 @@ const SideBar = () => {
 
       <Home>
         <Icon2>
-          <MdDashboard />
+          <DiFirefox />
         </Icon2>
         <NavLink
           to="/dashboard"
@@ -83,7 +85,7 @@ const SideBar = () => {
       
       <Home2>
         <Icon2>
-          <GiFlatTire />
+          <GiStarSattelites />
         </Icon2>
         <NavLink
           to="/dashboard/admin-attendance"
@@ -100,7 +102,7 @@ const SideBar = () => {
 
       <Home2>
         <Icon2>
-          <GiMoneyStack />
+          <CgPerformance />
         </Icon2>
         <NavLink
           to="/dashboard/performance"
@@ -116,7 +118,7 @@ const SideBar = () => {
       </Home2>
       <Home3>
         <Icon2>
-          <GiAbstract013 />
+          <FaArtstation />
         </Icon2>
         <NavLink
           to="/dashboard/leave"
@@ -204,7 +206,7 @@ export default SideBar
 const Home3 = styled.div`
   width: 100%;
   display: flex;
-  margin-top: 10px;
+  margin-top: 25px;
   align-items: center;
 `
 
@@ -271,9 +273,9 @@ const Icon2 = styled.div`
 `;
 
 const Home = styled.div`
-  width: 100%;
+width: 100%;
   display: flex;
-  margin-top: 40px;
+  margin-top: 25px;
   align-items: center;
 `;
 
