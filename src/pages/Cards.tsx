@@ -1,6 +1,5 @@
 
 import styled from "styled-components";
-import img from "./assets/wave (2).svg";
 import { useAppSelector } from "../components/global/Store";
 import { useQuery } from "@tanstack/react-query";
 import { getOneAdmin } from "../utils/Api/ApiCall";
