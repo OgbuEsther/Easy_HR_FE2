@@ -2,11 +2,9 @@ import React, {useState} from 'react'
 import styled from "styled-components"
 import {IoMdArrowDropdown} from "react-icons/io"
 import Inputdate from "./Inputdate/Inputdate";
-
-
 import { RiDeleteBin2Line } from "react-icons/ri";
 import { BsPencilFill } from "react-icons/bs";
-import axios from 'axios';
+// import axios from 'axios';
 import { useAppSelector } from '../components/global/Store';
 import { useQuery } from '@tanstack/react-query';
 import {  getOneAdmin } from '../utils/Api/ApiCall';
@@ -24,30 +22,30 @@ const LateEmployees = () => {
     queryFn: () => getOneAdmin(admin?._id),
   });
 
-  const [search, setSearch] = React.useState("");
+  // const [search, setSearch] = React.useState("");
   const [searchProps, setSearchProps] = React.useState<any[]>([]);
 
-  const searchData = async (e: any) => {
-    if (e.key === "Enter") {
-      await axios
-        .get(`https://easyhr.onrender.com/api/staff/search?yourName=${search}`)
-        .then((res) => {
-          console.log(res.data.data);
-          setSearchProps(res.data.data);
-          console.log(`searchlog`, setSearchProps)
-        });
-    }
-  };
+  // const searchData = async (e: any) => {
+  //   if (e.key === "Enter") {
+  //     await axios
+  //       .get(`https://easyhr.onrender.com/api/staff/search?yourName=${search}`)
+  //       .then((res) => {
+  //         console.log(res.data.data);
+  //         setSearchProps(res.data.data);
+  //         console.log(`searchlog`, setSearchProps)
+  //       });
+  //   }
+  // };
 
   return (
       <Container>
           <Wrapper>
               <Down>
-            <Inputhold>
+            <Inputhold width="300px">
             <Input placeholder='All Employees' />
             <Icon><IoMdArrowDropdown /></Icon>
             </Inputhold>
-            <Inputhold>
+            <Inputhold width="120px">
               <Inputdate selectedDate={selectedDate} onDateChange={handleDateChange} />
             </Inputhold>
         </Down>
@@ -336,10 +334,10 @@ const Input = styled.input`
   text-align: left;
   padding-left: 10px;
 `
-const Inputhold = styled.div`
+const Inputhold = styled.div<{width:string}>`
     align-items: center;
     background-color: rgb(255, 255, 255);
-    border-color: #007bff;
+    border-color: #001328;
     border-radius: 4px;
     border-style: solid;
     border-width: 1px;
@@ -350,18 +348,25 @@ const Inputhold = styled.div`
     transition: all 100ms ease 0s;
     box-sizing: border-box;
     outline: 0px !important;
-    width: 300px;
+    width: ${(props)=>props.width};
     overflow: hidden;
     margin-left: 20px;
+
+    @media screen and (max-width: 500px) {
+      width: 250px;
+    }
 `
   const Down = styled.div`
-  width: 100%;
+  width: 500px;
   display: flex;
   height: 90px;
-  border: 1px solid lightgray;
-  /* margin-top: 15px; */
+  /* border-top: 1px solid lightgray; */
+  margin-top: 30px;
   align-items: center;
+  background-color:white;
   @media screen and (max-width: 500px) {
+    display: flex;
+    justify-content: space-around;
     padding-right: 18px;
   }
 `
@@ -369,11 +374,7 @@ const Wrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding-top: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
   /* background-color: red; */
 `;

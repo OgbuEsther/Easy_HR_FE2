@@ -660,16 +660,11 @@ const Table = styled.div`
 `;
 
 const Title = styled.div`
-  font-weight: 600;
+   font-weight: 600;
   font-size: 19px;
-  /* margin-top: 30px; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* margin-left: 20px; */
-  /* background-color: red; */
-  /* margin-top: 30px; */
-
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 20px;
 `;
 
 const Two = styled.div`
