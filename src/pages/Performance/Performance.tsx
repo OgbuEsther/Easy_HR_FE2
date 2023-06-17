@@ -128,7 +128,7 @@ const admin = useAppSelector((state)=> state.currentUser)
       <Container>
         <Wrapper>
           <Top>
-          <Pending bg={show1 ? "red" : ""} onClick={Toggle1}><h3>Set Goals</h3><span>{isLoading ? (1) : <RotatingLines  visible={true}
+          <Pending bg={show1 ? "red" : ""} onClick={Toggle1}><h3>Set Goals</h3><span>{isLoading ? (2) : <RotatingLines  visible={true}
             strokeColor="#007bff"
             strokeWidth="5"
             animationDuration="0.75"
@@ -288,7 +288,7 @@ const Pending3 = styled.h3<{ bg: string}>`
   display: flex;
   margin: 14px;
   cursor: pointer;
-  border: 1px solid ${({ bg }) => (bg ? "#219653" : "#fff")};
+  border: 1px solid ${({ bg }) => (bg ? "#00244e" : "#FFEBCD")};
   height: 40px;
   width: 210px;
   align-items: center;
@@ -325,7 +325,7 @@ const Pending2 = styled.div<{ bg: string}>`
   cursor: pointer;
   justify-content: center;
   align-items: center;
-  border: 1px solid ${({ bg }) => (bg ? "#219653" : "#fff")};
+  border: 1px solid ${({ bg }) => (bg ? "#00244e" : "#FFEBCD")};
   height: 40px;
   width: 220px;
   border-radius: 50px;
@@ -360,7 +360,7 @@ const Pending = styled.div<{ bg: string}>`
   cursor: pointer;
   justify-content: center;
   align-items: center;
-  border: 1px solid ${({ bg }) => (bg ? "#219653" : "#fff")};
+  border: 1px solid ${({ bg }) => (bg ? "#00244e" : "#FFEBCD")};
   height: 40px;
   width: 220px;
   border-radius: 50px;
@@ -425,12 +425,20 @@ const Wrapper = styled.div`
 const Container = styled.div`
   width: calc(100vw - 220px);
   display: flex;
-  justify-content: center;
+  height: 100vh;
+  /* justify-content: center; */
   align-items: center;
-  background-color: #f5f7fa;
+  /* background-color: #f5f7fa; */
   overflow: hidden;
   margin-top: 20px;
   flex-direction: column;
+  background: radial-gradient(
+    rgba(103, 68, 2, 0.2) 8%,
+    transparent 2%
+  );
+  background-position: 0% 0%; 
+  background-size: 3vmin 3vmin;
+
   @media screen and (max-width: 1024px) {
     width: 100vw;
   }
