@@ -370,10 +370,7 @@ const Inputhold = styled.div<{width:string}>`
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
-  /* align-items: center; */
   padding-top: 14px;
-  /* align-items: center; */
-  /* justify-content: center; */
   flex-direction: column;
   /* background-color: yellow; */
 `;
