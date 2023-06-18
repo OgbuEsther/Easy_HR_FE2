@@ -128,7 +128,7 @@ const admin = useAppSelector((state)=> state.currentUser)
       <Container>
         <Wrapper>
           <Top>
-          <Pending bg={show1 ? "red" : ""} onClick={Toggle1}><h3>Set Goals</h3><span>{isLoading ? (2) : <RotatingLines  visible={true}
+          <Pending bg={show1 ? "red" : ""} onClick={Toggle1}><h3>Set Goals</h3><span>{isLoading ? (1) : <RotatingLines  visible={true}
             strokeColor="#007bff"
             strokeWidth="5"
             animationDuration="0.75"
@@ -395,9 +395,11 @@ const Top = styled.div`
   display: flex;
   /* height: 70px; */
   align-items: center;
-  border-bottom: 1px solid lightgray;
-
-
+  justify-content: center;
+  /* border-top: 1px solid lightgray; */
+  background-color: white;
+  padding-right: 20px;
+  margin-bottom: 10px;
   @media screen and (max-width: 500px) {
     flex-wrap: wrap;
     /* height: 140px; */
