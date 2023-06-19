@@ -1,14 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import { RotatingLines } from 'react-loader-spinner'
-import {IoMdArrowDropdown} from "react-icons/io"
 import { useDispatch } from 'react-redux'
 import { useAppSelector } from '../components/global/Store'
 import {useForm} from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup"
 import { useMutation } from "@tanstack/react-query";
-
 import { adminScore } from '../utils/Api/ApiCall' 
 import Swal from 'sweetalert2'
 import { adminScoreRate } from '../components/global/ReduxState'
@@ -25,7 +23,7 @@ const Adminrate = () => {
   }, [])
 
   const dispatch = useDispatch()
-  const admin = useAppSelector((state)=> state.currentUser)
+  // const admin = useAppSelector((state)=> state.currentUser)
   const rate = useAppSelector((state) => state.ratings)
 
   const schema = yup.object({
@@ -315,7 +313,8 @@ const Top = styled.div`
   display: flex;
   height: 70px;
   align-items: center;
-  border-bottom: 1px solid lightgray;
+  /* border-bottom: 1px solid lightgray; */
+  background-color: white;
 
   @media screen and (max-width:500px) {
     flex-wrap: wrap;

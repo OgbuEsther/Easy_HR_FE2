@@ -37,6 +37,7 @@
     "chart.js": "^4.2.1",
     "faker": "^5.5.3",
     "lodash": "^4.17.21",
+    "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-awesome-reveal": "^4.2.3",
     "react-chartjs-2": "^5.2.0",
