@@ -5,6 +5,7 @@ import img from "../../Assets/new.png"
 import { MdNotificationsActive } from "react-icons/md";
 import { useAppSelector } from '../global/Store';
 import { RiArrowDropDownLine } from 'react-icons/ri';
+import moment from "moment"
 
 const DashboardHead = () => {
  
@@ -54,8 +55,10 @@ const DashboardHead = () => {
               {/* <Image src={flow} /> */}
               <Right>
           <Up>
-            <Profile>PO</Profile>
-              <Name>Valerian Pedro</Name>
+            <Profile>VP</Profile>
+              <Name>
+              {moment(Date.now()).format('dddd')}, {moment(Date.now()).format("MMM Do YYYY")}
+              </Name>
               
           </Up>
         </Right>
@@ -89,6 +92,7 @@ const Up = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 7px;
   /* background-color: aliceblue; */
 `;
 
