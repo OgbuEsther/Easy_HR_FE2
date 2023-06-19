@@ -226,7 +226,7 @@ const Button = styled.button`
   justify-content: center;
   align-items: center;
   color: #fff;
-  background-color: #007bff;
+  background-color: #0168AA;
   border: none;
   outline: none;
   border-radius: 12px;
@@ -257,6 +257,7 @@ const Inputhold = styled.div`
     width: 300px;
     overflow: hidden;
     margin-left: 20px;
+    display: none;
     @media screen and (max-width: 500px) {
       width: 400px;
       margin: 0;
