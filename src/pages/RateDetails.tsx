@@ -16,7 +16,7 @@ const RateDetails = () => {
 
   const admin = useAppSelector((state) => state.currentUser);
 
-  const [token, setToken] = React.useState("");
+ 
 
   const getAdmin = useQuery({
     queryKey: ["singleAdmin"],
@@ -103,34 +103,40 @@ const Txt2 = styled.div`
   font-size: 18px;
   color: Green;
 `;
-const Txt = styled.div`
-  font-size: 18px;
-  color: yellow;
-`;
+
+// const Txt = styled.div`
+//   font-size: 18px;
+//   color: yellow;
+// `;
+
 const Alpha = styled.div`
   font-size: 17px;
 `;
 const Rate = styled.div`
   font-size: 17px;
 `;
-const Button = styled.button`
-  width: 120px;
-  height: 35px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: blue;
-  color: #fff;
-  border-radius: 50px;
-  cursor: pointer;
-`;
-const Input = styled.input`
-  height: 30px;
-  padding-left: 10px;
-  width: 110px;
-  border: 1px solid lightgray;
-  outline-color: lightblue;
-`;
+
+// const Button = styled.button`
+//   width: 120px;
+//   height: 35px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   background-color: blue;
+//   color: #fff;
+//   border-radius: 50px;
+//   cursor: pointer;
+// `;
+
+
+// const Input = styled.input`
+//   height: 30px;
+//   padding-left: 10px;
+//   width: 110px;
+//   border: 1px solid lightgray;
+//   outline-color: lightblue;
+// `;
+
 const Name = styled.div`
   color: #34495e;
   font-size: 0.9rem;
@@ -140,26 +146,28 @@ const Circlehold = styled.div`
   display: flex;
   align-items: center;
 `;
-const Circle = styled.div`
-  width: 40px;
-  height: 40px;
-  margin: 3px;
-  font-size: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  font-weight: 500;
-  color: #fff;
-  border-radius: 50px;
-  background-color: #40baab;
 
-  @media screen and (max-width: 900px) {
-    height: 30px;
-    width: 30px;
-    font-size: 12px;
-  }
-`;
+// const Circle = styled.div`
+//   width: 40px;
+//   height: 40px;
+//   margin: 3px;
+//   font-size: 16px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   overflow: hidden;
+//   font-weight: 500;
+//   color: #fff;
+//   border-radius: 50px;
+//   background-color: #40baab;
+
+//   @media screen and (max-width: 900px) {
+//     height: 30px;
+//     width: 30px;
+//     font-size: 12px;
+//   }
+// `;
+
 const Table = styled.div`
   display: flex;
   height: auto;
@@ -269,11 +277,12 @@ const Pending = styled.div`
 `;
 
 const Top = styled.div`
-  width: 100%;
+  width: 900px;
   display: flex;
   height: 70px;
   align-items: center;
-  border-bottom: 1px solid lightgray;
+  /* border-bottom: 1px solid lightgray; */
+  background-color: white;
   @media screen and (max-width:500px) {
     flex-wrap: wrap;
     height: 300px;
@@ -283,10 +292,7 @@ const Wrapper = styled.div`
   width: 95%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  /* padding-top: 13px; */
-  display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
   margin-bottom: 15px;
   /* background-color: red; */
