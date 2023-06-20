@@ -157,7 +157,7 @@ const Button = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: blue;
+    background-color: #0168AA;
     color: #fff;
     border-radius: 50px;
     cursor: pointer;
@@ -208,6 +208,7 @@ const Table = styled.form`
   overflow-x: auto;
   margin-top: 40px;
   flex-direction: column;
+  background-color: red;
 
   table {
     min-width: 400px;
@@ -218,6 +219,7 @@ const Table = styled.form`
   table,
   th,
   tr:nth-child(even) {
+    border-top: 1px solid #e2e5e8;
     background-color: #fff;
   }
 
@@ -225,7 +227,7 @@ const Table = styled.form`
   th {
     padding: 14px 2px;
     text-align: left;
-    border-top: 1px solid #e2e5e8;
+    /* border-top: 1px solid #e2e5e8; */
     padding-left: 18px;
     padding-right: 18px;
   }
@@ -238,7 +240,7 @@ const Table = styled.form`
   
 
   th {
-    border-top: 1px solid #e2e5e8;
+    /* border-top: 1px solid #e2e5e8; */
     background-color: #fefefe;
     padding: 1rem 0.75rem;
     padding-left: 20px;
@@ -255,6 +257,7 @@ const Mid = styled.div`
   padding-top: 15px;
   flex-direction: column;
   align-items: center;
+  /* background-color: red; */
 `
 const Box4 = styled.div`
     width: 25px;
@@ -309,10 +312,11 @@ const Pending = styled.div`
 `
 
 const Top = styled.div`
-  width: 100%;
+  width: 900px;
   display: flex;
   height: 70px;
-  align-items: center;
+  /* align-items: center; */
+  justify-content: flex-start;
   /* border-bottom: 1px solid lightgray; */
   background-color: white;
 
