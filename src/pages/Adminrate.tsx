@@ -328,11 +328,7 @@ const Top = styled.div`
 const Wrapper = styled.div`
     width: 95%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* padding-top: 13px; */
-  display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
   flex-direction: column;
   margin-bottom: 15px;
