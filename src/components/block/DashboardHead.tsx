@@ -3,8 +3,6 @@ import styled from 'styled-components'
 import { FiMenu, FiSearch } from "react-icons/fi";
 import img from "../../Assets/new.png"
 import { MdNotificationsActive } from "react-icons/md";
-import { useAppSelector } from '../global/Store';
-import { RiArrowDropDownLine } from 'react-icons/ri';
 import moment from "moment"
 
 const DashboardHead = () => {
@@ -100,7 +98,7 @@ const Right = styled.div`
   display: flex;
   height: 100%;
   align-items: center;
-  width: 200px;
+  width: 300px;
   justify-content: center;
   /* background-color: yellow; */
   @media screen and (max-width: 500px) {
