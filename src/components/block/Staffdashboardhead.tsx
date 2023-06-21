@@ -195,7 +195,7 @@ const Settingshold = styled.div`
   display: flex;
   align-items: center;
   width: 130px;
-  /* background-color: red; */
+  background-color: red;
   justify-content: space-between;
 `
 const Input = styled.input`
