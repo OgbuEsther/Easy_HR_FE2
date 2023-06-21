@@ -13,7 +13,6 @@ import { getOneAdmin } from '../utils/Api/ApiCall'
 const AllLeave = () => {
 
   const [show1, setShow1] = useState(true)
-  const [show2, setShow2] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
 
@@ -179,7 +178,7 @@ const Inputhold = styled.div`
   -webkit-box-align: center;
     align-items: center;
     background-color: rgb(255, 255, 255);
-    border-color: #007bff;
+    border-color: #001328;
     border-radius: 4px;
     border-style: solid;
     border-width: 1px;
@@ -224,7 +223,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f5f7fa;
+  /* background-color: #f5f7fa; */
   overflow: hidden;
   /* margin-top: 20px; */
   flex-direction: column;
