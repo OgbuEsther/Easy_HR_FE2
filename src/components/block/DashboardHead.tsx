@@ -115,6 +115,7 @@ const Name = styled.div`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-weight: 700;
 
 `;
 
@@ -125,6 +126,7 @@ margin-right: 10px;
 
 const Not = styled(MdNotificationsActive)`
   font-size: 20px;
+  font-weight: 700;
   transition: all 450ms;
 
   :hover {

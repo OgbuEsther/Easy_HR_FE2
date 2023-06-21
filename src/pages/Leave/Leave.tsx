@@ -6,7 +6,6 @@ import {AiOutlineClose} from "react-icons/ai"
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { UseAppDispach, useAppSelector } from '../../components/global/Store'
 import { useMutation, useQuery } from '@tanstack/react-query'
@@ -68,7 +67,6 @@ const Leave = () => {
   }, [])
 
   const admin = useAppSelector((state) => state.currentUser);
-  const navigate = useNavigate()
   const dispatch = UseAppDispach()
 
   const schema = yup
@@ -83,7 +81,6 @@ const Leave = () => {
   const {
     handleSubmit,
     formState: { errors },
-    reset,
     register,
   } = useForm<formData>({
     resolver: yupResolver(schema),
@@ -258,7 +255,7 @@ const Ico = styled.div`
 const Buton = styled.button`
   width: 160px;
   height: 40px;
-  background-color: blue;
+  background-color: #0168AA;
   color: #fff;
   display: flex;
   justify-content: center;
@@ -405,32 +402,7 @@ const Circlehold = styled.div`
   display: flex;
   align-items: center;
 `
-const Action = styled.div`
-  display: flex;
-`;
 
-const Chc = styled.div`
-  color: green;
-  font-weight: bold;
-`;
-
-const Box2 = styled.div`
-  color: #dc3545;
-  border-color: #dc3545;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: .875rem;
-  line-height: 1.5;
-  width: 90px;
-  height: 35px;
-  font-weight: 400;
-  border-radius: 50px;
-  border: 1px solid #dc3545;
-  outline-color: 2px solid #dc3545;
-  cursor: pointer;
-  margin-left: 10px;
-`
 
 const Box = styled.div`
   color: #28a745;
@@ -725,7 +697,9 @@ const Top = styled.div`
   display: flex;
   /* height: 70px; */
   align-items: center;
-  border-bottom: 1px solid lightgray;
+  /* border-bottom: 1px solid lightgray; */
+  background-color: white;
+  margin-top: 22px;
 
 
   @media screen and (max-width: 500px) {
@@ -735,16 +709,15 @@ const Top = styled.div`
   }
 `
 const Wrapper = styled.div`
-  width: 95%;
+  width: 98%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   padding-top: 70px;
-  display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
-  flex-direction: column;
-  /* background-color: red; */
+  /* margin-right: 100px; */
+  /* background-color: yellow; */
   @media screen and (max-width: 50px) {
     padding-top: 120px;
   }
@@ -756,13 +729,22 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
   width: calc(100vw - 220px);
+  height: 100vh;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
-  background-color: #f5f7fa;
+  /* background-color: red; */
   overflow: hidden;
-  margin-top: 20px;
+  /* margin-top: 5px; */
+  /* margin-left: 30px; */
   flex-direction: column;
+  background: radial-gradient(
+    rgba(103, 68, 2, 0.2) 8%,
+    transparent 2%
+  );
+  background-position: 0% 0%; 
+  background-size: 3vmin 3vmin;
+
   @media screen and (max-width: 1024px) {
     width: 100vw;
   }
