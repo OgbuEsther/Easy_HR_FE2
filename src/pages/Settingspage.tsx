@@ -108,7 +108,7 @@ const Save = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: blue;
+    background-color: #0168AA;
     margin-top: 13px;
     border-radius: 5px;
     cursor: pointer;
@@ -265,10 +265,17 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
   width: calc(100vw - 220px);
-  background-color: #f5f7fa;
+  /* background-color: #f5f7fa; */
+  height: 100vh;
   overflow: hidden;
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
+  background: radial-gradient(
+    rgba(103, 68, 2, 0.2) 8%,
+    transparent 2%
+  );
+  background-position: 0% 0%; 
+  background-size: 3vmin 3vmin;
 `;
