@@ -194,7 +194,8 @@ const Notification = styled.div`
 const Settingshold = styled.div`
   display: flex;
   align-items: center;
-  width: 220px;
+  width: 130px;
+  /* background-color: red; */
   justify-content: space-between;
 `
 const Input = styled.input`
