@@ -290,7 +290,7 @@ const Inputhold = styled.div`
   -webkit-box-align: center;
     align-items: center;
     background-color: rgb(255, 255, 255);
-    border-color: #0168AA;
+    border-color: #001328;
     border-radius: 4px;
     border-style: solid;
     border-width: 1px;
