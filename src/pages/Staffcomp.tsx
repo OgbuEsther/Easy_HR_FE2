@@ -153,6 +153,11 @@ const Progress = styled.div`
   padding: 12px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 12px;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    padding: 20px;
+    margin-top: 30px;
+  }
 `
 const Img3 = styled.img`
   width: 370px;
@@ -200,6 +205,9 @@ const Hold3 = styled.div`
   background-color: #28383c;
   padding: 12px;
   margin-bottom: 12px;
+  @media screen and (max-width: 768px) {
+    width: 48%;
+  }
 `
 const Hold2 = styled.div`
   width: 249px;
@@ -210,6 +218,9 @@ const Hold2 = styled.div`
   background-color: #28383c;
   padding: 12px;
   margin-bottom: 12px;
+  @media screen and (max-width: 768px) {
+    width: 48%;
+  }
 `
 const Hold1 = styled.div`
   width: 249px;
@@ -220,6 +231,9 @@ const Hold1 = styled.div`
   background-color: #fd625e;
   padding: 12px;
   margin-bottom: 12px;
+  @media screen and (max-width: 768px) {
+    width: 48%;
+  }
 `
 const Cards = styled.div`
   width: 47%;
@@ -227,6 +241,10 @@ const Cards = styled.div`
   height: 40px;
   flex-wrap: wrap;
   justify-content: space-between;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    margin-top: 30px;
+  }
 `
 const Img = styled.img`
   height: 200px;
@@ -279,11 +297,16 @@ const Advert = styled.div`
   background-color: #0168aa;
   width: 50%;
   border-radius: 10px;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `
 const Top = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  /* background-color: red; */
 `
 const Pee = styled.div`
     width: 100%;
@@ -315,7 +338,7 @@ const Piehold = styled.div`
     border-radius: 12px;
 
     @media screen and (max-width: 768px) {
-      width: 90%;
+      width: 100%;
     }
     @media screen and (max-width: 500px) {
       width: 90%;
@@ -326,7 +349,7 @@ const Down = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 265px;
     /* background-color: red; */
 
     @media screen and (max-width: 768px) {
@@ -349,7 +372,7 @@ const Wrapper = styled.div`
   margin-top: 10px;
   flex-direction: column;
   @media screen and (max-width: 768px) {
-    width: 100%;
+    width: 95%;
   }
 @media screen and (max-width: 500px) {
     width: 100%;
@@ -383,6 +406,7 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    /* background-color: red; */
   }
 @media screen and (max-width: 1024px) {
     width: 100vw;
