@@ -255,7 +255,7 @@ const Ico = styled.div`
 const Buton = styled.button`
   width: 160px;
   height: 40px;
-  background-color: blue;
+  background-color: #0168AA;
   color: #fff;
   display: flex;
   justify-content: center;
