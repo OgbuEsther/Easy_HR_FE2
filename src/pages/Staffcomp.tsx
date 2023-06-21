@@ -279,11 +279,16 @@ const Advert = styled.div`
   background-color: #0168aa;
   width: 50%;
   border-radius: 10px;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `
 const Top = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: red;
 `
 const Pee = styled.div`
     width: 100%;
@@ -383,6 +388,7 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: red;
   }
 @media screen and (max-width: 1024px) {
     width: 100vw;
