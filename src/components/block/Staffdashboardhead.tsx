@@ -67,9 +67,9 @@ const DashboardHead = () => {
             {/* <DarkMode/> */}
           </Circlehold>
         </Settingshold>
-        <Left onClick={Toggle}>
+        {/* <Left onClick={Toggle}>
           <FiMenu />
-        </Left>
+        </Left> */}
 
       
         <Left2>
@@ -195,7 +195,6 @@ const Settingshold = styled.div`
   display: flex;
   align-items: center;
   width: 130px;
-  background-color: red;
   justify-content: space-between;
 `
 const Input = styled.input`
@@ -397,6 +396,9 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   /* justify-content: flex-end; */
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
   @media screen and (max-width: 500px) {
     justify-content: center;
     display: flex;
