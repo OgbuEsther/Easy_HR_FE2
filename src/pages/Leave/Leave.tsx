@@ -339,9 +339,9 @@ const Add = styled.div`
   text-decoration: underline;
     cursor: pointer;
     font-size: 14px;
-    color: #007bff;
+    color: #0168AA;
     font-weight: 500;
-    text-decoration-color: #007bff;
+    text-decoration-color: #0168AA;
 `
 const First = styled.div`
   h6{
@@ -515,7 +515,7 @@ const Inputhold = styled.div`
   -webkit-box-align: center;
     align-items: center;
     background-color: rgb(255, 255, 255);
-    border-color: #007bff;
+    border-color: #0168AA;
     border-radius: 4px;
     border-style: solid;
     border-width: 1px;
@@ -541,7 +541,7 @@ display: flex;
   margin: 18px;
   cursor: pointer;
   height: 40px;
-  border: 1px solid ${({ bg }) => (bg ? "#219653" : "#fff")};
+  border: 1px solid ${({ bg }) => (bg ? "#001328" : "#fff")};
   width: 220px;
   border-radius: 50px;
   font-weight: 500;
@@ -580,7 +580,7 @@ display: flex;
   margin: 18px;
   cursor: pointer;
   height: 40px;
-  border: 1px solid ${({ bg }) => (bg ? "#219653" : "#fff")};
+  border: 1px solid ${({ bg }) => (bg ? "#001328" : "#fff")};
   width: 220px;
   border-radius: 50px;
   font-weight: 500;
@@ -619,7 +619,7 @@ display: flex;
   margin: 18px;
   cursor: pointer;
   height: 40px;
-  border: 1px solid ${({ bg }) => (bg ? "#219653" : "#fff")};
+  border: 1px solid ${({ bg }) => (bg ? "#001328" : "#fff")};
   width: 220px;
   border-radius: 50px;
   font-weight: 500;
