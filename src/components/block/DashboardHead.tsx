@@ -148,7 +148,6 @@ const Holder3 = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: blue;
 `;
 
 const IconBack = styled.div`
@@ -178,7 +177,7 @@ const SearchIcon = styled(FiSearch)`
 
 const Holder2 = styled.div`
   height: 40px;
-  width: 36%;
+  width: 37.5%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -192,7 +191,7 @@ const DashBoard = styled.div`
   font-weight: 700;
   font-size: 20px;
   width: 100%;
-  background-color: red;
+  /* background-color: red; */
 `;
 
 const Holder1 = styled.div`
@@ -246,7 +245,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   position: relative;
-  background-color: brown;
+  /* background-color: brown; */
   @media screen and (max-width: 1024px) {
     width: 93%;
     justify-content: space-between;
