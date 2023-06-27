@@ -148,7 +148,6 @@ const Holder3 = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* background-color: blue; */
 `;
 
 const IconBack = styled.div`
