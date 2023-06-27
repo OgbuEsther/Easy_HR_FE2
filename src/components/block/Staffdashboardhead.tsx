@@ -53,6 +53,15 @@ const DashboardHead = () => {
           <Input placeholder='search'/>
         </Inputhold>
 
+        <Left2>
+          <Person></Person>
+          <Prof>
+            <Yello>Hello, {user?.yourName?.split(" ")[0]}</Yello>
+            <Iden>ID: {user?.companyCode}</Iden>
+            <Iden>{user?.walletNumber}</Iden>
+            </Prof>
+        </Left2>
+
         <Settingshold>
           <Notification>
             <IoIosNotificationsOutline />
@@ -67,19 +76,12 @@ const DashboardHead = () => {
             {/* <DarkMode/> */}
           </Circlehold>
         </Settingshold>
-        <Left onClick={Toggle}>
+        {/* <Left onClick={Toggle}>
           <FiMenu />
-        </Left>
+        </Left> */}
 
       
-        <Left2>
-          <Person></Person>
-          <Prof>
-            <Yello>Hello, {user?.yourName?.split(" ")[0]}</Yello>
-            <Iden>ID: {user?.companyCode}</Iden>
-            <Iden>{user?.walletNumber}</Iden>
-            </Prof>
-        </Left2>
+        
 
         {show ? (
         <Hold onClick={Toggle3}>
@@ -175,6 +177,9 @@ const Circle = styled.div`
 const Circlehold = styled.div`
   display: flex;
   align-items: center;
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `
 const Red = styled.div`
   width: 13px;
@@ -189,13 +194,14 @@ const Notification = styled.div`
   font-size: 30px;
   cursor: pointer;
   position: relative;
+  color: gray;
 `
 
 const Settingshold = styled.div`
   display: flex;
   align-items: center;
-  width: 220px;
-  justify-content: space-between;
+  width: 130px;
+  justify-content: flex-end;
 `
 const Input = styled.input`
   flex: 1;
@@ -220,6 +226,9 @@ const Inputhold = styled.div`
   display: flex;
   align-items: center;
   border: 1px solid #BABFC4;
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `
 const Iden = styled.div`
   color: #fff;
@@ -396,6 +405,9 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   /* justify-content: flex-end; */
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
   @media screen and (max-width: 500px) {
     justify-content: center;
     display: flex;
