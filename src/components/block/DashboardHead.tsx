@@ -177,26 +177,35 @@ const SearchIcon = styled(FiSearch)`
 
 const Holder2 = styled.div`
   height: 40px;
-  width: 36%;
+  width: 37.5%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+   @media screen and (max-width:500px) {
+    display: none;
+   }
 `;
 const DashBoard = styled.div`
   color: black;
   font-weight: 700;
   font-size: 20px;
   width: 100%;
+  /* background-color: red; */
 `;
 
 const Holder1 = styled.div`
   height: 40px;
   width: 29%;
   color: black;
-  /* background-color: yellow; */
   display: flex;
   align-items: center;
   justify-content: space-between;
+  
+  @media screen and (max-width:500px){
+    background-color: yellow;
+    
+  }
 `;
 
 
@@ -236,7 +245,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   position: relative;
-  /* background-color: blue; */
+  /* background-color: brown; */
   @media screen and (max-width: 1024px) {
     width: 93%;
     justify-content: space-between;
@@ -265,6 +274,7 @@ const Container = styled.div`
     height: 100px;
     background-color: #00244E;
     position: fixed;
+    width: 100%;
   
   }
 `
