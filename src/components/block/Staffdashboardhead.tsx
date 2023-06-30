@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { NavLink } from "react-router-dom"
-import { FiMenu, FiPower } from "react-icons/fi";
+import {  FiPower } from "react-icons/fi";
 import { MdDashboard } from "react-icons/md";
 import { useAppSelector } from '../global/Store';
 import { FaBattleNet} from "react-icons/fa"
@@ -20,9 +20,6 @@ const DashboardHead = () => {
     }
 
 
-  const Toggle = () => {
-    setShow(!show);
-  };
 
    const Toggle3 = () => {
     setShow2(!show2);
@@ -360,19 +357,19 @@ const Prof = styled.div`
 `
 
 
-const Left = styled.div`
-  font-size: 25px;
-  cursor: pointer;
-  display: none;
-  @media screen and (max-width: 1024px) {
-    display: flex;
-  }
-  @media screen and (max-width: 500px) {
-    margin-left: 30px;
-    display: flex;
-    color: #fff;
-  }
-`;
+// const Left = styled.div`
+//   font-size: 25px;
+//   cursor: pointer;
+//   display: none;
+//   @media screen and (max-width: 1024px) {
+//     display: flex;
+//   }
+//   @media screen and (max-width: 500px) {
+//     margin-left: 30px;
+//     display: flex;
+//     color: #fff;
+//   }
+// `;
 
 const Wrapper = styled.div`
   width: 97%;
