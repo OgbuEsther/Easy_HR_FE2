@@ -70,22 +70,7 @@ const Svg = styled.svg`
   position: absolute;
 `;
 
-const Down = styled.div`
-  /* padding: 10px 15px; */
-  background-color: white;
-  border-radius: 19px;
-  width: 80px;
-  height: 30px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 20px;
-  top: 20px;
-  /* right: 200px; */
-  /* font-size: 15px; */
-  /* font-weight: 600; */
-`;
+
 const Image = styled.div`
   p {
     color: white;
