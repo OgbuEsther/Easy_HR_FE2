@@ -3,8 +3,18 @@ import styled from "styled-components";
 import { useAppSelector } from "../components/global/Store";
 import { useQuery } from "@tanstack/react-query";
 import { getOneAdmin } from "../utils/Api/ApiCall";
+// import Slider from "react-slick"
+
 
 const App = () => {
+
+  // const settings = {
+  //   dots: true,
+  //   infinite: true,
+  //   speed: 2000,
+  //   slidesToShow: 2,
+  //   slidesToScroll: 2
+  // };
 
   const admin = useAppSelector((state) => state.currentUser);
 
@@ -16,7 +26,8 @@ const App = () => {
   return (
     <div>
       <Container>
-        <Main bcc="#FAC92E">
+       {/* <Slider {...settings}> */}
+       <Main bcc="#FAC92E">
           <Image>
             <p>Total Employees</p>
             <h1>{ getAdmin?.data?.data?.viewUser?.length}</h1>
@@ -58,6 +69,7 @@ const App = () => {
           </Image>
           {/* <Down>+12,6%</Down> */}
         </Main>
+       {/* </Slider> */}
       </Container>
     </div>
   );
@@ -70,7 +82,22 @@ const Svg = styled.svg`
   position: absolute;
 `;
 
-
+// const Down = styled.div`
+//   /* padding: 10px 15px; */
+//   background-color: white;
+//   border-radius: 19px;
+//   width: 80px;
+//   height: 30px;
+//   position: relative;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   margin-left: 20px;
+//   top: 20px;
+//   /* right: 200px; */
+//   /* font-size: 15px; */
+//   /* font-weight: 600; */
+// `;
 const Image = styled.div`
   p {
     color: white;
@@ -111,5 +138,6 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 `;
   

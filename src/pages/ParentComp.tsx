@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 import { useAppSelector } from "../components/global/Store";
 import { useQuery } from "@tanstack/react-query";
 import { getOneAdmin } from "../utils/Api/ApiCall";
-import AdminCard from "./AdminCard";
+// import AdminCard from "./AdminCard";
 import { Charts } from "../components/Graph";
 import DoughnutAdmin from "./DoughnutAdmin";
 import HomeLeave from "./HomeLeave";
@@ -16,6 +16,9 @@ import 'react-circular-progressbar/dist/styles.css';
 
 
 const ParentComp = () => {
+
+
+
   const percentage = 45;
   const percentage1 = 55;
 
@@ -147,7 +150,7 @@ const ParentComp = () => {
             </Progress>
 
           </Hold>
-         <HomeLeave />
+         <HomeLeave/>
         </Wrapper>
       </Container>
     </div>
@@ -163,6 +166,7 @@ const Firstprog = styled.div`
   h2{
     font-weight: 600;
     font-size: 19px;
+    background-color: red;
   }
 `
 const Progress = styled.div`
@@ -173,6 +177,11 @@ const Progress = styled.div`
   padding: 12px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 12px;
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    /* margin-bottom: 20px; */
+  }
 `
 
 const ChartHold = styled.div`
